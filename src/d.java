@@ -77,7 +77,7 @@ CommandListener {
         }
         catch (Exception exception) {
             exception.printStackTrace();
-            this.void_b(exception.toString());
+            this.showErrorForm(exception.toString());
         }
     }
 
@@ -268,11 +268,12 @@ CommandListener {
         this.var_int_c &= ~n;
     }
 
-    public void void_b(String string) {
+    // TODO make private, this is not called outside the class
+    public void showErrorForm(String errorText) {
         this.var_boolean_a = false;
         Form form = new Form("Fatal error!");
-        form.append(string);
-        Command command = new Command("Exit", 7, 1);
+        form.append(errorText);
+        Command command = new Command("Exit", Command.EXIT, 1);
         form.addCommand(command);
         form.setCommandListener((CommandListener)this);
         this.appDisplay.setCurrent((Displayable)form);
@@ -310,7 +311,7 @@ CommandListener {
         }
         catch (Exception exception) {
             exception.printStackTrace();
-            this.void_b(exception.toString());
+            this.showErrorForm(exception.toString());
         }
     }
 
