@@ -51,19 +51,18 @@ public class Sprite {
     }
 
     public static Sprite fromByteArray(byte[] imageData, int n) {
-        Object object;
         if (n != 0) {
-            object = new byte[imageData.length];
-            System.arraycopy(imageData, 0, object, 0, imageData.length);
-            Sprite.void_a(object, n);
-            imageData = object;
+            byte[] bytes = new byte[imageData.length];
+            System.arraycopy(imageData, 0, bytes, 0, imageData.length);
+            Sprite.void_a(bytes, n);
+            imageData = bytes;
         }
-        object = new Sprite();
+        Sprite newSprite = new Sprite();
         Image image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
-        object.width = (short)image.getWidth();
-        object.height = (short)image.getHeight();
-        object.image = image;
-        return object;
+        newSprite.width = (short)image.getWidth();
+        newSprite.height = (short)image.getHeight();
+        newSprite.image = image;
+        return newSprite;
     }
 
     public static void void_a(byte[] byArray, int n) {
