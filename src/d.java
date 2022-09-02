@@ -178,58 +178,59 @@ CommandListener {
     }
 
     public int getGameAction(int keyCode) {
+        // Constants from FullCanvas (which this class extends) and Canvas (parent of FullCanvas)
         switch (keyCode) {
-            case -6: {
+            case KEY_SOFTKEY1: {
                 return 1024;
             }
-            case -7: {
+            case KEY_SOFTKEY2: {
                 return 2048;
             }
-            case 48: {
+            case KEY_NUM0: {
                 return 32;
             }
-            case 53: {
+            case KEY_NUM5: {
                 return 16;
             }
-            case 49: {
+            case KEY_NUM1: {
                 return 64;
             }
-            case 51: {
+            case KEY_NUM3: {
                 return 128;
             }
-            case 55: {
+            case KEY_NUM7: {
                 return 256;
             }
-            case 57: {
+            case KEY_NUM9: {
                 return 512;
             }
-            case 50: {
+            case KEY_NUM2: {
                 return 1;
             }
-            case 56: {
+            case KEY_NUM8: {
                 return 2;
             }
-            case 52: {
+            case KEY_NUM4: {
                 return 4;
             }
-            case 54: {
+            case KEY_NUM6: {
                 return 8;
             }
         }
         switch (super.getGameAction(keyCode)) {
-            case 1: {
+            case UP: {
                 return 1;
             }
-            case 6: {
+            case DOWN: {
                 return 2;
             }
-            case 2: {
+            case LEFT: {
                 return 4;
             }
-            case 5: {
+            case RIGHT: {
                 return 8;
             }
-            case 8: {
+            case FIRE: {
                 return 16;
             }
         }
