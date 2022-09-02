@@ -26,8 +26,8 @@ public class h {
     }
 
     public h(String string) throws Exception {
-        byte[] byArray = d.byte_arr_a(string);
-        this.image = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
+        byte[] imageData = d.byte_arr_a(string);
+        this.image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         this.d = (short)this.image.getWidth();
         this.c = (short)this.image.getHeight();
         this.var_boolean_a = false;
@@ -50,16 +50,16 @@ public class h {
     private h() {
     }
 
-    public static h h_a(byte[] byArray, int n) {
+    public static h h_a(byte[] imageData, int n) {
         Object object;
         if (n != 0) {
-            object = new byte[byArray.length];
-            System.arraycopy(byArray, 0, object, 0, byArray.length);
+            object = new byte[imageData.length];
+            System.arraycopy(imageData, 0, object, 0, imageData.length);
             h.void_a(object, n);
-            byArray = object;
+            imageData = object;
         }
         object = new h();
-        Image image = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
+        Image image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         object.d = (short)image.getWidth();
         object.c = (short)image.getHeight();
         object.image = image;
