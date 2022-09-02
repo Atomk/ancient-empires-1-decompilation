@@ -25,8 +25,8 @@ public class h {
         this.var_boolean_a = true;
     }
 
-    public h(String string) throws Exception {
-        byte[] imageData = d.byte_arr_a(string);
+    public h(String filename) throws Exception {
+        byte[] imageData = d.byte_arr_a(filename);
         this.image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         this.d = (short)this.image.getWidth();
         this.c = (short)this.image.getHeight();

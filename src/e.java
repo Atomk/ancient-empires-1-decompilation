@@ -38,14 +38,14 @@ public class e {
         this.a(string, by);
     }
 
-    private void a(String string, int n) throws Exception {
-        InputStream inputStream = d.java_io_InputStream_a(string + ".sprite");
+    private void a(String imageName, int n) throws Exception {
+        InputStream inputStream = d.java_io_InputStream_a(imageName + ".sprite");
         int n2 = inputStream.read();
         byte by = (byte)inputStream.read();
         byte by2 = (byte)inputStream.read();
         this.var_h_arr_a = new h[n2];
         try {
-            byte[] byArray = d.byte_arr_a(string + ".png");
+            byte[] byArray = d.byte_arr_a(imageName + ".png");
             h h2 = h.h_a(byArray, n);
             int n3 = h2.d / by;
             int n4 = h2.c / by2;
@@ -59,7 +59,7 @@ public class e {
         }
         catch (Exception exception) {
             for (int j = 0; j < n2; ++j) {
-                String fileName = string + "_";
+                String fileName = imageName + "_";
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
                 if (n != -1) {
