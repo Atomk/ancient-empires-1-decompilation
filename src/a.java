@@ -124,7 +124,7 @@ extends i {
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
-                        graphics.drawString(d.java_lang_String_a(25), d.h, d.var_int_d - d.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
+                        graphics.drawString(d.getGameText(25), d.h, d.var_int_d - d.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
                     }
                     this.var_h_a.draw(graphics, (i.var_d_a.e - this.var_h_a.width) / 2, d.var_int_d - this.var_h_a.height - 2);
                 } else {

@@ -173,7 +173,7 @@ CommandListener {
             graphics.fillRect(0, 0, this.e, this.g);
             graphics.setFont(var_javax_microedition_lcdui_Font_a);
             graphics.setColor(0);
-            graphics.drawString(d.java_lang_String_a(24), this.e / 2, (this.g - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+            graphics.drawString(d.getGameText(24), this.e / 2, (this.g - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
         }
     }
 
@@ -284,7 +284,7 @@ CommandListener {
 
     public void run() {
         try {
-            String[] stringArray = new String[]{d.java_lang_String_a(19), d.java_lang_String_a(20), d.java_lang_String_a(18), d.java_lang_String_a(17)};
+            String[] stringArray = new String[]{d.getGameText(19), d.getGameText(20), d.getGameText(18), d.getGameText(17)};
             var_java_lang_String_arr_d = stringArray;
             i.var_d_a = this;
             d.void_a("");
@@ -496,14 +496,14 @@ CommandListener {
         return stringsPartA.length;
     }
 
-    public static String java_lang_String_a(int n) {
-        if (n < 63) {
-            return stringsPartA[n];
+    public static String getGameText(int index) {
+        if (index < 63) {
+            return stringsPartA[index];
         }
-        if (n - 63 < stringsPartB.length) {
-            return stringsPartB[n - 63];
+        if (index - 63 < stringsPartB.length) {
+            return stringsPartB[index - 63];
         }
-        return "?: " + n;
+        return "?: " + index;
     }
 
     static {

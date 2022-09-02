@@ -106,7 +106,7 @@ public class g {
             this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.var_e_g.short_b();
             this.u = (this.var_int_a - 2) / (this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
             this.D = (this.var_int_a - this.u * this.var_javax_microedition_lcdui_Font_a.getBaselinePosition()) / (this.u + 1);
-            this.var_java_lang_String_arr_b = d.a(d.java_lang_String_a(74 + this.x), this.v, this.var_javax_microedition_lcdui_Font_a);
+            this.var_java_lang_String_arr_b = d.a(d.getGameText(74 + this.x), this.v, this.var_javax_microedition_lcdui_Font_a);
         } else if (by == 3) {
             this.var_boolean_f = false;
             this.var_boolean_h = false;
@@ -491,7 +491,7 @@ public class g {
                         if (this.var_byte_a == 2 && this.var_boolean_c) {
                             this.var_g_b.var_boolean_c = true;
                             this.var_g_b.x = this.x;
-                            this.var_g_b.var_java_lang_String_arr_b = d.a(d.java_lang_String_a(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.var_javax_microedition_lcdui_Font_a);
+                            this.var_g_b.var_java_lang_String_arr_b = d.a(d.getGameText(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.var_javax_microedition_lcdui_Font_a);
                             this.var_g_b.var_short_b = 0;
                         }
                         break block98;
@@ -725,7 +725,7 @@ public class g {
                     if (this.var_byte_a == 4 && this.var_c_a.var_java_lang_String_a != null) {
                         graphics.drawString(this.var_c_a.var_java_lang_String_a, n13, n14, 20);
                     } else {
-                        graphics.drawString(d.java_lang_String_a(63 + this.x), n13, n14, 20);
+                        graphics.drawString(d.getGameText(63 + this.x), n13, n14, 20);
                     }
                     graphics.setColor(0);
                     String string = "";
@@ -745,13 +745,13 @@ public class g {
                         if ((this.var_c_a.var_byte_b & 1) != 0) {
                             this.var_a_a.var_e_j.a(0);
                             this.var_a_a.var_e_j.a(graphics, n12, n14 - 2);
-                            graphics.drawString(d.java_lang_String_a(46), n12 + this.var_a_a.var_e_j.short_a() + 2, n14, 20);
+                            graphics.drawString(d.getGameText(46), n12 + this.var_a_a.var_e_j.short_a() + 2, n14, 20);
                             n14 += this.var_a_a.var_e_j.short_b() - 4;
                         }
                         if ((this.var_c_a.var_byte_b & 2) != 0) {
                             this.var_a_a.var_e_j.a(1);
                             this.var_a_a.var_e_j.a(graphics, n12, n14);
-                            graphics.drawString(d.java_lang_String_a(47), n12 + this.var_a_a.var_e_j.short_a() + 2, n14 + 2, 20);
+                            graphics.drawString(d.getGameText(47), n12 + this.var_a_a.var_e_j.short_a() + 2, n14 + 2, 20);
                         }
                         d.a(graphics, "" + this.var_c_a.h, n3 - 4, 6, 1, 8);
                         graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
