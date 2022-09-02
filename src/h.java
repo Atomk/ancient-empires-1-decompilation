@@ -9,7 +9,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 public class h {
-    public Image var_javax_microedition_lcdui_Image_a;
+    public Image image;
     private boolean var_boolean_a = false;
     private short b;
     private short var_short_a;
@@ -17,7 +17,7 @@ public class h {
     public short c;
 
     public h(h h2, int n, int n2, int n3, int n4) {
-        this.var_javax_microedition_lcdui_Image_a = h2.var_javax_microedition_lcdui_Image_a;
+        this.image = h2.image;
         this.d = (short)n3;
         this.c = (short)n4;
         this.b = (short)(n * n3 + h2.b);
@@ -27,9 +27,9 @@ public class h {
 
     public h(String string) throws Exception {
         byte[] byArray = d.byte_arr_a(string);
-        this.var_javax_microedition_lcdui_Image_a = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
-        this.d = (short)this.var_javax_microedition_lcdui_Image_a.getWidth();
-        this.c = (short)this.var_javax_microedition_lcdui_Image_a.getHeight();
+        this.image = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
+        this.d = (short)this.image.getWidth();
+        this.c = (short)this.image.getHeight();
         this.var_boolean_a = false;
     }
 
@@ -40,10 +40,10 @@ public class h {
             int n5 = graphics.getClipWidth();
             int n6 = graphics.getClipHeight();
             graphics.clipRect(n, n2, (int)this.d, (int)this.c);
-            graphics.drawImage(this.var_javax_microedition_lcdui_Image_a, n - this.b, n2 - this.var_short_a, 20);
+            graphics.drawImage(this.image, n - this.b, n2 - this.var_short_a, 20);
             graphics.setClip(n3, n4, n5, n6);
         } else {
-            graphics.drawImage(this.var_javax_microedition_lcdui_Image_a, n, n2, 20);
+            graphics.drawImage(this.image, n, n2, 20);
         }
     }
 
@@ -62,7 +62,7 @@ public class h {
         Image image = Image.createImage((byte[])byArray, (int)0, (int)byArray.length);
         object.d = (short)image.getWidth();
         object.c = (short)image.getHeight();
-        object.var_javax_microedition_lcdui_Image_a = image;
+        object.image = image;
         return object;
     }
 
