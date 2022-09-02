@@ -216,42 +216,42 @@ extends i {
             s4 = (short)(this.var_short_b - 1);
         }
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
-        int n2 = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
+        int y = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
         if (this.var_boolean_j) {
             graphics.setColor(this.L & 0xFF0000);
         } else {
             graphics.setColor(this.L);
         }
         for (short s5 = s2; s5 <= s4; s5 = (short)(s5 + 1)) {
-            int n3 = n;
+            int x = n;
             for (short s6 = s; s6 <= s3; s6 = (short)(s6 + 1)) {
                 byte by = this.var_byte_arr_arr_c[s6][s5];
                 if (by > 0) {
-                    this.var_h_arr_c[by].draw(graphics, n3, n2);
+                    this.var_h_arr_c[by].draw(graphics, x, y);
                 }
                 if (this.var_byte_arr_j[by = this.var_byte_arr_arr_a[s6][s5]] != 1) {
-                    this.var_h_arr_c[by].draw(graphics, n3, n2);
+                    this.var_h_arr_c[by].draw(graphics, x, y);
                     if (this.var_byte_arr_j[by] == 8) {
-                        this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
+                        this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
                     }
                 }
                 if (this.var_boolean_h && this.var_byte_arr_arr_b[s6][s5] > 0) {
                     if (s6 > 0 && this.var_byte_arr_arr_b[s6 - 1][s5] <= 0) {
-                        graphics.fillRect(n3, n2, 4, 24);
+                        graphics.fillRect(x, y, 4, 24);
                     }
                     if (s6 < this.var_short_e - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
-                        graphics.fillRect(n3 + 24 - 4, n2, 4, 24);
+                        graphics.fillRect(x + 24 - 4, y, 4, 24);
                     }
                     if (s5 > 0 && this.var_byte_arr_arr_b[s6][s5 - 1] <= 0) {
-                        graphics.fillRect(n3, n2, 24, 4);
+                        graphics.fillRect(x, y, 24, 4);
                     }
                     if (s5 < this.var_short_b - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
-                        graphics.fillRect(n3, n2 + 24 - 4, 24, 4);
+                        graphics.fillRect(x, y + 24 - 4, 24, 4);
                     }
                 }
-                n3 += 24;
+                x += 24;
             }
-            n2 += 24;
+            y += 24;
         }
     }
 

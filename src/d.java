@@ -93,14 +93,14 @@ CommandListener {
         this.var_h_a.draw(graphics, n, n2);
     }
 
-    public void a(String string, byte[] byArray) throws Exception {
+    public void a(String recordName, byte[] byArray) throws Exception {
         try {
-            RecordStore.deleteRecordStore((String)string);
+            RecordStore.deleteRecordStore((String)recordName);
         }
         catch (Exception exception) {
             // empty catch block
         }
-        RecordStore recordStore = RecordStore.openRecordStore((String)string, (boolean)true);
+        RecordStore recordStore = RecordStore.openRecordStore((String)recordName, (boolean)true);
         if (recordStore.getNumRecords() == 0) {
             recordStore.addRecord(byArray, 0, byArray.length);
         } else {
@@ -109,8 +109,8 @@ CommandListener {
         recordStore.closeRecordStore();
     }
 
-    public byte[] byte_arr_b(String string) throws Exception {
-        RecordStore recordStore = RecordStore.openRecordStore((String)string, (boolean)false);
+    public byte[] byte_arr_b(String recordName) throws Exception {
+        RecordStore recordStore = RecordStore.openRecordStore((String)recordName, (boolean)false);
         byte[] byArray = recordStore.getRecord(1);
         recordStore.closeRecordStore();
         return byArray;
@@ -177,8 +177,8 @@ CommandListener {
         }
     }
 
-    public int getGameAction(int n) {
-        switch (n) {
+    public int getGameAction(int keyCode) {
+        switch (keyCode) {
             case -6: {
                 return 1024;
             }
@@ -216,7 +216,7 @@ CommandListener {
                 return 8;
             }
         }
-        switch (super.getGameAction(n)) {
+        switch (super.getGameAction(keyCode)) {
             case 1: {
                 return 1;
             }
@@ -236,16 +236,16 @@ CommandListener {
         return 0;
     }
 
-    public void keyPressed(int n) {
-        this.e(this.getGameAction(n));
+    public void keyPressed(int keyCode) {
+        this.e(this.getGameAction(keyCode));
     }
 
     public boolean boolean_c(int n) {
         return (this.var_int_c & n) != 0;
     }
 
-    public void keyReleased(int n) {
-        this.void_c(this.getGameAction(n));
+    public void keyReleased(int keyCode) {
+        this.void_c(this.getGameAction(keyCode));
     }
 
     public boolean boolean_a(int n) {
@@ -463,8 +463,8 @@ CommandListener {
         return null;
     }
 
-    public static InputStream java_io_InputStream_a(String string) throws Exception {
-        return new ByteArrayInputStream(d.byte_arr_a(string));
+    public static InputStream java_io_InputStream_a(String filename) throws Exception {
+        return new ByteArrayInputStream(d.byte_arr_a(filename));
     }
 
     public static void e() {

@@ -608,15 +608,15 @@ public class f {
         d.a(1, 1);
     }
 
-    public void a(Graphics graphics, int n, int n2) {
+    public void a(Graphics graphics, int offsetX, int offsetY) {
         int n3;
         int n4;
         int n5;
-        graphics.translate(n, n2);
+        graphics.translate(offsetX, offsetY);
         int n6 = 0;
         int n7 = this.j;
         for (n5 = 0; n5 < n7; ++n5) {
-            n4 = this.var_int_d + n2;
+            n4 = this.var_int_d + offsetY;
             int n8 = this.n;
             for (n3 = 0; n3 < n8; ++n3) {
                 this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, n6, n4);
@@ -647,7 +647,7 @@ public class f {
             stringBuffer.append("+" + n3);
         }
         d.a(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, 0);
-        graphics.translate(-n, -n2);
+        graphics.translate(-offsetX, -offsetY);
     }
 
     public void a(Graphics graphics) {
