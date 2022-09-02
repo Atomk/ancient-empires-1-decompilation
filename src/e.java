@@ -46,13 +46,13 @@ public class e {
         this.var_h_arr_a = new Sprite[n2];
         try {
             byte[] imageBytes = d.byte_arr_a(imageName + ".png");
-            Sprite h2 = Sprite.fromByteArray(imageBytes, n);
-            int n3 = h2.width / width;
-            int n4 = h2.height / height;
+            Sprite sprite = Sprite.fromByteArray(imageBytes, n);
+            int n3 = sprite.width / width;
+            int n4 = sprite.height / height;
             int n5 = 0;
             for (int j = 0; j < n4; ++j) {
                 for (int k = 0; k < n3; ++k) {
-                    this.var_h_arr_a[n5] = new Sprite(h2, k, j, width, height);
+                    this.var_h_arr_a[n5] = new Sprite(sprite, k, j, width, height);
                     ++n5;
                 }
             }
@@ -79,15 +79,15 @@ public class e {
         }
     }
 
-    public e(Sprite h2, int width, int height) {
+    public e(Sprite sprite, int width, int height) {
         int n3;
-        int n4 = h2.width / width;
-        int n5 = h2.height / height;
+        int n4 = sprite.width / width;
+        int n5 = sprite.height / height;
         int n6 = n4 * n5;
         this.var_h_arr_a = new Sprite[n6];
         for (n3 = 0; n3 < n5; ++n3) {
             for (int j = 0; j < n4; ++j) {
-                this.var_h_arr_a[n3 * n4 + j] = new Sprite(h2, j, n3, width, height);
+                this.var_h_arr_a[n3 * n4 + j] = new Sprite(sprite, j, n3, width, height);
             }
         }
         this.j = (short)width;
