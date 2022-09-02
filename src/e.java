@@ -59,15 +59,15 @@ public class e {
         }
         catch (Exception exception) {
             for (int j = 0; j < n2; ++j) {
-                String string2 = string + "_";
-                string2 = j < 10 ? string2 + "0" + j : string2 + j;
-                string2 = string2 + ".png";
+                String fileName = string + "_";
+                fileName = j < 10 ? fileName + "0" + j : fileName + j;
+                fileName = fileName + ".png";
                 if (n != -1) {
-                    byte[] byArray = d.byte_arr_a(string2);
+                    byte[] byArray = d.byte_arr_a(fileName);
                     this.var_h_arr_a[j] = h.h_a(byArray, n);
                     continue;
                 }
-                this.var_h_arr_a[j] = new h(string2);
+                this.var_h_arr_a[j] = new h(fileName);
             }
         }
         inputStream.close();

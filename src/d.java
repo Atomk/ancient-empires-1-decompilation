@@ -455,9 +455,9 @@ CommandListener {
         }
     }
 
-    public static byte[] byte_arr_a(String string) {
+    public static byte[] byte_arr_a(String filename) {
         for (int j = 0; j < var_java_lang_String_arr_a.length; ++j) {
-            if (!string.equals(var_java_lang_String_arr_a[j])) continue;
+            if (!filename.equals(var_java_lang_String_arr_a[j])) continue;
             return var_byte_arr_arr_b[j];
         }
         return null;
