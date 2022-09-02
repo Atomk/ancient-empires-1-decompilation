@@ -256,7 +256,7 @@ implements CommandListener {
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
             object = Sprite.h_a((byte[])imageBytesObj, (int)s);
             for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
-                this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).c), 24, 24);
+                this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
         }
         imageBytesObj = d.java_io_InputStream_a("tiles0.prop");
@@ -1548,14 +1548,14 @@ implements CommandListener {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
-            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.e - this.var_h_c.d) / 2, (i.var_d_a.g - this.var_h_c.c) / 2, 0, 0);
+            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.e - this.var_h_c.width) / 2, (i.var_d_a.g - this.var_h_c.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.e - this.var_h_c.d) / 2, (i.var_d_a.g - this.var_h_c.c) / 2, this.var_h_c.d, this.var_h_c.c);
+            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.e - this.var_h_c.width) / 2, (i.var_d_a.g - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
         } else if (this.var_int_p == 2) {
             graphics.setColor(-16777216);
             graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
             if (this.var_int_m >= 15) {
-                this.var_h_e.draw(graphics, i.var_d_a.e - this.var_h_e.d >> 1, (i.var_d_a.g - this.var_h_e.c) / 3);
+                this.var_h_e.draw(graphics, i.var_d_a.e - this.var_h_e.width >> 1, (i.var_d_a.g - this.var_h_e.height) / 3);
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                 if (this.var_boolean_p && this.var_int_g == 0) {
@@ -1569,7 +1569,7 @@ implements CommandListener {
                 } else {
                     graphics.setColor(0xFFFFFF);
                 }
-                i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, i.var_d_a.e - this.var_h_e.d >> 1, (i.var_d_a.g - this.var_h_e.c) / 3, 0, 0);
+                i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, i.var_d_a.e - this.var_h_e.width >> 1, (i.var_d_a.g - this.var_h_e.height) / 3, 0, 0);
                 graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
             }
         }
@@ -1845,8 +1845,8 @@ implements CommandListener {
         int n9;
         int n10;
         if (h2 != null) {
-            n10 = h2.d / 4 + 1;
-            n9 = h2.c / 2 + 1;
+            n10 = h2.width / 4 + 1;
+            n9 = h2.height / 2 + 1;
         } else {
             n10 = n7 / 4 + 1;
             n9 = n8 / 4 + 1;

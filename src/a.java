@@ -31,7 +31,7 @@ extends i {
         this.var_h_g = new Sprite("splashbg.png");
         this.var_h_d = new Sprite("splashfg.png");
         this.var_h_a = new Sprite("macrospace.png");
-        this.B = d.var_int_d - this.var_h_d.c + 30;
+        this.B = d.var_int_d - this.var_h_d.height + 30;
     }
 
     public void m() throws Exception {
@@ -110,9 +110,9 @@ extends i {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
-            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.e - this.var_h_c.d) / 2, (i.var_d_a.g - this.var_h_c.c) / 2, 0, 0);
+            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.e - this.var_h_c.width) / 2, (i.var_d_a.g - this.var_h_c.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.e - this.var_h_c.d) / 2, (i.var_d_a.g - this.var_h_c.c) / 2, this.var_h_c.d, this.var_h_c.c);
+            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.e - this.var_h_c.width) / 2, (i.var_d_a.g - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
         } else {
             graphics.setColor(108, 93, 72);
             graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
@@ -120,15 +120,15 @@ extends i {
             this.var_h_d.draw(graphics, 0, this.B);
             if (this.var_int_p == 3) {
                 if (this.var_int_m >= 15) {
-                    this.var_h_e.draw(graphics, (i.var_d_a.e - this.var_h_e.d) / 2, 8);
+                    this.var_h_e.draw(graphics, (i.var_d_a.e - this.var_h_e.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                         graphics.drawString(d.java_lang_String_a(25), d.h, d.var_int_d - d.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
                     }
-                    this.var_h_a.draw(graphics, (i.var_d_a.e - this.var_h_a.d) / 2, d.var_int_d - this.var_h_a.c - 2);
+                    this.var_h_a.draw(graphics, (i.var_d_a.e - this.var_h_a.width) / 2, d.var_int_d - this.var_h_a.height - 2);
                 } else {
-                    i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (i.var_d_a.e - this.var_h_e.d) / 2, 8, 0, 0);
+                    i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (i.var_d_a.e - this.var_h_e.width) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
                 }
             }

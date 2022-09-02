@@ -47,8 +47,8 @@ public class e {
         try {
             byte[] imageBytes = d.byte_arr_a(imageName + ".png");
             Sprite h2 = Sprite.h_a(imageBytes, n);
-            int n3 = h2.d / width;
-            int n4 = h2.c / height;
+            int n3 = h2.width / width;
+            int n4 = h2.height / height;
             int n5 = 0;
             for (int j = 0; j < n4; ++j) {
                 for (int k = 0; k < n3; ++k) {
@@ -71,8 +71,8 @@ public class e {
             }
         }
         inputStream.close();
-        this.j = this.var_h_arr_a[0].d;
-        this.var_short_c = this.var_h_arr_a[0].c;
+        this.j = this.var_h_arr_a[0].width;
+        this.var_short_c = this.var_h_arr_a[0].height;
         this.var_byte_arr_e = new byte[n2];
         for (int n6 = 0; n6 < n2; n6 = (byte)(n6 + 1)) {
             this.var_byte_arr_e[n6] = n6;
@@ -81,8 +81,8 @@ public class e {
 
     public e(Sprite h2, int width, int height) {
         int n3;
-        int n4 = h2.d / width;
-        int n5 = h2.c / height;
+        int n4 = h2.width / width;
+        int n5 = h2.height / height;
         int n6 = n4 * n5;
         this.var_h_arr_a = new Sprite[n6];
         for (n3 = 0; n3 < n5; ++n3) {
@@ -116,14 +116,14 @@ public class e {
 
     public short short_a() {
         if (this.var_h_arr_a != null) {
-            return this.var_h_arr_a[0].d;
+            return this.var_h_arr_a[0].width;
         }
         return 0;
     }
 
     public short short_b() {
         if (this.var_h_arr_a != null) {
-            return this.var_h_arr_a[0].c;
+            return this.var_h_arr_a[0].height;
         }
         return 0;
     }

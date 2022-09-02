@@ -13,13 +13,13 @@ public class Sprite {
     private boolean var_boolean_a = false;
     private short b;
     private short var_short_a;
-    public short d;
-    public short c;
+    public short width;
+    public short height;
 
     public Sprite(Sprite h2, int n, int n2, int width, int height) {
         this.image = h2.image;
-        this.d = (short)width;
-        this.c = (short)height;
+        this.width = (short)width;
+        this.height = (short)height;
         this.b = (short)(n * width + h2.b);
         this.var_short_a = (short)(n2 * height + h2.var_short_a);
         this.var_boolean_a = true;
@@ -28,8 +28,8 @@ public class Sprite {
     public Sprite(String filename) throws Exception {
         byte[] imageData = d.byte_arr_a(filename);
         this.image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
-        this.d = (short)this.image.getWidth();
-        this.c = (short)this.image.getHeight();
+        this.width = (short)this.image.getWidth();
+        this.height = (short)this.image.getHeight();
         this.var_boolean_a = false;
     }
 
@@ -39,7 +39,7 @@ public class Sprite {
             int clipY = graphics.getClipY();
             int clipWidth = graphics.getClipWidth();
             int clipHeight = graphics.getClipHeight();
-            graphics.clipRect(x, y, (int)this.d, (int)this.c);
+            graphics.clipRect(x, y, (int)this.width, (int)this.height);
             graphics.drawImage(this.image, x - this.b, y - this.var_short_a, 20);
             graphics.setClip(clipX, clipY, clipWidth, clipHeight);
         } else {
@@ -60,8 +60,8 @@ public class Sprite {
         }
         object = new Sprite();
         Image image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
-        object.d = (short)image.getWidth();
-        object.c = (short)image.getHeight();
+        object.width = (short)image.getWidth();
+        object.height = (short)image.getHeight();
         object.image = image;
         return object;
     }

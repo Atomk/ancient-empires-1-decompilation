@@ -111,14 +111,14 @@ public class f {
         }
         this.var_h_a = this.var_a_a.b[this.var_int_f];
         if (this.var_h_a != null) {
-            this.var_int_d = this.var_h_a.c;
+            this.var_int_d = this.var_h_a.height;
         }
-        this.j = d.h / this.var_h_arr_a[0].d;
-        if (d.h % this.var_h_arr_a[0].d != 0) {
+        this.j = d.h / this.var_h_arr_a[0].width;
+        if (d.h % this.var_h_arr_a[0].width != 0) {
             ++this.j;
         }
-        this.n = (d.var_int_d - this.var_int_d) / this.var_h_arr_a[0].c;
-        if ((d.var_int_d - this.var_int_d) % this.var_h_arr_a[0].c != 0) {
+        this.n = (d.var_int_d - this.var_int_d) / this.var_h_arr_a[0].height;
+        if ((d.var_int_d - this.var_int_d) % this.var_h_arr_a[0].height != 0) {
             ++this.n;
         }
         this.var_byte_arr_arr_c = new byte[this.j][this.n];
@@ -625,7 +625,7 @@ public class f {
             n6 += 24;
         }
         if (this.var_h_a != null) {
-            n5 = this.var_h_a.d;
+            n5 = this.var_h_a.width;
             n6 = 0;
             n3 = d.h / n5;
             for (n7 = 0; n7 < n3; ++n7) {
@@ -637,7 +637,7 @@ public class f {
         n6 = (d.h - d.a((byte)1, string)) / 2;
         d.a(graphics, string, n6, 2, 1);
         string = null;
-        n6 = (d.h - this.var_a_a.var_h_h.d) / 2;
+        n6 = (d.h - this.var_a_a.var_h_h.width) / 2;
         n4 = d.a((byte)1) + 4;
         this.var_a_a.var_h_h.draw(graphics, n6, n4);
         n7 = i.var_byte_arr_g[this.var_int_f];

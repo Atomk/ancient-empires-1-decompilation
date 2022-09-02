@@ -69,7 +69,7 @@ public class g {
         this.var_a_a = (a)i2;
         this.var_byte_a = by;
         this.t = n;
-        this.B = i2.var_h_i.d;
+        this.B = i2.var_h_i.width;
         if (by == 0) {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
@@ -127,8 +127,8 @@ public class g {
         } else if (by == 7) {
             this.var_short_a = (short)400;
             this.var_boolean_a = true;
-            this.var_int_b = i2.var_short_e * i2.var_h_arr_d[0].d + 12;
-            this.var_int_g = i2.var_short_b * i2.var_h_arr_d[0].c + 12;
+            this.var_int_b = i2.var_short_e * i2.var_h_arr_d[0].width + 12;
+            this.var_int_g = i2.var_short_b * i2.var_h_arr_d[0].height + 12;
         }
         this.var_boolean_c = true;
     }
@@ -733,7 +733,7 @@ public class g {
                     int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
-                        d.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.d + 2, n14 + 3, 0);
+                        d.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
@@ -841,7 +841,7 @@ public class g {
                                 i.var_d_a.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.x) {
-                                this.var_a_a.var_h_i.draw(graphics, n17 - this.var_a_a.var_h_i.d + this.p, n18);
+                                this.var_a_a.var_h_i.draw(graphics, n17 - this.var_a_a.var_h_i.width + this.p, n18);
                             }
                             if (++n16 >= this.var_byte_arr_a.length) break;
                             n17 += this.D + 24;
@@ -929,8 +929,8 @@ public class g {
                 case 7: {
                     int n27;
                     int n28;
-                    short s = this.var_a_a.var_h_arr_d[0].d;
-                    short s2 = this.var_a_a.var_h_arr_d[0].c;
+                    short s = this.var_a_a.var_h_arr_d[0].width;
+                    short s2 = this.var_a_a.var_h_arr_d[0].height;
                     int n29 = 0;
                     for (n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
                         int n30 = 0;
