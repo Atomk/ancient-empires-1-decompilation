@@ -90,7 +90,7 @@ CommandListener {
     }
 
     public void a(Graphics graphics, int n, int n2, int n3, int n4, int n5) {
-        this.var_h_a.a(graphics, n, n2);
+        this.var_h_a.draw(graphics, n, n2);
     }
 
     public void a(String string, byte[] byArray) throws Exception {

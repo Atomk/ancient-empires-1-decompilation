@@ -1512,9 +1512,9 @@ implements CommandListener {
             int n3 = n;
             for (short s6 = s; s6 <= s3; s6 = (short)(s6 + 1)) {
                 byte by = this.var_byte_arr_arr_a[s6][s5];
-                this.var_h_arr_c[by].a(graphics, n3, n2);
+                this.var_h_arr_c[by].draw(graphics, n3, n2);
                 if (this.var_byte_arr_j[by] == 8) {
-                    this.var_h_arr_c[by + 1].a(graphics, n3, n2 - 24);
+                    this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
                 }
                 if (this.var_boolean_h && this.var_byte_arr_arr_b[s6][s5] > 0) {
                     if (s6 > 0 && this.var_byte_arr_arr_b[s6 - 1][s5] <= 0) {
@@ -1555,7 +1555,7 @@ implements CommandListener {
             graphics.setColor(-16777216);
             graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
             if (this.var_int_m >= 15) {
-                this.var_h_e.a(graphics, i.var_d_a.e - this.var_h_e.d >> 1, (i.var_d_a.g - this.var_h_e.c) / 3);
+                this.var_h_e.draw(graphics, i.var_d_a.e - this.var_h_e.d >> 1, (i.var_d_a.g - this.var_h_e.c) / 3);
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                 if (this.var_boolean_p && this.var_int_g == 0) {
@@ -1609,7 +1609,7 @@ implements CommandListener {
                 for (n2 = 0; n2 < n3; ++n2) {
                     c c2 = (c)this.var_java_util_Vector_a.elementAt(n2);
                     if (c2.var_byte_e == 3) {
-                        this.var_h_f.a(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
+                        this.var_h_f.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
                         continue;
                     }
                     if (c2 == this.var_c_h) continue;
@@ -1881,7 +1881,7 @@ implements CommandListener {
                     continue;
                 }
                 graphics.setClip(n17, n18, n12, n13);
-                h2.a(graphics, n5, n6);
+                h2.draw(graphics, n5, n6);
             }
         }
     }

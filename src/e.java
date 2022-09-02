@@ -170,7 +170,7 @@ public class e {
         } else if (this.var_boolean_c) {
             int n5 = this.var_short_b + n;
             int n6 = this.l + n2;
-            this.var_h_arr_a[this.var_byte_arr_e[this.var_short_d]].a(graphics, n5, n6);
+            this.var_h_arr_a[this.var_byte_arr_e[this.var_short_d]].draw(graphics, n5, n6);
         }
     }
 

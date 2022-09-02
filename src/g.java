@@ -708,7 +708,7 @@ public class g {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n7, n8, 20);
                         n8 += this.m;
                     }
-                    this.var_a_a.var_h_i.a(graphics, this.p + this.D, (this.x - this.var_short_b) * this.m + this.D);
+                    this.var_a_a.var_h_i.draw(graphics, this.p + this.D, (this.x - this.var_short_b) * this.m + this.D);
                     break;
                 }
                 case 1: 
@@ -732,7 +732,7 @@ public class g {
                     StringBuffer stringBuffer = new StringBuffer();
                     int n15 = 4;
                     if (this.var_byte_a == 1) {
-                        this.var_a_a.var_h_b.a(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
+                        this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
                         d.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.d + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
@@ -841,7 +841,7 @@ public class g {
                                 i.var_d_a.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.x) {
-                                this.var_a_a.var_h_i.a(graphics, n17 - this.var_a_a.var_h_i.d + this.p, n18);
+                                this.var_a_a.var_h_i.draw(graphics, n17 - this.var_a_a.var_h_i.d + this.p, n18);
                             }
                             if (++n16 >= this.var_byte_arr_a.length) break;
                             n17 += this.D + 24;
@@ -853,7 +853,7 @@ public class g {
                     break;
                 }
                 case 3: {
-                    this.var_a_a.var_h_b.a(graphics, 2, 2);
+                    this.var_a_a.var_h_b.draw(graphics, 2, 2);
                     if (this.var_a_a.var_byte_arr_b[this.var_a_a.var_byte_c] == 0) {
                         this.var_a_a.var_e_e.a(2);
                         this.var_a_a.var_e_e.a(graphics, n3 - 2 - this.var_a_a.var_e_e.short_a(), 2);
@@ -899,7 +899,7 @@ public class g {
                     byte by = this.var_a_a.byte_a(this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g);
                     byte by2 = this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : i.var_byte_arr_h[by];
                     int n24 = 6;
-                    this.var_a_a.var_h_arr_c[by2].a(graphics, n24, 2);
+                    this.var_a_a.var_h_arr_c[by2].draw(graphics, n24, 2);
                     graphics.setColor(0);
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
@@ -940,7 +940,7 @@ public class g {
                             if (n32 >= 0) {
                                 n31 = 2 * (n32 + 1) + 7 + n31 - 7;
                             }
-                            this.var_a_a.var_h_arr_d[n31].a(graphics, n30, n29);
+                            this.var_a_a.var_h_arr_d[n31].draw(graphics, n30, n29);
                             n30 += s;
                         }
                         n29 += s2;

@@ -619,7 +619,7 @@ public class f {
             n4 = this.var_int_d + n2;
             int n8 = this.n;
             for (n3 = 0; n3 < n8; ++n3) {
-                this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].a(graphics, n6, n4);
+                this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, n6, n4);
                 n4 += 24;
             }
             n6 += 24;
@@ -629,7 +629,7 @@ public class f {
             n6 = 0;
             n3 = d.h / n5;
             for (n7 = 0; n7 < n3; ++n7) {
-                this.var_h_a.a(graphics, n6, 0);
+                this.var_h_a.draw(graphics, n6, 0);
                 n6 += n5;
             }
         }
@@ -639,7 +639,7 @@ public class f {
         string = null;
         n6 = (d.h - this.var_a_a.var_h_h.d) / 2;
         n4 = d.a((byte)1) + 4;
-        this.var_a_a.var_h_h.a(graphics, n6, n4);
+        this.var_a_a.var_h_h.draw(graphics, n6, n4);
         n7 = i.var_byte_arr_g[this.var_int_f];
         n3 = this.var_a_a.a((byte)this.var_int_f, this.var_c_a) - n7;
         StringBuffer stringBuffer = new StringBuffer().append(n7);

@@ -33,7 +33,7 @@ public class h {
         this.var_boolean_a = false;
     }
 
-    public void a(Graphics graphics, int x, int y) {
+    public void draw(Graphics graphics, int x, int y) {
         if (this.var_boolean_a) {
             int clipX = graphics.getClipX();
             int clipY = graphics.getClipY();

@@ -116,17 +116,17 @@ extends i {
         } else {
             graphics.setColor(108, 93, 72);
             graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
-            this.var_h_g.a(graphics, 0, this.I);
-            this.var_h_d.a(graphics, 0, this.B);
+            this.var_h_g.draw(graphics, 0, this.I);
+            this.var_h_d.draw(graphics, 0, this.B);
             if (this.var_int_p == 3) {
                 if (this.var_int_m >= 15) {
-                    this.var_h_e.a(graphics, (i.var_d_a.e - this.var_h_e.d) / 2, 8);
+                    this.var_h_e.draw(graphics, (i.var_d_a.e - this.var_h_e.d) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                         graphics.drawString(d.java_lang_String_a(25), d.h, d.var_int_d - d.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
                     }
-                    this.var_h_a.a(graphics, (i.var_d_a.e - this.var_h_a.d) / 2, d.var_int_d - this.var_h_a.c - 2);
+                    this.var_h_a.draw(graphics, (i.var_d_a.e - this.var_h_a.d) / 2, d.var_int_d - this.var_h_a.c - 2);
                 } else {
                     i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (i.var_d_a.e - this.var_h_e.d) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
@@ -227,12 +227,12 @@ extends i {
             for (short s6 = s; s6 <= s3; s6 = (short)(s6 + 1)) {
                 byte by = this.var_byte_arr_arr_c[s6][s5];
                 if (by > 0) {
-                    this.var_h_arr_c[by].a(graphics, n3, n2);
+                    this.var_h_arr_c[by].draw(graphics, n3, n2);
                 }
                 if (this.var_byte_arr_j[by = this.var_byte_arr_arr_a[s6][s5]] != 1) {
-                    this.var_h_arr_c[by].a(graphics, n3, n2);
+                    this.var_h_arr_c[by].draw(graphics, n3, n2);
                     if (this.var_byte_arr_j[by] == 8) {
-                        this.var_h_arr_c[by + 1].a(graphics, n3, n2 - 24);
+                        this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
                     }
                 }
                 if (this.var_boolean_h && this.var_byte_arr_arr_b[s6][s5] > 0) {
