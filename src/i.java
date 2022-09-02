@@ -698,7 +698,7 @@ implements CommandListener {
                 return;
             }
             if (string.equals(d.java_lang_String_a(9))) {
-                App.var_b_a.notifyDestroyed();
+                App.instance.notifyDestroyed();
             } else if (string.equals(d.java_lang_String_a(26))) {
                 g g4 = new g(this, 0, 0);
                 g4.a(this.var_java_lang_String_arr_c);
