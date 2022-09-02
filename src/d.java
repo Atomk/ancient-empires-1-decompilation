@@ -42,7 +42,7 @@ CommandListener {
     public static final short[] var_short_arr_b;
     public static final short[] var_short_arr_a;
     public static final byte[][] var_byte_arr_arr_a;
-    public Display var_javax_microedition_lcdui_Display_a;
+    public Display appDisplay;
     private boolean var_boolean_a = false;
     public a var_a_a;
     public int e;
@@ -71,8 +71,8 @@ CommandListener {
             var_int_d = this.g;
             h = var_int_a >> 1;
             f = var_int_d >> 1;
-            this.var_javax_microedition_lcdui_Display_a = Display.getDisplay((MIDlet)mIDlet);
-            this.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)this);
+            this.appDisplay = Display.getDisplay((MIDlet)mIDlet);
+            this.appDisplay.setCurrent((Displayable)this);
             new Thread(this).start();
         }
         catch (Exception exception) {
@@ -275,7 +275,7 @@ CommandListener {
         Command command = new Command("Exit", 7, 1);
         form.addCommand(command);
         form.setCommandListener((CommandListener)this);
-        this.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)form);
+        this.appDisplay.setCurrent((Displayable)form);
     }
 
     public void d() {

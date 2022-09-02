@@ -535,7 +535,7 @@ implements CommandListener {
 
     public void commandAction(Command command, Displayable displayable) {
         if (command == this.var_javax_microedition_lcdui_Command_b) {
-            i.var_d_a.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)var_d_a);
+            i.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
         } else if (command == this.var_javax_microedition_lcdui_Command_a) {
             ++this.D;
             Form form = new Form(d.getGameText(7) + " - " + this.D);
@@ -545,13 +545,13 @@ implements CommandListener {
             }
             form.addCommand(this.var_javax_microedition_lcdui_Command_b);
             form.setCommandListener((CommandListener)this);
-            i.var_d_a.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)form);
+            i.var_d_a.appDisplay.setCurrent((Displayable)form);
         } else if (command == this.var_javax_microedition_lcdui_Command_c) {
             this.k();
             if (!d.var_boolean_arr_a[0]) {
                 d.a();
             }
-            i.var_d_a.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)var_d_a);
+            i.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
         }
     }
 
@@ -676,7 +676,7 @@ implements CommandListener {
                 form.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_c);
                 form.setCommandListener((CommandListener)this);
-                i.var_d_a.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)form);
+                i.var_d_a.appDisplay.setCurrent((Displayable)form);
                 return;
             }
             if (string.equals(d.getGameText(7))) {
@@ -686,7 +686,7 @@ implements CommandListener {
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_a);
                 form.setCommandListener((CommandListener)this);
-                i.var_d_a.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)form);
+                i.var_d_a.appDisplay.setCurrent((Displayable)form);
                 return;
             }
             if (string.equals(d.getGameText(8))) {
@@ -694,7 +694,7 @@ implements CommandListener {
                 form.append(d.getGameText(0) + d.getGameText(14));
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.setCommandListener((CommandListener)this);
-                i.var_d_a.var_javax_microedition_lcdui_Display_a.setCurrent((Displayable)form);
+                i.var_d_a.appDisplay.setCurrent((Displayable)form);
                 return;
             }
             if (string.equals(d.getGameText(9))) {
