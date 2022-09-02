@@ -79,7 +79,7 @@ extends e {
         if (this.var_byte_d == 4 && c2.var_byte_d == 10) {
             n2 += 3;
         }
-        if ((n = d.var_java_util_Random_a.nextInt() % 20 + this.var_short_d) >= 19) {
+        if ((n = d.randomGen.nextInt() % 20 + this.var_short_d) >= 19) {
             n2 += 2;
         } else if (n >= 16) {
             ++n2;
@@ -89,7 +89,7 @@ extends e {
             --n2;
         }
         int n3 = var_byte_arr_f[c2.var_byte_d] + c2.var_short_e;
-        n = d.var_java_util_Random_a.nextInt() % 20 + c2.var_short_d;
+        n = d.randomGen.nextInt() % 20 + c2.var_short_d;
         if (n >= 19) {
             n3 += 2;
         } else if (n >= 16) {
@@ -421,7 +421,7 @@ extends e {
     public void a(Graphics graphics, int n, int n2) {
         if (this.var_boolean_e) {
             int n3 = this.var_boolean_b ? -2 : 2;
-            int n4 = d.var_java_util_Random_a.nextInt() % 1;
+            int n4 = d.randomGen.nextInt() % 1;
             super.a(graphics, n + n3, n2 + n4);
         } else {
             super.a(graphics, n, n2);

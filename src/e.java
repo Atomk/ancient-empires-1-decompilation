@@ -193,13 +193,13 @@ public class e {
                 for (int j = 0; j < 5; ++j) {
                     e3.var_boolean_arr_a[j] = true;
                     if (by == 4) {
-                        e3.var_short_arr_arr_a[j][0] = (short)(d.var_java_util_Random_a.nextInt() % 4 << 10);
-                        e3.var_short_arr_arr_a[j][1] = (short)(d.var_java_util_Random_a.nextInt() % 4 << 10);
+                        e3.var_short_arr_arr_a[j][0] = (short)(d.randomGen.nextInt() % 4 << 10);
+                        e3.var_short_arr_arr_a[j][1] = (short)(d.randomGen.nextInt() % 4 << 10);
                     } else {
-                        e3.var_short_arr_arr_a[j][0] = (short)(Math.abs(d.var_java_util_Random_a.nextInt()) % n5 + -4096);
-                        e3.var_short_arr_arr_a[j][1] = (short)(Math.abs(d.var_java_util_Random_a.nextInt()) % n6 + -2048);
+                        e3.var_short_arr_arr_a[j][0] = (short)(Math.abs(d.randomGen.nextInt()) % n5 + -4096);
+                        e3.var_short_arr_arr_a[j][1] = (short)(Math.abs(d.randomGen.nextInt()) % n6 + -2048);
                     }
-                    e3.var_byte_arr_d[j] = (byte)(Math.abs(d.var_java_util_Random_a.nextInt()) % 2 + 1);
+                    e3.var_byte_arr_d[j] = (byte)(Math.abs(d.randomGen.nextInt()) % 2 + 1);
                 }
             }
         }

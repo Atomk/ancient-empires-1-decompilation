@@ -51,7 +51,7 @@ CommandListener {
     public int var_int_b = 0;
     public long var_long_a;
     private static e[] var_e_arr_a;
-    public static Random var_java_util_Random_a;
+    public static Random randomGen;
     public static boolean[] var_boolean_arr_a;
     public static String[] var_java_lang_String_arr_d;
     public static boolean var_boolean_b;
@@ -513,7 +513,7 @@ CommandListener {
         var_short_arr_a = new short[]{90, 57};
         var_byte_arr_arr_a = new byte[][]{{26, -1, 25, -1, -1, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}};
         var_e_arr_a = new e[2];
-        var_java_util_Random_a = new Random();
+        randomGen = new Random();
         var_boolean_arr_a = new boolean[]{true, true, true, true};
         var_boolean_b = true;
     }

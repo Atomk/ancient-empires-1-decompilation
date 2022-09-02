@@ -124,7 +124,7 @@ public class f {
         this.var_byte_arr_arr_c = new byte[this.j][this.n];
         for (n = 0; n < this.j; ++n) {
             for (int j = 0; j < this.n; ++j) {
-                this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(d.var_java_util_Random_a.nextInt() % 10);
+                this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(d.randomGen.nextInt() % 10);
                 this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? 1 : 0);
             }
         }
@@ -181,11 +181,11 @@ public class f {
             this.var_e_arr_b[n].void_b(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
             if (c2.var_byte_d == 8) {
-                this.var_int_arr_d[n] = -8 - Math.abs(d.var_java_util_Random_a.nextInt()) % 8;
+                this.var_int_arr_d[n] = -8 - Math.abs(d.randomGen.nextInt()) % 8;
             }
             if (c2.var_byte_d != 4) continue;
-            this.var_int_arr_d[n] = d.var_java_util_Random_a.nextInt() % 5 - 8;
-            this.var_int_arr_c[n] = d.var_java_util_Random_a.nextInt() % 5;
+            this.var_int_arr_d[n] = d.randomGen.nextInt() % 5 - 8;
+            this.var_int_arr_c[n] = d.randomGen.nextInt() % 5;
             this.var_boolean_arr_a[n] = this.var_int_arr_c[n] < 0;
         }
     }
@@ -291,7 +291,7 @@ public class f {
             case 5: {
                 boolean bl = true;
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
-                    if (this.var_c_a.var_byte_d == 8 && d.var_java_util_Random_a.nextInt() % 2 == 0) {
+                    if (this.var_c_a.var_byte_d == 8 && d.randomGen.nextInt() % 2 == 0) {
                         e e3 = e.a(this.var_a_a.var_e_a, 0, -1, 1, 200, (byte)0);
                         e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
@@ -424,7 +424,7 @@ public class f {
                 this.var_int_a = 0;
             } else {
                 this.m = this.m > 0 ? -2 : 2;
-                this.var_int_a = d.var_java_util_Random_a.nextInt() % 1;
+                this.var_int_a = d.randomGen.nextInt() % 1;
             }
         }
         if (var_byte_arr_a[this.var_c_a.var_byte_d] == 1 || var_byte_arr_a[this.var_c_a.var_byte_d] == 5 || var_byte_arr_a[this.var_c_a.var_byte_d] == 0) {

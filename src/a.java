@@ -182,7 +182,7 @@ extends i {
     public void e() throws Exception {
         if (this.var_byte_i == 0) {
             for (int j = 0; j < this.var_e_arr_a.length; ++j) {
-                if (this.var_e_arr_a[j] == null || this.int_a((int)this.var_byte_arr_arr_e[j][0], (int)this.var_byte_arr_arr_e[j][1]) == -1 || this.var_e_arr_a[j].var_boolean_d || d.var_java_util_Random_a.nextInt() % 8 != 0) continue;
+                if (this.var_e_arr_a[j] == null || this.int_a((int)this.var_byte_arr_arr_e[j][0], (int)this.var_byte_arr_arr_e[j][1]) == -1 || this.var_e_arr_a[j].var_boolean_d || d.randomGen.nextInt() % 8 != 0) continue;
                 this.var_e_arr_a[j].var_boolean_d = true;
                 this.var_e_arr_a[j].var_int_c = 1;
                 this.var_e_arr_a[j].void_b((this.var_byte_arr_arr_e[j][0] + 1) * 24 - this.var_e_a.short_a(), this.var_byte_arr_arr_e[j][1] * 24 - 2);

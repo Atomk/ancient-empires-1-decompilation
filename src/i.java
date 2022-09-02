@@ -2004,7 +2004,7 @@ implements CommandListener {
                                 ++n7;
                             }
                             if (n7 > 0) {
-                                n6 = byArray[Math.abs(d.var_java_util_Random_a.nextInt()) % n7];
+                                n6 = byArray[Math.abs(d.randomGen.nextInt()) % n7];
                                 c2 = this.c_a((int)((byte)n6), (int)c2.i, c2.var_short_a);
                             }
                         }
@@ -2954,8 +2954,8 @@ implements CommandListener {
         int n = 0;
         int n2 = 0;
         if (this.var_boolean_q) {
-            n = d.var_java_util_Random_a.nextInt() % 5;
-            n2 = d.var_java_util_Random_a.nextInt() % 3;
+            n = d.randomGen.nextInt() % 5;
+            n2 = d.randomGen.nextInt() % 3;
         }
         this.var_f_b.a(graphics, n, n2);
         this.var_f_a.a(graphics, n + d.h, n2);
