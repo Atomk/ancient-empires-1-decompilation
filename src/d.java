@@ -59,12 +59,12 @@ CommandListener {
     public static Sound[] var_com_nokia_mid_sound_Sound_arr_a;
     public static byte[][] var_byte_arr_arr_b;
     public static String[] var_java_lang_String_arr_a;
-    public static String[] var_java_lang_String_arr_c;
-    public static String[] var_java_lang_String_arr_b;
+    public static String[] stringsPartA;
+    public static String[] stringsPartB;
 
     public d(MIDlet mIDlet) {
         try {
-            d.a("/lang.dat", false);
+            d.loadAppStrings("/lang.dat", false);
             this.e = this.getWidth();
             this.g = this.getHeight();
             var_int_a = this.e;
@@ -474,34 +474,34 @@ CommandListener {
         App.instance.notifyDestroyed();
     }
 
-    public static int a(String string, boolean bl) throws Exception {
+    public static int loadAppStrings(String filename, boolean skipFirstPart) throws Exception {
         int n;
-        InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream(string);
+        InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream(filename);
         DataInputStream dataInputStream = new DataInputStream(inputStream);
-        if (!bl) {
-            var_java_lang_String_arr_c = new String[63];
+        if (!skipFirstPart) {
+            stringsPartA = new String[63];
         }
-        var_java_lang_String_arr_b = new String[dataInputStream.readInt() - 63];
-        int n2 = var_java_lang_String_arr_c.length;
-        for (n = 0; n < n2; ++n) {
-            String string2 = dataInputStream.readUTF();
-            if (bl) continue;
-            d.var_java_lang_String_arr_c[n] = string2;
+        stringsPartB = new String[dataInputStream.readInt() - 63];
+        int stringsCount = stringsPartA.length;
+        for (n = 0; n < stringsCount; ++n) {
+            String currentString = dataInputStream.readUTF();
+            if (skipFirstPart) continue;
+            d.stringsPartA[n] = currentString;
         }
-        n2 = var_java_lang_String_arr_b.length;
-        for (n = 0; n < n2; ++n) {
-            d.var_java_lang_String_arr_b[n] = dataInputStream.readUTF();
+        stringsCount = stringsPartB.length;
+        for (n = 0; n < stringsCount; ++n) {
+            d.stringsPartB[n] = dataInputStream.readUTF();
         }
         dataInputStream.close();
-        return var_java_lang_String_arr_c.length;
+        return stringsPartA.length;
     }
 
     public static String java_lang_String_a(int n) {
         if (n < 63) {
-            return var_java_lang_String_arr_c[n];
+            return stringsPartA[n];
         }
-        if (n - 63 < var_java_lang_String_arr_b.length) {
-            return var_java_lang_String_arr_b[n - 63];
+        if (n - 63 < stringsPartB.length) {
+            return stringsPartB[n - 63];
         }
         return "?: " + n;
     }
