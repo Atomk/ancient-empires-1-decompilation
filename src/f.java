@@ -38,8 +38,8 @@ public class f {
     public long var_long_c;
     public long var_long_b;
     public e[] var_e_arr_b;
-    public h[] var_h_arr_a;
-    public h var_h_a;
+    public Sprite[] var_h_arr_a;
+    public Sprite var_h_a;
     public f var_f_a;
     public int var_int_f;
     public int var_int_b;
@@ -103,7 +103,7 @@ public class f {
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.var_int_b];
         if (this.var_a_a.b[this.var_int_f] == null) {
             try {
-                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new h("hill_bg.png") : new h(i.var_java_lang_String_arr_a[this.var_int_f] + "_bg.png");
+                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(i.var_java_lang_String_arr_a[this.var_int_f] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block

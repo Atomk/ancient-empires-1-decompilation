@@ -10,9 +10,9 @@ import javax.microedition.lcdui.Graphics;
 public class a
 extends i {
     public static final boolean[] var_boolean_arr_a;
-    public h var_h_g;
-    public h var_h_d;
-    public h var_h_a;
+    public Sprite var_h_g;
+    public Sprite var_h_d;
+    public Sprite var_h_a;
     public e[][] var_e_arr_arr_c;
     public int I = -15;
     public int B;
@@ -20,17 +20,17 @@ extends i {
     public boolean var_boolean_g = false;
     public Vector var_java_util_Vector_d;
     public e[][] var_e_arr_arr_a;
-    public h[][] var_h_arr_arr_a;
-    public h[] b;
+    public Sprite[][] var_h_arr_arr_a;
+    public Sprite[] b;
     public e[] var_e_arr_a = new e[0];
     public e var_e_a;
     public byte[][] var_byte_arr_arr_c;
 
     public a(byte by) throws Exception {
         super(by);
-        this.var_h_g = new h("splashbg.png");
-        this.var_h_d = new h("splashfg.png");
-        this.var_h_a = new h("macrospace.png");
+        this.var_h_g = new Sprite("splashbg.png");
+        this.var_h_d = new Sprite("splashfg.png");
+        this.var_h_a = new Sprite("macrospace.png");
         this.B = d.var_int_d - this.var_h_d.c + 30;
     }
 
@@ -40,20 +40,20 @@ extends i {
         this.var_h_a = null;
         super.m();
         this.var_e_arr_arr_a = new e[2][11];
-        this.b = new h[i.var_java_lang_String_arr_a.length];
-        this.var_h_arr_arr_a = new h[i.var_java_lang_String_arr_a.length][];
+        this.b = new Sprite[i.var_java_lang_String_arr_a.length];
+        this.var_h_arr_arr_a = new Sprite[i.var_java_lang_String_arr_a.length][];
         this.var_e_arr_arr_c = new e[2][11];
         byte[] byArray = d.byte_arr_a("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
             byte[] imageBytes = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
-            h h2 = h.h_a(imageBytes, j);
+            Sprite h2 = Sprite.h_a(imageBytes, j);
             for (int k = 0; k < 11; ++k) {
-                this.var_e_arr_arr_c[j][k] = new e(new h(h2, k, 0, 10, 10), 10, 10);
+                this.var_e_arr_arr_c[j][k] = new e(new Sprite(h2, k, 0, 10, 10), 10, 10);
             }
         }
         this.var_e_a = new e("b_smoke");
-        this.var_h_h = new h("defencepanel.png");
+        this.var_h_h = new Sprite("defencepanel.png");
         this.var_e_q = new e("soul");
     }
 

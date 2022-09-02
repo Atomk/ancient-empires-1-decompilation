@@ -8,7 +8,7 @@ import java.io.InputStream;
 import javax.microedition.lcdui.Graphics;
 
 public class e {
-    public h[] var_h_arr_a;
+    public Sprite[] var_h_arr_a;
     private byte[] var_byte_arr_e;
     public short var_short_d = 0;
     public short var_short_b = 0;
@@ -43,16 +43,16 @@ public class e {
         int n2 = inputStream.read();
         byte width = (byte)inputStream.read();
         byte height = (byte)inputStream.read();
-        this.var_h_arr_a = new h[n2];
+        this.var_h_arr_a = new Sprite[n2];
         try {
             byte[] imageBytes = d.byte_arr_a(imageName + ".png");
-            h h2 = h.h_a(imageBytes, n);
+            Sprite h2 = Sprite.h_a(imageBytes, n);
             int n3 = h2.d / width;
             int n4 = h2.c / height;
             int n5 = 0;
             for (int j = 0; j < n4; ++j) {
                 for (int k = 0; k < n3; ++k) {
-                    this.var_h_arr_a[n5] = new h(h2, k, j, width, height);
+                    this.var_h_arr_a[n5] = new Sprite(h2, k, j, width, height);
                     ++n5;
                 }
             }
@@ -64,10 +64,10 @@ public class e {
                 fileName = fileName + ".png";
                 if (n != -1) {
                     byte[] imageBytes = d.byte_arr_a(fileName);
-                    this.var_h_arr_a[j] = h.h_a(imageBytes, n);
+                    this.var_h_arr_a[j] = Sprite.h_a(imageBytes, n);
                     continue;
                 }
-                this.var_h_arr_a[j] = new h(fileName);
+                this.var_h_arr_a[j] = new Sprite(fileName);
             }
         }
         inputStream.close();
@@ -79,15 +79,15 @@ public class e {
         }
     }
 
-    public e(h h2, int width, int height) {
+    public e(Sprite h2, int width, int height) {
         int n3;
         int n4 = h2.d / width;
         int n5 = h2.c / height;
         int n6 = n4 * n5;
-        this.var_h_arr_a = new h[n6];
+        this.var_h_arr_a = new Sprite[n6];
         for (n3 = 0; n3 < n5; ++n3) {
             for (int j = 0; j < n4; ++j) {
-                this.var_h_arr_a[n3 * n4 + j] = new h(h2, j, n3, width, height);
+                this.var_h_arr_a[n3 * n4 + j] = new Sprite(h2, j, n3, width, height);
             }
         }
         this.j = (short)width;

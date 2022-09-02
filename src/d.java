@@ -55,7 +55,7 @@ CommandListener {
     public static boolean[] var_boolean_arr_a;
     public static String[] var_java_lang_String_arr_d;
     public static boolean var_boolean_b;
-    public h var_h_a;
+    public Sprite var_h_a;
     public static Sound[] var_com_nokia_mid_sound_Sound_arr_a;
     public static byte[][] var_byte_arr_arr_b;
     public static String[] var_java_lang_String_arr_a;
@@ -293,7 +293,7 @@ CommandListener {
             i.f();
             d.var_e_arr_a[0] = new e("chars");
             d.var_e_arr_a[1] = new e("lchars");
-            this.var_h_a = new h("mask.png");
+            this.var_h_a = new Sprite("mask.png");
             this.var_a_a = new a(0);
             this.var_boolean_a = true;
             while (this.var_boolean_a) {

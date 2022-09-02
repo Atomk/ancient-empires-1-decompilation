@@ -8,7 +8,7 @@
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-public class h {
+public class Sprite {
     public Image image;
     private boolean var_boolean_a = false;
     private short b;
@@ -16,7 +16,7 @@ public class h {
     public short d;
     public short c;
 
-    public h(h h2, int n, int n2, int width, int height) {
+    public Sprite(Sprite h2, int n, int n2, int width, int height) {
         this.image = h2.image;
         this.d = (short)width;
         this.c = (short)height;
@@ -25,7 +25,7 @@ public class h {
         this.var_boolean_a = true;
     }
 
-    public h(String filename) throws Exception {
+    public Sprite(String filename) throws Exception {
         byte[] imageData = d.byte_arr_a(filename);
         this.image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         this.d = (short)this.image.getWidth();
@@ -47,18 +47,18 @@ public class h {
         }
     }
 
-    private h() {
+    private Sprite() {
     }
 
-    public static h h_a(byte[] imageData, int n) {
+    public static Sprite h_a(byte[] imageData, int n) {
         Object object;
         if (n != 0) {
             object = new byte[imageData.length];
             System.arraycopy(imageData, 0, object, 0, imageData.length);
-            h.void_a(object, n);
+            Sprite.void_a(object, n);
             imageData = object;
         }
-        object = new h();
+        object = new Sprite();
         Image image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         object.d = (short)image.getWidth();
         object.c = (short)image.getHeight();
@@ -84,7 +84,7 @@ public class h {
             n4 += 4;
             int n7 = -1;
             for (n3 = 0; n3 < 4; ++n3) {
-                n7 = h.a(byArray[n4 + n3], n7);
+                n7 = Sprite.a(byArray[n4 + n3], n7);
             }
             n3 = 1;
             boolean bl = false;
@@ -107,9 +107,9 @@ public class h {
                     byArray[n2 + 1] = (byte)n9;
                     byArray[n2 + 2] = (byte)n10;
                 }
-                n7 = h.a(byArray[n2], n7);
-                n7 = h.a(byArray[n2 + 1], n7);
-                n7 = h.a(byArray[n2 + 2], n7);
+                n7 = Sprite.a(byArray[n2], n7);
+                n7 = Sprite.a(byArray[n2 + 1], n7);
+                n7 = Sprite.a(byArray[n2 + 2], n7);
             }
             n2 = n5 + 8 + n6;
             byArray[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);

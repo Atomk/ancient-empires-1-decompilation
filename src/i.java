@@ -46,7 +46,7 @@ implements CommandListener {
     public static final String[] var_java_lang_String_arr_a;
     public static final byte[] var_byte_arr_i;
     public int var_int_t;
-    public h[] var_h_arr_d;
+    public Sprite[] var_h_arr_d;
     public byte[] var_byte_arr_j;
     public short var_short_c;
     public short var_short_i;
@@ -54,10 +54,10 @@ implements CommandListener {
     public short var_short_a;
     public short var_short_e;
     public short var_short_b;
-    private h var_h_f;
-    public h[] var_h_arr_c;
-    public h var_h_i;
-    public h var_h_b;
+    private Sprite var_h_f;
+    public Sprite[] var_h_arr_c;
+    public Sprite var_h_i;
+    public Sprite var_h_b;
     public e var_e_h;
     public e var_e_k;
     public e var_e_g;
@@ -120,8 +120,8 @@ implements CommandListener {
     public boolean var_boolean_m = false;
     public byte var_byte_d;
     public boolean var_boolean_c = false;
-    public h var_h_c;
-    public h var_h_e;
+    public Sprite var_h_c;
+    public Sprite var_h_e;
     public int var_int_p;
     public Command var_javax_microedition_lcdui_Command_b = new Command(d.java_lang_String_a(22), 2, 1);
     public Command var_javax_microedition_lcdui_Command_a = new Command(d.java_lang_String_a(12), 1, 1);
@@ -141,7 +141,7 @@ implements CommandListener {
     public long var_long_l;
     public int var_int_y;
     public int var_int_l;
-    public h[] var_h_arr_a;
+    public Sprite[] var_h_arr_a;
     public boolean var_boolean_l = false;
     public boolean var_boolean_p;
     public int var_int_s = -1;
@@ -191,7 +191,7 @@ implements CommandListener {
     public long var_long_f;
     public boolean var_boolean_k;
     public e var_e_q;
-    public h var_h_h;
+    public Sprite var_h_h;
     public e var_e_n;
     public e var_e_i;
     public e var_e_c;
@@ -211,9 +211,9 @@ implements CommandListener {
             this.var_e_g = new e("arrow");
             this.var_e_e = new e("buttons");
             this.var_e_b = new e("menu");
-            this.var_h_c = new h("ms_logo.png");
-            this.var_h_i = new h("pointer.png");
-            this.var_h_e = new h("splash.png");
+            this.var_h_c = new Sprite("ms_logo.png");
+            this.var_h_i = new Sprite("pointer.png");
+            this.var_h_e = new Sprite("splash.png");
             this.var_int_p = 0;
             try {
                 this.var_byte_arr_e = var_d_a.byte_arr_b("levels");
@@ -239,13 +239,13 @@ implements CommandListener {
         c.var_i_a = this;
         d.void_a("/1.pak");
         this.var_e_h = new e("cursor");
-        this.var_h_b = new h("gold.png");
+        this.var_h_b = new Sprite("gold.png");
         this.var_e_m = new e("portrait");
         this.var_e_d = new e("redspark");
         this.var_e_l = new e("smoke");
         this.var_e_r = new e("spark");
         this.var_e_j = new e("status");
-        this.var_h_f = new h("tombstone.png");
+        this.var_h_f = new Sprite("tombstone.png");
         this.var_e_h.a(var_byte_arr_arr_d[0]);
         this.var_e_k = new e(this.var_e_h);
         this.var_e_k.a(var_byte_arr_arr_d[3]);
@@ -254,9 +254,9 @@ implements CommandListener {
         for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
-            object = h.h_a((byte[])imageBytesObj, (int)s);
+            object = Sprite.h_a((byte[])imageBytesObj, (int)s);
             for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
-                this.var_e_arr_arr_b[s][n] = new e(new h((h)object, n, 0, 24, ((h)object).c), 24, 24);
+                this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).c), 24, 24);
             }
         }
         imageBytesObj = d.java_io_InputStream_a("tiles0.prop");
@@ -268,27 +268,27 @@ implements CommandListener {
             this.var_byte_arr_j[s] = ((DataInputStream)object).readByte();
         }
         e e2 = new e("tiles0");
-        h[] hArray = e2.var_h_arr_a;
+        Sprite[] hArray = e2.var_h_arr_a;
         this.var_int_t = hArray.length;
         e2 = null;
         byte[] imageBytes = d.byte_arr_a("buildings.png");
-        h[] hArray2 = new h[9];
+        Sprite[] hArray2 = new Sprite[9];
         for (s = 0; s <= 2; s = (short)((byte)(s + 1))) {
             byte[] byArray3 = new byte[imageBytes.length];
             System.arraycopy(imageBytes, 0, byArray3, 0, imageBytes.length);
-            h h2 = h.h_a(byArray3, (int)s);
+            Sprite h2 = Sprite.h_a(byArray3, (int)s);
             for (n = 0; n < 3; n = (int)((byte)(n + 1))) {
-                hArray2[s * 3 + n] = new h(h2, n, 0, 24, 24);
+                hArray2[s * 3 + n] = new Sprite(h2, n, 0, 24, 24);
             }
         }
-        this.var_h_arr_c = new h[hArray.length + hArray2.length];
+        this.var_h_arr_c = new Sprite[hArray.length + hArray2.length];
         System.arraycopy(hArray, 0, this.var_h_arr_c, 0, hArray.length);
         System.arraycopy(hArray2, hArray2.length - 3, this.var_h_arr_c, hArray.length, 3);
         System.arraycopy(hArray2, 0, this.var_h_arr_c, hArray.length + 3, hArray2.length - 3);
         e2 = new e("stiles0");
         this.var_h_arr_d = e2.var_h_arr_a;
         e2 = null;
-        this.var_h_arr_a = new h[2];
+        this.var_h_arr_a = new Sprite[2];
         this.var_int_l = var_byte_arr_a[0];
         this.var_h_arr_a[0] = this.var_h_arr_c[var_byte_arr_a[0]];
         this.var_h_arr_a[1] = this.var_h_arr_c[var_byte_arr_a[1]];
@@ -1841,7 +1841,7 @@ implements CommandListener {
         return objectArray;
     }
 
-    public static void a(Graphics graphics, int n, int n2, int n3, int n4, h h2, int n5, int n6, int n7, int n8) {
+    public static void a(Graphics graphics, int n, int n2, int n3, int n4, Sprite h2, int n5, int n6, int n7, int n8) {
         int n9;
         int n10;
         if (h2 != null) {
@@ -2874,7 +2874,7 @@ implements CommandListener {
         this.var_c_i = c2;
         this.var_c_b = c3;
         d.void_a("/2.pak");
-        this.var_h_h = new h("defpanel.png");
+        this.var_h_h = new Sprite("defpanel.png");
         this.var_e_q = new e("soul");
         this.var_f_b = new f(this, c2, true);
         this.var_f_a = new f(this, c3, false);
