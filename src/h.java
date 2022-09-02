@@ -33,17 +33,17 @@ public class h {
         this.var_boolean_a = false;
     }
 
-    public void a(Graphics graphics, int n, int n2) {
+    public void a(Graphics graphics, int x, int y) {
         if (this.var_boolean_a) {
-            int n3 = graphics.getClipX();
-            int n4 = graphics.getClipY();
-            int n5 = graphics.getClipWidth();
-            int n6 = graphics.getClipHeight();
-            graphics.clipRect(n, n2, (int)this.d, (int)this.c);
-            graphics.drawImage(this.image, n - this.b, n2 - this.var_short_a, 20);
-            graphics.setClip(n3, n4, n5, n6);
+            int clipX = graphics.getClipX();
+            int clipY = graphics.getClipY();
+            int clipWidth = graphics.getClipWidth();
+            int clipHeight = graphics.getClipHeight();
+            graphics.clipRect(x, y, (int)this.d, (int)this.c);
+            graphics.drawImage(this.image, x - this.b, y - this.var_short_a, 20);
+            graphics.setClip(clipX, clipY, clipWidth, clipHeight);
         } else {
-            graphics.drawImage(this.image, n, n2, 20);
+            graphics.drawImage(this.image, x, y, 20);
         }
     }
 
