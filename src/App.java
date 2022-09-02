@@ -6,9 +6,9 @@
  */
 import javax.microedition.midlet.MIDlet;
 
-public class b
+public class App
 extends MIDlet {
-    public static b var_b_a;
+    public static App var_b_a;
     public static d var_d_a;
 
     public void startApp() {

@@ -434,7 +434,7 @@ CommandListener {
             var_java_lang_String_arr_a = null;
             int[] nArray = null;
             int[] nArray2 = null;
-            InputStream inputStream = ((Object)((Object)b.var_b_a)).getClass().getResourceAsStream("/1.pak");
+            InputStream inputStream = ((Object)((Object)App.var_b_a)).getClass().getResourceAsStream("/1.pak");
             DataInputStream dataInputStream = new DataInputStream(inputStream);
             short s = dataInputStream.readShort();
             int n = dataInputStream.readShort();
@@ -471,12 +471,12 @@ CommandListener {
     }
 
     public void commandAction(Command command, Displayable displayable) {
-        b.var_b_a.notifyDestroyed();
+        App.var_b_a.notifyDestroyed();
     }
 
     public static int a(String string, boolean bl) throws Exception {
         int n;
-        InputStream inputStream = ((Object)((Object)b.var_b_a)).getClass().getResourceAsStream(string);
+        InputStream inputStream = ((Object)((Object)App.var_b_a)).getClass().getResourceAsStream(string);
         DataInputStream dataInputStream = new DataInputStream(inputStream);
         if (!bl) {
             var_java_lang_String_arr_c = new String[63];
