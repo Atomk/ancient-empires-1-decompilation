@@ -16,12 +16,12 @@ public class h {
     public short d;
     public short c;
 
-    public h(h h2, int n, int n2, int n3, int n4) {
+    public h(h h2, int n, int n2, int width, int height) {
         this.image = h2.image;
-        this.d = (short)n3;
-        this.c = (short)n4;
-        this.b = (short)(n * n3 + h2.b);
-        this.var_short_a = (short)(n2 * n4 + h2.var_short_a);
+        this.d = (short)width;
+        this.c = (short)height;
+        this.b = (short)(n * width + h2.b);
+        this.var_short_a = (short)(n2 * height + h2.var_short_a);
         this.var_boolean_a = true;
     }
 

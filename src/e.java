@@ -41,18 +41,18 @@ public class e {
     private void a(String imageName, int n) throws Exception {
         InputStream inputStream = d.java_io_InputStream_a(imageName + ".sprite");
         int n2 = inputStream.read();
-        byte by = (byte)inputStream.read();
-        byte by2 = (byte)inputStream.read();
+        byte width = (byte)inputStream.read();
+        byte height = (byte)inputStream.read();
         this.var_h_arr_a = new h[n2];
         try {
             byte[] byArray = d.byte_arr_a(imageName + ".png");
             h h2 = h.h_a(byArray, n);
-            int n3 = h2.d / by;
-            int n4 = h2.c / by2;
+            int n3 = h2.d / width;
+            int n4 = h2.c / height;
             int n5 = 0;
             for (int j = 0; j < n4; ++j) {
                 for (int k = 0; k < n3; ++k) {
-                    this.var_h_arr_a[n5] = new h(h2, k, j, by, by2);
+                    this.var_h_arr_a[n5] = new h(h2, k, j, width, height);
                     ++n5;
                 }
             }
@@ -79,19 +79,19 @@ public class e {
         }
     }
 
-    public e(h h2, int n, int n2) {
+    public e(h h2, int width, int height) {
         int n3;
-        int n4 = h2.d / n;
-        int n5 = h2.c / n2;
+        int n4 = h2.d / width;
+        int n5 = h2.c / height;
         int n6 = n4 * n5;
         this.var_h_arr_a = new h[n6];
         for (n3 = 0; n3 < n5; ++n3) {
             for (int j = 0; j < n4; ++j) {
-                this.var_h_arr_a[n3 * n4 + j] = new h(h2, j, n3, n, n2);
+                this.var_h_arr_a[n3 * n4 + j] = new h(h2, j, n3, width, height);
             }
         }
-        this.j = (short)n;
-        this.var_short_c = (short)n2;
+        this.j = (short)width;
+        this.var_short_c = (short)height;
         this.var_byte_arr_e = new byte[n6];
         for (n3 = 0; n3 < n6; n3 = (int)((byte)(n3 + 1))) {
             this.var_byte_arr_e[n3] = n3;
