@@ -45,8 +45,8 @@ public class e {
         byte height = (byte)inputStream.read();
         this.var_h_arr_a = new h[n2];
         try {
-            byte[] byArray = d.byte_arr_a(imageName + ".png");
-            h h2 = h.h_a(byArray, n);
+            byte[] imageBytes = d.byte_arr_a(imageName + ".png");
+            h h2 = h.h_a(imageBytes, n);
             int n3 = h2.d / width;
             int n4 = h2.c / height;
             int n5 = 0;
@@ -63,8 +63,8 @@ public class e {
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
                 if (n != -1) {
-                    byte[] byArray = d.byte_arr_a(fileName);
-                    this.var_h_arr_a[j] = h.h_a(byArray, n);
+                    byte[] imageBytes = d.byte_arr_a(fileName);
+                    this.var_h_arr_a[j] = h.h_a(imageBytes, n);
                     continue;
                 }
                 this.var_h_arr_a[j] = new h(fileName);

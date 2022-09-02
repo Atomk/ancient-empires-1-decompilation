@@ -228,7 +228,7 @@ implements CommandListener {
     public void m() throws Exception {
         int n;
         Object object;
-        Object object2;
+        Object imageBytesObj;
         short s;
         d.a();
         d.void_a(0);
@@ -252,15 +252,15 @@ implements CommandListener {
         this.var_e_arr_arr_b = new e[2][11];
         byte[] byArray = d.byte_arr_a("unit_icons.png");
         for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
-            object2 = new byte[byArray.length];
-            System.arraycopy(byArray, 0, object2, 0, byArray.length);
-            object = h.h_a((byte[])object2, (int)s);
+            imageBytesObj = new byte[byArray.length];
+            System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
+            object = h.h_a((byte[])imageBytesObj, (int)s);
             for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
                 this.var_e_arr_arr_b[s][n] = new e(new h((h)object, n, 0, 24, ((h)object).c), 24, 24);
             }
         }
-        object2 = d.java_io_InputStream_a("tiles0.prop");
-        object = new DataInputStream((InputStream)object2);
+        imageBytesObj = d.java_io_InputStream_a("tiles0.prop");
+        object = new DataInputStream((InputStream)imageBytesObj);
         short s2 = ((DataInputStream)object).readShort();
         short s3 = ((DataInputStream)object).readShort();
         this.var_byte_arr_j = new byte[s2];
@@ -271,11 +271,11 @@ implements CommandListener {
         h[] hArray = e2.var_h_arr_a;
         this.var_int_t = hArray.length;
         e2 = null;
-        byte[] byArray2 = d.byte_arr_a("buildings.png");
+        byte[] imageBytes = d.byte_arr_a("buildings.png");
         h[] hArray2 = new h[9];
         for (s = 0; s <= 2; s = (short)((byte)(s + 1))) {
-            byte[] byArray3 = new byte[byArray2.length];
-            System.arraycopy(byArray2, 0, byArray3, 0, byArray2.length);
+            byte[] byArray3 = new byte[imageBytes.length];
+            System.arraycopy(imageBytes, 0, byArray3, 0, imageBytes.length);
             h h2 = h.h_a(byArray3, (int)s);
             for (n = 0; n < 3; n = (int)((byte)(n + 1))) {
                 hArray2[s * 3 + n] = new h(h2, n, 0, 24, 24);

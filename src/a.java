@@ -45,9 +45,9 @@ extends i {
         this.var_e_arr_arr_c = new e[2][11];
         byte[] byArray = d.byte_arr_a("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
-            byte[] byArray2 = new byte[byArray.length];
-            System.arraycopy(byArray, 0, byArray2, 0, byArray.length);
-            h h2 = h.h_a(byArray2, j);
+            byte[] imageBytes = new byte[byArray.length];
+            System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
+            h h2 = h.h_a(imageBytes, j);
             for (int k = 0; k < 11; ++k) {
                 this.var_e_arr_arr_c[j][k] = new e(new h(h2, k, 0, 10, 10), 10, 10);
             }
