@@ -47,7 +47,7 @@ extends i {
         for (int j = 0; j < 2; ++j) {
             byte[] imageBytes = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
-            Sprite h2 = Sprite.h_a(imageBytes, j);
+            Sprite h2 = Sprite.fromByteArray(imageBytes, j);
             for (int k = 0; k < 11; ++k) {
                 this.var_e_arr_arr_c[j][k] = new e(new Sprite(h2, k, 0, 10, 10), 10, 10);
             }

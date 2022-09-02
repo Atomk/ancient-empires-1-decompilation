@@ -254,7 +254,7 @@ implements CommandListener {
         for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
-            object = Sprite.h_a((byte[])imageBytesObj, (int)s);
+            object = Sprite.fromByteArray((byte[])imageBytesObj, (int)s);
             for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
                 this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
@@ -276,7 +276,7 @@ implements CommandListener {
         for (s = 0; s <= 2; s = (short)((byte)(s + 1))) {
             byte[] byArray3 = new byte[imageBytes.length];
             System.arraycopy(imageBytes, 0, byArray3, 0, imageBytes.length);
-            Sprite h2 = Sprite.h_a(byArray3, (int)s);
+            Sprite h2 = Sprite.fromByteArray(byArray3, (int)s);
             for (n = 0; n < 3; n = (int)((byte)(n + 1))) {
                 hArray2[s * 3 + n] = new Sprite(h2, n, 0, 24, 24);
             }

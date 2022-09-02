@@ -50,7 +50,7 @@ public class Sprite {
     private Sprite() {
     }
 
-    public static Sprite h_a(byte[] imageData, int n) {
+    public static Sprite fromByteArray(byte[] imageData, int n) {
         Object object;
         if (n != 0) {
             object = new byte[imageData.length];

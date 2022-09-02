@@ -46,7 +46,7 @@ public class e {
         this.var_h_arr_a = new Sprite[n2];
         try {
             byte[] imageBytes = d.byte_arr_a(imageName + ".png");
-            Sprite h2 = Sprite.h_a(imageBytes, n);
+            Sprite h2 = Sprite.fromByteArray(imageBytes, n);
             int n3 = h2.width / width;
             int n4 = h2.height / height;
             int n5 = 0;
@@ -64,7 +64,7 @@ public class e {
                 fileName = fileName + ".png";
                 if (n != -1) {
                     byte[] imageBytes = d.byte_arr_a(fileName);
-                    this.var_h_arr_a[j] = Sprite.h_a(imageBytes, n);
+                    this.var_h_arr_a[j] = Sprite.fromByteArray(imageBytes, n);
                     continue;
                 }
                 this.var_h_arr_a[j] = new Sprite(fileName);
