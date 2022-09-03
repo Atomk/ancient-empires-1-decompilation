@@ -8,8 +8,8 @@ import javax.microedition.midlet.MIDlet;
 
 public class App
 extends MIDlet {
-    public static App instance;
-    public static AppCanvas appCanvas;
+    public static App instance = null;
+    private static AppCanvas appCanvas = null;
 
     public void startApp() {
         if (instance == null) {
@@ -25,11 +25,6 @@ extends MIDlet {
     }
 
     public void pauseApp() {
-    }
-
-    static {
-        instance = null;
-        appCanvas = null;
     }
 }
 
