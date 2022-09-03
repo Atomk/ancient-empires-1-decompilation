@@ -125,7 +125,7 @@ public class f {
         for (n = 0; n < this.j; ++n) {
             for (int j = 0; j < this.n; ++j) {
                 this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(AppCanvas.randomGen.nextInt() % 10);
-                this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? 1 : 0);
+                this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? (byte)1 : 0);
             }
         }
         if (this.var_a_a.var_e_arr_arr_a[c2.var_byte_a][c2.var_byte_d] == null) {
