@@ -55,7 +55,7 @@ CommandListener {
     public static boolean[] var_boolean_arr_a;
     public static String[] var_java_lang_String_arr_d;
     public static boolean var_boolean_b;
-    public Sprite var_h_a;
+    public Sprite spriteMask;
     public static Sound[] var_com_nokia_mid_sound_Sound_arr_a;
     public static byte[][] var_byte_arr_arr_b;
     public static String[] var_java_lang_String_arr_a;
@@ -90,8 +90,8 @@ CommandListener {
         return n * 176 / 128;
     }
 
-    public void a(Graphics graphics, int n, int n2, int n3, int n4, int n5) {
-        this.var_h_a.draw(graphics, n, n2);
+    public void a(Graphics graphics, int x, int y, int n3, int n4, int n5) {
+        this.spriteMask.draw(graphics, x, y);
     }
 
     public void a(String recordName, byte[] byArray) throws Exception {
@@ -254,20 +254,20 @@ CommandListener {
         return this.var_int_b == n && System.currentTimeMillis() - this.var_long_a >= 300L;
     }
 
-    public void e(int n) {
-        this.var_int_b = n;
+    public void e(int gameActionCode) {
+        this.var_int_b = gameActionCode;
         this.var_long_a = System.currentTimeMillis();
-        this.var_int_c |= n;
+        this.var_int_c |= gameActionCode;
         if (this.var_a_a != null) {
-            this.var_a_a.d(n);
+            this.var_a_a.d(gameActionCode);
         }
     }
 
-    public void void_c(int n) {
-        if (n == this.var_int_b) {
+    public void void_c(int gameActionCode) {
+        if (gameActionCode == this.var_int_b) {
             this.var_int_b = 0;
         }
-        this.var_int_c &= ~n;
+        this.var_int_c &= ~gameActionCode;
     }
 
     // TODO make private, this is not called outside the class
@@ -287,7 +287,11 @@ CommandListener {
 
     public void run() {
         try {
-            String[] stringArray = new String[]{AppCanvas.getGameText(19), AppCanvas.getGameText(20), AppCanvas.getGameText(18), AppCanvas.getGameText(17)};
+            String[] stringArray = new String[]{
+                AppCanvas.getGameText(19),
+                AppCanvas.getGameText(20),
+                AppCanvas.getGameText(18),
+                AppCanvas.getGameText(17)};
             var_java_lang_String_arr_d = stringArray;
             i.var_d_a = this;
             AppCanvas.void_a("");
@@ -296,7 +300,7 @@ CommandListener {
             i.f();
             AppCanvas.var_e_arr_a[0] = new e("chars");
             AppCanvas.var_e_arr_a[1] = new e("lchars");
-            this.var_h_a = new Sprite("mask.png");
+            this.spriteMask = new Sprite("mask.png");
             this.var_a_a = new a(0);
             this.var_boolean_a = true;
             while (this.var_boolean_a) {
