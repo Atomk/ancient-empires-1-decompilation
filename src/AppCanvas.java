@@ -147,18 +147,18 @@ CommandListener {
     }
 
     public static void a(Graphics graphics, String string, int x, int y, int n3) {
-        int n4 = string.length();
-        for (int j = 0; j < n4; ++j) {
-            char c2 = string.charAt(j);
-            if (c2 < var_short_arr_b[n3] || c2 > var_short_arr_a[n3]) continue;
-            byte by = var_byte_arr_arr_a[n3][c2 - var_short_arr_b[n3]];
+        int stringLength = string.length();
+        for (int j = 0; j < stringLength; ++j) {
+            char letter = string.charAt(j);
+            if (letter < var_short_arr_b[n3] || letter > var_short_arr_a[n3]) continue;
+            byte by = var_byte_arr_arr_a[n3][letter - var_short_arr_b[n3]];
             if (by != -1) {
                 var_e_arr_a[n3].a(by);
                 var_e_arr_a[n3].a(graphics, x, y);
                 x += var_e_arr_a[n3].short_a();
                 continue;
             }
-            byte[] byArray = new byte[]{(byte)c2};
+            byte[] byArray = new byte[]{(byte)letter};
             String text = new String(byArray);
             graphics.drawString(text, x, y, 20);
             x += graphics.getFont().stringWidth(text);
