@@ -1547,15 +1547,15 @@ implements CommandListener {
     public void b(Graphics graphics) {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
-            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.e - this.var_h_c.width) / 2, (i.var_d_a.g - this.var_h_c.height) / 2, 0, 0);
+            graphics.fillRect(0, 0, i.var_d_a.width, i.var_d_a.height);
+            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.width - this.var_h_c.width) / 2, (i.var_d_a.height - this.var_h_c.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.e - this.var_h_c.width) / 2, (i.var_d_a.g - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
+            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.width - this.var_h_c.width) / 2, (i.var_d_a.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
         } else if (this.var_int_p == 2) {
             graphics.setColor(-16777216);
-            graphics.fillRect(0, 0, i.var_d_a.e, i.var_d_a.g);
+            graphics.fillRect(0, 0, i.var_d_a.width, i.var_d_a.height);
             if (this.var_int_m >= 15) {
-                this.var_h_e.draw(graphics, i.var_d_a.e - this.var_h_e.width >> 1, (i.var_d_a.g - this.var_h_e.height) / 3);
+                this.var_h_e.draw(graphics, i.var_d_a.width - this.var_h_e.width >> 1, (i.var_d_a.height - this.var_h_e.height) / 3);
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                 if (this.var_boolean_p && this.var_int_g == 0) {
@@ -1569,7 +1569,7 @@ implements CommandListener {
                 } else {
                     graphics.setColor(0xFFFFFF);
                 }
-                i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, i.var_d_a.e - this.var_h_e.width >> 1, (i.var_d_a.g - this.var_h_e.height) / 3, 0, 0);
+                i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, i.var_d_a.width - this.var_h_e.width >> 1, (i.var_d_a.height - this.var_h_e.height) / 3, 0, 0);
                 graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
             }
         }

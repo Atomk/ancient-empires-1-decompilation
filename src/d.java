@@ -45,8 +45,8 @@ CommandListener {
     public Display appDisplay;
     private boolean var_boolean_a = false;
     public a var_a_a;
-    public int e;
-    public int g;
+    public int width;
+    public int height;
     public int var_int_c = 0;
     public int var_int_b = 0;
     public long var_long_a;
@@ -65,10 +65,10 @@ CommandListener {
     public d(MIDlet mIDlet) {
         try {
             d.loadAppStrings("/lang.dat", false);
-            this.e = this.getWidth();
-            this.g = this.getHeight();
-            var_int_a = this.e;
-            var_int_d = this.g;
+            this.width = this.getWidth();
+            this.height = this.getHeight();
+            var_int_a = this.width;
+            var_int_d = this.height;
             h = var_int_a >> 1;
             f = var_int_d >> 1;
             this.appDisplay = Display.getDisplay((MIDlet)mIDlet);
@@ -170,10 +170,10 @@ CommandListener {
             this.var_a_a.a(graphics);
         } else {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, this.e, this.g);
+            graphics.fillRect(0, 0, this.width, this.height);
             graphics.setFont(var_javax_microedition_lcdui_Font_a);
             graphics.setColor(0);
-            graphics.drawString(d.getGameText(24), this.e / 2, (this.g - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+            graphics.drawString(d.getGameText(24), this.width / 2, (this.height - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
         }
     }
 
