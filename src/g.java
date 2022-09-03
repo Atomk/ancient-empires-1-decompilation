@@ -405,8 +405,8 @@ public class g {
                                                                                     if (!Class_I.appCanvas.boolean_c(16)) break block95;
                                                                                 }
                                                                                 bl = true;
-                                                                                Class_I.appCanvas.void_c(1024);
-                                                                                Class_I.appCanvas.void_c(16);
+                                                                                Class_I.appCanvas.handleKeyReleasedAction(1024);
+                                                                                Class_I.appCanvas.handleKeyReleasedAction(16);
                                                                             }
                                                                             if (this.var_byte_a != 2 && this.var_byte_a != 0) break block97;
                                                                             if (this.var_byte_e != 2) break block98;
@@ -550,14 +550,14 @@ public class g {
                                 this.var_short_b = (short)(this.var_short_b - 1);
                                 this.var_boolean_c = true;
                             }
-                            Class_I.appCanvas.void_c(64);
+                            Class_I.appCanvas.handleKeyReleasedAction(64);
                         }
                         if (Class_I.appCanvas.boolean_c(256)) {
                             if (this.var_short_b + this.u < this.var_java_lang_String_arr_b.length) {
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
                             }
-                            Class_I.appCanvas.void_c(256);
+                            Class_I.appCanvas.handleKeyReleasedAction(256);
                         }
                     } else if (this.var_byte_a == 3 || this.var_byte_a == 5) {
                         if (this.var_byte_e != 1 && this.boolean_a()) {
@@ -599,7 +599,7 @@ public class g {
                 if (!this.var_boolean_g) break block112;
                 if (!Class_I.appCanvas.boolean_c(2048)) break block112;
             }
-            Class_I.appCanvas.void_c(2048);
+            Class_I.appCanvas.handleKeyReleasedAction(2048);
             this.a(true);
             this.var_a_a.c();
             if (!bl && this.var_g_a != null) {

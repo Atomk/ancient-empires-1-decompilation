@@ -255,7 +255,7 @@ CommandListener {
     }
 
     public void keyReleased(int keyCode) {
-        this.void_c(this.getGameAction(keyCode));
+        this.handleKeyReleasedAction(this.getGameAction(keyCode));
     }
 
     public boolean boolean_a(int gameActionCode) {
@@ -272,7 +272,7 @@ CommandListener {
         }
     }
 
-    public void void_c(int gameActionCode) {
+    public void handleKeyReleasedAction(int gameActionCode) {
         if (gameActionCode == this.lastKeyPressedAction) {
             this.lastKeyPressedAction = 0;
         }
