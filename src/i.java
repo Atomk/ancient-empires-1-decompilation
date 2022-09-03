@@ -449,7 +449,7 @@ implements CommandListener {
         try {
             byte[] settingsData = var_d_a.byte_arr_b("settings");
             for (int j = 0; j < 4; ++j) {
-                AppCanvas.var_boolean_arr_a[j] = (settingsData[0] & 1 << j) != 0;
+                AppCanvas.settings[j] = (settingsData[0] & 1 << j) != 0;
             }
         }
         catch (Exception exception) {
@@ -462,14 +462,14 @@ implements CommandListener {
             boolean bl = false;
             for (int j = 0; j < 4; ++j) {
                 boolean n = this.var_javax_microedition_lcdui_ChoiceGroup_a.isSelected(j);
-                if (n == AppCanvas.var_boolean_arr_a[j]) continue;
-                AppCanvas.var_boolean_arr_a[j] = n;
+                if (n == AppCanvas.settings[j]) continue;
+                AppCanvas.settings[j] = n;
                 bl = true;
             }
             if (bl) {
                 byte[] settingsDataBytes = new byte[1];
                 for (int n = 0; n < 4; ++n) {
-                    if (!AppCanvas.var_boolean_arr_a[n]) continue;
+                    if (!AppCanvas.settings[n]) continue;
                     settingsDataBytes[0] = (byte)(settingsDataBytes[0] | 1 << n);
                 }
                 var_d_a.savePersistentData("settings", settingsDataBytes);
@@ -481,7 +481,7 @@ implements CommandListener {
     }
 
     public void b(c c2, c c3) {
-        if (AppCanvas.var_boolean_arr_a[3]) {
+        if (AppCanvas.settings[3]) {
             this.var_boolean_y = true;
             this.var_int_m = 0;
         } else {
@@ -547,7 +547,7 @@ implements CommandListener {
             i.var_d_a.appDisplay.setCurrent((Displayable)form);
         } else if (command == this.var_javax_microedition_lcdui_Command_c) {
             this.k();
-            if (!AppCanvas.var_boolean_arr_a[0]) {
+            if (!AppCanvas.settings[0]) {
                 AppCanvas.stopFirstSound();
             }
             i.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
@@ -669,7 +669,7 @@ implements CommandListener {
             if (string.equals(AppCanvas.getGameText(6))) {
                 this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, AppCanvas.var_java_lang_String_arr_d, null);
                 for (int j = 0; j < 4; ++j) {
-                    this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.var_boolean_arr_a[j]);
+                    this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.settings[j]);
                 }
                 Form form = new Form(AppCanvas.getGameText(6));
                 form.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
@@ -983,7 +983,7 @@ implements CommandListener {
         }
         this.void_a();
         if (this.var_int_s != -1) {
-            if (AppCanvas.var_boolean_arr_a[2]) {
+            if (AppCanvas.settings[2]) {
                 this.var_g_b = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), (byte)-1, (byte)2);
             }
             this.var_int_s = -1;

@@ -52,7 +52,7 @@ CommandListener {
     public long var_long_a;
     private static e[] var_e_arr_a;
     public static Random randomGen;
-    public static boolean[] var_boolean_arr_a;
+    public static boolean[] settings;
     public static String[] var_java_lang_String_arr_d;
     public static boolean var_boolean_b;
     public Sprite spriteMask;
@@ -345,7 +345,7 @@ CommandListener {
 
     public static void playSound(int index, int loopTimes) {
         try {
-            if (var_boolean_arr_a[1]) {
+            if (settings[1]) {
                 // http://www.j2megame.org/j2meapi/Nokia_UI_API_1_1/com/nokia/mid/sound/Sound.html#play(int)
                 midiSounds[index].play(loopTimes);
             }
@@ -522,7 +522,8 @@ CommandListener {
         var_byte_arr_arr_a = new byte[][]{{26, -1, 25, -1, -1, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}};
         var_e_arr_a = new e[2];
         randomGen = new Random();
-        var_boolean_arr_a = new boolean[]{true, true, true, true};
+        // 0/1 - music/sound (referenced in stopSound) // 2 - tutorial
+        settings = new boolean[]{true, true, true, true};
         var_boolean_b = true;
     }
 }
