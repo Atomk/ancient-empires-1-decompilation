@@ -9,18 +9,18 @@ import javax.microedition.midlet.MIDlet;
 public class App
 extends MIDlet {
     public static App instance;
-    public static AppCanvas var_d_a;
+    public static AppCanvas appCanvas;
 
     public void startApp() {
         if (instance == null) {
             instance = this;
-            var_d_a = new AppCanvas(this);
+            appCanvas = new AppCanvas(this);
         }
     }
 
     public void destroyApp(boolean bl) {
-        var_d_a.d();
-        var_d_a = null;
+        appCanvas.d();
+        appCanvas = null;
         instance = null;
     }
 
@@ -29,7 +29,7 @@ extends MIDlet {
 
     static {
         instance = null;
-        var_d_a = null;
+        appCanvas = null;
     }
 }
 
