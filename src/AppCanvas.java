@@ -56,7 +56,7 @@ CommandListener {
     public static String[] var_java_lang_String_arr_d;
     public static boolean var_boolean_b;
     public Sprite spriteMask;
-    public static Sound[] var_com_nokia_mid_sound_Sound_arr_a;
+    public static Sound[] midiSounds;
     public static byte[][] var_byte_arr_arr_b;
     public static String[] var_java_lang_String_arr_a;
     public static String[] stringsPartA;
@@ -328,10 +328,10 @@ CommandListener {
     }
 
     public void b() {
-        var_com_nokia_mid_sound_Sound_arr_a = new Sound[4];
+        midiSounds = new Sound[4];
         for (int j = 0; j < 4; ++j) {
             try {
-                AppCanvas.var_com_nokia_mid_sound_Sound_arr_a[j] = new Sound(AppCanvas.byte_arr_a("a" + j), 1);
+                AppCanvas.midiSounds[j] = new Sound(AppCanvas.byte_arr_a("a" + j), 1);
                 continue;
             }
             catch (Exception exception) {
@@ -344,10 +344,11 @@ CommandListener {
         AppCanvas.void_b(0);
     }
 
-    public static void a(int n, int n2) {
+    public static void a(int index, int loopTimes) {
         try {
             if (var_boolean_arr_a[1]) {
-                var_com_nokia_mid_sound_Sound_arr_a[n].play(n2);
+                // http://www.j2megame.org/j2meapi/Nokia_UI_API_1_1/com/nokia/mid/sound/Sound.html#play(int)
+                midiSounds[index].play(loopTimes);
             }
         }
         catch (Exception exception) {
@@ -355,19 +356,19 @@ CommandListener {
         }
     }
 
-    public static void void_b(int n) {
+    public static void void_b(int index) {
         try {
-            var_com_nokia_mid_sound_Sound_arr_a[n].stop();
+            midiSounds[index].stop();
         }
         catch (Exception exception) {
             // empty catch block
         }
     }
 
-    public static void void_a(int n) {
+    public static void void_a(int index) {
         try {
-            var_com_nokia_mid_sound_Sound_arr_a[n].release();
-            AppCanvas.var_com_nokia_mid_sound_Sound_arr_a[n] = null;
+            midiSounds[index].release();
+            AppCanvas.midiSounds[index] = null;
         }
         catch (Exception exception) {
             // empty catch block
