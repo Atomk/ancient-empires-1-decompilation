@@ -101,7 +101,7 @@ CommandListener {
         catch (Exception exception) {
             // empty catch block
         }
-        RecordStore recordStore = RecordStore.openRecordStore((String)recordName, (boolean)true);
+        RecordStore recordStore = RecordStore.openRecordStore(recordName, true);
         if (recordStore.getNumRecords() == 0) {
             recordStore.addRecord(data, 0, data.length);
         } else {
@@ -111,7 +111,7 @@ CommandListener {
     }
 
     public byte[] loadPersistentData(String recordName) throws Exception {
-        RecordStore recordStore = RecordStore.openRecordStore((String)recordName, (boolean)false);
+        RecordStore recordStore = RecordStore.openRecordStore(recordName, false);
         byte[] data = recordStore.getRecord(1);
         recordStore.closeRecordStore();
         return data;
