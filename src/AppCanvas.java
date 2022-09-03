@@ -43,7 +43,7 @@ CommandListener {
     public static final short[] asciiRefEnd;            // TODO private
     public static final byte[][] var_byte_arr_arr_a;
     public Display appDisplay;
-    private boolean var_boolean_a = false;
+    private boolean isRunning = false;
     public a var_a_a;
     public int width;
     public int height;
@@ -166,7 +166,7 @@ CommandListener {
     }
 
     public void paint(Graphics graphics) {
-        if (this.var_boolean_a) {
+        if (this.isRunning) {
             this.var_a_a.a(graphics);
         } else {
             graphics.setColor(0xFFFFFF);
@@ -271,7 +271,7 @@ CommandListener {
 
     // TODO make private, this is not called outside the class
     public void showErrorForm(String errorText) {
-        this.var_boolean_a = false;
+        this.isRunning = false;
         Form form = new Form("Fatal error!");
         form.append(errorText);
         Command command = new Command("Exit", Command.EXIT, 1);
@@ -281,7 +281,7 @@ CommandListener {
     }
 
     public void handleAppDestroy() {
-        this.var_boolean_a = false;
+        this.isRunning = false;
     }
 
     public void run() {
@@ -301,8 +301,8 @@ CommandListener {
             AppCanvas.var_e_arr_a[1] = new e("lchars");
             this.spriteMask = new Sprite("mask.png");
             this.var_a_a = new a((byte)0);
-            this.var_boolean_a = true;
-            while (this.var_boolean_a) {
+            this.isRunning = true;
+            while (this.isRunning) {
                 if (!this.isShown()) continue;
                 long startMillis = System.currentTimeMillis();
                 this.var_a_a.e();
