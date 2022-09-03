@@ -296,7 +296,7 @@ CommandListener {
             var_java_lang_String_arr_d = stringArray;
             Class_I.appCanvas = this;
             AppCanvas.void_a("");
-            this.b();
+            this.loadSounds();
             this.c();
             Class_I.f();
             AppCanvas.var_e_arr_a[0] = new e("chars");
@@ -328,7 +328,7 @@ CommandListener {
     public void c() {
     }
 
-    public void b() {
+    private void loadSounds() {
         midiSounds = new Sound[4];
         for (int j = 0; j < 4; ++j) {
             try {
