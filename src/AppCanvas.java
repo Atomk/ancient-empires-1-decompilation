@@ -139,17 +139,17 @@ CommandListener {
         }
     }
 
-    public static void a(Graphics graphics, String string, int n, int n2, int n3, int n4) {
+    public static void a(Graphics graphics, String text, int n, int n2, int n3, int n4) {
         if ((n4 & 8) != 0) {
-            n -= AppCanvas.a((byte)n3, string);
+            n -= AppCanvas.a((byte)n3, text);
         }
-        AppCanvas.a(graphics, string, n, n2, n3);
+        AppCanvas.a(graphics, text, n, n2, n3);
     }
 
-    public static void a(Graphics graphics, String string, int x, int y, int n3) {
-        int stringLength = string.length();
+    public static void a(Graphics graphics, String text, int x, int y, int n3) {
+        int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
-            char letter = string.charAt(j);
+            char letter = text.charAt(j);
             if (letter < asciiRefStart[n3] || letter > asciiRefEnd[n3]) continue;
             byte by = var_byte_arr_arr_a[n3][letter - asciiRefStart[n3]];
             if (by != -1) {
