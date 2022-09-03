@@ -446,11 +446,11 @@ CommandListener {
             InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream("/1.pak");
             DataInputStream dataInputStream = new DataInputStream(inputStream);
             short s = dataInputStream.readShort();
-            int n = dataInputStream.readShort();
-            assetsFileName = new String[n];
-            nArray = new int[n];
-            nArray2 = new int[n];
-            for (int j = 0; j < n; ++j) {
+            int filesCount = dataInputStream.readShort();
+            assetsFileName = new String[filesCount];
+            nArray = new int[filesCount];
+            nArray2 = new int[filesCount];
+            for (int j = 0; j < filesCount; ++j) {
                 AppCanvas.assetsFileName[j] = dataInputStream.readUTF();
                 nArray[j] = dataInputStream.readInt() + s;
                 nArray2[j] = dataInputStream.readShort();
