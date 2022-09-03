@@ -147,7 +147,6 @@ CommandListener {
     }
 
     public static void a(Graphics graphics, String string, int n, int n2, int n3) {
-        boolean bl = false;
         int n4 = string.length();
         for (int j = 0; j < n4; ++j) {
             char c2 = string.charAt(j);
@@ -301,7 +300,7 @@ CommandListener {
             AppCanvas.var_e_arr_a[0] = new e("chars");
             AppCanvas.var_e_arr_a[1] = new e("lchars");
             this.spriteMask = new Sprite("mask.png");
-            this.var_a_a = new a(0);
+            this.var_a_a = new a((byte)0);
             this.var_boolean_a = true;
             while (this.var_boolean_a) {
                 if (!this.isShown()) continue;
@@ -381,7 +380,6 @@ CommandListener {
         int n2;
         Vector<String> vector = new Vector<String>();
         int n3 = 0;
-        boolean bl = false;
         int n4 = string.length();
         String string2 = null;
         do {
@@ -411,9 +409,9 @@ CommandListener {
             } while (n2 != n5 && n2 < n4);
             vector.addElement(string2);
         } while ((n3 = ++n2) < n4);
-        Object[] objectArray = new String[vector.size()];
-        vector.copyInto(objectArray);
-        return objectArray;
+        String[] stringsArray = new String[vector.size()];
+        vector.copyInto(stringsArray);
+        return stringsArray;
     }
 
     private static int a(String string, int n) {
