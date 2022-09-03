@@ -372,7 +372,7 @@ implements CommandListener {
         return byArray;
     }
 
-    public void a(byte[] savedGameData) throws Exception {
+    private void loadSavedGameData(byte[] savedGameData) throws Exception {
         int n;
         int n2;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(savedGameData);
@@ -628,7 +628,7 @@ implements CommandListener {
                 var_d_a.repaint();
                 var_d_a.serviceRepaints();
                 this.m();
-                this.a(savedGameData);
+                this.loadSavedGameData(savedGameData);
                 if (this.var_byte_a == 0) {
                     this.a(true);
                 }
