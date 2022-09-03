@@ -45,7 +45,7 @@ public class e {
         byte height = (byte)inputStream.read();
         this.var_h_arr_a = new Sprite[n2];
         try {
-            byte[] imageBytes = AppCanvas.byte_arr_a(imageName + ".png");
+            byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
             int n3 = sprite.width / width;
             int n4 = sprite.height / height;
@@ -63,7 +63,7 @@ public class e {
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
                 if (n != -1) {
-                    byte[] imageBytes = AppCanvas.byte_arr_a(fileName);
+                    byte[] imageBytes = AppCanvas.getFileBytes(fileName);
                     this.var_h_arr_a[j] = Sprite.fromByteArray(imageBytes, n);
                     continue;
                 }

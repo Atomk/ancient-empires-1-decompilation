@@ -250,7 +250,7 @@ implements CommandListener {
         this.var_e_k = new e(this.var_e_h);
         this.var_e_k.a(var_byte_arr_arr_d[3]);
         this.var_e_arr_arr_b = new e[2][11];
-        byte[] byArray = AppCanvas.byte_arr_a("unit_icons.png");
+        byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
@@ -271,7 +271,7 @@ implements CommandListener {
         Sprite[] hArray = e2.var_h_arr_a;
         this.var_int_t = hArray.length;
         e2 = null;
-        byte[] imageBytes = AppCanvas.byte_arr_a("buildings.png");
+        byte[] imageBytes = AppCanvas.getFileBytes("buildings.png");
         Sprite[] hArray2 = new Sprite[9];
         for (s = 0; s <= 2; s = (short)((byte)(s + 1))) {
             byte[] byArray3 = new byte[imageBytes.length];

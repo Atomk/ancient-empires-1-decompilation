@@ -332,7 +332,7 @@ CommandListener {
         midiSounds = new Sound[4];
         for (int j = 0; j < 4; ++j) {
             try {
-                AppCanvas.midiSounds[j] = new Sound(AppCanvas.byte_arr_a("a" + j), Sound.FORMAT_TONE);
+                AppCanvas.midiSounds[j] = new Sound(AppCanvas.getFileBytes("a" + j), Sound.FORMAT_TONE);
                 continue;
             }
             catch (Exception exception) {
@@ -465,7 +465,7 @@ CommandListener {
         }
     }
 
-    public static byte[] byte_arr_a(String filename) {
+    public static byte[] getFileBytes(String filename) {
         for (int j = 0; j < var_java_lang_String_arr_a.length; ++j) {
             if (!filename.equals(var_java_lang_String_arr_a[j])) continue;
             return var_byte_arr_arr_b[j];
@@ -474,7 +474,7 @@ CommandListener {
     }
 
     public static InputStream java_io_InputStream_a(String filename) throws Exception {
-        return new ByteArrayInputStream(AppCanvas.byte_arr_a(filename));
+        return new ByteArrayInputStream(AppCanvas.getFileBytes(filename));
     }
 
     public static void e() {

@@ -43,7 +43,7 @@ extends Class_I {
         this.b = new Sprite[Class_I.var_java_lang_String_arr_a.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.var_java_lang_String_arr_a.length][];
         this.var_e_arr_arr_c = new e[2][11];
-        byte[] byArray = AppCanvas.byte_arr_a("unit_icons_s.png");
+        byte[] byArray = AppCanvas.getFileBytes("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
             byte[] imageBytes = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
