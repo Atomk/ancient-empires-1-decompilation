@@ -19,7 +19,7 @@ extends MIDlet {
     }
 
     public void destroyApp(boolean bl) {
-        appCanvas.d();
+        appCanvas.handleAppDestroy();
         appCanvas = null;
         instance = null;
     }

@@ -280,7 +280,7 @@ CommandListener {
         this.appDisplay.setCurrent((Displayable)form);
     }
 
-    public void d() {
+    public void handleAppDestroy() {
         this.var_boolean_a = false;
     }
 
