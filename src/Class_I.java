@@ -1573,7 +1573,8 @@ implements CommandListener {
         }
     }
 
-    public void a(Graphics graphics) {
+    // This is the game's global draw method
+    public void gameDraw(Graphics graphics) {
         int n;
         if (this.var_byte_d == 2) {
             this.e(graphics);

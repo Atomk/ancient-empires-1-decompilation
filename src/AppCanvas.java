@@ -165,9 +165,11 @@ CommandListener {
         }
     }
 
+    // graphics code can only be executed inside this method. More info:
+    // https://docs.oracle.com/javame/config/cldc/ref-impl/midp2.0/jsr118/javax/microedition/lcdui/Canvas.html#paint(javax.microedition.lcdui.Graphics)
     public void paint(Graphics graphics) {
         if (this.isRunning) {
-            this.var_a_a.a(graphics);
+            this.var_a_a.gameDraw(graphics);
         } else {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, this.width, this.height);
