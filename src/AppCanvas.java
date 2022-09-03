@@ -39,9 +39,9 @@ CommandListener {
     public static int height2;
     public static int h;
     public static int f;
-    public static final short[] asciiRefStart;          // TODO private
-    public static final short[] asciiRefEnd;            // TODO private
-    public static final byte[][] var_byte_arr_arr_a;
+    private static final short[] asciiRefStart;
+    private static final short[] asciiRefEnd;
+    private static final byte[][] var_byte_arr_arr_a;
     public Display appDisplay;
     private boolean isRunning = false;
     public a var_a_a;
@@ -49,18 +49,19 @@ CommandListener {
     public int height;
     public int var_int_c = 0;
     public int var_int_b = 0;
-    public long var_long_a;
+    private long var_long_a;
     private static e[] var_e_arr_a;
     public static Random randomGen;
     public static boolean[] settings;
     public static String[] var_java_lang_String_arr_d;
-    public static boolean var_boolean_b;
-    public Sprite spriteMask;
-    public static Sound[] midiSounds;
-    public static byte[][] var_byte_arr_arr_b;
-    public static String[] var_java_lang_String_arr_a;
-    public static String[] stringsPartA;
-    public static String[] stringsPartB;
+    private static boolean var_boolean_b;
+    private Sprite spriteMask;
+    private static Sound[] midiSounds;
+    private static byte[][] var_byte_arr_arr_b;
+    private static String[] var_java_lang_String_arr_a;
+    // TODO maybe rename to appStrings, more descriptive
+    private static String[] stringsPartA;
+    private static String[] stringsPartB;
 
     public AppCanvas(MIDlet mIDlet) {
         try {
