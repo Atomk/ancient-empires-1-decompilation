@@ -445,7 +445,7 @@ implements CommandListener {
         this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b, (int)((e)this.var_c_arr_a[this.var_byte_c]).l);
     }
 
-    public static void f() {
+    public static void loadSettingsData() {
         try {
             byte[] settingsData = appCanvas.loadPersistentData("settings");
             for (int j = 0; j < 4; ++j) {

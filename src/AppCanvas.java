@@ -297,7 +297,7 @@ CommandListener {
             Class_I.appCanvas = this;
             AppCanvas.readAssetsPackage();
             this.loadSounds();
-            Class_I.f();
+            Class_I.loadSettingsData();
             AppCanvas.var_e_arr_a[0] = new e("chars");
             AppCanvas.var_e_arr_a[1] = new e("lchars");
             this.spriteMask = new Sprite("mask.png");
