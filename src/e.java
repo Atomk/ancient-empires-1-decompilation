@@ -75,7 +75,7 @@ public class e {
         this.var_short_c = this.var_h_arr_a[0].height;
         this.var_byte_arr_e = new byte[n2];
         for (int n6 = 0; n6 < n2; n6 = (byte)(n6 + 1)) {
-            this.var_byte_arr_e[n6] = n6;
+            this.var_byte_arr_e[n6] = (byte)n6;
         }
     }
 
@@ -94,7 +94,7 @@ public class e {
         this.var_short_c = (short)height;
         this.var_byte_arr_e = new byte[n6];
         for (n3 = 0; n3 < n6; n3 = (int)((byte)(n3 + 1))) {
-            this.var_byte_arr_e[n3] = n3;
+            this.var_byte_arr_e[n3] = (byte)n3;
         }
     }
 

@@ -239,7 +239,7 @@ extends e {
                 vector.addElement(c2);
             }
         }
-        Object[] objectArray = new c[vector.size()];
+        c[] objectArray = new c[vector.size()];
         vector.copyInto(objectArray);
         return objectArray;
     }
@@ -340,7 +340,7 @@ extends e {
             if (c.var_i_a.var_long_n - this.var_long_c >= (long)this.var_int_g) {
                 this.var_boolean_e = false;
             } else {
-                boolean bl = this.var_boolean_b = !this.var_boolean_b;
+                this.var_boolean_b = !this.var_boolean_b;
             }
         }
         if (this.var_byte_e == 1) {
@@ -411,7 +411,7 @@ extends e {
         int n = 0;
         for (int n2 = 0; n2 <= c.var_i_a.J; n2 = (int)((byte)(n2 + 1))) {
             if (var_short_arr_b[n2] <= 0) continue;
-            byArray[n++] = n2;
+            byArray[n++] = (byte)n2;
         }
         byte[] byArray2 = new byte[n];
         System.arraycopy(byArray, 0, byArray2, 0, n);
