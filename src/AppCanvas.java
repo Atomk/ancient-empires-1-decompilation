@@ -39,8 +39,8 @@ CommandListener {
     public static int height2;
     public static int h;
     public static int f;
-    public static final short[] var_short_arr_b;
-    public static final short[] var_short_arr_a;
+    public static final short[] asciiRefStart;          // TODO private
+    public static final short[] asciiRefEnd;            // TODO private
     public static final byte[][] var_byte_arr_arr_a;
     public Display appDisplay;
     private boolean var_boolean_a = false;
@@ -150,8 +150,8 @@ CommandListener {
         int stringLength = string.length();
         for (int j = 0; j < stringLength; ++j) {
             char letter = string.charAt(j);
-            if (letter < var_short_arr_b[n3] || letter > var_short_arr_a[n3]) continue;
-            byte by = var_byte_arr_arr_a[n3][letter - var_short_arr_b[n3]];
+            if (letter < asciiRefStart[n3] || letter > asciiRefEnd[n3]) continue;
+            byte by = var_byte_arr_arr_a[n3][letter - asciiRefStart[n3]];
             if (by != -1) {
                 var_e_arr_a[n3].a(by);
                 var_e_arr_a[n3].a(graphics, x, y);
@@ -517,8 +517,8 @@ CommandListener {
     static {
         var_javax_microedition_lcdui_Font_a = Font.getFont((int)0, (int)0, (int)8);
         var_javax_microedition_lcdui_Font_b = Font.getFont((int)0, (int)1, (int)0);
-        var_short_arr_b = new short[]{43, 48};
-        var_short_arr_a = new short[]{90, 57};
+        asciiRefStart = new short[]{43, 48};  // 43 = '+', 48 = '0' (ASCII)
+        asciiRefEnd = new short[]{90, 57};    // 90 = 'Z', 57 = '9' (ASCII)
         var_byte_arr_arr_a = new byte[][]{{26, -1, 25, -1, -1, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}};
         var_e_arr_a = new e[2];
         randomGen = new Random();
