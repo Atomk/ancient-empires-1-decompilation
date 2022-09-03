@@ -35,8 +35,8 @@ implements Runnable,
 CommandListener {
     public static final Font var_javax_microedition_lcdui_Font_a;
     public static final Font var_javax_microedition_lcdui_Font_b;
-    public static int var_int_a;
-    public static int var_int_d;
+    public static int width2;
+    public static int height2;
     public static int h;
     public static int f;
     public static final short[] var_short_arr_b;
@@ -65,12 +65,13 @@ CommandListener {
     public d(MIDlet mIDlet) {
         try {
             d.loadAppStrings("/lang.dat", false);
+            // TODO it seems the next 4 variables (height\width) are never modified, one set is static and the other is not, you can keep just one
             this.width = this.getWidth();
             this.height = this.getHeight();
-            var_int_a = this.width;
-            var_int_d = this.height;
-            h = var_int_a >> 1;
-            f = var_int_d >> 1;
+            width2 = this.width;
+            height2 = this.height;
+            h = width2 >> 1;
+            f = height2 >> 1;
             this.appDisplay = Display.getDisplay((MIDlet)mIDlet);
             this.appDisplay.setCurrent((Displayable)this);
             new Thread(this).start();

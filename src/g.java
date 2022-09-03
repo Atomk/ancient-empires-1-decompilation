@@ -80,26 +80,26 @@ public class g {
             this.var_byte_arr_a = c.byte_arr_a();
             this.z = this.var_byte_arr_a.length;
             this.var_int_b = 64;
-            this.var_int_g = d.var_int_d - 40;
+            this.var_int_g = d.height2 - 40;
             this.w = (this.var_int_b - 6 - 2) / 26;
             this.var_int_f = (this.var_int_g - 12 - 2) / 26;
             this.D = (this.var_int_b - 6 - 24 * this.w) / (this.w + 1);
             this.var_int_h = (this.var_int_f + this.D) * 24 + this.D > this.var_int_g - 6 ? (this.var_int_g - 12 - 24 * this.var_int_f) / (this.var_int_f + 1) : this.D;
             this.var_g_b = g2 = new g(i2, 1, 4);
         } else if (by == 1 || by == 4) {
-            this.var_int_g = d.var_int_d;
+            this.var_int_g = d.height2;
             if (by == 4) {
                 this.var_boolean_a = true;
                 this.j = 65;
                 this.var_c_a = i2.c_a((int)i2.var_short_h, (int)i2.var_short_g, (byte)0);
                 this.x = this.var_c_a.var_byte_d;
                 this.var_byte_c = this.var_c_a.var_byte_a;
-                this.var_int_b = d.var_int_a;
-                this.var_int_g = d.var_int_d * 2 / 3;
+                this.var_int_b = d.width2;
+                this.var_int_g = d.height2 * 2 / 3;
             } else {
                 this.j = 65;
                 this.var_byte_c = i2.var_byte_c;
-                this.var_int_b = d.var_int_a - 64;
+                this.var_int_b = d.width2 - 64;
                 this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.var_e_g.short_b();
             }
             this.v = this.var_int_b - 16;
@@ -120,7 +120,7 @@ public class g {
             this.b();
         } else if (by == 6) {
             this.var_int_g = i2.var_e_m.short_b() + -5;
-            this.var_int_b = d.var_int_a;
+            this.var_int_b = d.width2;
             int n2 = this.var_int_g - 6;
             n2 = n == 2 ? (n2 -= 2) : (n2 -= 6);
             g.a(this, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), n2, 1);
@@ -142,7 +142,7 @@ public class g {
             g2.var_boolean_a = true;
         }
         Font font = g2.var_javax_microedition_lcdui_Font_a;
-        int n3 = d.var_int_a - g2.D * 4 - 12;
+        int n3 = d.width2 - g2.D * 4 - 12;
         int n4 = font.stringWidth(string2);
         int n5 = 0;
         if (string != null && (n2 = font.stringWidth(string)) > n4) {
@@ -166,8 +166,8 @@ public class g {
         }
         g2.var_int_b = n5 + g2.D * 4 + 12;
         g2.var_int_g = n6 + 12;
-        if (g2.var_int_g > d.var_int_d) {
-            n6 = d.var_int_d - 12;
+        if (g2.var_int_g > d.height2) {
+            n6 = d.height2 - 12;
             if (string != null) {
                 n6 -= g2.D;
             }
@@ -213,7 +213,7 @@ public class g {
                 this.var_int_c = 0;
                 this.A = 0;
             } else {
-                this.var_int_c = this.A = d.var_int_a - this.var_int_b;
+                this.var_int_c = this.A = d.width2 - this.var_int_b;
             }
         }
     }
@@ -238,12 +238,12 @@ public class g {
         if ((this.t & 4) == 0) {
             this.var_int_b += 6;
         }
-        if (this.var_int_b > d.var_int_a) {
-            this.var_int_b = d.var_int_a;
+        if (this.var_int_b > d.width2) {
+            this.var_int_b = d.width2;
         }
         this.var_int_g = this.m * stringArray.length + this.D + 12;
-        if (this.var_int_g > d.var_int_d) {
-            this.var_int_g = d.var_int_d;
+        if (this.var_int_g > d.height2) {
+            this.var_int_g = d.height2;
             g.a(this, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), this.var_int_g - 12, this.D);
         }
     }
@@ -272,14 +272,14 @@ public class g {
             this.var_a_a.var_g_c.a((byte)8, 0, 0, null, 0);
         }
         if (this.var_byte_a == 6 || this.var_byte_a == 4 || this.var_byte_a == 5) {
-            this.y = d.var_int_d - this.var_int_g;
+            this.y = d.height2 - this.var_int_g;
         }
         if ((this.var_byte_a == 3 || this.var_byte_a == 5 || this.var_byte_a == 0) && this.var_boolean_e && this.boolean_a()) {
             this.void_a();
         }
         if (this.var_byte_a == 7 || this.var_byte_a == 9) {
-            this.A = (d.var_int_a - this.var_int_b) / 2;
-            this.y = (d.var_int_d - this.var_int_g) / 2;
+            this.A = (d.width2 - this.var_int_b) / 2;
+            this.y = (d.height2 - this.var_int_g) / 2;
         }
         if (this.var_byte_a == 9) {
             this.var_a_a.var_g_i = this;
@@ -294,8 +294,8 @@ public class g {
                 break;
             }
             case 8: {
-                this.A = d.var_int_a - this.var_int_b;
-                this.var_int_c = d.var_int_a;
+                this.A = d.width2 - this.var_int_b;
+                this.var_int_c = d.width2;
                 break;
             }
             case 1: {
@@ -303,7 +303,7 @@ public class g {
                 break;
             }
             case 2: {
-                this.s = d.var_int_d;
+                this.s = d.height2;
             }
         }
         int n = 9;
@@ -572,7 +572,7 @@ public class g {
                                 ++this.y;
                                 this.var_boolean_c = true;
                             }
-                        } else if (i.var_d_a.boolean_c(2) && this.s + this.var_int_g > d.var_int_d) {
+                        } else if (i.var_d_a.boolean_c(2) && this.s + this.var_int_g > d.height2) {
                             --this.s;
                             --this.y;
                             this.var_boolean_c = true;
@@ -583,7 +583,7 @@ public class g {
                                 ++this.A;
                                 this.var_boolean_c = true;
                             }
-                        } else if (i.var_d_a.boolean_c(8) && this.var_int_c + this.var_int_b > d.var_int_a) {
+                        } else if (i.var_d_a.boolean_c(8) && this.var_int_c + this.var_int_b > d.width2) {
                             --this.var_int_c;
                             --this.A;
                             this.var_boolean_c = true;
@@ -645,7 +645,7 @@ public class g {
                 this.l -= this.var_int_e;
                 this.var_int_c += this.o;
                 this.s += this.l;
-                if (this.var_int_c <= -this.var_int_b || this.var_int_c >= d.var_int_a || this.s <= -this.var_int_g || this.s >= d.var_int_d) {
+                if (this.var_int_c <= -this.var_int_b || this.var_int_c >= d.width2 || this.s <= -this.var_int_g || this.s >= d.height2) {
                     this.var_byte_e = (byte)3;
                     this.var_a_a.var_boolean_m = true;
                     this.var_a_a.var_java_util_Vector_e.removeElement(this);
@@ -694,7 +694,7 @@ public class g {
         if ((this.t & 8) == 0) {
             n3 -= 6;
         }
-        graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+        graphics.setClip(0, 0, d.width2, d.height2);
         graphics.translate(n2, n);
         graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
         if (this.var_byte_e == 2 || this.var_byte_a == 3 || this.var_byte_a == 5) {
@@ -1000,15 +1000,15 @@ public class g {
             }
         }
         graphics.translate(-n2, -n);
-        graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+        graphics.setClip(0, 0, d.width2, d.height2);
         if (this.var_byte_e == 2) {
             if (this.var_boolean_a) {
                 this.var_a_a.var_e_e.a(0);
-                this.var_a_a.var_e_e.a(graphics, 0, d.var_int_d - this.var_a_a.var_e_e.short_b());
+                this.var_a_a.var_e_e.a(graphics, 0, d.height2 - this.var_a_a.var_e_e.short_b());
             }
             if (this.var_boolean_g) {
                 this.var_a_a.var_e_e.a(1);
-                this.var_a_a.var_e_e.a(graphics, d.var_int_a - this.var_a_a.var_e_e.short_a(), d.var_int_d - this.var_a_a.var_e_e.short_b());
+                this.var_a_a.var_e_e.a(graphics, d.width2 - this.var_a_a.var_e_e.short_a(), d.height2 - this.var_a_a.var_e_e.short_b());
             }
         }
     }

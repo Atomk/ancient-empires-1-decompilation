@@ -117,8 +117,8 @@ public class f {
         if (d.h % this.var_h_arr_a[0].width != 0) {
             ++this.j;
         }
-        this.n = (d.var_int_d - this.var_int_d) / this.var_h_arr_a[0].height;
-        if ((d.var_int_d - this.var_int_d) % this.var_h_arr_a[0].height != 0) {
+        this.n = (d.height2 - this.var_int_d) / this.var_h_arr_a[0].height;
+        if ((d.height2 - this.var_int_d) % this.var_h_arr_a[0].height != 0) {
             ++this.n;
         }
         this.var_byte_arr_arr_c = new byte[this.j][this.n];
@@ -653,7 +653,7 @@ public class f {
     public void a(Graphics graphics) {
         if (this.var_a_a.var_boolean_b) {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, d.var_int_a, d.var_int_d);
+            graphics.fillRect(0, 0, d.width2, d.height2);
         }
         for (int j = 0; j < this.var_byte_b; ++j) {
             e e2 = this.var_e_arr_b[j];

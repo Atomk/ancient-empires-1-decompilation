@@ -1400,30 +1400,30 @@ implements CommandListener {
 
     public int int_b(int n) {
         int n2;
-        if (this.var_short_c > d.var_int_a) {
+        if (this.var_short_c > d.width2) {
             n2 = d.h - n;
             if (n2 > 0) {
                 n2 = 0;
-            } else if (n2 < d.var_int_a - this.var_short_c) {
-                n2 = (short)(d.var_int_a - this.var_short_c);
+            } else if (n2 < d.width2 - this.var_short_c) {
+                n2 = (short)(d.width2 - this.var_short_c);
             }
         } else {
-            n2 = (d.var_int_a - this.var_short_c) / 2;
+            n2 = (d.width2 - this.var_short_c) / 2;
         }
         return n2;
     }
 
     public int int_a(int n) {
         int n2;
-        if (this.var_short_i > d.var_int_d) {
+        if (this.var_short_i > d.height2) {
             n2 = d.f - n;
             if (n2 > 0) {
                 n2 = 0;
-            } else if (n2 < d.var_int_d - this.var_short_i) {
-                n2 = (short)(d.var_int_d - this.var_short_i);
+            } else if (n2 < d.height2 - this.var_short_i) {
+                n2 = (short)(d.height2 - this.var_short_i);
             }
         } else {
-            n2 = (d.var_int_d - this.var_short_i) / 2;
+            n2 = (d.height2 - this.var_short_i) / 2;
         }
         return n2;
     }
@@ -1487,12 +1487,12 @@ implements CommandListener {
         if (s2 < 0) {
             s2 = 0;
         }
-        short s3 = (short)(s + d.var_int_a / 24);
-        short s4 = (short)(s2 + d.var_int_d / 24);
-        if (d.var_int_a % 24 != 0) {
+        short s3 = (short)(s + d.width2 / 24);
+        short s4 = (short)(s2 + d.height2 / 24);
+        if (d.width2 % 24 != 0) {
             s3 = (short)(s3 + 1);
         }
-        if (d.var_int_d % 24 != 0) {
+        if (d.height2 % 24 != 0) {
             s4 = (short)(s4 + 1);
         }
         if (s3 >= this.var_short_e) {
@@ -1539,9 +1539,9 @@ implements CommandListener {
     public void c(Graphics graphics) {
         graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
         graphics.setColor(0);
-        graphics.fillRect(0, 0, d.var_int_a, d.var_int_d);
+        graphics.fillRect(0, 0, d.width2, d.height2);
         graphics.setColor(0xFFFFFF);
-        graphics.drawString(d.getGameText(24), d.var_int_a / 2, (d.var_int_d - d.var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+        graphics.drawString(d.getGameText(24), d.width2 / 2, (d.height2 - d.var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
     }
 
     public void b(Graphics graphics) {
@@ -1559,18 +1559,18 @@ implements CommandListener {
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                 if (this.var_boolean_p && this.var_int_g == 0) {
-                    graphics.drawString(d.getGameText(25), d.h, d.var_int_d * 3 / 4, 17);
+                    graphics.drawString(d.getGameText(25), d.h, d.height2 * 3 / 4, 17);
                 }
-                graphics.drawString(d.getGameText(15), d.h, d.var_int_d - 1, 33);
+                graphics.drawString(d.getGameText(15), d.h, d.height2 - 1, 33);
             } else {
                 if (32 * this.N <= 255) {
                     graphics.setColor(0xFFFFFF - 0x202020 * this.N);
-                    graphics.fillRect(0, 0, d.var_int_a, d.var_int_d);
+                    graphics.fillRect(0, 0, d.width2, d.height2);
                 } else {
                     graphics.setColor(0xFFFFFF);
                 }
                 i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, i.var_d_a.width - this.var_h_e.width >> 1, (i.var_d_a.height - this.var_h_e.height) / 3, 0, 0);
-                graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+                graphics.setClip(0, 0, d.width2, d.height2);
             }
         }
     }
@@ -1591,7 +1591,7 @@ implements CommandListener {
                 if (this.var_int_m >= 15 && this.var_byte_i != 11) {
                     this.c(graphics);
                 } else {
-                    i.a(graphics, 0, this.var_int_m, 15, this.var_int_e, null, 0, 0, d.var_int_a, d.var_int_d);
+                    i.a(graphics, 0, this.var_int_m, 15, this.var_int_e, null, 0, 0, d.width2, d.height2);
                 }
                 return;
             }
@@ -1599,10 +1599,10 @@ implements CommandListener {
                 this.b(graphics);
             } else {
                 int n2;
-                graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
-                if (this.var_short_c < d.var_int_a || this.var_short_i < d.var_int_d) {
+                graphics.setClip(0, 0, d.width2, d.height2);
+                if (this.var_short_c < d.width2 || this.var_short_i < d.height2) {
                     graphics.setColor(0);
-                    graphics.fillRect(0, 0, d.var_int_a, d.var_int_d);
+                    graphics.fillRect(0, 0, d.width2, d.height2);
                 }
                 this.d(graphics);
                 int n3 = this.var_java_util_Vector_a.size();
@@ -1646,7 +1646,7 @@ implements CommandListener {
                             }
                         }
                         if (n3 == n4 - 1) {
-                            graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+                            graphics.setClip(0, 0, d.width2, d.height2);
                             this.var_e_k.a(graphics, n5 - 1, n6 - 4);
                             continue;
                         }
@@ -1667,7 +1667,7 @@ implements CommandListener {
                         this.a(graphics, n7 - this.G, n6, 0, 12, true);
                     }
                 }
-                graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+                graphics.setClip(0, 0, d.width2, d.height2);
                 if (this.var_c_h != null) {
                     this.var_c_h.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
                     this.var_c_h.b(graphics, this.var_short_f, this.var_short_a);
@@ -1677,10 +1677,10 @@ implements CommandListener {
                 }
                 if (this.var_byte_i == 11 && !this.var_boolean_y) {
                     String string = d.getGameText(23);
-                    graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+                    graphics.setClip(0, 0, d.width2, d.height2);
                     graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
                     graphics.setColor(-16777216);
-                    graphics.fillRect(0, 0, d.var_int_a, d.var_int_d);
+                    graphics.fillRect(0, 0, d.width2, d.height2);
                     n3 = d.f - d.var_javax_microedition_lcdui_Font_a.getHeight() / 2;
                     graphics.setColor(-1);
                     graphics.drawString(string, d.h, n3, 17);
@@ -1696,11 +1696,11 @@ implements CommandListener {
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
                 this.var_e_e.a(1);
-                this.var_e_e.a(graphics, d.var_int_a - this.var_e_e.short_a(), d.var_int_d - this.var_e_e.short_b());
+                this.var_e_e.a(graphics, d.width2 - this.var_e_e.short_a(), d.height2 - this.var_e_e.short_b());
             }
             if (this.var_boolean_t) {
                 this.var_e_e.a(0);
-                this.var_e_e.a(graphics, 0, d.var_int_d - this.var_e_e.short_b());
+                this.var_e_e.a(graphics, 0, d.height2 - this.var_e_e.short_b());
             }
         }
     }
@@ -2950,7 +2950,7 @@ implements CommandListener {
     }
 
     public void e(Graphics graphics) {
-        graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+        graphics.setClip(0, 0, d.width2, d.height2);
         int n = 0;
         int n2 = 0;
         if (this.var_boolean_q) {
@@ -2960,7 +2960,7 @@ implements CommandListener {
         this.var_f_b.a(graphics, n, n2);
         this.var_f_a.a(graphics, n + d.h, n2);
         graphics.setColor(0);
-        graphics.fillRect(d.h - 1 + n, n2, 2, d.var_int_d);
+        graphics.fillRect(d.h - 1 + n, n2, 2, d.height2);
         this.var_f_b.b(graphics);
         this.var_f_a.b(graphics);
         if (this.var_f_b.var_boolean_f) {
@@ -2974,17 +2974,17 @@ implements CommandListener {
             e e2 = (e)this.var_java_util_Vector_c.elementAt(j);
             if (e2.var_boolean_a) {
                 if (this.var_f_b.var_boolean_f) {
-                    graphics.setClip(d.h, 0, d.h, d.var_int_d);
+                    graphics.setClip(d.h, 0, d.h, d.height2);
                 } else {
-                    graphics.setClip(0, 0, d.h, d.var_int_d);
+                    graphics.setClip(0, 0, d.h, d.height2);
                 }
             } else {
-                graphics.setClip(0, 0, d.var_int_a, d.var_int_d);
+                graphics.setClip(0, 0, d.width2, d.height2);
             }
             e2.a(graphics, 0, 0);
         }
         if (this.var_boolean_e) {
-            i.a(graphics, 0, this.var_int_m, 15, 1, null, 0, 0, d.var_int_a, d.var_int_d);
+            i.a(graphics, 0, this.var_int_m, 15, 1, null, 0, 0, d.width2, d.height2);
         }
     }
 
