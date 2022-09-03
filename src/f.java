@@ -282,7 +282,7 @@ public class f {
                         this.var_e_arr_a[j].var_boolean_a = true;
                     }
                     if (this.var_int_g != -1) {
-                        AppCanvas.a(this.var_int_g, 1);
+                        AppCanvas.playSound(this.var_int_g, 1);
                     }
                 }
                 this.o = 5;
@@ -355,7 +355,7 @@ public class f {
                     if (this.var_a_a.var_long_n - this.var_long_c < 200L) break;
                     this.var_int_c = 1;
                     this.var_long_c = this.var_a_a.var_long_n;
-                    AppCanvas.a(this.var_int_g, 1);
+                    AppCanvas.playSound(this.var_int_g, 1);
                     break;
                 }
                 if (this.var_int_c == 1) {
@@ -605,7 +605,7 @@ public class f {
         e[] eArray = new e[this.var_byte_b];
         System.arraycopy(this.var_e_arr_b, this.l, eArray, 0, this.var_byte_b);
         this.var_e_arr_b = eArray;
-        AppCanvas.a(1, 1);
+        AppCanvas.playSound(1, 1);
     }
 
     public void a(Graphics graphics, int offsetX, int offsetY) {

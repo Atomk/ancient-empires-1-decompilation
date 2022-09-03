@@ -71,7 +71,7 @@ extends i {
             }
             case 1: {
                 if (this.var_int_m >= 15) {
-                    AppCanvas.a(0, 1);
+                    AppCanvas.playSound(0, 1);
                     this.var_h_c = null;
                     this.var_int_m = 0;
                     ++this.var_int_p;

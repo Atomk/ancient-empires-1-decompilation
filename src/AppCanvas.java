@@ -341,10 +341,10 @@ CommandListener {
     }
 
     public static void a() {
-        AppCanvas.void_b(0);
+        AppCanvas.stopSound(0);
     }
 
-    public static void a(int index, int loopTimes) {
+    public static void playSound(int index, int loopTimes) {
         try {
             if (var_boolean_arr_a[1]) {
                 // http://www.j2megame.org/j2meapi/Nokia_UI_API_1_1/com/nokia/mid/sound/Sound.html#play(int)
@@ -356,7 +356,7 @@ CommandListener {
         }
     }
 
-    public static void void_b(int index) {
+    public static void stopSound(int index) {
         try {
             midiSounds[index].stop();
         }
@@ -365,8 +365,10 @@ CommandListener {
         }
     }
 
-    public static void void_a(int index) {
+    public static void releaseSoundResources(int index) {
         try {
+            // Releases audio resources reserved by this object.
+            // http://www.j2megame.org/j2meapi/Nokia_UI_API_1_1/com/nokia/mid/sound/Sound.html#release()
             midiSounds[index].release();
             AppCanvas.midiSounds[index] = null;
         }

@@ -231,7 +231,7 @@ implements CommandListener {
         Object imageBytesObj;
         short s;
         AppCanvas.a();
-        AppCanvas.void_a(0);
+        AppCanvas.releaseSoundResources(0);
         if (this.var_byte_d == 1) {
             return;
         }
@@ -498,7 +498,7 @@ implements CommandListener {
         e e2;
         if (this.var_c_i.h <= 0) {
             this.var_c_c = this.var_c_i;
-            AppCanvas.a(3, 1);
+            AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
             e2 = this.a(this.var_e_j, this.var_c_i.var_short_b + 3, ((e)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_c);
@@ -506,7 +506,7 @@ implements CommandListener {
         }
         if (this.var_c_b.h <= 0) {
             this.var_c_c = this.var_c_b;
-            AppCanvas.a(3, 1);
+            AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.a((short)128)) {
             e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 4, ((e)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_f);
@@ -516,7 +516,7 @@ implements CommandListener {
             e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 3, ((e)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_b.var_short_b, ((e)this.var_c_b).l, 0, 0, 1, 50);
-            AppCanvas.a(-1, 1);
+            AppCanvas.playSound(-1, 1);
         }
         if (this.var_c_c != null) {
             this.a(this.var_e_r, this.var_c_c.var_short_b, ((e)this.var_c_c).l, 0, 0, 1, 50);
@@ -735,7 +735,7 @@ implements CommandListener {
                     this.void_a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, (int)this.var_c_h.var_byte_a);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     this.var_byte_i = (byte)9;
-                    AppCanvas.a(-1, 1);
+                    AppCanvas.playSound(-1, 1);
                     this.var_long_c = this.var_long_n;
                 }
                 this.var_c_h.void_b();
@@ -856,7 +856,7 @@ implements CommandListener {
             this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.F), -1, false);
             this.a(false);
             this.void_b(500);
-            AppCanvas.a(-1, 1);
+            AppCanvas.playSound(-1, 1);
         } else {
             this.var_g_e = g.a(this, AppCanvas.getGameText(36), AppCanvas.getGameText(62), -1, false);
         }
@@ -903,7 +903,7 @@ implements CommandListener {
             this.var_g_h = new g(this, 0, 8);
             this.var_g_h.a(this.java_lang_String_arr_a(c2, (byte)0));
             this.var_g_h.a((byte)8, 0, this.var_g_c.var_int_g, null, 0);
-            AppCanvas.a(-1, 1);
+            AppCanvas.playSound(-1, 1);
         } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
             this.var_byte_b = (byte)4;
         }
@@ -948,7 +948,7 @@ implements CommandListener {
             }
             case 1: {
                 if (this.var_int_m >= 15) {
-                    AppCanvas.a(0, 1);
+                    AppCanvas.playSound(0, 1);
                     this.var_h_c = null;
                     this.var_int_m = 0;
                     ++this.var_int_p;
@@ -1241,7 +1241,7 @@ implements CommandListener {
                                     this.var_boolean_r = false;
                                     this.var_boolean_t = false;
                                     this.var_byte_i = (byte)2;
-                                    AppCanvas.a(-1, 1);
+                                    AppCanvas.playSound(-1, 1);
                                 }
                                 var_d_a.void_c(16);
                             }
@@ -1275,7 +1275,7 @@ implements CommandListener {
                                         this.var_g_h = new g(this, 0, 8);
                                         this.var_g_h.a(stringArray);
                                         this.var_g_h.a((byte)8, 0, 40, null, 0);
-                                        AppCanvas.a(-1, 1);
+                                        AppCanvas.playSound(-1, 1);
                                     } else {
                                         this.var_boolean_d = false;
                                         this.a(this.var_c_h);
@@ -1286,7 +1286,7 @@ implements CommandListener {
                                     this.var_g_h = new g(this, 0, 8);
                                     this.var_g_h.a(stringArray);
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
-                                    AppCanvas.a(-1, 1);
+                                    AppCanvas.playSound(-1, 1);
                                 }
                                 var_d_a.void_c(16);
                                 var_d_a.void_c(1024);
@@ -1910,7 +1910,7 @@ implements CommandListener {
                 if (this.a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, this.var_c_h)) {
                     this.void_a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, (int)this.var_c_h.var_byte_a);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
-                    AppCanvas.a(-1, 1);
+                    AppCanvas.playSound(-1, 1);
                     this.var_byte_i = (byte)9;
                     this.var_long_c = this.var_long_n;
                 } else {
@@ -2474,7 +2474,7 @@ implements CommandListener {
                     for (int j = 5; j < 10; ++j) {
                         this.a(this.var_e_d, j * 24, 288, 0, 0, 4, 50);
                     }
-                    AppCanvas.a(1, 3);
+                    AppCanvas.playSound(1, 3);
                     this.void_b(200);
                     ++this.var_int_a;
                     break;
@@ -2853,7 +2853,7 @@ implements CommandListener {
     }
 
     public void g() {
-        AppCanvas.a(2, 1);
+        AppCanvas.playSound(2, 1);
         this.var_byte_i = (byte)10;
         g.a(this, null, AppCanvas.getGameText(37), 1000, true);
         this.var_long_c = this.var_long_n;
