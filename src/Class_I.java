@@ -1536,11 +1536,11 @@ implements CommandListener {
     }
 
     public void c(Graphics graphics) {
-        graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
+        graphics.setFont(AppCanvas.fontSmallPlain);
         graphics.setColor(0);
         graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
         graphics.setColor(0xFFFFFF);
-        graphics.drawString(AppCanvas.getGameText(24), AppCanvas.width2 / 2, (AppCanvas.height2 - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+        graphics.drawString(AppCanvas.getGameText(24), AppCanvas.width2 / 2, (AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight()) / 2, 17);
     }
 
     public void b(Graphics graphics) {
@@ -1556,7 +1556,7 @@ implements CommandListener {
             if (this.var_int_m >= 15) {
                 this.var_h_e.draw(graphics, Class_I.var_d_a.width - this.var_h_e.width >> 1, (Class_I.var_d_a.height - this.var_h_e.height) / 3);
                 graphics.setColor(0xFFFFFF);
-                graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
+                graphics.setFont(AppCanvas.fontSmallPlain);
                 if (this.var_boolean_p && this.var_int_g == 0) {
                     graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 * 3 / 4, 17);
                 }
@@ -1675,10 +1675,10 @@ implements CommandListener {
                 if (this.var_byte_i == 11 && !this.var_boolean_y) {
                     String string = AppCanvas.getGameText(23);
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
-                    graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
+                    graphics.setFont(AppCanvas.fontSmallPlain);
                     graphics.setColor(-16777216);
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
-                    n3 = AppCanvas.f - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight() / 2;
+                    n3 = AppCanvas.f - AppCanvas.fontSmallPlain.getHeight() / 2;
                     graphics.setColor(-1);
                     graphics.drawString(string, AppCanvas.h, n3, 17);
                 }

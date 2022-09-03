@@ -19,7 +19,7 @@ public class g {
     public int var_int_b;
     public int var_int_g;
     public int m;
-    public Font var_javax_microedition_lcdui_Font_a = AppCanvas.var_javax_microedition_lcdui_Font_a;
+    public Font var_javax_microedition_lcdui_Font_a = AppCanvas.fontSmallPlain;
     public int x;
     public int z;
     public int B;

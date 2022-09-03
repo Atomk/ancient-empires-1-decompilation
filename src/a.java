@@ -123,8 +123,8 @@ extends Class_I {
                     this.var_h_e.draw(graphics, (Class_I.var_d_a.width - this.var_h_e.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
-                        graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
-                        graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
+                        graphics.setFont(AppCanvas.fontSmallPlain);
+                        graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
                     }
                     this.var_h_a.draw(graphics, (Class_I.var_d_a.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
                 } else {

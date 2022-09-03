@@ -33,7 +33,7 @@ public class AppCanvas
 extends FullCanvas
 implements Runnable,
 CommandListener {
-    public static final Font var_javax_microedition_lcdui_Font_a;
+    public static final Font fontSmallPlain;
     public static final Font var_javax_microedition_lcdui_Font_b;
     public static int width2;
     public static int height2;
@@ -171,9 +171,9 @@ CommandListener {
         } else {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, this.width, this.height);
-            graphics.setFont(var_javax_microedition_lcdui_Font_a);
+            graphics.setFont(fontSmallPlain);
             graphics.setColor(0);
-            graphics.drawString(AppCanvas.getGameText(24), this.width / 2, (this.height - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+            graphics.drawString(AppCanvas.getGameText(24), this.width / 2, (this.height - fontSmallPlain.getHeight()) / 2, 17);
         }
     }
 
@@ -515,7 +515,7 @@ CommandListener {
     }
 
     static {
-        var_javax_microedition_lcdui_Font_a = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL);
+        fontSmallPlain = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL);
         var_javax_microedition_lcdui_Font_b = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
         asciiRefStart = new short[]{43, 48};  // 43 = '+', 48 = '0' (ASCII)
         asciiRefEnd = new short[]{90, 57};    // 90 = 'Z', 57 = '9' (ASCII)
