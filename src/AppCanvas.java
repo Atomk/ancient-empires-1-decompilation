@@ -467,8 +467,9 @@ CommandListener {
 
     public static byte[] getFileBytes(String filename) {
         for (int j = 0; j < assetsFileName.length; ++j) {
-            if (!filename.equals(assetsFileName[j])) continue;
-            return assetsFileBytes[j];
+            if (filename.equals(assetsFileName[j])) {
+                return assetsFileBytes[j];
+            }
         }
         return null;
     }
