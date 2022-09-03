@@ -156,9 +156,9 @@ public class e {
             graphics.setColor(this.f);
             for (int j = 0; j < 5; ++j) {
                 if (!this.var_boolean_arr_a[j]) continue;
-                int x = (this.var_int_arr_arr_b[j][0] >> 10) + x + this.var_short_b;
-                int y = (this.var_int_arr_arr_b[j][1] >> 10) + y + this.l;
-                graphics.fillRect(x, y, (int)this.var_byte_arr_d[j], (int)this.var_byte_arr_d[j]);
+                int n3 = (this.var_int_arr_arr_b[j][0] >> 10) + x + this.var_short_b;
+                int n4 = (this.var_int_arr_arr_b[j][1] >> 10) + y + this.l;
+                graphics.fillRect(n3, n4, (int)this.var_byte_arr_d[j], (int)this.var_byte_arr_d[j]);
             }
         } else if (this.var_byte_c == 3) {
             graphics.setColor(0);
@@ -168,9 +168,9 @@ public class e {
                 graphics.drawLine(this.var_short_b - 4, this.l - 2, (int)this.var_short_b, (int)this.l);
             }
         } else if (this.var_boolean_c) {
-            int x = this.var_short_b + x;
-            int y = this.l + y;
-            this.var_h_arr_a[this.var_byte_arr_e[this.var_short_d]].draw(graphics, x, y);
+            int n5 = this.var_short_b + x;
+            int n6 = this.l + y;
+            this.var_h_arr_a[this.var_byte_arr_e[this.var_short_d]].draw(graphics, n5, n6);
         }
     }
 
