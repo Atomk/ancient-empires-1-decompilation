@@ -330,7 +330,7 @@ implements CommandListener {
     public void n() {
     }
 
-    public byte[] byte_arr_a() throws Exception {
+    public byte[] getGameSaveData() throws Exception {
         int n;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
@@ -618,7 +618,7 @@ implements CommandListener {
             this.var_g_f.a(stringArray);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (string.equals(AppCanvas.getGameText(3))) {
-            var_d_a.savePersistentData("save", this.byte_arr_a());
+            var_d_a.savePersistentData("save", this.getGameSaveData());
             g.a(this, null, AppCanvas.getGameText(40), 1000, true);
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(4))) {
