@@ -26,7 +26,7 @@ import javax.microedition.lcdui.Item;
 
 public class i
 implements CommandListener {
-    public byte[] var_byte_arr_e = new byte[1];
+    public byte[] levelsData = new byte[1];
     public static AppCanvas var_d_a;
     public static String[] var_java_lang_String_arr_b;
     public byte var_byte_a;
@@ -216,7 +216,7 @@ implements CommandListener {
             this.var_h_e = new Sprite("splash.png");
             this.var_int_p = 0;
             try {
-                this.var_byte_arr_e = var_d_a.byte_arr_b("levels");
+                this.levelsData = var_d_a.byte_arr_b("levels");
             }
             catch (Exception exception) {
                 // empty catch block
@@ -591,7 +591,7 @@ implements CommandListener {
         boolean bl = true;
         if (string.equals(AppCanvas.getGameText(1)) || g2 == this.var_g_f) {
             if (g2 == this.var_g_f) {
-                if (n > this.var_byte_arr_e[0]) return;
+                if (n > this.levelsData[0]) return;
                 this.F = n;
                 this.var_g_f = null;
             } else {
@@ -613,7 +613,7 @@ implements CommandListener {
             String[] stringArray = new String[7];
             int n2 = stringArray.length;
             for (int j = 0; j < n2; ++j) {
-                stringArray[j] = j <= this.var_byte_arr_e[0] ? AppCanvas.getGameText(48 + j) : "???";
+                stringArray[j] = j <= this.levelsData[0] ? AppCanvas.getGameText(48 + j) : "???";
             }
             this.var_g_f.a(stringArray);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
@@ -1003,9 +1003,9 @@ implements CommandListener {
                     if (this.var_int_m > 15) {
                         if (this.var_byte_i == 10) {
                             ++this.F;
-                            if (this.F > this.var_byte_arr_e[0]) {
-                                this.var_byte_arr_e[0] = (byte)this.F;
-                                var_d_a.savePersistentData("levels", this.var_byte_arr_e);
+                            if (this.F > this.levelsData[0]) {
+                                this.levelsData[0] = (byte)this.F;
+                                var_d_a.savePersistentData("levels", this.levelsData);
                             }
                             this.void_a(this.F);
                             this.var_byte_i = 0;
