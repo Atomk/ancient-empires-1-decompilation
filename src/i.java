@@ -459,17 +459,16 @@ implements CommandListener {
 
     public void k() {
         try {
-            int n;
             boolean bl = false;
             for (int j = 0; j < 4; ++j) {
-                n = this.var_javax_microedition_lcdui_ChoiceGroup_a.isSelected(j);
+                boolean n = this.var_javax_microedition_lcdui_ChoiceGroup_a.isSelected(j);
                 if (n == AppCanvas.var_boolean_arr_a[j]) continue;
                 AppCanvas.var_boolean_arr_a[j] = n;
                 bl = true;
             }
             if (bl) {
                 byte[] byArray = new byte[1];
-                for (n = 0; n < 4; ++n) {
+                for (int n = 0; n < 4; ++n) {
                     if (!AppCanvas.var_boolean_arr_a[n]) continue;
                     byArray[0] = (byte)(byArray[0] | 1 << n);
                 }
