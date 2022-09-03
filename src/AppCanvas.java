@@ -146,7 +146,7 @@ CommandListener {
         AppCanvas.a(graphics, string, n, n2, n3);
     }
 
-    public static void a(Graphics graphics, String string, int n, int n2, int n3) {
+    public static void a(Graphics graphics, String string, int x, int y, int n3) {
         int n4 = string.length();
         for (int j = 0; j < n4; ++j) {
             char c2 = string.charAt(j);
@@ -154,14 +154,14 @@ CommandListener {
             byte by = var_byte_arr_arr_a[n3][c2 - var_short_arr_b[n3]];
             if (by != -1) {
                 var_e_arr_a[n3].a(by);
-                var_e_arr_a[n3].a(graphics, n, n2);
-                n += var_e_arr_a[n3].short_a();
+                var_e_arr_a[n3].a(graphics, x, y);
+                x += var_e_arr_a[n3].short_a();
                 continue;
             }
             byte[] byArray = new byte[]{(byte)c2};
-            String string2 = new String(byArray);
-            graphics.drawString(string2, n, n2, 20);
-            n += graphics.getFont().stringWidth(string2);
+            String text = new String(byArray);
+            graphics.drawString(text, x, y, 20);
+            x += graphics.getFont().stringWidth(text);
         }
     }
 
@@ -304,12 +304,12 @@ CommandListener {
             this.var_boolean_a = true;
             while (this.var_boolean_a) {
                 if (!this.isShown()) continue;
-                long l = System.currentTimeMillis();
+                long startMillis = System.currentTimeMillis();
                 this.var_a_a.e();
-                int n = (int)(System.currentTimeMillis() - l);
-                if (n >= 75) continue;
+                int elapsedMillis = (int)(System.currentTimeMillis() - startMillis);
+                if (elapsedMillis >= 75) continue;
                 try {
-                    Thread.sleep(75 - n);
+                    Thread.sleep(75 - elapsedMillis);
                 }
                 catch (Exception exception) {}
             }

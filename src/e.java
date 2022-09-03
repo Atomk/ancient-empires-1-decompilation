@@ -151,13 +151,13 @@ public class e {
         this.var_short_d = 0;
     }
 
-    public void a(Graphics graphics, int n, int n2) {
+    public void a(Graphics graphics, int x, int y) {
         if (this.var_byte_c == 2 || this.var_byte_c == 4) {
             graphics.setColor(this.f);
             for (int j = 0; j < 5; ++j) {
                 if (!this.var_boolean_arr_a[j]) continue;
-                int x = (this.var_int_arr_arr_b[j][0] >> 10) + n + this.var_short_b;
-                int y = (this.var_int_arr_arr_b[j][1] >> 10) + n2 + this.l;
+                int x = (this.var_int_arr_arr_b[j][0] >> 10) + x + this.var_short_b;
+                int y = (this.var_int_arr_arr_b[j][1] >> 10) + y + this.l;
                 graphics.fillRect(x, y, (int)this.var_byte_arr_d[j], (int)this.var_byte_arr_d[j]);
             }
         } else if (this.var_byte_c == 3) {
@@ -168,8 +168,8 @@ public class e {
                 graphics.drawLine(this.var_short_b - 4, this.l - 2, (int)this.var_short_b, (int)this.l);
             }
         } else if (this.var_boolean_c) {
-            int x = this.var_short_b + n;
-            int y = this.l + n2;
+            int x = this.var_short_b + x;
+            int y = this.l + y;
             this.var_h_arr_a[this.var_byte_arr_e[this.var_short_d]].draw(graphics, x, y);
         }
     }
