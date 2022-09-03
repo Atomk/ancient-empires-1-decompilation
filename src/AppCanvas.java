@@ -54,7 +54,6 @@ CommandListener {
     public static Random randomGen;
     public static boolean[] settings;
     public static String[] var_java_lang_String_arr_d;
-    private static boolean var_boolean_b;
     private Sprite spriteMask;
     private static Sound[] midiSounds;
     private static byte[][] var_byte_arr_arr_b;
@@ -526,7 +525,6 @@ CommandListener {
         randomGen = new Random();
         // 0/1 - music/sound (referenced in stopSound) // 2 - tutorial
         settings = new boolean[]{true, true, true, true};
-        var_boolean_b = true;
     }
 }
 
