@@ -74,7 +74,6 @@ public class g {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
         } else if (by == 2) {
-            g g2;
             this.var_boolean_g = true;
             this.var_boolean_a = true;
             this.var_byte_arr_a = c.byte_arr_a();
@@ -85,7 +84,7 @@ public class g {
             this.var_int_f = (this.var_int_g - 12 - 2) / 26;
             this.D = (this.var_int_b - 6 - 24 * this.w) / (this.w + 1);
             this.var_int_h = (this.var_int_f + this.D) * 24 + this.D > this.var_int_g - 6 ? (this.var_int_g - 12 - 24 * this.var_int_f) / (this.var_int_f + 1) : this.D;
-            this.var_g_b = g2 = new g(i2, 1, 4);
+            this.var_g_b = new g(i2, (byte)1, 4);
         } else if (by == 1 || by == 4) {
             this.var_int_g = AppCanvas.height2;
             if (by == 4) {
@@ -135,7 +134,7 @@ public class g {
 
     public static g a(i i2, String string, String string2, int n, boolean bl) {
         int n2;
-        g g2 = new g(i2, 9, 0);
+        g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
         g2.n = n;
         if (n == -1) {
@@ -187,7 +186,7 @@ public class g {
 
     public static g a(i i2, String string, byte by, byte by2) {
         byte by3 = by2;
-        g g2 = new g(i2, 6, by3);
+        g g2 = new g(i2, (byte)6, by3);
         g2.var_byte_b = by;
         if (by == -1) {
             by3 = 0;
@@ -728,9 +727,9 @@ public class g {
                         graphics.drawString(AppCanvas.getGameText(63 + this.x), n13, n14, 20);
                     }
                     graphics.setColor(0);
-                    String string = "";
+                    //String string = "";
                     StringBuffer stringBuffer = new StringBuffer();
-                    int n15 = 4;
+                    //int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
                         AppCanvas.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
