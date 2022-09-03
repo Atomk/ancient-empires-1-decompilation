@@ -57,7 +57,7 @@ CommandListener {
     private Sprite spriteMask;
     private static Sound[] midiSounds;
     private static byte[][] var_byte_arr_arr_b;
-    private static String[] var_java_lang_String_arr_a;
+    private static String[] assetsFileName;
     // TODO maybe rename to appStrings, more descriptive
     private static String[] stringsPartA;
     private static String[] stringsPartB;
@@ -440,24 +440,24 @@ CommandListener {
     }
 
     public static void void_a(String string) throws Exception {
-        if (var_java_lang_String_arr_a == null) {
-            var_java_lang_String_arr_a = null;
+        if (assetsFileName == null) {
+            assetsFileName = null;
             int[] nArray = null;
             int[] nArray2 = null;
             InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream("/1.pak");
             DataInputStream dataInputStream = new DataInputStream(inputStream);
             short s = dataInputStream.readShort();
             int n = dataInputStream.readShort();
-            var_java_lang_String_arr_a = new String[n];
+            assetsFileName = new String[n];
             nArray = new int[n];
             nArray2 = new int[n];
             for (int j = 0; j < n; ++j) {
-                AppCanvas.var_java_lang_String_arr_a[j] = dataInputStream.readUTF();
+                AppCanvas.assetsFileName[j] = dataInputStream.readUTF();
                 nArray[j] = dataInputStream.readInt() + s;
                 nArray2[j] = dataInputStream.readShort();
             }
-            var_byte_arr_arr_b = new byte[var_java_lang_String_arr_a.length][];
-            for (int j = 0; j < var_java_lang_String_arr_a.length; ++j) {
+            var_byte_arr_arr_b = new byte[assetsFileName.length][];
+            for (int j = 0; j < assetsFileName.length; ++j) {
                 AppCanvas.var_byte_arr_arr_b[j] = new byte[nArray2[j]];
                 dataInputStream.readFully(var_byte_arr_arr_b[j]);
             }
@@ -466,8 +466,8 @@ CommandListener {
     }
 
     public static byte[] getFileBytes(String filename) {
-        for (int j = 0; j < var_java_lang_String_arr_a.length; ++j) {
-            if (!filename.equals(var_java_lang_String_arr_a[j])) continue;
+        for (int j = 0; j < assetsFileName.length; ++j) {
+            if (!filename.equals(assetsFileName[j])) continue;
             return var_byte_arr_arr_b[j];
         }
         return null;
