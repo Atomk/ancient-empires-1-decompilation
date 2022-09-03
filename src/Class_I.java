@@ -216,7 +216,7 @@ implements CommandListener {
             this.var_h_e = new Sprite("splash.png");
             this.var_int_p = 0;
             try {
-                this.levelsData = var_d_a.byte_arr_b("levels");
+                this.levelsData = var_d_a.loadPersistentData("levels");
             }
             catch (Exception exception) {
                 // empty catch block
@@ -447,7 +447,7 @@ implements CommandListener {
 
     public static void f() {
         try {
-            byte[] settingsData = var_d_a.byte_arr_b("settings");
+            byte[] settingsData = var_d_a.loadPersistentData("settings");
             for (int j = 0; j < 4; ++j) {
                 AppCanvas.settings[j] = (settingsData[0] & 1 << j) != 0;
             }
@@ -623,7 +623,7 @@ implements CommandListener {
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(4))) {
             try {
-                byte[] byArray = var_d_a.byte_arr_b("save");
+                byte[] byArray = var_d_a.loadPersistentData("save");
                 this.var_boolean_l = true;
                 var_d_a.repaint();
                 var_d_a.serviceRepaints();

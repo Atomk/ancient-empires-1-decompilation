@@ -110,11 +110,11 @@ CommandListener {
         recordStore.closeRecordStore();
     }
 
-    public byte[] byte_arr_b(String recordName) throws Exception {
+    public byte[] loadPersistentData(String recordName) throws Exception {
         RecordStore recordStore = RecordStore.openRecordStore((String)recordName, (boolean)false);
-        byte[] byArray = recordStore.getRecord(1);
+        byte[] data = recordStore.getRecord(1);
         recordStore.closeRecordStore();
-        return byArray;
+        return data;
     }
 
     public static int a(byte by, String string) {
