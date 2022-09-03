@@ -295,7 +295,7 @@ CommandListener {
                 AppCanvas.getGameText(17)};
             var_java_lang_String_arr_d = stringArray;
             Class_I.appCanvas = this;
-            AppCanvas.void_a("");
+            AppCanvas.readAssetsPackage("");
             this.loadSounds();
             this.c();
             Class_I.f();
@@ -439,7 +439,7 @@ CommandListener {
         return n >= 11904 && n < 44032 || n >= 63744 && n < 64256 || n >= 65280 && n < 65504;
     }
 
-    public static void void_a(String string) throws Exception {
+    public static void readAssetsPackage(String string) throws Exception {
         if (assetsFileName == null) {
             assetsFileName = null;
             int[] nArray = null;
