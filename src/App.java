@@ -1,11 +1,7 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  javax.microedition.midlet.MIDlet
- */
 import javax.microedition.midlet.MIDlet;
 
+// Application entry point
+// https://docs.oracle.com/javame/8.0/api/meep/api/javax/microedition/midlet/MIDlet.html
 public class App
 extends MIDlet {
     public static App instance = null;
