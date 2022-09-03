@@ -447,9 +447,9 @@ implements CommandListener {
 
     public static void f() {
         try {
-            byte[] byArray = var_d_a.byte_arr_b("settings");
+            byte[] settingsData = var_d_a.byte_arr_b("settings");
             for (int j = 0; j < 4; ++j) {
-                AppCanvas.var_boolean_arr_a[j] = (byArray[0] & 1 << j) != 0;
+                AppCanvas.var_boolean_arr_a[j] = (settingsData[0] & 1 << j) != 0;
             }
         }
         catch (Exception exception) {
@@ -467,12 +467,12 @@ implements CommandListener {
                 bl = true;
             }
             if (bl) {
-                byte[] byArray = new byte[1];
+                byte[] settingsDataBytes = new byte[1];
                 for (int n = 0; n < 4; ++n) {
                     if (!AppCanvas.var_boolean_arr_a[n]) continue;
-                    byArray[0] = (byte)(byArray[0] | 1 << n);
+                    settingsDataBytes[0] = (byte)(settingsDataBytes[0] | 1 << n);
                 }
-                var_d_a.savePersistentData("settings", byArray);
+                var_d_a.savePersistentData("settings", settingsDataBytes);
             }
         }
         catch (Exception exception) {
