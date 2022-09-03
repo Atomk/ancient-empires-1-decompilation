@@ -94,7 +94,7 @@ CommandListener {
         this.spriteMask.draw(graphics, x, y);
     }
 
-    public void a(String recordName, byte[] byArray) throws Exception {
+    public void savePersistentData(String recordName, byte[] data) throws Exception {
         try {
             RecordStore.deleteRecordStore((String)recordName);
         }
@@ -103,9 +103,9 @@ CommandListener {
         }
         RecordStore recordStore = RecordStore.openRecordStore((String)recordName, (boolean)true);
         if (recordStore.getNumRecords() == 0) {
-            recordStore.addRecord(byArray, 0, byArray.length);
+            recordStore.addRecord(data, 0, data.length);
         } else {
-            recordStore.setRecord(1, byArray, 0, byArray.length);
+            recordStore.setRecord(1, data, 0, data.length);
         }
         recordStore.closeRecordStore();
     }

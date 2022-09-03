@@ -472,7 +472,7 @@ implements CommandListener {
                     if (!AppCanvas.var_boolean_arr_a[n]) continue;
                     byArray[0] = (byte)(byArray[0] | 1 << n);
                 }
-                var_d_a.a("settings", byArray);
+                var_d_a.savePersistentData("settings", byArray);
             }
         }
         catch (Exception exception) {
@@ -618,7 +618,7 @@ implements CommandListener {
             this.var_g_f.a(stringArray);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (string.equals(AppCanvas.getGameText(3))) {
-            var_d_a.a("save", this.byte_arr_a());
+            var_d_a.savePersistentData("save", this.byte_arr_a());
             g.a(this, null, AppCanvas.getGameText(40), 1000, true);
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(4))) {
@@ -1005,7 +1005,7 @@ implements CommandListener {
                             ++this.F;
                             if (this.F > this.var_byte_arr_e[0]) {
                                 this.var_byte_arr_e[0] = (byte)this.F;
-                                var_d_a.a("levels", this.var_byte_arr_e);
+                                var_d_a.savePersistentData("levels", this.var_byte_arr_e);
                             }
                             this.void_a(this.F);
                             this.var_byte_i = 0;
