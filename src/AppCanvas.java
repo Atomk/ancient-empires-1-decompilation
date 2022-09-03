@@ -50,7 +50,7 @@ CommandListener {
     public int width;
     public int height;
     public int var_int_c = 0;
-    public int var_int_b = 0;
+    public int lastGameActionPressed = 0;
     private long var_long_a;
     private static e[] var_e_arr_a;
     public static Random randomGen;
@@ -259,11 +259,11 @@ CommandListener {
     }
 
     public boolean boolean_a(int n) {
-        return this.var_int_b == n && System.currentTimeMillis() - this.var_long_a >= 300L;
+        return this.lastGameActionPressed == n && System.currentTimeMillis() - this.var_long_a >= 300L;
     }
 
     public void handleKeyPressedAction(int gameActionCode) {
-        this.var_int_b = gameActionCode;
+        this.lastGameActionPressed = gameActionCode;
         this.var_long_a = System.currentTimeMillis();
         this.var_int_c |= gameActionCode;
         if (this.var_a_a != null) {
@@ -272,8 +272,8 @@ CommandListener {
     }
 
     public void void_c(int gameActionCode) {
-        if (gameActionCode == this.var_int_b) {
-            this.var_int_b = 0;
+        if (gameActionCode == this.lastGameActionPressed) {
+            this.lastGameActionPressed = 0;
         }
         this.var_int_c &= ~gameActionCode;
     }
