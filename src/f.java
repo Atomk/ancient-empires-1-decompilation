@@ -635,7 +635,7 @@ public class f {
         }
         String string = "" + this.h;
         n6 = (AppCanvas.h - AppCanvas.a((byte)1, string)) / 2;
-        AppCanvas.a(graphics, string, n6, 2, 1);
+        AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, 1);
         string = null;
         n6 = (AppCanvas.h - this.var_a_a.var_h_h.width) / 2;
         n4 = AppCanvas.a((byte)1) + 4;
@@ -646,7 +646,7 @@ public class f {
         if (n3 > 0) {
             stringBuffer.append("+" + n3);
         }
-        AppCanvas.a(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, 0);
+        AppCanvas.drawBoldWhiteText(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, 0);
         graphics.translate(-offsetX, -offsetY);
     }
 

@@ -732,14 +732,14 @@ public class g {
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
-                        AppCanvas.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
                         n12 = n3 / 2;
                         graphics.drawLine(n12, n14, n12, this.j);
                         graphics.setColor(0);
-                        AppCanvas.a(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
                         n14 += AppCanvas.a((byte)0) + 2;
                         if ((this.var_c_a.var_byte_b & 1) != 0) {
                             this.var_a_a.var_e_j.a(0);
@@ -761,7 +761,7 @@ public class g {
                         }
                     }
                     graphics.setColor(0xFF0000);
-                    AppCanvas.a(graphics, "ATK", 2, 33, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, 0);
                     stringBuffer.append(c.var_byte_arr_a[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_f > 0) {
@@ -776,7 +776,7 @@ public class g {
                     }
                     String string2 = stringBuffer.toString();
                     AppCanvas.a(graphics, string2, n13, 33, 0, 8);
-                    AppCanvas.a(graphics, "DEF", 2, 43, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, 0);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(c.var_byte_arr_f[this.x]);
                     if (this.var_byte_a == 4) {
@@ -789,7 +789,7 @@ public class g {
                     }
                     string2 = stringBuffer.toString();
                     AppCanvas.a(graphics, string2, n13, 43, 0, 8);
-                    AppCanvas.a(graphics, "MOV", 2, 53, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, 0);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(c.var_byte_arr_b[this.x]);
                     if (this.var_byte_a == 4) {
@@ -818,14 +818,14 @@ public class g {
                         n10 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
                         n9 = this.j - this.var_a_a.var_e_g.short_b() / 2;
                         this.var_a_a.var_e_g.a(graphics, n10, n9 - this.p);
-                        AppCanvas.a(graphics, "1", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
                     this.var_a_a.var_e_g.a(1);
                     n10 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.var_e_g.short_b() / 2;
                     this.var_a_a.var_e_g.a(graphics, n10, n9 + this.p);
-                    AppCanvas.a(graphics, "7", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "7", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
                     break;
                 }
                 case 2: {
@@ -902,8 +902,8 @@ public class g {
                     graphics.setColor(0);
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
-                    AppCanvas.a(graphics, "DEF", 7, n25, 0);
-                    AppCanvas.a(graphics, "" + i.var_byte_arr_g[by], 14, n25 += 9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "" + i.var_byte_arr_g[by], 14, n25 += 9, 0);
                     if (this.var_c_a == null) break;
                     this.var_a_a.a(this.var_c_a.var_byte_a, this.var_c_a.var_byte_d).a(graphics, 35, 2);
                     n25 = 22;

@@ -143,10 +143,10 @@ CommandListener {
         if ((n4 & 8) != 0) {
             n -= AppCanvas.a((byte)n3, text);
         }
-        AppCanvas.a(graphics, text, n, n2, n3);
+        AppCanvas.drawBoldWhiteText(graphics, text, n, n2, n3);
     }
 
-    public static void a(Graphics graphics, String text, int x, int y, int n3) {
+    public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, int n3) {
         int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
             char letter = text.charAt(j);
