@@ -9,7 +9,7 @@ import javax.microedition.lcdui.Graphics;
 
 public class c
 extends e {
-    public static i var_i_a;
+    public static Class_I var_i_a;
     public String var_java_lang_String_a;
     public short var_short_d;
     public short var_short_b;
@@ -328,9 +328,9 @@ extends e {
                 if (by == 5) {
                     return 1;
                 }
-                return i.var_byte_arr_i[by] * 2;
+                return Class_I.var_byte_arr_i[by] * 2;
             }
-            return i.var_byte_arr_i[by];
+            return Class_I.var_byte_arr_i[by];
         }
         return 10000;
     }

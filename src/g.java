@@ -65,7 +65,7 @@ public class g {
     public boolean var_boolean_d = true;
     public g var_g_a;
 
-    public g(i i2, byte by, int n) {
+    public g(Class_I i2, byte by, int n) {
         this.var_a_a = (a)i2;
         this.var_byte_a = by;
         this.t = n;
@@ -132,7 +132,7 @@ public class g {
         this.var_boolean_c = true;
     }
 
-    public static g a(i i2, String string, String string2, int n, boolean bl) {
+    public static g a(Class_I i2, String string, String string2, int n, boolean bl) {
         int n2;
         g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
@@ -184,7 +184,7 @@ public class g {
         return g2;
     }
 
-    public static g a(i i2, String string, byte by, byte by2) {
+    public static g a(Class_I i2, String string, byte by, byte by2) {
         byte by3 = by2;
         g g2 = new g(i2, (byte)6, by3);
         g2.var_byte_b = by;
@@ -401,18 +401,18 @@ public class g {
                                                                                     }
                                                                                     bl = false;
                                                                                     if (!this.var_boolean_a) break block95;
-                                                                                    if (i.var_d_a.boolean_c(1024)) break block96;
-                                                                                    if (!i.var_d_a.boolean_c(16)) break block95;
+                                                                                    if (Class_I.var_d_a.boolean_c(1024)) break block96;
+                                                                                    if (!Class_I.var_d_a.boolean_c(16)) break block95;
                                                                                 }
                                                                                 bl = true;
-                                                                                i.var_d_a.void_c(1024);
-                                                                                i.var_d_a.void_c(16);
+                                                                                Class_I.var_d_a.void_c(1024);
+                                                                                Class_I.var_d_a.void_c(16);
                                                                             }
                                                                             if (this.var_byte_a != 2 && this.var_byte_a != 0) break block97;
                                                                             if (this.var_byte_e != 2) break block98;
-                                                                            if (!i.var_d_a.boolean_c(2)) break block99;
+                                                                            if (!Class_I.var_d_a.boolean_c(2)) break block99;
                                                                             if (this.var_boolean_i) break block100;
-                                                                            if (!i.var_d_a.boolean_a(2)) break block101;
+                                                                            if (!Class_I.var_d_a.boolean_a(2)) break block101;
                                                                         }
                                                                         this.x += this.w;
                                                                         if (this.x >= this.z) {
@@ -427,9 +427,9 @@ public class g {
                                                                     this.var_boolean_i = false;
                                                                     break block102;
                                                                 }
-                                                                if (!i.var_d_a.boolean_c(1)) break block103;
+                                                                if (!Class_I.var_d_a.boolean_c(1)) break block103;
                                                                 if (this.var_boolean_i) break block104;
-                                                                if (!i.var_d_a.boolean_a(1)) break block105;
+                                                                if (!Class_I.var_d_a.boolean_a(1)) break block105;
                                                             }
                                                             this.x -= this.w;
                                                             if (this.x < 0) {
@@ -444,9 +444,9 @@ public class g {
                                                         this.var_boolean_i = false;
                                                         break block102;
                                                     }
-                                                    if (!i.var_d_a.boolean_c(4)) break block106;
+                                                    if (!Class_I.var_d_a.boolean_c(4)) break block106;
                                                     if (this.var_boolean_i) break block107;
-                                                    if (!i.var_d_a.boolean_a(4)) break block108;
+                                                    if (!Class_I.var_d_a.boolean_a(4)) break block108;
                                                 }
                                                 if (this.var_byte_a == 2) {
                                                     --this.x;
@@ -459,9 +459,9 @@ public class g {
                                             this.var_boolean_i = false;
                                             break block102;
                                         }
-                                        if (!i.var_d_a.boolean_c(8)) break block109;
+                                        if (!Class_I.var_d_a.boolean_c(8)) break block109;
                                         if (this.var_boolean_i) break block110;
-                                        if (!i.var_d_a.boolean_a(8)) break block111;
+                                        if (!Class_I.var_d_a.boolean_a(8)) break block111;
                                     }
                                     if (this.var_byte_a == 2) {
                                         ++this.x;
@@ -497,13 +497,13 @@ public class g {
                     }
                     if (this.var_byte_a == 6) {
                         if (this.var_byte_e == 2) {
-                            if (i.var_d_a.var_int_c != 0) {
+                            if (Class_I.var_d_a.var_int_c != 0) {
                                 if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) {
                                     this.a(false);
                                 } else {
                                     this.var_short_b = (short)(this.var_short_b + this.u);
                                 }
-                                i.var_d_a.var_int_c = 0;
+                                Class_I.var_d_a.var_int_c = 0;
                                 this.var_boolean_c = true;
                             }
                         }
@@ -533,31 +533,31 @@ public class g {
                             this.var_boolean_c = true;
                         }
                         if (this.var_int_i == 0) {
-                            if (i.var_d_a.boolean_c(1) && this.var_short_b > 0) {
+                            if (Class_I.var_d_a.boolean_c(1) && this.var_short_b > 0) {
                                 this.var_int_i = -this.m;
                                 this.var_short_b = (short)(this.var_short_b - 1);
                                 this.var_boolean_c = true;
                             }
-                            if (i.var_d_a.boolean_c(2) && this.var_short_b + this.u < this.var_java_lang_String_arr_b.length) {
+                            if (Class_I.var_d_a.boolean_c(2) && this.var_short_b + this.u < this.var_java_lang_String_arr_b.length) {
                                 this.var_int_i = this.m;
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
                             }
                         }
                     } else if (this.var_byte_a == 1 || this.var_byte_a == 4) {
-                        if (i.var_d_a.boolean_c(64)) {
+                        if (Class_I.var_d_a.boolean_c(64)) {
                             if (this.var_short_b > 0) {
                                 this.var_short_b = (short)(this.var_short_b - 1);
                                 this.var_boolean_c = true;
                             }
-                            i.var_d_a.void_c(64);
+                            Class_I.var_d_a.void_c(64);
                         }
-                        if (i.var_d_a.boolean_c(256)) {
+                        if (Class_I.var_d_a.boolean_c(256)) {
                             if (this.var_short_b + this.u < this.var_java_lang_String_arr_b.length) {
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
                             }
-                            i.var_d_a.void_c(256);
+                            Class_I.var_d_a.void_c(256);
                         }
                     } else if (this.var_byte_a == 3 || this.var_byte_a == 5) {
                         if (this.var_byte_e != 1 && this.boolean_a()) {
@@ -565,24 +565,24 @@ public class g {
                         }
                         this.var_boolean_c = true;
                     } else if (this.var_byte_a == 7) {
-                        if (i.var_d_a.boolean_c(1)) {
+                        if (Class_I.var_d_a.boolean_c(1)) {
                             if (this.s < 0) {
                                 ++this.s;
                                 ++this.y;
                                 this.var_boolean_c = true;
                             }
-                        } else if (i.var_d_a.boolean_c(2) && this.s + this.var_int_g > AppCanvas.height2) {
+                        } else if (Class_I.var_d_a.boolean_c(2) && this.s + this.var_int_g > AppCanvas.height2) {
                             --this.s;
                             --this.y;
                             this.var_boolean_c = true;
                         }
-                        if (i.var_d_a.boolean_c(4)) {
+                        if (Class_I.var_d_a.boolean_c(4)) {
                             if (this.var_int_c < 0) {
                                 ++this.var_int_c;
                                 ++this.A;
                                 this.var_boolean_c = true;
                             }
-                        } else if (i.var_d_a.boolean_c(8) && this.var_int_c + this.var_int_b > AppCanvas.width2) {
+                        } else if (Class_I.var_d_a.boolean_c(8) && this.var_int_c + this.var_int_b > AppCanvas.width2) {
                             --this.var_int_c;
                             --this.A;
                             this.var_boolean_c = true;
@@ -597,9 +597,9 @@ public class g {
                 if (this.var_byte_e != 2) break block112;
                 if (bl) break block113;
                 if (!this.var_boolean_g) break block112;
-                if (!i.var_d_a.boolean_c(2048)) break block112;
+                if (!Class_I.var_d_a.boolean_c(2048)) break block112;
             }
-            i.var_d_a.void_c(2048);
+            Class_I.var_d_a.void_c(2048);
             this.a(true);
             this.var_a_a.c();
             if (!bl && this.var_g_a != null) {
@@ -616,7 +616,7 @@ public class g {
                         if (this.var_boolean_h) {
                             ++this.var_a_a.var_int_q;
                         }
-                        i.var_d_a.keyReleased(-1);
+                        Class_I.var_d_a.keyReleased(-1);
                     }
                 } else {
                     this.o -= this.k;
@@ -632,7 +632,7 @@ public class g {
                         if (this.var_boolean_h) {
                             ++this.var_a_a.var_int_q;
                         }
-                        i.var_d_a.keyReleased(-1);
+                        Class_I.var_d_a.keyReleased(-1);
                     }
                 }
                 this.var_boolean_c = true;
@@ -837,7 +837,7 @@ public class g {
                             e e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
                             if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < c.var_short_arr_b[this.var_byte_arr_a[n16]]) {
-                                i.var_d_a.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
+                                Class_I.var_d_a.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.x) {
                                 this.var_a_a.var_h_i.draw(graphics, n17 - this.var_a_a.var_h_i.width + this.p, n18);
@@ -862,7 +862,7 @@ public class g {
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;
                     graphics.setClip(0, n19, n3, n20);
-                    graphics.setColor(i.var_int_arr_a[this.var_a_a.var_byte_c]);
+                    graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.var_byte_c]);
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
                     if (this.var_a_a.var_byte_c == 1) {
@@ -896,14 +896,14 @@ public class g {
                 }
                 case 5: {
                     byte by = this.var_a_a.byte_a(this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g);
-                    byte by2 = this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : i.var_byte_arr_h[by];
+                    byte by2 = this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : Class_I.var_byte_arr_h[by];
                     int n24 = 6;
                     this.var_a_a.var_h_arr_c[by2].draw(graphics, n24, 2);
                     graphics.setColor(0);
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, 0);
-                    AppCanvas.drawBoldWhiteText(graphics, "" + i.var_byte_arr_g[by], 14, n25 += 9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "" + Class_I.var_byte_arr_g[by], 14, n25 += 9, 0);
                     if (this.var_c_a == null) break;
                     this.var_a_a.a(this.var_c_a.var_byte_a, this.var_c_a.var_byte_d).a(graphics, 35, 2);
                     n25 = 22;

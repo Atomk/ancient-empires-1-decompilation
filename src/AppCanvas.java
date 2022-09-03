@@ -292,11 +292,11 @@ CommandListener {
                 AppCanvas.getGameText(18),
                 AppCanvas.getGameText(17)};
             var_java_lang_String_arr_d = stringArray;
-            i.var_d_a = this;
+            Class_I.var_d_a = this;
             AppCanvas.void_a("");
             this.b();
             this.c();
-            i.f();
+            Class_I.f();
             AppCanvas.var_e_arr_a[0] = new e("chars");
             AppCanvas.var_e_arr_a[1] = new e("lchars");
             this.spriteMask = new Sprite("mask.png");

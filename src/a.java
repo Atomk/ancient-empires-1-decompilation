@@ -8,7 +8,7 @@ import java.util.Vector;
 import javax.microedition.lcdui.Graphics;
 
 public class a
-extends i {
+extends Class_I {
     public static final boolean[] var_boolean_arr_a;
     public Sprite var_h_g;
     public Sprite var_h_d;
@@ -40,8 +40,8 @@ extends i {
         this.var_h_a = null;
         super.m();
         this.var_e_arr_arr_a = new e[2][11];
-        this.b = new Sprite[i.var_java_lang_String_arr_a.length];
-        this.var_h_arr_arr_a = new Sprite[i.var_java_lang_String_arr_a.length][];
+        this.b = new Sprite[Class_I.var_java_lang_String_arr_a.length];
+        this.var_h_arr_arr_a = new Sprite[Class_I.var_java_lang_String_arr_a.length][];
         this.var_e_arr_arr_c = new e[2][11];
         byte[] byArray = AppCanvas.byte_arr_a("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
@@ -97,11 +97,11 @@ extends i {
                     break;
                 }
                 this.var_boolean_p = !this.var_boolean_p;
-                if (i.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
+                if (Class_I.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, 67, null, 16);
-                i.var_d_a.var_int_c = 0;
+                Class_I.var_d_a.var_int_c = 0;
             }
         }
     }
@@ -109,26 +109,26 @@ extends i {
     public void b(Graphics graphics) {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, i.var_d_a.width, i.var_d_a.height);
-            i.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (i.var_d_a.width - this.var_h_c.width) / 2, (i.var_d_a.height - this.var_h_c.height) / 2, 0, 0);
+            graphics.fillRect(0, 0, Class_I.var_d_a.width, Class_I.var_d_a.height);
+            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (Class_I.var_d_a.width - this.var_h_c.width) / 2, (Class_I.var_d_a.height - this.var_h_c.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (i.var_d_a.width - this.var_h_c.width) / 2, (i.var_d_a.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
+            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.var_d_a.width - this.var_h_c.width) / 2, (Class_I.var_d_a.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
         } else {
             graphics.setColor(108, 93, 72);
-            graphics.fillRect(0, 0, i.var_d_a.width, i.var_d_a.height);
+            graphics.fillRect(0, 0, Class_I.var_d_a.width, Class_I.var_d_a.height);
             this.var_h_g.draw(graphics, 0, this.I);
             this.var_h_d.draw(graphics, 0, this.B);
             if (this.var_int_p == 3) {
                 if (this.var_int_m >= 15) {
-                    this.var_h_e.draw(graphics, (i.var_d_a.width - this.var_h_e.width) / 2, 8);
+                    this.var_h_e.draw(graphics, (Class_I.var_d_a.width - this.var_h_e.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
                         graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
                     }
-                    this.var_h_a.draw(graphics, (i.var_d_a.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
+                    this.var_h_a.draw(graphics, (Class_I.var_d_a.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
                 } else {
-                    i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (i.var_d_a.width - this.var_h_e.width) / 2, 8, 0, 0);
+                    Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (Class_I.var_d_a.width - this.var_h_e.width) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
             }
@@ -283,8 +283,8 @@ extends i {
     public void b() throws Exception {
         if (this.var_boolean_e) {
             ++this.var_int_m;
-            i.var_d_a.repaint();
-            i.var_d_a.serviceRepaints();
+            Class_I.var_d_a.repaint();
+            Class_I.var_d_a.serviceRepaints();
             if (this.var_int_m >= 15) {
                 this.var_boolean_e = false;
             }
@@ -327,8 +327,8 @@ extends i {
                 this.var_long_f = this.var_long_n;
             }
         }
-        i.var_d_a.repaint();
-        i.var_d_a.serviceRepaints();
+        Class_I.var_d_a.repaint();
+        Class_I.var_d_a.serviceRepaints();
     }
 
     static {

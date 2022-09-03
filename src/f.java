@@ -65,7 +65,7 @@ public class f {
     public e[] var_e_arr_a;
     public int i;
 
-    public f(i i2, c c2, boolean bl) throws Exception {
+    public f(Class_I i2, c c2, boolean bl) throws Exception {
         int n;
         this.var_a_a = (a)i2;
         this.var_c_a = c2;
@@ -98,12 +98,12 @@ public class f {
             this.var_int_b = 1;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.var_int_b] == null) {
-            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)i.var_java_lang_String_arr_a[this.var_int_b]).var_h_arr_a;
+            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)Class_I.var_java_lang_String_arr_a[this.var_int_b]).var_h_arr_a;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.var_int_b];
         if (this.var_a_a.b[this.var_int_f] == null) {
             try {
-                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(i.var_java_lang_String_arr_a[this.var_int_f] + "_bg.png");
+                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.var_java_lang_String_arr_a[this.var_int_f] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block
@@ -640,7 +640,7 @@ public class f {
         n6 = (AppCanvas.h - this.var_a_a.var_h_h.width) / 2;
         n4 = AppCanvas.a((byte)1) + 4;
         this.var_a_a.var_h_h.draw(graphics, n6, n4);
-        n7 = i.var_byte_arr_g[this.var_int_f];
+        n7 = Class_I.var_byte_arr_g[this.var_int_f];
         n3 = this.var_a_a.a((byte)this.var_int_f, this.var_c_a) - n7;
         StringBuffer stringBuffer = new StringBuffer().append(n7);
         if (n3 > 0) {
