@@ -372,10 +372,10 @@ implements CommandListener {
         return byArray;
     }
 
-    public void a(byte[] byArray) throws Exception {
+    public void a(byte[] savedGameData) throws Exception {
         int n;
         int n2;
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byArray);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(savedGameData);
         DataInputStream dataInputStream = new DataInputStream(byteArrayInputStream);
         this.var_byte_a = dataInputStream.readByte();
         this.F = dataInputStream.readByte();
@@ -623,12 +623,12 @@ implements CommandListener {
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(4))) {
             try {
-                byte[] byArray = var_d_a.loadPersistentData("save");
+                byte[] savedGameData = var_d_a.loadPersistentData("save");
                 this.var_boolean_l = true;
                 var_d_a.repaint();
                 var_d_a.serviceRepaints();
                 this.m();
-                this.a(byArray);
+                this.a(savedGameData);
                 if (this.var_byte_a == 0) {
                     this.a(true);
                 }
