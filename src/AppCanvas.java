@@ -258,8 +258,8 @@ CommandListener {
         this.void_c(this.getGameAction(keyCode));
     }
 
-    public boolean boolean_a(int n) {
-        return this.lastGameActionPressed == n && System.currentTimeMillis() - this.lastKeyPressedTime >= 300L;
+    public boolean boolean_a(int gameActionCode) {
+        return this.lastGameActionPressed == gameActionCode && System.currentTimeMillis() - this.lastKeyPressedTime >= 300L;
     }
 
     public void handleKeyPressedAction(int gameActionCode) {
