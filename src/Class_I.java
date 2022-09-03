@@ -237,7 +237,7 @@ implements CommandListener {
         }
         this.var_byte_d = 1;
         c.var_i_a = this;
-        AppCanvas.readAssetsPackage("/1.pak");
+        //AppCanvas.readAssetsPackage("/1.pak");
         this.var_e_h = new e("cursor");
         this.var_h_b = new Sprite("gold.png");
         this.var_e_m = new e("portrait");
@@ -795,7 +795,7 @@ implements CommandListener {
             this.var_int_arr_b[1] = 300;
         }
         this.var_boolean_v = true;
-        AppCanvas.readAssetsPackage("/1.pak");
+        //AppCanvas.readAssetsPackage("/1.pak");
         int n2 = n;
         if (this.var_byte_a == 0) {
             if (n == 6) {
@@ -2869,7 +2869,7 @@ implements CommandListener {
         this.var_boolean_k = false;
         this.var_c_i = c2;
         this.var_c_b = c3;
-        AppCanvas.readAssetsPackage("/2.pak");
+        //AppCanvas.readAssetsPackage("/2.pak");
         this.var_h_h = new Sprite("defpanel.png");
         this.var_e_q = new e("soul");
         this.var_f_b = new f(this, c2, true);
