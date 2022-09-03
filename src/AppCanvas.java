@@ -473,7 +473,7 @@ CommandListener {
         return null;
     }
 
-    public static InputStream java_io_InputStream_a(String filename) throws Exception {
+    public static InputStream getFileBytesInputStream(String filename) throws Exception {
         return new ByteArrayInputStream(AppCanvas.getFileBytes(filename));
     }
 

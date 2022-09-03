@@ -39,7 +39,7 @@ public class e {
     }
 
     private void a(String imageName, int n) throws Exception {
-        InputStream inputStream = AppCanvas.java_io_InputStream_a(imageName + ".sprite");
+        InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
         int n2 = inputStream.read();
         byte width = (byte)inputStream.read();
         byte height = (byte)inputStream.read();

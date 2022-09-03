@@ -259,7 +259,7 @@ implements CommandListener {
                 this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
         }
-        imageBytesObj = AppCanvas.java_io_InputStream_a("tiles0.prop");
+        imageBytesObj = AppCanvas.getFileBytesInputStream("tiles0.prop");
         object = new DataInputStream((InputStream)imageBytesObj);
         short s2 = ((DataInputStream)object).readShort();
         short s3 = ((DataInputStream)object).readShort();
@@ -805,7 +805,7 @@ implements CommandListener {
         } else {
             string = "s" + n2;
         }
-        DataInputStream dataInputStream = new DataInputStream(AppCanvas.java_io_InputStream_a(string));
+        DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(string));
         this.var_short_e = (short)dataInputStream.readInt();
         this.var_short_b = (short)dataInputStream.readInt();
         this.var_byte_arr_arr_a = new byte[this.var_short_e][this.var_short_b];
@@ -830,7 +830,7 @@ implements CommandListener {
         this.var_short_i = (short)(this.var_short_b * 24);
         if (n == 6) {
             dataInputStream.close();
-            dataInputStream = new DataInputStream(AppCanvas.java_io_InputStream_a("m" + n));
+            dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream("m" + n));
             dataInputStream.readInt();
             dataInputStream.readInt();
         }
