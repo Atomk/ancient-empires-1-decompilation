@@ -497,13 +497,13 @@ public class g {
                     }
                     if (this.var_byte_a == 6) {
                         if (this.var_byte_e == 2) {
-                            if (Class_I.appCanvas.var_int_c != 0) {
+                            if (Class_I.appCanvas.pressedKeysActions != 0) {
                                 if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) {
                                     this.a(false);
                                 } else {
                                     this.var_short_b = (short)(this.var_short_b + this.u);
                                 }
-                                Class_I.appCanvas.var_int_c = 0;
+                                Class_I.appCanvas.pressedKeysActions = 0;
                                 this.var_boolean_c = true;
                             }
                         }

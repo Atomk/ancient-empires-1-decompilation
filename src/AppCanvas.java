@@ -49,7 +49,7 @@ CommandListener {
     public a var_a_a;
     public int width;
     public int height;
-    public int var_int_c = 0;
+    public int pressedKeysActions = 0;
     public int lastKeyPressedAction = 0;
     private long lastKeyPressedTime;
     private static e[] var_e_arr_a;
@@ -129,14 +129,14 @@ CommandListener {
     }
 
     public void showNotify() {
-        this.var_int_c = 0;
+        this.pressedKeysActions = 0;
         if (this.var_a_a != null) {
             this.var_a_a.q();
         }
     }
 
     public void hideNotify() {
-        this.var_int_c = 0;
+        this.pressedKeysActions = 0;
         if (this.var_a_a != null) {
             this.var_a_a.n();
         }
@@ -251,7 +251,7 @@ CommandListener {
     }
 
     public boolean boolean_c(int n) {
-        return (this.var_int_c & n) != 0;
+        return (this.pressedKeysActions & n) != 0;
     }
 
     public void keyReleased(int keyCode) {
@@ -265,7 +265,8 @@ CommandListener {
     public void handleKeyPressedAction(int gameActionCode) {
         this.lastKeyPressedAction = gameActionCode;
         this.lastKeyPressedTime = System.currentTimeMillis();
-        this.var_int_c |= gameActionCode;
+        // All action codes are powers of two, so they can be used as bit flags
+        this.pressedKeysActions |= gameActionCode;
         if (this.var_a_a != null) {
             this.var_a_a.d(gameActionCode);
         }
@@ -275,7 +276,7 @@ CommandListener {
         if (gameActionCode == this.lastKeyPressedAction) {
             this.lastKeyPressedAction = 0;
         }
-        this.var_int_c &= ~gameActionCode;
+        this.pressedKeysActions &= ~gameActionCode;
     }
 
     // TODO make private, this is not called outside the class

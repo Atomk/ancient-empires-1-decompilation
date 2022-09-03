@@ -964,11 +964,11 @@ implements CommandListener {
                 if (this.var_long_n % 100L == 0L) {
                     boolean bl = this.var_boolean_p = !this.var_boolean_p;
                 }
-                if (Class_I.appCanvas.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
+                if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
-                Class_I.appCanvas.var_int_c = 0;
+                Class_I.appCanvas.pressedKeysActions = 0;
             }
         }
     }
@@ -1226,7 +1226,7 @@ implements CommandListener {
                             this.var_boolean_v = false;
                         }
                         if (this.var_byte_i == 1) {
-                            if ((Class_I.appCanvas.var_int_c & 0x10) != 0 && this.var_c_h != null) {
+                            if ((Class_I.appCanvas.pressedKeysActions & 0x10) != 0 && this.var_c_h != null) {
                                 stringArray = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0 && (stringArray == null || stringArray == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.i;
@@ -1244,7 +1244,7 @@ implements CommandListener {
                                 appCanvas.void_c(16);
                             }
                         } else if (this.var_byte_i == 0) {
-                            if ((Class_I.appCanvas.var_int_c & 0x100) != 0) {
+                            if ((Class_I.appCanvas.pressedKeysActions & 0x100) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
                                     stringArray = new g(this, (byte)4, 0);
@@ -1256,7 +1256,7 @@ implements CommandListener {
                                     this.void_c(this.var_c_arr_a[this.var_byte_c].i, this.var_c_arr_a[this.var_byte_c].var_short_a);
                                     this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b + 12, ((e)this.var_c_arr_a[this.var_byte_c]).l + 12);
                                 }
-                            } else if ((Class_I.appCanvas.var_int_c & 0x20) != 0) {
+                            } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
                                     this.a(this.var_byte_arr_arr_b, 0);
