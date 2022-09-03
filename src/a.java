@@ -31,7 +31,7 @@ extends i {
         this.var_h_g = new Sprite("splashbg.png");
         this.var_h_d = new Sprite("splashfg.png");
         this.var_h_a = new Sprite("macrospace.png");
-        this.B = d.height2 - this.var_h_d.height + 30;
+        this.B = AppCanvas.height2 - this.var_h_d.height + 30;
     }
 
     public void m() throws Exception {
@@ -43,7 +43,7 @@ extends i {
         this.b = new Sprite[i.var_java_lang_String_arr_a.length];
         this.var_h_arr_arr_a = new Sprite[i.var_java_lang_String_arr_a.length][];
         this.var_e_arr_arr_c = new e[2][11];
-        byte[] byArray = d.byte_arr_a("unit_icons_s.png");
+        byte[] byArray = AppCanvas.byte_arr_a("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
             byte[] imageBytes = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
@@ -71,7 +71,7 @@ extends i {
             }
             case 1: {
                 if (this.var_int_m >= 15) {
-                    d.a(0, 1);
+                    AppCanvas.a(0, 1);
                     this.var_h_c = null;
                     this.var_int_m = 0;
                     ++this.var_int_p;
@@ -100,7 +100,7 @@ extends i {
                 if (i.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, 0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
-                g2.a((byte)1, d.h, 67, null, 16);
+                g2.a((byte)1, AppCanvas.h, 67, null, 16);
                 i.var_d_a.var_int_c = 0;
             }
         }
@@ -123,13 +123,13 @@ extends i {
                     this.var_h_e.draw(graphics, (i.var_d_a.width - this.var_h_e.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
-                        graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
-                        graphics.drawString(d.getGameText(25), d.h, d.height2 - d.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
+                        graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
+                        graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight() - 10, 17);
                     }
-                    this.var_h_a.draw(graphics, (i.var_d_a.width - this.var_h_a.width) / 2, d.height2 - this.var_h_a.height - 2);
+                    this.var_h_a.draw(graphics, (i.var_d_a.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
                 } else {
                     i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (i.var_d_a.width - this.var_h_e.width) / 2, 8, 0, 0);
-                    graphics.setClip(0, 0, d.width2, d.height2);
+                    graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
             }
         }
@@ -182,7 +182,7 @@ extends i {
     public void e() throws Exception {
         if (this.var_byte_i == 0) {
             for (int j = 0; j < this.var_e_arr_a.length; ++j) {
-                if (this.var_e_arr_a[j] == null || this.int_a((int)this.var_byte_arr_arr_e[j][0], (int)this.var_byte_arr_arr_e[j][1]) == -1 || this.var_e_arr_a[j].var_boolean_d || d.randomGen.nextInt() % 8 != 0) continue;
+                if (this.var_e_arr_a[j] == null || this.int_a((int)this.var_byte_arr_arr_e[j][0], (int)this.var_byte_arr_arr_e[j][1]) == -1 || this.var_e_arr_a[j].var_boolean_d || AppCanvas.randomGen.nextInt() % 8 != 0) continue;
                 this.var_e_arr_a[j].var_boolean_d = true;
                 this.var_e_arr_a[j].var_int_c = 1;
                 this.var_e_arr_a[j].void_b((this.var_byte_arr_arr_e[j][0] + 1) * 24 - this.var_e_a.short_a(), this.var_byte_arr_arr_e[j][1] * 24 - 2);
@@ -201,12 +201,12 @@ extends i {
         if (s2 < 0) {
             s2 = 0;
         }
-        short s3 = (short)(s + d.width2 / 24);
-        short s4 = (short)(s2 + d.height2 / 24);
-        if (d.width2 % 24 != 0) {
+        short s3 = (short)(s + AppCanvas.width2 / 24);
+        short s4 = (short)(s2 + AppCanvas.height2 / 24);
+        if (AppCanvas.width2 % 24 != 0) {
             s3 = (short)(s3 + 1);
         }
-        if (d.height2 % 24 != 0) {
+        if (AppCanvas.height2 % 24 != 0) {
             s4 = (short)(s4 + 1);
         }
         if (s3 >= this.var_short_e) {

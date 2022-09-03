@@ -29,7 +29,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.rms.RecordStore;
 
-public class d
+public class AppCanvas
 extends FullCanvas
 implements Runnable,
 CommandListener {
@@ -62,9 +62,9 @@ CommandListener {
     public static String[] stringsPartA;
     public static String[] stringsPartB;
 
-    public d(MIDlet mIDlet) {
+    public AppCanvas(MIDlet mIDlet) {
         try {
-            d.loadAppStrings("/lang.dat", false);
+            AppCanvas.loadAppStrings("/lang.dat", false);
             // TODO it seems the next 4 variables (height\width) are never modified, one set is static and the other is not, you can keep just one
             this.width = this.getWidth();
             this.height = this.getHeight();
@@ -141,9 +141,9 @@ CommandListener {
 
     public static void a(Graphics graphics, String string, int n, int n2, int n3, int n4) {
         if ((n4 & 8) != 0) {
-            n -= d.a((byte)n3, string);
+            n -= AppCanvas.a((byte)n3, string);
         }
-        d.a(graphics, string, n, n2, n3);
+        AppCanvas.a(graphics, string, n, n2, n3);
     }
 
     public static void a(Graphics graphics, String string, int n, int n2, int n3) {
@@ -174,7 +174,7 @@ CommandListener {
             graphics.fillRect(0, 0, this.width, this.height);
             graphics.setFont(var_javax_microedition_lcdui_Font_a);
             graphics.setColor(0);
-            graphics.drawString(d.getGameText(24), this.width / 2, (this.height - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+            graphics.drawString(AppCanvas.getGameText(24), this.width / 2, (this.height - var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
         }
     }
 
@@ -287,15 +287,15 @@ CommandListener {
 
     public void run() {
         try {
-            String[] stringArray = new String[]{d.getGameText(19), d.getGameText(20), d.getGameText(18), d.getGameText(17)};
+            String[] stringArray = new String[]{AppCanvas.getGameText(19), AppCanvas.getGameText(20), AppCanvas.getGameText(18), AppCanvas.getGameText(17)};
             var_java_lang_String_arr_d = stringArray;
             i.var_d_a = this;
-            d.void_a("");
+            AppCanvas.void_a("");
             this.b();
             this.c();
             i.f();
-            d.var_e_arr_a[0] = new e("chars");
-            d.var_e_arr_a[1] = new e("lchars");
+            AppCanvas.var_e_arr_a[0] = new e("chars");
+            AppCanvas.var_e_arr_a[1] = new e("lchars");
             this.var_h_a = new Sprite("mask.png");
             this.var_a_a = new a(0);
             this.var_boolean_a = true;
@@ -327,7 +327,7 @@ CommandListener {
         var_com_nokia_mid_sound_Sound_arr_a = new Sound[4];
         for (int j = 0; j < 4; ++j) {
             try {
-                d.var_com_nokia_mid_sound_Sound_arr_a[j] = new Sound(d.byte_arr_a("a" + j), 1);
+                AppCanvas.var_com_nokia_mid_sound_Sound_arr_a[j] = new Sound(AppCanvas.byte_arr_a("a" + j), 1);
                 continue;
             }
             catch (Exception exception) {
@@ -337,7 +337,7 @@ CommandListener {
     }
 
     public static void a() {
-        d.void_b(0);
+        AppCanvas.void_b(0);
     }
 
     public static void a(int n, int n2) {
@@ -363,7 +363,7 @@ CommandListener {
     public static void void_a(int n) {
         try {
             var_com_nokia_mid_sound_Sound_arr_a[n].release();
-            d.var_com_nokia_mid_sound_Sound_arr_a[n] = null;
+            AppCanvas.var_com_nokia_mid_sound_Sound_arr_a[n] = null;
         }
         catch (Exception exception) {
             // empty catch block
@@ -383,7 +383,7 @@ CommandListener {
             block1: do {
                 int n6 = n2;
                 String string3 = string2;
-                n2 = d.a(string, n2);
+                n2 = AppCanvas.a(string, n2);
                 if (n5 > -1 && n5 < n2) {
                     n2 = n5;
                 }
@@ -412,7 +412,7 @@ CommandListener {
     private static int a(String string, int n) {
         int n2;
         char c2 = string.charAt(n);
-        if (d.boolean_b(c2)) {
+        if (AppCanvas.boolean_b(c2)) {
             return n + 1;
         }
         int n3 = 0;
@@ -422,7 +422,7 @@ CommandListener {
         n3 = n2;
         n3 = n3 == -1 ? string.length() : ++n3;
         for (n2 = n + 1; n2 < n3; ++n2) {
-            if (!d.boolean_b(string.charAt(n2))) continue;
+            if (!AppCanvas.boolean_b(string.charAt(n2))) continue;
             return n2;
         }
         return n3;
@@ -445,13 +445,13 @@ CommandListener {
             nArray = new int[n];
             nArray2 = new int[n];
             for (int j = 0; j < n; ++j) {
-                d.var_java_lang_String_arr_a[j] = dataInputStream.readUTF();
+                AppCanvas.var_java_lang_String_arr_a[j] = dataInputStream.readUTF();
                 nArray[j] = dataInputStream.readInt() + s;
                 nArray2[j] = dataInputStream.readShort();
             }
             var_byte_arr_arr_b = new byte[var_java_lang_String_arr_a.length][];
             for (int j = 0; j < var_java_lang_String_arr_a.length; ++j) {
-                d.var_byte_arr_arr_b[j] = new byte[nArray2[j]];
+                AppCanvas.var_byte_arr_arr_b[j] = new byte[nArray2[j]];
                 dataInputStream.readFully(var_byte_arr_arr_b[j]);
             }
             dataInputStream.close();
@@ -467,7 +467,7 @@ CommandListener {
     }
 
     public static InputStream java_io_InputStream_a(String filename) throws Exception {
-        return new ByteArrayInputStream(d.byte_arr_a(filename));
+        return new ByteArrayInputStream(AppCanvas.byte_arr_a(filename));
     }
 
     public static void e() {
@@ -489,11 +489,11 @@ CommandListener {
         for (n = 0; n < stringsCount; ++n) {
             String currentString = dataInputStream.readUTF();
             if (skipFirstPart) continue;
-            d.stringsPartA[n] = currentString;
+            AppCanvas.stringsPartA[n] = currentString;
         }
         stringsCount = stringsPartB.length;
         for (n = 0; n < stringsCount; ++n) {
-            d.stringsPartB[n] = dataInputStream.readUTF();
+            AppCanvas.stringsPartB[n] = dataInputStream.readUTF();
         }
         dataInputStream.close();
         return stringsPartA.length;

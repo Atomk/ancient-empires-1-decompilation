@@ -88,7 +88,7 @@ public class f {
             this.m = 0;
             this.b();
         } else {
-            n2 = d.h;
+            n2 = AppCanvas.h;
             this.var_byte_f = 1;
             this.o = 6;
         }
@@ -113,18 +113,18 @@ public class f {
         if (this.var_h_a != null) {
             this.var_int_d = this.var_h_a.height;
         }
-        this.j = d.h / this.var_h_arr_a[0].width;
-        if (d.h % this.var_h_arr_a[0].width != 0) {
+        this.j = AppCanvas.h / this.var_h_arr_a[0].width;
+        if (AppCanvas.h % this.var_h_arr_a[0].width != 0) {
             ++this.j;
         }
-        this.n = (d.height2 - this.var_int_d) / this.var_h_arr_a[0].height;
-        if ((d.height2 - this.var_int_d) % this.var_h_arr_a[0].height != 0) {
+        this.n = (AppCanvas.height2 - this.var_int_d) / this.var_h_arr_a[0].height;
+        if ((AppCanvas.height2 - this.var_int_d) % this.var_h_arr_a[0].height != 0) {
             ++this.n;
         }
         this.var_byte_arr_arr_c = new byte[this.j][this.n];
         for (n = 0; n < this.j; ++n) {
             for (int j = 0; j < this.n; ++j) {
-                this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(d.randomGen.nextInt() % 10);
+                this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(AppCanvas.randomGen.nextInt() % 10);
                 this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? 1 : 0);
             }
         }
@@ -165,8 +165,8 @@ public class f {
         }
         this.var_int_arr_arr_a = new int[c2.var_int_arr_arr_a.length][2];
         for (n = 0; n < this.var_int_arr_arr_a.length; ++n) {
-            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? d.int_b(c2.var_int_arr_arr_a[n][0]) : (int)((short)(d.h - d.int_b(c2.var_int_arr_arr_a[n][0]) - this.var_e_c.short_a()));
-            this.var_int_arr_arr_a[n][1] = d.int_a(c2.var_int_arr_arr_a[n][1]);
+            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(c2.var_int_arr_arr_a[n][0]) : (int)((short)(AppCanvas.h - AppCanvas.int_b(c2.var_int_arr_arr_a[n][0]) - this.var_e_c.short_a()));
+            this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(c2.var_int_arr_arr_a[n][1]);
         }
         this.var_int_arr_c = new int[this.var_byte_a];
         this.var_int_arr_d = new int[this.var_byte_a];
@@ -181,11 +181,11 @@ public class f {
             this.var_e_arr_b[n].void_b(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
             if (c2.var_byte_d == 8) {
-                this.var_int_arr_d[n] = -8 - Math.abs(d.randomGen.nextInt()) % 8;
+                this.var_int_arr_d[n] = -8 - Math.abs(AppCanvas.randomGen.nextInt()) % 8;
             }
             if (c2.var_byte_d != 4) continue;
-            this.var_int_arr_d[n] = d.randomGen.nextInt() % 5 - 8;
-            this.var_int_arr_c[n] = d.randomGen.nextInt() % 5;
+            this.var_int_arr_d[n] = AppCanvas.randomGen.nextInt() % 5 - 8;
+            this.var_int_arr_c[n] = AppCanvas.randomGen.nextInt() % 5;
             this.var_boolean_arr_a[n] = this.var_int_arr_c[n] < 0;
         }
     }
@@ -282,7 +282,7 @@ public class f {
                         this.var_e_arr_a[j].var_boolean_a = true;
                     }
                     if (this.var_int_g != -1) {
-                        d.a(this.var_int_g, 1);
+                        AppCanvas.a(this.var_int_g, 1);
                     }
                 }
                 this.o = 5;
@@ -291,14 +291,14 @@ public class f {
             case 5: {
                 boolean bl = true;
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
-                    if (this.var_c_a.var_byte_d == 8 && d.randomGen.nextInt() % 2 == 0) {
+                    if (this.var_c_a.var_byte_d == 8 && AppCanvas.randomGen.nextInt() % 2 == 0) {
                         e e3 = e.a(this.var_a_a.var_e_a, 0, -1, 1, 200, (byte)0);
                         e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
                         e3.var_boolean_a = true;
                     }
                     if (this.var_byte_f == 0) {
-                        if (this.var_e_arr_a[j].var_short_b > d.h) {
+                        if (this.var_e_arr_a[j].var_short_b > AppCanvas.h) {
                             this.var_a_a.var_java_util_Vector_c.removeElement(this.var_e_arr_a[j]);
                             continue;
                         }
@@ -306,7 +306,7 @@ public class f {
                         continue;
                     }
                     if (this.var_byte_f != 1) continue;
-                    if (this.var_e_arr_a[j].var_short_b + this.var_e_arr_a[j].short_a() < d.h) {
+                    if (this.var_e_arr_a[j].var_short_b + this.var_e_arr_a[j].short_a() < AppCanvas.h) {
                         this.var_a_a.var_java_util_Vector_c.removeElement(this.var_e_arr_a[j]);
                         continue;
                     }
@@ -342,7 +342,7 @@ public class f {
     }
 
     public void c() {
-        d.d(200);
+        AppCanvas.d(200);
         this.var_boolean_d = true;
         this.var_long_b = this.var_a_a.var_long_n;
     }
@@ -355,7 +355,7 @@ public class f {
                     if (this.var_a_a.var_long_n - this.var_long_c < 200L) break;
                     this.var_int_c = 1;
                     this.var_long_c = this.var_a_a.var_long_n;
-                    d.a(this.var_int_g, 1);
+                    AppCanvas.a(this.var_int_g, 1);
                     break;
                 }
                 if (this.var_int_c == 1) {
@@ -424,7 +424,7 @@ public class f {
                 this.var_int_a = 0;
             } else {
                 this.m = this.m > 0 ? -2 : 2;
-                this.var_int_a = d.randomGen.nextInt() % 1;
+                this.var_int_a = AppCanvas.randomGen.nextInt() % 1;
             }
         }
         if (var_byte_arr_a[this.var_c_a.var_byte_d] == 1 || var_byte_arr_a[this.var_c_a.var_byte_d] == 5 || var_byte_arr_a[this.var_c_a.var_byte_d] == 0) {
@@ -605,7 +605,7 @@ public class f {
         e[] eArray = new e[this.var_byte_b];
         System.arraycopy(this.var_e_arr_b, this.l, eArray, 0, this.var_byte_b);
         this.var_e_arr_b = eArray;
-        d.a(1, 1);
+        AppCanvas.a(1, 1);
     }
 
     public void a(Graphics graphics, int offsetX, int offsetY) {
@@ -627,18 +627,18 @@ public class f {
         if (this.var_h_a != null) {
             n5 = this.var_h_a.width;
             n6 = 0;
-            n3 = d.h / n5;
+            n3 = AppCanvas.h / n5;
             for (n7 = 0; n7 < n3; ++n7) {
                 this.var_h_a.draw(graphics, n6, 0);
                 n6 += n5;
             }
         }
         String string = "" + this.h;
-        n6 = (d.h - d.a((byte)1, string)) / 2;
-        d.a(graphics, string, n6, 2, 1);
+        n6 = (AppCanvas.h - AppCanvas.a((byte)1, string)) / 2;
+        AppCanvas.a(graphics, string, n6, 2, 1);
         string = null;
-        n6 = (d.h - this.var_a_a.var_h_h.width) / 2;
-        n4 = d.a((byte)1) + 4;
+        n6 = (AppCanvas.h - this.var_a_a.var_h_h.width) / 2;
+        n4 = AppCanvas.a((byte)1) + 4;
         this.var_a_a.var_h_h.draw(graphics, n6, n4);
         n7 = i.var_byte_arr_g[this.var_int_f];
         n3 = this.var_a_a.a((byte)this.var_int_f, this.var_c_a) - n7;
@@ -646,14 +646,14 @@ public class f {
         if (n3 > 0) {
             stringBuffer.append("+" + n3);
         }
-        d.a(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, 0);
+        AppCanvas.a(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, 0);
         graphics.translate(-offsetX, -offsetY);
     }
 
     public void a(Graphics graphics) {
         if (this.var_a_a.var_boolean_b) {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, d.width2, d.height2);
+            graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
         }
         for (int j = 0; j < this.var_byte_b; ++j) {
             e e2 = this.var_e_arr_b[j];

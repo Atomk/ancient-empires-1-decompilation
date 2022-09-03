@@ -27,11 +27,11 @@ import javax.microedition.lcdui.Item;
 public class i
 implements CommandListener {
     public byte[] var_byte_arr_e = new byte[1];
-    public static d var_d_a;
+    public static AppCanvas var_d_a;
     public static String[] var_java_lang_String_arr_b;
     public byte var_byte_a;
-    public String[] var_java_lang_String_arr_e = new String[]{d.getGameText(1), d.getGameText(2), d.getGameText(4), d.getGameText(5), d.getGameText(6), d.getGameText(7), d.getGameText(8), d.getGameText(9)};
-    public String[] var_java_lang_String_arr_c = new String[]{d.getGameText(3), this.var_java_lang_String_arr_e[0], this.var_java_lang_String_arr_e[1], this.var_java_lang_String_arr_e[2], this.var_java_lang_String_arr_e[3], this.var_java_lang_String_arr_e[4], this.var_java_lang_String_arr_e[5], this.var_java_lang_String_arr_e[6], this.var_java_lang_String_arr_e[7]};
+    public String[] var_java_lang_String_arr_e = new String[]{AppCanvas.getGameText(1), AppCanvas.getGameText(2), AppCanvas.getGameText(4), AppCanvas.getGameText(5), AppCanvas.getGameText(6), AppCanvas.getGameText(7), AppCanvas.getGameText(8), AppCanvas.getGameText(9)};
+    public String[] var_java_lang_String_arr_c = new String[]{AppCanvas.getGameText(3), this.var_java_lang_String_arr_e[0], this.var_java_lang_String_arr_e[1], this.var_java_lang_String_arr_e[2], this.var_java_lang_String_arr_e[3], this.var_java_lang_String_arr_e[4], this.var_java_lang_String_arr_e[5], this.var_java_lang_String_arr_e[6], this.var_java_lang_String_arr_e[7]};
     public static final byte[][] var_byte_arr_arr_d;
     public static final byte[] var_byte_arr_f;
     public static final byte[] var_byte_arr_c;
@@ -123,9 +123,9 @@ implements CommandListener {
     public Sprite var_h_c;
     public Sprite var_h_e;
     public int var_int_p;
-    public Command var_javax_microedition_lcdui_Command_b = new Command(d.getGameText(22), 2, 1);
-    public Command var_javax_microedition_lcdui_Command_a = new Command(d.getGameText(12), 1, 1);
-    public Command var_javax_microedition_lcdui_Command_c = new Command(d.getGameText(10), 2, 1);
+    public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);
+    public Command var_javax_microedition_lcdui_Command_a = new Command(AppCanvas.getGameText(12), 1, 1);
+    public Command var_javax_microedition_lcdui_Command_c = new Command(AppCanvas.getGameText(10), 2, 1);
     public ChoiceGroup var_javax_microedition_lcdui_ChoiceGroup_a;
     public boolean var_boolean_y = false;
     public int var_int_m;
@@ -230,14 +230,14 @@ implements CommandListener {
         Object object;
         Object imageBytesObj;
         short s;
-        d.a();
-        d.void_a(0);
+        AppCanvas.a();
+        AppCanvas.void_a(0);
         if (this.var_byte_d == 1) {
             return;
         }
         this.var_byte_d = 1;
         c.var_i_a = this;
-        d.void_a("/1.pak");
+        AppCanvas.void_a("/1.pak");
         this.var_e_h = new e("cursor");
         this.var_h_b = new Sprite("gold.png");
         this.var_e_m = new e("portrait");
@@ -250,7 +250,7 @@ implements CommandListener {
         this.var_e_k = new e(this.var_e_h);
         this.var_e_k.a(var_byte_arr_arr_d[3]);
         this.var_e_arr_arr_b = new e[2][11];
-        byte[] byArray = d.byte_arr_a("unit_icons.png");
+        byte[] byArray = AppCanvas.byte_arr_a("unit_icons.png");
         for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
@@ -259,7 +259,7 @@ implements CommandListener {
                 this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
         }
-        imageBytesObj = d.java_io_InputStream_a("tiles0.prop");
+        imageBytesObj = AppCanvas.java_io_InputStream_a("tiles0.prop");
         object = new DataInputStream((InputStream)imageBytesObj);
         short s2 = ((DataInputStream)object).readShort();
         short s3 = ((DataInputStream)object).readShort();
@@ -271,7 +271,7 @@ implements CommandListener {
         Sprite[] hArray = e2.var_h_arr_a;
         this.var_int_t = hArray.length;
         e2 = null;
-        byte[] imageBytes = d.byte_arr_a("buildings.png");
+        byte[] imageBytes = AppCanvas.byte_arr_a("buildings.png");
         Sprite[] hArray2 = new Sprite[9];
         for (s = 0; s <= 2; s = (short)((byte)(s + 1))) {
             byte[] byArray3 = new byte[imageBytes.length];
@@ -292,7 +292,7 @@ implements CommandListener {
         this.var_int_l = var_byte_arr_a[0];
         this.var_h_arr_a[0] = this.var_h_arr_c[var_byte_arr_a[0]];
         this.var_h_arr_a[1] = this.var_h_arr_c[var_byte_arr_a[1]];
-        d.e();
+        AppCanvas.e();
         this.var_g_c = new g(this, 3, 9);
         this.var_g_g = new g(this, 5, 10);
     }
@@ -421,15 +421,15 @@ implements CommandListener {
             if (this.var_byte_a != 0) continue;
             if (by == 9) {
                 if (by2 == 0) {
-                    c2.var_java_lang_String_a = d.getGameText(43);
+                    c2.var_java_lang_String_a = AppCanvas.getGameText(43);
                     continue;
                 }
                 if (by6 == 4) continue;
-                c2.var_java_lang_String_a = d.getGameText(44);
+                c2.var_java_lang_String_a = AppCanvas.getGameText(44);
                 continue;
             }
             if (this.F != 2 || by2 != 0 || by != 2) continue;
-            c2.var_java_lang_String_a = d.getGameText(45);
+            c2.var_java_lang_String_a = AppCanvas.getGameText(45);
         }
         if (this.F == 2) {
             for (n = 5; n < 10; ++n) {
@@ -449,7 +449,7 @@ implements CommandListener {
         try {
             byte[] byArray = var_d_a.byte_arr_b("settings");
             for (int j = 0; j < 4; ++j) {
-                d.var_boolean_arr_a[j] = (byArray[0] & 1 << j) != 0;
+                AppCanvas.var_boolean_arr_a[j] = (byArray[0] & 1 << j) != 0;
             }
         }
         catch (Exception exception) {
@@ -463,14 +463,14 @@ implements CommandListener {
             boolean bl = false;
             for (int j = 0; j < 4; ++j) {
                 n = this.var_javax_microedition_lcdui_ChoiceGroup_a.isSelected(j);
-                if (n == d.var_boolean_arr_a[j]) continue;
-                d.var_boolean_arr_a[j] = n;
+                if (n == AppCanvas.var_boolean_arr_a[j]) continue;
+                AppCanvas.var_boolean_arr_a[j] = n;
                 bl = true;
             }
             if (bl) {
                 byte[] byArray = new byte[1];
                 for (n = 0; n < 4; ++n) {
-                    if (!d.var_boolean_arr_a[n]) continue;
+                    if (!AppCanvas.var_boolean_arr_a[n]) continue;
                     byArray[0] = (byte)(byArray[0] | 1 << n);
                 }
                 var_d_a.a("settings", byArray);
@@ -482,7 +482,7 @@ implements CommandListener {
     }
 
     public void b(c c2, c c3) {
-        if (d.var_boolean_arr_a[3]) {
+        if (AppCanvas.var_boolean_arr_a[3]) {
             this.var_boolean_y = true;
             this.var_int_m = 0;
         } else {
@@ -498,7 +498,7 @@ implements CommandListener {
         e e2;
         if (this.var_c_i.h <= 0) {
             this.var_c_c = this.var_c_i;
-            d.a(3, 1);
+            AppCanvas.a(3, 1);
         } else if (this.var_c_i.boolean_a()) {
             e2 = this.a(this.var_e_j, this.var_c_i.var_short_b + 3, ((e)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_c);
@@ -506,7 +506,7 @@ implements CommandListener {
         }
         if (this.var_c_b.h <= 0) {
             this.var_c_c = this.var_c_b;
-            d.a(3, 1);
+            AppCanvas.a(3, 1);
         } else if (this.var_c_i.a((short)128)) {
             e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 4, ((e)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_f);
@@ -516,7 +516,7 @@ implements CommandListener {
             e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 3, ((e)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_b.var_short_b, ((e)this.var_c_b).l, 0, 0, 1, 50);
-            d.a(-1, 1);
+            AppCanvas.a(-1, 1);
         }
         if (this.var_c_c != null) {
             this.a(this.var_e_r, this.var_c_c.var_short_b, ((e)this.var_c_c).l, 0, 0, 1, 50);
@@ -538,8 +538,8 @@ implements CommandListener {
             i.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
         } else if (command == this.var_javax_microedition_lcdui_Command_a) {
             ++this.D;
-            Form form = new Form(d.getGameText(7) + " - " + this.D);
-            form.append(d.getGameText(85 + this.D));
+            Form form = new Form(AppCanvas.getGameText(7) + " - " + this.D);
+            form.append(AppCanvas.getGameText(85 + this.D));
             if (this.D < 17) {
                 form.addCommand(this.var_javax_microedition_lcdui_Command_a);
             }
@@ -548,8 +548,8 @@ implements CommandListener {
             i.var_d_a.appDisplay.setCurrent((Displayable)form);
         } else if (command == this.var_javax_microedition_lcdui_Command_c) {
             this.k();
-            if (!d.var_boolean_arr_a[0]) {
-                d.a();
+            if (!AppCanvas.var_boolean_arr_a[0]) {
+                AppCanvas.a();
             }
             i.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
         }
@@ -590,7 +590,7 @@ implements CommandListener {
      */
     public void a(int n, String string, g g2) throws Exception {
         boolean bl = true;
-        if (string.equals(d.getGameText(1)) || g2 == this.var_g_f) {
+        if (string.equals(AppCanvas.getGameText(1)) || g2 == this.var_g_f) {
             if (g2 == this.var_g_f) {
                 if (n > this.var_byte_arr_e[0]) return;
                 this.F = n;
@@ -609,20 +609,20 @@ implements CommandListener {
             this.void_a(this.F);
             this.var_boolean_l = false;
             this.var_byte_i = 0;
-        } else if (string.equals(d.getGameText(2))) {
+        } else if (string.equals(AppCanvas.getGameText(2))) {
             this.var_g_f = new g(this, 0, 0);
             String[] stringArray = new String[7];
             int n2 = stringArray.length;
             for (int j = 0; j < n2; ++j) {
-                stringArray[j] = j <= this.var_byte_arr_e[0] ? d.getGameText(48 + j) : "???";
+                stringArray[j] = j <= this.var_byte_arr_e[0] ? AppCanvas.getGameText(48 + j) : "???";
             }
             this.var_g_f.a(stringArray);
-            this.var_g_f.a((byte)1, d.h, d.f, g2, 48);
-        } else if (string.equals(d.getGameText(3))) {
+            this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
+        } else if (string.equals(AppCanvas.getGameText(3))) {
             var_d_a.a("save", this.byte_arr_a());
-            g.a(this, null, d.getGameText(40), 1000, true);
+            g.a(this, null, AppCanvas.getGameText(40), 1000, true);
             this.var_byte_i = 0;
-        } else if (string.equals(d.getGameText(4))) {
+        } else if (string.equals(AppCanvas.getGameText(4))) {
             try {
                 byte[] byArray = var_d_a.byte_arr_b("save");
                 this.var_boolean_l = true;
@@ -633,27 +633,27 @@ implements CommandListener {
                 if (this.var_byte_a == 0) {
                     this.a(true);
                 }
-                g.a(this, null, d.getGameText(41), 1000, true);
+                g.a(this, null, AppCanvas.getGameText(41), 1000, true);
                 this.var_boolean_l = false;
             }
             catch (Exception exception) {
-                g g3 = g.a(this, null, d.getGameText(42), 1000, true);
+                g g3 = g.a(this, null, AppCanvas.getGameText(42), 1000, true);
                 g3.var_g_a = g2;
             }
             this.var_byte_i = 0;
-        } else if (string.equals(d.getGameText(5))) {
+        } else if (string.equals(AppCanvas.getGameText(5))) {
             this.var_g_a = new g(this, 0, 0);
             this.var_g_a.a(var_java_lang_String_arr_b);
-            this.var_g_a.a((byte)1, d.h, d.f, g2, 48);
+            this.var_g_a.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_a) {
             this.var_int_h = n;
             this.var_g_d = new g(this, 0, 0);
             String[] stringArray = new String[2];
             for (int j = 0; j < 2; ++j) {
-                stringArray[j] = j + 1 + " " + d.getGameText(16);
+                stringArray[j] = j + 1 + " " + AppCanvas.getGameText(16);
             }
             this.var_g_d.a(stringArray);
-            this.var_g_d.a((byte)1, d.h, d.f, g2, 48);
+            this.var_g_d.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
             this.var_byte_a = 1;
@@ -667,46 +667,46 @@ implements CommandListener {
             this.var_g_e.a((byte)0, 0, 0, null, 0);
             this.var_boolean_l = false;
         } else {
-            if (string.equals(d.getGameText(6))) {
-                this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, d.var_java_lang_String_arr_d, null);
+            if (string.equals(AppCanvas.getGameText(6))) {
+                this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, AppCanvas.var_java_lang_String_arr_d, null);
                 for (int j = 0; j < 4; ++j) {
-                    this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, d.var_boolean_arr_a[j]);
+                    this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.var_boolean_arr_a[j]);
                 }
-                Form form = new Form(d.getGameText(6));
+                Form form = new Form(AppCanvas.getGameText(6));
                 form.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_c);
                 form.setCommandListener((CommandListener)this);
                 i.var_d_a.appDisplay.setCurrent((Displayable)form);
                 return;
             }
-            if (string.equals(d.getGameText(7))) {
+            if (string.equals(AppCanvas.getGameText(7))) {
                 this.D = 0;
-                Form form = new Form(d.getGameText(7));
-                form.append(d.getGameText(13));
+                Form form = new Form(AppCanvas.getGameText(7));
+                form.append(AppCanvas.getGameText(13));
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_a);
                 form.setCommandListener((CommandListener)this);
                 i.var_d_a.appDisplay.setCurrent((Displayable)form);
                 return;
             }
-            if (string.equals(d.getGameText(8))) {
-                Form form = new Form(d.getGameText(8));
-                form.append(d.getGameText(0) + d.getGameText(14));
+            if (string.equals(AppCanvas.getGameText(8))) {
+                Form form = new Form(AppCanvas.getGameText(8));
+                form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.setCommandListener((CommandListener)this);
                 i.var_d_a.appDisplay.setCurrent((Displayable)form);
                 return;
             }
-            if (string.equals(d.getGameText(9))) {
+            if (string.equals(AppCanvas.getGameText(9))) {
                 App.instance.notifyDestroyed();
-            } else if (string.equals(d.getGameText(26))) {
+            } else if (string.equals(AppCanvas.getGameText(26))) {
                 g g4 = new g(this, 0, 0);
                 g4.a(this.var_java_lang_String_arr_c);
-                g4.a((byte)1, d.h, d.f, g2, 48);
-            } else if (string.equals(d.getGameText(27))) {
+                g4.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
+            } else if (string.equals(AppCanvas.getGameText(27))) {
                 this.var_boolean_d = false;
                 this.a(this.var_c_h);
-            } else if (string.equals(d.getGameText(28))) {
+            } else if (string.equals(AppCanvas.getGameText(28))) {
                 this.a(this.var_byte_arr_arr_b, 0);
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
@@ -719,37 +719,37 @@ implements CommandListener {
                 this.var_e_h.a(var_byte_arr_arr_d[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
-            } else if (string.equals(d.getGameText(29))) {
+            } else if (string.equals(AppCanvas.getGameText(29))) {
                 g g5 = new g(this, 2, 8);
                 g5.a((byte)8, 0, this.var_g_c.var_int_g, g2, 0);
-            } else if (string.equals(d.getGameText(30))) {
+            } else if (string.equals(AppCanvas.getGameText(30))) {
                 this.var_c_h.void_b();
                 this.h();
                 this.var_byte_i = 0;
-            } else if (string.equals(d.getGameText(32))) {
-                g.a(this, null, d.getGameText(39), 1000, true);
+            } else if (string.equals(AppCanvas.getGameText(32))) {
+                g.a(this, null, AppCanvas.getGameText(39), 1000, true);
                 this.var_byte_i = (byte)8;
                 this.var_long_c = this.var_long_n;
-            } else if (string.equals(d.getGameText(33))) {
+            } else if (string.equals(AppCanvas.getGameText(33))) {
                 if (this.a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, this.var_c_h)) {
                     this.void_a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, (int)this.var_c_h.var_byte_a);
-                    g.a(this, null, d.getGameText(38), 1000, true);
+                    g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     this.var_byte_i = (byte)9;
-                    d.a(-1, 1);
+                    AppCanvas.a(-1, 1);
                     this.var_long_c = this.var_long_n;
                 }
                 this.var_c_h.void_b();
-            } else if (string.equals(d.getGameText(34))) {
+            } else if (string.equals(AppCanvas.getGameText(34))) {
                 this.var_byte_i = (byte)7;
                 this.var_c_arr_b = this.var_c_h.a(this.var_c_h.i, (int)this.var_c_h.var_short_a, (byte)1);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
                 this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.i, (int)this.var_c_h.var_short_a);
                 this.var_boolean_r = true;
-            } else if (string.equals(d.getGameText(35))) {
+            } else if (string.equals(AppCanvas.getGameText(35))) {
                 g g6 = new g(this, 7, 0);
                 g6.a((byte)0, 0, 0, g2, 0);
-            } else if (string.equals(d.getGameText(36))) {
+            } else if (string.equals(AppCanvas.getGameText(36))) {
                 this.var_g_e.a((byte)0, 0, 0, g2, 0);
             } else {
                 this.var_c_h = this.c_a((int)((byte)n), (int)this.var_c_h.i, this.var_c_h.var_short_a);
@@ -796,7 +796,7 @@ implements CommandListener {
             this.var_int_arr_b[1] = 300;
         }
         this.var_boolean_v = true;
-        d.void_a("/1.pak");
+        AppCanvas.void_a("/1.pak");
         int n2 = n;
         if (this.var_byte_a == 0) {
             if (n == 6) {
@@ -806,7 +806,7 @@ implements CommandListener {
         } else {
             string = "s" + n2;
         }
-        DataInputStream dataInputStream = new DataInputStream(d.java_io_InputStream_a(string));
+        DataInputStream dataInputStream = new DataInputStream(AppCanvas.java_io_InputStream_a(string));
         this.var_short_e = (short)dataInputStream.readInt();
         this.var_short_b = (short)dataInputStream.readInt();
         this.var_byte_arr_arr_a = new byte[this.var_short_e][this.var_short_b];
@@ -831,7 +831,7 @@ implements CommandListener {
         this.var_short_i = (short)(this.var_short_b * 24);
         if (n == 6) {
             dataInputStream.close();
-            dataInputStream = new DataInputStream(d.java_io_InputStream_a("m" + n));
+            dataInputStream = new DataInputStream(AppCanvas.java_io_InputStream_a("m" + n));
             dataInputStream.readInt();
             dataInputStream.readInt();
         }
@@ -850,15 +850,15 @@ implements CommandListener {
             this.var_c_arr_a[by3] = c2;
         }
         dataInputStream.close();
-        d.e();
+        AppCanvas.e();
         if (this.var_byte_a == 0) {
-            this.var_g_e = g.a(this, d.getGameText(48 + this.F), d.getGameText(55 + this.F), -1, false);
-            this.var_g_b = g.a(this, null, d.getGameText(103 + this.F), -1, false);
+            this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.F), AppCanvas.getGameText(55 + this.F), -1, false);
+            this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.F), -1, false);
             this.a(false);
             this.void_b(500);
-            d.a(-1, 1);
+            AppCanvas.a(-1, 1);
         } else {
-            this.var_g_e = g.a(this, d.getGameText(36), d.getGameText(62), -1, false);
+            this.var_g_e = g.a(this, AppCanvas.getGameText(36), AppCanvas.getGameText(62), -1, false);
         }
         this.var_boolean_w = false;
         if (this.var_c_arr_a[1] != null) {
@@ -903,7 +903,7 @@ implements CommandListener {
             this.var_g_h = new g(this, 0, 8);
             this.var_g_h.a(this.java_lang_String_arr_a(c2, (byte)0));
             this.var_g_h.a((byte)8, 0, this.var_g_c.var_int_g, null, 0);
-            d.a(-1, 1);
+            AppCanvas.a(-1, 1);
         } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
             this.var_byte_b = (byte)4;
         }
@@ -913,21 +913,21 @@ implements CommandListener {
         Object[] objectArray;
         Vector<String> vector = new Vector<String>();
         if (by == 1 && this.var_c_h.a((short)4) && this.byte_a(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
-            vector.addElement(d.getGameText(29));
+            vector.addElement(AppCanvas.getGameText(29));
         }
         if (this.a((int)c2.i, (int)c2.var_short_a, c2)) {
-            vector.addElement(d.getGameText(33));
+            vector.addElement(AppCanvas.getGameText(33));
         }
         if ((by == 1 || c2.var_byte_d != 7) && c2.a(c2.i, (int)c2.var_short_a, (byte)0).length > 0) {
-            vector.addElement(d.getGameText(28));
+            vector.addElement(AppCanvas.getGameText(28));
         }
         if (c2.a((short)32) && (objectArray = c2.a(c2.i, (int)c2.var_short_a, (byte)1)).length > 0) {
-            vector.addElement(d.getGameText(34));
+            vector.addElement(AppCanvas.getGameText(34));
         }
         if (by == 1) {
-            vector.addElement(d.getGameText(27));
+            vector.addElement(AppCanvas.getGameText(27));
         } else {
-            vector.addElement(d.getGameText(30));
+            vector.addElement(AppCanvas.getGameText(30));
         }
         objectArray = new String[vector.size()];
         vector.copyInto(objectArray);
@@ -948,7 +948,7 @@ implements CommandListener {
             }
             case 1: {
                 if (this.var_int_m >= 15) {
-                    d.a(0, 1);
+                    AppCanvas.a(0, 1);
                     this.var_h_c = null;
                     this.var_int_m = 0;
                     ++this.var_int_p;
@@ -969,7 +969,7 @@ implements CommandListener {
                 if (i.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, 0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
-                g2.a((byte)1, d.h, d.f, null, 48);
+                g2.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
                 i.var_d_a.var_int_c = 0;
             }
         }
@@ -984,8 +984,8 @@ implements CommandListener {
         }
         this.void_a();
         if (this.var_int_s != -1) {
-            if (d.var_boolean_arr_a[2]) {
-                this.var_g_b = g.a(this, d.getGameText(85 + this.var_int_s), (byte)-1, (byte)2);
+            if (AppCanvas.var_boolean_arr_a[2]) {
+                this.var_g_b = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), (byte)-1, (byte)2);
             }
             this.var_int_s = -1;
         }
@@ -1070,7 +1070,7 @@ implements CommandListener {
                     if (!this.var_boolean_y && this.var_int_r == 0 && this.var_long_n - this.var_long_c >= 1000L) {
                         stringArray = new g(this, 0, 0);
                         stringArray.a(this.var_java_lang_String_arr_e);
-                        stringArray.a((byte)1, d.h, d.f, null, 48);
+                        stringArray.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
                         stringArray.var_boolean_g = false;
                         this.var_int_r = 1;
                     }
@@ -1241,7 +1241,7 @@ implements CommandListener {
                                     this.var_boolean_r = false;
                                     this.var_boolean_t = false;
                                     this.var_byte_i = (byte)2;
-                                    d.a(-1, 1);
+                                    AppCanvas.a(-1, 1);
                                 }
                                 var_d_a.void_c(16);
                             }
@@ -1275,18 +1275,18 @@ implements CommandListener {
                                         this.var_g_h = new g(this, 0, 8);
                                         this.var_g_h.a(stringArray);
                                         this.var_g_h.a((byte)8, 0, 40, null, 0);
-                                        d.a(-1, 1);
+                                        AppCanvas.a(-1, 1);
                                     } else {
                                         this.var_boolean_d = false;
                                         this.a(this.var_c_h);
                                     }
                                 } else {
                                     this.var_c_h = null;
-                                    stringArray = new String[]{d.getGameText(32), d.getGameText(35), d.getGameText(36), d.getGameText(26)};
+                                    stringArray = new String[]{AppCanvas.getGameText(32), AppCanvas.getGameText(35), AppCanvas.getGameText(36), AppCanvas.getGameText(26)};
                                     this.var_g_h = new g(this, 0, 8);
                                     this.var_g_h.a(stringArray);
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
-                                    d.a(-1, 1);
+                                    AppCanvas.a(-1, 1);
                                 }
                                 var_d_a.void_c(16);
                                 var_d_a.void_c(1024);
@@ -1400,30 +1400,30 @@ implements CommandListener {
 
     public int int_b(int n) {
         int n2;
-        if (this.var_short_c > d.width2) {
-            n2 = d.h - n;
+        if (this.var_short_c > AppCanvas.width2) {
+            n2 = AppCanvas.h - n;
             if (n2 > 0) {
                 n2 = 0;
-            } else if (n2 < d.width2 - this.var_short_c) {
-                n2 = (short)(d.width2 - this.var_short_c);
+            } else if (n2 < AppCanvas.width2 - this.var_short_c) {
+                n2 = (short)(AppCanvas.width2 - this.var_short_c);
             }
         } else {
-            n2 = (d.width2 - this.var_short_c) / 2;
+            n2 = (AppCanvas.width2 - this.var_short_c) / 2;
         }
         return n2;
     }
 
     public int int_a(int n) {
         int n2;
-        if (this.var_short_i > d.height2) {
-            n2 = d.f - n;
+        if (this.var_short_i > AppCanvas.height2) {
+            n2 = AppCanvas.f - n;
             if (n2 > 0) {
                 n2 = 0;
-            } else if (n2 < d.height2 - this.var_short_i) {
-                n2 = (short)(d.height2 - this.var_short_i);
+            } else if (n2 < AppCanvas.height2 - this.var_short_i) {
+                n2 = (short)(AppCanvas.height2 - this.var_short_i);
             }
         } else {
-            n2 = (d.height2 - this.var_short_i) / 2;
+            n2 = (AppCanvas.height2 - this.var_short_i) / 2;
         }
         return n2;
     }
@@ -1487,12 +1487,12 @@ implements CommandListener {
         if (s2 < 0) {
             s2 = 0;
         }
-        short s3 = (short)(s + d.width2 / 24);
-        short s4 = (short)(s2 + d.height2 / 24);
-        if (d.width2 % 24 != 0) {
+        short s3 = (short)(s + AppCanvas.width2 / 24);
+        short s4 = (short)(s2 + AppCanvas.height2 / 24);
+        if (AppCanvas.width2 % 24 != 0) {
             s3 = (short)(s3 + 1);
         }
-        if (d.height2 % 24 != 0) {
+        if (AppCanvas.height2 % 24 != 0) {
             s4 = (short)(s4 + 1);
         }
         if (s3 >= this.var_short_e) {
@@ -1537,11 +1537,11 @@ implements CommandListener {
     }
 
     public void c(Graphics graphics) {
-        graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
+        graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
         graphics.setColor(0);
-        graphics.fillRect(0, 0, d.width2, d.height2);
+        graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
         graphics.setColor(0xFFFFFF);
-        graphics.drawString(d.getGameText(24), d.width2 / 2, (d.height2 - d.var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
+        graphics.drawString(AppCanvas.getGameText(24), AppCanvas.width2 / 2, (AppCanvas.height2 - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight()) / 2, 17);
     }
 
     public void b(Graphics graphics) {
@@ -1557,20 +1557,20 @@ implements CommandListener {
             if (this.var_int_m >= 15) {
                 this.var_h_e.draw(graphics, i.var_d_a.width - this.var_h_e.width >> 1, (i.var_d_a.height - this.var_h_e.height) / 3);
                 graphics.setColor(0xFFFFFF);
-                graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
+                graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
                 if (this.var_boolean_p && this.var_int_g == 0) {
-                    graphics.drawString(d.getGameText(25), d.h, d.height2 * 3 / 4, 17);
+                    graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 * 3 / 4, 17);
                 }
-                graphics.drawString(d.getGameText(15), d.h, d.height2 - 1, 33);
+                graphics.drawString(AppCanvas.getGameText(15), AppCanvas.h, AppCanvas.height2 - 1, 33);
             } else {
                 if (32 * this.N <= 255) {
                     graphics.setColor(0xFFFFFF - 0x202020 * this.N);
-                    graphics.fillRect(0, 0, d.width2, d.height2);
+                    graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                 } else {
                     graphics.setColor(0xFFFFFF);
                 }
                 i.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, i.var_d_a.width - this.var_h_e.width >> 1, (i.var_d_a.height - this.var_h_e.height) / 3, 0, 0);
-                graphics.setClip(0, 0, d.width2, d.height2);
+                graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
             }
         }
     }
@@ -1591,7 +1591,7 @@ implements CommandListener {
                 if (this.var_int_m >= 15 && this.var_byte_i != 11) {
                     this.c(graphics);
                 } else {
-                    i.a(graphics, 0, this.var_int_m, 15, this.var_int_e, null, 0, 0, d.width2, d.height2);
+                    i.a(graphics, 0, this.var_int_m, 15, this.var_int_e, null, 0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
                 return;
             }
@@ -1599,10 +1599,10 @@ implements CommandListener {
                 this.b(graphics);
             } else {
                 int n2;
-                graphics.setClip(0, 0, d.width2, d.height2);
-                if (this.var_short_c < d.width2 || this.var_short_i < d.height2) {
+                graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
+                if (this.var_short_c < AppCanvas.width2 || this.var_short_i < AppCanvas.height2) {
                     graphics.setColor(0);
-                    graphics.fillRect(0, 0, d.width2, d.height2);
+                    graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
                 this.d(graphics);
                 int n3 = this.var_java_util_Vector_a.size();
@@ -1646,7 +1646,7 @@ implements CommandListener {
                             }
                         }
                         if (n3 == n4 - 1) {
-                            graphics.setClip(0, 0, d.width2, d.height2);
+                            graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                             this.var_e_k.a(graphics, n5 - 1, n6 - 4);
                             continue;
                         }
@@ -1667,7 +1667,7 @@ implements CommandListener {
                         this.a(graphics, n7 - this.G, n6, 0, 12, true);
                     }
                 }
-                graphics.setClip(0, 0, d.width2, d.height2);
+                graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 if (this.var_c_h != null) {
                     this.var_c_h.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
                     this.var_c_h.b(graphics, this.var_short_f, this.var_short_a);
@@ -1676,14 +1676,14 @@ implements CommandListener {
                     this.var_e_h.a(graphics, this.var_short_f - 1, this.var_short_a - 1);
                 }
                 if (this.var_byte_i == 11 && !this.var_boolean_y) {
-                    String string = d.getGameText(23);
-                    graphics.setClip(0, 0, d.width2, d.height2);
-                    graphics.setFont(d.var_javax_microedition_lcdui_Font_a);
+                    String string = AppCanvas.getGameText(23);
+                    graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
+                    graphics.setFont(AppCanvas.var_javax_microedition_lcdui_Font_a);
                     graphics.setColor(-16777216);
-                    graphics.fillRect(0, 0, d.width2, d.height2);
-                    n3 = d.f - d.var_javax_microedition_lcdui_Font_a.getHeight() / 2;
+                    graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
+                    n3 = AppCanvas.f - AppCanvas.var_javax_microedition_lcdui_Font_a.getHeight() / 2;
                     graphics.setColor(-1);
-                    graphics.drawString(string, d.h, n3, 17);
+                    graphics.drawString(string, AppCanvas.h, n3, 17);
                 }
                 for (n = 0; n < this.var_java_util_Vector_c.size(); ++n) {
                     ((e)this.var_java_util_Vector_c.elementAt(n)).a(graphics, this.var_short_f, this.var_short_a);
@@ -1696,11 +1696,11 @@ implements CommandListener {
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
                 this.var_e_e.a(1);
-                this.var_e_e.a(graphics, d.width2 - this.var_e_e.short_a(), d.height2 - this.var_e_e.short_b());
+                this.var_e_e.a(graphics, AppCanvas.width2 - this.var_e_e.short_a(), AppCanvas.height2 - this.var_e_e.short_b());
             }
             if (this.var_boolean_t) {
                 this.var_e_e.a(0);
-                this.var_e_e.a(graphics, 0, d.height2 - this.var_e_e.short_b());
+                this.var_e_e.a(graphics, 0, AppCanvas.height2 - this.var_e_e.short_b());
             }
         }
     }
@@ -1909,8 +1909,8 @@ implements CommandListener {
             } else {
                 if (this.a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, this.var_c_h)) {
                     this.void_a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, (int)this.var_c_h.var_byte_a);
-                    g.a(this, null, d.getGameText(38), 1000, true);
-                    d.a(-1, 1);
+                    g.a(this, null, AppCanvas.getGameText(38), 1000, true);
+                    AppCanvas.a(-1, 1);
                     this.var_byte_i = (byte)9;
                     this.var_long_c = this.var_long_n;
                 } else {
@@ -2004,7 +2004,7 @@ implements CommandListener {
                                 ++n7;
                             }
                             if (n7 > 0) {
-                                n6 = byArray[Math.abs(d.randomGen.nextInt()) % n7];
+                                n6 = byArray[Math.abs(AppCanvas.randomGen.nextInt()) % n7];
                                 c2 = this.c_a((int)((byte)n6), (int)c2.i, c2.var_short_a);
                             }
                         }
@@ -2072,7 +2072,7 @@ implements CommandListener {
                 return;
             }
             this.var_c_arr_c = null;
-            g.a(this, null, d.getGameText(39), 1000, true);
+            g.a(this, null, AppCanvas.getGameText(39), 1000, true);
             this.var_byte_i = (byte)8;
             this.var_long_c = this.var_long_n;
         }
@@ -2189,14 +2189,14 @@ implements CommandListener {
             return;
         }
         if (this.var_int_a == 0) {
-            this.var_c_arr_a[0].var_java_lang_String_a = d.getGameText(43);
+            this.var_c_arr_a[0].var_java_lang_String_a = AppCanvas.getGameText(43);
             this.var_g_b.a((byte)0, 0, 0, null, 0);
             ++this.var_int_a;
         }
         if (this.var_g_b != null) {
             if (this.var_g_b.var_byte_e != 3) return;
             this.var_g_b = null;
-            d.a();
+            AppCanvas.a();
         } else if (this.var_int_j != -1) {
             if (!this.boolean_b(this.var_int_j, this.var_int_b)) return;
             this.var_int_j = -1;
@@ -2220,7 +2220,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, d.getGameText(111), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(111), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2234,12 +2234,12 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_g_b = g.a(this, d.getGameText(112), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(112), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, d.getGameText(113), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(113), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2299,7 +2299,7 @@ implements CommandListener {
                     break;
                 }
                 case 16: {
-                    this.var_g_b = g.a(this, d.getGameText(114), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(114), (byte)2, (byte)4);
                     this.a(true);
                     ++this.var_int_a;
                     break;
@@ -2337,7 +2337,7 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.var_g_b = g.a(this, d.getGameText(115), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(115), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2375,7 +2375,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, d.getGameText(116), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(116), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2384,7 +2384,7 @@ implements CommandListener {
                     break;
                 }
                 case 11: {
-                    this.var_g_b = g.a(this, d.getGameText(117), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(117), (byte)0, (byte)4);
                     this.a(true);
                     ++this.var_int_a;
                     break;
@@ -2419,7 +2419,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_byte_i == 1) break;
-                    this.var_g_b = g.a(this, d.getGameText(118), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(118), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2432,12 +2432,12 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    this.var_g_b = g.a(this, d.getGameText(119), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(119), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 19: {
-                    this.var_g_b = g.a(this, d.getGameText(120), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(120), (byte)2, (byte)4);
                     this.a(true);
                     ++this.var_int_a;
                     break;
@@ -2466,7 +2466,7 @@ implements CommandListener {
             switch (this.var_int_a) {
                 case 1: {
                     this.var_int_arr_b[0] = 0;
-                    this.c_a((int)14, (int)12, (byte)0).var_java_lang_String_a = d.getGameText(45);
+                    this.c_a((int)14, (int)12, (byte)0).var_java_lang_String_a = AppCanvas.getGameText(45);
                     this.void_b(7, 12);
                     break;
                 }
@@ -2474,7 +2474,7 @@ implements CommandListener {
                     for (int j = 5; j < 10; ++j) {
                         this.a(this.var_e_d, j * 24, 288, 0, 0, 4, 50);
                     }
-                    d.a(1, 3);
+                    AppCanvas.a(1, 3);
                     this.void_b(200);
                     ++this.var_int_a;
                     break;
@@ -2488,7 +2488,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.var_g_b = g.a(this, d.getGameText(121), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(121), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2497,12 +2497,12 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_g_b = g.a(this, d.getGameText(122), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(122), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, d.getGameText(123), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(123), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2544,7 +2544,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, d.getGameText(124), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(124), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2566,7 +2566,7 @@ implements CommandListener {
                 }
                 case 7: {
                     this.var_c_arr_a[1] = c.a((byte)9, (byte)1, 2, 0);
-                    this.var_c_arr_a[1].var_java_lang_String_a = d.getGameText(44);
+                    this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
                     c.a((byte)5, (byte)1, 0, 0);
                     this.a(this.var_e_r, 48, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 0, 0, 0, 4, 50);
@@ -2577,12 +2577,12 @@ implements CommandListener {
                     break;
                 }
                 case 8: {
-                    this.var_g_b = g.a(this, d.getGameText(125), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(125), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, d.getGameText(126), (byte)1, (byte)8);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(126), (byte)1, (byte)8);
                     ++this.var_int_a;
                     break;
                 }
@@ -2597,7 +2597,7 @@ implements CommandListener {
                 }
                 case 12: {
                     if (this.var_c_arr_a[1] != null) break;
-                    this.var_g_b = g.a(this, d.getGameText(127), (byte)1, (byte)8);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(127), (byte)1, (byte)8);
                     this.a(false);
                     ++this.var_int_a;
                     break;
@@ -2620,12 +2620,12 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.var_g_b = g.a(this, d.getGameText(128), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(128), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, d.getGameText(129), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(129), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2658,7 +2658,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, d.getGameText(130), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(130), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2675,7 +2675,7 @@ implements CommandListener {
         } else if (this.F == 5) {
             switch (this.var_int_a) {
                 case 1: {
-                    this.var_c_arr_a[1].var_java_lang_String_a = d.getGameText(44);
+                    this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
                     this.J = 8;
                     this.void_b(this.var_c_arr_a[1].i, this.var_c_arr_a[1].var_short_a);
                     break;
@@ -2686,7 +2686,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, d.getGameText(131), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(131), (byte)2, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2695,7 +2695,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.var_g_b = g.a(this, d.getGameText(132), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(132), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2764,7 +2764,7 @@ implements CommandListener {
                 }
                 case 6: {
                     this.var_c_arr_a[1] = c.a((byte)9, (byte)1, 1, 1);
-                    this.var_c_arr_a[1].var_java_lang_String_a = d.getGameText(44);
+                    this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
                     c.a((byte)8, (byte)1, 0, 1);
                     c.a((byte)0, (byte)1, 1, 2);
                     this.a(this.var_e_r, 24, 24, 0, 0, 4, 50);
@@ -2777,12 +2777,12 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, d.getGameText(133), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(133), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 8: {
-                    this.var_g_b = g.a(this, d.getGameText(134), (byte)1, (byte)8);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(134), (byte)1, (byte)8);
                     ++this.var_int_a;
                     break;
                 }
@@ -2791,7 +2791,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.var_g_b = g.a(this, d.getGameText(135), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(135), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2817,12 +2817,12 @@ implements CommandListener {
                     break;
                 }
                 case 15: {
-                    this.var_g_b = g.a(this, d.getGameText(136), (byte)1, (byte)8);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(136), (byte)1, (byte)8);
                     ++this.var_int_a;
                     break;
                 }
                 case 16: {
-                    this.var_g_b = g.a(this, d.getGameText(137), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(137), (byte)0, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2832,7 +2832,7 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    this.var_g_b = g.a(this, null, d.getGameText(110), -1, true);
+                    this.var_g_b = g.a(this, null, AppCanvas.getGameText(110), -1, true);
                     ++this.var_int_a;
                     break;
                 }
@@ -2853,9 +2853,9 @@ implements CommandListener {
     }
 
     public void g() {
-        d.a(2, 1);
+        AppCanvas.a(2, 1);
         this.var_byte_i = (byte)10;
-        g.a(this, null, d.getGameText(37), 1000, true);
+        g.a(this, null, AppCanvas.getGameText(37), 1000, true);
         this.var_long_c = this.var_long_n;
         this.var_int_a = -1;
     }
@@ -2873,12 +2873,12 @@ implements CommandListener {
         this.var_boolean_k = false;
         this.var_c_i = c2;
         this.var_c_b = c3;
-        d.void_a("/2.pak");
+        AppCanvas.void_a("/2.pak");
         this.var_h_h = new Sprite("defpanel.png");
         this.var_e_q = new e("soul");
         this.var_f_b = new f(this, c2, true);
         this.var_f_a = new f(this, c3, false);
-        d.e();
+        AppCanvas.e();
         this.var_f_b.var_f_a = this.var_f_a;
         this.var_f_a.var_f_a = this.var_f_b;
         c2.a(c3);
@@ -2950,17 +2950,17 @@ implements CommandListener {
     }
 
     public void e(Graphics graphics) {
-        graphics.setClip(0, 0, d.width2, d.height2);
+        graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         int n = 0;
         int n2 = 0;
         if (this.var_boolean_q) {
-            n = d.randomGen.nextInt() % 5;
-            n2 = d.randomGen.nextInt() % 3;
+            n = AppCanvas.randomGen.nextInt() % 5;
+            n2 = AppCanvas.randomGen.nextInt() % 3;
         }
         this.var_f_b.a(graphics, n, n2);
-        this.var_f_a.a(graphics, n + d.h, n2);
+        this.var_f_a.a(graphics, n + AppCanvas.h, n2);
         graphics.setColor(0);
-        graphics.fillRect(d.h - 1 + n, n2, 2, d.height2);
+        graphics.fillRect(AppCanvas.h - 1 + n, n2, 2, AppCanvas.height2);
         this.var_f_b.b(graphics);
         this.var_f_a.b(graphics);
         if (this.var_f_b.var_boolean_f) {
@@ -2974,17 +2974,17 @@ implements CommandListener {
             e e2 = (e)this.var_java_util_Vector_c.elementAt(j);
             if (e2.var_boolean_a) {
                 if (this.var_f_b.var_boolean_f) {
-                    graphics.setClip(d.h, 0, d.h, d.height2);
+                    graphics.setClip(AppCanvas.h, 0, AppCanvas.h, AppCanvas.height2);
                 } else {
-                    graphics.setClip(0, 0, d.h, d.height2);
+                    graphics.setClip(0, 0, AppCanvas.h, AppCanvas.height2);
                 }
             } else {
-                graphics.setClip(0, 0, d.width2, d.height2);
+                graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
             }
             e2.a(graphics, 0, 0);
         }
         if (this.var_boolean_e) {
-            i.a(graphics, 0, this.var_int_m, 15, 1, null, 0, 0, d.width2, d.height2);
+            i.a(graphics, 0, this.var_int_m, 15, 1, null, 0, 0, AppCanvas.width2, AppCanvas.height2);
         }
     }
 

@@ -26,7 +26,7 @@ public class Sprite {
     }
 
     public Sprite(String filename) throws Exception {
-        byte[] imageData = d.byte_arr_a(filename);
+        byte[] imageData = AppCanvas.byte_arr_a(filename);
         this.image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         this.width = (short)this.image.getWidth();
         this.height = (short)this.image.getHeight();

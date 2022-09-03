@@ -39,13 +39,13 @@ public class e {
     }
 
     private void a(String imageName, int n) throws Exception {
-        InputStream inputStream = d.java_io_InputStream_a(imageName + ".sprite");
+        InputStream inputStream = AppCanvas.java_io_InputStream_a(imageName + ".sprite");
         int n2 = inputStream.read();
         byte width = (byte)inputStream.read();
         byte height = (byte)inputStream.read();
         this.var_h_arr_a = new Sprite[n2];
         try {
-            byte[] imageBytes = d.byte_arr_a(imageName + ".png");
+            byte[] imageBytes = AppCanvas.byte_arr_a(imageName + ".png");
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
             int n3 = sprite.width / width;
             int n4 = sprite.height / height;
@@ -63,7 +63,7 @@ public class e {
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
                 if (n != -1) {
-                    byte[] imageBytes = d.byte_arr_a(fileName);
+                    byte[] imageBytes = AppCanvas.byte_arr_a(fileName);
                     this.var_h_arr_a[j] = Sprite.fromByteArray(imageBytes, n);
                     continue;
                 }
@@ -193,13 +193,13 @@ public class e {
                 for (int j = 0; j < 5; ++j) {
                     e3.var_boolean_arr_a[j] = true;
                     if (by == 4) {
-                        e3.var_short_arr_arr_a[j][0] = (short)(d.randomGen.nextInt() % 4 << 10);
-                        e3.var_short_arr_arr_a[j][1] = (short)(d.randomGen.nextInt() % 4 << 10);
+                        e3.var_short_arr_arr_a[j][0] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
+                        e3.var_short_arr_arr_a[j][1] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
                     } else {
-                        e3.var_short_arr_arr_a[j][0] = (short)(Math.abs(d.randomGen.nextInt()) % n5 + -4096);
-                        e3.var_short_arr_arr_a[j][1] = (short)(Math.abs(d.randomGen.nextInt()) % n6 + -2048);
+                        e3.var_short_arr_arr_a[j][0] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n5 + -4096);
+                        e3.var_short_arr_arr_a[j][1] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n6 + -2048);
                     }
-                    e3.var_byte_arr_d[j] = (byte)(Math.abs(d.randomGen.nextInt()) % 2 + 1);
+                    e3.var_byte_arr_d[j] = (byte)(Math.abs(AppCanvas.randomGen.nextInt()) % 2 + 1);
                 }
             }
         }

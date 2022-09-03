@@ -19,7 +19,7 @@ public class g {
     public int var_int_b;
     public int var_int_g;
     public int m;
-    public Font var_javax_microedition_lcdui_Font_a = d.var_javax_microedition_lcdui_Font_a;
+    public Font var_javax_microedition_lcdui_Font_a = AppCanvas.var_javax_microedition_lcdui_Font_a;
     public int x;
     public int z;
     public int B;
@@ -80,33 +80,33 @@ public class g {
             this.var_byte_arr_a = c.byte_arr_a();
             this.z = this.var_byte_arr_a.length;
             this.var_int_b = 64;
-            this.var_int_g = d.height2 - 40;
+            this.var_int_g = AppCanvas.height2 - 40;
             this.w = (this.var_int_b - 6 - 2) / 26;
             this.var_int_f = (this.var_int_g - 12 - 2) / 26;
             this.D = (this.var_int_b - 6 - 24 * this.w) / (this.w + 1);
             this.var_int_h = (this.var_int_f + this.D) * 24 + this.D > this.var_int_g - 6 ? (this.var_int_g - 12 - 24 * this.var_int_f) / (this.var_int_f + 1) : this.D;
             this.var_g_b = g2 = new g(i2, 1, 4);
         } else if (by == 1 || by == 4) {
-            this.var_int_g = d.height2;
+            this.var_int_g = AppCanvas.height2;
             if (by == 4) {
                 this.var_boolean_a = true;
                 this.j = 65;
                 this.var_c_a = i2.c_a((int)i2.var_short_h, (int)i2.var_short_g, (byte)0);
                 this.x = this.var_c_a.var_byte_d;
                 this.var_byte_c = this.var_c_a.var_byte_a;
-                this.var_int_b = d.width2;
-                this.var_int_g = d.height2 * 2 / 3;
+                this.var_int_b = AppCanvas.width2;
+                this.var_int_g = AppCanvas.height2 * 2 / 3;
             } else {
                 this.j = 65;
                 this.var_byte_c = i2.var_byte_c;
-                this.var_int_b = d.width2 - 64;
+                this.var_int_b = AppCanvas.width2 - 64;
                 this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.var_e_g.short_b();
             }
             this.v = this.var_int_b - 16;
             this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.var_e_g.short_b();
             this.u = (this.var_int_a - 2) / (this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
             this.D = (this.var_int_a - this.u * this.var_javax_microedition_lcdui_Font_a.getBaselinePosition()) / (this.u + 1);
-            this.var_java_lang_String_arr_b = d.a(d.getGameText(74 + this.x), this.v, this.var_javax_microedition_lcdui_Font_a);
+            this.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.x), this.v, this.var_javax_microedition_lcdui_Font_a);
         } else if (by == 3) {
             this.var_boolean_f = false;
             this.var_boolean_h = false;
@@ -120,7 +120,7 @@ public class g {
             this.b();
         } else if (by == 6) {
             this.var_int_g = i2.var_e_m.short_b() + -5;
-            this.var_int_b = d.width2;
+            this.var_int_b = AppCanvas.width2;
             int n2 = this.var_int_g - 6;
             n2 = n == 2 ? (n2 -= 2) : (n2 -= 6);
             g.a(this, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), n2, 1);
@@ -142,7 +142,7 @@ public class g {
             g2.var_boolean_a = true;
         }
         Font font = g2.var_javax_microedition_lcdui_Font_a;
-        int n3 = d.width2 - g2.D * 4 - 12;
+        int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         int n4 = font.stringWidth(string2);
         int n5 = 0;
         if (string != null && (n2 = font.stringWidth(string)) > n4) {
@@ -155,9 +155,9 @@ public class g {
             n5 = n3;
         }
         if (string != null) {
-            g2.var_java_lang_String_arr_a = d.a(string, n5, g2.var_javax_microedition_lcdui_Font_a);
+            g2.var_java_lang_String_arr_a = AppCanvas.a(string, n5, g2.var_javax_microedition_lcdui_Font_a);
         }
-        g2.var_java_lang_String_arr_b = d.a(string2, n5, g2.var_javax_microedition_lcdui_Font_a);
+        g2.var_java_lang_String_arr_b = AppCanvas.a(string2, n5, g2.var_javax_microedition_lcdui_Font_a);
         g2.u = g2.var_java_lang_String_arr_b.length;
         g2.m = g2.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + g2.D;
         int n6 = g2.u * g2.m + g2.D;
@@ -166,8 +166,8 @@ public class g {
         }
         g2.var_int_b = n5 + g2.D * 4 + 12;
         g2.var_int_g = n6 + 12;
-        if (g2.var_int_g > d.height2) {
-            n6 = d.height2 - 12;
+        if (g2.var_int_g > AppCanvas.height2) {
+            n6 = AppCanvas.height2 - 12;
             if (string != null) {
                 n6 -= g2.D;
             }
@@ -192,10 +192,10 @@ public class g {
         if (by == -1) {
             by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
-            g2.var_java_lang_String_arr_b = d.a(string, g2.var_int_d, g2.var_javax_microedition_lcdui_Font_a);
+            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.var_javax_microedition_lcdui_Font_a);
         } else {
             g2.var_int_d = g2.var_int_b - i2.var_e_m.short_a() - 6 - 12;
-            g2.var_java_lang_String_arr_b = d.a(string, g2.var_int_d, g2.var_javax_microedition_lcdui_Font_a);
+            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.var_javax_microedition_lcdui_Font_a);
         }
         g2.a(by2, 0, 0, null, 0);
         return g2;
@@ -213,7 +213,7 @@ public class g {
                 this.var_int_c = 0;
                 this.A = 0;
             } else {
-                this.var_int_c = this.A = d.width2 - this.var_int_b;
+                this.var_int_c = this.A = AppCanvas.width2 - this.var_int_b;
             }
         }
     }
@@ -238,12 +238,12 @@ public class g {
         if ((this.t & 4) == 0) {
             this.var_int_b += 6;
         }
-        if (this.var_int_b > d.width2) {
-            this.var_int_b = d.width2;
+        if (this.var_int_b > AppCanvas.width2) {
+            this.var_int_b = AppCanvas.width2;
         }
         this.var_int_g = this.m * stringArray.length + this.D + 12;
-        if (this.var_int_g > d.height2) {
-            this.var_int_g = d.height2;
+        if (this.var_int_g > AppCanvas.height2) {
+            this.var_int_g = AppCanvas.height2;
             g.a(this, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), this.var_int_g - 12, this.D);
         }
     }
@@ -272,14 +272,14 @@ public class g {
             this.var_a_a.var_g_c.a((byte)8, 0, 0, null, 0);
         }
         if (this.var_byte_a == 6 || this.var_byte_a == 4 || this.var_byte_a == 5) {
-            this.y = d.height2 - this.var_int_g;
+            this.y = AppCanvas.height2 - this.var_int_g;
         }
         if ((this.var_byte_a == 3 || this.var_byte_a == 5 || this.var_byte_a == 0) && this.var_boolean_e && this.boolean_a()) {
             this.void_a();
         }
         if (this.var_byte_a == 7 || this.var_byte_a == 9) {
-            this.A = (d.width2 - this.var_int_b) / 2;
-            this.y = (d.height2 - this.var_int_g) / 2;
+            this.A = (AppCanvas.width2 - this.var_int_b) / 2;
+            this.y = (AppCanvas.height2 - this.var_int_g) / 2;
         }
         if (this.var_byte_a == 9) {
             this.var_a_a.var_g_i = this;
@@ -294,8 +294,8 @@ public class g {
                 break;
             }
             case 8: {
-                this.A = d.width2 - this.var_int_b;
-                this.var_int_c = d.width2;
+                this.A = AppCanvas.width2 - this.var_int_b;
+                this.var_int_c = AppCanvas.width2;
                 break;
             }
             case 1: {
@@ -303,7 +303,7 @@ public class g {
                 break;
             }
             case 2: {
-                this.s = d.height2;
+                this.s = AppCanvas.height2;
             }
         }
         int n = 9;
@@ -361,7 +361,7 @@ public class g {
     }
 
     public boolean boolean_a() {
-        return this.var_byte_d == 8 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_e_h.short_a() + this.var_a_a.var_short_f >= d.h + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_short_f <= d.h - 24 - 12;
+        return this.var_byte_d == 8 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_e_h.short_a() + this.var_a_a.var_short_f >= AppCanvas.h + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_short_f <= AppCanvas.h - 24 - 12;
     }
 
     public void void_a() {
@@ -491,7 +491,7 @@ public class g {
                         if (this.var_byte_a == 2 && this.var_boolean_c) {
                             this.var_g_b.var_boolean_c = true;
                             this.var_g_b.x = this.x;
-                            this.var_g_b.var_java_lang_String_arr_b = d.a(d.getGameText(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.var_javax_microedition_lcdui_Font_a);
+                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.var_javax_microedition_lcdui_Font_a);
                             this.var_g_b.var_short_b = 0;
                         }
                         break block98;
@@ -572,7 +572,7 @@ public class g {
                                 ++this.y;
                                 this.var_boolean_c = true;
                             }
-                        } else if (i.var_d_a.boolean_c(2) && this.s + this.var_int_g > d.height2) {
+                        } else if (i.var_d_a.boolean_c(2) && this.s + this.var_int_g > AppCanvas.height2) {
                             --this.s;
                             --this.y;
                             this.var_boolean_c = true;
@@ -583,7 +583,7 @@ public class g {
                                 ++this.A;
                                 this.var_boolean_c = true;
                             }
-                        } else if (i.var_d_a.boolean_c(8) && this.var_int_c + this.var_int_b > d.width2) {
+                        } else if (i.var_d_a.boolean_c(8) && this.var_int_c + this.var_int_b > AppCanvas.width2) {
                             --this.var_int_c;
                             --this.A;
                             this.var_boolean_c = true;
@@ -645,7 +645,7 @@ public class g {
                 this.l -= this.var_int_e;
                 this.var_int_c += this.o;
                 this.s += this.l;
-                if (this.var_int_c <= -this.var_int_b || this.var_int_c >= d.width2 || this.s <= -this.var_int_g || this.s >= d.height2) {
+                if (this.var_int_c <= -this.var_int_b || this.var_int_c >= AppCanvas.width2 || this.s <= -this.var_int_g || this.s >= AppCanvas.height2) {
                     this.var_byte_e = (byte)3;
                     this.var_a_a.var_boolean_m = true;
                     this.var_a_a.var_java_util_Vector_e.removeElement(this);
@@ -694,7 +694,7 @@ public class g {
         if ((this.t & 8) == 0) {
             n3 -= 6;
         }
-        graphics.setClip(0, 0, d.width2, d.height2);
+        graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         graphics.translate(n2, n);
         graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
         if (this.var_byte_e == 2 || this.var_byte_a == 3 || this.var_byte_a == 5) {
@@ -725,7 +725,7 @@ public class g {
                     if (this.var_byte_a == 4 && this.var_c_a.var_java_lang_String_a != null) {
                         graphics.drawString(this.var_c_a.var_java_lang_String_a, n13, n14, 20);
                     } else {
-                        graphics.drawString(d.getGameText(63 + this.x), n13, n14, 20);
+                        graphics.drawString(AppCanvas.getGameText(63 + this.x), n13, n14, 20);
                     }
                     graphics.setColor(0);
                     String string = "";
@@ -733,27 +733,27 @@ public class g {
                     int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
-                        d.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
+                        AppCanvas.a(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
                         n12 = n3 / 2;
                         graphics.drawLine(n12, n14, n12, this.j);
                         graphics.setColor(0);
-                        d.a(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
-                        n14 += d.a((byte)0) + 2;
+                        AppCanvas.a(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
+                        n14 += AppCanvas.a((byte)0) + 2;
                         if ((this.var_c_a.var_byte_b & 1) != 0) {
                             this.var_a_a.var_e_j.a(0);
                             this.var_a_a.var_e_j.a(graphics, n12, n14 - 2);
-                            graphics.drawString(d.getGameText(46), n12 + this.var_a_a.var_e_j.short_a() + 2, n14, 20);
+                            graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.var_e_j.short_a() + 2, n14, 20);
                             n14 += this.var_a_a.var_e_j.short_b() - 4;
                         }
                         if ((this.var_c_a.var_byte_b & 2) != 0) {
                             this.var_a_a.var_e_j.a(1);
                             this.var_a_a.var_e_j.a(graphics, n12, n14);
-                            graphics.drawString(d.getGameText(47), n12 + this.var_a_a.var_e_j.short_a() + 2, n14 + 2, 20);
+                            graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.var_e_j.short_a() + 2, n14 + 2, 20);
                         }
-                        d.a(graphics, "" + this.var_c_a.h, n3 - 4, 6, 1, 8);
+                        AppCanvas.a(graphics, "" + this.var_c_a.h, n3 - 4, 6, 1, 8);
                         graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
                         this.var_a_a.var_e_j.a(2);
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
@@ -762,7 +762,7 @@ public class g {
                         }
                     }
                     graphics.setColor(0xFF0000);
-                    d.a(graphics, "ATK", 2, 33, 0);
+                    AppCanvas.a(graphics, "ATK", 2, 33, 0);
                     stringBuffer.append(c.var_byte_arr_a[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_f > 0) {
@@ -776,8 +776,8 @@ public class g {
                         n13 = n3 - 2 - 2;
                     }
                     String string2 = stringBuffer.toString();
-                    d.a(graphics, string2, n13, 33, 0, 8);
-                    d.a(graphics, "DEF", 2, 43, 0);
+                    AppCanvas.a(graphics, string2, n13, 33, 0, 8);
+                    AppCanvas.a(graphics, "DEF", 2, 43, 0);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(c.var_byte_arr_f[this.x]);
                     if (this.var_byte_a == 4) {
@@ -789,8 +789,8 @@ public class g {
                         }
                     }
                     string2 = stringBuffer.toString();
-                    d.a(graphics, string2, n13, 43, 0, 8);
-                    d.a(graphics, "MOV", 2, 53, 0);
+                    AppCanvas.a(graphics, string2, n13, 43, 0, 8);
+                    AppCanvas.a(graphics, "MOV", 2, 53, 0);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(c.var_byte_arr_b[this.x]);
                     if (this.var_byte_a == 4) {
@@ -802,7 +802,7 @@ public class g {
                         }
                     }
                     string2 = stringBuffer.toString();
-                    d.a(graphics, string2, n13, 53, 0, 8);
+                    AppCanvas.a(graphics, string2, n13, 53, 0, 8);
                     n12 = this.j;
                     n11 = n3 / 2;
                     graphics.setColor(-6386059);
@@ -819,14 +819,14 @@ public class g {
                         n10 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
                         n9 = this.j - this.var_a_a.var_e_g.short_b() / 2;
                         this.var_a_a.var_e_g.a(graphics, n10, n9 - this.p);
-                        d.a(graphics, "1", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
+                        AppCanvas.a(graphics, "1", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
                     this.var_a_a.var_e_g.a(1);
                     n10 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.var_e_g.short_b() / 2;
                     this.var_a_a.var_e_g.a(graphics, n10, n9 + this.p);
-                    d.a(graphics, "7", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
+                    AppCanvas.a(graphics, "7", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
                     break;
                 }
                 case 2: {
@@ -858,7 +858,7 @@ public class g {
                         this.var_a_a.var_e_e.a(2);
                         this.var_a_a.var_e_e.a(graphics, n3 - 2 - this.var_a_a.var_e_e.short_a(), 2);
                     } else {
-                        d.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
+                        AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
                     }
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;
@@ -903,8 +903,8 @@ public class g {
                     graphics.setColor(0);
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
-                    d.a(graphics, "DEF", 7, n25, 0);
-                    d.a(graphics, "" + i.var_byte_arr_g[by], 14, n25 += 9, 0);
+                    AppCanvas.a(graphics, "DEF", 7, n25, 0);
+                    AppCanvas.a(graphics, "" + i.var_byte_arr_g[by], 14, n25 += 9, 0);
                     if (this.var_c_a == null) break;
                     this.var_a_a.a(this.var_c_a.var_byte_a, this.var_c_a.var_byte_d).a(graphics, 35, 2);
                     n25 = 22;
@@ -1000,15 +1000,15 @@ public class g {
             }
         }
         graphics.translate(-n2, -n);
-        graphics.setClip(0, 0, d.width2, d.height2);
+        graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         if (this.var_byte_e == 2) {
             if (this.var_boolean_a) {
                 this.var_a_a.var_e_e.a(0);
-                this.var_a_a.var_e_e.a(graphics, 0, d.height2 - this.var_a_a.var_e_e.short_b());
+                this.var_a_a.var_e_e.a(graphics, 0, AppCanvas.height2 - this.var_a_a.var_e_e.short_b());
             }
             if (this.var_boolean_g) {
                 this.var_a_a.var_e_e.a(1);
-                this.var_a_a.var_e_e.a(graphics, d.width2 - this.var_a_a.var_e_e.short_a(), d.height2 - this.var_a_a.var_e_e.short_b());
+                this.var_a_a.var_e_e.a(graphics, AppCanvas.width2 - this.var_a_a.var_e_e.short_a(), AppCanvas.height2 - this.var_a_a.var_e_e.short_b());
             }
         }
     }

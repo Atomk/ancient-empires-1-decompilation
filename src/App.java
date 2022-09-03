@@ -9,12 +9,12 @@ import javax.microedition.midlet.MIDlet;
 public class App
 extends MIDlet {
     public static App instance;
-    public static d var_d_a;
+    public static AppCanvas var_d_a;
 
     public void startApp() {
         if (instance == null) {
             instance = this;
-            var_d_a = new d(this);
+            var_d_a = new AppCanvas(this);
         }
     }
 
