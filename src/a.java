@@ -96,9 +96,9 @@ extends i {
                     ++this.var_int_m;
                     break;
                 }
-                boolean bl = this.var_boolean_p = !this.var_boolean_p;
+                this.var_boolean_p = !this.var_boolean_p;
                 if (i.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
-                g g2 = new g(this, 0, 0);
+                g g2 = new g(this, (byte)0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, 67, null, 16);
                 i.var_d_a.var_int_c = 0;

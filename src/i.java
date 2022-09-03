@@ -293,8 +293,8 @@ implements CommandListener {
         this.var_h_arr_a[0] = this.var_h_arr_c[var_byte_arr_a[0]];
         this.var_h_arr_a[1] = this.var_h_arr_c[var_byte_arr_a[1]];
         AppCanvas.e();
-        this.var_g_c = new g(this, 3, 9);
-        this.var_g_g = new g(this, 5, 10);
+        this.var_g_c = new g(this, (byte)3, 9);
+        this.var_g_g = new g(this, (byte)5, 10);
     }
 
     public void d(int n) {
