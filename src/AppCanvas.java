@@ -29,6 +29,8 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.rms.RecordStore;
 
+// Docs showing how most of the methods here work:
+// https://docs.oracle.com/javame/config/cldc/ref-impl/midp2.0/jsr118/javax/microedition/lcdui/Canvas.html
 public class AppCanvas
 extends FullCanvas
 implements Runnable,
@@ -74,6 +76,7 @@ CommandListener {
             f = height2 >> 1;
             this.appDisplay = Display.getDisplay((MIDlet)mIDlet);
             this.appDisplay.setCurrent((Displayable)this);
+            // Executes the run() method of this class on another thread
             new Thread(this).start();
         }
         catch (Exception exception) {
@@ -150,6 +153,10 @@ CommandListener {
         int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
             char letter = text.charAt(j);
+            // n3 can only be 0 or 1
+            // TODO refactor to boolean? Other functions calling this method use other values for this parameter
+            // if n3 == 1, this check will only allow numbers (ascii 48-57)
+            // if n3 == 0, this check will allow numbers, uppercase letters and some symbols (ascii 43-90)
             if (letter < asciiRefStart[n3] || letter > asciiRefEnd[n3]) continue;
             byte by = var_byte_arr_arr_a[n3][letter - asciiRefStart[n3]];
             if (by != -1) {
@@ -286,6 +293,7 @@ CommandListener {
         this.isRunning = false;
     }
 
+    // Called in the costructor by Thread(this).start();
     public void run() {
         try {
             String[] stringArray = new String[]{
@@ -457,6 +465,11 @@ CommandListener {
         }
     }
 
+    /**
+     * Gets the data for a specific file.
+     * @param filename name of the file
+     * @return byte array containing the file's data, or null if the file wasn't found
+     */
     public static byte[] getFileBytes(String filename) {
         for (int j = 0; j < assetsFileName.length; ++j) {
             if (filename.equals(assetsFileName[j])) {
@@ -496,6 +509,11 @@ CommandListener {
         return stringsPartA.length;
     }
 
+    /**
+     * Gets a string loaded from the file lang.dat, identified by its index
+     * @param index index of the string to return
+     * @return the app string with the specific index
+     */
     public static String getGameText(int index) {
         if (index < 63) {
             return stringsPartA[index];
