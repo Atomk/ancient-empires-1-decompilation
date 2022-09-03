@@ -56,7 +56,7 @@ CommandListener {
     public static String[] var_java_lang_String_arr_d;
     private Sprite spriteMask;
     private static Sound[] midiSounds;
-    private static byte[][] var_byte_arr_arr_b;
+    private static byte[][] assetsFileBytes;
     private static String[] assetsFileName;
     // TODO maybe rename to appStrings, more descriptive
     private static String[] stringsPartA;
@@ -456,10 +456,10 @@ CommandListener {
                 nArray[j] = dataInputStream.readInt() + s;
                 nArray2[j] = dataInputStream.readShort();
             }
-            var_byte_arr_arr_b = new byte[assetsFileName.length][];
+            assetsFileBytes = new byte[assetsFileName.length][];
             for (int j = 0; j < assetsFileName.length; ++j) {
-                AppCanvas.var_byte_arr_arr_b[j] = new byte[nArray2[j]];
-                dataInputStream.readFully(var_byte_arr_arr_b[j]);
+                AppCanvas.assetsFileBytes[j] = new byte[nArray2[j]];
+                dataInputStream.readFully(assetsFileBytes[j]);
             }
             dataInputStream.close();
         }
@@ -468,7 +468,7 @@ CommandListener {
     public static byte[] getFileBytes(String filename) {
         for (int j = 0; j < assetsFileName.length; ++j) {
             if (!filename.equals(assetsFileName[j])) continue;
-            return var_byte_arr_arr_b[j];
+            return assetsFileBytes[j];
         }
         return null;
     }
