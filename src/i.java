@@ -230,7 +230,7 @@ implements CommandListener {
         Object object;
         Object imageBytesObj;
         short s;
-        AppCanvas.a();
+        AppCanvas.stopFirstSound();
         AppCanvas.releaseSoundResources(0);
         if (this.var_byte_d == 1) {
             return;
@@ -549,7 +549,7 @@ implements CommandListener {
         } else if (command == this.var_javax_microedition_lcdui_Command_c) {
             this.k();
             if (!AppCanvas.var_boolean_arr_a[0]) {
-                AppCanvas.a();
+                AppCanvas.stopFirstSound();
             }
             i.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
         }
@@ -2196,7 +2196,7 @@ implements CommandListener {
         if (this.var_g_b != null) {
             if (this.var_g_b.var_byte_e != 3) return;
             this.var_g_b = null;
-            AppCanvas.a();
+            AppCanvas.stopFirstSound();
         } else if (this.var_int_j != -1) {
             if (!this.boolean_b(this.var_int_j, this.var_int_b)) return;
             this.var_int_j = -1;

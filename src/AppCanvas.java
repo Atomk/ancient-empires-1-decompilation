@@ -340,7 +340,7 @@ CommandListener {
         }
     }
 
-    public static void a() {
+    public static void stopFirstSound() {
         AppCanvas.stopSound(0);
     }
 
