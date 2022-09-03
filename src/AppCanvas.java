@@ -441,22 +441,22 @@ CommandListener {
 
     private static void readAssetsPackage() throws Exception {
         if (assetsFileName == null) {
-            int[] unusedArr = null;
-            int[] assetFilesSizes = null;
             InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream("/1.pak");
             DataInputStream dataInputStream = new DataInputStream(inputStream);
             short s = dataInputStream.readShort();
             int filesCount = dataInputStream.readShort();
+
             assetsFileName = new String[filesCount];
-            unusedArr = new int[filesCount];
-            assetFilesSizes = new int[filesCount];
+            int[] unusedArr = new int[filesCount];
+            int[] assetFilesSizes = new int[filesCount];
+            
             for (int j = 0; j < filesCount; ++j) {
                 AppCanvas.assetsFileName[j] = dataInputStream.readUTF();
                 unusedArr[j] = dataInputStream.readInt() + s;
                 assetFilesSizes[j] = dataInputStream.readShort();
             }
-            assetsFileBytes = new byte[assetsFileName.length][];
-            for (int j = 0; j < assetsFileName.length; ++j) {
+            assetsFileBytes = new byte[filesCount][];
+            for (int j = 0; j < filesCount; ++j) {
                 AppCanvas.assetsFileBytes[j] = new byte[assetFilesSizes[j]];
                 dataInputStream.readFully(assetsFileBytes[j]);
             }
