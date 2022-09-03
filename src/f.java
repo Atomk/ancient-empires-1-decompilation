@@ -342,7 +342,7 @@ public class f {
     }
 
     public void c() {
-        AppCanvas.d(200);
+        //AppCanvas.d(200);
         this.var_boolean_d = true;
         this.var_long_b = this.var_a_a.var_long_n;
     }

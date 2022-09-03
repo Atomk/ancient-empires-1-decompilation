@@ -297,7 +297,6 @@ CommandListener {
             Class_I.appCanvas = this;
             AppCanvas.readAssetsPackage();
             this.loadSounds();
-            this.c();
             Class_I.f();
             AppCanvas.var_e_arr_a[0] = new e("chars");
             AppCanvas.var_e_arr_a[1] = new e("lchars");
@@ -320,12 +319,6 @@ CommandListener {
             exception.printStackTrace();
             this.showErrorForm(exception.toString());
         }
-    }
-
-    public static void d(int n) {
-    }
-
-    public void c() {
     }
 
     private void loadSounds() {
@@ -475,9 +468,6 @@ CommandListener {
 
     public static InputStream getFileBytesInputStream(String filename) throws Exception {
         return new ByteArrayInputStream(AppCanvas.getFileBytes(filename));
-    }
-
-    public static void e() {
     }
 
     public void commandAction(Command command, Displayable displayable) {

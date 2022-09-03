@@ -292,7 +292,7 @@ implements CommandListener {
         this.var_int_l = var_byte_arr_a[0];
         this.var_h_arr_a[0] = this.var_h_arr_c[var_byte_arr_a[0]];
         this.var_h_arr_a[1] = this.var_h_arr_c[var_byte_arr_a[1]];
-        AppCanvas.e();
+        //AppCanvas.e();
         this.var_g_c = new g(this, (byte)3, 9);
         this.var_g_g = new g(this, (byte)5, 10);
     }
@@ -849,7 +849,7 @@ implements CommandListener {
             this.var_c_arr_a[by3] = c2;
         }
         dataInputStream.close();
-        AppCanvas.e();
+        //AppCanvas.e();
         if (this.var_byte_a == 0) {
             this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.F), AppCanvas.getGameText(55 + this.F), -1, false);
             this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.F), -1, false);
@@ -2874,7 +2874,7 @@ implements CommandListener {
         this.var_e_q = new e("soul");
         this.var_f_b = new f(this, c2, true);
         this.var_f_a = new f(this, c3, false);
-        AppCanvas.e();
+        //AppCanvas.e();
         this.var_f_b.var_f_a = this.var_f_a;
         this.var_f_a.var_f_a = this.var_f_b;
         c2.a(c3);
