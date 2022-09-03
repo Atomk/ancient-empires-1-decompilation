@@ -19,7 +19,7 @@ public class g {
     public int var_int_b;
     public int var_int_g;
     public int m;
-    public Font var_javax_microedition_lcdui_Font_a = AppCanvas.fontSmallPlain;
+    public Font appFont = AppCanvas.fontSmallPlain;
     public int x;
     public int z;
     public int B;
@@ -103,9 +103,9 @@ public class g {
             }
             this.v = this.var_int_b - 16;
             this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.var_e_g.short_b();
-            this.u = (this.var_int_a - 2) / (this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
-            this.D = (this.var_int_a - this.u * this.var_javax_microedition_lcdui_Font_a.getBaselinePosition()) / (this.u + 1);
-            this.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.x), this.v, this.var_javax_microedition_lcdui_Font_a);
+            this.u = (this.var_int_a - 2) / (this.appFont.getBaselinePosition() + 2);
+            this.D = (this.var_int_a - this.u * this.appFont.getBaselinePosition()) / (this.u + 1);
+            this.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.x), this.v, this.appFont);
         } else if (by == 3) {
             this.var_boolean_f = false;
             this.var_boolean_h = false;
@@ -122,7 +122,7 @@ public class g {
             this.var_int_b = AppCanvas.width2;
             int n2 = this.var_int_g - 6;
             n2 = n == 2 ? (n2 -= 2) : (n2 -= 6);
-            g.a(this, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), n2, 1);
+            g.a(this, this.appFont.getBaselinePosition(), n2, 1);
         } else if (by == 7) {
             this.var_short_a = (short)400;
             this.var_boolean_a = true;
@@ -140,7 +140,7 @@ public class g {
         if (n == -1) {
             g2.var_boolean_a = true;
         }
-        Font font = g2.var_javax_microedition_lcdui_Font_a;
+        Font font = g2.appFont;
         int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         int n4 = font.stringWidth(string2);
         int n5 = 0;
@@ -154,11 +154,11 @@ public class g {
             n5 = n3;
         }
         if (string != null) {
-            g2.var_java_lang_String_arr_a = AppCanvas.a(string, n5, g2.var_javax_microedition_lcdui_Font_a);
+            g2.var_java_lang_String_arr_a = AppCanvas.a(string, n5, g2.appFont);
         }
-        g2.var_java_lang_String_arr_b = AppCanvas.a(string2, n5, g2.var_javax_microedition_lcdui_Font_a);
+        g2.var_java_lang_String_arr_b = AppCanvas.a(string2, n5, g2.appFont);
         g2.u = g2.var_java_lang_String_arr_b.length;
-        g2.m = g2.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + g2.D;
+        g2.m = g2.appFont.getBaselinePosition() + g2.D;
         int n6 = g2.u * g2.m + g2.D;
         if (string != null) {
             n6 += g2.var_java_lang_String_arr_a.length * g2.m + g2.D;
@@ -170,7 +170,7 @@ public class g {
             if (string != null) {
                 n6 -= g2.D;
             }
-            g.a(g2, g2.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), n6, 4);
+            g.a(g2, g2.appFont.getBaselinePosition(), n6, 4);
             g2.var_int_g = 12 + g2.m * g2.u + g2.D;
             if (string != null) {
                 g2.var_int_g += g2.D;
@@ -191,10 +191,10 @@ public class g {
         if (by == -1) {
             by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
-            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.var_javax_microedition_lcdui_Font_a);
+            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         } else {
             g2.var_int_d = g2.var_int_b - i2.var_e_m.short_a() - 6 - 12;
-            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.var_javax_microedition_lcdui_Font_a);
+            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         }
         g2.a(by2, 0, 0, null, 0);
         return g2;
@@ -223,10 +223,10 @@ public class g {
         this.var_int_b = 0;
         this.var_int_g = 0;
         this.D = 4;
-        this.m = this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + this.D;
+        this.m = this.appFont.getBaselinePosition() + this.D;
         int n = 0;
         for (int j = 0; j < stringArray.length; ++j) {
-            int n2 = this.var_javax_microedition_lcdui_Font_a.stringWidth(stringArray[j]);
+            int n2 = this.appFont.stringWidth(stringArray[j]);
             if (n2 <= n) continue;
             n = n2;
         }
@@ -243,7 +243,7 @@ public class g {
         this.var_int_g = this.m * stringArray.length + this.D + 12;
         if (this.var_int_g > AppCanvas.height2) {
             this.var_int_g = AppCanvas.height2;
-            g.a(this, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition(), this.var_int_g - 12, this.D);
+            g.a(this, this.appFont.getBaselinePosition(), this.var_int_g - 12, this.D);
         }
     }
 
@@ -490,7 +490,7 @@ public class g {
                         if (this.var_byte_a == 2 && this.var_boolean_c) {
                             this.var_g_b.var_boolean_c = true;
                             this.var_g_b.x = this.x;
-                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.var_javax_microedition_lcdui_Font_a);
+                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.appFont);
                             this.var_g_b.var_short_b = 0;
                         }
                         break block98;
@@ -695,7 +695,7 @@ public class g {
         }
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         graphics.translate(n2, n);
-        graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
+        graphics.setFont(this.appFont);
         if (this.var_byte_e == 2 || this.var_byte_a == 3 || this.var_byte_a == 5) {
             block0 : switch (this.var_byte_a) {
                 case 0: {
@@ -731,7 +731,7 @@ public class g {
                     StringBuffer stringBuffer = new StringBuffer();
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
-                        this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
+                        this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
                         AppCanvas.drawBoldWhiteText(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
@@ -753,10 +753,10 @@ public class g {
                             graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.var_e_j.short_a() + 2, n14 + 2, 20);
                         }
                         AppCanvas.a(graphics, "" + this.var_c_a.h, n3 - 4, 6, 1, 8);
-                        graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
+                        graphics.setFont(this.appFont);
                         this.var_a_a.var_e_j.a(2);
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
-                            this.var_a_a.var_e_j.a(graphics, n13, this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + 2);
+                            this.var_a_a.var_e_j.a(graphics, n13, this.appFont.getBaselinePosition() + 2);
                             n13 += this.var_a_a.var_e_j.short_a();
                         }
                     }
@@ -811,7 +811,7 @@ public class g {
                     n12 += this.D;
                     for (n10 = this.var_short_b; n10 < this.var_short_b + this.u && n10 < this.var_java_lang_String_arr_b.length; ++n10) {
                         graphics.drawString(this.var_java_lang_String_arr_b[n10], n11, n12, 17);
-                        n12 += this.var_javax_microedition_lcdui_Font_a.getBaselinePosition() + this.D;
+                        n12 += this.appFont.getBaselinePosition() + this.D;
                     }
                     if (this.var_short_b != 0) {
                         this.var_a_a.var_e_g.a(0);
@@ -873,7 +873,7 @@ public class g {
                     break;
                 }
                 case 6: {
-                    graphics.setFont(this.var_javax_microedition_lcdui_Font_a);
+                    graphics.setFont(this.appFont);
                     int n22 = this.D;
                     int n23 = 4;
                     n23 = this.t == 4 ? (n23 += this.var_a_a.var_e_m.short_a()) : (n23 += 4);
