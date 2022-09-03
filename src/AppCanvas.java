@@ -34,7 +34,7 @@ extends FullCanvas
 implements Runnable,
 CommandListener {
     public static final Font fontSmallPlain;
-    public static final Font var_javax_microedition_lcdui_Font_b;
+    public static final Font fontMediumBold;
     public static int width2;
     public static int height2;
     public static int h;
@@ -516,7 +516,8 @@ CommandListener {
 
     static {
         fontSmallPlain = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL);
-        var_javax_microedition_lcdui_Font_b = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
+        // TODO this is never used
+        fontMediumBold = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
         asciiRefStart = new short[]{43, 48};  // 43 = '+', 48 = '0' (ASCII)
         asciiRefEnd = new short[]{90, 57};    // 90 = 'Z', 57 = '9' (ASCII)
         var_byte_arr_arr_a = new byte[][]{{26, -1, 25, -1, -1, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}};
