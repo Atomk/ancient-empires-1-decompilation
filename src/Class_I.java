@@ -1128,7 +1128,7 @@ implements CommandListener {
                     this.p();
                 } else if (Class_I.appCanvas.var_a_a == this && this.var_int_g == 0) {
                     if (this.var_boolean_t && appCanvas.boolean_c(1024)) {
-                        appCanvas.e(16);
+                        appCanvas.handleKeyPressedAction(16);
                         appCanvas.void_c(1024);
                     }
                     if (this.var_byte_i == 6 || this.var_byte_i == 7) {

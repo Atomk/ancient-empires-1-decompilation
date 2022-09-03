@@ -240,7 +240,7 @@ CommandListener {
     }
 
     public void keyPressed(int keyCode) {
-        this.e(this.getGameAction(keyCode));
+        this.handleKeyPressedAction(this.getGameAction(keyCode));
     }
 
     public boolean boolean_c(int n) {
@@ -255,7 +255,7 @@ CommandListener {
         return this.var_int_b == n && System.currentTimeMillis() - this.var_long_a >= 300L;
     }
 
-    public void e(int gameActionCode) {
+    public void handleKeyPressedAction(int gameActionCode) {
         this.var_int_b = gameActionCode;
         this.var_long_a = System.currentTimeMillis();
         this.var_int_c |= gameActionCode;
