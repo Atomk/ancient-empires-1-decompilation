@@ -292,7 +292,7 @@ CommandListener {
                 AppCanvas.getGameText(18),
                 AppCanvas.getGameText(17)};
             var_java_lang_String_arr_d = stringArray;
-            Class_I.var_d_a = this;
+            Class_I.appCanvas = this;
             AppCanvas.void_a("");
             this.b();
             this.c();

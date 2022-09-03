@@ -97,11 +97,11 @@ extends Class_I {
                     break;
                 }
                 this.var_boolean_p = !this.var_boolean_p;
-                if (Class_I.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
+                if (Class_I.appCanvas.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, 67, null, 16);
-                Class_I.var_d_a.var_int_c = 0;
+                Class_I.appCanvas.var_int_c = 0;
             }
         }
     }
@@ -109,26 +109,26 @@ extends Class_I {
     public void b(Graphics graphics) {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, Class_I.var_d_a.width, Class_I.var_d_a.height);
-            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (Class_I.var_d_a.width - this.var_h_c.width) / 2, (Class_I.var_d_a.height - this.var_h_c.height) / 2, 0, 0);
+            graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
+            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (Class_I.appCanvas.width - this.var_h_c.width) / 2, (Class_I.appCanvas.height - this.var_h_c.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.var_d_a.width - this.var_h_c.width) / 2, (Class_I.var_d_a.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
+            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.appCanvas.width - this.var_h_c.width) / 2, (Class_I.appCanvas.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
         } else {
             graphics.setColor(108, 93, 72);
-            graphics.fillRect(0, 0, Class_I.var_d_a.width, Class_I.var_d_a.height);
+            graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             this.var_h_g.draw(graphics, 0, this.I);
             this.var_h_d.draw(graphics, 0, this.B);
             if (this.var_int_p == 3) {
                 if (this.var_int_m >= 15) {
-                    this.var_h_e.draw(graphics, (Class_I.var_d_a.width - this.var_h_e.width) / 2, 8);
+                    this.var_h_e.draw(graphics, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(AppCanvas.fontSmallPlain);
                         graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
                     }
-                    this.var_h_a.draw(graphics, (Class_I.var_d_a.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
+                    this.var_h_a.draw(graphics, (Class_I.appCanvas.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
                 } else {
-                    Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (Class_I.var_d_a.width - this.var_h_e.width) / 2, 8, 0, 0);
+                    Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
             }
@@ -283,8 +283,8 @@ extends Class_I {
     public void b() throws Exception {
         if (this.var_boolean_e) {
             ++this.var_int_m;
-            Class_I.var_d_a.repaint();
-            Class_I.var_d_a.serviceRepaints();
+            Class_I.appCanvas.repaint();
+            Class_I.appCanvas.serviceRepaints();
             if (this.var_int_m >= 15) {
                 this.var_boolean_e = false;
             }
@@ -327,8 +327,8 @@ extends Class_I {
                 this.var_long_f = this.var_long_n;
             }
         }
-        Class_I.var_d_a.repaint();
-        Class_I.var_d_a.serviceRepaints();
+        Class_I.appCanvas.repaint();
+        Class_I.appCanvas.serviceRepaints();
     }
 
     static {

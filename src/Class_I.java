@@ -27,7 +27,7 @@ import javax.microedition.lcdui.Item;
 public class Class_I
 implements CommandListener {
     public byte[] levelsData = new byte[1];
-    public static AppCanvas var_d_a;
+    public static AppCanvas appCanvas;
     public static String[] var_java_lang_String_arr_b;
     public byte var_byte_a;
     public String[] var_java_lang_String_arr_e = new String[]{AppCanvas.getGameText(1), AppCanvas.getGameText(2), AppCanvas.getGameText(4), AppCanvas.getGameText(5), AppCanvas.getGameText(6), AppCanvas.getGameText(7), AppCanvas.getGameText(8), AppCanvas.getGameText(9)};
@@ -216,7 +216,7 @@ implements CommandListener {
             this.var_h_e = new Sprite("splash.png");
             this.var_int_p = 0;
             try {
-                this.levelsData = var_d_a.loadPersistentData("levels");
+                this.levelsData = appCanvas.loadPersistentData("levels");
             }
             catch (Exception exception) {
                 // empty catch block
@@ -447,7 +447,7 @@ implements CommandListener {
 
     public static void f() {
         try {
-            byte[] settingsData = var_d_a.loadPersistentData("settings");
+            byte[] settingsData = appCanvas.loadPersistentData("settings");
             for (int j = 0; j < 4; ++j) {
                 AppCanvas.settings[j] = (settingsData[0] & 1 << j) != 0;
             }
@@ -472,7 +472,7 @@ implements CommandListener {
                     if (!AppCanvas.settings[n]) continue;
                     settingsDataBytes[0] = (byte)(settingsDataBytes[0] | 1 << n);
                 }
-                var_d_a.savePersistentData("settings", settingsDataBytes);
+                appCanvas.savePersistentData("settings", settingsDataBytes);
             }
         }
         catch (Exception exception) {
@@ -534,7 +534,7 @@ implements CommandListener {
 
     public void commandAction(Command command, Displayable displayable) {
         if (command == this.var_javax_microedition_lcdui_Command_b) {
-            Class_I.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
+            Class_I.appCanvas.appDisplay.setCurrent((Displayable)appCanvas);
         } else if (command == this.var_javax_microedition_lcdui_Command_a) {
             ++this.D;
             Form form = new Form(AppCanvas.getGameText(7) + " - " + this.D);
@@ -544,13 +544,13 @@ implements CommandListener {
             }
             form.addCommand(this.var_javax_microedition_lcdui_Command_b);
             form.setCommandListener((CommandListener)this);
-            Class_I.var_d_a.appDisplay.setCurrent((Displayable)form);
+            Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
         } else if (command == this.var_javax_microedition_lcdui_Command_c) {
             this.k();
             if (!AppCanvas.settings[0]) {
                 AppCanvas.stopFirstSound();
             }
-            Class_I.var_d_a.appDisplay.setCurrent((Displayable)var_d_a);
+            Class_I.appCanvas.appDisplay.setCurrent((Displayable)appCanvas);
         }
     }
 
@@ -602,8 +602,8 @@ implements CommandListener {
             this.var_h_e = null;
             this.var_h_c = null;
             this.var_boolean_l = true;
-            var_d_a.repaint();
-            var_d_a.serviceRepaints();
+            appCanvas.repaint();
+            appCanvas.serviceRepaints();
             this.m();
             this.void_a(this.F);
             this.var_boolean_l = false;
@@ -618,15 +618,15 @@ implements CommandListener {
             this.var_g_f.a(stringArray);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (string.equals(AppCanvas.getGameText(3))) {
-            var_d_a.savePersistentData("save", this.getGameSaveData());
+            appCanvas.savePersistentData("save", this.getGameSaveData());
             g.a(this, null, AppCanvas.getGameText(40), 1000, true);
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(4))) {
             try {
-                byte[] savedGameData = var_d_a.loadPersistentData("save");
+                byte[] savedGameData = appCanvas.loadPersistentData("save");
                 this.var_boolean_l = true;
-                var_d_a.repaint();
-                var_d_a.serviceRepaints();
+                appCanvas.repaint();
+                appCanvas.serviceRepaints();
                 this.m();
                 this.loadSavedGameData(savedGameData);
                 if (this.var_byte_a == 0) {
@@ -658,8 +658,8 @@ implements CommandListener {
             this.var_byte_a = 1;
             this.J = 8;
             this.var_boolean_l = true;
-            var_d_a.repaint();
-            var_d_a.serviceRepaints();
+            appCanvas.repaint();
+            appCanvas.serviceRepaints();
             this.m();
             this.void_a(this.var_int_h);
             this.F = this.var_int_h;
@@ -675,7 +675,7 @@ implements CommandListener {
                 form.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_c);
                 form.setCommandListener((CommandListener)this);
-                Class_I.var_d_a.appDisplay.setCurrent((Displayable)form);
+                Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
             }
             if (string.equals(AppCanvas.getGameText(7))) {
@@ -685,7 +685,7 @@ implements CommandListener {
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_a);
                 form.setCommandListener((CommandListener)this);
-                Class_I.var_d_a.appDisplay.setCurrent((Displayable)form);
+                Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
             }
             if (string.equals(AppCanvas.getGameText(8))) {
@@ -693,7 +693,7 @@ implements CommandListener {
                 form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.setCommandListener((CommandListener)this);
-                Class_I.var_d_a.appDisplay.setCurrent((Displayable)form);
+                Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
             }
             if (string.equals(AppCanvas.getGameText(9))) {
@@ -964,11 +964,11 @@ implements CommandListener {
                 if (this.var_long_n % 100L == 0L) {
                     boolean bl = this.var_boolean_p = !this.var_boolean_p;
                 }
-                if (Class_I.var_d_a.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
+                if (Class_I.appCanvas.var_int_c == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
                 g2.a(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
-                Class_I.var_d_a.var_int_c = 0;
+                Class_I.appCanvas.var_int_c = 0;
             }
         }
     }
@@ -1004,7 +1004,7 @@ implements CommandListener {
                             ++this.F;
                             if (this.F > this.levelsData[0]) {
                                 this.levelsData[0] = (byte)this.F;
-                                var_d_a.savePersistentData("levels", this.levelsData);
+                                appCanvas.savePersistentData("levels", this.levelsData);
                             }
                             this.void_a(this.F);
                             this.var_byte_i = 0;
@@ -1018,8 +1018,8 @@ implements CommandListener {
                         }
                         this.var_boolean_y = false;
                     } else {
-                        var_d_a.repaint();
-                        var_d_a.serviceRepaints();
+                        appCanvas.repaint();
+                        appCanvas.serviceRepaints();
                     }
                     return;
                 }
@@ -1126,46 +1126,46 @@ implements CommandListener {
                     }
                 } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
                     this.p();
-                } else if (Class_I.var_d_a.var_a_a == this && this.var_int_g == 0) {
-                    if (this.var_boolean_t && var_d_a.boolean_c(1024)) {
-                        var_d_a.e(16);
-                        var_d_a.void_c(1024);
+                } else if (Class_I.appCanvas.var_a_a == this && this.var_int_g == 0) {
+                    if (this.var_boolean_t && appCanvas.boolean_c(1024)) {
+                        appCanvas.e(16);
+                        appCanvas.void_c(1024);
                     }
                     if (this.var_byte_i == 6 || this.var_byte_i == 7) {
-                        if (var_d_a.boolean_c(4)) {
+                        if (appCanvas.boolean_c(4)) {
                             --this.var_int_w;
                             if (this.var_int_w < 0) {
                                 this.var_int_w = this.var_c_arr_b.length - 1;
                             }
-                            var_d_a.void_c(4);
+                            appCanvas.void_c(4);
                             this.var_boolean_v = true;
-                        } else if (var_d_a.boolean_c(8)) {
+                        } else if (appCanvas.boolean_c(8)) {
                             ++this.var_int_w;
                             if (this.var_int_w >= this.var_c_arr_b.length) {
                                 this.var_int_w = 0;
                             }
-                            var_d_a.void_c(8);
+                            appCanvas.void_c(8);
                             this.var_boolean_v = true;
-                        } else if (var_d_a.boolean_c(1)) {
+                        } else if (appCanvas.boolean_c(1)) {
                             --this.var_int_w;
                             if (this.var_int_w < 0) {
                                 this.var_int_w = this.var_c_arr_b.length - 1;
                             }
-                            var_d_a.void_c(1);
+                            appCanvas.void_c(1);
                             this.var_boolean_v = true;
-                        } else if (var_d_a.boolean_c(2)) {
+                        } else if (appCanvas.boolean_c(2)) {
                             ++this.var_int_w;
                             if (this.var_int_w >= this.var_c_arr_b.length) {
                                 this.var_int_w = 0;
                             }
-                            var_d_a.void_c(2);
+                            appCanvas.void_c(2);
                             this.var_boolean_v = true;
                         }
                         this.void_c(this.var_c_arr_b[this.var_int_w].i, this.var_c_arr_b[this.var_int_w].var_short_a);
                         if (this.var_boolean_v) {
                             this.var_g_g.b();
                         }
-                        if (var_d_a.boolean_c(16)) {
+                        if (appCanvas.boolean_c(16)) {
                             if (this.var_byte_i == 6) {
                                 this.b(this.var_c_h, this.var_c_arr_b[this.var_int_w]);
                             } else if (this.var_byte_i == 7) {
@@ -1180,8 +1180,8 @@ implements CommandListener {
                         this.var_boolean_v = false;
                     } else {
                         if (this.var_long_n - this.var_long_a >= 150L && this.var_e_h.var_short_b % 24 == 0 && this.var_e_h.l % 24 == 0) {
-                            if (var_d_a.boolean_c(4)) {
-                                if (this.var_boolean_s || var_d_a.boolean_a(4)) {
+                            if (appCanvas.boolean_c(4)) {
+                                if (this.var_boolean_s || appCanvas.boolean_a(4)) {
                                     if (this.var_short_h > 0) {
                                         this.var_short_h = (short)(this.var_short_h - 1);
                                     }
@@ -1189,7 +1189,7 @@ implements CommandListener {
                                     this.var_boolean_v = true;
                                     this.var_long_a = this.var_long_n;
                                 }
-                            } else if (var_d_a.boolean_c(8) && (this.var_boolean_s || var_d_a.boolean_a(8))) {
+                            } else if (appCanvas.boolean_c(8) && (this.var_boolean_s || appCanvas.boolean_a(8))) {
                                 if (this.var_short_h < this.var_short_e - 1) {
                                     this.var_short_h = (short)(this.var_short_h + 1);
                                 }
@@ -1197,8 +1197,8 @@ implements CommandListener {
                                 this.var_boolean_v = true;
                                 this.var_long_a = this.var_long_n;
                             }
-                            if (var_d_a.boolean_c(1)) {
-                                if (this.var_boolean_s || var_d_a.boolean_a(1)) {
+                            if (appCanvas.boolean_c(1)) {
+                                if (this.var_boolean_s || appCanvas.boolean_a(1)) {
                                     if (this.var_short_g > 0) {
                                         this.var_short_g = (short)(this.var_short_g - 1);
                                     }
@@ -1206,7 +1206,7 @@ implements CommandListener {
                                     this.var_boolean_v = true;
                                     this.var_long_a = this.var_long_n;
                                 }
-                            } else if (var_d_a.boolean_c(2) && (this.var_boolean_s || var_d_a.boolean_a(2))) {
+                            } else if (appCanvas.boolean_c(2) && (this.var_boolean_s || appCanvas.boolean_a(2))) {
                                 if (this.var_short_g < this.var_short_b - 1) {
                                     this.var_short_g = (short)(this.var_short_g + 1);
                                 }
@@ -1226,7 +1226,7 @@ implements CommandListener {
                             this.var_boolean_v = false;
                         }
                         if (this.var_byte_i == 1) {
-                            if ((Class_I.var_d_a.var_int_c & 0x10) != 0 && this.var_c_h != null) {
+                            if ((Class_I.appCanvas.var_int_c & 0x10) != 0 && this.var_c_h != null) {
                                 stringArray = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0 && (stringArray == null || stringArray == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.i;
@@ -1241,22 +1241,22 @@ implements CommandListener {
                                     this.var_byte_i = (byte)2;
                                     AppCanvas.playSound(-1, 1);
                                 }
-                                var_d_a.void_c(16);
+                                appCanvas.void_c(16);
                             }
                         } else if (this.var_byte_i == 0) {
-                            if ((Class_I.var_d_a.var_int_c & 0x100) != 0) {
+                            if ((Class_I.appCanvas.var_int_c & 0x100) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
                                     stringArray = new g(this, (byte)4, 0);
                                     stringArray.a((byte)0, 0, 0, null, 0);
                                 }
-                                var_d_a.void_c(256);
-                            } else if (var_d_a.boolean_c(512)) {
+                                appCanvas.void_c(256);
+                            } else if (appCanvas.boolean_c(512)) {
                                 if (this.var_c_arr_a[this.var_byte_c] != null) {
                                     this.void_c(this.var_c_arr_a[this.var_byte_c].i, this.var_c_arr_a[this.var_byte_c].var_short_a);
                                     this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b + 12, ((e)this.var_c_arr_a[this.var_byte_c]).l + 12);
                                 }
-                            } else if ((Class_I.var_d_a.var_int_c & 0x20) != 0) {
+                            } else if ((Class_I.appCanvas.var_int_c & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
                                     this.a(this.var_byte_arr_arr_b, 0);
@@ -1264,8 +1264,8 @@ implements CommandListener {
                                     this.var_boolean_j = true;
                                     this.var_boolean_h = true;
                                 }
-                                var_d_a.void_c(32);
-                            } else if (!var_d_a.boolean_c(128) && !var_d_a.boolean_c(64) && (var_d_a.boolean_c(16) || var_d_a.boolean_c(1024))) {
+                                appCanvas.void_c(32);
+                            } else if (!appCanvas.boolean_c(128) && !appCanvas.boolean_c(64) && (appCanvas.boolean_c(16) || appCanvas.boolean_c(1024))) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null && this.var_c_h.var_byte_e == 0 && this.var_c_h.var_byte_a == this.var_byte_c) {
                                     stringArray = this.java_lang_String_arr_a(this.var_c_h, (byte)1);
@@ -1286,8 +1286,8 @@ implements CommandListener {
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                                     AppCanvas.playSound(-1, 1);
                                 }
-                                var_d_a.void_c(16);
-                                var_d_a.void_c(1024);
+                                appCanvas.void_c(16);
+                                appCanvas.void_c(1024);
                             }
                         }
                     }
@@ -1325,7 +1325,7 @@ implements CommandListener {
                 }
                 this.d();
             }
-            if (this.var_boolean_r && var_d_a.boolean_c(2048)) {
+            if (this.var_boolean_r && appCanvas.boolean_c(2048)) {
                 if (this.var_byte_i == 1) {
                     this.var_byte_i = 0;
                     this.a(this.var_byte_arr_arr_b, 0);
@@ -1342,7 +1342,7 @@ implements CommandListener {
                     this.var_e_h.a(var_byte_arr_arr_d[0]);
                     this.void_c(this.var_c_h.i, this.var_c_h.var_short_a);
                 }
-                var_d_a.void_c(2048);
+                appCanvas.void_c(2048);
                 this.var_boolean_r = false;
                 this.var_boolean_t = false;
             }
@@ -1361,8 +1361,8 @@ implements CommandListener {
         for (n = this.var_java_util_Vector_e.size() - 1; n >= 0; --n) {
             ((g)this.var_java_util_Vector_e.elementAt(n)).d();
         }
-        var_d_a.repaint();
-        var_d_a.serviceRepaints();
+        appCanvas.repaint();
+        appCanvas.serviceRepaints();
     }
 
     public void void_a(c c2, byte by) {
@@ -1545,15 +1545,15 @@ implements CommandListener {
     public void b(Graphics graphics) {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
-            graphics.fillRect(0, 0, Class_I.var_d_a.width, Class_I.var_d_a.height);
-            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (Class_I.var_d_a.width - this.var_h_c.width) / 2, (Class_I.var_d_a.height - this.var_h_c.height) / 2, 0, 0);
+            graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
+            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (Class_I.appCanvas.width - this.var_h_c.width) / 2, (Class_I.appCanvas.height - this.var_h_c.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.var_d_a.width - this.var_h_c.width) / 2, (Class_I.var_d_a.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
+            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.appCanvas.width - this.var_h_c.width) / 2, (Class_I.appCanvas.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
         } else if (this.var_int_p == 2) {
             graphics.setColor(-16777216);
-            graphics.fillRect(0, 0, Class_I.var_d_a.width, Class_I.var_d_a.height);
+            graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             if (this.var_int_m >= 15) {
-                this.var_h_e.draw(graphics, Class_I.var_d_a.width - this.var_h_e.width >> 1, (Class_I.var_d_a.height - this.var_h_e.height) / 3);
+                this.var_h_e.draw(graphics, Class_I.appCanvas.width - this.var_h_e.width >> 1, (Class_I.appCanvas.height - this.var_h_e.height) / 3);
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(AppCanvas.fontSmallPlain);
                 if (this.var_boolean_p && this.var_int_g == 0) {
@@ -1567,7 +1567,7 @@ implements CommandListener {
                 } else {
                     graphics.setColor(0xFFFFFF);
                 }
-                Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, Class_I.var_d_a.width - this.var_h_e.width >> 1, (Class_I.var_d_a.height - this.var_h_e.height) / 3, 0, 0);
+                Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, Class_I.appCanvas.width - this.var_h_e.width >> 1, (Class_I.appCanvas.height - this.var_h_e.height) / 3, 0, 0);
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
             }
         }
@@ -2892,8 +2892,8 @@ implements CommandListener {
     public void b() throws Exception {
         if (this.var_boolean_e) {
             ++this.var_int_m;
-            var_d_a.repaint();
-            var_d_a.serviceRepaints();
+            appCanvas.repaint();
+            appCanvas.serviceRepaints();
             if (this.var_int_m >= 15) {
                 this.var_boolean_e = false;
             }
@@ -2940,8 +2940,8 @@ implements CommandListener {
                 this.var_long_f = this.var_long_n;
             }
         }
-        var_d_a.repaint();
-        var_d_a.serviceRepaints();
+        appCanvas.repaint();
+        appCanvas.serviceRepaints();
     }
 
     public void e(Graphics graphics) {
