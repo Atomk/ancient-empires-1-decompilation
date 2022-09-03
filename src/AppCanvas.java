@@ -158,10 +158,10 @@ CommandListener {
                 x += var_e_arr_a[n3].short_a();
                 continue;
             }
-            byte[] byArray = new byte[]{(byte)letter};
-            String text = new String(byArray);
-            graphics.drawString(text, x, y, 20);
-            x += graphics.getFont().stringWidth(text);
+            byte[] letterByte = new byte[]{(byte)letter};
+            String letterString = new String(letterByte);
+            graphics.drawString(letterString, x, y, 20);
+            x += graphics.getFont().stringWidth(letterString);
         }
     }
 
