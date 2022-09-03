@@ -86,8 +86,6 @@ public class Sprite {
                 n7 = Sprite.a(byArray[n4 + n3], n7);
             }
             n3 = 1;
-            boolean bl = false;
-            boolean bl2 = false;
             for (n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
                 int n8 = byArray[n2] & 0xFF;
                 int n9 = byArray[n2 + 1] & 0xFF;
