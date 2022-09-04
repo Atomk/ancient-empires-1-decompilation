@@ -74,7 +74,7 @@ implements CommandListener {
     public short var_short_a;
     public short var_short_e;
     public short var_short_b;
-    private Sprite var_h_f;
+    private Sprite spriteTombstone;
     public Sprite[] var_h_arr_c;
     public Sprite spriteMenuPointer;
     public Sprite spriteGold;
@@ -265,7 +265,7 @@ implements CommandListener {
         this.var_e_l = new e("smoke");
         this.var_e_r = new e("spark");
         this.var_e_j = new e("status");
-        this.var_h_f = new Sprite("tombstone.png");
+        this.spriteTombstone = new Sprite("tombstone.png");
         this.var_e_h.a(var_byte_arr_arr_d[0]);
         this.var_e_k = new e(this.var_e_h);
         this.var_e_k.a(var_byte_arr_arr_d[3]);
@@ -1634,7 +1634,7 @@ implements CommandListener {
                 for (n2 = 0; n2 < n3; ++n2) {
                     c c2 = this.var_java_util_Vector_a.elementAt(n2);
                     if (c2.var_byte_e == 3) {
-                        this.var_h_f.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
+                        this.spriteTombstone.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
                         continue;
                     }
                     if (c2 == this.var_c_h) continue;
