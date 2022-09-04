@@ -297,12 +297,11 @@ CommandListener {
     // Called in the costructor by Thread(this).start();
     public void run() {
         try {
-            String[] stringArray = new String[]{
+            var_java_lang_String_arr_d = new String[]{
                 AppCanvas.getGameText(19),
                 AppCanvas.getGameText(20),
                 AppCanvas.getGameText(18),
                 AppCanvas.getGameText(17)};
-            var_java_lang_String_arr_d = stringArray;
             Class_I.appCanvas = this;
             AppCanvas.readAssetsPackage();
             this.loadSounds();
