@@ -40,7 +40,7 @@ extends e {
     public static final byte[] unitsDataDEF;
     private static final byte[] unitsDataRangeMax;
     private static final byte[] unitsDataRangeMin;
-    private static final int[][][] var_int_arr_arr_arr_a;
+    private static final int[][][] unitsDataArrayOfPairs_XXX;
     public static final short[] unitsDataPrice;
     private static final short[] unitsDataBiflag_XXX;
 
@@ -66,7 +66,7 @@ extends e {
         c2.var_byte_a = by2;
         c2.h = (short)10;
         c2.l = unitsDataBiflag_XXX[by];
-        c2.var_int_arr_arr_a = var_int_arr_arr_arr_a[by];
+        c2.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[by];
         return c2;
     }
 
@@ -449,7 +449,19 @@ extends e {
         unitsDataDEF = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
         unitsDataRangeMax = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
         unitsDataRangeMin = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
-        var_int_arr_arr_arr_a = new int[][][]{new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 70}, {10, 50}, {10, 90}}, new int[][]{{18, 70}, {3, 40}, {3, 100}}, new int[][]{{32, 65}, {10, 40}, {10, 85}}, new int[][]{{5, 40}, {5, 75}}, new int[][]{{22, 65}, {2, 40}, {2, 90}}, new int[][]{{5, 58}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}};
+        // Array of bidimensional arrays
+        unitsDataArrayOfPairs_XXX = new int[][][]{
+            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, 
+            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
+            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
+            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
+            new int[][]{{32, 70}, {10, 50}, {10, 90}},
+            new int[][]{{18, 70}, {3, 40}, {3, 100}},
+            new int[][]{{32, 65}, {10, 40}, {10, 85}},
+            new int[][]{{5, 40}, {5, 75}},
+            new int[][]{{22, 65}, {2, 40}, {2, 90}},
+            new int[][]{{5, 58}},
+            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}};
         // The last two cannot be bought (king and skeleton)
         unitsDataPrice = new short[]{150, 250, 300, 400, 500, 600, 600, 700, 1000, -1, -1};
         unitsDataBiflag_XXX = new short[]{8, 64, 2, 32, 256, 128, 0, 512, 1, 28, 0};
