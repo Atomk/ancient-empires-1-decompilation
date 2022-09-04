@@ -631,12 +631,14 @@ implements CommandListener {
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(2))) {   // SELECT LEVEL
             this.var_g_f = new g(this, (byte)0, 0);
-            String[] stringArray = new String[7];
-            int n2 = stringArray.length;
-            for (int j = 0; j < n2; ++j) {
-                stringArray[j] = j <= this.levelsData[0] ? AppCanvas.getGameText(48 + j) : "???";
+            // TODO there are 7 levels, dehardcode the magic number
+            String[] levelNames = new String[7];
+            int levelsCount = levelNames.length;
+            for (int j = 0; j < levelsCount; ++j) {
+                // TODO this loads the name only for already completed levels, find the load/save code for the value
+                levelNames[j] = j <= this.levelsData[0] ? AppCanvas.getGameText(48 + j) : "???";
             }
-            this.var_g_f.a(stringArray);
+            this.var_g_f.a(levelNames);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (string.equals(AppCanvas.getGameText(3))) {   // SAVE GAME
             appCanvas.savePersistentData("save", this.getGameSaveData());

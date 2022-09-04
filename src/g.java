@@ -219,6 +219,7 @@ public class g {
         }
     }
 
+    // TODO I'm pretty sure this creates a menu with all the options passsed as parameter
     public void a(String[] stringArray) {
         this.var_java_lang_String_arr_b = stringArray;
         this.u = this.z = stringArray.length;
