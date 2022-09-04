@@ -252,12 +252,12 @@ extends e {
         this.var_byte_e = 1;
     }
 
-    public Vector a(int n, int n2, int n3, int n4) {
+    public Vector<short[]> a(int n, int n2, int n3, int n4) {
         int n5;
-        Vector vector = null;
+        Vector<short[]> vector = null;
         short[] sArray = new short[]{(short)n3, (short)n4};
         if (n == n3 && n2 == n4) {
-            vector = new Vector();
+            vector = new Vector<short[]>();
             vector.addElement(sArray);
             return vector;
         }

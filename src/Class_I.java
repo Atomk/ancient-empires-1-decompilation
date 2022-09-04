@@ -109,7 +109,7 @@ implements CommandListener {
     public int var_int_g = 0;
     public boolean var_boolean_u = true;
     public boolean B = true;
-    public Vector var_java_util_Vector_b = null;
+    public Vector<short[]> var_java_util_Vector_b = null;
     public int H;
     public int var_int_k;
     public long var_long_c;
