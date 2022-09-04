@@ -120,7 +120,7 @@ extends Class_I {
             this.spriteSplashForeground.draw(graphics, 0, this.B);
             if (this.var_int_p == 3) {
                 if (this.var_int_m >= 15) {
-                    this.var_h_e.draw(graphics, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8);
+                    this.spriteGameTitle.draw(graphics, (Class_I.appCanvas.width - this.spriteGameTitle.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
                     // TODO I'm pretty sure these two variables control the "press any key" blinking but it's also found in theparent class...
                     if (this.var_boolean_p && this.var_int_g == 0) {
@@ -130,7 +130,7 @@ extends Class_I {
                     }
                     this.spriteMacrospaceCoyrightText.draw(graphics, (Class_I.appCanvas.width - this.spriteMacrospaceCoyrightText.width) / 2, AppCanvas.height2 - this.spriteMacrospaceCoyrightText.height - 2);
                 } else {
-                    Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8, 0, 0);
+                    Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.spriteGameTitle, (Class_I.appCanvas.width - this.spriteGameTitle.width) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
             }

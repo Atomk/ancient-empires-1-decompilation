@@ -141,7 +141,7 @@ implements CommandListener {
     public byte var_byte_d;
     public boolean var_boolean_c = false;
     public Sprite var_h_c;
-    public Sprite var_h_e;
+    public Sprite spriteGameTitle;
     public int var_int_p;
     public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);   // "Back"
     public Command var_javax_microedition_lcdui_Command_a = new Command(AppCanvas.getGameText(12), 1, 1);   // "Next"
@@ -233,7 +233,7 @@ implements CommandListener {
             this.var_e_b = new e("menu");
             this.var_h_c = new Sprite("ms_logo.png");
             this.var_h_i = new Sprite("pointer.png");
-            this.var_h_e = new Sprite("splash.png");
+            this.spriteGameTitle = new Sprite("splash.png");
             this.var_int_p = 0;
             try {
                 this.levelsData = appCanvas.loadPersistentData("levels");
@@ -620,7 +620,7 @@ implements CommandListener {
             }
             this.var_byte_a = 0;
             this.var_byte_arr_b[1] = 0;
-            this.var_h_e = null;
+            this.spriteGameTitle = null;
             this.var_h_c = null;
             this.var_boolean_l = true;
             appCanvas.repaint();
@@ -1576,7 +1576,7 @@ implements CommandListener {
             graphics.setColor(-16777216);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             if (this.var_int_m >= 15) {
-                this.var_h_e.draw(graphics, Class_I.appCanvas.width - this.var_h_e.width >> 1, (Class_I.appCanvas.height - this.var_h_e.height) / 3);
+                this.spriteGameTitle.draw(graphics, Class_I.appCanvas.width - this.spriteGameTitle.width >> 1, (Class_I.appCanvas.height - this.spriteGameTitle.height) / 3);
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(AppCanvas.fontSmallPlain);
                 // TODO there's a pretty similar method in 'a' class
@@ -1593,7 +1593,7 @@ implements CommandListener {
                 } else {
                     graphics.setColor(0xFFFFFF);
                 }
-                Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, Class_I.appCanvas.width - this.var_h_e.width >> 1, (Class_I.appCanvas.height - this.var_h_e.height) / 3, 0, 0);
+                Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.spriteGameTitle, Class_I.appCanvas.width - this.spriteGameTitle.width >> 1, (Class_I.appCanvas.height - this.spriteGameTitle.height) / 3, 0, 0);
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
             }
         }
