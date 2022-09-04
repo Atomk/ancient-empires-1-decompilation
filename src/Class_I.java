@@ -28,10 +28,10 @@ import javax.microedition.lcdui.Item;
 
 public class Class_I
 implements CommandListener {
-    public byte[] levelsData = new byte[1];
+    private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
-    public static String[] var_java_lang_String_arr_b;
-    public byte var_byte_a;
+    private static String[] var_java_lang_String_arr_b;
+    private byte var_byte_a;
     public String[] var_java_lang_String_arr_e = new String[]{
         AppCanvas.getGameText(1),  // NEW GAME
         AppCanvas.getGameText(2),  // SELECT LEVEL
@@ -42,7 +42,7 @@ implements CommandListener {
         AppCanvas.getGameText(8),  // ABOUT
         AppCanvas.getGameText(9)}; // EXIT
     // Same as above, adds SAVE GAME as first element
-    public String[] var_java_lang_String_arr_c = new String[]{
+    private String[] var_java_lang_String_arr_c = new String[]{
         AppCanvas.getGameText(3),       // SAVE GAME
         this.var_java_lang_String_arr_e[0],    // NEW GAME
         this.var_java_lang_String_arr_e[1],     // ...
@@ -52,15 +52,15 @@ implements CommandListener {
         this.var_java_lang_String_arr_e[5],
         this.var_java_lang_String_arr_e[6],
         this.var_java_lang_String_arr_e[7]};
-    public static final byte[][] var_byte_arr_arr_d;
-    public static final byte[] var_byte_arr_f;
-    public static final byte[] var_byte_arr_c;
-    public long var_long_k = 0L;
-    public long var_long_a;
-    public boolean var_boolean_s = false;
+    private static final byte[][] var_byte_arr_arr_d;
+    private static final byte[] var_byte_arr_f;
+    private static final byte[] var_byte_arr_c;
+    private long var_long_k = 0L;
+    private long var_long_a;
+    private boolean var_boolean_s = false;
     public static final int[] var_int_arr_a;
     public e[][] var_e_arr_arr_b;
-    public static final byte[] var_byte_arr_a;
+    private static final byte[] var_byte_arr_a;
     public static final byte[] var_byte_arr_g;
     public static final byte[] var_byte_arr_h;
     public static final String[] var_java_lang_String_arr_a;
