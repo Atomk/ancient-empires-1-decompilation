@@ -448,7 +448,7 @@ implements CommandListener {
     public static void loadSettingsData() {
         try {
             byte[] settingsData = appCanvas.loadPersistentData("settings");
-            for (int j = 0; j < 4; ++j) {
+            for (int j = 0; j < AppCanvas.settings.length; ++j) {
                 AppCanvas.settings[j] = (settingsData[0] & 1 << j) != 0;
             }
         }
@@ -460,7 +460,7 @@ implements CommandListener {
     public void k() {
         try {
             boolean bl = false;
-            for (int j = 0; j < 4; ++j) {
+            for (int j = 0; j < AppCanvas.settings.length; ++j) {
                 boolean n = this.var_javax_microedition_lcdui_ChoiceGroup_a.isSelected(j);
                 if (n == AppCanvas.settings[j]) continue;
                 AppCanvas.settings[j] = n;
@@ -468,7 +468,7 @@ implements CommandListener {
             }
             if (bl) {
                 byte[] settingsDataBytes = new byte[1];
-                for (int n = 0; n < 4; ++n) {
+                for (int n = 0; n < AppCanvas.settings.length; ++n) {
                     if (!AppCanvas.settings[n]) continue;
                     settingsDataBytes[0] = (byte)(settingsDataBytes[0] | 1 << n);
                 }
@@ -668,7 +668,7 @@ implements CommandListener {
         } else {
             if (string.equals(AppCanvas.getGameText(6))) {
                 this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, AppCanvas.settingsNames, null);
-                for (int j = 0; j < 4; ++j) {
+                for (int j = 0; j < AppCanvas.settings.length; ++j) {
                     this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.settings[j]);
                 }
                 Form form = new Form(AppCanvas.getGameText(6));
