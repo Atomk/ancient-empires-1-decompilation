@@ -10,8 +10,8 @@ import javax.microedition.lcdui.Graphics;
 public class a
 extends Class_I {
     public static final boolean[] var_boolean_arr_a;
-    public Sprite var_h_g;
-    public Sprite var_h_d;
+    private Sprite spriteSplashBackground;
+    private Sprite spriteSplashForeground;
     public Sprite var_h_a;
     public e[][] var_e_arr_arr_c;
     public int I = -15;
@@ -28,15 +28,15 @@ extends Class_I {
 
     public a(byte by) throws Exception {
         super(by);
-        this.var_h_g = new Sprite("splashbg.png");
-        this.var_h_d = new Sprite("splashfg.png");
+        this.spriteSplashBackground = new Sprite("splashbg.png");
+        this.spriteSplashForeground = new Sprite("splashfg.png");
         this.var_h_a = new Sprite("macrospace.png");
-        this.B = AppCanvas.height2 - this.var_h_d.height + 30;
+        this.B = AppCanvas.height2 - this.spriteSplashForeground.height + 30;
     }
 
     public void m() throws Exception {
-        this.var_h_g = null;
-        this.var_h_d = null;
+        this.spriteSplashBackground = null;
+        this.spriteSplashForeground = null;
         this.var_h_a = null;
         super.m();
         this.var_e_arr_arr_a = new e[2][11];
@@ -116,8 +116,8 @@ extends Class_I {
         } else {
             graphics.setColor(108, 93, 72);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
-            this.var_h_g.draw(graphics, 0, this.I);
-            this.var_h_d.draw(graphics, 0, this.B);
+            this.spriteSplashBackground.draw(graphics, 0, this.I);
+            this.spriteSplashForeground.draw(graphics, 0, this.B);
             if (this.var_int_p == 3) {
                 if (this.var_int_m >= 15) {
                     this.var_h_e.draw(graphics, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8);
