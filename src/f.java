@@ -103,6 +103,7 @@ public class f {
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.var_int_b];
         if (this.var_a_a.b[this.var_int_f] == null) {
             try {
+                // TODO split and see what sprites are these
                 this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.var_int_f] + "_bg.png");
             }
             catch (Exception exception) {
@@ -637,9 +638,9 @@ public class f {
         n6 = (AppCanvas.h - AppCanvas.a((byte)1, string)) / 2;
         AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, 1);
         string = null;
-        n6 = (AppCanvas.h - this.var_a_a.var_h_h.width) / 2;
+        n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
         n4 = AppCanvas.a((byte)1) + 4;
-        this.var_a_a.var_h_h.draw(graphics, n6, n4);
+        this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         n7 = Class_I.terrainTypeDefense[this.var_int_f];
         n3 = this.var_a_a.a((byte)this.var_int_f, this.var_c_a) - n7;
         StringBuffer stringBuffer = new StringBuffer().append(n7);

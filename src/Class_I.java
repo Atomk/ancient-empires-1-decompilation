@@ -211,7 +211,7 @@ implements CommandListener {
     public long var_long_f;
     public boolean var_boolean_k;
     public e var_e_q;
-    public Sprite var_h_h;
+    public Sprite spritePanelDefense;
     public e var_e_n;
     public e var_e_i;
     public e var_e_c;
@@ -2942,7 +2942,7 @@ implements CommandListener {
                 this.var_f_a = null;
                 this.var_f_b = null;
                 this.var_e_q = null;
-                this.var_h_h = null;
+                this.spritePanelDefense = null;
                 this.var_e_n = null;
                 this.var_e_i = null;
                 this.var_e_c = null;

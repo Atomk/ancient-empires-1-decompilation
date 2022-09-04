@@ -53,7 +53,7 @@ extends Class_I {
             }
         }
         this.var_e_a = new e("b_smoke");
-        this.var_h_h = new Sprite("defencepanel.png");
+        this.spritePanelDefense = new Sprite("defencepanel.png");
         this.var_e_q = new e("soul");
     }
 
