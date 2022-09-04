@@ -933,25 +933,26 @@ implements CommandListener {
     public String[] java_lang_String_arr_a(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
         if (by == 1 && this.var_c_h.a((short)4) && this.byte_a(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
-            vector.addElement(AppCanvas.getGameText(29));
+            vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
         if (this.a((int)unit.i, (int)unit.var_short_a, unit)) {
-            vector.addElement(AppCanvas.getGameText(33));
+            vector.addElement(AppCanvas.getGameText(33));   // OCCUPY
         }
         if ((by == 1 || unit.unitType != 7) && unit.a(unit.i, (int)unit.var_short_a, (byte)0).length > 0) {
-            vector.addElement(AppCanvas.getGameText(28));
+            vector.addElement(AppCanvas.getGameText(28));   // ATTACK
         }
         if (unit.a((short)32) && unit.a(unit.i, (int)unit.var_short_a, (byte)1).length > 0) {
-            vector.addElement(AppCanvas.getGameText(34));
+            vector.addElement(AppCanvas.getGameText(34));   // RAISE
         }
         if (by == 1) {
-            vector.addElement(AppCanvas.getGameText(27));
+            vector.addElement(AppCanvas.getGameText(27));   // MOVE
         } else {
-            vector.addElement(AppCanvas.getGameText(30));
+            vector.addElement(AppCanvas.getGameText(30));   // END MOVE
         }
-        String[] objectArray = new String[vector.size()];
-        vector.copyInto(objectArray);
-        return objectArray;
+        
+        String[] stringArray = new String[vector.size()];
+        vector.copyInto(stringArray);
+        return stringArray;
     }
 
     public void j() {
