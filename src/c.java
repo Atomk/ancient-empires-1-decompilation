@@ -13,13 +13,13 @@ extends e {
     public String var_java_lang_String_a;
     public short var_short_d;
     public short var_short_b;
-    public short l;
+    private short l;
     public int[][] var_int_arr_arr_a;
-    public short j;
-    public short var_short_c;
-    public Vector var_java_util_Vector_a = null;
-    public short var_short_g;
-    public long var_long_a;
+    private short j;
+    private short var_short_c;
+    private Vector var_java_util_Vector_a = null;
+    private short var_short_g;
+    private long var_long_a;
     public byte var_byte_d;
     public byte var_byte_a;
     public short i;
@@ -30,19 +30,19 @@ extends e {
     public short k;
     public short var_short_f;
     public short var_short_e;
-    public boolean var_boolean_e = false;
-    public boolean var_boolean_b = true;
-    public int var_int_g;
-    public long var_long_c;
+    private boolean var_boolean_e = false;
+    private boolean var_boolean_b = true;
+    private int var_int_g;
+    private long var_long_c;
     public int var_int_b;
     public static final byte[] unitsDataMOV;
     public static final byte[] unitsDataATK;
     public static final byte[] unitsDataDEF;
     private static final byte[] unitsDataRangeMax;
     private static final byte[] unitsDataRangeMin;
-    public static final int[][][] var_int_arr_arr_arr_a;
+    private static final int[][][] var_int_arr_arr_arr_a;
     public static final short[] unitsDataPrice;
-    public static final short[] var_short_arr_a;
+    private static final short[] var_short_arr_a;
 
     private c(byte by, byte by2, int n, int n2) {
         super(var_i_a.a(by2, by));
