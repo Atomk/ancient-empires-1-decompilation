@@ -62,6 +62,7 @@ extends e {
 
     public static c a(byte unitType, byte by2, int n, int n2) {
         c c2 = new c(unitType, by2, n, n2);
+        // TODO isn't this statement redundant? The constructor above should set it
         c2.unitType = unitType;
         c2.var_byte_a = by2;
         c2.h = (short)10;
@@ -407,9 +408,11 @@ extends e {
     }
 
     public static byte[] byte_arr_a() {
+        // 11 = number of unit types?
         byte[] byArray = new byte[11];
         int n = 0;
         for (int n2 = 0; n2 <= c.var_i_a.J; n2 = (int)((byte)(n2 + 1))) {
+            // SKips the units you cannot buy (king, skeleton)
             if (unitsDataPrice[n2] <= 0) continue;
             byArray[n++] = (byte)n2;
         }
@@ -433,6 +436,7 @@ extends e {
         int n4 = ((e)this).l + n2;
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
+                // The "E" is shown on units that already moved and cannot perform any more actions in the turn
                 AppCanvas.drawBoldWhiteText(graphics, "E", n3 + this.short_a() - 7, n4 + this.short_b() - 5, 0);
             }
             if (this.h < 10) {

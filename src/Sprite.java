@@ -47,6 +47,7 @@ public class Sprite {
         }
     }
 
+    // TODO this is called only once in the method below, could be removed
     private Sprite() {
     }
 
