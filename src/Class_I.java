@@ -317,11 +317,11 @@ implements CommandListener {
         this.var_g_g = new g(this, (byte)5, 10);
     }
 
-    public void d(int n) {
+    public void d(int gameActionCode) {
         this.var_boolean_s = true;
         if (this.var_byte_a == 0 && this.var_byte_d == 1 && this.var_byte_i == 0) {
             boolean bl = false;
-            this.var_java_lang_StringBuffer_a.append(n);
+            this.var_java_lang_StringBuffer_a.append(gameActionCode);
             String string = this.var_java_lang_StringBuffer_a.toString();
             for (int j = 0; j < var_java_lang_String_arr_d.length; ++j) {
                 if (string.equals(var_java_lang_String_arr_d[j])) {
