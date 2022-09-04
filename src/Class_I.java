@@ -1863,12 +1863,12 @@ implements CommandListener {
         return objectArray;
     }
 
-    public static void a(Graphics graphics, int n, int n2, int n3, int n4, Sprite h2, int n5, int n6, int n7, int n8) {
+    public static void a(Graphics graphics, int n, int n2, int n3, int n4, Sprite sprite, int n5, int n6, int n7, int n8) {
         int n9;
         int n10;
-        if (h2 != null) {
-            n10 = h2.width / 4 + 1;
-            n9 = h2.height / 2 + 1;
+        if (sprite != null) {
+            n10 = sprite.width / 4 + 1;
+            n9 = sprite.height / 2 + 1;
         } else {
             n10 = n7 / 4 + 1;
             n9 = n8 / 4 + 1;
@@ -1898,12 +1898,12 @@ implements CommandListener {
             int n17 = j * n10 + n15 + n5;
             for (int k = 0; k < 4; ++k) {
                 int n18 = k * n9 + n16 + n6;
-                if (h2 == null) {
+                if (sprite == null) {
                     graphics.fillRect(n17, n18, n12, n13);
                     continue;
                 }
                 graphics.setClip(n17, n18, n12, n13);
-                h2.draw(graphics, n5, n6);
+                sprite.draw(graphics, n5, n6);
             }
         }
     }
