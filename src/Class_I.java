@@ -922,7 +922,7 @@ implements CommandListener {
             this.var_e_h.a(var_byte_arr_arr_d[0]);
             this.var_byte_i = (byte)3;
             this.var_g_h = new g(this, (byte)0, 8);
-            this.var_g_h.a(this.java_lang_String_arr_a(unit, (byte)0));
+            this.var_g_h.a(this.getUnitPossibleActions(unit, (byte)0));
             this.var_g_h.a((byte)8, 0, this.var_g_c.var_int_g, null, 0);
             AppCanvas.playSound(-1, 1);
         } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -930,7 +930,7 @@ implements CommandListener {
         }
     }
 
-    public String[] java_lang_String_arr_a(Unit unit, byte by) {
+    private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
         if (by == 1 && this.var_c_h.a((short)4) && this.byte_a(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
@@ -1291,7 +1291,7 @@ implements CommandListener {
                             } else if (!appCanvas.boolean_c(128) && !appCanvas.boolean_c(64) && (appCanvas.boolean_c(16) || appCanvas.boolean_c(1024))) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null && this.var_c_h.var_byte_e == 0 && this.var_c_h.var_byte_a == this.var_byte_c) {
-                                    stringArray = this.java_lang_String_arr_a(this.var_c_h, (byte)1);
+                                    stringArray = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (stringArray.length > 1) {
                                         this.var_g_h = new g(this, (byte)0, 8);
                                         this.var_g_h.a(stringArray);
