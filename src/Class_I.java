@@ -143,9 +143,9 @@ implements CommandListener {
     public Sprite spriteMacrospaceLogo;
     public Sprite spriteGameTitle;
     public int var_int_p;
-    public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);   // "Back"
-    public Command var_javax_microedition_lcdui_Command_a = new Command(AppCanvas.getGameText(12), 1, 1);   // "Next"
-    public Command var_javax_microedition_lcdui_Command_c = new Command(AppCanvas.getGameText(10), 2, 1);   // "OK"
+    private Command commandBack = new Command(AppCanvas.getGameText(22), Command.BACK, 1);   // "Back"
+    private Command commandNext = new Command(AppCanvas.getGameText(12), 1, 1);  // "Next"
+    private Command commandOK = new Command(AppCanvas.getGameText(10), Command.BACK, 1);      // "OK"
     private ChoiceGroup choiceGroupSettings;
     public boolean var_boolean_y = false;
     public int var_int_m;
@@ -553,19 +553,19 @@ implements CommandListener {
     }
 
     public void commandAction(Command command, Displayable displayable) {
-        if (command == this.var_javax_microedition_lcdui_Command_b) {
+        if (command == this.commandBack) {
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)appCanvas);
-        } else if (command == this.var_javax_microedition_lcdui_Command_a) {
+        } else if (command == this.commandNext) {
             ++this.D;
             Form form = new Form(AppCanvas.getGameText(7) + " - " + this.D);    // INSTRUCTIONS
             form.append(AppCanvas.getGameText(85 + this.D));
             if (this.D < 17) {
-                form.addCommand(this.var_javax_microedition_lcdui_Command_a);
+                form.addCommand(this.commandNext);
             }
-            form.addCommand(this.var_javax_microedition_lcdui_Command_b);
+            form.addCommand(this.commandBack);
             form.setCommandListener((CommandListener)this);
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
-        } else if (command == this.var_javax_microedition_lcdui_Command_c) {
+        } else if (command == this.commandOK) {
             this.k();
             if (!AppCanvas.settings[0]) {
                 AppCanvas.stopFirstSound();
@@ -694,7 +694,7 @@ implements CommandListener {
                 }
                 Form settingsForm = new Form(AppCanvas.getGameText(6)); // SETTINGS
                 settingsForm.append((Item)this.choiceGroupSettings);
-                settingsForm.addCommand(this.var_javax_microedition_lcdui_Command_c);
+                settingsForm.addCommand(this.commandOK);
                 settingsForm.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)settingsForm);
                 return;
@@ -703,8 +703,8 @@ implements CommandListener {
                 this.D = 0;
                 Form form = new Form(AppCanvas.getGameText(7));
                 form.append(AppCanvas.getGameText(13));     // "Ancient Empires is a thrilling strategy game [...]""
-                form.addCommand(this.var_javax_microedition_lcdui_Command_b);
-                form.addCommand(this.var_javax_microedition_lcdui_Command_a);
+                form.addCommand(this.commandBack);
+                form.addCommand(this.commandNext);
                 form.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
@@ -713,7 +713,7 @@ implements CommandListener {
                 Form form = new Form(AppCanvas.getGameText(8));
                 // "Ancient Empires" + "is a product of Macrospace [...]"
                 form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));  
-                form.addCommand(this.var_javax_microedition_lcdui_Command_b);
+                form.addCommand(this.commandBack);
                 form.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
