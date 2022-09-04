@@ -3014,37 +3014,17 @@ implements CommandListener {
     }
 
     static {
-        String[] stringArray = new String[2];
-        stringArray[0] = "Island Cross";
-        stringArray[1] = "Rocky Bay";
-        skirmishMapNames = stringArray;
+        skirmishMapNames = new String[]{"Island Cross", "Rocky Bay"};
         var_byte_arr_arr_d = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
         var_byte_arr_f = new byte[]{0};
         var_byte_arr_c = new byte[]{2};
-        int[] nArray = new int[3];
-        nArray[0] = -16776961;
-        nArray[1] = -65536;
-        nArray[2] = -16711936;
-        var_int_arr_a = nArray;
+        var_int_arr_a = new int[]{-16776961, -65536, -16711936};
         var_byte_arr_a = new byte[]{21, 22};
         var_byte_arr_g = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
         var_byte_arr_h = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};
-        String[] stringArray2 = new String[9];
-        stringArray2[0] = "road";
-        stringArray2[1] = "grass";
-        stringArray2[2] = "woods";
-        stringArray2[3] = "mountain";
-        stringArray2[4] = "mountain";
-        stringArray2[5] = "water";
-        stringArray2[6] = "bridge";
-        stringArray2[7] = "town";
-        stringArray2[8] = "town";
-        var_java_lang_String_arr_a = stringArray2;
+        var_java_lang_String_arr_a = new String[]{"road", "grass", "woods", "mountain", "mountain", "water", "bridge", "town", "town"};
         var_byte_arr_i = new byte[]{1, 1, 2, 2, 3, 3, 1, 1, 1};
-        String[] stringArray3 = new String[2];
-        stringArray3[0] = "14281428";
-        stringArray3[1] = "18241824";
-        var_java_lang_String_arr_d = stringArray3;
+        var_java_lang_String_arr_d = new String[] {"14281428", "18241824"};
     }
 }
 
