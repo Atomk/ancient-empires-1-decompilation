@@ -314,7 +314,7 @@ extends e {
         }
     }
 
-    public int int_b(int n, int n2) {
+    private int int_b(int n, int n2) {
         if (n >= 0 && n2 >= 0 && n < c.var_i_a.var_short_e && n2 < c.var_i_a.var_short_b) {
             c c2 = var_i_a.c_a(n, n2, (byte)0);
             if (c2 != null && c2.var_byte_a != this.var_byte_a) {
@@ -328,9 +328,9 @@ extends e {
                 if (by == 5) {
                     return 1;
                 }
-                return Class_I.var_byte_arr_i[by] * 2;
+                return Class_I.terrainTypeMovementReduction_XXX[by] * 2;
             }
-            return Class_I.var_byte_arr_i[by];
+            return Class_I.terrainTypeMovementReduction_XXX[by];
         }
         return 10000;
     }

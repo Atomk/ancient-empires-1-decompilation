@@ -64,7 +64,7 @@ implements CommandListener {
     public static final byte[] terrainTypeDefense;
     public static final byte[] terrainType_XXX;
     public static final String[] terrainTypeNames;
-    public static final byte[] var_byte_arr_i;
+    public static final byte[] terrainTypeMovementReduction_XXX;
     public int var_int_t;
     public Sprite[] var_h_arr_d;
     public byte[] var_byte_arr_j;
@@ -2110,7 +2110,7 @@ implements CommandListener {
                     n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
-                if (var_byte_arr_i[this.byte_a(n, n2)] <= 1) {
+                if (terrainTypeMovementReduction_XXX[this.byte_a(n, n2)] <= 1) {
                     n5 += 5;
                 }
                 for (n4 = 0; n4 < this.var_c_arr_c.length; ++n4) {
@@ -3028,7 +3028,8 @@ implements CommandListener {
         terrainType_XXX = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};   // TODO used only once in the app
         // TODO The first "mountain" should be "hill", one of the last two towns is probably the castle
         terrainTypeNames = new String[]{"road", "grass", "woods", "mountain", "mountain", "water", "bridge", "town", "town"};
-        var_byte_arr_i = new byte[]{1, 1, 2, 2, 3, 3, 1, 1, 1};
+        // TODO after a couple tests I'm pretty sure this is correct but I'm not sure yet
+        terrainTypeMovementReduction_XXX = new byte[]{1, 1, 2, 2, 3, 3, 1, 1, 1};
         var_java_lang_String_arr_d = new String[] {"14281428", "18241824"};
     }
 }
