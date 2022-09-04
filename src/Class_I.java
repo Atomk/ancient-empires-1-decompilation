@@ -2896,7 +2896,9 @@ implements CommandListener {
         this.var_c_i = c2;
         this.var_c_b = c3;
         //AppCanvas.readAssetsPackage("/2.pak");
-        this.var_h_h = new Sprite("defpanel.png");
+        // TODO this image does not exist. A child class assign "defencepanel" to this field, which exists
+        // Since the image does not exist, this is the same as assigning null
+        this.spritePanelDefense = null;//new Sprite("defpanel.png");
         this.var_e_q = new e("soul");
         this.var_f_b = new f(this, c2, true);
         this.var_f_a = new f(this, c3, false);
