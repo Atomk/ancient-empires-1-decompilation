@@ -784,7 +784,7 @@ implements CommandListener {
 
     public c c_a(int n, int n2, int n3) {
         byte by = this.var_byte_g;
-        this.var_int_arr_b[by] = this.var_int_arr_b[by] - c.var_short_arr_b[n];
+        this.var_int_arr_b[by] = this.var_int_arr_b[by] - c.unitsDataPrice[n];
         return c.a((byte)n, this.var_byte_c, n2, n3);
     }
 
@@ -1911,7 +1911,7 @@ implements CommandListener {
     public boolean boolean_a(int n) {
         short s = this.var_c_arr_a[this.var_byte_c].i;
         short s2 = this.var_c_arr_a[this.var_byte_c].var_short_a;
-        return c.var_short_arr_b[n] <= this.var_int_arr_b[this.var_byte_g] && c.var_short_arr_b[n] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        return c.unitsDataPrice[n] <= this.var_int_arr_b[this.var_byte_g] && c.unitsDataPrice[n] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
     public void p() throws Exception {
@@ -2021,7 +2021,7 @@ implements CommandListener {
                             n7 = 0;
                             byte[] byArray = new byte[11];
                             for (n6 = 1; n6 < 11; n6 = (int)((byte)(n6 + 1))) {
-                                if (this.int_a(n6, -1, this.var_byte_c) >= 1 && c.var_short_arr_b[n6] < 600 || !this.boolean_a(n6)) continue;
+                                if (this.int_a(n6, -1, this.var_byte_c) >= 1 && c.unitsDataPrice[n6] < 600 || !this.boolean_a(n6)) continue;
                                 byArray[n7] = (byte)n6;
                                 ++n7;
                             }

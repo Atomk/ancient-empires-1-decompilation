@@ -480,7 +480,7 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= c.var_short_arr_b[this.var_byte_arr_a[this.x]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= c.unitsDataPrice[this.var_byte_arr_a[this.x]]) {
                                 if (this.var_byte_a == 2) {
                                     this.var_a_a.a((int)this.var_byte_arr_a[this.x], "", this);
                                 } else {
@@ -737,7 +737,7 @@ public class g {
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
-                        AppCanvas.drawBoldWhiteText(graphics, "" + c.var_short_arr_b[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "" + c.unitsDataPrice[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
@@ -843,7 +843,7 @@ public class g {
                         for (int k = 0; k < this.w; ++k) {
                             e e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
-                            if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < c.var_short_arr_b[this.var_byte_arr_a[n16]]) {
+                            if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < c.unitsDataPrice[this.var_byte_arr_a[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.x) {

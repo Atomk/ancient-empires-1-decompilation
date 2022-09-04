@@ -41,7 +41,7 @@ extends e {
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_g;
     public static final int[][][] var_int_arr_arr_arr_a;
-    public static final short[] var_short_arr_b;
+    public static final short[] unitsDataPrice;
     public static final short[] var_short_arr_a;
 
     private c(byte by, byte by2, int n, int n2) {
@@ -410,7 +410,7 @@ extends e {
         byte[] byArray = new byte[11];
         int n = 0;
         for (int n2 = 0; n2 <= c.var_i_a.J; n2 = (int)((byte)(n2 + 1))) {
-            if (var_short_arr_b[n2] <= 0) continue;
+            if (unitsDataPrice[n2] <= 0) continue;
             byArray[n++] = (byte)n2;
         }
         byte[] byArray2 = new byte[n];
@@ -450,7 +450,8 @@ extends e {
         var_byte_arr_c = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
         var_byte_arr_g = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
         var_int_arr_arr_arr_a = new int[][][]{new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 70}, {10, 50}, {10, 90}}, new int[][]{{18, 70}, {3, 40}, {3, 100}}, new int[][]{{32, 65}, {10, 40}, {10, 85}}, new int[][]{{5, 40}, {5, 75}}, new int[][]{{22, 65}, {2, 40}, {2, 90}}, new int[][]{{5, 58}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}};
-        var_short_arr_b = new short[]{150, 250, 300, 400, 500, 600, 600, 700, 1000, -1, -1};
+        // The last two cannot be bought (king and skeleton)
+        unitsDataPrice = new short[]{150, 250, 300, 400, 500, 600, 600, 700, 1000, -1, -1};
         var_short_arr_a = new short[]{8, 64, 2, 32, 256, 128, 0, 512, 1, 28, 0};
     }
 }
