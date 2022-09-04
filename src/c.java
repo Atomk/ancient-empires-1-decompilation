@@ -60,13 +60,13 @@ extends e {
         this.var_int_g = n;
     }
 
-    public static c a(byte by, byte by2, int n, int n2) {
-        c c2 = new c(by, by2, n, n2);
-        c2.unitType = by;
+    public static c a(byte unitType, byte by2, int n, int n2) {
+        c c2 = new c(unitType, by2, n, n2);
+        c2.unitType = unitType;
         c2.var_byte_a = by2;
         c2.h = (short)10;
-        c2.l = unitsDataBiflag_XXX[by];
-        c2.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[by];
+        c2.l = unitsDataBiflag_XXX[unitType];
+        c2.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
         return c2;
     }
 
@@ -170,25 +170,25 @@ extends e {
         int n3;
         int n4;
         int n5;
-        byte by = unitsDataRangeMin[this.unitType];
-        byte by2 = unitsDataRangeMax[this.unitType];
-        int n6 = n - by2;
+        byte attackRangeMin = unitsDataRangeMin[this.unitType];
+        byte attackRangeMax = unitsDataRangeMax[this.unitType];
+        int n6 = n - attackRangeMax;
         if (n6 < 0) {
             n6 = 0;
         }
-        if ((n5 = n2 - by2) < 0) {
+        if ((n5 = n2 - attackRangeMax) < 0) {
             n5 = 0;
         }
-        if ((n4 = n + by2) >= c.var_i_a.var_short_e) {
+        if ((n4 = n + attackRangeMax) >= c.var_i_a.var_short_e) {
             n4 = c.var_i_a.var_short_e - 1;
         }
-        if ((n3 = n2 + by2) >= c.var_i_a.var_short_b) {
+        if ((n3 = n2 + attackRangeMax) >= c.var_i_a.var_short_b) {
             n3 = c.var_i_a.var_short_b - 1;
         }
         for (int j = n6; j <= n4; ++j) {
             for (int k = n5; k <= n3; ++k) {
                 int n7 = Math.abs(j - n) + Math.abs(k - n2);
-                if (n7 < by || n7 > by2 || byArray[j][k] > 0) continue;
+                if (n7 < attackRangeMin || n7 > attackRangeMax || byArray[j][k] > 0) continue;
                 byArray[j][k] = 127;
             }
         }
