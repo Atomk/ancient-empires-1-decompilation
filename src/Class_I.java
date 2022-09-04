@@ -105,7 +105,7 @@ implements CommandListener {
     public boolean var_boolean_h = false;
     public boolean var_boolean_j = false;
     public boolean var_boolean_n = true;
-    public Vector var_java_util_Vector_a = new Vector();
+    public Vector<c> var_java_util_Vector_a = new Vector<c>();
     public int var_int_g = 0;
     public boolean var_boolean_u = true;
     public boolean B = true;
@@ -371,7 +371,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.var_java_util_Vector_a.size());
         int n2 = this.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
-            c c2 = (c)this.var_java_util_Vector_a.elementAt(n);
+            c c2 = this.var_java_util_Vector_a.elementAt(n);
             dataOutputStream.writeByte(c2.var_byte_d);
             dataOutputStream.writeByte(c2.var_byte_a);
             dataOutputStream.writeByte(c2.var_byte_e);
@@ -413,7 +413,7 @@ implements CommandListener {
             if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t) continue;
             this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
-        this.var_java_util_Vector_a = new Vector();
+        this.var_java_util_Vector_a = new Vector<c>();
         n2 = dataInputStream.readByte();
         int n3 = n2;
         for (n = 0; n < n3; ++n) {
@@ -801,7 +801,7 @@ implements CommandListener {
         this.var_byte_g = 0;
         this.var_int_a = 0;
         this.var_c_arr_a = null;
-        this.var_java_util_Vector_a = new Vector();
+        this.var_java_util_Vector_a = new Vector<c>();
         this.var_c_h = null;
         this.var_c_arr_b = null;
         this.var_c_d = null;
@@ -1338,7 +1338,7 @@ implements CommandListener {
                 }
                 n2 = this.var_java_util_Vector_a.size();
                 for (n = 0; n < n2; ++n) {
-                    ((c)this.var_java_util_Vector_a.elementAt(n)).void_a();
+                    this.var_java_util_Vector_a.elementAt(n).void_a();
                 }
                 if (this.var_long_n - this.var_long_l >= 300L) {
                     this.var_int_y = (this.var_int_y + 1) % this.var_h_arr_a.length;
@@ -1632,7 +1632,7 @@ implements CommandListener {
                 this.d(graphics);
                 int n3 = this.var_java_util_Vector_a.size();
                 for (n2 = 0; n2 < n3; ++n2) {
-                    c c2 = (c)this.var_java_util_Vector_a.elementAt(n2);
+                    c c2 = this.var_java_util_Vector_a.elementAt(n2);
                     if (c2.var_byte_e == 3) {
                         this.var_h_f.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
                         continue;
@@ -1642,7 +1642,7 @@ implements CommandListener {
                 }
                 n3 = this.var_java_util_Vector_a.size();
                 for (n2 = 0; n2 < n3; ++n2) {
-                    ((c)this.var_java_util_Vector_a.elementAt(n2)).b(graphics, this.var_short_f, this.var_short_a);
+                    this.var_java_util_Vector_a.elementAt(n2).b(graphics, this.var_short_f, this.var_short_a);
                 }
                 if (this.var_java_util_Vector_b != null) {
                     graphics.setColor(0xFFFFFF);
@@ -1757,7 +1757,7 @@ implements CommandListener {
     public c c_a(int n, int n2, byte by) {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
-            c c2 = (c)this.var_java_util_Vector_a.elementAt(j);
+            c c2 = this.var_java_util_Vector_a.elementAt(j);
             if (n != c2.i || n2 != c2.var_short_a || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
             return c2;
         }
@@ -1782,7 +1782,7 @@ implements CommandListener {
         this.var_byte_g = (byte)((this.var_byte_g + 1) % this.var_byte_arr_d.length);
         this.var_byte_c = this.var_byte_arr_d[this.var_byte_g];
         for (n = this.var_java_util_Vector_a.size() - 1; n >= 0; --n) {
-            c c2 = (c)this.var_java_util_Vector_a.elementAt(n);
+            c c2 = this.var_java_util_Vector_a.elementAt(n);
             if (c2.var_byte_e == 3) {
                 if (this.var_short_d - c2.var_int_b < 3) continue;
                 this.var_java_util_Vector_a.removeElement(c2);
@@ -1854,7 +1854,7 @@ implements CommandListener {
         Vector<c> vector = new Vector<c>();
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
-            c c2 = (c)this.var_java_util_Vector_a.elementAt(j);
+            c c2 = this.var_java_util_Vector_a.elementAt(j);
             if (n != -1 && c2.var_byte_d != n || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
             vector.addElement(c2);
         }
@@ -2010,7 +2010,7 @@ implements CommandListener {
                 int n5;
                 int n6;
                 int n7;
-                c c2 = (c)this.var_java_util_Vector_a.elementAt(j);
+                c c2 = this.var_java_util_Vector_a.elementAt(j);
                 if (c2.var_byte_a != this.var_byte_c || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.var_byte_d == 9) {
                     if (this.int_a(-1, 0, this.var_byte_c) != 1) continue;

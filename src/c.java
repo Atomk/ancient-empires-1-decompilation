@@ -17,7 +17,7 @@ extends e {
     public int[][] var_int_arr_arr_a;
     //private short j;
     //private short var_short_c;
-    private Vector var_java_util_Vector_a = null;
+    private Vector<short[]> var_java_util_Vector_a = null;
     private short var_short_g;
     private long var_long_a;
     public byte var_byte_d;
