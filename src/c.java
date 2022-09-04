@@ -38,8 +38,8 @@ extends e {
     public static final byte[] unitsDataMOV;
     public static final byte[] unitsDataATK;
     public static final byte[] unitsDataDEF;
-    public static final byte[] var_byte_arr_c;
-    public static final byte[] var_byte_arr_g;
+    private static final byte[] unitsDataRangeMax;
+    private static final byte[] unitsDataRangeMin;
     public static final int[][][] var_int_arr_arr_arr_a;
     public static final short[] unitsDataPrice;
     public static final short[] var_short_arr_a;
@@ -119,7 +119,7 @@ extends e {
     }
 
     public boolean a(c c2, int n, int n2) {
-        return this.h > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && var_byte_arr_g[this.var_byte_d] == 1;
+        return this.h > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && unitsDataRangeMin[this.var_byte_d] == 1;
     }
 
     public void a(byte by) {
@@ -170,8 +170,8 @@ extends e {
         int n3;
         int n4;
         int n5;
-        byte by = var_byte_arr_g[this.var_byte_d];
-        byte by2 = var_byte_arr_c[this.var_byte_d];
+        byte by = unitsDataRangeMin[this.var_byte_d];
+        byte by2 = unitsDataRangeMax[this.var_byte_d];
         int n6 = n - by2;
         if (n6 < 0) {
             n6 = 0;
@@ -209,7 +209,7 @@ extends e {
     }
 
     public c[] a(int n, int n2, byte by) {
-        return this.a(n, n2, (int)var_byte_arr_g[this.var_byte_d], (int)var_byte_arr_c[this.var_byte_d], by);
+        return this.a(n, n2, (int)unitsDataRangeMin[this.var_byte_d], (int)unitsDataRangeMax[this.var_byte_d], by);
     }
 
     public c[] a(int n, int n2, int n3, int n4, byte by) {
@@ -447,8 +447,8 @@ extends e {
         unitsDataMOV = new byte[]{4, 4, 6, 4, 4, 5, 4, 3, 7, 4, 4};
         unitsDataATK = new byte[]{5, 5, 5, 4, 3, 6, 6, 7, 8, 5, 5};
         unitsDataDEF = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
-        var_byte_arr_c = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
-        var_byte_arr_g = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
+        unitsDataRangeMax = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
+        unitsDataRangeMin = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
         var_int_arr_arr_arr_a = new int[][][]{new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 70}, {10, 50}, {10, 90}}, new int[][]{{18, 70}, {3, 40}, {3, 100}}, new int[][]{{32, 65}, {10, 40}, {10, 85}}, new int[][]{{5, 40}, {5, 75}}, new int[][]{{22, 65}, {2, 40}, {2, 90}}, new int[][]{{5, 58}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}};
         // The last two cannot be bought (king and skeleton)
         unitsDataPrice = new short[]{150, 250, 300, 400, 500, 600, 600, 700, 1000, -1, -1};
