@@ -30,7 +30,7 @@ public class Class_I
 implements CommandListener {
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
-    private static String[] var_java_lang_String_arr_b;
+    private static String[] skirmishMapNames;
     private byte var_byte_a;
     public String[] var_java_lang_String_arr_e = new String[]{
         AppCanvas.getGameText(1),  // NEW GAME
@@ -663,7 +663,7 @@ implements CommandListener {
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(5))) {   // SKIRMISH
             this.var_g_a = new g(this, (byte)0, 0);
-            this.var_g_a.a(var_java_lang_String_arr_b);
+            this.var_g_a.a(skirmishMapNames);
             this.var_g_a.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_a) {
             this.var_int_h = n;
@@ -3017,7 +3017,7 @@ implements CommandListener {
         String[] stringArray = new String[2];
         stringArray[0] = "Island Cross";
         stringArray[1] = "Rocky Bay";
-        var_java_lang_String_arr_b = stringArray;
+        skirmishMapNames = stringArray;
         var_byte_arr_arr_d = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
         var_byte_arr_f = new byte[]{0};
         var_byte_arr_c = new byte[]{2};
