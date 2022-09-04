@@ -140,7 +140,7 @@ implements CommandListener {
     public boolean var_boolean_m = false;
     public byte var_byte_d;
     public boolean var_boolean_c = false;
-    public Sprite var_h_c;
+    public Sprite spriteMacrospaceLogo;
     public Sprite spriteGameTitle;
     public int var_int_p;
     public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);   // "Back"
@@ -231,7 +231,7 @@ implements CommandListener {
             this.var_e_g = new e("arrow");
             this.var_e_e = new e("buttons");
             this.var_e_b = new e("menu");
-            this.var_h_c = new Sprite("ms_logo.png");
+            this.spriteMacrospaceLogo = new Sprite("ms_logo.png");
             this.spriteMenuPointer = new Sprite("pointer.png");
             this.spriteGameTitle = new Sprite("splash.png");
             this.var_int_p = 0;
@@ -621,7 +621,7 @@ implements CommandListener {
             this.var_byte_a = 0;
             this.var_byte_arr_b[1] = 0;
             this.spriteGameTitle = null;
-            this.var_h_c = null;
+            this.spriteMacrospaceLogo = null;
             this.var_boolean_l = true;
             appCanvas.repaint();
             appCanvas.serviceRepaints();
@@ -969,7 +969,7 @@ implements CommandListener {
             case 1: {
                 if (this.var_int_m >= 15) {
                     AppCanvas.playSound(0, 1);
-                    this.var_h_c = null;
+                    this.spriteMacrospaceLogo = null;
                     this.var_int_m = 0;
                     ++this.var_int_p;
                     break;
@@ -1569,9 +1569,9 @@ implements CommandListener {
         if (this.var_int_p == 0) {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
-            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.var_h_c, (Class_I.appCanvas.width - this.var_h_c.width) / 2, (Class_I.appCanvas.height - this.var_h_c.height) / 2, 0, 0);
+            Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.spriteMacrospaceLogo, (Class_I.appCanvas.width - this.spriteMacrospaceLogo.width) / 2, (Class_I.appCanvas.height - this.spriteMacrospaceLogo.height) / 2, 0, 0);
         } else if (this.var_int_p == 1) {
-            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.appCanvas.width - this.var_h_c.width) / 2, (Class_I.appCanvas.height - this.var_h_c.height) / 2, this.var_h_c.width, this.var_h_c.height);
+            Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.appCanvas.width - this.spriteMacrospaceLogo.width) / 2, (Class_I.appCanvas.height - this.spriteMacrospaceLogo.height) / 2, this.spriteMacrospaceLogo.width, this.spriteMacrospaceLogo.height);
         } else if (this.var_int_p == 2) {
             graphics.setColor(-16777216);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
