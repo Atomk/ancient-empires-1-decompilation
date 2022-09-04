@@ -257,7 +257,7 @@ extends Class_I {
         }
     }
 
-    public void a(c c2, c c3) throws Exception {
+    public void a(Unit c2, Unit c3) throws Exception {
         this.var_byte_d = (byte)2;
         this.var_java_util_Vector_d = this.var_java_util_Vector_c;
         this.var_java_util_Vector_c = new Vector();

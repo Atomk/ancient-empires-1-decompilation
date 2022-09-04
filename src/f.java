@@ -10,7 +10,7 @@ public class f {
     public static final int[] var_int_arr_b;
     public static final String[] var_java_lang_String_arr_a;
     public a var_a_a;
-    public c var_c_a;
+    public Unit var_c_a;
     public boolean var_boolean_f = false;
     public boolean var_boolean_e = false;
     public byte var_byte_g;
@@ -65,7 +65,7 @@ public class f {
     public e[] var_e_arr_a;
     public int i;
 
-    public f(Class_I i2, c c2, boolean bl) throws Exception {
+    public f(Class_I i2, Unit c2, boolean bl) throws Exception {
         int n;
         this.var_a_a = (a)i2;
         this.var_c_a = c2;

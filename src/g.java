@@ -60,7 +60,7 @@ public class g {
     public boolean var_boolean_a;
     public boolean var_boolean_f = true;
     public int q;
-    public c var_c_a;
+    public Unit var_c_a;
     public boolean var_boolean_h = true;
     public boolean var_boolean_d = true;
     public g var_g_a;
@@ -76,7 +76,7 @@ public class g {
         } else if (by == 2) {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
-            this.var_byte_arr_a = c.byte_arr_a();
+            this.var_byte_arr_a = Unit.byte_arr_a();
             this.z = this.var_byte_arr_a.length;
             this.var_int_b = 64;
             this.var_int_g = AppCanvas.height2 - 40;
@@ -480,7 +480,7 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= c.unitsDataPrice[this.var_byte_arr_a[this.x]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.x]]) {
                                 if (this.var_byte_a == 2) {
                                     this.var_a_a.a((int)this.var_byte_arr_a[this.x], "", this);
                                 } else {
@@ -737,7 +737,7 @@ public class g {
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.spriteGold.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
-                        AppCanvas.drawBoldWhiteText(graphics, "" + c.unitsDataPrice[this.x], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "" + Unit.unitsDataPrice[this.x], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
@@ -769,7 +769,7 @@ public class g {
                     }
                     graphics.setColor(0xFF0000);
                     AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, 0);
-                    stringBuffer.append(c.unitsDataATK[this.x]);
+                    stringBuffer.append(Unit.unitsDataATK[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_f > 0) {
                             stringBuffer.append("+");
@@ -785,7 +785,7 @@ public class g {
                     AppCanvas.a(graphics, string2, n13, 33, 0, 8);
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, 0);
                     stringBuffer = new StringBuffer();
-                    stringBuffer.append(c.unitsDataDEF[this.x]);
+                    stringBuffer.append(Unit.unitsDataDEF[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_e > 0) {
                             stringBuffer.append("+");
@@ -798,7 +798,7 @@ public class g {
                     AppCanvas.a(graphics, string2, n13, 43, 0, 8);
                     AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, 0);
                     stringBuffer = new StringBuffer();
-                    stringBuffer.append(c.unitsDataMOV[this.x]);
+                    stringBuffer.append(Unit.unitsDataMOV[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.k > 0) {
                             stringBuffer.append("+");
@@ -843,7 +843,7 @@ public class g {
                         for (int k = 0; k < this.w; ++k) {
                             e e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
-                            if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < c.unitsDataPrice[this.var_byte_arr_a[n16]]) {
+                            if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.x) {
@@ -954,7 +954,7 @@ public class g {
                     if (this.p != 0) break;
                     n27 = this.var_a_a.var_java_util_Vector_a.size();
                     for (n28 = 0; n28 < n27; ++n28) {
-                        c c2 = (c)this.var_a_a.var_java_util_Vector_a.elementAt(n28);
+                        Unit c2 = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(n28);
                         this.var_a_a.var_e_arr_arr_c[c2.var_byte_a][c2.unitType].a(graphics, c2.i * s, c2.var_short_a * s2);
                     }
                     break;

@@ -97,15 +97,15 @@ implements CommandListener {
     public int F;
     public int var_int_h;
     public int var_int_w;
-    public c[] var_c_arr_b = null;
-    public c var_c_h = null;
+    public Unit[] var_c_arr_b = null;
+    public Unit var_c_h = null;
     public int var_int_c;
     public int var_int_v;
     public byte[][] var_byte_arr_arr_b;
     public boolean var_boolean_h = false;
     public boolean var_boolean_j = false;
     public boolean var_boolean_n = true;
-    public Vector<c> var_java_util_Vector_a = new Vector<c>();
+    public Vector<Unit> var_java_util_Vector_a = new Vector<Unit>();
     public int var_int_g = 0;
     public boolean var_boolean_u = true;
     public boolean B = true;
@@ -118,7 +118,7 @@ implements CommandListener {
     public byte var_byte_g;
     public byte var_byte_c = 0;
     public short var_short_d;
-    public c[] var_c_arr_a;
+    public Unit[] var_c_arr_a;
     public int[] var_int_arr_b;
     public byte[] var_byte_arr_b = new byte[]{1, 0};
     public Vector var_java_util_Vector_e = new Vector();
@@ -127,9 +127,9 @@ implements CommandListener {
     public g var_g_g;
     public Vector var_java_util_Vector_c = new Vector();
     public Vector var_java_util_Vector_f = new Vector();
-    public c var_c_c;
+    public Unit var_c_c;
     public long var_long_g;
-    public c var_c_e;
+    public Unit var_c_e;
     public byte var_byte_f;
     public long var_long_i;
     public boolean var_boolean_r = false;
@@ -153,8 +153,8 @@ implements CommandListener {
     public int N;
     public int var_int_n;
     public long var_long_d;
-    public c var_c_i;
-    public c var_c_b;
+    public Unit var_c_i;
+    public Unit var_c_b;
     public boolean var_boolean_a = true;
     public long var_long_e;
     public boolean var_boolean_v = false;
@@ -177,7 +177,7 @@ implements CommandListener {
     public static final String[] var_java_lang_String_arr_d;
     public StringBuffer var_java_lang_StringBuffer_a = new StringBuffer();
     public int D;
-    public c var_c_d = null;
+    public Unit var_c_d = null;
     public int L = 0;
     public int E = -15790321;
     public int C = 6;
@@ -187,14 +187,14 @@ implements CommandListener {
     public byte var_byte_b = 0;
     public int var_int_f;
     public int var_int_x;
-    public c var_c_g;
-    public c var_c_a;
+    public Unit var_c_g;
+    public Unit var_c_a;
     public int var_int_A = 0;
     public long var_long_j;
-    public c[] var_c_arr_c;
+    public Unit[] var_c_arr_c;
     public int var_int_z;
     public int var_int_o;
-    public c var_c_f = null;
+    public Unit var_c_f = null;
     public int var_int_a = 0;
     public long var_long_h;
     public int var_int_i;
@@ -256,7 +256,7 @@ implements CommandListener {
             return;
         }
         this.var_byte_d = 1;
-        c.var_i_a = this;
+        Unit.var_i_a = this;
         //AppCanvas.readAssetsPackage("/1.pak");
         this.var_e_h = new e("cursor");
         this.spriteGold = new Sprite("gold.png");
@@ -371,7 +371,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.var_java_util_Vector_a.size());
         int n2 = this.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
-            c c2 = this.var_java_util_Vector_a.elementAt(n);
+            Unit c2 = this.var_java_util_Vector_a.elementAt(n);
             dataOutputStream.writeByte(c2.unitType);
             dataOutputStream.writeByte(c2.var_byte_a);
             dataOutputStream.writeByte(c2.var_byte_e);
@@ -413,7 +413,7 @@ implements CommandListener {
             if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t) continue;
             this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
-        this.var_java_util_Vector_a = new Vector<c>();
+        this.var_java_util_Vector_a = new Vector<Unit>();
         n2 = dataInputStream.readByte();
         int n3 = n2;
         for (n = 0; n < n3; ++n) {
@@ -427,7 +427,7 @@ implements CommandListener {
             short s2 = dataInputStream.readShort();
             short s3 = dataInputStream.readShort();
             short s4 = dataInputStream.readShort();
-            c c2 = c.a(by, by2, s2, s3);
+            Unit c2 = Unit.a(by, by2, s2, s3);
             c2.var_byte_e = by3;
             c2.var_short_b = s;
             c2.var_short_d = by6;
@@ -500,7 +500,7 @@ implements CommandListener {
         }
     }
 
-    public void b(c c2, c c3) {
+    public void b(Unit c2, Unit c3) {
         if (AppCanvas.settings[3]) {
             this.var_boolean_y = true;
             this.var_int_m = 0;
@@ -581,7 +581,7 @@ implements CommandListener {
         return e3;
     }
 
-    public void a(c c2) {
+    public void a(Unit c2) {
         this.var_boolean_t = true;
         this.var_boolean_r = !this.var_boolean_d;
         this.L = 0xFFFFFFF;
@@ -782,10 +782,10 @@ implements CommandListener {
         g2.a(true);
     }
 
-    public c c_a(int n, int n2, int n3) {
+    public Unit c_a(int n, int n2, int n3) {
         byte by = this.var_byte_g;
-        this.var_int_arr_b[by] = this.var_int_arr_b[by] - c.unitsDataPrice[n];
-        return c.a((byte)n, this.var_byte_c, n2, n3);
+        this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[n];
+        return Unit.a((byte)n, this.var_byte_c, n2, n3);
     }
 
     public e a(byte by, byte by2) {
@@ -801,7 +801,7 @@ implements CommandListener {
         this.var_byte_g = 0;
         this.var_int_a = 0;
         this.var_c_arr_a = null;
-        this.var_java_util_Vector_a = new Vector<c>();
+        this.var_java_util_Vector_a = new Vector<Unit>();
         this.var_c_h = null;
         this.var_c_arr_b = null;
         this.var_c_d = null;
@@ -859,14 +859,14 @@ implements CommandListener {
         int n4 = dataInputStream.readInt();
         dataInputStream.skip(n4 * 4);
         int n5 = dataInputStream.readInt();
-        this.var_c_arr_a = new c[this.var_byte_h];
+        this.var_c_arr_a = new Unit[this.var_byte_h];
         for (s = 0; s < n5; s = (short)(s + 1)) {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;
             byte by2 = (byte)(by % 11);
             byte by3 = (byte)(by / 11);
-            c c2 = c.a(by2, by3, n6 / 24, n7 / 24);
+            Unit c2 = Unit.a(by2, by3, n6 / 24, n7 / 24);
             if (by2 != 9) continue;
             this.var_c_arr_a[by3] = c2;
         }
@@ -896,7 +896,7 @@ implements CommandListener {
     public void h() {
         this.var_int_w = 0;
         this.var_c_h = null;
-        this.var_c_arr_b = new c[0];
+        this.var_c_arr_b = new Unit[0];
         this.a(this.var_byte_arr_arr_b, 0);
         this.var_boolean_h = false;
         this.var_boolean_j = false;
@@ -910,8 +910,8 @@ implements CommandListener {
         }
     }
 
-    public void c(c c2) {
-        this.b((c)null);
+    public void c(Unit c2) {
+        this.b((Unit)null);
         this.a(this.var_byte_arr_arr_b, 0);
         this.var_boolean_h = false;
         if (this.var_boolean_o) {
@@ -930,7 +930,7 @@ implements CommandListener {
         }
     }
 
-    public String[] java_lang_String_arr_a(c c2, byte by) {
+    public String[] java_lang_String_arr_a(Unit c2, byte by) {
         Vector<String> vector = new Vector<String>();
         if (by == 1 && this.var_c_h.a((short)4) && this.byte_a(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
             vector.addElement(AppCanvas.getGameText(29));
@@ -1142,7 +1142,7 @@ implements CommandListener {
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
                         this.var_java_util_Vector_a.removeElement(this.var_c_e);
-                        stringArray = c.a((byte)10, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
+                        stringArray = Unit.a((byte)10, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
                         stringArray.void_b();
                         this.var_c_e = null;
                     }
@@ -1387,7 +1387,7 @@ implements CommandListener {
         appCanvas.serviceRepaints();
     }
 
-    public void void_a(c c2, byte by) {
+    public void void_a(Unit c2, byte by) {
         this.var_c_e = c2;
         this.var_byte_f = by;
         this.a(this.var_e_r, c2.var_short_b - 8, ((e)c2).l - 8, 1, 1, 3, 50);
@@ -1405,7 +1405,7 @@ implements CommandListener {
         }
     }
 
-    public void b(c c2) {
+    public void b(Unit c2) {
         this.var_c_d = c2;
         this.var_int_g = c2 == null ? --this.var_int_g : ++this.var_int_g;
     }
@@ -1632,7 +1632,7 @@ implements CommandListener {
                 this.d(graphics);
                 int n3 = this.var_java_util_Vector_a.size();
                 for (n2 = 0; n2 < n3; ++n2) {
-                    c c2 = this.var_java_util_Vector_a.elementAt(n2);
+                    Unit c2 = this.var_java_util_Vector_a.elementAt(n2);
                     if (c2.var_byte_e == 3) {
                         this.spriteTombstone.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
                         continue;
@@ -1754,10 +1754,10 @@ implements CommandListener {
         }
     }
 
-    public c c_a(int n, int n2, byte by) {
+    public Unit c_a(int n, int n2, byte by) {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
-            c c2 = this.var_java_util_Vector_a.elementAt(j);
+            Unit c2 = this.var_java_util_Vector_a.elementAt(j);
             if (n != c2.i || n2 != c2.var_short_a || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
             return c2;
         }
@@ -1768,7 +1768,7 @@ implements CommandListener {
         return this.var_byte_arr_j[this.var_byte_arr_arr_a[n][n2]];
     }
 
-    public int a(byte by, c c2) {
+    public int a(byte by, Unit c2) {
         int n = terrainTypeDefense[by];
         if (c2.a((short)2) && by == 5) {
             n += 2;
@@ -1782,7 +1782,7 @@ implements CommandListener {
         this.var_byte_g = (byte)((this.var_byte_g + 1) % this.var_byte_arr_d.length);
         this.var_byte_c = this.var_byte_arr_d[this.var_byte_g];
         for (n = this.var_java_util_Vector_a.size() - 1; n >= 0; --n) {
-            c c2 = this.var_java_util_Vector_a.elementAt(n);
+            Unit c2 = this.var_java_util_Vector_a.elementAt(n);
             if (c2.var_byte_e == 3) {
                 if (this.var_short_d - c2.var_int_b < 3) continue;
                 this.var_java_util_Vector_a.removeElement(c2);
@@ -1822,7 +1822,7 @@ implements CommandListener {
         }
     }
 
-    public boolean a(int n, int n2, c c2) {
+    public boolean a(int n, int n2, Unit c2) {
         if (c2.a((short)8) && this.byte_a(c2.i, (int)c2.var_short_a) == 7 && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
             return true;
         }
@@ -1850,15 +1850,15 @@ implements CommandListener {
         return this.c_arr_a(n, n2, by).length;
     }
 
-    public c[] c_arr_a(int n, int n2, byte by) {
-        Vector<c> vector = new Vector<c>();
+    public Unit[] c_arr_a(int n, int n2, byte by) {
+        Vector<Unit> vector = new Vector<Unit>();
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
-            c c2 = this.var_java_util_Vector_a.elementAt(j);
+            Unit c2 = this.var_java_util_Vector_a.elementAt(j);
             if (n != -1 && c2.unitType != n || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
             vector.addElement(c2);
         }
-        c[] objectArray = new c[vector.size()];
+        Unit[] objectArray = new Unit[vector.size()];
         vector.copyInto(objectArray);
         return objectArray;
     }
@@ -1911,7 +1911,7 @@ implements CommandListener {
     public boolean boolean_a(int n) {
         short s = this.var_c_arr_a[this.var_byte_c].i;
         short s2 = this.var_c_arr_a[this.var_byte_c].var_short_a;
-        return c.unitsDataPrice[n] <= this.var_int_arr_b[this.var_byte_g] && c.unitsDataPrice[n] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        return Unit.unitsDataPrice[n] <= this.var_int_arr_b[this.var_byte_g] && Unit.unitsDataPrice[n] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
     public void p() throws Exception {
@@ -2010,7 +2010,7 @@ implements CommandListener {
                 int n5;
                 int n6;
                 int n7;
-                c c2 = this.var_java_util_Vector_a.elementAt(j);
+                Unit c2 = this.var_java_util_Vector_a.elementAt(j);
                 if (c2.var_byte_a != this.var_byte_c || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == 9) {
                     if (this.int_a(-1, 0, this.var_byte_c) != 1) continue;
@@ -2021,7 +2021,7 @@ implements CommandListener {
                             n7 = 0;
                             byte[] byArray = new byte[11];
                             for (n6 = 1; n6 < 11; n6 = (int)((byte)(n6 + 1))) {
-                                if (this.int_a(n6, -1, this.var_byte_c) >= 1 && c.unitsDataPrice[n6] < 600 || !this.boolean_a(n6)) continue;
+                                if (this.int_a(n6, -1, this.var_byte_c) >= 1 && Unit.unitsDataPrice[n6] < 600 || !this.boolean_a(n6)) continue;
                                 byArray[n7] = (byte)n6;
                                 ++n7;
                             }
@@ -2059,10 +2059,10 @@ implements CommandListener {
                     n2 = this.var_byte_arr_arr_b[n6].length;
                     for (n3 = 0; n3 < n2; ++n3) {
                         int n8;
-                        c c3 = this.c_a(n6, n3, (byte)0);
+                        Unit c3 = this.c_a(n6, n3, (byte)0);
                         if (this.var_byte_arr_arr_b[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
                         if (!c2.a((short)512) || c3 == c2) {
-                            c[] cArray = c2.a(n6, n3, (byte)0);
+                            Unit[] cArray = c2.a(n6, n3, (byte)0);
                             for (int k = 0; k < cArray.length; ++k) {
                                 n8 = this.a(c2, n6, n3, cArray[k], null);
                                 if (n8 <= n5) continue;
@@ -2100,7 +2100,7 @@ implements CommandListener {
         }
     }
 
-    public int a(c c2, int n, int n2, c c3, c c4) {
+    public int a(Unit c2, int n, int n2, Unit c3, Unit c4) {
         int n3;
         int n4;
         int n5 = 0;
@@ -2164,7 +2164,7 @@ implements CommandListener {
             int n6 = this.var_short_e - n4 * 2 + this.var_short_b - n3 * 2;
             n5 += n6 * n6;
         }
-        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (c.unitsDataMOV[c2.unitType] - 1);
+        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (Unit.unitsDataMOV[c2.unitType] - 1);
     }
 
     public void void_b(int n) {
@@ -2313,7 +2313,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.i < 4 || this.var_c_f.var_short_a < 7) break;
-                    c.a((byte)0, (byte)1, 5, 8);
+                    Unit.a((byte)0, (byte)1, 5, 8);
                     this.a(this.var_e_r, 120, 192, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
@@ -2418,10 +2418,10 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    c.a((byte)5, (byte)1, 4, 0);
-                    c.a((byte)5, (byte)1, 1, 1);
-                    c.a((byte)5, (byte)1, 1, 5);
-                    c c2 = c.a((byte)2, (byte)0, 12, 1);
+                    Unit.a((byte)5, (byte)1, 4, 0);
+                    Unit.a((byte)5, (byte)1, 1, 1);
+                    Unit.a((byte)5, (byte)1, 1, 5);
+                    Unit c2 = Unit.a((byte)2, (byte)0, 12, 1);
                     this.b(c2);
                     c2.b(this.var_byte_arr_arr_b);
                     c2.void_a(9, 2);
@@ -2431,7 +2431,7 @@ implements CommandListener {
                 }
                 case 14: {
                     if (this.var_byte_i == 1) break;
-                    c c3 = c.a((byte)2, (byte)0, 12, 1);
+                    Unit c3 = Unit.a((byte)2, (byte)0, 12, 1);
                     this.b(c3);
                     c3.b(this.var_byte_arr_arr_b);
                     c3.void_a(10, 1);
@@ -2587,9 +2587,9 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_c_arr_a[1] = c.a((byte)9, (byte)1, 2, 0);
+                    this.var_c_arr_a[1] = Unit.a((byte)9, (byte)1, 2, 0);
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    c.a((byte)5, (byte)1, 0, 0);
+                    Unit.a((byte)5, (byte)1, 0, 0);
                     this.a(this.var_e_r, 48, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, 1);
@@ -2668,7 +2668,7 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    c c4 = c.a((byte)8, (byte)0, 2, 2);
+                    Unit c4 = Unit.a((byte)8, (byte)0, 2, 2);
                     this.void_b(2, 2);
                     this.void_b(1000);
                     ++this.var_int_a;
@@ -2757,8 +2757,8 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    c.a((byte)7, (byte)1, 12, 0);
-                    c.a((byte)0, (byte)1, 13, 0);
+                    Unit.a((byte)7, (byte)1, 12, 0);
+                    Unit.a((byte)0, (byte)1, 13, 0);
                     this.a(this.var_e_r, 312, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, 1);
@@ -2771,8 +2771,8 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    c.a((byte)6, (byte)1, 1, 11);
-                    c.a((byte)0, (byte)1, 1, 12);
+                    Unit.a((byte)6, (byte)1, 1, 11);
+                    Unit.a((byte)0, (byte)1, 1, 12);
                     this.a(this.var_e_r, 24, 288, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, 1);
@@ -2785,10 +2785,10 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_c_arr_a[1] = c.a((byte)9, (byte)1, 1, 1);
+                    this.var_c_arr_a[1] = Unit.a((byte)9, (byte)1, 1, 1);
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    c.a((byte)8, (byte)1, 0, 1);
-                    c.a((byte)0, (byte)1, 1, 2);
+                    Unit.a((byte)8, (byte)1, 0, 1);
+                    Unit.a((byte)0, (byte)1, 1, 2);
                     this.a(this.var_e_r, 24, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 48, 0, 0, 4, 50);
@@ -2888,7 +2888,7 @@ implements CommandListener {
         this.void_b(800);
     }
 
-    public void a(c c2, c c3) throws Exception {
+    public void a(Unit c2, Unit c3) throws Exception {
         this.var_byte_d = (byte)2;
         this.var_boolean_e = true;
         this.var_int_m = 0;
