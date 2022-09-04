@@ -910,7 +910,7 @@ public class g {
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, 0);
-                    AppCanvas.drawBoldWhiteText(graphics, "" + Class_I.var_byte_arr_g[by], 14, n25 += 9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "" + Class_I.terrainTypeDefense[by], 14, n25 += 9, 0);
                     if (this.var_c_a == null) break;
                     this.var_a_a.a(this.var_c_a.var_byte_a, this.var_c_a.var_byte_d).a(graphics, 35, 2);
                     n25 = 22;

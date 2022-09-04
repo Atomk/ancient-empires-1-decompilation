@@ -640,7 +640,7 @@ public class f {
         n6 = (AppCanvas.h - this.var_a_a.var_h_h.width) / 2;
         n4 = AppCanvas.a((byte)1) + 4;
         this.var_a_a.var_h_h.draw(graphics, n6, n4);
-        n7 = Class_I.var_byte_arr_g[this.var_int_f];
+        n7 = Class_I.terrainTypeDefense[this.var_int_f];
         n3 = this.var_a_a.a((byte)this.var_int_f, this.var_c_a) - n7;
         StringBuffer stringBuffer = new StringBuffer().append(n7);
         if (n3 > 0) {

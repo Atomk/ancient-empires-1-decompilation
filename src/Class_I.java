@@ -61,7 +61,7 @@ implements CommandListener {
     public static final int[] var_int_arr_a;
     public e[][] var_e_arr_arr_b;
     private static final byte[] var_byte_arr_a;
-    public static final byte[] var_byte_arr_g;
+    public static final byte[] terrainTypeDefense;
     public static final byte[] var_byte_arr_h;
     public static final String[] terrainTypeNames;
     public static final byte[] var_byte_arr_i;
@@ -1769,7 +1769,7 @@ implements CommandListener {
     }
 
     public int a(byte by, c c2) {
-        int n = var_byte_arr_g[by];
+        int n = terrainTypeDefense[by];
         if (c2.a((short)2) && by == 5) {
             n += 2;
         }
@@ -3024,7 +3024,7 @@ implements CommandListener {
         var_int_arr_a = new int[]{-16776961, -65536, -16711936};
         var_byte_arr_a = new byte[]{21, 22};
         // Terrain type variables
-        var_byte_arr_g = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
+        terrainTypeDefense = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
         var_byte_arr_h = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};
         // The first "mountain" should be "hill"
         terrainTypeNames = new String[]{"road", "grass", "woods", "mountain", "mountain", "water", "bridge", "town", "town"};
