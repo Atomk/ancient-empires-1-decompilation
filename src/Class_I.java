@@ -671,11 +671,11 @@ implements CommandListener {
                 for (int j = 0; j < AppCanvas.settings.length; ++j) {
                     this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.settings[j]);
                 }
-                Form form = new Form(AppCanvas.getGameText(6));
-                form.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
-                form.addCommand(this.var_javax_microedition_lcdui_Command_c);
-                form.setCommandListener((CommandListener)this);
-                Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
+                Form settingsForm = new Form(AppCanvas.getGameText(6)); // SETTINGS
+                settingsForm.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
+                settingsForm.addCommand(this.var_javax_microedition_lcdui_Command_c);
+                settingsForm.setCommandListener((CommandListener)this);
+                Class_I.appCanvas.appDisplay.setCurrent((Displayable)settingsForm);
                 return;
             }
             if (string.equals(AppCanvas.getGameText(7))) {
