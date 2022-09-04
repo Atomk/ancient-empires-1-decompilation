@@ -126,7 +126,7 @@ implements CommandListener {
     public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);
     public Command var_javax_microedition_lcdui_Command_a = new Command(AppCanvas.getGameText(12), 1, 1);
     public Command var_javax_microedition_lcdui_Command_c = new Command(AppCanvas.getGameText(10), 2, 1);
-    public ChoiceGroup var_javax_microedition_lcdui_ChoiceGroup_a;
+    private ChoiceGroup choiceGroupSettings;
     public boolean var_boolean_y = false;
     public int var_int_m;
     public int var_int_e;
@@ -461,7 +461,7 @@ implements CommandListener {
         try {
             boolean bl = false;
             for (int j = 0; j < AppCanvas.settings.length; ++j) {
-                boolean n = this.var_javax_microedition_lcdui_ChoiceGroup_a.isSelected(j);
+                boolean n = this.choiceGroupSettings.isSelected(j);
                 if (n == AppCanvas.settings[j]) continue;
                 AppCanvas.settings[j] = n;
                 bl = true;
@@ -667,12 +667,12 @@ implements CommandListener {
             this.var_boolean_l = false;
         } else {
             if (string.equals(AppCanvas.getGameText(6))) {
-                this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, AppCanvas.settingsNames, null);
+                this.choiceGroupSettings = new ChoiceGroup("", 2, AppCanvas.settingsNames, null);
                 for (int j = 0; j < AppCanvas.settings.length; ++j) {
-                    this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.settings[j]);
+                    this.choiceGroupSettings.setSelectedIndex(j, AppCanvas.settings[j]);
                 }
                 Form settingsForm = new Form(AppCanvas.getGameText(6)); // SETTINGS
-                settingsForm.append((Item)this.var_javax_microedition_lcdui_ChoiceGroup_a);
+                settingsForm.append((Item)this.choiceGroupSettings);
                 settingsForm.addCommand(this.var_javax_microedition_lcdui_Command_c);
                 settingsForm.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)settingsForm);
