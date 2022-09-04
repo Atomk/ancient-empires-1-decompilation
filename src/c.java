@@ -20,7 +20,7 @@ extends e {
     private Vector<short[]> var_java_util_Vector_a = null;
     private short var_short_g;
     private long var_long_a;
-    public byte var_byte_d;
+    public byte unitType;
     public byte var_byte_a;
     public short i;
     public short var_short_a;
@@ -62,7 +62,7 @@ extends e {
 
     public static c a(byte by, byte by2, int n, int n2) {
         c c2 = new c(by, by2, n, n2);
-        c2.var_byte_d = by;
+        c2.unitType = by;
         c2.var_byte_a = by2;
         c2.h = (short)10;
         c2.l = unitsDataBiflag_XXX[by];
@@ -72,11 +72,11 @@ extends e {
 
     public int a(c c2) {
         int n;
-        int n2 = unitsDataATK[this.var_byte_d] + this.var_short_f;
+        int n2 = unitsDataATK[this.unitType] + this.var_short_f;
         if (this.a((short)64) && c2.a((short)1)) {
             n2 += 2;
         }
-        if (this.var_byte_d == 4 && c2.var_byte_d == 10) {
+        if (this.unitType == 4 && c2.unitType == 10) {
             n2 += 3;
         }
         if ((n = AppCanvas.randomGen.nextInt() % 20 + this.var_short_d) >= 19) {
@@ -88,7 +88,7 @@ extends e {
         } else if (n <= -16) {
             --n2;
         }
-        int n3 = unitsDataDEF[c2.var_byte_d] + c2.var_short_e;
+        int n3 = unitsDataDEF[c2.unitType] + c2.var_short_e;
         n = AppCanvas.randomGen.nextInt() % 20 + c2.var_short_d;
         if (n >= 19) {
             n3 += 2;
@@ -105,7 +105,7 @@ extends e {
             n5 = c2.h;
         }
         c2.h = (short)(c2.h - n5);
-        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[c2.var_byte_d] + unitsDataDEF[c2.var_byte_d]) * n5);
+        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[c2.unitType] + unitsDataDEF[c2.unitType]) * n5);
         return n5;
     }
 
@@ -119,7 +119,7 @@ extends e {
     }
 
     public boolean a(c c2, int n, int n2) {
-        return this.h > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && unitsDataRangeMin[this.var_byte_d] == 1;
+        return this.h > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
     public void a(byte by) {
@@ -163,15 +163,15 @@ extends e {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.var_byte_d] + unitsDataDEF[this.var_byte_d] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
         int n3;
         int n4;
         int n5;
-        byte by = unitsDataRangeMin[this.var_byte_d];
-        byte by2 = unitsDataRangeMax[this.var_byte_d];
+        byte by = unitsDataRangeMin[this.unitType];
+        byte by2 = unitsDataRangeMax[this.unitType];
         int n6 = n - by2;
         if (n6 < 0) {
             n6 = 0;
@@ -209,7 +209,7 @@ extends e {
     }
 
     public c[] a(int n, int n2, byte by) {
-        return this.a(n, n2, (int)unitsDataRangeMin[this.var_byte_d], (int)unitsDataRangeMax[this.var_byte_d], by);
+        return this.a(n, n2, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], by);
     }
 
     public c[] a(int n, int n2, int n3, int n4, byte by) {
@@ -291,7 +291,7 @@ extends e {
     }
 
     public void b(byte[][] byArray) {
-        this.a(byArray, (int)this.i, (int)this.var_short_a, unitsDataMOV[this.var_byte_d] + this.k, -1);
+        this.a(byArray, (int)this.i, (int)this.var_short_a, unitsDataMOV[this.unitType] + this.k, -1);
     }
 
     public void a(byte[][] byArray, int n, int n2, int n3, int n4) {

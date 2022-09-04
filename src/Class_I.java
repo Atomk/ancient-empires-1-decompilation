@@ -372,7 +372,7 @@ implements CommandListener {
         int n2 = this.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
             c c2 = this.var_java_util_Vector_a.elementAt(n);
-            dataOutputStream.writeByte(c2.var_byte_d);
+            dataOutputStream.writeByte(c2.unitType);
             dataOutputStream.writeByte(c2.var_byte_a);
             dataOutputStream.writeByte(c2.var_byte_e);
             dataOutputStream.writeByte(c2.var_byte_b);
@@ -938,7 +938,7 @@ implements CommandListener {
         if (this.a((int)c2.i, (int)c2.var_short_a, c2)) {
             vector.addElement(AppCanvas.getGameText(33));
         }
-        if ((by == 1 || c2.var_byte_d != 7) && c2.a(c2.i, (int)c2.var_short_a, (byte)0).length > 0) {
+        if ((by == 1 || c2.unitType != 7) && c2.a(c2.i, (int)c2.var_short_a, (byte)0).length > 0) {
             vector.addElement(AppCanvas.getGameText(28));
         }
         if (c2.a((short)32) && c2.a(c2.i, (int)c2.var_short_a, (byte)1).length > 0) {
@@ -1130,7 +1130,7 @@ implements CommandListener {
                                 this.var_java_util_Vector_a.removeElement(this.var_c_c);
                                 this.var_c_arr_a[1] = null;
                             }
-                        } else if (this.var_c_c.var_byte_d == 10) {
+                        } else if (this.var_c_c.unitType == 10) {
                             this.var_java_util_Vector_a.removeElement(this.var_c_c);
                         } else {
                             this.var_c_c.var_byte_e = (byte)3;
@@ -1855,7 +1855,7 @@ implements CommandListener {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
             c c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (n != -1 && c2.var_byte_d != n || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
+            if (n != -1 && c2.unitType != n || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
             vector.addElement(c2);
         }
         c[] objectArray = new c[vector.size()];
@@ -2012,7 +2012,7 @@ implements CommandListener {
                 int n7;
                 c c2 = this.var_java_util_Vector_a.elementAt(j);
                 if (c2.var_byte_a != this.var_byte_c || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
-                if (c2.var_byte_d == 9) {
+                if (c2.unitType == 9) {
                     if (this.int_a(-1, 0, this.var_byte_c) != 1) continue;
                     if (this.byte_a(c2.i, (int)c2.var_short_a) == 8 && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)this.var_byte_c)) {
                         if (this.int_a(0, -1, this.var_byte_c) < 2 && this.boolean_a(0)) {
@@ -2047,7 +2047,7 @@ implements CommandListener {
                     n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.byte_a(n6, n4) != 7) continue;
                     n3 = this.boolean_a(n6, n4, (int)c2.var_byte_a) ? 1 : 0;
-                    if (this.F != 2 && (c2.var_byte_d != 0 || n3 != 0) && (c2.var_byte_d == 0 || n3 == 0) || (n2 = Math.abs(n6 - c2.i) + Math.abs(n4 - c2.var_short_a)) >= n7) continue;
+                    if (this.F != 2 && (c2.unitType != 0 || n3 != 0) && (c2.unitType == 0 || n3 == 0) || (n2 = Math.abs(n6 - c2.i) + Math.abs(n4 - c2.var_short_a)) >= n7) continue;
                     n7 = n2;
                     this.var_int_z = n6;
                     this.var_int_o = n4;
@@ -2104,7 +2104,7 @@ implements CommandListener {
         int n3;
         int n4;
         int n5 = 0;
-        switch (c2.var_byte_d) {
+        switch (c2.unitType) {
             case 0: {
                 if (this.var_c_arr_a[c2.var_byte_a] != null && this.var_int_z != -1) {
                     n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
@@ -2135,7 +2135,7 @@ implements CommandListener {
         }
         if (c3 != null) {
             n5 = !c3.a(c2, n, n2) ? (n5 += c2.int_a(n, n2) * 2) : (n5 += c2.int_a(n, n2) - c3.int_a(n, n2) + 10 - c3.h);
-            if (c3.var_byte_d == 9) {
+            if (c3.unitType == 9) {
                 n5 += 10;
             }
         }
@@ -2148,7 +2148,7 @@ implements CommandListener {
         if (this.byte_a(n, n2) == 7 && this.boolean_a(n, n2, (int)c2.var_byte_a)) {
             n5 += (10 - c2.h) * 2;
         }
-        if (c2.h < 5 && c2.var_byte_d != 0 && this.var_int_z != -1) {
+        if (c2.h < 5 && c2.unitType != 0 && this.var_int_z != -1) {
             n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
             n5 += n4 * n4;
         }
@@ -2164,7 +2164,7 @@ implements CommandListener {
             int n6 = this.var_short_e - n4 * 2 + this.var_short_b - n3 * 2;
             n5 += n6 * n6;
         }
-        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (c.unitsDataMOV[c2.var_byte_d] - 1);
+        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (c.unitsDataMOV[c2.unitType] - 1);
     }
 
     public void void_b(int n) {
@@ -2544,11 +2544,11 @@ implements CommandListener {
             }
         } else if (this.F == 3) {
             if (this.var_byte_i == 1 && this.var_byte_c == 0) {
-                if (this.var_boolean_A && this.var_c_h.var_byte_d == 3) {
+                if (this.var_boolean_A && this.var_c_h.unitType == 3) {
                     this.var_int_s = 15;
                     this.var_boolean_A = false;
                 }
-                if (this.var_boolean_i && this.var_c_h.var_byte_d == 4) {
+                if (this.var_boolean_i && this.var_c_h.unitType == 4) {
                     this.var_int_s = 16;
                     this.var_boolean_i = false;
                 }
