@@ -40,8 +40,8 @@ extends Class_I {
         this.spriteMacrospaceCoyrightText = null;
         super.m();
         this.var_e_arr_arr_a = new e[2][11];
-        this.b = new Sprite[Class_I.var_java_lang_String_arr_a.length];
-        this.var_h_arr_arr_a = new Sprite[Class_I.var_java_lang_String_arr_a.length][];
+        this.b = new Sprite[Class_I.terrainTypeNames.length];
+        this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
         this.var_e_arr_arr_c = new e[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {

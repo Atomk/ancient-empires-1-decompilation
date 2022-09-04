@@ -63,7 +63,7 @@ implements CommandListener {
     private static final byte[] var_byte_arr_a;
     public static final byte[] var_byte_arr_g;
     public static final byte[] var_byte_arr_h;
-    public static final String[] var_java_lang_String_arr_a;
+    public static final String[] terrainTypeNames;
     public static final byte[] var_byte_arr_i;
     public int var_int_t;
     public Sprite[] var_h_arr_d;
@@ -3023,9 +3023,11 @@ implements CommandListener {
         var_byte_arr_c = new byte[]{2};
         var_int_arr_a = new int[]{-16776961, -65536, -16711936};
         var_byte_arr_a = new byte[]{21, 22};
+        // Terrain type variables
         var_byte_arr_g = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
         var_byte_arr_h = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};
-        var_java_lang_String_arr_a = new String[]{"road", "grass", "woods", "mountain", "mountain", "water", "bridge", "town", "town"};
+        // The first "mountain" should be "hill"
+        terrainTypeNames = new String[]{"road", "grass", "woods", "mountain", "mountain", "water", "bridge", "town", "town"};
         var_byte_arr_i = new byte[]{1, 1, 2, 2, 3, 3, 1, 1, 1};
         var_java_lang_String_arr_d = new String[] {"14281428", "18241824"};
     }

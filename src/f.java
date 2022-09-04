@@ -98,12 +98,12 @@ public class f {
             this.var_int_b = 1;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.var_int_b] == null) {
-            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)Class_I.var_java_lang_String_arr_a[this.var_int_b]).var_h_arr_a;
+            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)Class_I.terrainTypeNames[this.var_int_b]).var_h_arr_a;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.var_int_b];
         if (this.var_a_a.b[this.var_int_f] == null) {
             try {
-                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.var_java_lang_String_arr_a[this.var_int_f] + "_bg.png");
+                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.var_int_f] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block
