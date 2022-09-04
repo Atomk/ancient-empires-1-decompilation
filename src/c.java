@@ -35,7 +35,7 @@ extends e {
     public int var_int_g;
     public long var_long_c;
     public int var_int_b;
-    public static final byte[] var_byte_arr_b;
+    public static final byte[] unitsDataMOV;
     public static final byte[] var_byte_arr_a;
     public static final byte[] var_byte_arr_f;
     public static final byte[] var_byte_arr_c;
@@ -291,7 +291,7 @@ extends e {
     }
 
     public void b(byte[][] byArray) {
-        this.a(byArray, (int)this.i, (int)this.var_short_a, var_byte_arr_b[this.var_byte_d] + this.k, -1);
+        this.a(byArray, (int)this.i, (int)this.var_short_a, unitsDataMOV[this.var_byte_d] + this.k, -1);
     }
 
     public void a(byte[][] byArray, int n, int n2, int n3, int n4) {
@@ -442,7 +442,9 @@ extends e {
     }
 
     static {
-        var_byte_arr_b = new byte[]{4, 4, 6, 4, 4, 5, 4, 3, 7, 4, 4};
+        //           0        1       2       3       4     5       6      7         8          9     10
+        // 11 units (soldier, archer, lizard, wizard, wisp, spider, golem, catapult, wyvern) + (king, skeleton)
+        unitsDataMOV = new byte[]{4, 4, 6, 4, 4, 5, 4, 3, 7, 4, 4};
         var_byte_arr_a = new byte[]{5, 5, 5, 4, 3, 6, 6, 7, 8, 5, 5};
         var_byte_arr_f = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
         var_byte_arr_c = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};

@@ -798,7 +798,7 @@ public class g {
                     AppCanvas.a(graphics, string2, n13, 43, 0, 8);
                     AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, 0);
                     stringBuffer = new StringBuffer();
-                    stringBuffer.append(c.var_byte_arr_b[this.x]);
+                    stringBuffer.append(c.unitsDataMOV[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.k > 0) {
                             stringBuffer.append("+");

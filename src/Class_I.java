@@ -2164,7 +2164,7 @@ implements CommandListener {
             int n6 = this.var_short_e - n4 * 2 + this.var_short_b - n3 * 2;
             n5 += n6 * n6;
         }
-        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (c.var_byte_arr_b[c2.var_byte_d] - 1);
+        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (c.unitsDataMOV[c2.var_byte_d] - 1);
     }
 
     public void void_b(int n) {
