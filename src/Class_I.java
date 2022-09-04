@@ -77,7 +77,7 @@ implements CommandListener {
     private Sprite var_h_f;
     public Sprite[] var_h_arr_c;
     public Sprite spriteMenuPointer;
-    public Sprite var_h_b;
+    public Sprite spriteGold;
     public e var_e_h;
     public e var_e_k;
     public e var_e_g;
@@ -259,7 +259,7 @@ implements CommandListener {
         c.var_i_a = this;
         //AppCanvas.readAssetsPackage("/1.pak");
         this.var_e_h = new e("cursor");
-        this.var_h_b = new Sprite("gold.png");
+        this.spriteGold = new Sprite("gold.png");
         this.var_e_m = new e("portrait");
         this.var_e_d = new e("redspark");
         this.var_e_l = new e("smoke");

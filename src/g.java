@@ -736,8 +736,8 @@ public class g {
                     StringBuffer stringBuffer = new StringBuffer();
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
-                        this.var_a_a.var_h_b.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
-                        AppCanvas.drawBoldWhiteText(graphics, "" + c.unitsDataPrice[this.x], n13 += this.var_a_a.var_h_b.width + 2, n14 + 3, 0);
+                        this.var_a_a.spriteGold.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
+                        AppCanvas.drawBoldWhiteText(graphics, "" + c.unitsDataPrice[this.x], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
@@ -859,7 +859,7 @@ public class g {
                     break;
                 }
                 case 3: {
-                    this.var_a_a.var_h_b.draw(graphics, 2, 2);
+                    this.var_a_a.spriteGold.draw(graphics, 2, 2);
                     if (this.var_a_a.var_byte_arr_b[this.var_a_a.var_byte_c] == 0) {
                         this.var_a_a.var_e_e.a(2);
                         this.var_a_a.var_e_e.a(graphics, n3 - 2 - this.var_a_a.var_e_e.short_a(), 2);
