@@ -124,6 +124,7 @@ extends Class_I {
                     graphics.setColor(0xFFFFFF);
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(AppCanvas.fontSmallPlain);
+                        // "PRESS ANY KEY"
                         graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
                     }
                     this.var_h_a.draw(graphics, (Class_I.appCanvas.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);

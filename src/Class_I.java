@@ -32,8 +32,26 @@ implements CommandListener {
     public static AppCanvas appCanvas;
     public static String[] var_java_lang_String_arr_b;
     public byte var_byte_a;
-    public String[] var_java_lang_String_arr_e = new String[]{AppCanvas.getGameText(1), AppCanvas.getGameText(2), AppCanvas.getGameText(4), AppCanvas.getGameText(5), AppCanvas.getGameText(6), AppCanvas.getGameText(7), AppCanvas.getGameText(8), AppCanvas.getGameText(9)};
-    public String[] var_java_lang_String_arr_c = new String[]{AppCanvas.getGameText(3), this.var_java_lang_String_arr_e[0], this.var_java_lang_String_arr_e[1], this.var_java_lang_String_arr_e[2], this.var_java_lang_String_arr_e[3], this.var_java_lang_String_arr_e[4], this.var_java_lang_String_arr_e[5], this.var_java_lang_String_arr_e[6], this.var_java_lang_String_arr_e[7]};
+    public String[] var_java_lang_String_arr_e = new String[]{
+        AppCanvas.getGameText(1),  // NEW GAME
+        AppCanvas.getGameText(2),  // SELECT LEVEL
+        AppCanvas.getGameText(4),  // LOAD GAME
+        AppCanvas.getGameText(5),  // SKIRMISH
+        AppCanvas.getGameText(6),  // SETTINGS
+        AppCanvas.getGameText(7),  // INSTRUCTIONS
+        AppCanvas.getGameText(8),  // ABOUT
+        AppCanvas.getGameText(9)}; // EXIT
+    // Same as above, adds SAVE GAME as first element
+    public String[] var_java_lang_String_arr_c = new String[]{
+        AppCanvas.getGameText(3),       // SAVE GAME
+        this.var_java_lang_String_arr_e[0],    // NEW GAME
+        this.var_java_lang_String_arr_e[1],     // ...
+        this.var_java_lang_String_arr_e[2],
+        this.var_java_lang_String_arr_e[3],
+        this.var_java_lang_String_arr_e[4],
+        this.var_java_lang_String_arr_e[5],
+        this.var_java_lang_String_arr_e[6],
+        this.var_java_lang_String_arr_e[7]};
     public static final byte[][] var_byte_arr_arr_d;
     public static final byte[] var_byte_arr_f;
     public static final byte[] var_byte_arr_c;
@@ -125,9 +143,9 @@ implements CommandListener {
     public Sprite var_h_c;
     public Sprite var_h_e;
     public int var_int_p;
-    public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);
-    public Command var_javax_microedition_lcdui_Command_a = new Command(AppCanvas.getGameText(12), 1, 1);
-    public Command var_javax_microedition_lcdui_Command_c = new Command(AppCanvas.getGameText(10), 2, 1);
+    public Command var_javax_microedition_lcdui_Command_b = new Command(AppCanvas.getGameText(22), 2, 1);   // "Back"
+    public Command var_javax_microedition_lcdui_Command_a = new Command(AppCanvas.getGameText(12), 1, 1);   // "Next"
+    public Command var_javax_microedition_lcdui_Command_c = new Command(AppCanvas.getGameText(10), 2, 1);   // "OK"
     private ChoiceGroup choiceGroupSettings;
     public boolean var_boolean_y = false;
     public int var_int_m;
@@ -423,15 +441,15 @@ implements CommandListener {
             if (this.var_byte_a != 0) continue;
             if (by == 9) {
                 if (by2 == 0) {
-                    c2.var_java_lang_String_a = AppCanvas.getGameText(43);
+                    c2.var_java_lang_String_a = AppCanvas.getGameText(43);  // GALAMAR
                     continue;
                 }
                 if (by6 == 4) continue;
-                c2.var_java_lang_String_a = AppCanvas.getGameText(44);
+                c2.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
                 continue;
             }
             if (this.F != 2 || by2 != 0 || by != 2) continue;
-            c2.var_java_lang_String_a = AppCanvas.getGameText(45);
+            c2.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
         if (this.F == 2) {
             for (n = 5; n < 10; ++n) {
@@ -539,7 +557,7 @@ implements CommandListener {
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)appCanvas);
         } else if (command == this.var_javax_microedition_lcdui_Command_a) {
             ++this.D;
-            Form form = new Form(AppCanvas.getGameText(7) + " - " + this.D);
+            Form form = new Form(AppCanvas.getGameText(7) + " - " + this.D);    // INSTRUCTIONS
             form.append(AppCanvas.getGameText(85 + this.D));
             if (this.D < 17) {
                 form.addCommand(this.var_javax_microedition_lcdui_Command_a);
@@ -591,6 +609,7 @@ implements CommandListener {
      */
     public void a(int n, String string, g g2) throws Exception {
         boolean bl = true;
+        // NEW GAME
         if (string.equals(AppCanvas.getGameText(1)) || g2 == this.var_g_f) {
             if (g2 == this.var_g_f) {
                 if (n > this.levelsData[0]) return;
@@ -610,7 +629,7 @@ implements CommandListener {
             this.void_a(this.F);
             this.var_boolean_l = false;
             this.var_byte_i = 0;
-        } else if (string.equals(AppCanvas.getGameText(2))) {
+        } else if (string.equals(AppCanvas.getGameText(2))) {   // SELECT LEVEL
             this.var_g_f = new g(this, (byte)0, 0);
             String[] stringArray = new String[7];
             int n2 = stringArray.length;
@@ -619,11 +638,11 @@ implements CommandListener {
             }
             this.var_g_f.a(stringArray);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
-        } else if (string.equals(AppCanvas.getGameText(3))) {
+        } else if (string.equals(AppCanvas.getGameText(3))) {   // SAVE GAME
             appCanvas.savePersistentData("save", this.getGameSaveData());
             g.a(this, null, AppCanvas.getGameText(40), 1000, true);
             this.var_byte_i = 0;
-        } else if (string.equals(AppCanvas.getGameText(4))) {
+        } else if (string.equals(AppCanvas.getGameText(4))) {   // LOAD GAME
             try {
                 byte[] savedGameData = appCanvas.loadPersistentData("save");
                 this.var_boolean_l = true;
@@ -634,15 +653,15 @@ implements CommandListener {
                 if (this.var_byte_a == 0) {
                     this.a(true);
                 }
-                g.a(this, null, AppCanvas.getGameText(41), 1000, true);
+                g.a(this, null, AppCanvas.getGameText(41), 1000, true); // GAME LOADED
                 this.var_boolean_l = false;
             }
             catch (Exception exception) {
-                g g3 = g.a(this, null, AppCanvas.getGameText(42), 1000, true);
+                g g3 = g.a(this, null, AppCanvas.getGameText(42), 1000, true);  // NO SAVED GAMES
                 g3.var_g_a = g2;
             }
             this.var_byte_i = 0;
-        } else if (string.equals(AppCanvas.getGameText(5))) {
+        } else if (string.equals(AppCanvas.getGameText(5))) {   // SKIRMISH
             this.var_g_a = new g(this, (byte)0, 0);
             this.var_g_a.a(var_java_lang_String_arr_b);
             this.var_g_a.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
@@ -651,7 +670,7 @@ implements CommandListener {
             this.var_g_d = new g(this, (byte)0, 0);
             String[] stringArray = new String[2];
             for (int j = 0; j < 2; ++j) {
-                stringArray[j] = j + 1 + " " + AppCanvas.getGameText(16);
+                stringArray[j] = j + 1 + " " + AppCanvas.getGameText(16);   // PLAYER
             }
             this.var_g_d.a(stringArray);
             this.var_g_d.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
@@ -680,34 +699,35 @@ implements CommandListener {
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)settingsForm);
                 return;
             }
-            if (string.equals(AppCanvas.getGameText(7))) {
+            if (string.equals(AppCanvas.getGameText(7))) {  // INSTRUCTIONS
                 this.D = 0;
                 Form form = new Form(AppCanvas.getGameText(7));
-                form.append(AppCanvas.getGameText(13));
+                form.append(AppCanvas.getGameText(13));     // "Ancient Empires is a thrilling strategy game [...]""
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.addCommand(this.var_javax_microedition_lcdui_Command_a);
                 form.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
             }
-            if (string.equals(AppCanvas.getGameText(8))) {
+            if (string.equals(AppCanvas.getGameText(8))) {  // ABOUT
                 Form form = new Form(AppCanvas.getGameText(8));
-                form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));
+                // "Ancient Empires" + "is a product of Macrospace [...]"
+                form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));  
                 form.addCommand(this.var_javax_microedition_lcdui_Command_b);
                 form.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
                 return;
             }
-            if (string.equals(AppCanvas.getGameText(9))) {
+            if (string.equals(AppCanvas.getGameText(9))) {  // EXIT
                 App.instance.notifyDestroyed();
-            } else if (string.equals(AppCanvas.getGameText(26))) {
+            } else if (string.equals(AppCanvas.getGameText(26))) {  // MAIN MENU
                 g g4 = new g(this, (byte)0, 0);
                 g4.a(this.var_java_lang_String_arr_c);
                 g4.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
-            } else if (string.equals(AppCanvas.getGameText(27))) {
+            } else if (string.equals(AppCanvas.getGameText(27))) {  // MOVE
                 this.var_boolean_d = false;
                 this.a(this.var_c_h);
-            } else if (string.equals(AppCanvas.getGameText(28))) {
+            } else if (string.equals(AppCanvas.getGameText(28))) {  // ATTACK
                 this.a(this.var_byte_arr_arr_b, 0);
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
@@ -720,14 +740,14 @@ implements CommandListener {
                 this.var_e_h.a(var_byte_arr_arr_d[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
-            } else if (string.equals(AppCanvas.getGameText(29))) {
+            } else if (string.equals(AppCanvas.getGameText(29))) {  // BUY
                 g g5 = new g(this, (byte)2, 8);
                 g5.a((byte)8, 0, this.var_g_c.var_int_g, g2, 0);
-            } else if (string.equals(AppCanvas.getGameText(30))) {
+            } else if (string.equals(AppCanvas.getGameText(30))) {  // END MOVE
                 this.var_c_h.void_b();
                 this.h();
                 this.var_byte_i = 0;
-            } else if (string.equals(AppCanvas.getGameText(32))) {
+            } else if (string.equals(AppCanvas.getGameText(32))) {  // END TURN
                 g.a(this, null, AppCanvas.getGameText(39), 1000, true);
                 this.var_byte_i = (byte)8;
                 this.var_long_c = this.var_long_n;
