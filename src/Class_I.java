@@ -1579,9 +1579,12 @@ implements CommandListener {
                 this.var_h_e.draw(graphics, Class_I.appCanvas.width - this.var_h_e.width >> 1, (Class_I.appCanvas.height - this.var_h_e.height) / 3);
                 graphics.setColor(0xFFFFFF);
                 graphics.setFont(AppCanvas.fontSmallPlain);
+                // TODO there's a pretty similar method in 'a' class
                 if (this.var_boolean_p && this.var_int_g == 0) {
+                    // PRESS ANY KEY
                     graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 * 3 / 4, 17);
                 }
+                // ©MACROSPACE LTD.
                 graphics.drawString(AppCanvas.getGameText(15), AppCanvas.h, AppCanvas.height2 - 1, 33);
             } else {
                 if (32 * this.N <= 255) {

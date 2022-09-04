@@ -191,6 +191,7 @@ CommandListener {
         }
     }
 
+    // Some keys can have the same effect in the hame (e.g. UP and KEY_NUM2 both indicate "go up")
     public int getGameAction(int keyCode) {
         // Constants from FullCanvas (which this class extends) and Canvas (parent of FullCanvas)
         switch (keyCode) {
@@ -307,6 +308,7 @@ CommandListener {
                 AppCanvas.getGameText(20),   // Sound
                 AppCanvas.getGameText(18),   // Help
                 AppCanvas.getGameText(17)};  // Fight Animation
+            // TODO There are multiple reference to this class, reduce redundancy
             Class_I.appCanvas = this;
             AppCanvas.readAssetsPackage();
             this.loadSounds();
@@ -316,6 +318,7 @@ CommandListener {
             this.spriteMask = new Sprite("mask.png");
             this.var_a_a = new a((byte)0);
             this.isRunning = true;
+            // Game loop
             while (this.isRunning) {
                 if (!this.isShown()) continue;
                 long startMillis = System.currentTimeMillis();
@@ -492,6 +495,7 @@ CommandListener {
         App.instance.notifyDestroyed();
     }
 
+    // TODO make private since it's called only inside this class, possibly move to another file
     public static int loadAppStrings(String filename, boolean skipFirstPart) throws Exception {
         int n;
         InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream(filename);

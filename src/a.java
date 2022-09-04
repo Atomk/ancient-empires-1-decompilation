@@ -122,6 +122,7 @@ extends Class_I {
                 if (this.var_int_m >= 15) {
                     this.var_h_e.draw(graphics, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
+                    // TODO I'm pretty sure these two variables control the "press any key" blinking but it's also found in theparent class...
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(AppCanvas.fontSmallPlain);
                         // "PRESS ANY KEY"
