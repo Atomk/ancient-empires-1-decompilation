@@ -16,6 +16,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.InputStream;
 import java.util.Vector;
+// "Choice" was not included in the original source
+import javax.microedition.lcdui.Choice;
 import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -666,8 +668,8 @@ implements CommandListener {
             this.var_g_e.a((byte)0, 0, 0, null, 0);
             this.var_boolean_l = false;
         } else {
-            if (string.equals(AppCanvas.getGameText(6))) {
-                this.choiceGroupSettings = new ChoiceGroup("", 2, AppCanvas.settingsNames, null);
+            if (string.equals(AppCanvas.getGameText(6))) {  // SETTINGS
+                this.choiceGroupSettings = new ChoiceGroup("", Choice.MULTIPLE, AppCanvas.settingsNames, null);
                 for (int j = 0; j < AppCanvas.settings.length; ++j) {
                     this.choiceGroupSettings.setSelectedIndex(j, AppCanvas.settings[j]);
                 }
