@@ -69,7 +69,7 @@ public class g {
         this.var_a_a = (a)i2;
         this.var_byte_a = by;
         this.t = n;
-        this.B = i2.var_h_i.width;
+        this.B = i2.spriteMenuPointer.width;
         if (by == 0) {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
@@ -711,7 +711,7 @@ public class g {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n7, n8, 20);
                         n8 += this.m;
                     }
-                    this.var_a_a.var_h_i.draw(graphics, this.p + this.D, (this.x - this.var_short_b) * this.m + this.D);
+                    this.var_a_a.spriteMenuPointer.draw(graphics, this.p + this.D, (this.x - this.var_short_b) * this.m + this.D);
                     break;
                 }
                 case 1: 
@@ -847,7 +847,7 @@ public class g {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.x) {
-                                this.var_a_a.var_h_i.draw(graphics, n17 - this.var_a_a.var_h_i.width + this.p, n18);
+                                this.var_a_a.spriteMenuPointer.draw(graphics, n17 - this.var_a_a.spriteMenuPointer.width + this.p, n18);
                             }
                             if (++n16 >= this.var_byte_arr_a.length) break;
                             n17 += this.D + 24;

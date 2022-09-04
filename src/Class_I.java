@@ -76,7 +76,7 @@ implements CommandListener {
     public short var_short_b;
     private Sprite var_h_f;
     public Sprite[] var_h_arr_c;
-    public Sprite var_h_i;
+    public Sprite spriteMenuPointer;
     public Sprite var_h_b;
     public e var_e_h;
     public e var_e_k;
@@ -232,7 +232,7 @@ implements CommandListener {
             this.var_e_e = new e("buttons");
             this.var_e_b = new e("menu");
             this.var_h_c = new Sprite("ms_logo.png");
-            this.var_h_i = new Sprite("pointer.png");
+            this.spriteMenuPointer = new Sprite("pointer.png");
             this.spriteGameTitle = new Sprite("splash.png");
             this.var_int_p = 0;
             try {
