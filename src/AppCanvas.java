@@ -182,7 +182,12 @@ CommandListener {
             graphics.fillRect(0, 0, this.width, this.height);
             graphics.setFont(fontSmallPlain);
             graphics.setColor(0);
-            graphics.drawString(AppCanvas.getGameText(24), this.width / 2, (this.height - fontSmallPlain.getHeight()) / 2, 17);
+            // This text is shown at screen center while loading a level, white text on black screen
+            graphics.drawString(
+                AppCanvas.getGameText(24),  // 'LOADING . . .'
+                this.width / 2,
+                (this.height - fontSmallPlain.getHeight()) / 2,
+                17);
         }
     }
 
