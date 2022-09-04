@@ -12,7 +12,7 @@ extends Class_I {
     public static final boolean[] var_boolean_arr_a;
     private Sprite spriteSplashBackground;
     private Sprite spriteSplashForeground;
-    public Sprite var_h_a;
+    private Sprite spriteMacrospaceCoyrightText;
     public e[][] var_e_arr_arr_c;
     public int I = -15;
     public int B;
@@ -30,14 +30,14 @@ extends Class_I {
         super(by);
         this.spriteSplashBackground = new Sprite("splashbg.png");
         this.spriteSplashForeground = new Sprite("splashfg.png");
-        this.var_h_a = new Sprite("macrospace.png");
+        this.spriteMacrospaceCoyrightText = new Sprite("macrospace.png");
         this.B = AppCanvas.height2 - this.spriteSplashForeground.height + 30;
     }
 
     public void m() throws Exception {
         this.spriteSplashBackground = null;
         this.spriteSplashForeground = null;
-        this.var_h_a = null;
+        this.spriteMacrospaceCoyrightText = null;
         super.m();
         this.var_e_arr_arr_a = new e[2][11];
         this.b = new Sprite[Class_I.var_java_lang_String_arr_a.length];
@@ -127,7 +127,7 @@ extends Class_I {
                         // "PRESS ANY KEY"
                         graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
                     }
-                    this.var_h_a.draw(graphics, (Class_I.appCanvas.width - this.var_h_a.width) / 2, AppCanvas.height2 - this.var_h_a.height - 2);
+                    this.spriteMacrospaceCoyrightText.draw(graphics, (Class_I.appCanvas.width - this.spriteMacrospaceCoyrightText.width) / 2, AppCanvas.height2 - this.spriteMacrospaceCoyrightText.height - 2);
                 } else {
                     Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.var_h_e, (Class_I.appCanvas.width - this.var_h_e.width) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
