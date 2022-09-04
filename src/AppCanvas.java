@@ -55,7 +55,7 @@ CommandListener {
     private static e[] var_e_arr_a;
     public static Random randomGen;
     public static boolean[] settings;
-    public static String[] var_java_lang_String_arr_d;
+    public static String[] settingsNames;
     private Sprite spriteMask;
     private static Sound[] midiSounds;
     private static byte[][] assetsFileBytes;
@@ -297,11 +297,11 @@ CommandListener {
     // Called in the costructor by Thread(this).start();
     public void run() {
         try {
-            var_java_lang_String_arr_d = new String[]{
-                AppCanvas.getGameText(19),
-                AppCanvas.getGameText(20),
-                AppCanvas.getGameText(18),
-                AppCanvas.getGameText(17)};
+            settingsNames = new String[]{
+                AppCanvas.getGameText(19),   // Music
+                AppCanvas.getGameText(20),   // Sound
+                AppCanvas.getGameText(18),   // Help
+                AppCanvas.getGameText(17)};  // Fight Animation
             Class_I.appCanvas = this;
             AppCanvas.readAssetsPackage();
             this.loadSounds();

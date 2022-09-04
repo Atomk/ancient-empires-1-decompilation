@@ -667,7 +667,7 @@ implements CommandListener {
             this.var_boolean_l = false;
         } else {
             if (string.equals(AppCanvas.getGameText(6))) {
-                this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, AppCanvas.var_java_lang_String_arr_d, null);
+                this.var_javax_microedition_lcdui_ChoiceGroup_a = new ChoiceGroup("", 2, AppCanvas.settingsNames, null);
                 for (int j = 0; j < 4; ++j) {
                     this.var_javax_microedition_lcdui_ChoiceGroup_a.setSelectedIndex(j, AppCanvas.settings[j]);
                 }
