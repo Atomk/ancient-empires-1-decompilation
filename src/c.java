@@ -15,8 +15,8 @@ extends e {
     public short var_short_b;
     private short l;
     public int[][] var_int_arr_arr_a;
-    private short j;
-    private short var_short_c;
+    //private short j;
+    //private short var_short_c;
     private Vector var_java_util_Vector_a = null;
     private short var_short_g;
     private long var_long_a;
@@ -245,8 +245,8 @@ extends e {
     }
 
     public void void_a(int n, int n2) {
-        this.j = (short)(n * 24);
-        this.var_short_c = (short)(n2 * 24);
+        //this.j = (short)(n * 24);
+        //this.var_short_c = (short)(n2 * 24);
         this.var_java_util_Vector_a = this.a(this.i, this.var_short_a, n, n2);
         this.var_short_g = 0;
         this.var_byte_e = 1;
