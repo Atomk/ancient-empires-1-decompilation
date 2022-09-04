@@ -581,14 +581,14 @@ implements CommandListener {
         return e3;
     }
 
-    public void a(Unit c2) {
+    public void a(Unit unit) {
         this.var_boolean_t = true;
         this.var_boolean_r = !this.var_boolean_d;
         this.L = 0xFFFFFFF;
         this.var_byte_i = 1;
         this.var_boolean_v = true;
         this.a(this.var_byte_arr_arr_b, 0);
-        c2.b(this.var_byte_arr_arr_b);
+        unit.b(this.var_byte_arr_arr_b);
         this.var_boolean_h = true;
         this.var_boolean_j = false;
         this.var_e_h.a(var_byte_arr_arr_d[2]);
@@ -910,7 +910,7 @@ implements CommandListener {
         }
     }
 
-    public void c(Unit c2) {
+    public void c(Unit unit) {
         this.b((Unit)null);
         this.a(this.var_byte_arr_arr_b, 0);
         this.var_boolean_h = false;
@@ -922,7 +922,7 @@ implements CommandListener {
             this.var_e_h.a(var_byte_arr_arr_d[0]);
             this.var_byte_i = (byte)3;
             this.var_g_h = new g(this, (byte)0, 8);
-            this.var_g_h.a(this.java_lang_String_arr_a(c2, (byte)0));
+            this.var_g_h.a(this.java_lang_String_arr_a(unit, (byte)0));
             this.var_g_h.a((byte)8, 0, this.var_g_c.var_int_g, null, 0);
             AppCanvas.playSound(-1, 1);
         } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -930,18 +930,18 @@ implements CommandListener {
         }
     }
 
-    public String[] java_lang_String_arr_a(Unit c2, byte by) {
+    public String[] java_lang_String_arr_a(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
         if (by == 1 && this.var_c_h.a((short)4) && this.byte_a(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
             vector.addElement(AppCanvas.getGameText(29));
         }
-        if (this.a((int)c2.i, (int)c2.var_short_a, c2)) {
+        if (this.a((int)unit.i, (int)unit.var_short_a, unit)) {
             vector.addElement(AppCanvas.getGameText(33));
         }
-        if ((by == 1 || c2.unitType != 7) && c2.a(c2.i, (int)c2.var_short_a, (byte)0).length > 0) {
+        if ((by == 1 || unit.unitType != 7) && unit.a(unit.i, (int)unit.var_short_a, (byte)0).length > 0) {
             vector.addElement(AppCanvas.getGameText(28));
         }
-        if (c2.a((short)32) && c2.a(c2.i, (int)c2.var_short_a, (byte)1).length > 0) {
+        if (unit.a((short)32) && unit.a(unit.i, (int)unit.var_short_a, (byte)1).length > 0) {
             vector.addElement(AppCanvas.getGameText(34));
         }
         if (by == 1) {
