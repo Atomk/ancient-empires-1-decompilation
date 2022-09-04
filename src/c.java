@@ -36,7 +36,7 @@ extends e {
     public long var_long_c;
     public int var_int_b;
     public static final byte[] unitsDataMOV;
-    public static final byte[] var_byte_arr_a;
+    public static final byte[] unitsDataATK;
     public static final byte[] var_byte_arr_f;
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_g;
@@ -72,7 +72,7 @@ extends e {
 
     public int a(c c2) {
         int n;
-        int n2 = var_byte_arr_a[this.var_byte_d] + this.var_short_f;
+        int n2 = unitsDataATK[this.var_byte_d] + this.var_short_f;
         if (this.a((short)64) && c2.a((short)1)) {
             n2 += 2;
         }
@@ -105,7 +105,7 @@ extends e {
             n5 = c2.h;
         }
         c2.h = (short)(c2.h - n5);
-        this.var_short_b = (short)(this.var_short_b + (var_byte_arr_a[c2.var_byte_d] + var_byte_arr_f[c2.var_byte_d]) * n5);
+        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[c2.var_byte_d] + var_byte_arr_f[c2.var_byte_d]) * n5);
         return n5;
     }
 
@@ -163,7 +163,7 @@ extends e {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + var_byte_arr_a[this.var_byte_d] + var_byte_arr_f[this.var_byte_d] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.var_byte_d] + var_byte_arr_f[this.var_byte_d] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
@@ -445,7 +445,7 @@ extends e {
         //           0        1       2       3       4     5       6      7         8          9     10
         // 11 units (soldier, archer, lizard, wizard, wisp, spider, golem, catapult, wyvern) + (king, skeleton)
         unitsDataMOV = new byte[]{4, 4, 6, 4, 4, 5, 4, 3, 7, 4, 4};
-        var_byte_arr_a = new byte[]{5, 5, 5, 4, 3, 6, 6, 7, 8, 5, 5};
+        unitsDataATK = new byte[]{5, 5, 5, 4, 3, 6, 6, 7, 8, 5, 5};
         var_byte_arr_f = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
         var_byte_arr_c = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
         var_byte_arr_g = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};

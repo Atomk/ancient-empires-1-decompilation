@@ -769,7 +769,7 @@ public class g {
                     }
                     graphics.setColor(0xFF0000);
                     AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, 0);
-                    stringBuffer.append(c.var_byte_arr_a[this.x]);
+                    stringBuffer.append(c.unitsDataATK[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_f > 0) {
                             stringBuffer.append("+");
