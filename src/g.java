@@ -785,7 +785,7 @@ public class g {
                     AppCanvas.a(graphics, string2, n13, 33, 0, 8);
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, 0);
                     stringBuffer = new StringBuffer();
-                    stringBuffer.append(c.var_byte_arr_f[this.x]);
+                    stringBuffer.append(c.unitsDataDEF[this.x]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_e > 0) {
                             stringBuffer.append("+");

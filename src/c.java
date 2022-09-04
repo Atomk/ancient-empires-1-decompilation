@@ -37,7 +37,7 @@ extends e {
     public int var_int_b;
     public static final byte[] unitsDataMOV;
     public static final byte[] unitsDataATK;
-    public static final byte[] var_byte_arr_f;
+    public static final byte[] unitsDataDEF;
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_g;
     public static final int[][][] var_int_arr_arr_arr_a;
@@ -88,7 +88,7 @@ extends e {
         } else if (n <= -16) {
             --n2;
         }
-        int n3 = var_byte_arr_f[c2.var_byte_d] + c2.var_short_e;
+        int n3 = unitsDataDEF[c2.var_byte_d] + c2.var_short_e;
         n = AppCanvas.randomGen.nextInt() % 20 + c2.var_short_d;
         if (n >= 19) {
             n3 += 2;
@@ -105,7 +105,7 @@ extends e {
             n5 = c2.h;
         }
         c2.h = (short)(c2.h - n5);
-        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[c2.var_byte_d] + var_byte_arr_f[c2.var_byte_d]) * n5);
+        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[c2.var_byte_d] + unitsDataDEF[c2.var_byte_d]) * n5);
         return n5;
     }
 
@@ -163,7 +163,7 @@ extends e {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.var_byte_d] + var_byte_arr_f[this.var_byte_d] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.var_byte_d] + unitsDataDEF[this.var_byte_d] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
@@ -446,7 +446,7 @@ extends e {
         // 11 units (soldier, archer, lizard, wizard, wisp, spider, golem, catapult, wyvern) + (king, skeleton)
         unitsDataMOV = new byte[]{4, 4, 6, 4, 4, 5, 4, 3, 7, 4, 4};
         unitsDataATK = new byte[]{5, 5, 5, 4, 3, 6, 6, 7, 8, 5, 5};
-        var_byte_arr_f = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
+        unitsDataDEF = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
         var_byte_arr_c = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
         var_byte_arr_g = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
         var_int_arr_arr_arr_a = new int[][][]{new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, new int[][]{{32, 70}, {10, 50}, {10, 90}}, new int[][]{{18, 70}, {3, 40}, {3, 100}}, new int[][]{{32, 65}, {10, 40}, {10, 85}}, new int[][]{{5, 40}, {5, 75}}, new int[][]{{22, 65}, {2, 40}, {2, 90}}, new int[][]{{5, 58}}, new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}};
