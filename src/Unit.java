@@ -9,7 +9,9 @@ import javax.microedition.lcdui.Graphics;
 
 public class Unit
 extends e {
-    public static Class_I var_i_a;
+    // TODO this a static reference to the 'i' class, there must be a better solution...
+    // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
+    public static Class_I iClassRef;
     public String var_java_lang_String_a;
     public short var_short_d;
     public short var_short_b;
@@ -45,18 +47,18 @@ extends e {
     private static final short[] unitsDataBiflag_XXX;
 
     private Unit(byte by, byte by2, int n, int n2) {
-        super(var_i_a.a(by2, by));
+        super(iClassRef.a(by2, by));
         this.i = (short)n;
         this.var_short_a = (short)n2;
         this.var_short_b = (short)(n * 24);
         ((e)this).l = (short)(n2 * 24);
         this.void_b(n * 24, n2 * 24);
-        Unit.var_i_a.var_java_util_Vector_a.addElement(this);
+        Unit.iClassRef.var_java_util_Vector_a.addElement(this);
     }
 
     public void b(int n) {
         this.var_boolean_e = true;
-        this.var_long_c = Unit.var_i_a.var_long_n;
+        this.var_long_c = Unit.iClassRef.var_long_n;
         this.var_int_g = n;
     }
 
@@ -100,7 +102,7 @@ extends e {
         } else if (n <= -16) {
             --n3;
         }
-        int n4 = var_i_a.a(var_i_a.byte_a(c2.i, (int)c2.var_short_a), c2);
+        int n4 = iClassRef.a(iClassRef.byte_a(c2.i, (int)c2.var_short_a), c2);
         int n5 = (n2 - (n4 + n3) * 2 / 3) * this.h / 10;
         if (n5 > c2.h) {
             n5 = c2.h;
@@ -164,7 +166,7 @@ extends e {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + var_i_a.a(var_i_a.byte_a(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.a(iClassRef.byte_a(n, n2), this)) * this.h;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
@@ -180,11 +182,11 @@ extends e {
         if ((n5 = n2 - attackRangeMax) < 0) {
             n5 = 0;
         }
-        if ((n4 = n + attackRangeMax) >= Unit.var_i_a.var_short_e) {
-            n4 = Unit.var_i_a.var_short_e - 1;
+        if ((n4 = n + attackRangeMax) >= Unit.iClassRef.var_short_e) {
+            n4 = Unit.iClassRef.var_short_e - 1;
         }
-        if ((n3 = n2 + attackRangeMax) >= Unit.var_i_a.var_short_b) {
-            n3 = Unit.var_i_a.var_short_b - 1;
+        if ((n3 = n2 + attackRangeMax) >= Unit.iClassRef.var_short_b) {
+            n3 = Unit.iClassRef.var_short_b - 1;
         }
         for (int j = n6; j <= n4; ++j) {
             for (int k = n5; k <= n3; ++k) {
@@ -201,8 +203,8 @@ extends e {
             return;
         }
         this.b(byArray);
-        for (int j = 0; j < Unit.var_i_a.var_short_e; ++j) {
-            for (int k = 0; k < Unit.var_i_a.var_short_b; ++k) {
+        for (int j = 0; j < Unit.iClassRef.var_short_e; ++j) {
+            for (int k = 0; k < Unit.iClassRef.var_short_b; ++k) {
                 if (byArray[j][k] <= 0 || byArray[j][k] == 127) continue;
                 this.a(byArray, j, k);
             }
@@ -225,18 +227,18 @@ extends e {
                 int n9 = Math.abs(j - n) + Math.abs(k - n2);
                 if (n9 < n3 || n9 > n4) continue;
                 if (by == 0) {
-                    c2 = var_i_a.c_a(j, k, (byte)0);
+                    c2 = iClassRef.c_a(j, k, (byte)0);
                     if (c2 == null || c2.var_byte_a == this.var_byte_a) continue;
                     vector.addElement(c2);
                     continue;
                 }
                 if (by == 1) {
-                    c2 = var_i_a.c_a(j, k, (byte)1);
+                    c2 = iClassRef.c_a(j, k, (byte)1);
                     if (c2 == null) continue;
                     vector.addElement(c2);
                     continue;
                 }
-                if (by != 2 || (c2 = var_i_a.c_a(j, k, (byte)0)) == null || c2.var_byte_a != this.var_byte_a) continue;
+                if (by != 2 || (c2 = iClassRef.c_a(j, k, (byte)0)) == null || c2.var_byte_a != this.var_byte_a) continue;
                 vector.addElement(c2);
             }
         }
@@ -267,16 +269,16 @@ extends e {
         byte by3 = 0;
         int n6 = 0;
         if (n4 > 0) {
-            by = Unit.var_i_a.var_byte_arr_arr_b[n3][n4 - 1];
+            by = Unit.iClassRef.var_byte_arr_arr_b[n3][n4 - 1];
         }
-        if (n4 < Unit.var_i_a.var_short_b - 1) {
-            by2 = Unit.var_i_a.var_byte_arr_arr_b[n3][n4 + 1];
+        if (n4 < Unit.iClassRef.var_short_b - 1) {
+            by2 = Unit.iClassRef.var_byte_arr_arr_b[n3][n4 + 1];
         }
         if (n3 > 0) {
-            by3 = Unit.var_i_a.var_byte_arr_arr_b[n3 - 1][n4];
+            by3 = Unit.iClassRef.var_byte_arr_arr_b[n3 - 1][n4];
         }
-        if (n3 < Unit.var_i_a.var_short_e - 1) {
-            n6 = Unit.var_i_a.var_byte_arr_arr_b[n3 + 1][n4];
+        if (n3 < Unit.iClassRef.var_short_e - 1) {
+            n6 = Unit.iClassRef.var_byte_arr_arr_b[n3 + 1][n4];
         }
         if ((n5 = Math.max(Math.max(by, by2), Math.max(by3, n6))) == by) {
             vector = this.a(n, n2, n3, n4 - 1);
@@ -316,12 +318,12 @@ extends e {
     }
 
     private int int_b(int n, int n2) {
-        if (n >= 0 && n2 >= 0 && n < Unit.var_i_a.var_short_e && n2 < Unit.var_i_a.var_short_b) {
-            Unit c2 = var_i_a.c_a(n, n2, (byte)0);
+        if (n >= 0 && n2 >= 0 && n < Unit.iClassRef.var_short_e && n2 < Unit.iClassRef.var_short_b) {
+            Unit c2 = iClassRef.c_a(n, n2, (byte)0);
             if (c2 != null && c2.var_byte_a != this.var_byte_a) {
                 return 1000;
             }
-            byte by = var_i_a.byte_a(n, n2);
+            byte by = iClassRef.byte_a(n, n2);
             if (this.a((short)1)) {
                 return 1;
             }
@@ -338,7 +340,7 @@ extends e {
 
     public void void_a() {
         if (this.var_boolean_e) {
-            if (Unit.var_i_a.var_long_n - this.var_long_c >= (long)this.var_int_g) {
+            if (Unit.iClassRef.var_long_n - this.var_long_c >= (long)this.var_int_g) {
                 this.var_boolean_e = false;
             } else {
                 this.var_boolean_b = !this.var_boolean_b;
@@ -351,7 +353,7 @@ extends e {
                 this.var_short_a = (short)(((e)this).l / 24);
                 this.var_java_util_Vector_a = null;
                 this.var_short_g = 0;
-                var_i_a.c(this);
+                iClassRef.c(this);
             } else {
                 short[] sArray = (short[])this.var_java_util_Vector_a.elementAt(this.var_short_g);
                 int n = sArray[0] * 24;
@@ -370,9 +372,9 @@ extends e {
                 }
             }
             super.void_b(this.var_short_b, ((e)this).l);
-        } else if (Unit.var_i_a.var_long_n - this.var_long_a >= 200L) {
+        } else if (Unit.iClassRef.var_long_n - this.var_long_a >= 200L) {
             this.c();
-            this.var_long_a = Unit.var_i_a.var_long_n;
+            this.var_long_a = Unit.iClassRef.var_long_n;
         }
     }
 
@@ -384,34 +386,34 @@ extends e {
         Unit c2;
         int n;
         this.var_byte_e = (byte)2;
-        Unit c3 = var_i_a.c_a((int)this.i, (int)this.var_short_a, (byte)1);
+        Unit c3 = iClassRef.c_a((int)this.i, (int)this.var_short_a, (byte)1);
         if (c3 != null) {
-            Unit.var_i_a.var_java_util_Vector_a.removeElement(c3);
+            Unit.iClassRef.var_java_util_Vector_a.removeElement(c3);
         }
-        int n2 = Unit.var_i_a.var_java_util_Vector_a.size();
+        int n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
-            c2 = (Unit)Unit.var_i_a.var_java_util_Vector_a.elementAt(n);
+            c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
             if (c2.var_byte_a != this.var_byte_a) continue;
             c2.b((byte)2);
         }
-        n2 = Unit.var_i_a.var_java_util_Vector_a.size();
+        n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
-            c2 = (Unit)Unit.var_i_a.var_java_util_Vector_a.elementAt(n);
+            c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
             if (c2.var_byte_a != this.var_byte_a || !c2.a((short)256)) continue;
             Unit[] cArray = c2.a(c2.i, (int)c2.var_short_a, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
-                var_i_a.a(Unit.var_i_a.var_e_r, cArray[j].var_short_b, ((e)cArray[j]).l, 0, 0, 1, 50);
+                iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].var_short_b, ((e)cArray[j]).l, 0, 0, 1, 50);
             }
         }
-        Unit.var_i_a.var_c_f = this;
+        Unit.iClassRef.var_c_f = this;
     }
 
     public static byte[] byte_arr_a() {
         // 11 = number of unit types?
         byte[] byArray = new byte[11];
         int n = 0;
-        for (int n2 = 0; n2 <= Unit.var_i_a.J; n2 = (int)((byte)(n2 + 1))) {
+        for (int n2 = 0; n2 <= Unit.iClassRef.J; n2 = (int)((byte)(n2 + 1))) {
             // SKips the units you cannot buy (king, skeleton)
             if (unitsDataPrice[n2] <= 0) continue;
             byArray[n++] = (byte)n2;

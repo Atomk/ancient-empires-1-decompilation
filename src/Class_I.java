@@ -256,7 +256,7 @@ implements CommandListener {
             return;
         }
         this.var_byte_d = 1;
-        Unit.var_i_a = this;
+        Unit.iClassRef = this;
         //AppCanvas.readAssetsPackage("/1.pak");
         this.var_e_h = new e("cursor");
         this.spriteGold = new Sprite("gold.png");
