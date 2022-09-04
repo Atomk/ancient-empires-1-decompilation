@@ -62,7 +62,7 @@ implements CommandListener {
     public e[][] var_e_arr_arr_b;
     private static final byte[] var_byte_arr_a;
     public static final byte[] terrainTypeDefense;
-    public static final byte[] var_byte_arr_h;
+    public static final byte[] terrainType_XXX;
     public static final String[] terrainTypeNames;
     public static final byte[] var_byte_arr_i;
     public int var_int_t;
@@ -3025,8 +3025,8 @@ implements CommandListener {
         var_byte_arr_a = new byte[]{21, 22};
         // Terrain type variables
         terrainTypeDefense = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
-        var_byte_arr_h = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};
-        // The first "mountain" should be "hill"
+        terrainType_XXX = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};   // TODO used only once in the app
+        // TODO The first "mountain" should be "hill", one of the last two towns is probably the castle
         terrainTypeNames = new String[]{"road", "grass", "woods", "mountain", "mountain", "water", "bridge", "town", "town"};
         var_byte_arr_i = new byte[]{1, 1, 2, 2, 3, 3, 1, 1, 1};
         var_java_lang_String_arr_d = new String[] {"14281428", "18241824"};
