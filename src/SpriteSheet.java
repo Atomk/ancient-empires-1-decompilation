@@ -26,7 +26,7 @@ public class SpriteSheet {
     public boolean var_boolean_d = true;
     private int[][] var_int_arr_arr_b;
     private short[][] var_short_arr_arr_a;
-    private int f = 0xFFE000;
+    private int color_XX = 0xFFE000;   // yellow
     private byte[] var_byte_arr_d;
     private boolean[] var_boolean_arr_a;
 
@@ -177,7 +177,7 @@ public class SpriteSheet {
 
     public void a(Graphics graphics, int x, int y) {
         if (this.var_byte_c == 2 || this.var_byte_c == 4) {
-            graphics.setColor(this.f);
+            graphics.setColor(this.color_XX);
             for (int j = 0; j < 5; ++j) {
                 if (!this.var_boolean_arr_a[j]) continue;
                 int n3 = (this.var_int_arr_arr_b[j][0] >> 10) + x + this.var_short_b;
@@ -206,7 +206,7 @@ public class SpriteSheet {
             e3 = new SpriteSheet(24, 24);
             if (by == 2 || by == 4) {
                 if (by == 4) {
-                    e3.f = 0xEEEEFF;
+                    e3.color_XX = 0xEEEEFF;    // White (almost)
                 }
                 e3.var_int_arr_arr_b = new int[5][2];
                 e3.var_short_arr_arr_a = new short[5][2];
@@ -268,7 +268,7 @@ public class SpriteSheet {
 
     private void e() {
         if (this.var_byte_c != 4) {
-            this.f += -263168;
+            this.color_XX += -263168;
         }
         for (int j = 0; j < 5; ++j) {
             if (!this.var_boolean_arr_a[j]) continue;
