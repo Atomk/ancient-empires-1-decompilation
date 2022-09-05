@@ -395,13 +395,13 @@ CommandListener {
         String string2 = null;
         do {
             n2 = n3;
-            int n5 = string.indexOf(10, n2);
+            int newlineCharIndex = string.indexOf(10, n2);
             block1: do {
                 int n6 = n2;
                 String string3 = string2;
                 n2 = AppCanvas.a(string, n2);
-                if (n5 > -1 && n5 < n2) {
-                    n2 = n5;
+                if (newlineCharIndex > -1 && newlineCharIndex < n2) {
+                    n2 = newlineCharIndex;
                 }
                 if (font.stringWidth(string2 = string.substring(n3, n2).trim()) <= n) continue;
                 if (n6 == n3) {
@@ -417,27 +417,28 @@ CommandListener {
                 n2 = n6;
                 string2 = string3;
                 break;
-            } while (n2 != n5 && n2 < n4);
+            } while (n2 != newlineCharIndex && n2 < n4);
             vector.addElement(string2);
         } while ((n3 = ++n2) < n4);
+        
         String[] stringsArray = new String[vector.size()];
         vector.copyInto(stringsArray);
         return stringsArray;
     }
 
-    private static int a(String string, int n) {
+    private static int a(String string, int charIndex) {
         int n2;
-        char c2 = string.charAt(n);
+        char c2 = string.charAt(charIndex);
         if (AppCanvas.boolean_b(c2)) {
-            return n + 1;
+            return charIndex + 1;
         }
         int n3 = 0;
-        while ((n2 = string.indexOf(32, n)) == 0) {
-            ++n;
+        while ((n2 = string.indexOf(32, charIndex)) == 0) {
+            ++charIndex;
         }
         n3 = n2;
         n3 = n3 == -1 ? string.length() : ++n3;
-        for (n2 = n + 1; n2 < n3; ++n2) {
+        for (n2 = charIndex + 1; n2 < n3; ++n2) {
             if (!AppCanvas.boolean_b(string.charAt(n2))) continue;
             return n2;
         }

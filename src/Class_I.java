@@ -1873,9 +1873,9 @@ implements CommandListener {
             if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
             vector.addElement(c2);
         }
-        Unit[] objectArray = new Unit[vector.size()];
-        vector.copyInto(objectArray);
-        return objectArray;
+        Unit[] unitsArray = new Unit[vector.size()];
+        vector.copyInto(unitsArray);
+        return unitsArray;
     }
 
     public static void a(Graphics graphics, int n, int n2, int n3, int n4, Sprite sprite, int n5, int n6, int n7, int n8) {
