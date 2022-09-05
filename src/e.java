@@ -40,10 +40,10 @@ public class e {
 
     private void a(String imageName, int n) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
-        int n2 = inputStream.read();
+        int tileCount = inputStream.read();
         byte width = (byte)inputStream.read();
         byte height = (byte)inputStream.read();
-        this.sprites = new Sprite[n2];
+        this.sprites = new Sprite[tileCount];
         try {
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
@@ -58,7 +58,7 @@ public class e {
             }
         }
         catch (Exception exception) {
-            for (int j = 0; j < n2; ++j) {
+            for (int j = 0; j < tileCount; ++j) {
                 String fileName = imageName + "_";
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
@@ -73,8 +73,8 @@ public class e {
         inputStream.close();
         this.j = this.sprites[0].width;
         this.var_short_c = this.sprites[0].height;
-        this.var_byte_arr_e = new byte[n2];
-        for (int n6 = 0; n6 < n2; n6 = (byte)(n6 + 1)) {
+        this.var_byte_arr_e = new byte[tileCount];
+        for (int n6 = 0; n6 < tileCount; n6 = (byte)(n6 + 1)) {
             this.var_byte_arr_e[n6] = (byte)n6;
         }
     }
