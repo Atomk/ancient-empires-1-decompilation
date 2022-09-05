@@ -107,9 +107,9 @@ public class SpriteSheet {
         int tileCountH = spriteSheetImage.height / tileHeight;
         int tileCount = tileCountW * tileCountH;
         this.sprites = new Sprite[tileCount];
-        for (int n3 = 0; n3 < tileCountH; ++n3) {
+        for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
             for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
-                this.sprites[n3 * tileCountW + xIndex] = new Sprite(spriteSheetImage, xIndex, n3, tileWidth, tileHeight);
+                this.sprites[yIndex * tileCountW + xIndex] = new Sprite(spriteSheetImage, xIndex, yIndex, tileWidth, tileHeight);
             }
         }
         this.spritesWidth = (short)tileWidth;
