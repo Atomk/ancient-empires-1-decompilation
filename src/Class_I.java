@@ -670,11 +670,18 @@ implements CommandListener {
         } else if (g2 == this.var_g_a) {
             this.var_int_h = n;
             this.var_g_d = new g(this, (byte)0, 0);
-            String[] stringArray = new String[2];
+
+            // TODO find all occurrences of stringArray in this file to fix the remaining errors
+            // These menu options are displayed after you choose one of the skirmish maps
+            // 1 PLAYER
+            // 2 PLAYER
+            // TODO in the game if you select the first option (1 player) you play against AI, useful info to find the check for this
+            String[] skirmishNumPlayersMenuOptions = new String[2];
             for (int j = 0; j < 2; ++j) {
-                stringArray[j] = j + 1 + " " + AppCanvas.getGameText(16);   // PLAYER
+                // TODO is a loop really necessary for just 2 elements?
+                skirmishNumPlayersMenuOptions[j] = j + 1 + " " + AppCanvas.getGameText(16);   // PLAYER
             }
-            this.var_g_d.a(stringArray);
+            this.var_g_d.a(skirmishNumPlayersMenuOptions);
             this.var_g_d.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
