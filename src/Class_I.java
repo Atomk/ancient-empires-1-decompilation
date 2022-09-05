@@ -1861,16 +1861,16 @@ implements CommandListener {
         return this.int_a(n, n2) == n3;
     }
 
-    public int int_a(int n, int n2, byte by) {
-        return this.c_arr_a(n, n2, by).length;
+    private int int_a(int unitType, int n2, byte by) {
+        return this.c_arr_a(unitType, n2, by).length;
     }
 
-    public Unit[] c_arr_a(int n, int n2, byte by) {
+    private Unit[] c_arr_a(int unitType, int n2, byte by) {
         Vector<Unit> vector = new Vector<Unit>();
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (n != -1 && c2.unitType != n || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
+            if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
             vector.addElement(c2);
         }
         Unit[] objectArray = new Unit[vector.size()];
