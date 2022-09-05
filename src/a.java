@@ -18,7 +18,7 @@ extends Class_I {
     public int B;
     public int var_int_d = 0;
     public boolean var_boolean_g = false;
-    public Vector var_java_util_Vector_d;
+    private Vector<e> var_java_util_Vector_d;
     public e[][] var_e_arr_arr_a;
     public Sprite[][] var_h_arr_arr_a;
     public Sprite[] b;
