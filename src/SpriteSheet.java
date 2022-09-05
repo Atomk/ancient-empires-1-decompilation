@@ -97,45 +97,45 @@ public class SpriteSheet {
         this.spritesHeight = this.sprites[0].height;
 
         this.var_byte_arr_e = new byte[tileCount];
-        for (int n6 = 0; n6 < tileCount; n6 = (byte)(n6 + 1)) {
-            this.var_byte_arr_e[n6] = (byte)n6;
+        for (int j = 0; j < tileCount; j = (byte)(j + 1)) {
+            this.var_byte_arr_e[j] = (byte)j;
         }
     }
 
-    public SpriteSheet(Sprite sprite, int width, int height) {
+    public SpriteSheet(Sprite sprite, int tileWidth, int tileHeight) {
         int n3;
-        int n4 = sprite.width / width;
-        int n5 = sprite.height / height;
-        int n6 = n4 * n5;
-        this.sprites = new Sprite[n6];
+        int n4 = sprite.width / tileWidth;
+        int n5 = sprite.height / tileHeight;
+        int tileCount = n4 * n5;
+        this.sprites = new Sprite[tileCount];
         for (n3 = 0; n3 < n5; ++n3) {
             for (int j = 0; j < n4; ++j) {
-                this.sprites[n3 * n4 + j] = new Sprite(sprite, j, n3, width, height);
+                this.sprites[n3 * n4 + j] = new Sprite(sprite, j, n3, tileWidth, tileHeight);
             }
         }
-        this.spritesWidth = (short)width;
-        this.spritesHeight = (short)height;
-        this.var_byte_arr_e = new byte[n6];
-        for (n3 = 0; n3 < n6; n3 = (int)((byte)(n3 + 1))) {
+        this.spritesWidth = (short)tileWidth;
+        this.spritesHeight = (short)tileHeight;
+        this.var_byte_arr_e = new byte[tileCount];
+        for (n3 = 0; n3 < tileCount; n3 = (int)((byte)(n3 + 1))) {
             this.var_byte_arr_e[n3] = (byte)n3;
         }
     }
 
-    public SpriteSheet(SpriteSheet e2) {
-        this.sprites = e2.sprites;
-        this.var_byte_arr_e = e2.var_byte_arr_e;
-        this.var_short_d = e2.var_short_d;
-        this.var_short_b = e2.var_short_b;
-        this.l = e2.l;
-        this.var_boolean_c = e2.var_boolean_c;
-        this.spritesWidth = e2.spritesWidth;
-        this.spritesHeight = e2.spritesHeight;
+    public SpriteSheet(SpriteSheet other) {
+        this.sprites = other.sprites;
+        this.var_byte_arr_e = other.var_byte_arr_e;
+        this.var_short_d = other.var_short_d;
+        this.var_short_b = other.var_short_b;
+        this.l = other.l;
+        this.var_boolean_c = other.var_boolean_c;
+        this.spritesWidth = other.spritesWidth;
+        this.spritesHeight = other.spritesHeight;
     }
 
     // TODO this is used only once
-    private SpriteSheet(int n, int n2) {
-        this.spritesWidth = (short)n;
-        this.spritesHeight = (short)n2;
+    private SpriteSheet(int spritesWidth, int spritesHeight) {
+        this.spritesWidth = (short)spritesWidth;
+        this.spritesHeight = (short)spritesHeight;
     }
 
     public short short_a() {
