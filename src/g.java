@@ -53,8 +53,6 @@ public class g {
     private int var_int_i;
     private String[] var_java_lang_String_arr_a;
     private int n;
-    // TODO unused
-    private boolean var_boolean_b = false;
     private boolean var_boolean_i = true;
     private boolean var_boolean_e = true;
     public boolean var_boolean_g = false;
