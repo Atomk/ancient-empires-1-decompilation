@@ -46,8 +46,8 @@ extends e {
     public static final short[] unitsDataPrice;
     private static final short[] unitsDataBiflag_XXX;
 
-    private Unit(byte by, byte by2, int n, int n2) {
-        super(iClassRef.a(by2, by));
+    private Unit(byte unitType, byte by2, int n, int n2) {
+        super(iClassRef.a(by2, unitType));
         this.i = (short)n;
         this.var_short_a = (short)n2;
         this.var_short_b = (short)(n * 24);
@@ -73,13 +73,13 @@ extends e {
         return c2;
     }
 
-    public int a(Unit c2) {
+    public int a(Unit unit) {
         int n;
         int n2 = unitsDataATK[this.unitType] + this.var_short_f;
-        if (this.a((short)64) && c2.a((short)1)) {
+        if (this.a((short)64) && unit.a((short)1)) {
             n2 += 2;
         }
-        if (this.unitType == 4 && c2.unitType == 10) {
+        if (this.unitType == 4 && unit.unitType == 10) {
             n2 += 3;
         }
         if ((n = AppCanvas.randomGen.nextInt() % 20 + this.var_short_d) >= 19) {
@@ -91,8 +91,8 @@ extends e {
         } else if (n <= -16) {
             --n2;
         }
-        int n3 = unitsDataDEF[c2.unitType] + c2.var_short_e;
-        n = AppCanvas.randomGen.nextInt() % 20 + c2.var_short_d;
+        int n3 = unitsDataDEF[unit.unitType] + unit.var_short_e;
+        n = AppCanvas.randomGen.nextInt() % 20 + unit.var_short_d;
         if (n >= 19) {
             n3 += 2;
         } else if (n >= 16) {
@@ -102,13 +102,13 @@ extends e {
         } else if (n <= -16) {
             --n3;
         }
-        int n4 = iClassRef.a(iClassRef.byte_a(c2.i, (int)c2.var_short_a), c2);
+        int n4 = iClassRef.a(iClassRef.byte_a(unit.i, (int)unit.var_short_a), unit);
         int n5 = (n2 - (n4 + n3) * 2 / 3) * this.h / 10;
-        if (n5 > c2.h) {
-            n5 = c2.h;
+        if (n5 > unit.h) {
+            n5 = unit.h;
         }
-        c2.h = (short)(c2.h - n5);
-        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[c2.unitType] + unitsDataDEF[c2.unitType]) * n5);
+        unit.h = (short)(unit.h - n5);
+        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[unit.unitType] + unitsDataDEF[unit.unitType]) * n5);
         return n5;
     }
 
@@ -215,17 +215,17 @@ extends e {
         return this.a(n, n2, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], by);
     }
 
-    public Unit[] a(int n, int n2, int n3, int n4, byte by) {
+    public Unit[] a(int n, int n2, int unitRangeMin, int unitRangeMax, byte by) {
         Vector<Unit> vector = new Vector<Unit>();
-        int n5 = n - n4;
-        int n6 = n2 - n4;
-        int n7 = n + n4;
-        int n8 = n2 + n4;
+        int n5 = n - unitRangeMax;
+        int n6 = n2 - unitRangeMax;
+        int n7 = n + unitRangeMax;
+        int n8 = n2 + unitRangeMax;
         for (int j = n5; j <= n7; ++j) {
             for (int k = n6; k <= n8; ++k) {
                 Unit c2;
                 int n9 = Math.abs(j - n) + Math.abs(k - n2);
-                if (n9 < n3 || n9 > n4) continue;
+                if (n9 < unitRangeMin || n9 > unitRangeMax) continue;
                 if (by == 0) {
                     c2 = iClassRef.c_a(j, k, (byte)0);
                     if (c2 == null || c2.var_byte_a == this.var_byte_a) continue;

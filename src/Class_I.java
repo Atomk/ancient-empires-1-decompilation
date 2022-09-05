@@ -797,8 +797,8 @@ implements CommandListener {
         return Unit.a((byte)n, this.var_byte_c, n2, n3);
     }
 
-    public e a(byte by, byte by2) {
-        return this.var_e_arr_arr_b[by][by2];
+    public e a(byte by, byte unitType) {
+        return this.var_e_arr_arr_b[by][unitType];
     }
 
     public void void_a(int n) throws Exception {
