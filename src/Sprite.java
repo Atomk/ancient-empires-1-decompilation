@@ -16,12 +16,12 @@ public class Sprite {
     public short width;
     public short height;
 
-    public Sprite(Sprite sprite, int n, int n2, int width, int height) {
-        this.image = sprite.image;
+    public Sprite(Sprite spriteSheetImage, int colIndex, int rowIndex, int width, int height) {
+        this.image = spriteSheetImage.image;
         this.width = (short)width;
         this.height = (short)height;
-        this.b = (short)(n * width + sprite.b);
-        this.var_short_a = (short)(n2 * height + sprite.var_short_a);
+        this.b = (short)(colIndex * width + spriteSheetImage.b);
+        this.var_short_a = (short)(rowIndex * height + spriteSheetImage.var_short_a);
         this.var_boolean_a = true;
     }
 
