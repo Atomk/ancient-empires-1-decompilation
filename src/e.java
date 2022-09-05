@@ -50,9 +50,9 @@ public class e {
             int tileCountW = sprite.width / tileWidth;
             int tileCountH = sprite.height / tileHeight;
             int spriteIndex = 0;
-            for (int j = 0; j < tileCountH; ++j) {
-                for (int k = 0; k < tileCountW; ++k) {
-                    this.sprites[spriteIndex] = new Sprite(sprite, k, j, tileWidth, tileHeight);
+            for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
+                for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
+                    this.sprites[spriteIndex] = new Sprite(sprite, xIndex, yIndex, tileWidth, tileHeight);
                     ++spriteIndex;
                 }
             }
