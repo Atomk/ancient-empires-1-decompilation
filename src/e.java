@@ -49,11 +49,11 @@ public class e {
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
             int tileCountW = sprite.width / tileWidth;
             int tileCountH = sprite.height / tileHeight;
-            int n5 = 0;
+            int spriteIndex = 0;
             for (int j = 0; j < tileCountH; ++j) {
                 for (int k = 0; k < tileCountW; ++k) {
-                    this.sprites[n5] = new Sprite(sprite, k, j, tileWidth, tileHeight);
-                    ++n5;
+                    this.sprites[spriteIndex] = new Sprite(sprite, k, j, tileWidth, tileHeight);
+                    ++spriteIndex;
                 }
             }
         }
