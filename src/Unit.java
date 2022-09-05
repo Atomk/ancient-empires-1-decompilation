@@ -9,6 +9,18 @@ import javax.microedition.lcdui.Graphics;
 
 public class Unit
 extends e {
+    public static final byte SOLDIER = 0;
+    public static final byte ARCHER = 1;
+    public static final byte LIZARD = 2;
+    public static final byte WIZARD = 3;
+    public static final byte WISP = 4;
+    public static final byte SPIDER = 5;
+    public static final byte GOLEM = 6;
+    public static final byte CATAPULT = 7;
+    public static final byte WYVERN = 8;
+    public static final byte KING = 9;
+    public static final byte SKELETON = 10;
+
     // TODO this a static reference to the 'i' class, there must be a better solution...
     // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
     public static Class_I iClassRef;
