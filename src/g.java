@@ -11,58 +11,59 @@ import javax.microedition.lcdui.Graphics;
 public class g {
     public int j;
     public byte var_byte_e = (byte)3;
-    public short var_short_a = (short)150;
-    public a var_a_a;
-    public String[] var_java_lang_String_arr_b;
-    public int A;
-    public int y;
-    public int var_int_b;
+    private short var_short_a = (short)150;
+    private a var_a_a;
+    private String[] var_java_lang_String_arr_b;
+    private int A;
+    private int y;
+    private int var_int_b;
     public int var_int_g;
-    public int m;
-    public Font appFont = AppCanvas.fontSmallPlain;
-    public int x;
-    public int z;
-    public int B;
-    public int p;
-    public long var_long_a;
-    public int var_int_c;
-    public int s;
-    public int o;
-    public int l;
-    public int k;
-    public int var_int_e;
-    public int r;
-    public int C;
+    private int m;
+    private Font appFont = AppCanvas.fontSmallPlain;
+    private int x;
+    private int z;
+    private int B;
+    private int p;
+    private long var_long_a;
+    private int var_int_c;
+    private int s;
+    private int o;
+    private int l;
+    private int k;
+    private int var_int_e;
+    private int r;
+    private int C;
     public byte var_byte_d = (byte)8;
-    public byte var_byte_a;
-    public int t;
-    public boolean var_boolean_c = false;
-    public g var_g_b;
-    public byte[] var_byte_arr_a;
-    public int D;
-    public int var_int_h;
-    public int w = 1;
-    public int var_int_f;
-    public int v;
-    public int var_int_a;
-    public byte var_byte_c;
-    public byte var_byte_b;
-    public short var_short_b;
-    public int u;
-    public int var_int_d;
-    public int var_int_i;
-    public String[] var_java_lang_String_arr_a;
-    public int n;
-    public boolean var_boolean_b = false;
-    public boolean var_boolean_i = true;
-    public boolean var_boolean_e = true;
+    private byte var_byte_a;
+    private int t;
+    private boolean var_boolean_c = false;
+    private g var_g_b;
+    private byte[] var_byte_arr_a;
+    private int D;
+    private int var_int_h;
+    private int w = 1;
+    private int var_int_f;
+    private int v;
+    private int var_int_a;
+    private byte var_byte_c;
+    private byte var_byte_b;
+    private short var_short_b;
+    private int u;
+    private int var_int_d;
+    private int var_int_i;
+    private String[] var_java_lang_String_arr_a;
+    private int n;
+    // TODO unused
+    private boolean var_boolean_b = false;
+    private boolean var_boolean_i = true;
+    private boolean var_boolean_e = true;
     public boolean var_boolean_g = false;
-    public boolean var_boolean_a;
-    public boolean var_boolean_f = true;
-    public int q;
+    private boolean var_boolean_a;
+    private boolean var_boolean_f = true;
+    private int q;
     public Unit var_c_a;
-    public boolean var_boolean_h = true;
-    public boolean var_boolean_d = true;
+    private boolean var_boolean_h = true;
+    private boolean var_boolean_d = true;
     public g var_g_a;
 
     public g(Class_I i2, byte by, int n) {
@@ -251,7 +252,7 @@ public class g {
         }
     }
 
-    public static void a(g g2, int n, int n2, int n3) {
+    private static void a(g g2, int n, int n2, int n3) {
         g2.D = n3;
         g2.m = n + n3;
         g2.u = (n2 - n3) / g2.m;
@@ -259,7 +260,7 @@ public class g {
         g2.m = n + g2.D;
     }
 
-    public void c() {
+    private void c() {
         if (this.var_boolean_h) {
             ++this.var_a_a.var_int_g;
         }
@@ -363,11 +364,11 @@ public class g {
         this.l = 0;
     }
 
-    public boolean boolean_a() {
+    private boolean boolean_a() {
         return this.var_byte_d == 8 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_e_h.short_a() + this.var_a_a.var_short_f >= AppCanvas.h + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_short_f <= AppCanvas.h - 24 - 12;
     }
 
-    public void void_a() {
+    private void void_a() {
         if (this.var_byte_d == 8) {
             this.t &= 0xFFFFFFF7;
             this.t |= 4;
@@ -1021,7 +1022,7 @@ public class g {
         }
     }
 
-    public void a(Graphics graphics, int n, int n2, int n3, int n4, int n5) {
+    private void a(Graphics graphics, int n, int n2, int n3, int n4, int n5) {
         int n6;
         e e2 = this.var_a_a.var_e_b;
         graphics.setClip(n, n2, n3, n4);
