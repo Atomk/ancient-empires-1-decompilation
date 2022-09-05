@@ -99,7 +99,7 @@ extends Class_I {
                 this.var_boolean_p = !this.var_boolean_p;
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
-                g2.a(this.var_java_lang_String_arr_e);
+                g2.showMenuOptions(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, 67, null, 16);
                 Class_I.appCanvas.pressedKeysActions = 0;
             }

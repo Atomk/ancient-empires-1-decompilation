@@ -638,7 +638,7 @@ implements CommandListener {
                 // TODO this loads the name only for already completed levels, find the load/save code for the value
                 levelNames[j] = j <= this.levelsData[0] ? AppCanvas.getGameText(48 + j) : "???";
             }
-            this.var_g_f.a(levelNames);
+            this.var_g_f.showMenuOptions(levelNames);
             this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (string.equals(AppCanvas.getGameText(3))) {   // SAVE GAME
             appCanvas.savePersistentData("save", this.getGameSaveData());
@@ -665,7 +665,7 @@ implements CommandListener {
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(5))) {   // SKIRMISH
             this.var_g_a = new g(this, (byte)0, 0);
-            this.var_g_a.a(skirmishMapNames);
+            this.var_g_a.showMenuOptions(skirmishMapNames);
             this.var_g_a.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_a) {
             this.var_int_h = n;
@@ -681,7 +681,7 @@ implements CommandListener {
                 // TODO is a loop really necessary for just 2 elements?
                 skirmishNumPlayersMenuOptions[j] = j + 1 + " " + AppCanvas.getGameText(16);   // PLAYER
             }
-            this.var_g_d.a(skirmishNumPlayersMenuOptions);
+            this.var_g_d.showMenuOptions(skirmishNumPlayersMenuOptions);
             this.var_g_d.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
@@ -731,7 +731,7 @@ implements CommandListener {
                 App.instance.notifyDestroyed();
             } else if (string.equals(AppCanvas.getGameText(26))) {  // MAIN MENU
                 g g4 = new g(this, (byte)0, 0);
-                g4.a(this.var_java_lang_String_arr_c);
+                g4.showMenuOptions(this.var_java_lang_String_arr_c);
                 g4.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
             } else if (string.equals(AppCanvas.getGameText(27))) {  // MOVE
                 this.var_boolean_d = false;
@@ -931,7 +931,7 @@ implements CommandListener {
             this.var_e_h.a(var_byte_arr_arr_d[0]);
             this.var_byte_i = (byte)3;
             this.var_g_h = new g(this, (byte)0, 8);
-            this.var_g_h.a(this.getUnitPossibleActions(unit, (byte)0));
+            this.var_g_h.showMenuOptions(this.getUnitPossibleActions(unit, (byte)0));
             this.var_g_h.a((byte)8, 0, this.var_g_c.var_int_g, null, 0);
             AppCanvas.playSound(-1, 1);
         } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -998,7 +998,7 @@ implements CommandListener {
                 }
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
-                g2.a(this.var_java_lang_String_arr_e);
+                g2.showMenuOptions(this.var_java_lang_String_arr_e);
                 g2.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
                 Class_I.appCanvas.pressedKeysActions = 0;
             }
@@ -1098,7 +1098,7 @@ implements CommandListener {
                 } else if (this.var_byte_i == 11) {
                     if (!this.var_boolean_y && this.var_int_r == 0 && this.var_long_n - this.var_long_c >= 1000L) {
                         g temmp_g_XXX = new g(this, (byte)0, 0);
-                        temmp_g_XXX.a(this.var_java_lang_String_arr_e);
+                        temmp_g_XXX.showMenuOptions(this.var_java_lang_String_arr_e);
                         temmp_g_XXX.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
                         temmp_g_XXX.var_boolean_g = false;
                         this.var_int_r = 1;
@@ -1302,7 +1302,7 @@ implements CommandListener {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (unitActionsMenuOptions.length > 1) {
                                         this.var_g_h = new g(this, (byte)0, 8);
-                                        this.var_g_h.a(unitActionsMenuOptions);
+                                        this.var_g_h.showMenuOptions(unitActionsMenuOptions);
                                         this.var_g_h.a((byte)8, 0, 40, null, 0);
                                         AppCanvas.playSound(-1, 1);
                                     } else {
@@ -1319,7 +1319,7 @@ implements CommandListener {
                                         AppCanvas.getGameText(36),  // OBJECTIVE
                                         AppCanvas.getGameText(26)}; // MAIN MENU
                                     this.var_g_h = new g(this, (byte)0, 8);
-                                    this.var_g_h.a(menuOptions);
+                                    this.var_g_h.showMenuOptions(menuOptions);
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                                     AppCanvas.playSound(-1, 1);
                                 }
