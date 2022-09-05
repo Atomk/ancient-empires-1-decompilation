@@ -121,7 +121,7 @@ implements CommandListener {
     public Unit[] var_c_arr_a;
     public int[] var_int_arr_b;
     public byte[] var_byte_arr_b = new byte[]{1, 0};
-    public Vector var_java_util_Vector_e = new Vector();
+    public Vector<g> var_java_util_Vector_e = new Vector<g>();
     public g var_g_c;
     public g var_g_h;
     public g var_g_g;
@@ -1396,7 +1396,7 @@ implements CommandListener {
             this.var_java_util_Vector_f.removeAllElements();
         }
         for (n = this.var_java_util_Vector_e.size() - 1; n >= 0; --n) {
-            ((g)this.var_java_util_Vector_e.elementAt(n)).d();
+            this.var_java_util_Vector_e.elementAt(n).d();
         }
         appCanvas.repaint();
         appCanvas.serviceRepaints();
@@ -1729,7 +1729,7 @@ implements CommandListener {
             }
         }
         for (n = 0; n < this.var_java_util_Vector_e.size(); ++n) {
-            ((g)this.var_java_util_Vector_e.elementAt(n)).a(graphics);
+            this.var_java_util_Vector_e.elementAt(n).a(graphics);
         }
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
