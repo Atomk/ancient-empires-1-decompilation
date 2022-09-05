@@ -1311,7 +1311,13 @@ implements CommandListener {
                                     }
                                 } else {
                                     this.var_c_h = null;
-                                    String[] menuOptions = new String[]{AppCanvas.getGameText(32), AppCanvas.getGameText(35), AppCanvas.getGameText(36), AppCanvas.getGameText(26)};
+                                    // These are shown when you open the menu in-game on a non-unit tile
+                                    // TODO document the conditions to open this menu
+                                    String [] menuOptions = new String[]{
+                                        AppCanvas.getGameText(32),  // END TURN
+                                        AppCanvas.getGameText(35),  // MAP
+                                        AppCanvas.getGameText(36),  // OBJECTIVE
+                                        AppCanvas.getGameText(26)}; // MAIN MENU
                                     this.var_g_h = new g(this, (byte)0, 8);
                                     this.var_g_h.a(menuOptions);
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
