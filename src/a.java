@@ -305,8 +305,8 @@ extends Class_I {
         this.var_f_a.g();
         if (this.var_boolean_k) {
             if (this.var_long_n - this.var_long_f >= 500L) {
-                this.var_f_a.e();
-                this.var_f_b.e();
+                this.var_f_a.soundMethod();
+                this.var_f_b.soundMethod();
                 this.var_f_a = null;
                 this.var_f_b = null;
                 this.var_java_util_Vector_c = this.var_java_util_Vector_d;

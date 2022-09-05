@@ -7,7 +7,7 @@
 import javax.microedition.lcdui.Graphics;
 
 public class f {
-    private static final int[] var_int_arr_b;
+    private static final int[] unitsSoundIndex;
     private static final String[] unitsNames;
     private a var_a_a;
     private Unit var_c_a;
@@ -59,7 +59,7 @@ public class f {
     private int var_int_e;
     private int[] var_int_arr_a;
     private byte[][] var_byte_arr_arr_c;
-    private int var_int_g;
+    private int soundIndex;
     private boolean var_boolean_c = false;
     private boolean var_boolean_a = false;
     private e[] var_e_arr_a;
@@ -71,8 +71,8 @@ public class f {
         this.var_c_a = c2;
         this.var_byte_e = var_byte_arr_a[c2.unitType];
         this.var_int_e = 200;
-        this.var_int_g = var_int_arr_b[c2.unitType];
-        if (this.var_int_g != -1) {
+        this.soundIndex = unitsSoundIndex[c2.unitType];
+        if (this.soundIndex != -1) {
             // empty if block
         }
         if (this.var_byte_e == 3) {
@@ -282,8 +282,8 @@ public class f {
                         this.var_a_a.var_java_util_Vector_c.addElement(this.var_e_arr_a[j]);
                         this.var_e_arr_a[j].var_boolean_a = true;
                     }
-                    if (this.var_int_g != -1) {
-                        AppCanvas.playSound(this.var_int_g, 1);
+                    if (this.soundIndex != -1) {
+                        AppCanvas.playSound(this.soundIndex, 1);
                     }
                 }
                 this.o = 5;
@@ -356,7 +356,7 @@ public class f {
                     if (this.var_a_a.var_long_n - this.var_long_c < 200L) break;
                     this.var_int_c = 1;
                     this.var_long_c = this.var_a_a.var_long_n;
-                    AppCanvas.playSound(this.var_int_g, 1);
+                    AppCanvas.playSound(this.soundIndex, 1);
                     break;
                 }
                 if (this.var_int_c == 1) {
@@ -679,14 +679,15 @@ public class f {
         }
     }
 
-    public void e() {
-        if (this.var_int_g != -1) {
+    public void soundMethod() {
+        if (this.soundIndex != -1) {
             // empty if block
         }
     }
 
     static {
-        var_int_arr_b = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+        // TODO sounds were purposefully disabled, maybe there's a way to restore them using available assets
+        unitsSoundIndex = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         // TODO it would make more sense to have this in the Unit class
         unitsNames = new String[]{
             "soldier", "archer", "lizard", "wizard", "wisp",
