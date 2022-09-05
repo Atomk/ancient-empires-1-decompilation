@@ -137,7 +137,7 @@ public class SpriteSheet {
         this.spritesHeight = (short)spritesHeight;
     }
 
-    public short short_a() {
+    public short getSpritesWidth() {
         if (this.sprites != null) {
             return this.sprites[0].width;
         }

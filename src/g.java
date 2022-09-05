@@ -194,7 +194,7 @@ public class g {
             g2.var_int_d = g2.var_int_b - 24;
             g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         } else {
-            g2.var_int_d = g2.var_int_b - i2.var_e_m.short_a() - 6 - 12;
+            g2.var_int_d = g2.var_int_b - i2.var_e_m.getSpritesWidth() - 6 - 12;
             g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         }
         g2.a(by2, 0, 0, null, 0);
@@ -363,7 +363,7 @@ public class g {
     }
 
     private boolean boolean_a() {
-        return this.var_byte_d == 8 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_e_h.short_a() + this.var_a_a.var_short_f >= AppCanvas.h + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_short_f <= AppCanvas.h - 24 - 12;
+        return this.var_byte_d == 8 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_e_h.getSpritesWidth() + this.var_a_a.var_short_f >= AppCanvas.h + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.var_e_h.var_short_b + this.var_a_a.var_short_f <= AppCanvas.h - 24 - 12;
     }
 
     private void void_a() {
@@ -751,21 +751,21 @@ public class g {
                             this.var_a_a.var_e_j.a(0);
                             this.var_a_a.var_e_j.a(graphics, n12, n14 - 2);
                             // POISON
-                            graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.var_e_j.short_a() + 2, n14, 20);
+                            graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.var_e_j.getSpritesWidth() + 2, n14, 20);
                             n14 += this.var_a_a.var_e_j.short_b() - 4;
                         }
                         if ((this.var_c_a.var_byte_b & 2) != 0) {
                             this.var_a_a.var_e_j.a(1);
                             this.var_a_a.var_e_j.a(graphics, n12, n14);
                             // AURA
-                            graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.var_e_j.short_a() + 2, n14 + 2, 20);
+                            graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.var_e_j.getSpritesWidth() + 2, n14 + 2, 20);
                         }
                         AppCanvas.a(graphics, "" + this.var_c_a.h, n3 - 4, 6, 1, 8);
                         graphics.setFont(this.appFont);
                         this.var_a_a.var_e_j.a(2);
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
                             this.var_a_a.var_e_j.a(graphics, n13, this.appFont.getBaselinePosition() + 2);
-                            n13 += this.var_a_a.var_e_j.short_a();
+                            n13 += this.var_a_a.var_e_j.getSpritesWidth();
                         }
                     }
                     graphics.setColor(0xFF0000);
@@ -823,17 +823,17 @@ public class g {
                     }
                     if (this.var_short_b != 0) {
                         this.var_a_a.var_e_g.a(0);
-                        n10 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
+                        n10 = (n3 - this.var_a_a.var_e_g.getSpritesWidth()) / 2;
                         n9 = this.j - this.var_a_a.var_e_g.short_b() / 2;
                         this.var_a_a.var_e_g.a(graphics, n10, n9 - this.p);
-                        AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.var_e_g.getSpritesWidth(), n9, 0);
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
                     this.var_a_a.var_e_g.a(1);
-                    n10 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
+                    n10 = (n3 - this.var_a_a.var_e_g.getSpritesWidth()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.var_e_g.short_b() / 2;
                     this.var_a_a.var_e_g.a(graphics, n10, n9 + this.p);
-                    AppCanvas.drawBoldWhiteText(graphics, "7", n10 + this.var_a_a.var_e_g.short_a(), n9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "7", n10 + this.var_a_a.var_e_g.getSpritesWidth(), n9, 0);
                     break;
                 }
                 case 2: {
@@ -845,7 +845,7 @@ public class g {
                             SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
                             if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
-                                Class_I.appCanvas.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
+                                Class_I.appCanvas.a(graphics, n17, n18, e2.getSpritesWidth(), e2.short_b(), -1328628059);
                             }
                             if (n16 == this.unitType_XX) {
                                 this.var_a_a.spriteMenuPointer.draw(graphics, n17 - this.var_a_a.spriteMenuPointer.width + this.p, n18);
@@ -863,7 +863,7 @@ public class g {
                     this.var_a_a.spriteGold.draw(graphics, 2, 2);
                     if (this.var_a_a.var_byte_arr_b[this.var_a_a.var_byte_c] == 0) {
                         this.var_a_a.var_e_e.a(2);
-                        this.var_a_a.var_e_e.a(graphics, n3 - 2 - this.var_a_a.var_e_e.short_a(), 2);
+                        this.var_a_a.var_e_e.a(graphics, n3 - 2 - this.var_a_a.var_e_e.getSpritesWidth(), 2);
                     } else {
                         AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
                     }
@@ -874,7 +874,7 @@ public class g {
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
                     if (this.var_a_a.var_byte_c == 1) {
-                        n21 = n3 - this.var_a_a.var_e_m.short_a();
+                        n21 = n3 - this.var_a_a.var_e_m.getSpritesWidth();
                     }
                     this.var_a_a.var_e_m.a(this.var_a_a.var_byte_c);
                     this.var_a_a.var_e_m.a(graphics, n21, n19 - 10);
@@ -884,7 +884,7 @@ public class g {
                     graphics.setFont(this.appFont);
                     int n22 = this.D;
                     int n23 = 4;
-                    n23 = this.t == 4 ? (n23 += this.var_a_a.var_e_m.short_a()) : (n23 += 4);
+                    n23 = this.t == 4 ? (n23 += this.var_a_a.var_e_m.getSpritesWidth()) : (n23 += 4);
                     graphics.setColor(0);
                     for (int j = this.var_short_b; j < this.var_short_b + this.u && j < this.var_java_lang_String_arr_b.length; ++j) {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
@@ -895,11 +895,11 @@ public class g {
                         if (this.t == 4) {
                             this.var_a_a.var_e_m.a(graphics, 0, -11);
                         } else if (this.t == 8) {
-                            this.var_a_a.var_e_m.a(graphics, this.var_int_b - 6 - this.var_a_a.var_e_m.short_a(), -11);
+                            this.var_a_a.var_e_m.a(graphics, this.var_int_b - 6 - this.var_a_a.var_e_m.getSpritesWidth(), -11);
                         }
                     }
                     this.var_a_a.var_e_g.a(1);
-                    this.var_a_a.var_e_g.a(graphics, n23 + this.var_int_d - this.var_a_a.var_e_g.short_a(), this.var_int_g - 6 - this.var_a_a.var_e_g.short_b() + this.p);
+                    this.var_a_a.var_e_g.a(graphics, n23 + this.var_int_d - this.var_a_a.var_e_g.getSpritesWidth(), this.var_int_g - 6 - this.var_a_a.var_e_g.short_b() + this.p);
                     break;
                 }
                 case 5: {
@@ -919,14 +919,14 @@ public class g {
                     this.var_a_a.var_e_j.a(2);
                     for (int j = 0; j < this.var_c_a.var_short_d; ++j) {
                         this.var_a_a.var_e_j.a(graphics, n26, n25);
-                        n26 += this.var_a_a.var_e_j.short_a() - (this.var_a_a.var_e_j.short_a() >> 1);
+                        n26 += this.var_a_a.var_e_j.getSpritesWidth() - (this.var_a_a.var_e_j.getSpritesWidth() >> 1);
                     }
                     n25 += this.var_a_a.var_e_j.short_b() - 5;
                     n26 = 31;
                     if ((this.var_c_a.var_byte_b & 1) != 0) {
                         this.var_a_a.var_e_j.a(0);
                         this.var_a_a.var_e_j.a(graphics, n26, n25);
-                        n26 += this.var_a_a.var_e_j.short_a();
+                        n26 += this.var_a_a.var_e_j.getSpritesWidth();
                     }
                     if ((this.var_c_a.var_byte_b & 2) == 0) break;
                     this.var_a_a.var_e_j.a(1);
@@ -995,12 +995,12 @@ public class g {
                     graphics.setClip(-6, -6, this.var_int_b, this.var_int_g);
                     if (this.var_short_b > 0) {
                         this.var_a_a.var_e_g.a(0);
-                        n33 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
+                        n33 = (n3 - this.var_a_a.var_e_g.getSpritesWidth()) / 2;
                         this.var_a_a.var_e_g.a(graphics, n33, n35 + this.p - this.var_a_a.var_e_g.short_b());
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
                     this.var_a_a.var_e_g.a(1);
-                    n33 = (n3 - this.var_a_a.var_e_g.short_a()) / 2;
+                    n33 = (n3 - this.var_a_a.var_e_g.getSpritesWidth()) / 2;
                     int n38 = this.var_int_g - 12;
                     this.var_a_a.var_e_g.a(graphics, n33, n38 - this.p);
                 }
@@ -1015,7 +1015,7 @@ public class g {
             }
             if (this.var_boolean_g) {
                 this.var_a_a.var_e_e.a(1);
-                this.var_a_a.var_e_e.a(graphics, AppCanvas.width2 - this.var_a_a.var_e_e.short_a(), AppCanvas.height2 - this.var_a_a.var_e_e.short_b());
+                this.var_a_a.var_e_e.a(graphics, AppCanvas.width2 - this.var_a_a.var_e_e.getSpritesWidth(), AppCanvas.height2 - this.var_a_a.var_e_e.short_b());
             }
         }
     }
@@ -1031,12 +1031,12 @@ public class g {
         int n10 = n2;
         int n11 = n3;
         if ((n5 & 4) == 0) {
-            n11 -= e2.short_a();
+            n11 -= e2.getSpritesWidth();
             n7 -= 6;
             n9 += 6;
         }
         if ((n5 & 8) == 0) {
-            n11 -= e2.short_a();
+            n11 -= e2.getSpritesWidth();
             n7 -= 6;
         }
         int n12 = n4;
@@ -1050,15 +1050,15 @@ public class g {
             n8 -= 6;
         }
         graphics.fillRect(n9, n10, n7, n8);
-        int n13 = n11 / e2.short_a();
+        int n13 = n11 / e2.getSpritesWidth();
         int n14 = n12 / e2.short_b();
-        if (n11 % e2.short_a() > 0) {
+        if (n11 % e2.getSpritesWidth() > 0) {
             ++n13;
         }
         if (n12 % e2.short_b() > 0) {
             ++n14;
         }
-        int n15 = n + e2.short_a();
+        int n15 = n + e2.getSpritesWidth();
         int n16 = n2 + n4 - e2.short_b();
         for (n6 = 0; n6 < n13; ++n6) {
             if ((n5 & 1) == 0) {
@@ -1069,9 +1069,9 @@ public class g {
                 e2.a(5);
                 e2.a(graphics, n15, n16);
             }
-            n15 += e2.short_a();
+            n15 += e2.getSpritesWidth();
         }
-        n15 = n + n3 - e2.short_a();
+        n15 = n + n3 - e2.getSpritesWidth();
         n16 = n2 + e2.short_b();
         for (n6 = 0; n6 < n14; ++n6) {
             if ((n5 & 4) == 0) {

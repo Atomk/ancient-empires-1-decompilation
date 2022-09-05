@@ -121,7 +121,7 @@ CommandListener {
     }
 
     public static int a(byte by, String string) {
-        return var_e_arr_a[by].short_a() * string.length();
+        return var_e_arr_a[by].getSpritesWidth() * string.length();
     }
 
     public static int a(byte by) {
@@ -162,7 +162,7 @@ CommandListener {
             if (by != -1) {
                 var_e_arr_a[n3].a(by);
                 var_e_arr_a[n3].a(graphics, x, y);
-                x += var_e_arr_a[n3].short_a();
+                x += var_e_arr_a[n3].getSpritesWidth();
                 continue;
             }
             byte[] letterByte = new byte[]{(byte)letter};
