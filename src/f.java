@@ -293,7 +293,7 @@ public class f {
                 boolean bl = true;
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
                     if (this.var_c_a.unitType == Unit.WYVERN && AppCanvas.randomGen.nextInt() % 2 == 0) {
-                        SpriteSheet e3 = SpriteSheet.a(this.var_a_a.var_e_a, 0, -1, 1, 200, (byte)0);
+                        SpriteSheet e3 = SpriteSheet.a(this.var_a_a.spriteSheetChimneySmoke, 0, -1, 1, 200, (byte)0);
                         e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
                         e3.var_boolean_a = true;

@@ -23,7 +23,7 @@ extends Class_I {
     public Sprite[][] var_h_arr_arr_a;
     public Sprite[] b;
     public SpriteSheet[] var_e_arr_a = new SpriteSheet[0];
-    public SpriteSheet var_e_a;
+    public SpriteSheet spriteSheetChimneySmoke;
     public byte[][] var_byte_arr_arr_c;
 
     public a(byte by) throws Exception {
@@ -52,7 +52,7 @@ extends Class_I {
                 this.var_e_arr_arr_c[j][k] = new SpriteSheet(new Sprite(h2, k, 0, 10, 10), 10, 10);
             }
         }
-        this.var_e_a = new SpriteSheet("b_smoke");
+        this.spriteSheetChimneySmoke = new SpriteSheet("b_smoke");
         this.spritePanelDefense = new Sprite("defencepanel.png");
         this.var_e_q = new SpriteSheet("soul");
     }
@@ -172,7 +172,7 @@ extends Class_I {
         this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
         for (n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
             if (this.byte_a((int)this.var_byte_arr_arr_e[n2][0], (int)this.var_byte_arr_arr_e[n2][1]) != 7) continue;
-            this.var_e_arr_a[n2] = SpriteSheet.a(this.var_e_a, 0, -1, 1, 250, (byte)0);
+            this.var_e_arr_a[n2] = SpriteSheet.a(this.spriteSheetChimneySmoke, 0, -1, 1, 250, (byte)0);
             this.var_e_arr_a[n2].var_boolean_d = false;
         }
     }
@@ -187,7 +187,7 @@ extends Class_I {
                 if (this.var_e_arr_a[j] == null || this.int_a((int)this.var_byte_arr_arr_e[j][0], (int)this.var_byte_arr_arr_e[j][1]) == -1 || this.var_e_arr_a[j].var_boolean_d || AppCanvas.randomGen.nextInt() % 8 != 0) continue;
                 this.var_e_arr_a[j].var_boolean_d = true;
                 this.var_e_arr_a[j].var_int_c = 1;
-                this.var_e_arr_a[j].void_b((this.var_byte_arr_arr_e[j][0] + 1) * 24 - this.var_e_a.getSpritesWidth(), this.var_byte_arr_arr_e[j][1] * 24 - 2);
+                this.var_e_arr_a[j].void_b((this.var_byte_arr_arr_e[j][0] + 1) * 24 - this.spriteSheetChimneySmoke.getSpritesWidth(), this.var_byte_arr_arr_e[j][1] * 24 - 2);
                 this.var_java_util_Vector_f.addElement(this.var_e_arr_a[j]);
             }
         }
