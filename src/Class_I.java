@@ -1024,7 +1024,6 @@ implements CommandListener {
             if (this.var_byte_d == 0) {
                 this.j();
             } else {
-                String[] stringArray;
                 if (this.var_long_n - this.var_long_e >= 300L) {
                     this.var_boolean_a = !this.var_boolean_a;
                     this.var_long_e = this.var_long_n;
@@ -1098,10 +1097,10 @@ implements CommandListener {
                     }
                 } else if (this.var_byte_i == 11) {
                     if (!this.var_boolean_y && this.var_int_r == 0 && this.var_long_n - this.var_long_c >= 1000L) {
-                        stringArray = new g(this, (byte)0, 0);
-                        stringArray.a(this.var_java_lang_String_arr_e);
-                        stringArray.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
-                        stringArray.var_boolean_g = false;
+                        g temmp_g_XXX = new g(this, (byte)0, 0);
+                        temmp_g_XXX.a(this.var_java_lang_String_arr_e);
+                        temmp_g_XXX.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
+                        temmp_g_XXX.var_boolean_g = false;
                         this.var_int_r = 1;
                     }
                 } else if (this.var_byte_i == 10) {
@@ -1152,8 +1151,8 @@ implements CommandListener {
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
                         this.var_java_util_Vector_a.removeElement(this.var_c_e);
-                        stringArray = Unit.a((byte)10, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
-                        stringArray.void_b();
+                        Unit unit_a = Unit.a((byte)10, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
+                        unit_a.void_b();
                         this.var_c_e = null;
                     }
                 } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -1259,8 +1258,8 @@ implements CommandListener {
                         }
                         if (this.var_byte_i == 1) {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x10) != 0 && this.var_c_h != null) {
-                                stringArray = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
-                                if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0 && (stringArray == null || stringArray == this.var_c_h)) {
+                                Unit unit_c_a = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
+                                if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.i;
                                     this.var_int_v = this.var_c_h.var_short_a;
                                     this.var_c_h.void_a(this.var_short_h, this.var_short_g);
@@ -1279,8 +1278,8 @@ implements CommandListener {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x100) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
-                                    stringArray = new g(this, (byte)4, 0);
-                                    stringArray.a((byte)0, 0, 0, null, 0);
+                                    g temp_g_YYY = new g(this, (byte)4, 0);
+                                    temp_g_YYY.a((byte)0, 0, 0, null, 0);
                                 }
                                 appCanvas.handleKeyReleasedAction(256);
                             } else if (appCanvas.boolean_c(512)) {
@@ -1300,10 +1299,10 @@ implements CommandListener {
                             } else if (!appCanvas.boolean_c(128) && !appCanvas.boolean_c(64) && (appCanvas.boolean_c(16) || appCanvas.boolean_c(1024))) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null && this.var_c_h.var_byte_e == 0 && this.var_c_h.var_byte_a == this.var_byte_c) {
-                                    stringArray = this.getUnitPossibleActions(this.var_c_h, (byte)1);
-                                    if (stringArray.length > 1) {
+                                    String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
+                                    if (unitActionsMenuOptions.length > 1) {
                                         this.var_g_h = new g(this, (byte)0, 8);
-                                        this.var_g_h.a(stringArray);
+                                        this.var_g_h.a(unitActionsMenuOptions);
                                         this.var_g_h.a((byte)8, 0, 40, null, 0);
                                         AppCanvas.playSound(-1, 1);
                                     } else {
@@ -1312,9 +1311,9 @@ implements CommandListener {
                                     }
                                 } else {
                                     this.var_c_h = null;
-                                    stringArray = new String[]{AppCanvas.getGameText(32), AppCanvas.getGameText(35), AppCanvas.getGameText(36), AppCanvas.getGameText(26)};
+                                    String[] menuOptions = new String[]{AppCanvas.getGameText(32), AppCanvas.getGameText(35), AppCanvas.getGameText(36), AppCanvas.getGameText(26)};
                                     this.var_g_h = new g(this, (byte)0, 8);
-                                    this.var_g_h.a(stringArray);
+                                    this.var_g_h.a(menuOptions);
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                                     AppCanvas.playSound(-1, 1);
                                 }
