@@ -102,15 +102,15 @@ public class SpriteSheet {
         }
     }
 
-    public SpriteSheet(Sprite sprite, int tileWidth, int tileHeight) {
+    public SpriteSheet(Sprite spriteSheetImage, int tileWidth, int tileHeight) {
         int n3;
-        int n4 = sprite.width / tileWidth;
-        int n5 = sprite.height / tileHeight;
-        int tileCount = n4 * n5;
+        int tileCountW = spriteSheetImage.width / tileWidth;
+        int tileCountH = spriteSheetImage.height / tileHeight;
+        int tileCount = tileCountW * tileCountH;
         this.sprites = new Sprite[tileCount];
-        for (n3 = 0; n3 < n5; ++n3) {
-            for (int j = 0; j < n4; ++j) {
-                this.sprites[n3 * n4 + j] = new Sprite(sprite, j, n3, tileWidth, tileHeight);
+        for (n3 = 0; n3 < tileCountH; ++n3) {
+            for (int j = 0; j < tileCountW; ++j) {
+                this.sprites[n3 * tileCountW + j] = new Sprite(spriteSheetImage, j, n3, tileWidth, tileHeight);
             }
         }
         this.spritesWidth = (short)tileWidth;
