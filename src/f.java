@@ -7,63 +7,63 @@
 import javax.microedition.lcdui.Graphics;
 
 public class f {
-    public static final int[] var_int_arr_b;
-    public static final String[] var_java_lang_String_arr_a;
-    public a var_a_a;
-    public Unit var_c_a;
+    private static final int[] var_int_arr_b;
+    private static final String[] var_java_lang_String_arr_a;
+    private a var_a_a;
+    private Unit var_c_a;
     public boolean var_boolean_f = false;
     public boolean var_boolean_e = false;
-    public byte var_byte_g;
+    private byte var_byte_g;
     public byte var_byte_c;
-    public byte var_byte_a;
+    private byte var_byte_a;
     public byte var_byte_d;
-    public byte var_byte_b;
-    public byte var_byte_f;
+    private byte var_byte_b;
+    private byte var_byte_f;
     private static final byte[] var_byte_arr_a;
     private static final byte[][][][] var_byte_arr_arr_arr_arr_a;
-    public byte[][] var_byte_arr_arr_a;
+    private byte[][] var_byte_arr_arr_a;
     private static final byte[][] var_byte_arr_arr_d;
     private static final byte[][] var_byte_arr_arr_e;
     private static final byte[][] var_byte_arr_arr_b;
-    public int o = 0;
+    private int o = 0;
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_b;
-    public e var_e_c;
-    public e var_e_a;
-    public e var_e_b;
-    public int m;
-    public int var_int_a;
-    public boolean var_boolean_b;
-    public long var_long_a;
-    public long var_long_c;
-    public long var_long_b;
-    public e[] var_e_arr_b;
-    public Sprite[] var_h_arr_a;
-    public Sprite var_h_a;
+    private e var_e_c;
+    private e var_e_a;
+    private e var_e_b;
+    private int m;
+    private int var_int_a;
+    private boolean var_boolean_b;
+    private long var_long_a;
+    private long var_long_c;
+    private long var_long_b;
+    private e[] var_e_arr_b;
+    private Sprite[] var_h_arr_a;
+    private Sprite var_h_a;
     public f var_f_a;
-    public int var_int_f;
-    public int var_int_b;
-    public int var_int_d;
-    public int j;
-    public int n;
-    public boolean var_boolean_d = false;
-    public int h;
-    public int l;
-    public int[] var_int_arr_d;
-    public int[] var_int_arr_c;
-    public int[][] var_int_arr_arr_a;
-    public boolean[] var_boolean_arr_a;
-    public int var_int_c;
-    public byte var_byte_e;
-    public int k;
-    public int var_int_e;
-    public int[] var_int_arr_a;
-    public byte[][] var_byte_arr_arr_c;
-    public int var_int_g;
-    public boolean var_boolean_c = false;
-    public boolean var_boolean_a = false;
-    public e[] var_e_arr_a;
-    public int i;
+    private int var_int_f;
+    private int var_int_b;
+    private int var_int_d;
+    private int j;
+    private int n;
+    private boolean var_boolean_d = false;
+    private int h;
+    private int l;
+    private int[] var_int_arr_d;
+    private int[] var_int_arr_c;
+    private int[][] var_int_arr_arr_a;
+    private boolean[] var_boolean_arr_a;
+    private int var_int_c;
+    private byte var_byte_e;
+    private int k;
+    private int var_int_e;
+    private int[] var_int_arr_a;
+    private byte[][] var_byte_arr_arr_c;
+    private int var_int_g;
+    private boolean var_boolean_c = false;
+    private boolean var_boolean_a = false;
+    private e[] var_e_arr_a;
+    private int i;
 
     public f(Class_I i2, Unit c2, boolean bl) throws Exception {
         int n;
@@ -191,14 +191,14 @@ public class f {
         }
     }
 
-    public int a(e e2, int n) {
+    private int a(e e2, int n) {
         if (this.var_byte_f == 1) {
             return this.var_e_c.short_a() - n - e2.short_a();
         }
         return n;
     }
 
-    public void a(int n, byte[] byArray) {
+    private void a(int n, byte[] byArray) {
         this.var_e_arr_b[n].a(byArray);
         this.var_int_arr_a[n] = (int)this.var_a_a.var_long_n;
     }
@@ -209,7 +209,7 @@ public class f {
         this.var_long_c = this.var_a_a.var_long_n;
     }
 
-    public void f() {
+    private void f() {
         switch (this.o) {
             case 0: {
                 if (this.var_int_c == 0 && this.var_a_a.var_long_n - this.var_long_c >= 200L) {
@@ -342,13 +342,13 @@ public class f {
         }
     }
 
-    public void c() {
+    private void c() {
         //AppCanvas.d(200);
         this.var_boolean_d = true;
         this.var_long_b = this.var_a_a.var_long_n;
     }
 
-    public void a() {
+    private void a() {
         switch (this.o) {
             case 0: {
                 if (this.var_int_c == 0) {
@@ -587,7 +587,7 @@ public class f {
         }
     }
 
-    public void d() {
+    private void d() {
         this.c();
         this.l = this.var_byte_a - this.var_byte_d;
         this.var_byte_b = this.var_byte_d;
