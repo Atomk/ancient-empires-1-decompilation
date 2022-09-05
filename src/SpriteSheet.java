@@ -144,7 +144,7 @@ public class SpriteSheet {
         return 0;
     }
 
-    public short short_b() {
+    public short getSpritesHeight() {
         if (this.sprites != null) {
             return this.sprites[0].height;
         }

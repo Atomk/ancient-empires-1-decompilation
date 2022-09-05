@@ -125,7 +125,7 @@ CommandListener {
     }
 
     public static int a(byte by) {
-        return var_e_arr_a[by].short_b();
+        return var_e_arr_a[by].getSpritesHeight();
     }
 
     public void showNotify() {

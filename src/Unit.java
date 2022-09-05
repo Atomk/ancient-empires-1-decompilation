@@ -451,10 +451,10 @@ extends SpriteSheet {
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn
-                AppCanvas.drawBoldWhiteText(graphics, "E", n3 + this.getSpritesWidth() - 7, n4 + this.short_b() - 5, 0);
+                AppCanvas.drawBoldWhiteText(graphics, "E", n3 + this.getSpritesWidth() - 7, n4 + this.getSpritesHeight() - 5, 0);
             }
             if (this.h < 10) {
-                AppCanvas.drawBoldWhiteText(graphics, "" + this.h, n3, n4 + this.short_b() - 5, 0);
+                AppCanvas.drawBoldWhiteText(graphics, "" + this.h, n3, n4 + this.getSpritesHeight() - 5, 0);
             }
         }
     }

@@ -1734,11 +1734,11 @@ implements CommandListener {
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
                 this.var_e_e.a(1);
-                this.var_e_e.a(graphics, AppCanvas.width2 - this.var_e_e.getSpritesWidth(), AppCanvas.height2 - this.var_e_e.short_b());
+                this.var_e_e.a(graphics, AppCanvas.width2 - this.var_e_e.getSpritesWidth(), AppCanvas.height2 - this.var_e_e.getSpritesHeight());
             }
             if (this.var_boolean_t) {
                 this.var_e_e.a(0);
-                this.var_e_e.a(graphics, 0, AppCanvas.height2 - this.var_e_e.short_b());
+                this.var_e_e.a(graphics, 0, AppCanvas.height2 - this.var_e_e.getSpritesHeight());
             }
         }
     }
