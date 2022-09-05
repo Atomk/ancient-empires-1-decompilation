@@ -219,17 +219,18 @@ public class g {
         }
     }
 
-    // TODO I'm pretty sure this creates a menu with all the options passsed as parameter
-    public void showMenuOptions(String[] stringArray) {
-        this.var_java_lang_String_arr_b = stringArray;
-        this.u = this.z = stringArray.length;
+    // Creates a menu with all the options passsed as argument
+    // TODO this just creates the menu, it doesn't show it, rename accordingly
+    public void showMenuOptions(String[] menuOptions) {
+        this.var_java_lang_String_arr_b = menuOptions;
+        this.u = this.z = menuOptions.length;
         this.var_int_b = 0;
         this.var_int_g = 0;
         this.D = 4;
         this.m = this.appFont.getBaselinePosition() + this.D;
         int n = 0;
-        for (int j = 0; j < stringArray.length; ++j) {
-            int n2 = this.appFont.stringWidth(stringArray[j]);
+        for (int j = 0; j < menuOptions.length; ++j) {
+            int n2 = this.appFont.stringWidth(menuOptions[j]);
             if (n2 <= n) continue;
             n = n2;
         }
@@ -243,7 +244,7 @@ public class g {
         if (this.var_int_b > AppCanvas.width2) {
             this.var_int_b = AppCanvas.width2;
         }
-        this.var_int_g = this.m * stringArray.length + this.D + 12;
+        this.var_int_g = this.m * menuOptions.length + this.D + 12;
         if (this.var_int_g > AppCanvas.height2) {
             this.var_int_g = AppCanvas.height2;
             g.a(this, this.appFont.getBaselinePosition(), this.var_int_g - 12, this.D);
