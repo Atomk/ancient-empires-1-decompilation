@@ -40,15 +40,26 @@ public class e {
 
     private void a(String imageName, int n) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
+        // A .sprite asset contains metadata for a collection of sprites
         int tileCount = inputStream.read();
         byte tileWidth = (byte)inputStream.read();
         byte tileHeight = (byte)inputStream.read();
+
         this.sprites = new Sprite[tileCount];
+
         try {
+            // Loads a spritesheet image. Knowing the single tile sizes,
+            // Every element in the image will become a separate sprite
+            // all referencing the original spritesheet image object
+            // If there is no spritesheet (no image.png) the error will
+            // force executing the catch block instead (due to no file found)
+            // Not really solid but I guess it works
+
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
             Sprite spriteSheetImage = Sprite.fromByteArray(imageBytes, n);
             int tileCountW = spriteSheetImage.width / tileWidth;
             int tileCountH = spriteSheetImage.height / tileHeight;
+
             int spriteIndex = 0;
             for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
                 for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
@@ -58,6 +69,10 @@ public class e {
             }
         }
         catch (Exception exception) {
+            // Loads a sprite collection made of single images
+            // Note that here the values of tileWidth and tileHeight
+            // found in the .sprite asset data are ignored
+            
             for (int j = 0; j < tileCount; ++j) {
                 String fileName = imageName + "_";
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
@@ -70,6 +85,8 @@ public class e {
                 this.sprites[j] = new Sprite(fileName);
             }
         }
+
+         // TODO this sould be closed above the try-catch block, the stream is not used there
         inputStream.close();
         this.j = this.sprites[0].width;
         this.var_short_c = this.sprites[0].height;
