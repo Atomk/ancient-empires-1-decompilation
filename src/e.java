@@ -14,8 +14,8 @@ public class e {
     public short var_short_b = 0;
     public short l = 0;
     private boolean var_boolean_c = true;
-    private short j;
-    private short var_short_c;
+    private short spritesWidth;
+    private short spritesHeight;
     public boolean var_boolean_a = false;
     private byte var_byte_c = 0;
     public int var_int_c;
@@ -88,8 +88,8 @@ public class e {
 
          // TODO this sould be closed above the try-catch block, the stream is not used there
         inputStream.close();
-        this.j = this.sprites[0].width;
-        this.var_short_c = this.sprites[0].height;
+        this.spritesWidth = this.sprites[0].width;
+        this.spritesHeight = this.sprites[0].height;
         this.var_byte_arr_e = new byte[tileCount];
         for (int n6 = 0; n6 < tileCount; n6 = (byte)(n6 + 1)) {
             this.var_byte_arr_e[n6] = (byte)n6;
@@ -107,8 +107,8 @@ public class e {
                 this.sprites[n3 * n4 + j] = new Sprite(sprite, j, n3, width, height);
             }
         }
-        this.j = (short)width;
-        this.var_short_c = (short)height;
+        this.spritesWidth = (short)width;
+        this.spritesHeight = (short)height;
         this.var_byte_arr_e = new byte[n6];
         for (n3 = 0; n3 < n6; n3 = (int)((byte)(n3 + 1))) {
             this.var_byte_arr_e[n3] = (byte)n3;
@@ -122,14 +122,14 @@ public class e {
         this.var_short_b = e2.var_short_b;
         this.l = e2.l;
         this.var_boolean_c = e2.var_boolean_c;
-        this.j = e2.j;
-        this.var_short_c = e2.var_short_c;
+        this.spritesWidth = e2.spritesWidth;
+        this.spritesHeight = e2.spritesHeight;
     }
 
     // TODO this is used only once
     private e(int n, int n2) {
-        this.j = (short)n;
-        this.var_short_c = (short)n2;
+        this.spritesWidth = (short)n;
+        this.spritesHeight = (short)n2;
     }
 
     public short short_a() {
