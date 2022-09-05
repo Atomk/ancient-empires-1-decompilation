@@ -72,14 +72,19 @@ public class e {
             // Loads a sprite collection made of single images
             // Note that here the values of tileWidth and tileHeight
             // found in the .sprite asset data are ignored
-            
+            // Also note that in this case (single images) the tile sizes in the
+            // sprite files may be wrong (different from the actual size of the images)
+
             for (int j = 0; j < tileCount; ++j) {
                 String fileName = imageName + "_";
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
+                
+                // TODO investigate on the difference between the two loading modes
                 if (n != -1) {
                     byte[] imageBytes = AppCanvas.getFileBytes(fileName);
                     this.sprites[j] = Sprite.fromByteArray(imageBytes, n);
+                    // TODO refactor for readability -- if(n == -1) ... else ---
                     continue;
                 }
                 this.sprites[j] = new Sprite(fileName);
@@ -90,6 +95,7 @@ public class e {
         inputStream.close();
         this.spritesWidth = this.sprites[0].width;
         this.spritesHeight = this.sprites[0].height;
+
         this.var_byte_arr_e = new byte[tileCount];
         for (int n6 = 0; n6 < tileCount; n6 = (byte)(n6 + 1)) {
             this.var_byte_arr_e[n6] = (byte)n6;
