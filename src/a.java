@@ -260,7 +260,7 @@ extends Class_I {
     public void a(Unit c2, Unit c3) throws Exception {
         this.var_byte_d = (byte)2;
         this.var_java_util_Vector_d = this.var_java_util_Vector_c;
-        this.var_java_util_Vector_c = new Vector();
+        this.var_java_util_Vector_c = new Vector<e>();
         this.var_boolean_e = true;
         this.var_int_m = 0;
         this.var_boolean_k = false;
@@ -296,7 +296,7 @@ extends Class_I {
             this.var_boolean_q = false;
         }
         for (int j = this.var_java_util_Vector_c.size() - 1; j >= 0; --j) {
-            e e2 = (e)this.var_java_util_Vector_c.elementAt(j);
+            e e2 = this.var_java_util_Vector_c.elementAt(j);
             e2.void_a();
             if (e2.var_boolean_d) continue;
             this.var_java_util_Vector_c.removeElement(e2);

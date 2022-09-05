@@ -125,7 +125,7 @@ implements CommandListener {
     public g var_g_c;
     public g var_g_h;
     public g var_g_g;
-    public Vector var_java_util_Vector_c = new Vector();
+    public Vector<e> var_java_util_Vector_c = new Vector<e>();
     public Vector var_java_util_Vector_f = new Vector();
     public Unit var_c_c;
     public long var_long_g;
@@ -804,7 +804,7 @@ implements CommandListener {
     public void void_a(int n) throws Exception {
         short s;
         String string;
-        this.var_java_util_Vector_c = new Vector();
+        this.var_java_util_Vector_c = new Vector<e>();
         this.var_short_d = 0;
         this.var_byte_c = 0;
         this.var_byte_g = 0;
@@ -1384,14 +1384,14 @@ implements CommandListener {
                 this.var_boolean_t = false;
             }
             for (n = this.var_java_util_Vector_c.size() - 1; n >= 0; --n) {
-                e e2 = (e)this.var_java_util_Vector_c.elementAt(n);
+                e e2 = this.var_java_util_Vector_c.elementAt(n);
                 e2.void_a();
                 if (e2.var_boolean_d) continue;
                 this.var_java_util_Vector_c.removeElement(e2);
             }
             n2 = this.var_java_util_Vector_f.size();
             for (n = 0; n < n2; ++n) {
-                this.var_java_util_Vector_c.addElement(this.var_java_util_Vector_f.elementAt(n));
+                this.var_java_util_Vector_c.addElement((e)this.var_java_util_Vector_f.elementAt(n));
             }
             this.var_java_util_Vector_f.removeAllElements();
         }
@@ -1724,7 +1724,7 @@ implements CommandListener {
                     graphics.drawString(string, AppCanvas.h, n3, 17);
                 }
                 for (n = 0; n < this.var_java_util_Vector_c.size(); ++n) {
-                    ((e)this.var_java_util_Vector_c.elementAt(n)).a(graphics, this.var_short_f, this.var_short_a);
+                    this.var_java_util_Vector_c.elementAt(n).a(graphics, this.var_short_f, this.var_short_a);
                 }
             }
         }
@@ -2947,7 +2947,7 @@ implements CommandListener {
             this.var_boolean_q = false;
         }
         for (int j = this.var_java_util_Vector_c.size() - 1; j >= 0; --j) {
-            e e2 = (e)this.var_java_util_Vector_c.elementAt(j);
+            e e2 = this.var_java_util_Vector_c.elementAt(j);
             e2.void_a();
             if (e2.var_boolean_d) continue;
             this.var_java_util_Vector_c.removeElement(e2);
@@ -3010,7 +3010,7 @@ implements CommandListener {
             this.var_f_b.a(graphics);
         }
         for (int j = 0; j < this.var_java_util_Vector_c.size(); ++j) {
-            e e2 = (e)this.var_java_util_Vector_c.elementAt(j);
+            e e2 = this.var_java_util_Vector_c.elementAt(j);
             if (e2.var_boolean_a) {
                 if (this.var_f_b.var_boolean_f) {
                     graphics.setClip(AppCanvas.h, 0, AppCanvas.h, AppCanvas.height2);
