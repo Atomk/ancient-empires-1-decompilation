@@ -31,14 +31,14 @@ public class SpriteSheet {
     private boolean[] var_boolean_arr_a;
 
     public SpriteSheet(String imageName) throws Exception {
-        this.a(imageName, 0);
+        this.loadSpritesheetWithFilename(imageName, 0);
     }
 
     public SpriteSheet(String imageName, byte by) throws Exception {
-        this.a(imageName, by);
+        this.loadSpritesheetWithFilename(imageName, by);
     }
 
-    private void a(String imageName, int n) throws Exception {
+    private void loadSpritesheetWithFilename(String imageName, int n) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
         // A .sprite asset contains metadata for a collection of sprites
         int tileCount = inputStream.read();
