@@ -7,7 +7,7 @@
 import java.io.InputStream;
 import javax.microedition.lcdui.Graphics;
 
-public class e {
+public class SpriteSheet {
     public Sprite[] sprites;
     private byte[] var_byte_arr_e;
     public short var_short_d = 0;
@@ -30,11 +30,11 @@ public class e {
     private byte[] var_byte_arr_d;
     private boolean[] var_boolean_arr_a;
 
-    public e(String imageName) throws Exception {
+    public SpriteSheet(String imageName) throws Exception {
         this.a(imageName, 0);
     }
 
-    public e(String imageName, byte by) throws Exception {
+    public SpriteSheet(String imageName, byte by) throws Exception {
         this.a(imageName, by);
     }
 
@@ -102,7 +102,7 @@ public class e {
         }
     }
 
-    public e(Sprite sprite, int width, int height) {
+    public SpriteSheet(Sprite sprite, int width, int height) {
         int n3;
         int n4 = sprite.width / width;
         int n5 = sprite.height / height;
@@ -121,7 +121,7 @@ public class e {
         }
     }
 
-    public e(e e2) {
+    public SpriteSheet(SpriteSheet e2) {
         this.sprites = e2.sprites;
         this.var_byte_arr_e = e2.var_byte_arr_e;
         this.var_short_d = e2.var_short_d;
@@ -133,7 +133,7 @@ public class e {
     }
 
     // TODO this is used only once
-    private e(int n, int n2) {
+    private SpriteSheet(int n, int n2) {
         this.spritesWidth = (short)n;
         this.spritesHeight = (short)n2;
     }
@@ -198,12 +198,12 @@ public class e {
         }
     }
 
-    public static e a(e e2, int n, int n2, int n3, int n4, byte by) {
-        e e3 = null;
+    public static SpriteSheet a(SpriteSheet e2, int n, int n2, int n3, int n4, byte by) {
+        SpriteSheet e3 = null;
         if (e2 != null) {
-            e3 = new e(e2);
+            e3 = new SpriteSheet(e2);
         } else {
-            e3 = new e(24, 24);
+            e3 = new SpriteSheet(24, 24);
             if (by == 2 || by == 4) {
                 if (by == 4) {
                     e3.f = 0xEEEEFF;

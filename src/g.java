@@ -842,7 +842,7 @@ public class g {
                     int n18 = this.var_int_h;
                     for (int j = 0; j < this.var_int_f; ++j) {
                         for (int k = 0; k < this.w; ++k) {
-                            e e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
+                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
                             if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
@@ -1022,7 +1022,7 @@ public class g {
 
     private void a(Graphics graphics, int n, int n2, int n3, int n4, int n5) {
         int n6;
-        e e2 = this.var_a_a.var_e_b;
+        SpriteSheet e2 = this.var_a_a.var_e_b;
         graphics.setClip(n, n2, n3, n4);
         graphics.setColor(13549221);
         int n7 = n3;

@@ -59,7 +59,7 @@ implements CommandListener {
     private long var_long_a;
     private boolean var_boolean_s = false;
     public static final int[] var_int_arr_a;
-    public e[][] var_e_arr_arr_b;
+    public SpriteSheet[][] var_e_arr_arr_b;
     private static final byte[] var_byte_arr_a;
     public static final byte[] terrainTypeDefense;
     public static final byte[] terrainType_XXX;
@@ -78,16 +78,16 @@ implements CommandListener {
     public Sprite[] var_h_arr_c;
     public Sprite spriteMenuPointer;
     public Sprite spriteGold;
-    public e var_e_h;
-    public e var_e_k;
-    public e var_e_g;
-    public e var_e_b;
-    public e var_e_e;
-    public e var_e_l;
-    public e var_e_r;
-    public e var_e_d;
-    public e var_e_j;
-    public e var_e_m;
+    public SpriteSheet var_e_h;
+    public SpriteSheet var_e_k;
+    public SpriteSheet var_e_g;
+    public SpriteSheet var_e_b;
+    public SpriteSheet var_e_e;
+    public SpriteSheet var_e_l;
+    public SpriteSheet var_e_r;
+    public SpriteSheet var_e_d;
+    public SpriteSheet var_e_j;
+    public SpriteSheet var_e_m;
     public short var_short_h;
     public short var_short_g;
     public byte[][] var_byte_arr_arr_a;
@@ -125,8 +125,8 @@ implements CommandListener {
     public g var_g_c;
     public g var_g_h;
     public g var_g_g;
-    public Vector<e> var_java_util_Vector_c = new Vector<e>();
-    public Vector<e> var_java_util_Vector_f = new Vector<e>();
+    public Vector<SpriteSheet> var_java_util_Vector_c = new Vector<SpriteSheet>();
+    public Vector<SpriteSheet> var_java_util_Vector_f = new Vector<SpriteSheet>();
     public Unit var_c_c;
     public long var_long_g;
     public Unit var_c_e;
@@ -210,14 +210,14 @@ implements CommandListener {
     public f var_f_a;
     public long var_long_f;
     public boolean var_boolean_k;
-    public e var_e_q;
+    public SpriteSheet var_e_q;
     public Sprite spritePanelDefense;
-    public e var_e_n;
-    public e var_e_i;
-    public e var_e_c;
-    public e var_e_p;
-    public e var_e_f;
-    public e var_e_o;
+    public SpriteSheet var_e_n;
+    public SpriteSheet var_e_i;
+    public SpriteSheet var_e_c;
+    public SpriteSheet var_e_p;
+    public SpriteSheet var_e_f;
+    public SpriteSheet var_e_o;
     public boolean var_boolean_q = false;
     public long var_long_m;
     public long var_long_b;
@@ -228,9 +228,9 @@ implements CommandListener {
     public Class_I(byte by) throws Exception {
         this.var_byte_d = by;
         if (by == 0) {
-            this.var_e_g = new e("arrow");
-            this.var_e_e = new e("buttons");
-            this.var_e_b = new e("menu");
+            this.var_e_g = new SpriteSheet("arrow");
+            this.var_e_e = new SpriteSheet("buttons");
+            this.var_e_b = new SpriteSheet("menu");
             this.spriteMacrospaceLogo = new Sprite("ms_logo.png");
             this.spriteMenuPointer = new Sprite("pointer.png");
             this.spriteGameTitle = new Sprite("splash.png");
@@ -258,25 +258,25 @@ implements CommandListener {
         this.var_byte_d = 1;
         Unit.iClassRef = this;
         //AppCanvas.readAssetsPackage("/1.pak");
-        this.var_e_h = new e("cursor");
+        this.var_e_h = new SpriteSheet("cursor");
         this.spriteGold = new Sprite("gold.png");
-        this.var_e_m = new e("portrait");
-        this.var_e_d = new e("redspark");
-        this.var_e_l = new e("smoke");
-        this.var_e_r = new e("spark");
-        this.var_e_j = new e("status");
+        this.var_e_m = new SpriteSheet("portrait");
+        this.var_e_d = new SpriteSheet("redspark");
+        this.var_e_l = new SpriteSheet("smoke");
+        this.var_e_r = new SpriteSheet("spark");
+        this.var_e_j = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
         this.var_e_h.a(var_byte_arr_arr_d[0]);
-        this.var_e_k = new e(this.var_e_h);
+        this.var_e_k = new SpriteSheet(this.var_e_h);
         this.var_e_k.a(var_byte_arr_arr_d[3]);
-        this.var_e_arr_arr_b = new e[2][11];
+        this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
             object = Sprite.fromByteArray((byte[])imageBytesObj, (int)s);
             for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
-                this.var_e_arr_arr_b[s][n] = new e(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
+                this.var_e_arr_arr_b[s][n] = new SpriteSheet(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
         }
         imageBytesObj = AppCanvas.getFileBytesInputStream("tiles0.prop");
@@ -287,7 +287,7 @@ implements CommandListener {
         for (s = 0; s < s2; s = (short)((byte)(s + 1))) {
             this.var_byte_arr_j[s] = ((DataInputStream)object).readByte();
         }
-        e e2 = new e("tiles0");
+        SpriteSheet e2 = new SpriteSheet("tiles0");
         Sprite[] hArray = e2.sprites;
         this.var_int_t = hArray.length;
         e2 = null;
@@ -305,7 +305,7 @@ implements CommandListener {
         System.arraycopy(hArray, 0, this.var_h_arr_c, 0, hArray.length);
         System.arraycopy(hArray2, hArray2.length - 3, this.var_h_arr_c, hArray.length, 3);
         System.arraycopy(hArray2, 0, this.var_h_arr_c, hArray.length + 3, hArray2.length - 3);
-        e2 = new e("stiles0");
+        e2 = new SpriteSheet("stiles0");
         this.var_h_arr_d = e2.sprites;
         e2 = null;
         this.var_h_arr_a = new Sprite[2];
@@ -462,7 +462,7 @@ implements CommandListener {
         this.var_boolean_z = dataInputStream.readByte() != 0;
         dataInputStream.close();
         this.void_c(this.var_c_arr_a[this.var_byte_c].i, this.var_c_arr_a[this.var_byte_c].var_short_a);
-        this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b, (int)((e)this.var_c_arr_a[this.var_byte_c]).l);
+        this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b, (int)((SpriteSheet)this.var_c_arr_a[this.var_byte_c]).l);
     }
 
     public static void loadSettingsData() {
@@ -514,31 +514,31 @@ implements CommandListener {
     }
 
     public void o() {
-        e e2;
+        SpriteSheet e2;
         if (this.var_c_i.h <= 0) {
             this.var_c_c = this.var_c_i;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
-            e2 = this.a(this.var_e_j, this.var_c_i.var_short_b + 3, ((e)this.var_c_i).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.var_e_j, this.var_c_i.var_short_b + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_c);
-            this.a(this.var_e_r, this.var_c_i.var_short_b, ((e)this.var_c_i).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
         if (this.var_c_b.h <= 0) {
             this.var_c_c = this.var_c_b;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.a((short)128)) {
-            e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 4, ((e)this.var_c_b).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_f);
-            this.a(this.var_e_r, this.var_c_b.var_short_b, ((e)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.a((byte)1);
         } else if (this.var_c_b.boolean_a()) {
-            e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 3, ((e)this.var_c_b).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.a(var_byte_arr_c);
-            this.a(this.var_e_r, this.var_c_b.var_short_b, ((e)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
         }
         if (this.var_c_c != null) {
-            this.a(this.var_e_r, this.var_c_c.var_short_b, ((e)this.var_c_c).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_c.var_short_b, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
         }
         this.var_long_g = this.var_long_n;
         if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -574,8 +574,8 @@ implements CommandListener {
         }
     }
 
-    public e a(e e2, int n, int n2, int n3, int n4, int n5, int n6) {
-        e e3 = e.a(e2, n3, n4, n5, n6, (byte)0);
+    public SpriteSheet a(SpriteSheet e2, int n, int n2, int n3, int n4, int n5, int n6) {
+        SpriteSheet e3 = SpriteSheet.a(e2, n3, n4, n5, n6, (byte)0);
         e3.void_b(n, n2);
         this.var_java_util_Vector_f.addElement(e3);
         return e3;
@@ -797,14 +797,14 @@ implements CommandListener {
         return Unit.a((byte)n, this.var_byte_c, n2, n3);
     }
 
-    public e a(byte by, byte unitType) {
+    public SpriteSheet a(byte by, byte unitType) {
         return this.var_e_arr_arr_b[by][unitType];
     }
 
     public void void_a(int n) throws Exception {
         short s;
         String string;
-        this.var_java_util_Vector_c = new Vector<e>();
+        this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_short_d = 0;
         this.var_byte_c = 0;
         this.var_byte_g = 0;
@@ -899,7 +899,7 @@ implements CommandListener {
             this.var_int_u = 0;
         }
         this.void_c(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
-        this.void_a(this.var_c_arr_a[0].var_short_b, (int)((e)this.var_c_arr_a[0]).l);
+        this.void_a(this.var_c_arr_a[0].var_short_b, (int)((SpriteSheet)this.var_c_arr_a[0]).l);
     }
 
     public void h() {
@@ -1112,7 +1112,7 @@ implements CommandListener {
                     if (this.var_int_n == 0) {
                         this.var_c_i.a(this.var_c_b);
                         this.var_c_b.b(400);
-                        this.a(this.var_e_d, this.var_c_b.var_short_b, ((e)this.var_c_b).l, 0, 0, 2, 50);
+                        this.a(this.var_e_d, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
                         this.var_long_d = this.var_long_n;
                         ++this.var_int_n;
                     } else if (this.var_int_n == 1) {
@@ -1121,7 +1121,7 @@ implements CommandListener {
                             if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.i, (int)this.var_c_i.var_short_a)) {
                                 this.var_c_b.a(this.var_c_i);
                                 this.var_c_i.b(400);
-                                this.a(this.var_e_d, this.var_c_i.var_short_b, ((e)this.var_c_i).l, 0, 0, 2, 50);
+                                this.a(this.var_e_d, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
                                 this.var_long_d = this.var_long_n;
                                 ++this.var_int_n;
                             } else {
@@ -1133,7 +1133,7 @@ implements CommandListener {
                     }
                 } else if (this.var_c_c != null) {
                     if (this.var_long_n - this.var_long_g >= 300L) {
-                        this.a(this.var_e_l, this.var_c_c.var_short_b, ((e)this.var_c_c).l, 0, -3, 1, 100);
+                        this.a(this.var_e_l, this.var_c_c.var_short_b, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
                         if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.F != 4) {
                             if (this.F != 6) {
                                 this.var_java_util_Vector_a.removeElement(this.var_c_c);
@@ -1285,7 +1285,7 @@ implements CommandListener {
                             } else if (appCanvas.boolean_c(512)) {
                                 if (this.var_c_arr_a[this.var_byte_c] != null) {
                                     this.void_c(this.var_c_arr_a[this.var_byte_c].i, this.var_c_arr_a[this.var_byte_c].var_short_a);
-                                    this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b + 12, ((e)this.var_c_arr_a[this.var_byte_c]).l + 12);
+                                    this.void_a(this.var_c_arr_a[this.var_byte_c].var_short_b + 12, ((SpriteSheet)this.var_c_arr_a[this.var_byte_c]).l + 12);
                                 }
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
@@ -1384,7 +1384,7 @@ implements CommandListener {
                 this.var_boolean_t = false;
             }
             for (n = this.var_java_util_Vector_c.size() - 1; n >= 0; --n) {
-                e e2 = this.var_java_util_Vector_c.elementAt(n);
+                SpriteSheet e2 = this.var_java_util_Vector_c.elementAt(n);
                 e2.void_a();
                 if (e2.var_boolean_d) continue;
                 this.var_java_util_Vector_c.removeElement(e2);
@@ -1405,10 +1405,10 @@ implements CommandListener {
     public void void_a(Unit c2, byte by) {
         this.var_c_e = c2;
         this.var_byte_f = by;
-        this.a(this.var_e_r, c2.var_short_b - 8, ((e)c2).l - 8, 1, 1, 3, 50);
-        this.a(this.var_e_r, c2.var_short_b + 8, ((e)c2).l - 8, -1, 1, 3, 50);
-        this.a(this.var_e_r, c2.var_short_b - 8, ((e)c2).l + 8, 1, -1, 3, 50);
-        this.a(this.var_e_r, c2.var_short_b + 8, ((e)c2).l + 8, -1, -1, 3, 50);
+        this.a(this.var_e_r, c2.var_short_b - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
+        this.a(this.var_e_r, c2.var_short_b + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
+        this.a(this.var_e_r, c2.var_short_b - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
+        this.a(this.var_e_r, c2.var_short_b + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
         this.var_long_i = this.var_long_n;
     }
 
@@ -1416,7 +1416,7 @@ implements CommandListener {
         if (this.var_c_d == null) {
             this.d(this.var_e_h.var_short_b + 12, this.var_e_h.l + 12);
         } else {
-            this.d(this.var_c_d.var_short_b + 12, ((e)this.var_c_d).l + 12);
+            this.d(this.var_c_d.var_short_b + 12, ((SpriteSheet)this.var_c_d).l + 12);
         }
     }
 
@@ -1649,7 +1649,7 @@ implements CommandListener {
                 for (n2 = 0; n2 < n3; ++n2) {
                     Unit c2 = this.var_java_util_Vector_a.elementAt(n2);
                     if (c2.var_byte_e == 3) {
-                        this.spriteTombstone.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((e)c2).l);
+                        this.spriteTombstone.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((SpriteSheet)c2).l);
                         continue;
                     }
                     if (c2 == this.var_c_h) continue;
@@ -1988,7 +1988,7 @@ implements CommandListener {
             }
             if (this.var_byte_b == 3) {
                 if (this.var_int_A == 0) {
-                    if (this.boolean_c(this.var_c_h.var_short_b + 12, ((e)this.var_c_h).l + 12)) {
+                    if (this.boolean_c(this.var_c_h.var_short_b + 12, ((SpriteSheet)this.var_c_h).l + 12)) {
                         this.var_int_A = 1;
                         this.var_long_j = this.var_long_n;
                     }
@@ -2914,7 +2914,7 @@ implements CommandListener {
         // TODO this image does not exist. A child class assign "defencepanel" to this field, which exists
         // Since the image does not exist, this is the same as assigning null
         this.spritePanelDefense = null;//new Sprite("defpanel.png");
-        this.var_e_q = new e("soul");
+        this.var_e_q = new SpriteSheet("soul");
         this.var_f_b = new f(this, c2, true);
         this.var_f_a = new f(this, c3, false);
         //AppCanvas.e();
@@ -2947,7 +2947,7 @@ implements CommandListener {
             this.var_boolean_q = false;
         }
         for (int j = this.var_java_util_Vector_c.size() - 1; j >= 0; --j) {
-            e e2 = this.var_java_util_Vector_c.elementAt(j);
+            SpriteSheet e2 = this.var_java_util_Vector_c.elementAt(j);
             e2.void_a();
             if (e2.var_boolean_d) continue;
             this.var_java_util_Vector_c.removeElement(e2);
@@ -3010,7 +3010,7 @@ implements CommandListener {
             this.var_f_b.a(graphics);
         }
         for (int j = 0; j < this.var_java_util_Vector_c.size(); ++j) {
-            e e2 = this.var_java_util_Vector_c.elementAt(j);
+            SpriteSheet e2 = this.var_java_util_Vector_c.elementAt(j);
             if (e2.var_boolean_a) {
                 if (this.var_f_b.var_boolean_f) {
                     graphics.setClip(AppCanvas.h, 0, AppCanvas.h, AppCanvas.height2);

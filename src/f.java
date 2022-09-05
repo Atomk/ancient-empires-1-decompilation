@@ -28,16 +28,16 @@ public class f {
     private int o = 0;
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_b;
-    private e var_e_c;
-    private e var_e_a;
-    private e var_e_b;
+    private SpriteSheet var_e_c;
+    private SpriteSheet var_e_a;
+    private SpriteSheet var_e_b;
     private int m;
     private int var_int_a;
     private boolean var_boolean_b;
     private long var_long_a;
     private long var_long_c;
     private long var_long_b;
-    private e[] var_e_arr_b;
+    private SpriteSheet[] var_e_arr_b;
     private Sprite[] var_h_arr_a;
     private Sprite var_h_a;
     public f var_f_a;
@@ -62,7 +62,7 @@ public class f {
     private int soundIndex;
     private boolean var_boolean_c = false;
     private boolean var_boolean_a = false;
-    private e[] var_e_arr_a;
+    private SpriteSheet[] var_e_arr_a;
     private int i;
 
     public f(Class_I i2, Unit c2, boolean bl) throws Exception {
@@ -98,7 +98,7 @@ public class f {
             this.var_int_b = 1;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.var_int_b] == null) {
-            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)Class_I.terrainTypeNames[this.var_int_b]).sprites;
+            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new SpriteSheet((String)Class_I.terrainTypeNames[this.var_int_b]).sprites;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.var_int_b];
         if (this.var_a_a.b[this.var_int_f] == null) {
@@ -130,37 +130,37 @@ public class f {
             }
         }
         if (this.var_a_a.var_e_arr_arr_a[c2.var_byte_a][c2.unitType] == null) {
-            this.var_a_a.var_e_arr_arr_a[c2.var_byte_a][c2.unitType] = new e(unitsNames[c2.unitType], c2.var_byte_a);
+            this.var_a_a.var_e_arr_arr_a[c2.var_byte_a][c2.unitType] = new SpriteSheet(unitsNames[c2.unitType], c2.var_byte_a);
         }
         this.var_e_c = this.var_a_a.var_e_arr_arr_a[c2.var_byte_a][c2.unitType];
         if (this.var_byte_e == 2 || this.var_byte_e == 4) {
             if (i2.var_e_p == null) {
-                i2.var_e_p = new e("slash");
+                i2.var_e_p = new SpriteSheet("slash");
             }
-            this.var_e_b = new e(i2.var_e_p);
+            this.var_e_b = new SpriteSheet(i2.var_e_p);
             this.var_e_b.a(var_byte_arr_arr_e[this.var_byte_f]);
         } else if (c2.unitType == Unit.KING) {
             if (i2.var_e_i == null) {
-                i2.var_e_i = new e("kingslash");
+                i2.var_e_i = new SpriteSheet("kingslash");
             }
             this.var_e_a = i2.var_e_i;
-            this.var_e_b = new e("kingswing");
+            this.var_e_b = new SpriteSheet("kingswing");
             this.var_e_b.a(var_byte_arr_arr_e[this.var_byte_f]);
         } else if (c2.unitType == Unit.SPIDER) {
             if (i2.var_e_o == null) {
-                i2.var_e_o = new e("spiderspit");
+                i2.var_e_o = new SpriteSheet("spiderspit");
             }
             this.var_e_a = i2.var_e_o;
         } else if (c2.unitType == Unit.CATAPULT) {
             if (i2.var_e_c == null) {
-                i2.var_e_c = new e("stone");
+                i2.var_e_c = new SpriteSheet("stone");
             }
             this.var_e_a = i2.var_e_c;
         } else if (c2.unitType == Unit.WIZARD) {
             this.var_e_a = i2.var_e_r;
         } else if (c2.unitType == Unit.WYVERN) {
             if (i2.var_e_n == null) {
-                i2.var_e_n = new e("fireball");
+                i2.var_e_n = new SpriteSheet("fireball");
             }
             this.var_e_a = i2.var_e_n;
         }
@@ -171,14 +171,14 @@ public class f {
         }
         this.var_int_arr_c = new int[this.var_byte_a];
         this.var_int_arr_d = new int[this.var_byte_a];
-        this.var_e_arr_b = new e[this.var_byte_a];
+        this.var_e_arr_b = new SpriteSheet[this.var_byte_a];
         this.var_int_arr_a = new int[this.var_byte_a];
         if (c2.unitType == Unit.WISP) {
             this.var_boolean_arr_a = new boolean[this.var_byte_a];
         }
         for (n = 0; n < this.var_byte_a; ++n) {
             this.var_int_arr_c[n] = 0;
-            this.var_e_arr_b[n] = new e(this.var_e_c);
+            this.var_e_arr_b[n] = new SpriteSheet(this.var_e_c);
             this.var_e_arr_b[n].void_b(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
             if (c2.unitType == Unit.WYVERN) {
@@ -191,7 +191,7 @@ public class f {
         }
     }
 
-    private int a(e e2, int n) {
+    private int a(SpriteSheet e2, int n) {
         if (this.var_byte_f == 1) {
             return this.var_e_c.short_a() - n - e2.short_a();
         }
@@ -214,7 +214,7 @@ public class f {
             case 0: {
                 if (this.var_int_c == 0 && this.var_a_a.var_long_n - this.var_long_c >= 200L) {
                     this.k = 600;
-                    this.var_e_arr_a = new e[this.var_byte_b];
+                    this.var_e_arr_a = new SpriteSheet[this.var_byte_b];
                     for (int j = 0; j < this.var_byte_b; ++j) {
                         if (this.var_byte_e == 5) {
                             this.k = 0;
@@ -222,7 +222,7 @@ public class f {
                         }
                         if (this.var_c_a.unitType != Unit.WIZARD) continue;
                         this.a(j, this.var_byte_arr_arr_a[1]);
-                        this.var_e_arr_a[j] = e.a(this.var_e_a, 0, 0, -1, 0, (byte)0);
+                        this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, 0, 0, -1, 0, (byte)0);
                         this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].short_a() - this.var_e_arr_a[j].short_a()) / 2, this.var_e_arr_b[j].l - this.var_e_arr_a[j].short_b());
                         this.var_a_a.var_java_util_Vector_c.addElement(this.var_e_arr_a[j]);
                         this.var_e_arr_a[j].var_boolean_a = true;
@@ -244,12 +244,12 @@ public class f {
                     if (this.var_c_a.unitType == Unit.CATAPULT) {
                         this.c();
                     }
-                    this.var_e_arr_a = new e[this.var_byte_b];
+                    this.var_e_arr_a = new SpriteSheet[this.var_byte_b];
                     for (int j = 0; j < this.var_byte_b; ++j) {
                         if (this.var_byte_e == 5) {
                             this.a(j, this.var_byte_arr_arr_a[1]);
                             if (this.var_c_a.unitType == Unit.KING) {
-                                e e2 = e.a(this.var_e_b, 0, 0, 1, 200, (byte)0);
+                                SpriteSheet e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 200, (byte)0);
                                 e2.void_b(this.var_e_arr_b[0].var_short_b + this.a(e2, 5), this.var_e_arr_b[0].l + 2);
                                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
                             }
@@ -258,16 +258,16 @@ public class f {
                             this.var_boolean_a = true;
                         }
                         if (this.var_c_a.unitType == Unit.ARCHER) {
-                            this.var_e_arr_a[j] = e.a(null, var_byte_arr_b[this.var_byte_f] * 3, -4, -1, 0, (byte)3);
+                            this.var_e_arr_a[j] = SpriteSheet.a(null, var_byte_arr_b[this.var_byte_f] * 3, -4, -1, 0, (byte)3);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].short_a()), this.var_e_arr_b[j].l);
                         } else if (this.var_c_a.unitType == Unit.CATAPULT) {
-                            this.var_e_arr_a[j] = e.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 10, -8, -1, 0, (byte)0);
+                            this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 10, -8, -1, 0, (byte)0);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], 18), this.var_e_arr_b[j].l);
                         } else if (this.var_c_a.unitType == Unit.SPIDER) {
-                            this.var_e_arr_a[j] = e.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
+                            this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].short_a() - 10), this.var_e_arr_b[j].l + this.var_e_arr_b[j].short_b() / 3);
                         } else {
-                            this.var_e_arr_a[j] = e.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
+                            this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].short_a()), this.var_e_arr_b[j].l);
                         }
                         if (this.var_c_a.unitType != Unit.CATAPULT) {
@@ -293,7 +293,7 @@ public class f {
                 boolean bl = true;
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
                     if (this.var_c_a.unitType == Unit.WYVERN && AppCanvas.randomGen.nextInt() % 2 == 0) {
-                        e e3 = e.a(this.var_a_a.var_e_a, 0, -1, 1, 200, (byte)0);
+                        SpriteSheet e3 = SpriteSheet.a(this.var_a_a.var_e_a, 0, -1, 1, 200, (byte)0);
                         e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
                         e3.var_boolean_a = true;
@@ -397,7 +397,7 @@ public class f {
         }
         for (int j = 0; j < this.var_e_arr_b.length; ++j) {
             if (bl) {
-                e e2 = e.a(null, 0, 0, 1, 500, (byte)4);
+                SpriteSheet e2 = SpriteSheet.a(null, 0, 0, 1, 500, (byte)4);
                 e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].short_a() >> 1), this.var_e_arr_b[j].l + (this.var_e_arr_b[j].short_b() >> 1) + this.var_int_a + this.var_int_arr_d[j]);
                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
             }
@@ -458,7 +458,7 @@ public class f {
                     }
                     boolean bl = true;
                     for (n2 = 0; n2 < this.var_int_c; ++n2) {
-                        e e2;
+                        SpriteSheet e2;
                         if (this.var_byte_e == 4) {
                             if (this.var_int_arr_c[n2] == -1) continue;
                             this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b + var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l);
@@ -466,7 +466,7 @@ public class f {
                             this.var_int_arr_c[n3] = this.var_int_arr_c[n3] + 3;
                             if (this.var_int_arr_c[n2] >= 24) {
                                 this.a(n2, this.var_byte_arr_arr_a[2]);
-                                e2 = e.a(this.var_e_b, 0, 0, 1, 150, (byte)0);
+                                e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 150, (byte)0);
                                 e2.void_b(this.var_e_arr_b[n2].var_short_b + this.a(e2, 24), this.var_e_arr_b[n2].l + 3);
                                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
                                 this.var_int_arr_c[n2] = -1;
@@ -490,7 +490,7 @@ public class f {
                         this.var_int_arr_c[n5] = this.var_int_arr_c[n5] + 1;
                         if (this.var_byte_e != 2) continue;
                         this.a(n2, this.var_byte_arr_arr_a[0]);
-                        e2 = e.a(this.var_e_b, 0, 0, 1, 150, (byte)0);
+                        e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 150, (byte)0);
                         e2.void_b(this.var_e_arr_b[n2].var_short_b + this.a(e2, 14), this.var_e_arr_b[n2].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e2);
                     }
@@ -593,17 +593,17 @@ public class f {
         this.var_byte_b = this.var_byte_d;
         this.h = this.var_byte_c;
         for (int j = 0; j < this.l; ++j) {
-            e e2 = e.a(this.var_a_a.var_e_q, 0, -2, 1, 150, (byte)0);
-            e e3 = e.a(this.var_a_a.var_e_d, 0, 0, 1, 100, (byte)0);
+            SpriteSheet e2 = SpriteSheet.a(this.var_a_a.var_e_q, 0, -2, 1, 150, (byte)0);
+            SpriteSheet e3 = SpriteSheet.a(this.var_a_a.var_e_d, 0, 0, 1, 100, (byte)0);
             e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].short_a() - e2.short_a()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].short_b() - e2.short_b() + 3);
             e3.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].short_a() - e3.short_a()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].short_b() - e3.short_b() + 3);
             this.var_a_a.var_java_util_Vector_c.addElement(e2);
             this.var_a_a.var_java_util_Vector_c.addElement(e3);
-            e2 = e.a(null, 0, 0, 1, 800, (byte)2);
+            e2 = SpriteSheet.a(null, 0, 0, 1, 800, (byte)2);
             e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].short_a() >> 1), this.var_e_arr_b[j].l + (this.var_e_arr_b[j].short_b() >> 1));
             this.var_a_a.var_java_util_Vector_c.addElement(e2);
         }
-        e[] eArray = new e[this.var_byte_b];
+        SpriteSheet[] eArray = new SpriteSheet[this.var_byte_b];
         System.arraycopy(this.var_e_arr_b, this.l, eArray, 0, this.var_byte_b);
         this.var_e_arr_b = eArray;
         AppCanvas.playSound(1, 1);
@@ -657,7 +657,7 @@ public class f {
             graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
         }
         for (int j = 0; j < this.var_byte_b; ++j) {
-            e e2 = this.var_e_arr_b[j];
+            SpriteSheet e2 = this.var_e_arr_b[j];
             if (this.var_c_a.unitType == Unit.WISP) {
                 e2.a(graphics, this.m, this.var_int_a + this.var_int_arr_d[j]);
                 continue;
@@ -669,7 +669,7 @@ public class f {
     public void b(Graphics graphics) {
         graphics.setColor(0x404040);
         for (int j = 0; j < this.var_byte_b; ++j) {
-            e e2 = this.var_e_arr_b[j];
+            SpriteSheet e2 = this.var_e_arr_b[j];
             if (this.var_byte_e == 1 || this.var_byte_e == 2 || this.var_byte_e == 3) {
                 graphics.fillArc((int)e2.var_short_b, this.var_int_arr_arr_a[j + this.l][1] + e2.short_b() * 4 / 5, (int)e2.short_a(), e2.short_b() / 4, 0, 360);
                 continue;

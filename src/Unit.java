@@ -8,7 +8,7 @@ import java.util.Vector;
 import javax.microedition.lcdui.Graphics;
 
 public class Unit
-extends e {
+extends SpriteSheet {
     public static final byte SOLDIER = 0;
     public static final byte ARCHER = 1;
     public static final byte LIZARD = 2;
@@ -63,7 +63,7 @@ extends e {
         this.i = (short)n;
         this.var_short_a = (short)n2;
         this.var_short_b = (short)(n * 24);
-        ((e)this).l = (short)(n2 * 24);
+        ((SpriteSheet)this).l = (short)(n2 * 24);
         this.void_b(n * 24, n2 * 24);
         Unit.iClassRef.var_java_util_Vector_a.addElement(this);
     }
@@ -165,7 +165,7 @@ extends e {
         this.i = (short)n;
         this.var_short_a = (short)n2;
         this.var_short_b = (short)(n * 24);
-        ((e)this).l = (short)(n2 * 24);
+        ((SpriteSheet)this).l = (short)(n2 * 24);
     }
 
     public int int_a() {
@@ -362,7 +362,7 @@ extends e {
             if (this.var_short_g >= this.var_java_util_Vector_a.size()) {
                 this.var_byte_e = 0;
                 this.i = (short)(this.var_short_b / 24);
-                this.var_short_a = (short)(((e)this).l / 24);
+                this.var_short_a = (short)(((SpriteSheet)this).l / 24);
                 this.var_java_util_Vector_a = null;
                 this.var_short_g = 0;
                 iClassRef.c(this);
@@ -374,16 +374,16 @@ extends e {
                     this.var_short_b = (short)(this.var_short_b - 6);
                 } else if (n > this.var_short_b) {
                     this.var_short_b = (short)(this.var_short_b + 6);
-                } else if (n2 < ((e)this).l) {
-                    ((e)this).l = (short)(((e)this).l - 6);
-                } else if (n2 > ((e)this).l) {
-                    ((e)this).l = (short)(((e)this).l + 6);
+                } else if (n2 < ((SpriteSheet)this).l) {
+                    ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l - 6);
+                } else if (n2 > ((SpriteSheet)this).l) {
+                    ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l + 6);
                 }
-                if (this.var_short_b % 24 == 0 && ((e)this).l % 24 == 0) {
+                if (this.var_short_b % 24 == 0 && ((SpriteSheet)this).l % 24 == 0) {
                     this.var_short_g = (short)(this.var_short_g + 1);
                 }
             }
-            super.void_b(this.var_short_b, ((e)this).l);
+            super.void_b(this.var_short_b, ((SpriteSheet)this).l);
         } else if (Unit.iClassRef.var_long_n - this.var_long_a >= 200L) {
             this.c();
             this.var_long_a = Unit.iClassRef.var_long_n;
@@ -415,7 +415,7 @@ extends e {
             Unit[] cArray = c2.a(c2.i, (int)c2.var_short_a, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
-                iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].var_short_b, ((e)cArray[j]).l, 0, 0, 1, 50);
+                iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].var_short_b, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
             }
         }
         Unit.iClassRef.var_c_f = this;
@@ -447,7 +447,7 @@ extends e {
 
     public void b(Graphics graphics, int n, int n2) {
         int n3 = this.var_short_b + n;
-        int n4 = ((e)this).l + n2;
+        int n4 = ((SpriteSheet)this).l + n2;
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn

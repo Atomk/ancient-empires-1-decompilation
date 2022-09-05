@@ -52,7 +52,7 @@ CommandListener {
     public int pressedKeysActions = 0;
     public int lastKeyPressedAction = 0;
     private long lastKeyPressedTime;
-    private static e[] var_e_arr_a;
+    private static SpriteSheet[] var_e_arr_a;
     public static Random randomGen;
     public static boolean[] settings;
     public static String[] settingsNames;
@@ -313,8 +313,8 @@ CommandListener {
             AppCanvas.readAssetsPackage();
             this.loadSounds();
             Class_I.loadSettingsData();
-            AppCanvas.var_e_arr_a[0] = new e("chars");
-            AppCanvas.var_e_arr_a[1] = new e("lchars");
+            AppCanvas.var_e_arr_a[0] = new SpriteSheet("chars");
+            AppCanvas.var_e_arr_a[1] = new SpriteSheet("lchars");
             this.spriteMask = new Sprite("mask.png");
             this.var_a_a = new a((byte)0);
             this.isRunning = true;
@@ -543,7 +543,7 @@ CommandListener {
         var_byte_arr_arr_a = new byte[][]{
             {26, -1, 25, -1, -1, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1},
             {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}};
-        var_e_arr_a = new e[2];
+        var_e_arr_a = new SpriteSheet[2];
         randomGen = new Random();
         // Music, Sound, Help, Fight Animation
         settings = new boolean[]{true, true, true, true};

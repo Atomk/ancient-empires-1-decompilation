@@ -13,17 +13,17 @@ extends Class_I {
     private Sprite spriteSplashBackground;
     private Sprite spriteSplashForeground;
     private Sprite spriteMacrospaceCoyrightText;
-    public e[][] var_e_arr_arr_c;
+    public SpriteSheet[][] var_e_arr_arr_c;
     public int I = -15;
     public int B;
     public int var_int_d = 0;
     public boolean var_boolean_g = false;
-    private Vector<e> var_java_util_Vector_d;
-    public e[][] var_e_arr_arr_a;
+    private Vector<SpriteSheet> var_java_util_Vector_d;
+    public SpriteSheet[][] var_e_arr_arr_a;
     public Sprite[][] var_h_arr_arr_a;
     public Sprite[] b;
-    public e[] var_e_arr_a = new e[0];
-    public e var_e_a;
+    public SpriteSheet[] var_e_arr_a = new SpriteSheet[0];
+    public SpriteSheet var_e_a;
     public byte[][] var_byte_arr_arr_c;
 
     public a(byte by) throws Exception {
@@ -39,22 +39,22 @@ extends Class_I {
         this.spriteSplashForeground = null;
         this.spriteMacrospaceCoyrightText = null;
         super.m();
-        this.var_e_arr_arr_a = new e[2][11];
+        this.var_e_arr_arr_a = new SpriteSheet[2][11];
         this.b = new Sprite[Class_I.terrainTypeNames.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
-        this.var_e_arr_arr_c = new e[2][11];
+        this.var_e_arr_arr_c = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
             byte[] imageBytes = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
             Sprite h2 = Sprite.fromByteArray(imageBytes, j);
             for (int k = 0; k < 11; ++k) {
-                this.var_e_arr_arr_c[j][k] = new e(new Sprite(h2, k, 0, 10, 10), 10, 10);
+                this.var_e_arr_arr_c[j][k] = new SpriteSheet(new Sprite(h2, k, 0, 10, 10), 10, 10);
             }
         }
-        this.var_e_a = new e("b_smoke");
+        this.var_e_a = new SpriteSheet("b_smoke");
         this.spritePanelDefense = new Sprite("defencepanel.png");
-        this.var_e_q = new e("soul");
+        this.var_e_q = new SpriteSheet("soul");
     }
 
     public void j() {
@@ -169,10 +169,10 @@ extends Class_I {
                 this.var_byte_arr_arr_c[n2][j] = -1;
             }
         }
-        this.var_e_arr_a = new e[this.var_byte_arr_arr_e.length];
+        this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
         for (n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
             if (this.byte_a((int)this.var_byte_arr_arr_e[n2][0], (int)this.var_byte_arr_arr_e[n2][1]) != 7) continue;
-            this.var_e_arr_a[n2] = e.a(this.var_e_a, 0, -1, 1, 250, (byte)0);
+            this.var_e_arr_a[n2] = SpriteSheet.a(this.var_e_a, 0, -1, 1, 250, (byte)0);
             this.var_e_arr_a[n2].var_boolean_d = false;
         }
     }
@@ -260,7 +260,7 @@ extends Class_I {
     public void a(Unit c2, Unit c3) throws Exception {
         this.var_byte_d = (byte)2;
         this.var_java_util_Vector_d = this.var_java_util_Vector_c;
-        this.var_java_util_Vector_c = new Vector<e>();
+        this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_boolean_e = true;
         this.var_int_m = 0;
         this.var_boolean_k = false;
@@ -296,7 +296,7 @@ extends Class_I {
             this.var_boolean_q = false;
         }
         for (int j = this.var_java_util_Vector_c.size() - 1; j >= 0; --j) {
-            e e2 = this.var_java_util_Vector_c.elementAt(j);
+            SpriteSheet e2 = this.var_java_util_Vector_c.elementAt(j);
             e2.void_a();
             if (e2.var_boolean_d) continue;
             this.var_java_util_Vector_c.removeElement(e2);
