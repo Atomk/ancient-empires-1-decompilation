@@ -20,7 +20,7 @@ public class g {
     public int var_int_g;
     private int m;
     private Font appFont = AppCanvas.fontSmallPlain;
-    private int x;
+    private int unitType_XX;
     private int z;
     private int B;
     private int p;
@@ -90,7 +90,7 @@ public class g {
                 this.var_boolean_a = true;
                 this.j = 65;
                 this.var_c_a = i2.c_a((int)i2.var_short_h, (int)i2.var_short_g, (byte)0);
-                this.x = this.var_c_a.unitType;
+                this.unitType_XX = this.var_c_a.unitType;
                 this.var_byte_c = this.var_c_a.var_byte_a;
                 this.var_int_b = AppCanvas.width2;
                 this.var_int_g = AppCanvas.height2 * 2 / 3;
@@ -106,7 +106,7 @@ public class g {
             this.D = (this.var_int_a - this.u * this.appFont.getBaselinePosition()) / (this.u + 1);
             // Unit description (74 is the description for the soldier - "Hardworking and brave, soldiers [...]")
             // Same thing at line 497
-            this.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.x), this.v, this.appFont);
+            this.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.unitType_XX), this.v, this.appFont);
         } else if (by == 3) {
             this.var_boolean_f = false;
             this.var_boolean_h = false;
@@ -417,12 +417,12 @@ public class g {
                                                                             if (this.var_boolean_i) break block100;
                                                                             if (!Class_I.appCanvas.boolean_a(2)) break block101;
                                                                         }
-                                                                        this.x += this.w;
-                                                                        if (this.x >= this.z) {
-                                                                            this.x -= this.z;
+                                                                        this.unitType_XX += this.w;
+                                                                        if (this.unitType_XX >= this.z) {
+                                                                            this.unitType_XX -= this.z;
                                                                             this.var_short_b = 0;
                                                                         }
-                                                                        if (this.x - this.var_short_b >= this.u) {
+                                                                        if (this.unitType_XX - this.var_short_b >= this.u) {
                                                                             this.var_short_b = (short)(this.var_short_b + 1);
                                                                         }
                                                                         this.var_boolean_c = true;
@@ -434,12 +434,12 @@ public class g {
                                                                 if (this.var_boolean_i) break block104;
                                                                 if (!Class_I.appCanvas.boolean_a(1)) break block105;
                                                             }
-                                                            this.x -= this.w;
-                                                            if (this.x < 0) {
-                                                                this.x = this.z + this.x;
+                                                            this.unitType_XX -= this.w;
+                                                            if (this.unitType_XX < 0) {
+                                                                this.unitType_XX = this.z + this.unitType_XX;
                                                                 this.var_short_b = (short)(this.z - this.u);
                                                             }
-                                                            if (this.x < this.var_short_b) {
+                                                            if (this.unitType_XX < this.var_short_b) {
                                                                 this.var_short_b = (short)(this.var_short_b - 1);
                                                             }
                                                             this.var_boolean_c = true;
@@ -452,9 +452,9 @@ public class g {
                                                     if (!Class_I.appCanvas.boolean_a(4)) break block108;
                                                 }
                                                 if (this.var_byte_a == 2) {
-                                                    --this.x;
-                                                    if (this.x < 0) {
-                                                        this.x = this.z - 1;
+                                                    --this.unitType_XX;
+                                                    if (this.unitType_XX < 0) {
+                                                        this.unitType_XX = this.z - 1;
                                                     }
                                                     this.var_boolean_c = true;
                                                 }
@@ -467,9 +467,9 @@ public class g {
                                         if (!Class_I.appCanvas.boolean_a(8)) break block111;
                                     }
                                     if (this.var_byte_a == 2) {
-                                        ++this.x;
-                                        if (this.x >= this.z) {
-                                            this.x = 0;
+                                        ++this.unitType_XX;
+                                        if (this.unitType_XX >= this.z) {
+                                            this.unitType_XX = 0;
                                         }
                                         this.var_boolean_c = true;
                                     }
@@ -481,21 +481,21 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.x]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.unitType_XX]]) {
                                 if (this.var_byte_a == 2) {
-                                    this.var_a_a.a((int)this.var_byte_arr_a[this.x], "", this);
+                                    this.var_a_a.a((int)this.var_byte_arr_a[this.unitType_XX], "", this);
                                 } else {
-                                    this.var_a_a.a(this.x, this.var_java_lang_String_arr_b[this.x], this);
+                                    this.var_a_a.a(this.unitType_XX, this.var_java_lang_String_arr_b[this.unitType_XX], this);
                                 }
                                 return;
                             }
                         }
                         if (this.var_byte_a == 2 && this.var_boolean_c) {
                             this.var_g_b.var_boolean_c = true;
-                            this.var_g_b.x = this.x;
+                            this.var_g_b.unitType_XX = this.unitType_XX;
                             // Unit description (74 is the description for the soldier - "Hardworking and brave, soldiers [...]")
                             // Same thing at line 109
-                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.var_byte_arr_a[this.x]), this.var_g_b.v, this.appFont);
+                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.var_byte_arr_a[this.unitType_XX]), this.var_g_b.v, this.appFont);
                             this.var_g_b.var_short_b = 0;
                         }
                         break block98;
@@ -712,7 +712,7 @@ public class g {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n7, n8, 20);
                         n8 += this.m;
                     }
-                    this.var_a_a.spriteMenuPointer.draw(graphics, this.p + this.D, (this.x - this.var_short_b) * this.m + this.D);
+                    this.var_a_a.spriteMenuPointer.draw(graphics, this.p + this.D, (this.unitType_XX - this.var_short_b) * this.m + this.D);
                     break;
                 }
                 case 1: 
@@ -723,14 +723,14 @@ public class g {
                     int n12;
                     int n13 = 2;
                     int n14 = 2;
-                    this.var_a_a.a(this.var_byte_c, (byte)this.x).a(graphics, n13, n14);
+                    this.var_a_a.a(this.var_byte_c, (byte)this.unitType_XX).a(graphics, n13, n14);
                     n13 += 26;
                     graphics.setColor(0);
                     if (this.var_byte_a == 4 && this.var_c_a.var_java_lang_String_a != null) {
                         graphics.drawString(this.var_c_a.var_java_lang_String_a, n13, n14, 20);
                     } else {
                         // SOLDIER
-                        graphics.drawString(AppCanvas.getGameText(63 + this.x), n13, n14, 20);
+                        graphics.drawString(AppCanvas.getGameText(63 + this.unitType_XX), n13, n14, 20);
                     }
                     graphics.setColor(0);
                     //String string = "";
@@ -738,7 +738,7 @@ public class g {
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.spriteGold.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
-                        AppCanvas.drawBoldWhiteText(graphics, "" + Unit.unitsDataPrice[this.x], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "" + Unit.unitsDataPrice[this.unitType_XX], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
                     } else {
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
@@ -770,7 +770,7 @@ public class g {
                     }
                     graphics.setColor(0xFF0000);
                     AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, 0);
-                    stringBuffer.append(Unit.unitsDataATK[this.x]);
+                    stringBuffer.append(Unit.unitsDataATK[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_f > 0) {
                             stringBuffer.append("+");
@@ -786,7 +786,7 @@ public class g {
                     AppCanvas.a(graphics, string2, n13, 33, 0, 8);
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, 0);
                     stringBuffer = new StringBuffer();
-                    stringBuffer.append(Unit.unitsDataDEF[this.x]);
+                    stringBuffer.append(Unit.unitsDataDEF[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_e > 0) {
                             stringBuffer.append("+");
@@ -799,7 +799,7 @@ public class g {
                     AppCanvas.a(graphics, string2, n13, 43, 0, 8);
                     AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, 0);
                     stringBuffer = new StringBuffer();
-                    stringBuffer.append(Unit.unitsDataMOV[this.x]);
+                    stringBuffer.append(Unit.unitsDataMOV[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.k > 0) {
                             stringBuffer.append("+");
@@ -847,7 +847,7 @@ public class g {
                             if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.short_a(), e2.short_b(), -1328628059);
                             }
-                            if (n16 == this.x) {
+                            if (n16 == this.unitType_XX) {
                                 this.var_a_a.spriteMenuPointer.draw(graphics, n17 - this.var_a_a.spriteMenuPointer.width + this.p, n18);
                             }
                             if (++n16 >= this.var_byte_arr_a.length) break;
