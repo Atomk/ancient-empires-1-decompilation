@@ -126,7 +126,7 @@ implements CommandListener {
     public g var_g_h;
     public g var_g_g;
     public Vector<e> var_java_util_Vector_c = new Vector<e>();
-    public Vector var_java_util_Vector_f = new Vector();
+    public Vector<e> var_java_util_Vector_f = new Vector<e>();
     public Unit var_c_c;
     public long var_long_g;
     public Unit var_c_e;
@@ -1391,7 +1391,7 @@ implements CommandListener {
             }
             n2 = this.var_java_util_Vector_f.size();
             for (n = 0; n < n2; ++n) {
-                this.var_java_util_Vector_c.addElement((e)this.var_java_util_Vector_f.elementAt(n));
+                this.var_java_util_Vector_c.addElement(this.var_java_util_Vector_f.elementAt(n));
             }
             this.var_java_util_Vector_f.removeAllElements();
         }
