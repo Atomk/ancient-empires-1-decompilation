@@ -86,10 +86,12 @@ CommandListener {
     }
 
     public static int int_a(int n) {
+        // 208 = height of splashbg.png and splashfg.png
         return n * 208 / 128;
     }
 
     public static int int_b(int n) {
+        // 176 = width of splashbg.png and splashfg.png
         return n * 176 / 128;
     }
 

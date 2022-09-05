@@ -1270,6 +1270,7 @@ implements CommandListener {
                                     this.var_boolean_r = false;
                                     this.var_boolean_t = false;
                                     this.var_byte_i = (byte)2;
+                                    // TODO this -1 should be an error...
                                     AppCanvas.playSound(-1, 1);
                                 }
                                 appCanvas.handleKeyReleasedAction(16);
