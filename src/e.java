@@ -46,13 +46,13 @@ public class e {
         this.sprites = new Sprite[tileCount];
         try {
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
-            Sprite sprite = Sprite.fromByteArray(imageBytes, n);
-            int tileCountW = sprite.width / tileWidth;
-            int tileCountH = sprite.height / tileHeight;
+            Sprite spriteSheetImage = Sprite.fromByteArray(imageBytes, n);
+            int tileCountW = spriteSheetImage.width / tileWidth;
+            int tileCountH = spriteSheetImage.height / tileHeight;
             int spriteIndex = 0;
             for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
                 for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
-                    this.sprites[spriteIndex] = new Sprite(sprite, xIndex, yIndex, tileWidth, tileHeight);
+                    this.sprites[spriteIndex] = new Sprite(spriteSheetImage, xIndex, yIndex, tileWidth, tileHeight);
                     ++spriteIndex;
                 }
             }
