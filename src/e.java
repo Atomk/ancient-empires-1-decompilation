@@ -47,11 +47,11 @@ public class e {
         try {
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
-            int n3 = sprite.width / tileWidth;
-            int n4 = sprite.height / tileHeight;
+            int tileCountW = sprite.width / tileWidth;
+            int tileCountH = sprite.height / tileHeight;
             int n5 = 0;
-            for (int j = 0; j < n4; ++j) {
-                for (int k = 0; k < n3; ++k) {
+            for (int j = 0; j < tileCountH; ++j) {
+                for (int k = 0; k < tileCountW; ++k) {
                     this.sprites[n5] = new Sprite(sprite, k, j, tileWidth, tileHeight);
                     ++n5;
                 }
