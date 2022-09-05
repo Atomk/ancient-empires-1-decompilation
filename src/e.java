@@ -8,7 +8,7 @@ import java.io.InputStream;
 import javax.microedition.lcdui.Graphics;
 
 public class e {
-    public Sprite[] var_h_arr_a;
+    public Sprite[] sprites;
     private byte[] var_byte_arr_e;
     public short var_short_d = 0;
     public short var_short_b = 0;
@@ -43,7 +43,7 @@ public class e {
         int n2 = inputStream.read();
         byte width = (byte)inputStream.read();
         byte height = (byte)inputStream.read();
-        this.var_h_arr_a = new Sprite[n2];
+        this.sprites = new Sprite[n2];
         try {
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
@@ -52,7 +52,7 @@ public class e {
             int n5 = 0;
             for (int j = 0; j < n4; ++j) {
                 for (int k = 0; k < n3; ++k) {
-                    this.var_h_arr_a[n5] = new Sprite(sprite, k, j, width, height);
+                    this.sprites[n5] = new Sprite(sprite, k, j, width, height);
                     ++n5;
                 }
             }
@@ -64,15 +64,15 @@ public class e {
                 fileName = fileName + ".png";
                 if (n != -1) {
                     byte[] imageBytes = AppCanvas.getFileBytes(fileName);
-                    this.var_h_arr_a[j] = Sprite.fromByteArray(imageBytes, n);
+                    this.sprites[j] = Sprite.fromByteArray(imageBytes, n);
                     continue;
                 }
-                this.var_h_arr_a[j] = new Sprite(fileName);
+                this.sprites[j] = new Sprite(fileName);
             }
         }
         inputStream.close();
-        this.j = this.var_h_arr_a[0].width;
-        this.var_short_c = this.var_h_arr_a[0].height;
+        this.j = this.sprites[0].width;
+        this.var_short_c = this.sprites[0].height;
         this.var_byte_arr_e = new byte[n2];
         for (int n6 = 0; n6 < n2; n6 = (byte)(n6 + 1)) {
             this.var_byte_arr_e[n6] = (byte)n6;
@@ -84,10 +84,10 @@ public class e {
         int n4 = sprite.width / width;
         int n5 = sprite.height / height;
         int n6 = n4 * n5;
-        this.var_h_arr_a = new Sprite[n6];
+        this.sprites = new Sprite[n6];
         for (n3 = 0; n3 < n5; ++n3) {
             for (int j = 0; j < n4; ++j) {
-                this.var_h_arr_a[n3 * n4 + j] = new Sprite(sprite, j, n3, width, height);
+                this.sprites[n3 * n4 + j] = new Sprite(sprite, j, n3, width, height);
             }
         }
         this.j = (short)width;
@@ -99,7 +99,7 @@ public class e {
     }
 
     public e(e e2) {
-        this.var_h_arr_a = e2.var_h_arr_a;
+        this.sprites = e2.sprites;
         this.var_byte_arr_e = e2.var_byte_arr_e;
         this.var_short_d = e2.var_short_d;
         this.var_short_b = e2.var_short_b;
@@ -115,15 +115,15 @@ public class e {
     }
 
     public short short_a() {
-        if (this.var_h_arr_a != null) {
-            return this.var_h_arr_a[0].width;
+        if (this.sprites != null) {
+            return this.sprites[0].width;
         }
         return 0;
     }
 
     public short short_b() {
-        if (this.var_h_arr_a != null) {
-            return this.var_h_arr_a[0].height;
+        if (this.sprites != null) {
+            return this.sprites[0].height;
         }
         return 0;
     }
@@ -170,7 +170,7 @@ public class e {
         } else if (this.var_boolean_c) {
             int n5 = this.var_short_b + x;
             int n6 = this.l + y;
-            this.var_h_arr_a[this.var_byte_arr_e[this.var_short_d]].draw(graphics, n5, n6);
+            this.sprites[this.var_byte_arr_e[this.var_short_d]].draw(graphics, n5, n6);
         }
     }
 

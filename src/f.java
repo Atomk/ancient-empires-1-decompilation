@@ -98,7 +98,7 @@ public class f {
             this.var_int_b = 1;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.var_int_b] == null) {
-            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)Class_I.terrainTypeNames[this.var_int_b]).var_h_arr_a;
+            this.var_a_a.var_h_arr_arr_a[this.var_int_b] = new e((String)Class_I.terrainTypeNames[this.var_int_b]).sprites;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.var_int_b];
         if (this.var_a_a.b[this.var_int_f] == null) {
