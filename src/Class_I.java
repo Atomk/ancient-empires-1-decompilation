@@ -30,7 +30,7 @@ public class Class_I
 implements CommandListener {
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
-    private static String[] skirmishMapNames;
+    private static final String[] skirmishMapNames;
     private byte var_byte_a;
     public String[] var_java_lang_String_arr_e = new String[]{
         AppCanvas.getGameText(1),  // NEW GAME
