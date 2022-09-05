@@ -14,21 +14,21 @@ public class e {
     public short var_short_b = 0;
     public short l = 0;
     private boolean var_boolean_c = true;
-    public short j;
-    public short var_short_c;
+    private short j;
+    private short var_short_c;
     public boolean var_boolean_a = false;
-    public byte var_byte_c = 0;
+    private byte var_byte_c = 0;
     public int var_int_c;
-    public int var_int_e;
-    public long var_long_b = 0L;
+    private int var_int_e;
+    private long var_long_b = 0L;
     public int var_int_d;
-    public int var_int_a;
+    private int var_int_a;
     public boolean var_boolean_d = true;
-    public int[][] var_int_arr_arr_b;
-    public short[][] var_short_arr_arr_a;
-    public int f = 0xFFE000;
-    public byte[] var_byte_arr_d;
-    public boolean[] var_boolean_arr_a;
+    private int[][] var_int_arr_arr_b;
+    private short[][] var_short_arr_arr_a;
+    private int f = 0xFFE000;
+    private byte[] var_byte_arr_d;
+    private boolean[] var_boolean_arr_a;
 
     public e(String imageName) throws Exception {
         this.a(imageName, 0);
@@ -126,7 +126,8 @@ public class e {
         this.var_short_c = e2.var_short_c;
     }
 
-    public e(int n, int n2) {
+    // TODO this is used only once
+    private e(int n, int n2) {
         this.j = (short)n;
         this.var_short_c = (short)n2;
     }
@@ -259,7 +260,7 @@ public class e {
         }
     }
 
-    public void e() {
+    private void e() {
         if (this.var_byte_c != 4) {
             this.f += -263168;
         }
