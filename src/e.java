@@ -41,18 +41,18 @@ public class e {
     private void a(String imageName, int n) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
         int tileCount = inputStream.read();
-        byte width = (byte)inputStream.read();
-        byte height = (byte)inputStream.read();
+        byte tileWidth = (byte)inputStream.read();
+        byte tileHeight = (byte)inputStream.read();
         this.sprites = new Sprite[tileCount];
         try {
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
             Sprite sprite = Sprite.fromByteArray(imageBytes, n);
-            int n3 = sprite.width / width;
-            int n4 = sprite.height / height;
+            int n3 = sprite.width / tileWidth;
+            int n4 = sprite.height / tileHeight;
             int n5 = 0;
             for (int j = 0; j < n4; ++j) {
                 for (int k = 0; k < n3; ++k) {
-                    this.sprites[n5] = new Sprite(sprite, k, j, width, height);
+                    this.sprites[n5] = new Sprite(sprite, k, j, tileWidth, tileHeight);
                     ++n5;
                 }
             }
