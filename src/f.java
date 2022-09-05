@@ -693,7 +693,15 @@ public class f {
             "soldier", "archer", "lizard", "wizard", "wisp",
             "spider", "golem", "catapult", "wyvern", "king", "skeleton"};
         var_byte_arr_a = new byte[]{2, 0, 2, 0, 6, 5, 3, 0, 1, 5, 4};
-        var_byte_arr_arr_arr_arr_a = new byte[][][][]{new byte[][][]{new byte[][]{{2}, {3}}, new byte[][]{{0}, {1}}}, new byte[][][]{new byte[][]{{2, 3}, {2}}, new byte[][]{{0, 1}, {0}}}, new byte[][][]{new byte[][]{{2}, {3}, {2}}, new byte[][]{{0}, {1}, {0}}}, new byte[][][]{new byte[][]{{2}, {1, 3, 5, 4}}, new byte[][]{{0}, {1, 3, 5, 4}}}, new byte[][][]{new byte[][]{{4}, {3, 4}, {5}, {0, 1}}, new byte[][]{{1}, {0, 1}, {2}, {3, 4}}}, new byte[][][]{new byte[][]{{2}, {3}}, new byte[][]{{0}, {1}}}, new byte[][][]{new byte[][]{{0, 1, 2, 3}}, new byte[][]{{0, 1, 2, 3}}}};
+
+        var_byte_arr_arr_arr_arr_a = new byte[][][][]{
+            new byte[][][]{new byte[][]{{2}, {3}}, new byte[][]{{0}, {1}}},
+            new byte[][][]{new byte[][]{{2, 3}, {2}}, new byte[][]{{0, 1}, {0}}},
+            new byte[][][]{new byte[][]{{2}, {3}, {2}}, new byte[][]{{0}, {1}, {0}}},
+            new byte[][][]{new byte[][]{{2}, {1, 3, 5, 4}}, new byte[][]{{0}, {1, 3, 5, 4}}},
+            new byte[][][]{new byte[][]{{4}, {3, 4}, {5}, {0, 1}}, new byte[][]{{1}, {0, 1}, {2}, {3, 4}}},
+            new byte[][][]{new byte[][]{{2}, {3}}, new byte[][]{{0}, {1}}},
+            new byte[][][]{new byte[][]{{0, 1, 2, 3}}, new byte[][]{{0, 1, 2, 3}}}};
         var_byte_arr_arr_d = new byte[][]{{2, 3}, {0, 1}};
         var_byte_arr_arr_e = new byte[][]{{1}, {0}};
         var_byte_arr_arr_b = new byte[][]{{3, 4, 5, 4}, {0, 1, 2, 1}};
