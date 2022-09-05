@@ -38,6 +38,7 @@ public class SpriteSheet {
         this.loadSpritesheetWithFilename(imageName, by);
     }
 
+    // TODO what is the second parameter?
     private void loadSpritesheetWithFilename(String imageName, int n) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
         // A .sprite asset contains metadata for a collection of sprites
@@ -63,6 +64,7 @@ public class SpriteSheet {
             int spriteIndex = 0;
             for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
                 for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
+                    // TODO rename Sprite constructor parameters to reflect this line
                     this.sprites[spriteIndex] = new Sprite(spriteSheetImage, xIndex, yIndex, tileWidth, tileHeight);
                     ++spriteIndex;
                 }
@@ -97,14 +99,17 @@ public class SpriteSheet {
         this.spritesHeight = this.sprites[0].height;
 
         this.var_byte_arr_e = new byte[tileCount];
+        // TODO the byte cast is probably unnecesssary
         for (int j = 0; j < tileCount; j = (byte)(j + 1)) {
             this.var_byte_arr_e[j] = (byte)j;
         }
     }
 
+    // TODO this looks pretty similar to code above, maybe I can recycle this method to have less code
     public SpriteSheet(Sprite spriteSheetImage, int tileWidth, int tileHeight) {
         int tileCountW = spriteSheetImage.width / tileWidth;
         int tileCountH = spriteSheetImage.height / tileHeight;
+
         int tileCount = tileCountW * tileCountH;
         this.sprites = new Sprite[tileCount];
         for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
@@ -112,9 +117,12 @@ public class SpriteSheet {
                 this.sprites[yIndex * tileCountW + xIndex] = new Sprite(spriteSheetImage, xIndex, yIndex, tileWidth, tileHeight);
             }
         }
+
         this.spritesWidth = (short)tileWidth;
         this.spritesHeight = (short)tileHeight;
+
         this.var_byte_arr_e = new byte[tileCount];
+        // TODO the byte casts are probably unnecesssary
         for (int j = 0; j < tileCount; j = (int)((byte)(j + 1))) {
             this.var_byte_arr_e[j] = (byte)j;
         }
