@@ -103,21 +103,20 @@ public class SpriteSheet {
     }
 
     public SpriteSheet(Sprite spriteSheetImage, int tileWidth, int tileHeight) {
-        int n3;
         int tileCountW = spriteSheetImage.width / tileWidth;
         int tileCountH = spriteSheetImage.height / tileHeight;
         int tileCount = tileCountW * tileCountH;
         this.sprites = new Sprite[tileCount];
-        for (n3 = 0; n3 < tileCountH; ++n3) {
-            for (int j = 0; j < tileCountW; ++j) {
-                this.sprites[n3 * tileCountW + j] = new Sprite(spriteSheetImage, j, n3, tileWidth, tileHeight);
+        for (int n3 = 0; n3 < tileCountH; ++n3) {
+            for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
+                this.sprites[n3 * tileCountW + xIndex] = new Sprite(spriteSheetImage, xIndex, n3, tileWidth, tileHeight);
             }
         }
         this.spritesWidth = (short)tileWidth;
         this.spritesHeight = (short)tileHeight;
         this.var_byte_arr_e = new byte[tileCount];
-        for (n3 = 0; n3 < tileCount; n3 = (int)((byte)(n3 + 1))) {
-            this.var_byte_arr_e[n3] = (byte)n3;
+        for (int j = 0; j < tileCount; j = (int)((byte)(j + 1))) {
+            this.var_byte_arr_e[j] = (byte)j;
         }
     }
 
