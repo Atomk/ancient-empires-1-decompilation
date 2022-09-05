@@ -179,9 +179,9 @@ public class SpriteSheet {
             graphics.setColor(this.color_XX);
             for (int j = 0; j < 5; ++j) {
                 if (!this.var_boolean_arr_a[j]) continue;
-                int n3 = (this.var_int_arr_arr_b[j][0] >> 10) + x + this.var_short_b;
-                int n4 = (this.var_int_arr_arr_b[j][1] >> 10) + y + this.l;
-                graphics.fillRect(n3, n4, (int)this.var_byte_arr_d[j], (int)this.var_byte_arr_d[j]);
+                int rectX = (this.var_int_arr_arr_b[j][0] >> 10) + x + this.var_short_b;
+                int rectY = (this.var_int_arr_arr_b[j][1] >> 10) + y + this.l;
+                graphics.fillRect(rectX, rectY, (int)this.var_byte_arr_d[j], (int)this.var_byte_arr_d[j]);
             }
         } else if (this.var_byte_c == 3) {
             graphics.setColor(0);
@@ -191,49 +191,49 @@ public class SpriteSheet {
                 graphics.drawLine(this.var_short_b - 4, this.l - 2, (int)this.var_short_b, (int)this.l);
             }
         } else if (this.var_boolean_c) {
-            int n5 = this.var_short_b + x;
-            int n6 = this.l + y;
-            this.sprites[this.var_byte_arr_e[this.var_short_d]].draw(graphics, n5, n6);
+            int spriteX = this.var_short_b + x;
+            int spriteY = this.l + y;
+            this.sprites[this.var_byte_arr_e[this.var_short_d]].draw(graphics, spriteX, spriteY);
         }
     }
 
     public static SpriteSheet a(SpriteSheet e2, int n, int n2, int n3, int n4, byte by) {
-        SpriteSheet e3 = null;
+        SpriteSheet newSpriteSheet = null;
         if (e2 != null) {
-            e3 = new SpriteSheet(e2);
+            newSpriteSheet = new SpriteSheet(e2);
         } else {
-            e3 = new SpriteSheet(24, 24);
+            newSpriteSheet = new SpriteSheet(24, 24);
             if (by == 2 || by == 4) {
                 if (by == 4) {
-                    e3.color_XX = 0xEEEEFF;    // White (almost)
+                    newSpriteSheet.color_XX = 0xEEEEFF;    // White (almost)
                 }
-                e3.var_int_arr_arr_b = new int[5][2];
-                e3.var_short_arr_arr_a = new short[5][2];
-                e3.var_byte_arr_d = new byte[5];
-                e3.var_boolean_arr_a = new boolean[5];
+                newSpriteSheet.var_int_arr_arr_b = new int[5][2];
+                newSpriteSheet.var_short_arr_arr_a = new short[5][2];
+                newSpriteSheet.var_byte_arr_d = new byte[5];
+                newSpriteSheet.var_boolean_arr_a = new boolean[5];
                 int n5 = 8192;
                 int n6 = 4096;
                 for (int j = 0; j < 5; ++j) {
-                    e3.var_boolean_arr_a[j] = true;
+                    newSpriteSheet.var_boolean_arr_a[j] = true;
                     if (by == 4) {
-                        e3.var_short_arr_arr_a[j][0] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
-                        e3.var_short_arr_arr_a[j][1] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
+                        newSpriteSheet.var_short_arr_arr_a[j][0] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
+                        newSpriteSheet.var_short_arr_arr_a[j][1] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
                     } else {
-                        e3.var_short_arr_arr_a[j][0] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n5 + -4096);
-                        e3.var_short_arr_arr_a[j][1] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n6 + -2048);
+                        newSpriteSheet.var_short_arr_arr_a[j][0] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n5 + -4096);
+                        newSpriteSheet.var_short_arr_arr_a[j][1] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n6 + -2048);
                     }
-                    e3.var_byte_arr_d[j] = (byte)(Math.abs(AppCanvas.randomGen.nextInt()) % 2 + 1);
+                    newSpriteSheet.var_byte_arr_d[j] = (byte)(Math.abs(AppCanvas.randomGen.nextInt()) % 2 + 1);
                 }
             }
         }
-        if (e3 != null) {
-            e3.var_byte_c = by;
-            e3.var_int_c = n3;
-            e3.var_int_e = n4;
-            e3.var_int_d = n;
-            e3.var_int_a = n2;
+        if (newSpriteSheet != null) {
+            newSpriteSheet.var_byte_c = by;
+            newSpriteSheet.var_int_c = n3;
+            newSpriteSheet.var_int_e = n4;
+            newSpriteSheet.var_int_d = n;
+            newSpriteSheet.var_int_a = n2;
         }
-        return e3;
+        return newSpriteSheet;
     }
 
     public void void_a() {
