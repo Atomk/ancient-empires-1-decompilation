@@ -59,7 +59,7 @@ public class Sprite {
             imageData = bytes;
         }
         Sprite newSprite = new Sprite();
-        Image image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
+        Image image = Image.createImage(imageData, 0, imageData.length);
         newSprite.width = (short)image.getWidth();
         newSprite.height = (short)image.getHeight();
         newSprite.image = image;
