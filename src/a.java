@@ -54,7 +54,8 @@ extends Class_I {
         }
         this.spriteSheetChimneySmoke = new SpriteSheet("b_smoke");
         this.spritePanelDefense = new Sprite("defencepanel.png");
-        this.var_e_q = new SpriteSheet("soul");
+        // Shoun in the battle screen when one of the units on screen dies
+        this.spriteSheetSoul = new SpriteSheet("soul");
     }
 
     public void j() {

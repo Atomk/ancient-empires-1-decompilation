@@ -210,7 +210,7 @@ implements CommandListener {
     public f var_f_a;
     public long var_long_f;
     public boolean var_boolean_k;
-    public SpriteSheet var_e_q;
+    public SpriteSheet spriteSheetSoul;
     public Sprite spritePanelDefense;
     public SpriteSheet var_e_n;
     public SpriteSheet var_e_i;
@@ -2915,7 +2915,7 @@ implements CommandListener {
         // TODO this image does not exist. A child class assign "defencepanel" to this field, which exists
         // Since the image does not exist, this is the same as assigning null
         this.spritePanelDefense = null;//new Sprite("defpanel.png");
-        this.var_e_q = new SpriteSheet("soul");
+        this.spriteSheetSoul = new SpriteSheet("soul");
         this.var_f_b = new f(this, c2, true);
         this.var_f_a = new f(this, c3, false);
         //AppCanvas.e();
@@ -2959,7 +2959,7 @@ implements CommandListener {
             if (this.var_long_n - this.var_long_f >= 300L) {
                 this.var_f_a = null;
                 this.var_f_b = null;
-                this.var_e_q = null;
+                this.spriteSheetSoul = null;
                 this.spritePanelDefense = null;
                 this.var_e_n = null;
                 this.var_e_i = null;

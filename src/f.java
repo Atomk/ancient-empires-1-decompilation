@@ -593,7 +593,7 @@ public class f {
         this.var_byte_b = this.var_byte_d;
         this.h = this.var_byte_c;
         for (int j = 0; j < this.l; ++j) {
-            SpriteSheet e2 = SpriteSheet.a(this.var_a_a.var_e_q, 0, -2, 1, 150, (byte)0);
+            SpriteSheet e2 = SpriteSheet.a(this.var_a_a.spriteSheetSoul, 0, -2, 1, 150, (byte)0);
             SpriteSheet e3 = SpriteSheet.a(this.var_a_a.var_e_d, 0, 0, 1, 100, (byte)0);
             e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - e2.getSpritesWidth()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() - e2.getSpritesHeight() + 3);
             e3.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - e3.getSpritesWidth()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() - e3.getSpritesHeight() + 3);
