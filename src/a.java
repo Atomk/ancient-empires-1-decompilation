@@ -47,11 +47,11 @@ extends Class_I {
         // These are used in the minimap
         byte[] fileBytes = AppCanvas.getFileBytes("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
-            byte[] imageBytes = new byte[fileBytes.length];
-            System.arraycopy(fileBytes, 0, imageBytes, 0, fileBytes.length);
-            Sprite h2 = Sprite.fromByteArray(imageBytes, j);
-            for (int k = 0; k < 11; ++k) {
-                this.var_e_arr_arr_c[j][k] = new SpriteSheet(new Sprite(h2, k, 0, 10, 10), 10, 10);
+            byte[] imageBytesCopy = new byte[fileBytes.length];
+            System.arraycopy(fileBytes, 0, imageBytesCopy, 0, fileBytes.length);
+            Sprite h2 = Sprite.fromByteArray(imageBytesCopy, j);
+            for (int unitIndex = 0; unitIndex < 11; ++unitIndex) {
+                this.var_e_arr_arr_c[j][unitIndex] = new SpriteSheet(new Sprite(h2, unitIndex, 0, 10, 10), 10, 10);
             }
         }
         this.spriteSheetChimneySmoke = new SpriteSheet("b_smoke");
