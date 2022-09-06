@@ -43,10 +43,12 @@ extends Class_I {
         this.b = new Sprite[Class_I.terrainTypeNames.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
         this.var_e_arr_arr_c = new SpriteSheet[2][11];
-        byte[] byArray = AppCanvas.getFileBytes("unit_icons_s.png");
+        // Spritesheet containing 11 (one for every unit type) 10x10 pixel images in the same row
+        // These are used in the minimap
+        byte[] fileBytes = AppCanvas.getFileBytes("unit_icons_s.png");
         for (int j = 0; j < 2; ++j) {
-            byte[] imageBytes = new byte[byArray.length];
-            System.arraycopy(byArray, 0, imageBytes, 0, byArray.length);
+            byte[] imageBytes = new byte[fileBytes.length];
+            System.arraycopy(fileBytes, 0, imageBytes, 0, fileBytes.length);
             Sprite h2 = Sprite.fromByteArray(imageBytes, j);
             for (int k = 0; k < 11; ++k) {
                 this.var_e_arr_arr_c[j][k] = new SpriteSheet(new Sprite(h2, k, 0, 10, 10), 10, 10);
