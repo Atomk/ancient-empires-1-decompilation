@@ -433,7 +433,7 @@ implements CommandListener {
         n2 = dataInputStream.readByte();
         int n3 = n2;
         for (n = 0; n < n3; ++n) {
-            byte by = dataInputStream.readByte();
+            byte unitType = dataInputStream.readByte();
             byte by2 = dataInputStream.readByte();
             byte by3 = dataInputStream.readByte();
             byte by4 = dataInputStream.readByte();
@@ -443,7 +443,7 @@ implements CommandListener {
             short s2 = dataInputStream.readShort();
             short s3 = dataInputStream.readShort();
             short s4 = dataInputStream.readShort();
-            Unit c2 = Unit.a(by, by2, s2, s3);
+            Unit c2 = Unit.a(unitType, by2, s2, s3);
             c2.var_byte_e = by3;
             c2.var_short_b = s;
             c2.var_short_d = by6;
@@ -451,11 +451,11 @@ implements CommandListener {
             c2.d();
             c2.h = by5;
             c2.var_int_b = s4;
-            if (by == 9) {
+            if (unitType == 9) {
                 this.var_c_arr_a[by2] = c2;
             }
             if (this.var_byte_a != 0) continue;
-            if (by == 9) {
+            if (unitType == 9) {
                 if (by2 == 0) {
                     c2.var_java_lang_String_a = AppCanvas.getGameText(43);  // GALAMAR
                     continue;
@@ -464,7 +464,7 @@ implements CommandListener {
                 c2.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
                 continue;
             }
-            if (this.F != 2 || by2 != 0 || by != 2) continue;
+            if (this.F != 2 || by2 != 0 || unitType != 2) continue;
             c2.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
         if (this.F == 2) {
@@ -573,6 +573,7 @@ implements CommandListener {
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)appCanvas);
         } else if (command == this.commandNext) {
             ++this.D;
+            // TODO what are these?
             Form form = new Form(AppCanvas.getGameText(7) + " - " + this.D);    // INSTRUCTIONS
             form.append(AppCanvas.getGameText(85 + this.D));
             if (this.D < 17) {
@@ -807,10 +808,10 @@ implements CommandListener {
         g2.a(true);
     }
 
-    public Unit c_a(int n, int n2, int n3) {
+    public Unit c_a(int unitType, int n2, int n3) {
         byte by = this.var_byte_g;
-        this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[n];
-        return Unit.a((byte)n, this.spriteIndex_YY, n2, n3);
+        this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[unitType];
+        return Unit.a((byte)unitType, this.spriteIndex_YY, n2, n3);
     }
 
     public SpriteSheet a(byte by, byte unitType) {
@@ -889,10 +890,10 @@ implements CommandListener {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;
-            byte by2 = (byte)(by % 11);
+            byte unitType = (byte)(by % 11);
             byte by3 = (byte)(by / 11);
-            Unit c2 = Unit.a(by2, by3, n6 / 24, n7 / 24);
-            if (by2 != 9) continue;
+            Unit c2 = Unit.a(unitType, by3, n6 / 24, n7 / 24);
+            if (unitType != Unit.KING) continue;
             this.var_c_arr_a[by3] = c2;
         }
         dataInputStream.close();
@@ -1168,8 +1169,8 @@ implements CommandListener {
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
                         this.var_java_util_Vector_a.removeElement(this.var_c_e);
-                        Unit unit_a = Unit.a((byte)10, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
-                        unit_a.void_b();
+                        Unit unitSkeleton = Unit.a(Unit.SKELETON, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
+                        unitSkeleton.void_b();
                         this.var_c_e = null;
                     }
                 } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -2349,7 +2350,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.i < 4 || this.var_c_f.var_short_a < 7) break;
-                    Unit.a((byte)0, (byte)1, 5, 8);
+                    Unit.a(Unit.SOLDIER, (byte)1, 5, 8);
                     this.a(this.var_e_r, 120, 192, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
@@ -2455,10 +2456,10 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    Unit.a((byte)5, (byte)1, 4, 0);
-                    Unit.a((byte)5, (byte)1, 1, 1);
-                    Unit.a((byte)5, (byte)1, 1, 5);
-                    Unit c2 = Unit.a((byte)2, (byte)0, 12, 1);
+                    Unit.a(Unit.SPIDER, (byte)1, 4, 0);
+                    Unit.a(Unit.SPIDER, (byte)1, 1, 1);
+                    Unit.a(Unit.SPIDER, (byte)1, 1, 5);
+                    Unit c2 = Unit.a(Unit.LIZARD, (byte)0, 12, 1);
                     this.b(c2);
                     c2.b(this.var_byte_arr_arr_b);
                     c2.void_a(9, 2);
@@ -2468,7 +2469,7 @@ implements CommandListener {
                 }
                 case 14: {
                     if (this.var_byte_i == 1) break;
-                    Unit c3 = Unit.a((byte)2, (byte)0, 12, 1);
+                    Unit c3 = Unit.a(Unit.LIZARD, (byte)0, 12, 1);
                     this.b(c3);
                     c3.b(this.var_byte_arr_arr_b);
                     c3.void_a(10, 1);
@@ -2628,9 +2629,10 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_c_arr_a[1] = Unit.a((byte)9, (byte)1, 2, 0);
+                    this.var_c_arr_a[1] = Unit.a(Unit.KING, (byte)1, 2, 0);
+                    // TODO 44: VALADORN -- maybe this is the unit's name?
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    Unit.a((byte)5, (byte)1, 0, 0);
+                    Unit.a(Unit.SPIDER, (byte)1, 0, 0);
                     this.a(this.var_e_r, 48, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, 1);
@@ -2712,7 +2714,7 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    Unit c4 = Unit.a((byte)8, (byte)0, 2, 2);
+                    //Unit c4 = Unit.a((byte)8, (byte)0, 2, 2); // unused
                     this.void_b(2, 2);
                     this.void_b(1000);
                     ++this.currentLevelStep;
@@ -2801,8 +2803,8 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    Unit.a((byte)7, (byte)1, 12, 0);
-                    Unit.a((byte)0, (byte)1, 13, 0);
+                    Unit.a(Unit.CATAPULT, (byte)1, 12, 0);
+                    Unit.a(Unit.SOLDIER, (byte)1, 13, 0);
                     this.a(this.var_e_r, 312, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, 1);
@@ -2815,8 +2817,8 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    Unit.a((byte)6, (byte)1, 1, 11);
-                    Unit.a((byte)0, (byte)1, 1, 12);
+                    Unit.a(Unit.GOLEM, (byte)1, 1, 11);
+                    Unit.a(Unit.SOLDIER, (byte)1, 1, 12);
                     this.a(this.var_e_r, 24, 288, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, 1);
@@ -2829,10 +2831,10 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_c_arr_a[1] = Unit.a((byte)9, (byte)1, 1, 1);
+                    this.var_c_arr_a[1] = Unit.a(Unit.KING, (byte)1, 1, 1);
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    Unit.a((byte)8, (byte)1, 0, 1);
-                    Unit.a((byte)0, (byte)1, 1, 2);
+                    Unit.a(Unit.WYVERN, (byte)1, 0, 1);
+                    Unit.a(Unit.SOLDIER, (byte)1, 1, 2);
                     this.a(this.var_e_r, 24, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 48, 0, 0, 4, 50);
