@@ -972,6 +972,7 @@ public class g {
                             graphics.drawString(this.var_java_lang_String_arr_a[n34], n3 / 2, n36, 17);
                             n36 += this.m;
                         }
+                        // TODO convert to hex and name it
                         graphics.setColor(10391157);
                         graphics.drawLine(0, n36, n3 - 1, n36);
                         n35 = n36;

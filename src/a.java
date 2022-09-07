@@ -337,6 +337,7 @@ extends Class_I {
     }
 
     static {
+        // TODO nine elements, like terrain types...
         var_boolean_arr_a = new boolean[]{false, true, true, true, true, false, false, true, true};
     }
 }

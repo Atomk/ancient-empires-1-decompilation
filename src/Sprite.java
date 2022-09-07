@@ -52,6 +52,7 @@ public class Sprite {
             // Resets the clip area to its previous state
             graphics.setClip(clipX, clipY, clipWidth, clipHeight);
         } else {
+            // TODO dehardcode anchor argument
             graphics.drawImage(this.image, x, y, 20);
         }
     }
@@ -75,6 +76,7 @@ public class Sprite {
         return newSprite;
     }
 
+    // TODO since there are images only for blu units, I suspect this creates the red versino
     public static void void_a(byte[] byArray, int n) {
         try {
             int n2;
@@ -129,6 +131,7 @@ public class Sprite {
         }
     }
 
+    // TODO after searching "0xEDB88320" I'm pretty seure this has to do with CRC checking
     public static int a(byte by, int n) {
         int n2 = by & 0xFF;
         n ^= n2;

@@ -99,6 +99,7 @@ public class SpriteSheet {
 
         this.var_byte_arr_e = new byte[tileCount];
         // TODO the byte cast is probably unnecesssary
+        // TODO make j a byte and change update to j++
         for (int j = 0; j < tileCount; j = (byte)(j + 1)) {
             this.var_byte_arr_e[j] = (byte)j;
         }

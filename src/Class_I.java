@@ -3044,6 +3044,7 @@ implements CommandListener {
 
         // Terrain type variables
         // TODO these have 9 elements each, check for magic numbers
+        // TODO any variabe used to access these arrays are terrainType, like I did to rename all the unitType
         terrainTypeDefense = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
         terrainType_XXX = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};   // TODO used only once in the app
         // TODO The first "mountain" should be "hill", one of the last two towns is probably the castle
