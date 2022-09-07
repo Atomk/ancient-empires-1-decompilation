@@ -207,7 +207,7 @@ implements CommandListener {
     public int var_int_z;
     public int var_int_o;
     public Unit var_c_f = null;
-    private int currentLevelStep = 0;
+    private short currentLevelStep = 0;
     public long var_long_h;
     public int var_int_i;
     public g var_g_b;
@@ -399,7 +399,7 @@ implements CommandListener {
             dataOutputStream.writeShort(c2.var_short_a);
             dataOutputStream.writeShort(c2.var_int_b);
         }
-        dataOutputStream.writeShort((short)this.currentLevelStep);
+        dataOutputStream.writeShort(this.currentLevelStep);
         dataOutputStream.writeInt((short)this.var_long_h);
         dataOutputStream.writeInt(this.var_int_i);
         dataOutputStream.writeByte(this.var_boolean_z ? 0 : 1);
