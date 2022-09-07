@@ -1784,12 +1784,12 @@ implements CommandListener {
         return this.var_byte_arr_j[this.var_byte_arr_arr_a[n][n2]];
     }
 
-    public int a(byte by, Unit c2) {
-        int n = terrainTypeDefense[by];
-        if (c2.a((short)2) && by == 5) {
-            n += 2;
+    public int a(byte terrainType, Unit unit) {
+        int terrainDefence = terrainTypeDefense[terrainType];
+        if (unit.a((short)2) && terrainType == 5) {
+            terrainDefence += 2;
         }
-        return n;
+        return terrainDefence;
     }
 
     public void l() {
@@ -3045,6 +3045,7 @@ implements CommandListener {
         // Terrain type variables
         // TODO these have 9 elements each, check for magic numbers
         // TODO any variabe used to access these arrays are terrainType, like I did to rename all the unitType
+        // TODO Rename defense -> defence in all code (it's called like this in lang.dat...devs are British)
         terrainTypeDefense = new byte[]{0, 1, 2, 2, 3, 0, 0, 3, 3};
         terrainType_XXX = new byte[]{18, 3, 1, 2, 0, 21, 20, 23, 24};   // TODO used only once in the app
         // TODO The first "mountain" should be "hill", one of the last two towns is probably the castle
