@@ -80,7 +80,7 @@ implements CommandListener {
     public Sprite spriteGold;
     public SpriteSheet var_e_h;
     public SpriteSheet var_e_k;
-    public SpriteSheet var_e_g;
+    public SpriteSheet uiArrowSheet;
     public SpriteSheet var_e_b;
     public SpriteSheet var_e_e;
     public SpriteSheet var_e_l;
@@ -228,7 +228,8 @@ implements CommandListener {
     public Class_I(byte by) throws Exception {
         this.var_byte_d = by;
         if (by == 0) {
-            this.var_e_g = new SpriteSheet("arrow");
+            // Arrows shown when you can scroll text
+            this.uiArrowSheet = new SpriteSheet("arrow");
             this.var_e_e = new SpriteSheet("buttons");
             this.var_e_b = new SpriteSheet("menu");
             this.spriteMacrospaceLogo = new Sprite("ms_logo.png");
