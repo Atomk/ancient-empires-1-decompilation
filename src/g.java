@@ -201,7 +201,7 @@ public class g {
         byte by3 = by2;
         g g2 = new g(i2, (byte)6, by3);
         g2.portraitSpriteIndex = portraitIndex;
-        if (portraitIndex == -1) {
+        if (portraitIndex == Class_I.PORTRAIT_NONE) {
             by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
             g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
@@ -902,7 +902,7 @@ public class g {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
                         n22 += this.m;
                     }
-                    if (this.portraitSpriteIndex != -1) {
+                    if (this.portraitSpriteIndex != Class_I.PORTRAIT_NONE) {
                         this.var_a_a.uiPortraitSheet.a(this.portraitSpriteIndex);
                         if (this.t == 4) {
                             this.var_a_a.uiPortraitSheet.a(graphics, 0, -11);
