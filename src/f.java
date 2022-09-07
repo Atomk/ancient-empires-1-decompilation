@@ -41,7 +41,7 @@ public class f {
     private Sprite[] var_h_arr_a;
     private Sprite var_h_a;
     public f var_f_a;
-    private int var_int_f;
+    private int terrainType_YY;
     private int terrainType_XX;
     private int var_int_d;
     private int j;
@@ -93,24 +93,24 @@ public class f {
             this.o = 6;
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
-        this.terrainType_XX = this.var_int_f = (int)i2.byte_a(c2.i, (int)c2.var_short_a);
-        if (this.var_int_f == 2 || this.var_int_f == 3) {
+        this.terrainType_XX = this.terrainType_YY = (int)i2.byte_a(c2.i, (int)c2.var_short_a);
+        if (this.terrainType_YY == 2 || this.terrainType_YY == 3) {
             this.terrainType_XX = 1;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] == null) {
             this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] = new SpriteSheet((String)Class_I.terrainTypeNames[this.terrainType_XX]).sprites;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.terrainType_XX];
-        if (this.var_a_a.b[this.var_int_f] == null) {
+        if (this.var_a_a.b[this.terrainType_YY] == null) {
             try {
                 // TODO split and see what sprites are these
-                this.var_a_a.b[this.var_int_f] = this.var_int_f == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.var_int_f] + "_bg.png");
+                this.var_a_a.b[this.terrainType_YY] = this.terrainType_YY == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.terrainType_YY] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block
             }
         }
-        this.var_h_a = this.var_a_a.b[this.var_int_f];
+        this.var_h_a = this.var_a_a.b[this.terrainType_YY];
         if (this.var_h_a != null) {
             this.var_int_d = this.var_h_a.height;
         }
@@ -641,8 +641,8 @@ public class f {
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
         n4 = AppCanvas.a((byte)1) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
-        n7 = Class_I.terrainTypeDefense[this.var_int_f];
-        n3 = this.var_a_a.a((byte)this.var_int_f, this.var_c_a) - n7;
+        n7 = Class_I.terrainTypeDefense[this.terrainType_YY];
+        n3 = this.var_a_a.a((byte)this.terrainType_YY, this.var_c_a) - n7;
         StringBuffer stringBuffer = new StringBuffer().append(n7);
         if (n3 > 0) {
             stringBuffer.append("+" + n3);
