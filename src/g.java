@@ -942,13 +942,12 @@ public class g {
                     for (n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
                         int n30 = 0;
                         for (n27 = 0; n27 < this.var_a_a.var_short_e; ++n27) {
-                            int n31 = this.var_a_a.getTerrainType_ZZ(n27, n28);
-                            // TODO rename terrain type
+                            int terrainType = this.var_a_a.getTerrainType_ZZ(n27, n28);
                             int n32 = this.var_a_a.int_a(n27, n28);
                             if (n32 >= 0) {
-                                n31 = 2 * (n32 + 1) + 7 + n31 - 7;
+                                terrainType = 2 * (n32 + 1) + 7 + terrainType - 7;
                             }
-                            this.var_a_a.var_h_arr_d[n31].draw(graphics, n30, n29);
+                            this.var_a_a.var_h_arr_d[terrainType].draw(graphics, n30, n29);
                             n30 += s;
                         }
                         n29 += s2;
