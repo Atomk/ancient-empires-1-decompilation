@@ -10,7 +10,7 @@ import javax.microedition.lcdui.Image;
 
 public class Sprite {
     public Image image;
-    private boolean var_boolean_a = false;
+    private boolean isPartOfSpritesheet = false;
     private short b;
     private short var_short_a;
     public short width;
@@ -22,7 +22,7 @@ public class Sprite {
         this.height = (short)height;
         this.b = (short)(colIndex * width + spriteSheetImage.b);
         this.var_short_a = (short)(rowIndex * height + spriteSheetImage.var_short_a);
-        this.var_boolean_a = true;
+        this.isPartOfSpritesheet = true;
     }
 
     public Sprite(String filename) throws Exception {
@@ -30,11 +30,11 @@ public class Sprite {
         this.image = Image.createImage((byte[])imageData, (int)0, (int)imageData.length);
         this.width = (short)this.image.getWidth();
         this.height = (short)this.image.getHeight();
-        this.var_boolean_a = false;
+        this.isPartOfSpritesheet = false;
     }
 
     public void draw(Graphics graphics, int x, int y) {
-        if (this.var_boolean_a) {
+        if (this.isPartOfSpritesheet) {
             int clipX = graphics.getClipX();
             int clipY = graphics.getClipY();
             int clipWidth = graphics.getClipWidth();
