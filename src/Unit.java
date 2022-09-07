@@ -21,6 +21,9 @@ extends SpriteSheet {
     public static final byte KING = 9;
     public static final byte SKELETON = 10;
 
+    // Units sprites are 24x24 (units_icons.png)
+    private static final byte TILE_SIZE = 24;
+
     // TODO this a static reference to the 'i' class, there must be a better solution...
     // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
     public static Class_I iClassRef;
@@ -62,9 +65,9 @@ extends SpriteSheet {
         super(iClassRef.a(by2, unitType));
         this.i = (short)n;
         this.var_short_a = (short)n2;
-        this.var_short_b = (short)(n * 24);
-        ((SpriteSheet)this).l = (short)(n2 * 24);
-        this.void_b(n * 24, n2 * 24);
+        this.var_short_b = (short)(n * TILE_SIZE);
+        ((SpriteSheet)this).l = (short)(n2 * TILE_SIZE);
+        this.void_b(n * TILE_SIZE, n2 * TILE_SIZE);
         Unit.iClassRef.var_java_util_Vector_a.addElement(this);
     }
 
@@ -164,8 +167,8 @@ extends SpriteSheet {
     public void c(int n, int n2) {
         this.i = (short)n;
         this.var_short_a = (short)n2;
-        this.var_short_b = (short)(n * 24);
-        ((SpriteSheet)this).l = (short)(n2 * 24);
+        this.var_short_b = (short)(n * TILE_SIZE);
+        ((SpriteSheet)this).l = (short)(n2 * TILE_SIZE);
     }
 
     public int int_a() {
@@ -260,8 +263,8 @@ extends SpriteSheet {
     }
 
     public void void_a(int n, int n2) {
-        //this.j = (short)(n * 24);
-        //this.var_short_c = (short)(n2 * 24);
+        //this.j = (short)(n * TILE_SIZE);
+        //this.var_short_c = (short)(n2 * TILE_SIZE);
         this.var_java_util_Vector_a = this.a(this.i, this.var_short_a, n, n2);
         this.var_short_g = 0;
         this.var_byte_e = 1;
@@ -361,15 +364,15 @@ extends SpriteSheet {
         if (this.var_byte_e == 1) {
             if (this.var_short_g >= this.var_java_util_Vector_a.size()) {
                 this.var_byte_e = 0;
-                this.i = (short)(this.var_short_b / 24);
-                this.var_short_a = (short)(((SpriteSheet)this).l / 24);
+                this.i = (short)(this.var_short_b / TILE_SIZE);
+                this.var_short_a = (short)(((SpriteSheet)this).l / TILE_SIZE);
                 this.var_java_util_Vector_a = null;
                 this.var_short_g = 0;
                 iClassRef.c(this);
             } else {
                 short[] sArray = (short[])this.var_java_util_Vector_a.elementAt(this.var_short_g);
-                int n = sArray[0] * 24;
-                int n2 = sArray[1] * 24;
+                int n = sArray[0] * TILE_SIZE;
+                int n2 = sArray[1] * TILE_SIZE;
                 if (n < this.var_short_b) {
                     this.var_short_b = (short)(this.var_short_b - 6);
                 } else if (n > this.var_short_b) {
@@ -379,7 +382,7 @@ extends SpriteSheet {
                 } else if (n2 > ((SpriteSheet)this).l) {
                     ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l + 6);
                 }
-                if (this.var_short_b % 24 == 0 && ((SpriteSheet)this).l % 24 == 0) {
+                if (this.var_short_b % TILE_SIZE == 0 && ((SpriteSheet)this).l % TILE_SIZE == 0) {
                     this.var_short_g = (short)(this.var_short_g + 1);
                 }
             }
