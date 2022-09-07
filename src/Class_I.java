@@ -1784,10 +1784,10 @@ implements CommandListener {
         return this.var_byte_arr_j[this.var_byte_arr_arr_a[n][n2]];
     }
 
-    // TODO dehardcode magic numbers
     public int getTerrainDefence_XX(byte terrainType, Unit unit) {
         int terrainDefence = terrainTypeDefense[terrainType];
-        if (unit.a((short)2) && terrainType == 5) {
+        // TODO probably 2 is Unit.LIZARD, they get +2 defence in water
+        if (unit.a((short)2) && terrainType == f.TERRAIN_WATER) {
             terrainDefence += 2;
         }
         return terrainDefence;

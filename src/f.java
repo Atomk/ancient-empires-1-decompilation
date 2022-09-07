@@ -7,6 +7,17 @@
 import javax.microedition.lcdui.Graphics;
 
 public class f {
+    // TODO only a fraction of these are actually used, maybe clean up?
+    public static final byte TERRAIN_ROAD = 0;
+    public static final byte TERRAIN_GRASS = 1;
+    public static final byte TERRAIN_WOODS = 2;
+    public static final byte TERRAIN_HILL = 3;
+    public static final byte TERRAIN_MOUNTAIN = 4;
+    public static final byte TERRAIN_WATER = 5;
+    public static final byte TERRAIN_BRIDGE = 6;
+    public static final byte TERRAIN_TOWN = 7;
+    public static final byte TERRAIN_TOWN_B = 8;
+
     private static final int[] unitsSoundIndex;
     private static final String[] unitsNames;
     private a var_a_a;
@@ -94,9 +105,8 @@ public class f {
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
         this.terrainType_XX = this.terrainType_YY = (int)i2.byte_a(c2.i, (int)c2.var_short_a);
-        if (this.terrainType_YY == 2 || this.terrainType_YY == 3) {
-            // TODO Dehardcode terrain type values
-            this.terrainType_XX = 1;
+        if (this.terrainType_YY == TERRAIN_WOODS || this.terrainType_YY == TERRAIN_HILL) {
+            this.terrainType_XX = TERRAIN_GRASS;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] == null) {
             this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] = new SpriteSheet((String)Class_I.terrainTypeNames[this.terrainType_XX]).sprites;
@@ -105,7 +115,7 @@ public class f {
         if (this.var_a_a.b[this.terrainType_YY] == null) {
             try {
                 // TODO split and see what sprites are these
-                this.var_a_a.b[this.terrainType_YY] = this.terrainType_YY == 3 ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.terrainType_YY] + "_bg.png");
+                this.var_a_a.b[this.terrainType_YY] = this.terrainType_YY == TERRAIN_HILL ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.terrainType_YY] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block
