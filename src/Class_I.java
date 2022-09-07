@@ -28,6 +28,10 @@ import javax.microedition.lcdui.Item;
 
 public class Class_I
 implements CommandListener {
+    public static final byte BTN_ICON_CONFIRM = 0;
+    public static final byte BTN_ICON_BACK = 1;
+    public static final byte BTN_ICON_INFO = 2;
+
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;
@@ -1736,11 +1740,11 @@ implements CommandListener {
         }
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
-                this.uiBtnIconSheet.a(1);
+                this.uiBtnIconSheet.a(BTN_ICON_BACK);
                 this.uiBtnIconSheet.a(graphics, AppCanvas.width2 - this.uiBtnIconSheet.getSpritesWidth(), AppCanvas.height2 - this.uiBtnIconSheet.getSpritesHeight());
             }
             if (this.var_boolean_t) {
-                this.uiBtnIconSheet.a(0);
+                this.uiBtnIconSheet.a(BTN_ICON_CONFIRM);
                 this.uiBtnIconSheet.a(graphics, 0, AppCanvas.height2 - this.uiBtnIconSheet.getSpritesHeight());
             }
         }

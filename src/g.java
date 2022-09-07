@@ -862,7 +862,7 @@ public class g {
                 case 3: {
                     this.var_a_a.spriteGold.draw(graphics, 2, 2);
                     if (this.var_a_a.var_byte_arr_b[this.var_a_a.spriteIndex_YY] == 0) {
-                        this.var_a_a.uiBtnIconSheet.a(2);
+                        this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_INFO);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
                         AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
@@ -1011,11 +1011,11 @@ public class g {
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         if (this.var_byte_e == 2) {
             if (this.var_boolean_a) {
-                this.var_a_a.uiBtnIconSheet.a(0);
+                this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_CONFIRM);
                 this.var_a_a.uiBtnIconSheet.a(graphics, 0, AppCanvas.height2 - this.var_a_a.uiBtnIconSheet.getSpritesHeight());
             }
             if (this.var_boolean_g) {
-                this.var_a_a.uiBtnIconSheet.a(1);
+                this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_BACK);
                 this.var_a_a.uiBtnIconSheet.a(graphics, AppCanvas.width2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), AppCanvas.height2 - this.var_a_a.uiBtnIconSheet.getSpritesHeight());
             }
         }
