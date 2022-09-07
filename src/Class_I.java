@@ -32,6 +32,11 @@ implements CommandListener {
     public static final byte BTN_ICON_BACK = 1;
     public static final byte BTN_ICON_INFO = 2;
 
+    public static final byte PORTRAIT_NONE = -1;
+    public static final byte PORTRAIT_GALAMAR = 0;      // King Galamar
+    public static final byte PORTRAIT_VALADORN = 1;     // Valadorn (the enemy, Galamar's brother)
+    public static final byte PORTRAIT_CAPTAIN = 2;      // Galamar's troops captain
+
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;
@@ -1023,7 +1028,8 @@ implements CommandListener {
         this.void_a();
         if (this.var_int_s != -1) {
             if (AppCanvas.settings[2]) {
-                this.var_g_b = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), (byte)-1, (byte)2);
+                // This is the first tutorial string - "Select and move units by pressing 5 [...]""
+                this.var_g_b = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), PORTRAIT_NONE, (byte)2);
             }
             this.var_int_s = -1;
         }
@@ -2267,7 +2273,8 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(111), (byte)2, (byte)4);
+                    // "Sire, your troops are weary after last night's battle. [...]"
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(111), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2281,12 +2288,13 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(112), (byte)0, (byte)4);
+                    // "Sound advice, captain. Ready the troops [...]"
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(112), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(113), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(113), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2346,7 +2354,8 @@ implements CommandListener {
                     break;
                 }
                 case 16: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(114), (byte)2, (byte)4);
+                    // "Spies!! Valadorn and his Red legion [...]"
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(114), PORTRAIT_CAPTAIN, (byte)4);
                     this.a(true);
                     ++this.var_int_a;
                     break;
@@ -2384,7 +2393,7 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(115), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(115), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2422,7 +2431,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(116), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(116), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2431,7 +2440,7 @@ implements CommandListener {
                     break;
                 }
                 case 11: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(117), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(117), PORTRAIT_GALAMAR, (byte)4);
                     this.a(true);
                     ++this.var_int_a;
                     break;
@@ -2466,7 +2475,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_byte_i == 1) break;
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(118), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(118), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2479,12 +2488,12 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(119), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(119), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 19: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(120), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(120), PORTRAIT_CAPTAIN, (byte)4);
                     this.a(true);
                     ++this.var_int_a;
                     break;
@@ -2535,7 +2544,8 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(121), (byte)2, (byte)4);
+                    // 'Sire, the bridge has been destroyed!'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(121), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2544,12 +2554,14 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(122), (byte)0, (byte)4);
+                    // 'Valadorn must be expecting us - we must find another way across. This could be a trap.'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(122), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(123), (byte)2, (byte)4);
+                    // 'Troops! Keep your eyes open and protect the Lizard Chief at all cost.'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(123), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2591,7 +2603,8 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(124), (byte)2, (byte)4);
+                    // 'Your majesty, the Red legion! Watch out for their long range catapult!'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(124), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2624,12 +2637,14 @@ implements CommandListener {
                     break;
                 }
                 case 8: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(125), (byte)2, (byte)4);
+                    // 'What is this treachery! The city has turned against us!'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(125), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(126), (byte)1, (byte)8);
+                    // 'As predictable as ever, brother! I have you now!'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(126), PORTRAIT_VALADORN, (byte)8);
                     ++this.var_int_a;
                     break;
                 }
@@ -2644,7 +2659,8 @@ implements CommandListener {
                 }
                 case 12: {
                     if (this.var_c_arr_a[1] != null) break;
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(127), (byte)1, (byte)8);
+                    // 'Retreat!! Curse you Galamar! You won't be so lucky next time!'
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(127), PORTRAIT_VALADORN, (byte)8);
                     this.a(false);
                     ++this.var_int_a;
                     break;
@@ -2667,12 +2683,12 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(128), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(128), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(129), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(129), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2705,7 +2721,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(130), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(130), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2733,7 +2749,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(131), (byte)2, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(131), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2742,7 +2758,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(132), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(132), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2824,12 +2840,12 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(133), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(133), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
                 case 8: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(134), (byte)1, (byte)8);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(134), PORTRAIT_VALADORN, (byte)8);
                     ++this.var_int_a;
                     break;
                 }
@@ -2838,7 +2854,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(135), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(135), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
@@ -2864,12 +2880,12 @@ implements CommandListener {
                     break;
                 }
                 case 15: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(136), (byte)1, (byte)8);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(136), PORTRAIT_VALADORN, (byte)8);
                     ++this.var_int_a;
                     break;
                 }
                 case 16: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(137), (byte)0, (byte)4);
+                    this.var_g_b = g.a(this, AppCanvas.getGameText(137), PORTRAIT_GALAMAR, (byte)4);
                     ++this.var_int_a;
                     break;
                 }
