@@ -64,7 +64,6 @@ public class SpriteSheet {
             int spriteIndex = 0;
             for (int yIndex = 0; yIndex < tileCountH; ++yIndex) {
                 for (int xIndex = 0; xIndex < tileCountW; ++xIndex) {
-                    // TODO rename Sprite constructor parameters to reflect this line
                     this.sprites[spriteIndex] = new Sprite(spriteSheetImage, xIndex, yIndex, tileWidth, tileHeight);
                     ++spriteIndex;
                 }

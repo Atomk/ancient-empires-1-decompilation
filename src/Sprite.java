@@ -16,12 +16,12 @@ public class Sprite {
     public short width;
     public short height;
 
-    public Sprite(Sprite spriteSheetImage, int colIndex, int rowIndex, int width, int height) {
+    public Sprite(Sprite spriteSheetImage, int colIndex, int rowIndex, int tileWidth, int tileHeight) {
         this.image = spriteSheetImage.image;
-        this.width = (short)width;
-        this.height = (short)height;
-        this.b = (short)(colIndex * width + spriteSheetImage.b);
-        this.var_short_a = (short)(rowIndex * height + spriteSheetImage.var_short_a);
+        this.width = (short)tileWidth;
+        this.height = (short)tileHeight;
+        this.b = (short)(colIndex * tileWidth + spriteSheetImage.b);
+        this.var_short_a = (short)(rowIndex * tileHeight + spriteSheetImage.var_short_a);
         this.isPartOfSpritesheet = true;
     }
 
