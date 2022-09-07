@@ -114,8 +114,8 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n3;
         }
-        int n4 = iClassRef.getTerrainDefence_XX(iClassRef.byte_a(unit.i, (int)unit.var_short_a), unit);
-        int n5 = (n2 - (n4 + n3) * 2 / 3) * this.h / 10;
+        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.byte_a(unit.i, (int)unit.var_short_a), unit);
+        int n5 = (n2 - (terrainDEF_XX + n3) * 2 / 3) * this.h / 10;
         if (n5 > unit.h) {
             n5 = unit.h;
         }
@@ -335,17 +335,17 @@ extends SpriteSheet {
             if (c2 != null && c2.var_byte_a != this.var_byte_a) {
                 return 1000;
             }
-            byte by = iClassRef.byte_a(n, n2);
+            byte terrainType = iClassRef.byte_a(n, n2);
             if (this.a((short)1)) {
                 return 1;
             }
             if (this.a((short)2)) {
-                if (by == 5) {
+                if (terrainType == f.TERRAIN_WATER) {
                     return 1;
                 }
-                return Class_I.terrainTypeMovementReduction_XXX[by] * 2;
+                return Class_I.terrainTypeMovementReduction_XXX[terrainType] * 2;
             }
-            return Class_I.terrainTypeMovementReduction_XXX[by];
+            return Class_I.terrainTypeMovementReduction_XXX[terrainType];
         }
         return 10000;
     }
