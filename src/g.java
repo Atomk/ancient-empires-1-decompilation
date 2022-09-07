@@ -9,6 +9,8 @@ import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 public class g {
+    private static final int UI_BG_COLOR = 13549221;    // 0xCEBEA5
+
     public int j;
     public byte var_byte_e = (byte)3;
     private short var_short_a = (short)150;
@@ -1026,7 +1028,7 @@ public class g {
         int n6;
         SpriteSheet frameSheet = this.var_a_a.uiPanelFrameSheet;
         graphics.setClip(n, n2, n3, n4);
-        graphics.setColor(13549221);
+        graphics.setColor(UI_BG_COLOR);
         int n7 = n3;
         int n8 = n4;
         int n9 = n;
