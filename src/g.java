@@ -943,6 +943,7 @@ public class g {
                         int n30 = 0;
                         for (n27 = 0; n27 < this.var_a_a.var_short_e; ++n27) {
                             int n31 = this.var_a_a.getTerrainType_ZZ(n27, n28);
+                            // TODO rename terrain type
                             int n32 = this.var_a_a.int_a(n27, n28);
                             if (n32 >= 0) {
                                 n31 = 2 * (n32 + 1) + 7 + n31 - 7;
