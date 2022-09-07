@@ -159,9 +159,9 @@ public class SpriteSheet {
         return 0;
     }
 
-    public void a(int n) {
-        if (n < this.var_byte_arr_e.length) {
-            this.var_short_d = (byte)n;
+    public void a(int spriteIndex) {
+        if (spriteIndex < this.var_byte_arr_e.length) {
+            this.var_short_d = (byte)spriteIndex;
         }
     }
 

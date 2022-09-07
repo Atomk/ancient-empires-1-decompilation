@@ -46,7 +46,7 @@ public class g {
     private int v;
     private int var_int_a;
     private byte var_byte_c;
-    private byte var_byte_b;
+    private byte spriteIndex_XX;
     private short var_short_b;
     private int u;
     private int var_int_d;
@@ -96,7 +96,7 @@ public class g {
                 this.var_int_g = AppCanvas.height2 * 2 / 3;
             } else {
                 this.j = 65;
-                this.var_byte_c = i2.var_byte_c;
+                this.var_byte_c = i2.spriteIndex_YY;
                 this.var_int_b = AppCanvas.width2 - 64;
                 this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.uiArrowSheet.getSpritesHeight();
             }
@@ -188,7 +188,7 @@ public class g {
     public static g a(Class_I i2, String string, byte by, byte by2) {
         byte by3 = by2;
         g g2 = new g(i2, (byte)6, by3);
-        g2.var_byte_b = by;
+        g2.spriteIndex_XX = by;
         if (by == -1) {
             by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
@@ -481,7 +481,7 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.unitType_XX]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.spriteIndex_YY] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.unitType_XX]]) {
                                 if (this.var_byte_a == 2) {
                                     this.var_a_a.a((int)this.var_byte_arr_a[this.unitType_XX], "", this);
                                 } else {
@@ -842,9 +842,9 @@ public class g {
                     int n18 = this.var_int_h;
                     for (int j = 0; j < this.var_int_f; ++j) {
                         for (int k = 0; k < this.w; ++k) {
-                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.var_byte_c][this.var_byte_arr_a[n16]];
+                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.spriteIndex_YY][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
-                            if (this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_c] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
+                            if (this.var_a_a.var_int_arr_b[this.var_a_a.spriteIndex_YY] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.getSpritesWidth(), e2.getSpritesHeight(), -1328628059);
                             }
                             if (n16 == this.unitType_XX) {
@@ -861,7 +861,7 @@ public class g {
                 }
                 case 3: {
                     this.var_a_a.spriteGold.draw(graphics, 2, 2);
-                    if (this.var_a_a.var_byte_arr_b[this.var_a_a.var_byte_c] == 0) {
+                    if (this.var_a_a.var_byte_arr_b[this.var_a_a.spriteIndex_YY] == 0) {
                         this.var_a_a.uiBtnIconSheet.a(2);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
@@ -870,13 +870,13 @@ public class g {
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;
                     graphics.setClip(0, n19, n3, n20);
-                    graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.var_byte_c]);
+                    graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.spriteIndex_YY]);
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
-                    if (this.var_a_a.var_byte_c == 1) {
+                    if (this.var_a_a.spriteIndex_YY == 1) {
                         n21 = n3 - this.var_a_a.var_e_m.getSpritesWidth();
                     }
-                    this.var_a_a.var_e_m.a(this.var_a_a.var_byte_c);
+                    this.var_a_a.var_e_m.a(this.var_a_a.spriteIndex_YY);
                     this.var_a_a.var_e_m.a(graphics, n21, n19 - 10);
                     break;
                 }
@@ -890,8 +890,8 @@ public class g {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
                         n22 += this.m;
                     }
-                    if (this.var_byte_b != -1) {
-                        this.var_a_a.var_e_m.a(this.var_byte_b);
+                    if (this.spriteIndex_XX != -1) {
+                        this.var_a_a.var_e_m.a(this.spriteIndex_XX);
                         if (this.t == 4) {
                             this.var_a_a.var_e_m.a(graphics, 0, -11);
                         } else if (this.t == 8) {

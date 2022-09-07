@@ -160,9 +160,9 @@ CommandListener {
             // if n3 == 1, this check will only allow numbers (ascii 48-57)
             // if n3 == 0, this check will allow numbers, uppercase letters and some symbols (ascii 43-90)
             if (letter < asciiRefStart[n3] || letter > asciiRefEnd[n3]) continue;
-            byte by = var_byte_arr_arr_a[n3][letter - asciiRefStart[n3]];
-            if (by != -1) {
-                var_e_arr_a[n3].a(by);
+            byte spriteIndex = var_byte_arr_arr_a[n3][letter - asciiRefStart[n3]];
+            if (spriteIndex != -1) {
+                var_e_arr_a[n3].a(spriteIndex);
                 var_e_arr_a[n3].a(graphics, x, y);
                 x += var_e_arr_a[n3].getSpritesWidth();
                 continue;
