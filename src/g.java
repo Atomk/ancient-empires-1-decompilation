@@ -58,7 +58,7 @@ public class g {
     private int v;
     private int var_int_a;
     private byte var_byte_c;
-    private byte spriteIndex_XX;
+    private byte portraitSpriteIndex;
     private short var_short_b;
     private int u;
     private int var_int_d;
@@ -197,11 +197,11 @@ public class g {
         return g2;
     }
 
-    public static g a(Class_I i2, String string, byte by, byte by2) {
+    public static g a(Class_I i2, String string, byte portraitIndex, byte by2) {
         byte by3 = by2;
         g g2 = new g(i2, (byte)6, by3);
-        g2.spriteIndex_XX = by;
-        if (by == -1) {
+        g2.portraitSpriteIndex = portraitIndex;
+        if (portraitIndex == -1) {
             by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
             g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
@@ -902,8 +902,8 @@ public class g {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
                         n22 += this.m;
                     }
-                    if (this.spriteIndex_XX != -1) {
-                        this.var_a_a.uiPortraitSheet.a(this.spriteIndex_XX);
+                    if (this.portraitSpriteIndex != -1) {
+                        this.var_a_a.uiPortraitSheet.a(this.portraitSpriteIndex);
                         if (this.t == 4) {
                             this.var_a_a.uiPortraitSheet.a(graphics, 0, -11);
                         } else if (this.t == 8) {
