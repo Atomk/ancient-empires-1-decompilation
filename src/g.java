@@ -903,7 +903,7 @@ public class g {
                     break;
                 }
                 case 5: {
-                    byte terrainType = this.var_a_a.byte_a(this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g);
+                    byte terrainType = this.var_a_a.getTerrainType_ZZ(this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g);
                     byte by2 = this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : Class_I.terrainType_XXX[terrainType];
                     int n24 = 6;
                     this.var_a_a.var_h_arr_c[by2].draw(graphics, n24, 2);
@@ -942,7 +942,7 @@ public class g {
                     for (n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
                         int n30 = 0;
                         for (n27 = 0; n27 < this.var_a_a.var_short_e; ++n27) {
-                            int n31 = this.var_a_a.byte_a(n27, n28);
+                            int n31 = this.var_a_a.getTerrainType_ZZ(n27, n28);
                             int n32 = this.var_a_a.int_a(n27, n28);
                             if (n32 >= 0) {
                                 n31 = 2 * (n32 + 1) + 7 + n31 - 7;

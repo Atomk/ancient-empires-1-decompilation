@@ -174,14 +174,14 @@ extends Class_I {
         }
         this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
         for (n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
-            if (this.byte_a((int)this.var_byte_arr_arr_e[n2][0], (int)this.var_byte_arr_arr_e[n2][1]) != 7) continue;
+            if (this.getTerrainType_ZZ((int)this.var_byte_arr_arr_e[n2][0], (int)this.var_byte_arr_arr_e[n2][1]) != 7) continue;
             this.var_e_arr_a[n2] = SpriteSheet.a(this.spriteSheetChimneySmoke, 0, -1, 1, 250, (byte)0);
             this.var_e_arr_a[n2].var_boolean_d = false;
         }
     }
 
     private boolean boolean_a(int n, int n2) {
-        return var_boolean_arr_a[this.byte_a(n, n2)];
+        return var_boolean_arr_a[this.getTerrainType_ZZ(n, n2)];
     }
 
     public void e() throws Exception {

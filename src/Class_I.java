@@ -941,7 +941,7 @@ implements CommandListener {
 
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
-        if (by == 1 && this.var_c_h.a((short)4) && this.byte_a(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
+        if (by == 1 && this.var_c_h.a((short)4) && this.getTerrainType_ZZ(this.var_c_h.i, (int)this.var_c_h.var_short_a) == 8) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
         if (this.a((int)unit.i, (int)unit.var_short_a, unit)) {
@@ -1780,7 +1780,7 @@ implements CommandListener {
         return null;
     }
 
-    public byte byte_a(int n, int n2) {
+    public byte getTerrainType_ZZ(int n, int n2) {
         return this.var_byte_arr_j[this.var_byte_arr_arr_a[n][n2]];
     }
 
@@ -1818,12 +1818,12 @@ implements CommandListener {
         for (n = 0; n < this.var_byte_arr_arr_a.length; ++n) {
             for (int j = 0; j < this.var_byte_arr_arr_a[n].length; ++j) {
                 if (!this.boolean_a(n, j, (int)this.var_byte_c)) continue;
-                if (this.byte_a(n, j) == 7) {
+                if (this.getTerrainType_ZZ(n, j) == 7) {
                     byte by = this.var_byte_g;
                     this.var_int_arr_b[by] = this.var_int_arr_b[by] + 30;
                     continue;
                 }
-                if (this.byte_a(n, j) != 8) continue;
+                if (this.getTerrainType_ZZ(n, j) != 8) continue;
                 byte by = this.var_byte_g;
                 this.var_int_arr_b[by] = this.var_int_arr_b[by] + 50;
             }
@@ -1840,10 +1840,10 @@ implements CommandListener {
     }
 
     public boolean a(int n, int n2, Unit c2) {
-        if (c2.a((short)8) && this.byte_a(c2.i, (int)c2.var_short_a) == 7 && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
+        if (c2.a((short)8) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == 7 && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
             return true;
         }
-        return c2.a((short)16) && this.byte_a(c2.i, (int)c2.var_short_a) == 8 && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a);
+        return c2.a((short)16) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == 8 && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a);
     }
 
     public void void_a(int n, int n2, int n3) {
@@ -2031,7 +2031,7 @@ implements CommandListener {
                 if (c2.var_byte_a != this.var_byte_c || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.var_byte_c) != 1) continue;
-                    if (this.byte_a(c2.i, (int)c2.var_short_a) == 8 && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)this.var_byte_c)) {
+                    if (this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == 8 && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)this.var_byte_c)) {
                         if (this.int_a(0, -1, this.var_byte_c) < 2 && this.boolean_a(0)) {
                             c2 = this.c_a(0, (int)c2.i, c2.var_short_a);
                         } else {
@@ -2062,7 +2062,7 @@ implements CommandListener {
                 for (n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
                     n6 = this.var_byte_arr_arr_e[n5][0];
                     n4 = this.var_byte_arr_arr_e[n5][1];
-                    if (this.byte_a(n6, n4) != 7) continue;
+                    if (this.getTerrainType_ZZ(n6, n4) != 7) continue;
                     n3 = this.boolean_a(n6, n4, (int)c2.var_byte_a) ? 1 : 0;
                     if (this.F != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.i) + Math.abs(n4 - c2.var_short_a)) >= n7) continue;
                     n7 = n2;
@@ -2127,7 +2127,7 @@ implements CommandListener {
                     n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
-                if (terrainTypeMovementReduction_XXX[this.byte_a(n, n2)] <= 1) {
+                if (terrainTypeMovementReduction_XXX[this.getTerrainType_ZZ(n, n2)] <= 1) {
                     n5 += 5;
                 }
                 for (n4 = 0; n4 < this.var_c_arr_c.length; ++n4) {
@@ -2135,7 +2135,7 @@ implements CommandListener {
                     n3 = this.var_c_arr_c[n4].i - c2.i + (this.var_c_arr_c[n4].var_short_a - c2.var_short_a);
                     n5 += n3 * n3;
                 }
-                if (this.byte_a(n, n2) != 7 || this.boolean_a(n, n2, (int)c2.var_byte_a) || c3 != null) break;
+                if (this.getTerrainType_ZZ(n, n2) != 7 || this.boolean_a(n, n2, (int)c2.var_byte_a) || c3 != null) break;
                 n5 += 200;
                 break;
             }
@@ -2156,13 +2156,13 @@ implements CommandListener {
                 n5 += 10;
             }
         }
-        n5 += this.getTerrainDefence_XX(this.byte_a(n, n2), c2) * 2;
+        n5 += this.getTerrainDefence_XX(this.getTerrainType_ZZ(n, n2), c2) * 2;
         for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
             if (n4 == this.var_byte_g || this.var_c_arr_a[n4] == null) continue;
             n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].i) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].var_short_a)) * 2;
             break;
         }
-        if (this.byte_a(n, n2) == 7 && this.boolean_a(n, n2, (int)c2.var_byte_a)) {
+        if (this.getTerrainType_ZZ(n, n2) == 7 && this.boolean_a(n, n2, (int)c2.var_byte_a)) {
             n5 += (10 - c2.h) * 2;
         }
         if (c2.h < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {

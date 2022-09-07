@@ -114,7 +114,7 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n3;
         }
-        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.byte_a(unit.i, (int)unit.var_short_a), unit);
+        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(unit.i, (int)unit.var_short_a), unit);
         int n5 = (n2 - (terrainDEF_XX + n3) * 2 / 3) * this.h / 10;
         if (n5 > unit.h) {
             n5 = unit.h;
@@ -178,7 +178,7 @@ extends SpriteSheet {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.byte_a(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.h;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
@@ -335,7 +335,7 @@ extends SpriteSheet {
             if (c2 != null && c2.var_byte_a != this.var_byte_a) {
                 return 1000;
             }
-            byte terrainType = iClassRef.byte_a(n, n2);
+            byte terrainType = iClassRef.getTerrainType_ZZ(n, n2);
             if (this.a((short)1)) {
                 return 1;
             }
