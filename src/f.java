@@ -641,9 +641,9 @@ public class f {
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
         n4 = AppCanvas.a((byte)1) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
-        n7 = Class_I.terrainTypeDefense[this.terrainType_YY];
-        n3 = this.var_a_a.a((byte)this.terrainType_YY, this.var_c_a) - n7;
-        StringBuffer stringBuffer = new StringBuffer().append(n7);
+        byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
+        n3 = this.var_a_a.a((byte)this.terrainType_YY, this.var_c_a) - terrainDEF;
+        StringBuffer stringBuffer = new StringBuffer().append(terrainDEF);
         if (n3 > 0) {
             stringBuffer.append("+" + n3);
         }
