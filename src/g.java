@@ -862,8 +862,8 @@ public class g {
                 case 3: {
                     this.var_a_a.spriteGold.draw(graphics, 2, 2);
                     if (this.var_a_a.var_byte_arr_b[this.var_a_a.var_byte_c] == 0) {
-                        this.var_a_a.var_e_e.a(2);
-                        this.var_a_a.var_e_e.a(graphics, n3 - 2 - this.var_a_a.var_e_e.getSpritesWidth(), 2);
+                        this.var_a_a.uiBtnIconSheet.a(2);
+                        this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
                         AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
                     }
@@ -1011,12 +1011,12 @@ public class g {
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         if (this.var_byte_e == 2) {
             if (this.var_boolean_a) {
-                this.var_a_a.var_e_e.a(0);
-                this.var_a_a.var_e_e.a(graphics, 0, AppCanvas.height2 - this.var_a_a.var_e_e.getSpritesHeight());
+                this.var_a_a.uiBtnIconSheet.a(0);
+                this.var_a_a.uiBtnIconSheet.a(graphics, 0, AppCanvas.height2 - this.var_a_a.uiBtnIconSheet.getSpritesHeight());
             }
             if (this.var_boolean_g) {
-                this.var_a_a.var_e_e.a(1);
-                this.var_a_a.var_e_e.a(graphics, AppCanvas.width2 - this.var_a_a.var_e_e.getSpritesWidth(), AppCanvas.height2 - this.var_a_a.var_e_e.getSpritesHeight());
+                this.var_a_a.uiBtnIconSheet.a(1);
+                this.var_a_a.uiBtnIconSheet.a(graphics, AppCanvas.width2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), AppCanvas.height2 - this.var_a_a.uiBtnIconSheet.getSpritesHeight());
             }
         }
     }

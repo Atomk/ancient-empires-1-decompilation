@@ -82,7 +82,7 @@ implements CommandListener {
     public SpriteSheet var_e_k;
     public SpriteSheet uiArrowSheet;
     public SpriteSheet var_e_b;
-    public SpriteSheet var_e_e;
+    public SpriteSheet uiBtnIconSheet;
     public SpriteSheet var_e_l;
     public SpriteSheet var_e_r;
     public SpriteSheet var_e_d;
@@ -230,7 +230,8 @@ implements CommandListener {
         if (by == 0) {
             // Arrows shown when you can scroll text
             this.uiArrowSheet = new SpriteSheet("arrow");
-            this.var_e_e = new SpriteSheet("buttons");
+            // Icons showing what the phone soft keys button will do (confirm, back)
+            this.uiBtnIconSheet = new SpriteSheet("buttons");
             this.var_e_b = new SpriteSheet("menu");
             this.spriteMacrospaceLogo = new Sprite("ms_logo.png");
             this.spriteMenuPointer = new Sprite("pointer.png");
@@ -1735,12 +1736,12 @@ implements CommandListener {
         }
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
-                this.var_e_e.a(1);
-                this.var_e_e.a(graphics, AppCanvas.width2 - this.var_e_e.getSpritesWidth(), AppCanvas.height2 - this.var_e_e.getSpritesHeight());
+                this.uiBtnIconSheet.a(1);
+                this.uiBtnIconSheet.a(graphics, AppCanvas.width2 - this.uiBtnIconSheet.getSpritesWidth(), AppCanvas.height2 - this.uiBtnIconSheet.getSpritesHeight());
             }
             if (this.var_boolean_t) {
-                this.var_e_e.a(0);
-                this.var_e_e.a(graphics, 0, AppCanvas.height2 - this.var_e_e.getSpritesHeight());
+                this.uiBtnIconSheet.a(0);
+                this.uiBtnIconSheet.a(graphics, 0, AppCanvas.height2 - this.uiBtnIconSheet.getSpritesHeight());
             }
         }
     }
