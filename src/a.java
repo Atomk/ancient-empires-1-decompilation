@@ -9,22 +9,22 @@ import javax.microedition.lcdui.Graphics;
 
 public class a
 extends Class_I {
-    public static final boolean[] var_boolean_arr_a;
+    private static final boolean[] var_boolean_arr_a;
     private Sprite spriteSplashBackground;
     private Sprite spriteSplashForeground;
     private Sprite spriteMacrospaceCoyrightText;
     public SpriteSheet[][] var_e_arr_arr_c;
-    public int I = -15;
-    public int B;
-    public int var_int_d = 0;
+    private int I = -15;
+    private int B;
+    //private int var_int_d = 0;    // Unused
     public boolean var_boolean_g = false;
     private Vector<SpriteSheet> var_java_util_Vector_d;
     public SpriteSheet[][] var_e_arr_arr_a;
     public Sprite[][] var_h_arr_arr_a;
     public Sprite[] b;
-    public SpriteSheet[] var_e_arr_a = new SpriteSheet[0];
+    private SpriteSheet[] var_e_arr_a = new SpriteSheet[0];
     public SpriteSheet spriteSheetChimneySmoke;
-    public byte[][] var_byte_arr_arr_c;
+    private byte[][] var_byte_arr_arr_c;
 
     public a(byte by) throws Exception {
         super(by);
@@ -87,7 +87,7 @@ extends Class_I {
                 if (this.I < 0) {
                     ++this.I;
                     this.B -= 2;
-                    ++this.var_int_d;
+                    //++this.var_int_d;
                     break;
                 }
                 this.var_int_m = 0;
@@ -180,7 +180,7 @@ extends Class_I {
         }
     }
 
-    public boolean boolean_a(int n, int n2) {
+    private boolean boolean_a(int n, int n2) {
         return var_boolean_arr_a[this.byte_a(n, n2)];
     }
 
