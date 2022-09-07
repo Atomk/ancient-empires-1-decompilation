@@ -1784,7 +1784,8 @@ implements CommandListener {
         return this.var_byte_arr_j[this.var_byte_arr_arr_a[n][n2]];
     }
 
-    public int a(byte terrainType, Unit unit) {
+    // TODO dehardcode magic numbers
+    public int getTerrainDefence_XX(byte terrainType, Unit unit) {
         int terrainDefence = terrainTypeDefense[terrainType];
         if (unit.a((short)2) && terrainType == 5) {
             terrainDefence += 2;
@@ -2155,7 +2156,7 @@ implements CommandListener {
                 n5 += 10;
             }
         }
-        n5 += this.a(this.byte_a(n, n2), c2) * 2;
+        n5 += this.getTerrainDefence_XX(this.byte_a(n, n2), c2) * 2;
         for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
             if (n4 == this.var_byte_g || this.var_c_arr_a[n4] == null) continue;
             n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].i) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].var_short_a)) * 2;

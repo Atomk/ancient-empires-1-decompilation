@@ -114,7 +114,7 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n3;
         }
-        int n4 = iClassRef.a(iClassRef.byte_a(unit.i, (int)unit.var_short_a), unit);
+        int n4 = iClassRef.getTerrainDefence_XX(iClassRef.byte_a(unit.i, (int)unit.var_short_a), unit);
         int n5 = (n2 - (n4 + n3) * 2 / 3) * this.h / 10;
         if (n5 > unit.h) {
             n5 = unit.h;
@@ -178,7 +178,7 @@ extends SpriteSheet {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.a(iClassRef.byte_a(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.byte_a(n, n2), this)) * this.h;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
