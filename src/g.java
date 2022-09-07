@@ -11,6 +11,16 @@ import javax.microedition.lcdui.Graphics;
 public class g {
     private static final int UI_BG_COLOR = 13549221;    // 0xCEBEA5
 
+    private static final int FRAME_TOP_LEFT = 0;
+    private static final int FRAME_TOP_RIGHT = 1;
+    private static final int FRAME_BOTTOM_LEFT = 2;
+    private static final int FRAME_BOTTOM_RIGHT = 3;
+    
+    private static final int FRAME_TOP = 4;
+    private static final int FRAME_BOTTOM = 5;
+    private static final int FRAME_LEFT = 6;
+    private static final int FRAME_RIGHT = 7;
+
     public int j;
     public byte var_byte_e = (byte)3;
     private short var_short_a = (short)150;
@@ -1066,11 +1076,11 @@ public class g {
         int n16 = n2 + n4 - frameSheet.getSpritesHeight();
         for (n6 = 0; n6 < n13; ++n6) {
             if ((n5 & 1) == 0) {
-                frameSheet.a(4);
+                frameSheet.a(FRAME_TOP);
                 frameSheet.a(graphics, n15, n2);
             }
             if ((n5 & 2) == 0) {
-                frameSheet.a(5);
+                frameSheet.a(FRAME_BOTTOM);
                 frameSheet.a(graphics, n15, n16);
             }
             n15 += frameSheet.getSpritesWidth();
@@ -1079,63 +1089,63 @@ public class g {
         n16 = n2 + frameSheet.getSpritesHeight();
         for (n6 = 0; n6 < n14; ++n6) {
             if ((n5 & 4) == 0) {
-                frameSheet.a(6);
+                frameSheet.a(FRAME_LEFT);
                 frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(7);
+                frameSheet.a(FRAME_RIGHT);
                 frameSheet.a(graphics, n15, n16);
             }
             n16 += frameSheet.getSpritesHeight();
         }
         if ((n5 & 1) == 0) {
             if ((n5 & 4) == 0) {
-                frameSheet.a(0);
+                frameSheet.a(FRAME_TOP_LEFT);
                 frameSheet.a(graphics, n, n2);
             } else {
-                frameSheet.a(4);
+                frameSheet.a(FRAME_TOP);
                 frameSheet.a(graphics, n, n2);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(1);
+                frameSheet.a(FRAME_TOP_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n2);
             } else {
-                frameSheet.a(4);
+                frameSheet.a(FRAME_TOP);
                 frameSheet.a(graphics, n + n3 - 24, n2);
             }
         } else {
             if ((n5 & 4) == 0) {
-                frameSheet.a(6);
+                frameSheet.a(FRAME_LEFT);
                 frameSheet.a(graphics, n, n2);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(7);
+                frameSheet.a(FRAME_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n2);
             }
         }
         n16 = n2 + n4 - 24;
         if ((n5 & 2) == 0) {
             if ((n5 & 4) == 0) {
-                frameSheet.a(2);
+                frameSheet.a(FRAME_BOTTOM_LEFT);
                 frameSheet.a(graphics, n, n16);
             } else {
-                frameSheet.a(5);
+                frameSheet.a(FRAME_BOTTOM);
                 frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(3);
+                frameSheet.a(FRAME_BOTTOM_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n16);
             } else {
-                frameSheet.a(5);
+                frameSheet.a(FRAME_BOTTOM);
                 frameSheet.a(graphics, n + n3 - 24, n16);
             }
         } else {
             if ((n5 & 4) == 0) {
-                frameSheet.a(6);
+                frameSheet.a(FRAME_LEFT);
                 frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(7);
+                frameSheet.a(FRAME_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n16);
             }
         }
