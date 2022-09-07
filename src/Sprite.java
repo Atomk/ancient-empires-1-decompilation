@@ -11,8 +11,9 @@ import javax.microedition.lcdui.Image;
 public class Sprite {
     public Image image;
     private boolean isPartOfSpritesheet = false;
-    private short b;
-    private short var_short_a;
+    // Position irelative to spritesheet image top left
+    private short sheetOffsetX;
+    private short sheetOffsetY;
     public short width;
     public short height;
 
@@ -20,8 +21,11 @@ public class Sprite {
         this.image = spriteSheetImage.image;
         this.width = (short)tileWidth;
         this.height = (short)tileHeight;
-        this.b = (short)(colIndex * tileWidth + spriteSheetImage.b);
-        this.var_short_a = (short)(rowIndex * tileHeight + spriteSheetImage.var_short_a);
+        // Adding the offset of spriteSheetImage can be useful
+        // if the spritesheet provided is also part of a spritesheet
+        // (e.g. an image where every row is an animation sheet for a unit)
+        this.sheetOffsetX = (short)(colIndex * tileWidth + spriteSheetImage.sheetOffsetX);
+        this.sheetOffsetY = (short)(rowIndex * tileHeight + spriteSheetImage.sheetOffsetY);
         this.isPartOfSpritesheet = true;
     }
 
@@ -39,8 +43,13 @@ public class Sprite {
             int clipY = graphics.getClipY();
             int clipWidth = graphics.getClipWidth();
             int clipHeight = graphics.getClipHeight();
+            // Without the clipRect() the game will draw the whole spritesheet
+            // "Rendering operations have no effect outside of the clipping area."
+            // See "Clipping" section:
+            // https://docs.oracle.com/javame/config/cldc/ref-impl/midp2.0/jsr118/javax/microedition/lcdui/Graphics.html
             graphics.clipRect(x, y, (int)this.width, (int)this.height);
-            graphics.drawImage(this.image, x - this.b, y - this.var_short_a, 20);
+            graphics.drawImage(this.image, x - this.sheetOffsetX, y - this.sheetOffsetY, 20);
+            // Resets the clip area to its previous state
             graphics.setClip(clipX, clipY, clipWidth, clipHeight);
         } else {
             graphics.drawImage(this.image, x, y, 20);
