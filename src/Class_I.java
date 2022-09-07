@@ -91,7 +91,7 @@ implements CommandListener {
     public SpriteSheet var_e_r;
     public SpriteSheet var_e_d;
     public SpriteSheet var_e_j;
-    public SpriteSheet var_e_m;
+    public SpriteSheet uiPortraitSheet;
     public short var_short_h;
     public short var_short_g;
     public byte[][] var_byte_arr_arr_a;
@@ -267,7 +267,8 @@ implements CommandListener {
         //AppCanvas.readAssetsPackage("/1.pak");
         this.var_e_h = new SpriteSheet("cursor");
         this.spriteGold = new Sprite("gold.png");
-        this.var_e_m = new SpriteSheet("portrait");
+        // Characters heads, shown when there is story dialogue
+        this.uiPortraitSheet = new SpriteSheet("portrait");
         this.var_e_d = new SpriteSheet("redspark");
         this.var_e_l = new SpriteSheet("smoke");
         this.var_e_r = new SpriteSheet("spark");

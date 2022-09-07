@@ -131,7 +131,7 @@ public class g {
             this.var_boolean_d = false;
             this.b();
         } else if (by == 6) {
-            this.var_int_g = i2.var_e_m.getSpritesHeight() + -5;
+            this.var_int_g = i2.uiPortraitSheet.getSpritesHeight() + -5;
             this.var_int_b = AppCanvas.width2;
             int n2 = this.var_int_g - 6;
             n2 = n == 2 ? (n2 -= 2) : (n2 -= 6);
@@ -206,7 +206,7 @@ public class g {
             g2.var_int_d = g2.var_int_b - 24;
             g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         } else {
-            g2.var_int_d = g2.var_int_b - i2.var_e_m.getSpritesWidth() - 6 - 12;
+            g2.var_int_d = g2.var_int_b - i2.uiPortraitSheet.getSpritesWidth() - 6 - 12;
             g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         }
         g2.a(by2, 0, 0, null, 0);
@@ -886,28 +886,28 @@ public class g {
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
                     if (this.var_a_a.spriteIndex_YY == 1) {
-                        n21 = n3 - this.var_a_a.var_e_m.getSpritesWidth();
+                        n21 = n3 - this.var_a_a.uiPortraitSheet.getSpritesWidth();
                     }
-                    this.var_a_a.var_e_m.a(this.var_a_a.spriteIndex_YY);
-                    this.var_a_a.var_e_m.a(graphics, n21, n19 - 10);
+                    this.var_a_a.uiPortraitSheet.a(this.var_a_a.spriteIndex_YY);
+                    this.var_a_a.uiPortraitSheet.a(graphics, n21, n19 - 10);
                     break;
                 }
                 case 6: {
                     graphics.setFont(this.appFont);
                     int n22 = this.D;
                     int n23 = 4;
-                    n23 = this.t == 4 ? (n23 += this.var_a_a.var_e_m.getSpritesWidth()) : (n23 += 4);
+                    n23 = this.t == 4 ? (n23 += this.var_a_a.uiPortraitSheet.getSpritesWidth()) : (n23 += 4);
                     graphics.setColor(0);
                     for (int j = this.var_short_b; j < this.var_short_b + this.u && j < this.var_java_lang_String_arr_b.length; ++j) {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
                         n22 += this.m;
                     }
                     if (this.spriteIndex_XX != -1) {
-                        this.var_a_a.var_e_m.a(this.spriteIndex_XX);
+                        this.var_a_a.uiPortraitSheet.a(this.spriteIndex_XX);
                         if (this.t == 4) {
-                            this.var_a_a.var_e_m.a(graphics, 0, -11);
+                            this.var_a_a.uiPortraitSheet.a(graphics, 0, -11);
                         } else if (this.t == 8) {
-                            this.var_a_a.var_e_m.a(graphics, this.var_int_b - 6 - this.var_a_a.var_e_m.getSpritesWidth(), -11);
+                            this.var_a_a.uiPortraitSheet.a(graphics, this.var_int_b - 6 - this.var_a_a.uiPortraitSheet.getSpritesWidth(), -11);
                         }
                     }
                     this.var_a_a.uiArrowSheet.a(1);
