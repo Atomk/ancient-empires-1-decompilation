@@ -106,7 +106,7 @@ implements CommandListener {
     public byte var_byte_i;
     public byte var_byte_e;
     public long var_long_n;
-    public int F;
+    private int currentLevel;
     public int var_int_h;
     public int var_int_w;
     public Unit[] var_c_arr_b = null;
@@ -371,7 +371,7 @@ implements CommandListener {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
         dataOutputStream.writeByte(this.var_byte_a);
-        dataOutputStream.writeByte(this.F);
+        dataOutputStream.writeByte(this.currentLevel);
         dataOutputStream.writeByte(this.var_byte_h);
         dataOutputStream.writeByte(this.var_byte_g);
         dataOutputStream.writeShort(this.var_short_d);
@@ -414,9 +414,9 @@ implements CommandListener {
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(savedGameData);
         DataInputStream dataInputStream = new DataInputStream(byteArrayInputStream);
         this.var_byte_a = dataInputStream.readByte();
-        this.F = dataInputStream.readByte();
+        this.currentLevel = dataInputStream.readByte();
         this.var_byte_h = dataInputStream.readByte();
-        this.void_a(this.F);
+        this.void_a(this.currentLevel);
         this.var_byte_g = dataInputStream.readByte();
         this.spriteIndex_YY = this.var_byte_arr_d[this.var_byte_g];
         this.var_short_d = dataInputStream.readShort();
@@ -464,10 +464,10 @@ implements CommandListener {
                 c2.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
                 continue;
             }
-            if (this.F != 2 || by2 != 0 || unitType != 2) continue;
+            if (this.currentLevel != 2 || by2 != 0 || unitType != 2) continue;
             c2.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
-        if (this.F == 2) {
+        if (this.currentLevel == 2) {
             for (n = 5; n < 10; ++n) {
                 this.var_byte_arr_arr_a[n][12] = var_byte_arr_a[0];
             }
@@ -630,10 +630,10 @@ implements CommandListener {
         if (string.equals(AppCanvas.getGameText(1)) || g2 == this.var_g_f) {
             if (g2 == this.var_g_f) {
                 if (n > this.levelsData[0]) return;
-                this.F = n;
+                this.currentLevel = n;
                 this.var_g_f = null;
             } else {
-                this.F = 0;
+                this.currentLevel = 0;
             }
             this.var_byte_a = 0;
             this.var_byte_arr_b[1] = 0;
@@ -643,7 +643,7 @@ implements CommandListener {
             appCanvas.repaint();
             appCanvas.serviceRepaints();
             this.m();
-            this.void_a(this.F);
+            this.void_a(this.currentLevel);
             this.var_boolean_l = false;
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(2))) {   // SELECT LEVEL
@@ -709,7 +709,7 @@ implements CommandListener {
             appCanvas.serviceRepaints();
             this.m();
             this.void_a(this.var_int_h);
-            this.F = this.var_int_h;
+            this.currentLevel = this.var_int_h;
             this.var_g_e.a((byte)0, 0, 0, null, 0);
             this.var_boolean_l = false;
         } else {
@@ -899,8 +899,9 @@ implements CommandListener {
         dataInputStream.close();
         //AppCanvas.e();
         if (this.var_byte_a == 0) {
-            this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.F), AppCanvas.getGameText(55 + this.F), -1, false);
-            this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.F), -1, false);
+            // Level name (e.g. REGROUP) and its objective, shown at level start
+            this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.currentLevel), AppCanvas.getGameText(55 + this.currentLevel), -1, false);
+            this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.currentLevel), -1, false);
             this.a(false);
             this.void_b(500);
             AppCanvas.playSound(-1, 1);
@@ -1050,12 +1051,12 @@ implements CommandListener {
                     ++this.var_int_m;
                     if (this.var_int_m > 15) {
                         if (this.var_byte_i == 10) {
-                            ++this.F;
-                            if (this.F > this.levelsData[0]) {
-                                this.levelsData[0] = (byte)this.F;
+                            ++this.currentLevel;
+                            if (this.currentLevel > this.levelsData[0]) {
+                                this.levelsData[0] = (byte)this.currentLevel;
                                 appCanvas.savePersistentData("levels", this.levelsData);
                             }
-                            this.void_a(this.F);
+                            this.void_a(this.currentLevel);
                             this.var_byte_i = 0;
                         } else if (this.var_byte_i == 11) {
                             this.var_int_r = 0;
@@ -1152,8 +1153,8 @@ implements CommandListener {
                 } else if (this.var_c_c != null) {
                     if (this.var_long_n - this.var_long_g >= 300L) {
                         this.a(this.var_e_l, this.var_c_c.var_short_b, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
-                        if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.F != 4) {
-                            if (this.F != 6) {
+                        if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
+                            if (this.currentLevel != 6) {
                                 this.var_java_util_Vector_a.removeElement(this.var_c_c);
                                 this.var_c_arr_a[1] = null;
                             }
@@ -2082,7 +2083,7 @@ implements CommandListener {
                     n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
                     n3 = this.boolean_a(n6, n4, (int)c2.var_byte_a) ? 1 : 0;
-                    if (this.F != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.i) + Math.abs(n4 - c2.var_short_a)) >= n7) continue;
+                    if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.i) + Math.abs(n4 - c2.var_short_a)) >= n7) continue;
                     n7 = n2;
                     this.var_int_z = n6;
                     this.var_int_o = n4;
@@ -2187,7 +2188,7 @@ implements CommandListener {
             n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
             n5 += n4 * n4;
         }
-        if (this.F == 2 && this.var_int_z != -1) {
+        if (this.currentLevel == 2 && this.var_int_z != -1) {
             n4 = Math.abs(this.var_int_z - n) - 1;
             n3 = Math.abs(this.var_int_o - n2) - 3;
             if (n4 < 0) {
@@ -2263,7 +2264,7 @@ implements CommandListener {
             this.i();
             return;
         }
-        if (this.F == 0) {
+        if (this.currentLevel == 0) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_int_arr_b[0] = 0;
@@ -2388,7 +2389,7 @@ implements CommandListener {
             if (this.int_a(-1, 3, (byte)0) == 1) {
                 this.i();
             }
-        } else if (this.F == 1) {
+        } else if (this.currentLevel == 1) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_int_arr_b[0] = 0;
@@ -2522,7 +2523,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.F == 2) {
+        } else if (this.currentLevel == 2) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_int_arr_b[0] = 0;
@@ -2583,7 +2584,7 @@ implements CommandListener {
                     this.i();
                 }
             }
-        } else if (this.F == 3) {
+        } else if (this.currentLevel == 3) {
             if (this.var_byte_i == 1 && this.spriteIndex_YY == 0) {
                 if (this.var_boolean_A && this.var_c_h.unitType == Unit.WIZARD) {
                     this.var_int_s = 15;
@@ -2680,7 +2681,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.F == 4) {
+        } else if (this.currentLevel == 4) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.J = 7;
@@ -2740,7 +2741,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.F == 5) {
+        } else if (this.currentLevel == 5) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
@@ -2795,7 +2796,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.F == 6) {
+        } else if (this.currentLevel == 6) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.J = 8;
