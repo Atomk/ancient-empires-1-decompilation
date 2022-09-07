@@ -37,6 +37,9 @@ implements CommandListener {
     public static final byte PORTRAIT_VALADORN = 1;     // Valadorn (the enemy, Galamar's brother)
     public static final byte PORTRAIT_CAPTAIN = 2;      // Galamar's troops captain
 
+    public static final byte ARROW_UP = 0;
+    public static final byte ARROW_DOWN = 1;
+
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;

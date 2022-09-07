@@ -834,14 +834,14 @@ public class g {
                         n12 += this.appFont.getBaselinePosition() + this.D;
                     }
                     if (this.var_short_b != 0) {
-                        this.var_a_a.uiArrowSheet.a(0);
+                        this.var_a_a.uiArrowSheet.a(Class_I.ARROW_UP);
                         n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         n9 = this.j - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n10, n9 - this.p);
                         AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, 0);
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
-                    this.var_a_a.uiArrowSheet.a(1);
+                    this.var_a_a.uiArrowSheet.a(Class_I.ARROW_DOWN);
                     n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
                     this.var_a_a.uiArrowSheet.a(graphics, n10, n9 + this.p);
@@ -910,7 +910,7 @@ public class g {
                             this.var_a_a.uiPortraitSheet.a(graphics, this.var_int_b - 6 - this.var_a_a.uiPortraitSheet.getSpritesWidth(), -11);
                         }
                     }
-                    this.var_a_a.uiArrowSheet.a(1);
+                    this.var_a_a.uiArrowSheet.a(Class_I.ARROW_DOWN);
                     this.var_a_a.uiArrowSheet.a(graphics, n23 + this.var_int_d - this.var_a_a.uiArrowSheet.getSpritesWidth(), this.var_int_g - 6 - this.var_a_a.uiArrowSheet.getSpritesHeight() + this.p);
                     break;
                 }
@@ -1007,12 +1007,12 @@ public class g {
                     }
                     graphics.setClip(-6, -6, this.var_int_b, this.var_int_g);
                     if (this.var_short_b > 0) {
-                        this.var_a_a.uiArrowSheet.a(0);
+                        this.var_a_a.uiArrowSheet.a(Class_I.ARROW_UP);
                         n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n33, n35 + this.p - this.var_a_a.uiArrowSheet.getSpritesHeight());
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
-                    this.var_a_a.uiArrowSheet.a(1);
+                    this.var_a_a.uiArrowSheet.a(Class_I.ARROW_DOWN);
                     n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     int n38 = this.var_int_g - 12;
                     this.var_a_a.uiArrowSheet.a(graphics, n33, n38 - this.p);
