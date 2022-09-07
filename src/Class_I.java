@@ -85,7 +85,7 @@ implements CommandListener {
     public SpriteSheet var_e_h;
     public SpriteSheet var_e_k;
     public SpriteSheet uiArrowSheet;
-    public SpriteSheet var_e_b;
+    public SpriteSheet uiPanelFrameSheet;
     public SpriteSheet uiBtnIconSheet;
     public SpriteSheet var_e_l;
     public SpriteSheet var_e_r;
@@ -236,7 +236,8 @@ implements CommandListener {
             this.uiArrowSheet = new SpriteSheet("arrow");
             // Icons showing what the phone soft keys button will do (confirm, back)
             this.uiBtnIconSheet = new SpriteSheet("buttons");
-            this.var_e_b = new SpriteSheet("menu");
+            // Contains the elements used to make ui panels/menu frames
+            this.uiPanelFrameSheet = new SpriteSheet("menu");
             this.spriteMacrospaceLogo = new Sprite("ms_logo.png");
             this.spriteMenuPointer = new Sprite("pointer.png");
             this.spriteGameTitle = new Sprite("splash.png");

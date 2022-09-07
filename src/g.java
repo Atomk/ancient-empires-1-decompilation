@@ -1021,9 +1021,10 @@ public class g {
         }
     }
 
+    // TODO this draws UI panels!
     private void a(Graphics graphics, int n, int n2, int n3, int n4, int n5) {
         int n6;
-        SpriteSheet e2 = this.var_a_a.var_e_b;
+        SpriteSheet frameSheet = this.var_a_a.uiPanelFrameSheet;
         graphics.setClip(n, n2, n3, n4);
         graphics.setColor(13549221);
         int n7 = n3;
@@ -1032,108 +1033,108 @@ public class g {
         int n10 = n2;
         int n11 = n3;
         if ((n5 & 4) == 0) {
-            n11 -= e2.getSpritesWidth();
+            n11 -= frameSheet.getSpritesWidth();
             n7 -= 6;
             n9 += 6;
         }
         if ((n5 & 8) == 0) {
-            n11 -= e2.getSpritesWidth();
+            n11 -= frameSheet.getSpritesWidth();
             n7 -= 6;
         }
         int n12 = n4;
         if ((n5 & 1) == 0) {
-            n12 -= e2.getSpritesHeight();
+            n12 -= frameSheet.getSpritesHeight();
             n8 -= 6;
             n10 += 6;
         }
         if ((n5 & 2) == 0) {
-            n12 -= e2.getSpritesHeight();
+            n12 -= frameSheet.getSpritesHeight();
             n8 -= 6;
         }
         graphics.fillRect(n9, n10, n7, n8);
-        int n13 = n11 / e2.getSpritesWidth();
-        int n14 = n12 / e2.getSpritesHeight();
-        if (n11 % e2.getSpritesWidth() > 0) {
+        int n13 = n11 / frameSheet.getSpritesWidth();
+        int n14 = n12 / frameSheet.getSpritesHeight();
+        if (n11 % frameSheet.getSpritesWidth() > 0) {
             ++n13;
         }
-        if (n12 % e2.getSpritesHeight() > 0) {
+        if (n12 % frameSheet.getSpritesHeight() > 0) {
             ++n14;
         }
-        int n15 = n + e2.getSpritesWidth();
-        int n16 = n2 + n4 - e2.getSpritesHeight();
+        int n15 = n + frameSheet.getSpritesWidth();
+        int n16 = n2 + n4 - frameSheet.getSpritesHeight();
         for (n6 = 0; n6 < n13; ++n6) {
             if ((n5 & 1) == 0) {
-                e2.a(4);
-                e2.a(graphics, n15, n2);
+                frameSheet.a(4);
+                frameSheet.a(graphics, n15, n2);
             }
             if ((n5 & 2) == 0) {
-                e2.a(5);
-                e2.a(graphics, n15, n16);
+                frameSheet.a(5);
+                frameSheet.a(graphics, n15, n16);
             }
-            n15 += e2.getSpritesWidth();
+            n15 += frameSheet.getSpritesWidth();
         }
-        n15 = n + n3 - e2.getSpritesWidth();
-        n16 = n2 + e2.getSpritesHeight();
+        n15 = n + n3 - frameSheet.getSpritesWidth();
+        n16 = n2 + frameSheet.getSpritesHeight();
         for (n6 = 0; n6 < n14; ++n6) {
             if ((n5 & 4) == 0) {
-                e2.a(6);
-                e2.a(graphics, n, n16);
+                frameSheet.a(6);
+                frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                e2.a(7);
-                e2.a(graphics, n15, n16);
+                frameSheet.a(7);
+                frameSheet.a(graphics, n15, n16);
             }
-            n16 += e2.getSpritesHeight();
+            n16 += frameSheet.getSpritesHeight();
         }
         if ((n5 & 1) == 0) {
             if ((n5 & 4) == 0) {
-                e2.a(0);
-                e2.a(graphics, n, n2);
+                frameSheet.a(0);
+                frameSheet.a(graphics, n, n2);
             } else {
-                e2.a(4);
-                e2.a(graphics, n, n2);
+                frameSheet.a(4);
+                frameSheet.a(graphics, n, n2);
             }
             if ((n5 & 8) == 0) {
-                e2.a(1);
-                e2.a(graphics, n + n3 - 24, n2);
+                frameSheet.a(1);
+                frameSheet.a(graphics, n + n3 - 24, n2);
             } else {
-                e2.a(4);
-                e2.a(graphics, n + n3 - 24, n2);
+                frameSheet.a(4);
+                frameSheet.a(graphics, n + n3 - 24, n2);
             }
         } else {
             if ((n5 & 4) == 0) {
-                e2.a(6);
-                e2.a(graphics, n, n2);
+                frameSheet.a(6);
+                frameSheet.a(graphics, n, n2);
             }
             if ((n5 & 8) == 0) {
-                e2.a(7);
-                e2.a(graphics, n + n3 - 24, n2);
+                frameSheet.a(7);
+                frameSheet.a(graphics, n + n3 - 24, n2);
             }
         }
         n16 = n2 + n4 - 24;
         if ((n5 & 2) == 0) {
             if ((n5 & 4) == 0) {
-                e2.a(2);
-                e2.a(graphics, n, n16);
+                frameSheet.a(2);
+                frameSheet.a(graphics, n, n16);
             } else {
-                e2.a(5);
-                e2.a(graphics, n, n16);
+                frameSheet.a(5);
+                frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                e2.a(3);
-                e2.a(graphics, n + n3 - 24, n16);
+                frameSheet.a(3);
+                frameSheet.a(graphics, n + n3 - 24, n16);
             } else {
-                e2.a(5);
-                e2.a(graphics, n + n3 - 24, n16);
+                frameSheet.a(5);
+                frameSheet.a(graphics, n + n3 - 24, n16);
             }
         } else {
             if ((n5 & 4) == 0) {
-                e2.a(6);
-                e2.a(graphics, n, n16);
+                frameSheet.a(6);
+                frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                e2.a(7);
-                e2.a(graphics, n + n3 - 24, n16);
+                frameSheet.a(7);
+                frameSheet.a(graphics, n + n3 - 24, n16);
             }
         }
     }
