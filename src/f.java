@@ -95,6 +95,7 @@ public class f {
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
         this.terrainType_XX = this.terrainType_YY = (int)i2.byte_a(c2.i, (int)c2.var_short_a);
         if (this.terrainType_YY == 2 || this.terrainType_YY == 3) {
+            // TODO Dehardcode terrain type values
             this.terrainType_XX = 1;
         }
         if (this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] == null) {
@@ -160,6 +161,7 @@ public class f {
             this.var_e_a = i2.var_e_r;
         } else if (c2.unitType == Unit.WYVERN) {
             if (i2.var_e_n == null) {
+                // TODO this are battle screen attack snimations
                 i2.var_e_n = new SpriteSheet("fireball");
             }
             this.var_e_a = i2.var_e_n;
@@ -653,7 +655,7 @@ public class f {
 
     public void a(Graphics graphics) {
         if (this.var_a_a.var_boolean_b) {
-            graphics.setColor(0xFFFFFF);
+            graphics.setColor(0xFFFFFF);    // White
             graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
         }
         for (int j = 0; j < this.var_byte_b; ++j) {
@@ -667,7 +669,7 @@ public class f {
     }
 
     public void b(Graphics graphics) {
-        graphics.setColor(0x404040);
+        graphics.setColor(0x404040);    // Dark gray
         for (int j = 0; j < this.var_byte_b; ++j) {
             SpriteSheet e2 = this.var_e_arr_b[j];
             if (this.var_byte_e == 1 || this.var_byte_e == 2 || this.var_byte_e == 3) {
@@ -692,6 +694,7 @@ public class f {
         unitsNames = new String[]{
             "soldier", "archer", "lizard", "wizard", "wisp",
             "spider", "golem", "catapult", "wyvern", "king", "skeleton"};
+        // TODO rename to unitsValues_XX
         var_byte_arr_a = new byte[]{2, 0, 2, 0, 6, 5, 3, 0, 1, 5, 4};
 
         var_byte_arr_arr_arr_arr_a = new byte[][][][]{
