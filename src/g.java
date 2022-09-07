@@ -9,13 +9,18 @@ import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 public class g {
-    private static final int UI_BG_COLOR = 13549221;    // 0xCEBEA5
+    // TODO dehardcode remaining colors
+    private static final int COLOR_WHITE = 0xFFFFFF;
+    private static final int COLOR_BLACK = 0;
+    private static final int COLOR_RED = 0xFF0000;  // TODO what is this used for? it's in other places in the app
+    private static final int COLOR_UI_BACKGROUND = 13549221;    // 0xCEBEA5 - sand
+    private static final int COLOR_UI_LINE_SEPARATOR = 10391157;  // 0x9e8e75 - brownish mid-dark gray
 
     private static final int FRAME_TOP_LEFT = 0;
     private static final int FRAME_TOP_RIGHT = 1;
     private static final int FRAME_BOTTOM_LEFT = 2;
     private static final int FRAME_BOTTOM_RIGHT = 3;
-    
+
     private static final int FRAME_TOP = 4;
     private static final int FRAME_BOTTOM = 5;
     private static final int FRAME_LEFT = 6;
@@ -685,7 +690,7 @@ public class g {
         int n3 = 0;
         int n4 = 0;
         if (this.var_byte_d == 0 && (this.var_byte_e == 0 || this.var_byte_e == 1)) {
-            graphics.setColor(0xFFFFFF);
+            graphics.setColor(COLOR_WHITE);
             int n5 = this.var_int_b * this.q / 3;
             int n6 = this.var_int_g * this.q / 3;
             graphics.drawRect(this.A + (this.var_int_b - n5) / 2, this.y + (this.var_int_g - n6) / 2, n5, n6);
@@ -717,7 +722,7 @@ public class g {
             block0 : switch (this.var_byte_a) {
                 case 0: {
                     if (this.var_byte_e != 2) break;
-                    graphics.setColor(-16777216);
+                    graphics.setColor(-16777216);   // 0xFF000000 - The FF should be ignored, so this is black
                     int n7 = this.B + this.D * 3;
                     int n8 = this.D;
                     for (int j = this.var_short_b; j < this.var_short_b + this.u; ++j) {
@@ -737,14 +742,14 @@ public class g {
                     int n14 = 2;
                     this.var_a_a.a(this.var_byte_c, (byte)this.unitType_XX).a(graphics, n13, n14);
                     n13 += 26;
-                    graphics.setColor(0);
+                    graphics.setColor(COLOR_BLACK);
                     if (this.var_byte_a == 4 && this.var_c_a.var_java_lang_String_a != null) {
                         graphics.drawString(this.var_c_a.var_java_lang_String_a, n13, n14, 20);
                     } else {
                         // SOLDIER
                         graphics.drawString(AppCanvas.getGameText(63 + this.unitType_XX), n13, n14, 20);
                     }
-                    graphics.setColor(0);
+                    graphics.setColor(COLOR_BLACK);
                     //String string = "";
                     StringBuffer stringBuffer = new StringBuffer();
                     //int n15 = 4;
@@ -752,11 +757,11 @@ public class g {
                         this.var_a_a.spriteGold.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
                         AppCanvas.drawBoldWhiteText(graphics, "" + Unit.unitsDataPrice[this.unitType_XX], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
                     } else {
-                        graphics.setColor(10391157);
+                        graphics.setColor(COLOR_UI_LINE_SEPARATOR);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
                         n12 = n3 / 2;
                         graphics.drawLine(n12, n14, n12, this.j);
-                        graphics.setColor(0);
+                        graphics.setColor(COLOR_BLACK);
                         AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
                         n14 += AppCanvas.a((byte)0) + 2;
                         if ((this.var_c_a.var_byte_b & 1) != 0) {
@@ -780,7 +785,7 @@ public class g {
                             n13 += this.var_a_a.var_e_j.getSpritesWidth();
                         }
                     }
-                    graphics.setColor(0xFF0000);
+                    graphics.setColor(COLOR_RED);
                     AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, 0);
                     stringBuffer.append(Unit.unitsDataATK[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
@@ -827,7 +832,7 @@ public class g {
                     graphics.setColor(-6386059);
                     graphics.drawLine(0, n12, n3 - 1, n12);
                     graphics.drawLine(0, n12 + this.var_int_a, n3 - 1, n12 + this.var_int_a);
-                    graphics.setColor(0);
+                    graphics.setColor(COLOR_BLACK);
                     n12 += this.D;
                     for (n10 = this.var_short_b; n10 < this.var_short_b + this.u && n10 < this.var_java_lang_String_arr_b.length; ++n10) {
                         graphics.drawString(this.var_java_lang_String_arr_b[n10], n11, n12, 17);
@@ -897,7 +902,7 @@ public class g {
                     int n22 = this.D;
                     int n23 = 4;
                     n23 = this.t == 4 ? (n23 += this.var_a_a.uiPortraitSheet.getSpritesWidth()) : (n23 += 4);
-                    graphics.setColor(0);
+                    graphics.setColor(COLOR_BLACK);
                     for (int j = this.var_short_b; j < this.var_short_b + this.u && j < this.var_java_lang_String_arr_b.length; ++j) {
                         graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
                         n22 += this.m;
@@ -919,7 +924,7 @@ public class g {
                     byte by2 = this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : Class_I.terrainType_XXX[terrainType];
                     int n24 = 6;
                     this.var_a_a.var_h_arr_c[by2].draw(graphics, n24, 2);
-                    graphics.setColor(0);
+                    graphics.setColor(COLOR_BLACK);
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, 0);
@@ -979,18 +984,17 @@ public class g {
                     int n35 = 0;
                     int n36 = this.D;
                     if (this.var_java_lang_String_arr_a != null) {
-                        graphics.setColor(0);
+                        graphics.setColor(COLOR_BLACK);
                         for (n34 = 0; n34 < this.var_java_lang_String_arr_a.length; ++n34) {
                             graphics.drawString(this.var_java_lang_String_arr_a[n34], n3 / 2, n36, 17);
                             n36 += this.m;
                         }
-                        // TODO convert to hex and name it
-                        graphics.setColor(10391157);
+                        graphics.setColor(COLOR_UI_LINE_SEPARATOR);
                         graphics.drawLine(0, n36, n3 - 1, n36);
                         n35 = n36;
                         n36 += this.D;
                     }
-                    graphics.setColor(0);
+                    graphics.setColor(COLOR_BLACK);
                     n34 = this.var_short_b;
                     int n37 = this.var_short_b + this.u;
                     if (this.var_int_i > 0) {
@@ -1038,7 +1042,7 @@ public class g {
         int n6;
         SpriteSheet frameSheet = this.var_a_a.uiPanelFrameSheet;
         graphics.setClip(n, n2, n3, n4);
-        graphics.setColor(UI_BG_COLOR);
+        graphics.setColor(COLOR_UI_BACKGROUND);
         int n7 = n3;
         int n8 = n4;
         int n9 = n;
