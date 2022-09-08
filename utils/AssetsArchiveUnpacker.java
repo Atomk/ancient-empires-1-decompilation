@@ -26,6 +26,7 @@ public class AssetsArchiveUnpacker {
         DataInputStream dataInputStream = new DataInputStream(inputStream);
         short s = dataInputStream.readShort();
         int filesCount = dataInputStream.readShort();
+        System.out.println("file: " + filename);
         //System.out.println("s: " + s);
         System.out.println("filesCount: " + filesCount);
         System.out.println("---");

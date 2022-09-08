@@ -46,17 +46,17 @@ public class SpriteAssetsReader {
     private static void loadSpriteSheet(String imagePath, int n) throws Exception {
         InputStream inputStream = new FileInputStream(imagePath);
 
-        int n2 = inputStream.read();
-        byte width = (byte)inputStream.read();
-        byte height = (byte)inputStream.read();
+        int tileCount = inputStream.read();
+        byte tileWidth = (byte)inputStream.read();
+        byte tileHeight = (byte)inputStream.read();
         // In the original code this is closed later but it's not needed anymore
         inputStream.close();
 
         int lastSeparatorIndex = imagePath.lastIndexOf(File.separatorChar);
         System.out.println(imagePath.substring(lastSeparatorIndex + 1));
-        System.out.println("  n2: " + n2);
-        System.out.println("  width:  " + width);
-        System.out.println("  height: " + height);
+        System.out.println("  tiles: " + tileCount);
+        System.out.println("  width:  " + tileWidth);
+        System.out.println("  height: " + tileHeight);
 
         // Till here, the second parameter is not used
     }
