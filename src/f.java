@@ -16,7 +16,7 @@ public class f {
     public static final byte TERRAIN_WATER = 5;
     public static final byte TERRAIN_BRIDGE = 6;
     public static final byte TERRAIN_TOWN = 7;
-    public static final byte TERRAIN_TOWN_B = 8;
+    public static final byte TERRAIN_CASTLE = 8;
 
     private static final int[] unitsSoundIndex;
     private static final String[] unitsNames;

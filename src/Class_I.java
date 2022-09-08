@@ -964,7 +964,7 @@ implements CommandListener {
 
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
-        if (by == 1 && this.var_c_h.a((short)4) && this.getTerrainType_ZZ(this.var_c_h.i, (int)this.var_c_h.var_short_a) == f.TERRAIN_TOWN_B) {
+        if (by == 1 && this.var_c_h.a((short)4) && this.getTerrainType_ZZ(this.var_c_h.i, (int)this.var_c_h.var_short_a) == f.TERRAIN_CASTLE) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
         if (this.a((int)unit.i, (int)unit.var_short_a, unit)) {
@@ -1847,7 +1847,7 @@ implements CommandListener {
                     this.var_int_arr_b[by] = this.var_int_arr_b[by] + 30;
                     continue;
                 }
-                if (this.getTerrainType_ZZ(n, j) != f.TERRAIN_TOWN_B) continue;
+                if (this.getTerrainType_ZZ(n, j) != f.TERRAIN_CASTLE) continue;
                 byte by = this.var_byte_g;
                 this.var_int_arr_b[by] = this.var_int_arr_b[by] + 50;
             }
@@ -1867,7 +1867,7 @@ implements CommandListener {
         if (c2.a((short)8) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
             return true;
         }
-        return c2.a((short)16) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_TOWN_B && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a);
+        return c2.a((short)16) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a);
     }
 
     public void void_a(int n, int n2, int n3) {
@@ -2055,7 +2055,7 @@ implements CommandListener {
                 if (c2.var_byte_a != this.spriteIndex_YY || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.spriteIndex_YY) != 1) continue;
-                    if (this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_TOWN_B && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)this.spriteIndex_YY)) {
+                    if (this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)this.spriteIndex_YY)) {
                         if (this.int_a(0, -1, this.spriteIndex_YY) < 2 && this.boolean_a(0)) {
                             c2 = this.c_a(0, (int)c2.i, c2.var_short_a);
                         } else {
