@@ -104,7 +104,7 @@ public class f {
             this.o = 6;
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
-        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType_ZZ(c2.i, (int)c2.var_short_a);
+        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType_ZZ(c2.mapX, (int)c2.mapY);
         if (this.terrainType_YY == TERRAIN_WOODS || this.terrainType_YY == TERRAIN_HILL) {
             this.terrainType_XX = TERRAIN_GRASS;
         }

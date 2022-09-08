@@ -395,8 +395,8 @@ implements CommandListener {
             dataOutputStream.writeByte(c2.quantity);
             dataOutputStream.writeByte(c2.var_short_d);
             dataOutputStream.writeShort(c2.var_short_b);
-            dataOutputStream.writeShort(c2.i);
-            dataOutputStream.writeShort(c2.var_short_a);
+            dataOutputStream.writeShort(c2.mapX);
+            dataOutputStream.writeShort(c2.mapY);
             dataOutputStream.writeShort(c2.var_int_b);
         }
         dataOutputStream.writeShort(this.currentLevelStep);
@@ -477,7 +477,7 @@ implements CommandListener {
         this.var_int_i = dataInputStream.readInt();
         this.var_boolean_z = dataInputStream.readByte() != 0;
         dataInputStream.close();
-        this.void_c(this.var_c_arr_a[this.spriteIndex_YY].i, this.var_c_arr_a[this.spriteIndex_YY].var_short_a);
+        this.void_c(this.var_c_arr_a[this.spriteIndex_YY].mapX, this.var_c_arr_a[this.spriteIndex_YY].mapY);
         this.void_a(this.var_c_arr_a[this.spriteIndex_YY].var_short_b, (int)((SpriteSheet)this.var_c_arr_a[this.spriteIndex_YY]).l);
     }
 
@@ -761,11 +761,11 @@ implements CommandListener {
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
                 this.var_boolean_v = true;
-                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.i, (int)this.var_c_h.var_short_a, (byte)0);
+                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)0);
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
-                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.i, (int)this.var_c_h.var_short_a);
+                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_e_h.a(var_byte_arr_arr_d[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
@@ -781,8 +781,8 @@ implements CommandListener {
                 this.var_byte_i = (byte)8;
                 this.var_long_c = this.var_long_n;
             } else if (string.equals(AppCanvas.getGameText(33))) {
-                if (this.a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, this.var_c_h)) {
-                    this.void_a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, (int)this.var_c_h.var_byte_a);
+                if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
+                    this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.var_byte_a);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     this.var_byte_i = (byte)9;
                     AppCanvas.playSound(-1, 1);
@@ -791,10 +791,10 @@ implements CommandListener {
                 this.var_c_h.void_b();
             } else if (string.equals(AppCanvas.getGameText(34))) {
                 this.var_byte_i = (byte)7;
-                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.i, (int)this.var_c_h.var_short_a, (byte)1);
+                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)1);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
-                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.i, (int)this.var_c_h.var_short_a);
+                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
             } else if (string.equals(AppCanvas.getGameText(35))) {
                 g g6 = new g(this, (byte)7, 0);
@@ -802,7 +802,7 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(36))) {
                 this.var_g_e.a((byte)0, 0, 0, g2, 0);
             } else {
-                this.var_c_h = this.c_a((int)((byte)n), (int)this.var_c_h.i, this.var_c_h.var_short_a);
+                this.var_c_h = this.c_a((int)((byte)n), (int)this.var_c_h.mapX, this.var_c_h.mapY);
                 this.var_boolean_d = true;
                 this.a(this.var_c_h);
             }
@@ -915,13 +915,13 @@ implements CommandListener {
         }
         this.var_boolean_w = false;
         if (this.var_c_arr_a[1] != null) {
-            this.K = this.var_c_arr_a[1].i;
-            this.var_int_u = this.var_c_arr_a[1].var_short_a;
+            this.K = this.var_c_arr_a[1].mapX;
+            this.var_int_u = this.var_c_arr_a[1].mapY;
         } else {
             this.K = 0;
             this.var_int_u = 0;
         }
-        this.void_c(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+        this.void_c(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
         this.void_a(this.var_c_arr_a[0].var_short_b, (int)((SpriteSheet)this.var_c_arr_a[0]).l);
     }
 
@@ -964,16 +964,16 @@ implements CommandListener {
 
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
-        if (by == 1 && this.var_c_h.a((short)4) && this.getTerrainType_ZZ(this.var_c_h.i, (int)this.var_c_h.var_short_a) == f.TERRAIN_CASTLE) {
+        if (by == 1 && this.var_c_h.a((short)4) && this.getTerrainType_ZZ(this.var_c_h.mapX, (int)this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
-        if (this.a((int)unit.i, (int)unit.var_short_a, unit)) {
+        if (this.a((int)unit.mapX, (int)unit.mapY, unit)) {
             vector.addElement(AppCanvas.getGameText(33));   // OCCUPY
         }
-        if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.a(unit.i, (int)unit.var_short_a, (byte)0).length > 0) {
+        if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.a(unit.mapX, (int)unit.mapY, (byte)0).length > 0) {
             vector.addElement(AppCanvas.getGameText(28));   // ATTACK
         }
-        if (unit.a((short)32) && unit.a(unit.i, (int)unit.var_short_a, (byte)1).length > 0) {
+        if (unit.a((short)32) && unit.a(unit.mapX, (int)unit.mapY, (byte)1).length > 0) {
             vector.addElement(AppCanvas.getGameText(34));   // RAISE
         }
         if (by == 1) {
@@ -1141,8 +1141,8 @@ implements CommandListener {
                         ++this.var_int_n;
                     } else if (this.var_int_n == 1) {
                         if (this.var_long_n - this.var_long_d >= 800L) {
-                            this.void_c(this.var_c_i.i, this.var_c_i.var_short_a);
-                            if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.i, (int)this.var_c_i.var_short_a)) {
+                            this.void_c(this.var_c_i.mapX, this.var_c_i.mapY);
+                            if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
                                 this.var_c_b.a(this.var_c_i);
                                 this.var_c_i.b(400);
                                 this.a(this.var_e_d, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
@@ -1175,7 +1175,7 @@ implements CommandListener {
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
                         this.var_java_util_Vector_a.removeElement(this.var_c_e);
-                        Unit unitSkeleton = Unit.spawn(Unit.SKELETON, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
+                        Unit unitSkeleton = Unit.spawn(Unit.SKELETON, this.var_byte_f, this.var_c_e.mapX, this.var_c_e.mapY);
                         unitSkeleton.void_b();
                         this.var_c_e = null;
                     }
@@ -1216,7 +1216,7 @@ implements CommandListener {
                             appCanvas.handleKeyReleasedAction(2);
                             this.var_boolean_v = true;
                         }
-                        this.void_c(this.var_c_arr_b[this.var_int_w].i, this.var_c_arr_b[this.var_int_w].var_short_a);
+                        this.void_c(this.var_c_arr_b[this.var_int_w].mapX, this.var_c_arr_b[this.var_int_w].mapY);
                         if (this.var_boolean_v) {
                             this.var_g_g.b();
                         }
@@ -1272,7 +1272,7 @@ implements CommandListener {
                             if (this.var_boolean_v) {
                                 if (this.var_byte_i == 1) {
                                     if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0) {
-                                        this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.i, this.var_c_h.var_short_a, this.var_short_h, this.var_short_g);
+                                        this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                                     }
                                 } else {
                                     this.var_g_g.b();
@@ -1284,8 +1284,8 @@ implements CommandListener {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x10) != 0 && this.var_c_h != null) {
                                 Unit unit_c_a = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
-                                    this.var_int_c = this.var_c_h.i;
-                                    this.var_int_v = this.var_c_h.var_short_a;
+                                    this.var_int_c = this.var_c_h.mapX;
+                                    this.var_int_v = this.var_c_h.mapY;
                                     this.var_c_h.void_a(this.var_short_h, this.var_short_g);
                                     this.b(this.var_c_h);
                                     this.var_boolean_n = false;
@@ -1309,7 +1309,7 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(256);
                             } else if (appCanvas.boolean_c(512)) {
                                 if (this.var_c_arr_a[this.spriteIndex_YY] != null) {
-                                    this.void_c(this.var_c_arr_a[this.spriteIndex_YY].i, this.var_c_arr_a[this.spriteIndex_YY].var_short_a);
+                                    this.void_c(this.var_c_arr_a[this.spriteIndex_YY].mapX, this.var_c_arr_a[this.spriteIndex_YY].mapY);
                                     this.void_a(this.var_c_arr_a[this.spriteIndex_YY].var_short_b + 12, ((SpriteSheet)this.var_c_arr_a[this.spriteIndex_YY]).l + 12);
                                 }
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
@@ -1395,14 +1395,14 @@ implements CommandListener {
                     this.var_boolean_j = false;
                     this.var_java_util_Vector_b = null;
                     this.var_e_h.a(var_byte_arr_arr_d[0]);
-                    this.void_c(this.var_c_h.i, this.var_c_h.var_short_a);
+                    this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                     this.var_c_h = null;
                 } else if (this.var_byte_i == 6) {
                     this.var_byte_i = this.var_byte_e;
                     this.var_boolean_h = false;
                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                     this.var_e_h.a(var_byte_arr_arr_d[0]);
-                    this.void_c(this.var_c_h.i, this.var_c_h.var_short_a);
+                    this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                 }
                 appCanvas.handleKeyReleasedAction(2048);
                 this.var_boolean_r = false;
@@ -1798,7 +1798,7 @@ implements CommandListener {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (n != c2.i || n2 != c2.var_short_a || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
+            if (n != c2.mapX || n2 != c2.mapY || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
             return c2;
         }
         return null;
@@ -1830,7 +1830,7 @@ implements CommandListener {
                 continue;
             }
             c2.var_byte_e = 0;
-            if (this.spriteIndex_YY == c2.var_byte_a && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
+            if (this.spriteIndex_YY == c2.var_byte_a && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.var_byte_a)) {
                 c2.quantity = (short)(c2.quantity + 2);
                 if (c2.quantity > 10) {
                     c2.quantity = (short)10;
@@ -1864,10 +1864,10 @@ implements CommandListener {
     }
 
     public boolean a(int n, int n2, Unit c2) {
-        if (c2.a((short)8) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
+        if (c2.a((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.var_byte_a)) {
             return true;
         }
-        return c2.a((short)16) && this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a);
+        return c2.a((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.var_byte_a);
     }
 
     public void void_a(int n, int n2, int n3) {
@@ -1950,8 +1950,8 @@ implements CommandListener {
     }
 
     public boolean boolean_a(int n) {
-        short s = this.var_c_arr_a[this.spriteIndex_YY].i;
-        short s2 = this.var_c_arr_a[this.spriteIndex_YY].var_short_a;
+        short s = this.var_c_arr_a[this.spriteIndex_YY].mapX;
+        short s2 = this.var_c_arr_a[this.spriteIndex_YY].mapY;
         return Unit.unitsDataPrice[n] <= this.var_int_arr_b[this.var_byte_g] && Unit.unitsDataPrice[n] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
@@ -1959,19 +1959,19 @@ implements CommandListener {
         if (this.var_byte_b == 4) {
             if (this.var_c_g != null || this.var_c_a != null) {
                 this.var_byte_b = (byte)5;
-                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.i, (int)this.var_c_h.var_short_a);
+                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_j = true;
                 this.var_boolean_h = true;
                 this.var_long_j = this.var_long_n;
                 if (this.var_c_g != null) {
                     this.var_e_h.a(var_byte_arr_arr_d[1]);
-                    this.void_c(this.var_c_g.i, this.var_c_g.var_short_a);
+                    this.void_c(this.var_c_g.mapX, this.var_c_g.mapY);
                 } else if (this.var_c_a != null) {
-                    this.void_c(this.var_c_a.i, this.var_c_a.var_short_a);
+                    this.void_c(this.var_c_a.mapX, this.var_c_a.mapY);
                 }
             } else {
-                if (this.a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, this.var_c_h)) {
-                    this.void_a((int)this.var_c_h.i, (int)this.var_c_h.var_short_a, (int)this.var_c_h.var_byte_a);
+                if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
+                    this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.var_byte_a);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     AppCanvas.playSound(-1, 1);
                     this.var_byte_i = (byte)9;
@@ -2030,7 +2030,7 @@ implements CommandListener {
                         this.var_short_h = (short)this.var_int_f;
                         this.var_short_g = (short)this.var_int_x;
                         this.var_e_h.void_b(this.var_int_f * 24, this.var_int_x * 24);
-                        this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.i, this.var_c_h.var_short_a, this.var_short_h, this.var_short_g);
+                        this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                         this.var_int_A = 3;
                         this.var_long_j = this.var_long_n;
                     }
@@ -2055,9 +2055,9 @@ implements CommandListener {
                 if (c2.var_byte_a != this.spriteIndex_YY || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.spriteIndex_YY) != 1) continue;
-                    if (this.getTerrainType_ZZ(c2.i, (int)c2.var_short_a) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)this.spriteIndex_YY)) {
+                    if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.spriteIndex_YY)) {
                         if (this.int_a(0, -1, this.spriteIndex_YY) < 2 && this.boolean_a(0)) {
-                            c2 = this.c_a(0, (int)c2.i, c2.var_short_a);
+                            c2 = this.c_a(0, (int)c2.mapX, c2.mapY);
                         } else {
                             n7 = 0;
                             byte[] byArray = new byte[11];
@@ -2068,12 +2068,12 @@ implements CommandListener {
                             }
                             if (n7 > 0) {
                                 n6 = byArray[Math.abs(AppCanvas.randomGen.nextInt()) % n7];
-                                c2 = this.c_a((int)((byte)n6), (int)c2.i, c2.var_short_a);
+                                c2 = this.c_a((int)((byte)n6), (int)c2.mapX, c2.mapY);
                             }
                         }
                     }
                 }
-                this.void_c(c2.i, c2.var_short_a);
+                this.void_c(c2.mapX, c2.mapY);
                 this.b(c2);
                 this.var_c_h = c2;
                 this.var_boolean_n = true;
@@ -2088,7 +2088,7 @@ implements CommandListener {
                     n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
                     n3 = this.boolean_a(n6, n4, (int)c2.var_byte_a) ? 1 : 0;
-                    if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.i) + Math.abs(n4 - c2.var_short_a)) >= n7) continue;
+                    if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY)) >= n7) continue;
                     n7 = n2;
                     this.var_int_z = n6;
                     this.var_int_o = n4;
@@ -2156,7 +2156,7 @@ implements CommandListener {
                 }
                 for (n4 = 0; n4 < this.var_c_arr_c.length; ++n4) {
                     if (this.var_c_arr_c[n4] == c2) continue;
-                    n3 = this.var_c_arr_c[n4].i - c2.i + (this.var_c_arr_c[n4].var_short_a - c2.var_short_a);
+                    n3 = this.var_c_arr_c[n4].mapX - c2.mapX + (this.var_c_arr_c[n4].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
                 if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.boolean_a(n, n2, (int)c2.var_byte_a) || c3 != null) break;
@@ -2169,7 +2169,7 @@ implements CommandListener {
                 break;
             }
             case Unit.KING: {
-                if (n != c2.i || n2 != c2.var_short_a) break;
+                if (n != c2.mapX || n2 != c2.mapY) break;
                 n5 += 200;
                 break;
             }
@@ -2183,7 +2183,7 @@ implements CommandListener {
         n5 += this.getTerrainDefence_XX(this.getTerrainType_ZZ(n, n2), c2) * 2;
         for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
             if (n4 == this.var_byte_g || this.var_c_arr_a[n4] == null) continue;
-            n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].i) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].var_short_a)) * 2;
+            n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
             break;
         }
         if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.boolean_a(n, n2, (int)c2.var_byte_a)) {
@@ -2205,7 +2205,7 @@ implements CommandListener {
             int n6 = this.var_short_e - n4 * 2 + this.var_short_b - n3 * 2;
             n5 += n6 * n6;
         }
-        return n5 += 10 * (Math.abs(n - c2.i) + Math.abs(n2 - c2.var_short_a)) / (Unit.unitsDataMOV[c2.unitType] - 1);
+        return n5 += 10 * (Math.abs(n - c2.mapX) + Math.abs(n2 - c2.mapY)) / (Unit.unitsDataMOV[c2.unitType] - 1);
     }
 
     public void void_b(int n) {
@@ -2292,7 +2292,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 5: {
@@ -2358,7 +2358,7 @@ implements CommandListener {
                     break;
                 }
                 case 15: {
-                    if (this.var_c_f == null || this.var_c_f.i < 4 || this.var_c_f.var_short_a < 7) break;
+                    if (this.var_c_f == null || this.var_c_f.mapX < 4 || this.var_c_f.mapY < 7) break;
                     Unit.spawn(Unit.SOLDIER, (byte)1, 5, 8);
                     this.a(this.var_e_r, 120, 192, 0, 0, 2, 50);
                     this.a(false);
@@ -2411,7 +2411,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 4: {
@@ -2449,7 +2449,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 11: {
@@ -2459,7 +2459,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this.var_c_arr_a[0].i < 11 || this.var_c_arr_a[0].var_short_a > 4 || this.var_c_arr_a[0].var_byte_e != 2) break;
+                    if (this.var_c_arr_a[0].mapX < 11 || this.var_c_arr_a[0].mapY > 4 || this.var_c_arr_a[0].var_byte_e != 2) break;
                     this.void_b(12, 1);
                     this.a(false);
                     break;
@@ -2497,7 +2497,7 @@ implements CommandListener {
                     break;
                 }
                 case 17: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 18: {
@@ -2563,7 +2563,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 6: {
@@ -2585,7 +2585,7 @@ implements CommandListener {
                 }
             }
             if (this.currentLevelStep != -1) {
-                if (this.var_c_arr_a[0].i == 1 && this.var_c_arr_a[0].var_short_a == 13 && this.var_c_arr_a[0].var_byte_e == 2) {
+                if (this.var_c_arr_a[0].mapX == 1 && this.var_c_arr_a[0].mapY == 13 && this.var_c_arr_a[0].var_byte_e == 2) {
                     this.g();
                 }
                 if (this.int_a(2, 3, (byte)0) == 1) {
@@ -2622,7 +2622,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 5: {
@@ -2663,7 +2663,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 11: {
@@ -2707,7 +2707,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 5: {
@@ -2754,7 +2754,7 @@ implements CommandListener {
                 case 1: {
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
                     this.J = 8;
-                    this.void_b(this.var_c_arr_a[1].i, this.var_c_arr_a[1].var_short_a);
+                    this.void_b(this.var_c_arr_a[1].mapX, this.var_c_arr_a[1].mapY);
                     break;
                 }
                 case 2: {
@@ -2768,7 +2768,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 5: {
@@ -2864,7 +2864,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.void_b(this.var_c_arr_a[0].i, this.var_c_arr_a[0].var_short_a);
+                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
                     break;
                 }
                 case 10: {
@@ -2890,7 +2890,7 @@ implements CommandListener {
                     break;
                 }
                 case 14: {
-                    this.void_b(this.var_c_arr_a[1].i, this.var_c_arr_a[1].var_short_a);
+                    this.void_b(this.var_c_arr_a[1].mapX, this.var_c_arr_a[1].mapY);
                     break;
                 }
                 case 15: {
@@ -2961,7 +2961,7 @@ implements CommandListener {
         this.var_f_b.var_f_a = this.var_f_a;
         this.var_f_a.var_f_a = this.var_f_b;
         c2.a(c3);
-        if (c3.a(c2, (int)c2.i, (int)c2.var_short_a)) {
+        if (c3.a(c2, (int)c2.mapX, (int)c2.mapY)) {
             c3.a(c2);
             this.var_boolean_x = true;
         } else {

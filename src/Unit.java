@@ -39,8 +39,8 @@ extends SpriteSheet {
     private long var_long_a;
     public byte unitType;
     public byte var_byte_a;
-    public short i;
-    public short var_short_a;
+    public short mapX;
+    public short mapY;
     public short quantity;
     public byte var_byte_e = 0;
     public byte var_byte_b;
@@ -61,13 +61,13 @@ extends SpriteSheet {
     public static final short[] unitsDataPrice;
     private static final short[] unitsDataBiflag_XXX;
 
-    private Unit(byte unitType, byte by2, int n, int n2) {
+    private Unit(byte unitType, byte by2, int mapX, int mapY) {
         super(iClassRef.a(by2, unitType));
-        this.i = (short)n;
-        this.var_short_a = (short)n2;
-        this.var_short_b = (short)(n * TILE_SIZE);
-        ((SpriteSheet)this).l = (short)(n2 * TILE_SIZE);
-        this.void_b(n * TILE_SIZE, n2 * TILE_SIZE);
+        this.mapX = (short)mapX;
+        this.mapY = (short)mapY;
+        this.var_short_b = (short)(mapX * TILE_SIZE);
+        ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
+        this.void_b(mapX * TILE_SIZE, mapY * TILE_SIZE);
         Unit.iClassRef.var_java_util_Vector_a.addElement(this);
     }
 
@@ -117,7 +117,7 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n3;
         }
-        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(unit.i, (int)unit.var_short_a), unit);
+        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(unit.mapX, (int)unit.mapY), unit);
         int n5 = (n2 - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
         if (n5 > unit.quantity) {
             n5 = unit.quantity;
@@ -137,7 +137,7 @@ extends SpriteSheet {
     }
 
     public boolean a(Unit c2, int n, int n2) {
-        return this.quantity > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
+        return this.quantity > 0 && Math.abs(this.mapX - n) + Math.abs(this.mapY - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
     public void a(byte by) {
@@ -165,8 +165,8 @@ extends SpriteSheet {
     }
 
     public void c(int n, int n2) {
-        this.i = (short)n;
-        this.var_short_a = (short)n2;
+        this.mapX = (short)n;
+        this.mapY = (short)n2;
         this.var_short_b = (short)(n * TILE_SIZE);
         ((SpriteSheet)this).l = (short)(n2 * TILE_SIZE);
     }
@@ -214,7 +214,7 @@ extends SpriteSheet {
 
     public void a(byte[][] byArray) {
         if (this.a((short)512)) {
-            this.a(byArray, (int)this.i, (int)this.var_short_a);
+            this.a(byArray, (int)this.mapX, (int)this.mapY);
             return;
         }
         this.b(byArray);
@@ -265,7 +265,7 @@ extends SpriteSheet {
     public void void_a(int n, int n2) {
         //this.j = (short)(n * TILE_SIZE);
         //this.var_short_c = (short)(n2 * TILE_SIZE);
-        this.var_java_util_Vector_a = this.a(this.i, this.var_short_a, n, n2);
+        this.var_java_util_Vector_a = this.a(this.mapX, this.mapY, n, n2);
         this.var_short_g = 0;
         this.var_byte_e = 1;
     }
@@ -309,7 +309,7 @@ extends SpriteSheet {
     }
 
     public void b(byte[][] byArray) {
-        this.a(byArray, (int)this.i, (int)this.var_short_a, unitsDataMOV[this.unitType] + this.k, -1);
+        this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.k, -1);
     }
 
     public void a(byte[][] byArray, int n, int n2, int n3, int n4) {
@@ -364,8 +364,8 @@ extends SpriteSheet {
         if (this.var_byte_e == 1) {
             if (this.var_short_g >= this.var_java_util_Vector_a.size()) {
                 this.var_byte_e = 0;
-                this.i = (short)(this.var_short_b / TILE_SIZE);
-                this.var_short_a = (short)(((SpriteSheet)this).l / TILE_SIZE);
+                this.mapX = (short)(this.var_short_b / TILE_SIZE);
+                this.mapY = (short)(((SpriteSheet)this).l / TILE_SIZE);
                 this.var_java_util_Vector_a = null;
                 this.var_short_g = 0;
                 iClassRef.c(this);
@@ -401,7 +401,7 @@ extends SpriteSheet {
         Unit c2;
         int n;
         this.var_byte_e = (byte)2;
-        Unit c3 = iClassRef.c_a((int)this.i, (int)this.var_short_a, (byte)1);
+        Unit c3 = iClassRef.c_a((int)this.mapX, (int)this.mapY, (byte)1);
         if (c3 != null) {
             Unit.iClassRef.var_java_util_Vector_a.removeElement(c3);
         }
@@ -415,7 +415,7 @@ extends SpriteSheet {
         for (n = 0; n < n2; ++n) {
             c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
             if (c2.var_byte_a != this.var_byte_a || !c2.a((short)256)) continue;
-            Unit[] cArray = c2.a(c2.i, (int)c2.var_short_a, 1, 2, (byte)2);
+            Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
                 iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].var_short_b, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);

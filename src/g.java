@@ -973,7 +973,7 @@ public class g {
                     n27 = this.var_a_a.var_java_util_Vector_a.size();
                     for (n28 = 0; n28 < n27; ++n28) {
                         Unit c2 = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(n28);
-                        this.var_a_a.var_e_arr_arr_c[c2.var_byte_a][c2.unitType].a(graphics, c2.i * s, c2.var_short_a * s2);
+                        this.var_a_a.var_e_arr_arr_c[c2.var_byte_a][c2.unitType].a(graphics, c2.mapX * s, c2.mapY * s2);
                     }
                     break;
                 }
