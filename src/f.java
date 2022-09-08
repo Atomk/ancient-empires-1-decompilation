@@ -89,7 +89,7 @@ public class f {
         if (this.var_byte_e == 3) {
             this.var_int_e = 0;
         }
-        this.var_byte_g = (byte)c2.h;
+        this.var_byte_g = (byte)c2.quantity;
         this.h = this.var_byte_g;
         this.var_byte_b = this.var_byte_a = (byte)c2.int_a();
         //this.var_boolean_b = bl;

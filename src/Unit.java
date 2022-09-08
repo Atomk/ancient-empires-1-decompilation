@@ -41,7 +41,7 @@ extends SpriteSheet {
     public byte var_byte_a;
     public short i;
     public short var_short_a;
-    public short h;
+    public short quantity;
     public byte var_byte_e = 0;
     public byte var_byte_b;
     public short k;
@@ -83,7 +83,7 @@ extends SpriteSheet {
         // TODO isn't this statement redundant? The constructor above should set it
         newUnit.unitType = unitType;
         newUnit.var_byte_a = by2;
-        newUnit.h = (short)10;
+        newUnit.quantity = (short)10;
         newUnit.l = unitsDataBiflag_XXX[unitType];
         newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
         return newUnit;
@@ -119,11 +119,11 @@ extends SpriteSheet {
             --n3;
         }
         int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(unit.i, (int)unit.var_short_a), unit);
-        int n5 = (n2 - (terrainDEF_XX + n3) * 2 / 3) * this.h / 10;
-        if (n5 > unit.h) {
-            n5 = unit.h;
+        int n5 = (n2 - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
+        if (n5 > unit.quantity) {
+            n5 = unit.quantity;
         }
-        unit.h = (short)(unit.h - n5);
+        unit.quantity = (short)(unit.quantity - n5);
         this.var_short_b = (short)(this.var_short_b + (unitsDataATK[unit.unitType] + unitsDataDEF[unit.unitType]) * n5);
         return n5;
     }
@@ -138,7 +138,7 @@ extends SpriteSheet {
     }
 
     public boolean a(Unit c2, int n, int n2) {
-        return this.h > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
+        return this.quantity > 0 && Math.abs(this.i - n) + Math.abs(this.var_short_a - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
     public void a(byte by) {
@@ -174,15 +174,15 @@ extends SpriteSheet {
 
     public int int_a() {
         int n = 10 / this.var_int_arr_arr_a.length;
-        int n2 = this.h / n;
-        if (this.h != 10 && this.h % n > 0) {
+        int n2 = this.quantity / n;
+        if (this.quantity != 10 && this.quantity % n > 0) {
             ++n2;
         }
         return n2;
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.h;
+        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
     }
 
     public void a(byte[][] byArray, int n, int n2) {
@@ -457,8 +457,10 @@ extends SpriteSheet {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn
                 AppCanvas.drawBoldWhiteText(graphics, "E", n3 + this.getSpritesWidth() - 7, n4 + this.getSpritesHeight() - 5, 0);
             }
-            if (this.h < 10) {
-                AppCanvas.drawBoldWhiteText(graphics, "" + this.h, n3, n4 + this.getSpritesHeight() - 5, 0);
+            // TODO maybe look for "10" and deharcode to STACK_MAX or MAX_QUANTITY
+            if (this.quantity < 10) {
+                // Shows the unit stack number in its bottom left corner only if there's less than 10 (the max amount)
+                AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, n3, n4 + this.getSpritesHeight() - 5, 0);
             }
         }
     }
@@ -477,7 +479,7 @@ extends SpriteSheet {
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
-            new int[][]{{32, 70}, {10, 50}, {10, 90}},
+            new int[][]{{32, 70}, {10, 50}, {10, 90}},  // in Motorola version: {32, 75}, {10, 55}, {10, 95}
             new int[][]{{18, 70}, {3, 40}, {3, 100}},
             new int[][]{{32, 65}, {10, 40}, {10, 85}},
             new int[][]{{5, 40}, {5, 75}},

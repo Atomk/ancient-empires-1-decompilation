@@ -279,9 +279,9 @@ extends Class_I {
         } else {
             this.var_boolean_x = false;
         }
-        this.var_f_b.var_byte_c = (byte)c2.h;
+        this.var_f_b.var_byte_c = (byte)c2.quantity;
         this.var_f_b.var_byte_d = (byte)c2.int_a();
-        this.var_f_a.var_byte_c = (byte)c3.h;
+        this.var_f_a.var_byte_c = (byte)c3.quantity;
         this.var_f_a.var_byte_d = (byte)c3.int_a();
     }
 

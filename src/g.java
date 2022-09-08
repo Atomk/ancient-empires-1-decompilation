@@ -777,7 +777,7 @@ public class g {
                             // AURA
                             graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.var_e_j.getSpritesWidth() + 2, n14 + 2, 20);
                         }
-                        AppCanvas.a(graphics, "" + this.var_c_a.h, n3 - 4, 6, 1, 8);
+                        AppCanvas.a(graphics, "" + this.var_c_a.quantity, n3 - 4, 6, 1, 8);
                         graphics.setFont(this.appFont);
                         this.var_a_a.var_e_j.a(2);
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {

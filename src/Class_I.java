@@ -392,7 +392,7 @@ implements CommandListener {
             dataOutputStream.writeByte(c2.var_byte_a);
             dataOutputStream.writeByte(c2.var_byte_e);
             dataOutputStream.writeByte(c2.var_byte_b);
-            dataOutputStream.writeByte(c2.h);
+            dataOutputStream.writeByte(c2.quantity);
             dataOutputStream.writeByte(c2.var_short_d);
             dataOutputStream.writeShort(c2.var_short_b);
             dataOutputStream.writeShort(c2.i);
@@ -449,7 +449,7 @@ implements CommandListener {
             c2.var_short_d = by6;
             c2.var_byte_b = by4;
             c2.d();
-            c2.h = by5;
+            c2.quantity = by5;
             c2.var_int_b = s4;
             if (unitType == Unit.KING) {
                 this.var_c_arr_a[by2] = c2;
@@ -533,7 +533,7 @@ implements CommandListener {
 
     public void o() {
         SpriteSheet e2;
-        if (this.var_c_i.h <= 0) {
+        if (this.var_c_i.quantity <= 0) {
             this.var_c_c = this.var_c_i;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
@@ -541,7 +541,7 @@ implements CommandListener {
             e2.a(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
-        if (this.var_c_b.h <= 0) {
+        if (this.var_c_b.quantity <= 0) {
             this.var_c_c = this.var_c_b;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.a((short)128)) {
@@ -1828,9 +1828,9 @@ implements CommandListener {
             }
             c2.var_byte_e = 0;
             if (this.spriteIndex_YY == c2.var_byte_a && this.boolean_a((int)c2.i, (int)c2.var_short_a, (int)c2.var_byte_a)) {
-                c2.h = (short)(c2.h + 2);
-                if (c2.h > 10) {
-                    c2.h = (short)10;
+                c2.quantity = (short)(c2.quantity + 2);
+                if (c2.quantity > 10) {
+                    c2.quantity = (short)10;
                 }
             }
             if (this.spriteIndex_YY == c2.var_byte_a) continue;
@@ -2172,7 +2172,7 @@ implements CommandListener {
             }
         }
         if (c3 != null) {
-            n5 = !c3.a(c2, n, n2) ? (n5 += c2.int_a(n, n2) * 2) : (n5 += c2.int_a(n, n2) - c3.int_a(n, n2) + 10 - c3.h);
+            n5 = !c3.a(c2, n, n2) ? (n5 += c2.int_a(n, n2) * 2) : (n5 += c2.int_a(n, n2) - c3.int_a(n, n2) + 10 - c3.quantity);
             if (c3.unitType == Unit.KING) {
                 n5 += 10;
             }
@@ -2184,9 +2184,9 @@ implements CommandListener {
             break;
         }
         if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.boolean_a(n, n2, (int)c2.var_byte_a)) {
-            n5 += (10 - c2.h) * 2;
+            n5 += (10 - c2.quantity) * 2;
         }
-        if (c2.h < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {
+        if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {
             n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
             n5 += n4 * n4;
         }
@@ -2873,7 +2873,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this.var_c_arr_a[1].h > 0) break;
+                    if (this.var_c_arr_a[1].quantity > 0) break;
                     this.a(false);
                     ++this.currentLevelStep;
                     break;
@@ -2961,9 +2961,9 @@ implements CommandListener {
         } else {
             this.var_boolean_x = false;
         }
-        this.var_f_b.var_byte_c = (byte)c2.h;
+        this.var_f_b.var_byte_c = (byte)c2.quantity;
         this.var_f_b.var_byte_d = (byte)c2.int_a();
-        this.var_f_a.var_byte_c = (byte)c3.h;
+        this.var_f_a.var_byte_c = (byte)c3.quantity;
         this.var_f_a.var_byte_d = (byte)c3.int_a();
     }
 
