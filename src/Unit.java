@@ -77,12 +77,11 @@ extends SpriteSheet {
         this.var_int_g = n;
     }
 
-    // TODO looking at method calls, I'm pretty sure these values are playerIndex/ownerIndex/teamIndex, mapX and mapY
-    public static Unit a(byte unitType, byte by2, int n, int n2) {
-        Unit newUnit = new Unit(unitType, by2, n, n2);
+    public static Unit spawn(byte unitType, byte owner, int mapX, int mapY) {
+        Unit newUnit = new Unit(unitType, owner, mapX, mapY);
         // TODO isn't this statement redundant? The constructor above should set it
         newUnit.unitType = unitType;
-        newUnit.var_byte_a = by2;
+        newUnit.var_byte_a = owner;
         newUnit.quantity = (short)10;
         newUnit.l = unitsDataBiflag_XXX[unitType];
         newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];

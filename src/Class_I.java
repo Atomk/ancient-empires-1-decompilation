@@ -443,7 +443,7 @@ implements CommandListener {
             short s2 = dataInputStream.readShort();
             short s3 = dataInputStream.readShort();
             short s4 = dataInputStream.readShort();
-            Unit c2 = Unit.a(unitType, by2, s2, s3);
+            Unit c2 = Unit.spawn(unitType, by2, s2, s3);
             c2.var_byte_e = by3;
             c2.var_short_b = s;
             c2.var_short_d = by6;
@@ -814,7 +814,7 @@ implements CommandListener {
     public Unit c_a(int unitType, int n2, int n3) {
         byte by = this.var_byte_g;
         this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[unitType];
-        return Unit.a((byte)unitType, this.spriteIndex_YY, n2, n3);
+        return Unit.spawn((byte)unitType, this.spriteIndex_YY, n2, n3);
     }
 
     public SpriteSheet a(byte by, byte unitType) {
@@ -896,7 +896,7 @@ implements CommandListener {
             int n7 = dataInputStream.readShort() * 24 / 16;
             byte unitType = (byte)(by % 11);
             byte by3 = (byte)(by / 11);
-            Unit c2 = Unit.a(unitType, by3, n6 / 24, n7 / 24);
+            Unit c2 = Unit.spawn(unitType, by3, n6 / 24, n7 / 24);
             if (unitType != Unit.KING) continue;
             this.var_c_arr_a[by3] = c2;
         }
@@ -1175,7 +1175,7 @@ implements CommandListener {
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
                         this.var_java_util_Vector_a.removeElement(this.var_c_e);
-                        Unit unitSkeleton = Unit.a(Unit.SKELETON, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
+                        Unit unitSkeleton = Unit.spawn(Unit.SKELETON, this.var_byte_f, this.var_c_e.i, this.var_c_e.var_short_a);
                         unitSkeleton.void_b();
                         this.var_c_e = null;
                     }
@@ -2359,7 +2359,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.i < 4 || this.var_c_f.var_short_a < 7) break;
-                    Unit.a(Unit.SOLDIER, (byte)1, 5, 8);
+                    Unit.spawn(Unit.SOLDIER, (byte)1, 5, 8);
                     this.a(this.var_e_r, 120, 192, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
@@ -2465,10 +2465,10 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    Unit.a(Unit.SPIDER, (byte)1, 4, 0);
-                    Unit.a(Unit.SPIDER, (byte)1, 1, 1);
-                    Unit.a(Unit.SPIDER, (byte)1, 1, 5);
-                    Unit c2 = Unit.a(Unit.LIZARD, (byte)0, 12, 1);
+                    Unit.spawn(Unit.SPIDER, (byte)1, 4, 0);
+                    Unit.spawn(Unit.SPIDER, (byte)1, 1, 1);
+                    Unit.spawn(Unit.SPIDER, (byte)1, 1, 5);
+                    Unit c2 = Unit.spawn(Unit.LIZARD, (byte)0, 12, 1);
                     this.b(c2);
                     c2.b(this.var_byte_arr_arr_b);
                     c2.void_a(9, 2);
@@ -2478,7 +2478,7 @@ implements CommandListener {
                 }
                 case 14: {
                     if (this.var_byte_i == 1) break;
-                    Unit c3 = Unit.a(Unit.LIZARD, (byte)0, 12, 1);
+                    Unit c3 = Unit.spawn(Unit.LIZARD, (byte)0, 12, 1);
                     this.b(c3);
                     c3.b(this.var_byte_arr_arr_b);
                     c3.void_a(10, 1);
@@ -2638,10 +2638,10 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_c_arr_a[1] = Unit.a(Unit.KING, (byte)1, 2, 0);
+                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, (byte)1, 2, 0);
                     // TODO 44: VALADORN -- maybe this is the unit's name?
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    Unit.a(Unit.SPIDER, (byte)1, 0, 0);
+                    Unit.spawn(Unit.SPIDER, (byte)1, 0, 0);
                     this.a(this.var_e_r, 48, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, 1);
@@ -2812,8 +2812,8 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    Unit.a(Unit.CATAPULT, (byte)1, 12, 0);
-                    Unit.a(Unit.SOLDIER, (byte)1, 13, 0);
+                    Unit.spawn(Unit.CATAPULT, (byte)1, 12, 0);
+                    Unit.spawn(Unit.SOLDIER, (byte)1, 13, 0);
                     this.a(this.var_e_r, 312, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, 1);
@@ -2826,8 +2826,8 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    Unit.a(Unit.GOLEM, (byte)1, 1, 11);
-                    Unit.a(Unit.SOLDIER, (byte)1, 1, 12);
+                    Unit.spawn(Unit.GOLEM, (byte)1, 1, 11);
+                    Unit.spawn(Unit.SOLDIER, (byte)1, 1, 12);
                     this.a(this.var_e_r, 24, 288, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, 1);
@@ -2840,10 +2840,10 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_c_arr_a[1] = Unit.a(Unit.KING, (byte)1, 1, 1);
+                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, (byte)1, 1, 1);
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    Unit.a(Unit.WYVERN, (byte)1, 0, 1);
-                    Unit.a(Unit.SOLDIER, (byte)1, 1, 2);
+                    Unit.spawn(Unit.WYVERN, (byte)1, 0, 1);
+                    Unit.spawn(Unit.SOLDIER, (byte)1, 1, 2);
                     this.a(this.var_e_r, 24, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 48, 0, 0, 4, 50);
