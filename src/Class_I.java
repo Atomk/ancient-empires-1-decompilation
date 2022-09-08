@@ -495,14 +495,14 @@ implements CommandListener {
 
     public void k() {
         try {
-            boolean bl = false;
+            boolean valuesChanged = false;
             for (int j = 0; j < AppCanvas.settings.length; ++j) {
-                boolean n = this.choiceGroupSettings.isSelected(j);
-                if (n == AppCanvas.settings[j]) continue;
-                AppCanvas.settings[j] = n;
-                bl = true;
+                boolean isChoiceSelected = this.choiceGroupSettings.isSelected(j);
+                if (isChoiceSelected == AppCanvas.settings[j]) continue;
+                AppCanvas.settings[j] = isChoiceSelected;
+                valuesChanged = true;
             }
-            if (bl) {
+            if (valuesChanged) {
                 byte[] settingsDataBytes = new byte[1];
                 for (int n = 0; n < AppCanvas.settings.length; ++n) {
                     if (!AppCanvas.settings[n]) continue;
@@ -818,9 +818,9 @@ implements CommandListener {
         return this.var_e_arr_arr_b[by][unitType];
     }
 
-    public void void_a(int n) throws Exception {
+    public void void_a(int levelIndex) throws Exception {
         short s;
-        String string;
+        String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_short_d = 0;
         this.spriteIndex_YY = 0;
@@ -844,16 +844,16 @@ implements CommandListener {
         }
         this.var_boolean_v = true;
         //AppCanvas.readAssetsPackage("/1.pak");
-        int n2 = n;
+        int n2 = levelIndex;
         if (this.var_byte_a == 0) {
-            if (n == 6) {
+            if (levelIndex == 6) {
                 n2 = 5;
             }
-            string = "m" + n2;
+            filename = "m" + n2;
         } else {
-            string = "s" + n2;
+            filename = "s" + n2;
         }
-        DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(string));
+        DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(filename));
         this.var_short_e = (short)dataInputStream.readInt();
         this.var_short_b = (short)dataInputStream.readInt();
         this.var_byte_arr_arr_a = new byte[this.var_short_e][this.var_short_b];
@@ -876,9 +876,9 @@ implements CommandListener {
         byArray = null;
         this.var_short_c = (short)(this.var_short_e * 24);
         this.var_short_i = (short)(this.var_short_b * 24);
-        if (n == 6) {
+        if (levelIndex == 6) {
             dataInputStream.close();
-            dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream("m" + n));
+            dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream("m" + levelIndex));
             dataInputStream.readInt();
             dataInputStream.readInt();
         }
