@@ -519,7 +519,7 @@ implements CommandListener {
     }
 
     public void b(Unit c2, Unit c3) {
-        if (AppCanvas.settings[3]) {
+        if (AppCanvas.settings[AppCanvas.SETTINGS_FIGHT_ANIMATIONS]) {
             this.var_boolean_y = true;
             this.var_int_m = 0;
         } else {
@@ -586,7 +586,7 @@ implements CommandListener {
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
         } else if (command == this.commandOK) {
             this.updateSettings();
-            if (!AppCanvas.settings[0]) {
+            if (!AppCanvas.settings[AppCanvas.SETTINGS_MUSIC]) {
                 AppCanvas.stopFirstSound();
             }
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)appCanvas);
@@ -1034,7 +1034,7 @@ implements CommandListener {
         }
         this.void_a();
         if (this.var_int_s != -1) {
-            if (AppCanvas.settings[2]) {
+            if (AppCanvas.settings[AppCanvas.SETTINGS_HELP]) {
                 // This is the first tutorial string - "Select and move units by pressing 5 [...]""
                 this.var_g_b = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), PORTRAIT_NONE, (byte)2);
             }

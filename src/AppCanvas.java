@@ -35,6 +35,11 @@ public class AppCanvas
 extends FullCanvas
 implements Runnable,
 CommandListener {
+    public static final byte SETTINGS_MUSIC = 0;
+    public static final byte SETTINGS_SOUND = 1;
+    public static final byte SETTINGS_HELP = 2;
+    public static final byte SETTINGS_FIGHT_ANIMATIONS = 3;
+
     public static final Font fontSmallPlain;
     public static final Font fontMediumBold;
     public static int width2;
@@ -358,7 +363,7 @@ CommandListener {
 
     public static void playSound(int index, int loopTimes) {
         try {
-            if (settings[1]) {
+            if (settings[SETTINGS_SOUND]) {
                 // http://www.j2megame.org/j2meapi/Nokia_UI_API_1_1/com/nokia/mid/sound/Sound.html#play(int)
                 midiSounds[index].play(loopTimes);
             }
