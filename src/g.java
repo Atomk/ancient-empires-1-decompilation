@@ -763,7 +763,7 @@ public class g {
                         graphics.drawLine(n12, n14, n12, this.j);
                         graphics.setColor(COLOR_BLACK);
                         AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
-                        n14 += AppCanvas.a((byte)0) + 2;
+                        n14 += AppCanvas.getSpriteFontCharWidth((byte)0) + 2;
                         if ((this.var_c_a.var_byte_b & 1) != 0) {
                             this.var_a_a.var_e_j.a(0);
                             this.var_a_a.var_e_j.a(graphics, n12, n14 - 2);

@@ -127,12 +127,12 @@ CommandListener {
         return data;
     }
 
-    public static int a(byte by, String string) {
-        return fontSheets[by].getSpritesWidth() * string.length();
+    public static int getSpriteFontTextWidth(byte fontIndex, String string) {
+        return fontSheets[fontIndex].getSpritesWidth() * string.length();
     }
 
-    public static int a(byte by) {
-        return fontSheets[by].getSpritesHeight();
+    public static int getSpriteFontCharWidth(byte fontIndex) {
+        return fontSheets[fontIndex].getSpritesHeight();
     }
 
     public void showNotify() {
@@ -151,25 +151,24 @@ CommandListener {
 
     public static void a(Graphics graphics, String text, int n, int n2, int n3, int n4) {
         if ((n4 & 8) != 0) {
-            n -= AppCanvas.a((byte)n3, text);
+            n -= AppCanvas.getSpriteFontTextWidth((byte)n3, text);
         }
         AppCanvas.drawBoldWhiteText(graphics, text, n, n2, n3);
     }
 
-    public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, int n3) {
+    public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, int fontIndex) {
         int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
             char letter = text.charAt(j);
-            // n3 can only be 0 or 1
-            // TODO refactor to boolean? Other functions calling this method use other values for this parameter
-            // if n3 == 1, this check will only allow numbers (ascii 48-57)
-            // if n3 == 0, this check will allow numbers, uppercase letters and some symbols (ascii 43-90)
-            if (letter < asciiRefStart[n3] || letter > asciiRefEnd[n3]) continue;
-            byte spriteIndex = var_byte_arr_arr_a[n3][letter - asciiRefStart[n3]];
+            // fontIndex can only be 0 or 1, because there are two spritefonts
+            // if fontIndex == 1, this check will only allow numbers (ascii 48-57)
+            // if fontIndex == 0, this check will allow numbers, uppercase letters and some symbols (ascii 43-90)
+            if (letter < asciiRefStart[fontIndex] || letter > asciiRefEnd[fontIndex]) continue;
+            byte spriteIndex = var_byte_arr_arr_a[fontIndex][letter - asciiRefStart[fontIndex]];
             if (spriteIndex != -1) {
-                fontSheets[n3].a(spriteIndex);
-                fontSheets[n3].a(graphics, x, y);
-                x += fontSheets[n3].getSpritesWidth();
+                fontSheets[fontIndex].a(spriteIndex);
+                fontSheets[fontIndex].a(graphics, x, y);
+                x += fontSheets[fontIndex].getSpritesWidth();
                 continue;
             }
             byte[] letterByte = new byte[]{(byte)letter};
@@ -320,6 +319,7 @@ CommandListener {
             AppCanvas.readAssetsPackage();
             this.loadSounds();
             Class_I.loadSettingsData();
+            // TODO dehardcode index value
             AppCanvas.fontSheets[0] = new SpriteSheet("chars");     // 36 tiles, 7x7 [A-Z][+-][1-9]
             AppCanvas.fontSheets[1] = new SpriteSheet("lchars");    // 10 tiles, 10x15 [0-9]
             this.spriteMask = new Sprite("mask.png");
