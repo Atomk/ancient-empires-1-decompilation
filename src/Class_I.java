@@ -805,7 +805,7 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(36))) {
                 this.var_g_e.a((byte)0, 0, 0, g2, 0);
             } else {
-                this.var_c_h = this.c_a((int)((byte)n), (int)this.var_c_h.mapX, this.var_c_h.mapY);
+                this.var_c_h = this.c_a(n, this.var_c_h.mapX, this.var_c_h.mapY);
                 this.var_boolean_d = true;
                 this.a(this.var_c_h);
             }
@@ -2060,19 +2060,19 @@ implements CommandListener {
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.playerIndex_XX)) {
-                        if (this.int_a(0, -1, this.playerIndex_XX) < 2 && this.boolean_a(0)) {
-                            c2 = this.c_a(0, (int)c2.mapX, c2.mapY);
+                        if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.boolean_a(0)) {
+                            c2 = this.c_a(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             n7 = 0;
                             byte[] byArray = new byte[11];
-                            for (n6 = 1; n6 < 11; n6 = (int)((byte)(n6 + 1))) {
-                                if (this.int_a(n6, -1, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[n6] < 600 || !this.boolean_a(n6)) continue;
-                                byArray[n7] = (byte)n6;
+                            for (int unitType = Unit.ARCHER; unitType < 11; unitType++) {
+                                if (this.int_a(unitType, -1, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.boolean_a(unitType)) continue;
+                                byArray[n7] = (byte)unitType;
                                 ++n7;
                             }
                             if (n7 > 0) {
                                 n6 = byArray[Math.abs(AppCanvas.randomGen.nextInt()) % n7];
-                                c2 = this.c_a((int)((byte)n6), (int)c2.mapX, c2.mapY);
+                                c2 = this.c_a(n6, c2.mapX, c2.mapY);
                             }
                         }
                     }
