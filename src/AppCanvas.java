@@ -100,6 +100,8 @@ CommandListener {
         return n * 176 / 128;
     }
 
+    // TODO the last three parameters are unused
+    // TODO should probably call this "drawMask" but I don't know its purpose
     public void a(Graphics graphics, int x, int y, int n3, int n4, int n5) {
         this.spriteMask.draw(graphics, x, y);
     }

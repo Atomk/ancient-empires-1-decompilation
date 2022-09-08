@@ -519,6 +519,7 @@ implements CommandListener {
     }
 
     public void b(Unit c2, Unit c3) {
+        // TODO hint to rename other stuff
         if (AppCanvas.settings[AppCanvas.SETTINGS_FIGHT_ANIMATIONS]) {
             this.var_boolean_y = true;
             this.var_int_m = 0;
@@ -820,6 +821,7 @@ implements CommandListener {
         return this.var_e_arr_arr_b[by][unitType];
     }
 
+    // TODO write a tool to read level data
     public void void_a(int levelIndex) throws Exception {
         short s;
         String filename;
@@ -903,6 +905,7 @@ implements CommandListener {
         if (this.var_byte_a == 0) {
             // Level name (e.g. REGROUP) and its objective, shown at level start
             this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.currentLevel), AppCanvas.getGameText(55 + this.currentLevel), -1, false);
+            // 'The Kingdom of Thorin is divided. Betrayed by his own twin brother Valadorn [...]''
             this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.currentLevel), -1, false);
             this.a(false);
             this.void_b(500);
@@ -2268,13 +2271,16 @@ implements CommandListener {
         }
         if (this.currentLevel == 0) {
             switch (this.currentLevelStep) {
+                // TODO the step 0 is executed somewhere else...look for string 103 and this.currentLevelStep
                 case 1: {
                     this.var_int_arr_b[0] = 0;
+                    // TODO I think this animates the camera/map to show another area
                     this.void_b(8, 9);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 2: {
+                    // TODO pretty sure this is a 'wait'
                     this.void_b(500);
                     ++this.currentLevelStep;
                     break;
