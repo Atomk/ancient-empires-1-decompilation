@@ -159,10 +159,10 @@ CommandListener {
     public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, int fontIndex) {
         int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
-            char letter = text.charAt(j);
+            char currentChar = text.charAt(j);
             
             // Checks if the character is inside the interval of the font spritesheet
-            if (letter < fontSheetMinASCIIValue[fontIndex] || letter > fontSheetMaxASCIIValue[fontIndex])
+            if (currentChar < fontSheetMinASCIIValue[fontIndex] || currentChar > fontSheetMaxASCIIValue[fontIndex])
                 continue;
             
             // There are some character that, while included the interval above,
@@ -170,7 +170,7 @@ CommandListener {
             // (e.g. the alphanumeric sheet is missing many symbols and the number '0') 
             // The table below contains a value for every ASCII character in the interval
             // And that value is the index in the spritesheet, or -1 if it canno be displayed
-            int offsetFromMinCharacter = letter - fontSheetMinASCIIValue[fontIndex];
+            int offsetFromMinCharacter = currentChar - fontSheetMinASCIIValue[fontIndex];
             byte spriteIndex = fontSheetOffsetToSpriteIndexTable[fontIndex][offsetFromMinCharacter];
 
             if (spriteIndex != -1) {
@@ -179,10 +179,13 @@ CommandListener {
                 x += fontSheets[fontIndex].getSpritesWidth();
                 continue;
             }
-            byte[] letterByte = new byte[]{(byte)letter};
-            String letterString = new String(letterByte);
-            graphics.drawString(letterString, x, y, 20);
-            x += graphics.getFont().stringWidth(letterString);
+
+            // If the character is not inlcuded in the font spritesheet,
+            // it's drawn using another font
+            byte[] charByte = new byte[]{(byte)currentChar};
+            String charString = new String(charByte);
+            graphics.drawString(charString, x, y, 20);
+            x += graphics.getFont().stringWidth(charString);
         }
     }
 
