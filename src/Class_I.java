@@ -287,12 +287,12 @@ implements CommandListener {
         this.var_e_k.a(var_byte_arr_arr_d[3]);
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
-        for (s = 0; s < 2; s = (short)((byte)(s + 1))) {
+        for (short playerIndex = 0; playerIndex < 2; playerIndex = (short)((byte)(playerIndex + 1))) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
-            object = Sprite.fromByteArray((byte[])imageBytesObj, (int)s);
+            object = Sprite.fromByteArray((byte[])imageBytesObj, (int)playerIndex);
             for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
-                this.var_e_arr_arr_b[s][n] = new SpriteSheet(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
+                this.var_e_arr_arr_b[playerIndex][n] = new SpriteSheet(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
         }
         imageBytesObj = AppCanvas.getFileBytesInputStream("tiles0.prop");
@@ -817,8 +817,8 @@ implements CommandListener {
         return Unit.spawn((byte)unitType, this.spriteIndex_YY, n2, n3);
     }
 
-    public SpriteSheet a(byte owner, byte unitType) {
-        return this.var_e_arr_arr_b[owner][unitType];
+    public SpriteSheet a(byte playerIndex, byte unitType) {
+        return this.var_e_arr_arr_b[playerIndex][unitType];
     }
 
     // TODO write a tool to read level data
