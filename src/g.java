@@ -113,7 +113,7 @@ public class g {
                 this.var_int_g = AppCanvas.height2 * 2 / 3;
             } else {
                 this.j = 65;
-                this.var_byte_c = i2.spriteIndex_YY;
+                this.var_byte_c = i2.playerIndex_XX;
                 this.var_int_b = AppCanvas.width2 - 64;
                 this.var_int_a = this.var_int_g - this.j - 12 - 4 - i2.uiArrowSheet.getSpritesHeight();
             }
@@ -498,7 +498,7 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.spriteIndex_YY] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.unitType_XX]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.unitType_XX]]) {
                                 if (this.var_byte_a == 2) {
                                     this.var_a_a.a((int)this.var_byte_arr_a[this.unitType_XX], "", this);
                                 } else {
@@ -859,9 +859,9 @@ public class g {
                     int n18 = this.var_int_h;
                     for (int j = 0; j < this.var_int_f; ++j) {
                         for (int k = 0; k < this.w; ++k) {
-                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.spriteIndex_YY][this.var_byte_arr_a[n16]];
+                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.playerIndex_XX][this.var_byte_arr_a[n16]];
                             e2.a(graphics, n17, n18);
-                            if (this.var_a_a.var_int_arr_b[this.var_a_a.spriteIndex_YY] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
+                            if (this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.getSpritesWidth(), e2.getSpritesHeight(), -1328628059);
                             }
                             if (n16 == this.unitType_XX) {
@@ -878,7 +878,7 @@ public class g {
                 }
                 case 3: {
                     this.var_a_a.spriteGold.draw(graphics, 2, 2);
-                    if (this.var_a_a.var_byte_arr_b[this.var_a_a.spriteIndex_YY] == 0) {
+                    if (this.var_a_a.var_byte_arr_b[this.var_a_a.playerIndex_XX] == 0) {
                         this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_INFO);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
@@ -887,13 +887,13 @@ public class g {
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;
                     graphics.setClip(0, n19, n3, n20);
-                    graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.spriteIndex_YY]);
+                    graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.playerIndex_XX]);
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
-                    if (this.var_a_a.spriteIndex_YY == 1) {
+                    if (this.var_a_a.playerIndex_XX == 1) {
                         n21 = n3 - this.var_a_a.uiPortraitSheet.getSpritesWidth();
                     }
-                    this.var_a_a.uiPortraitSheet.a(this.var_a_a.spriteIndex_YY);
+                    this.var_a_a.uiPortraitSheet.a(this.var_a_a.playerIndex_XX);
                     this.var_a_a.uiPortraitSheet.a(graphics, n21, n19 - 10);
                     break;
                 }
