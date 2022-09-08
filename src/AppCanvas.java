@@ -51,7 +51,7 @@ CommandListener {
     private static final byte[][] fontSheetOffsetToSpriteIndexTable;
     public Display appDisplay;
     private boolean isRunning = false;
-    public a var_a_a;
+    public a a_instance;
     public int width;
     public int height;
     public int pressedKeysActions = 0;
@@ -139,15 +139,15 @@ CommandListener {
 
     public void showNotify() {
         this.pressedKeysActions = 0;
-        if (this.var_a_a != null) {
-            this.var_a_a.q();
+        if (this.a_instance != null) {
+            this.a_instance.q();
         }
     }
 
     public void hideNotify() {
         this.pressedKeysActions = 0;
-        if (this.var_a_a != null) {
-            this.var_a_a.n();
+        if (this.a_instance != null) {
+            this.a_instance.n();
         }
     }
 
@@ -195,7 +195,7 @@ CommandListener {
     // https://docs.oracle.com/javame/config/cldc/ref-impl/midp2.0/jsr118/javax/microedition/lcdui/Canvas.html#paint(javax.microedition.lcdui.Graphics)
     public void paint(Graphics graphics) {
         if (this.isRunning) {
-            this.var_a_a.gameDraw(graphics);
+            this.a_instance.gameDraw(graphics);
         } else {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, this.width, this.height);
@@ -292,8 +292,8 @@ CommandListener {
         this.lastKeyPressedTime = System.currentTimeMillis();
         // All action codes are powers of two, so they can be used as bit flags
         this.pressedKeysActions |= gameActionCode;
-        if (this.var_a_a != null) {
-            this.var_a_a.d(gameActionCode);
+        if (this.a_instance != null) {
+            this.a_instance.d(gameActionCode);
         }
     }
 
@@ -336,13 +336,13 @@ CommandListener {
             AppCanvas.fontSheets[0] = new SpriteSheet("chars");     // 36 tiles, 7x7 [A-Z][+-][1-9]
             AppCanvas.fontSheets[1] = new SpriteSheet("lchars");    // 10 tiles, 10x15 [0-9]
             this.spriteMask = new Sprite("mask.png");
-            this.var_a_a = new a((byte)0);
+            this.a_instance = new a((byte)0);
             this.isRunning = true;
             // Game loop
             while (this.isRunning) {
                 if (!this.isShown()) continue;
                 long startMillis = System.currentTimeMillis();
-                this.var_a_a.e();
+                this.a_instance.e();
                 int elapsedMillis = (int)(System.currentTimeMillis() - startMillis);
                 if (elapsedMillis >= 75) continue;
                 try {
