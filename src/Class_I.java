@@ -493,7 +493,7 @@ implements CommandListener {
         }
     }
 
-    public void k() {
+    private void updateSettings() {
         try {
             boolean valuesChanged = false;
             for (int j = 0; j < AppCanvas.settings.length; ++j) {
@@ -503,9 +503,11 @@ implements CommandListener {
                 valuesChanged = true;
             }
             if (valuesChanged) {
+                // It's a single byte but has to be an array to save it in a record
                 byte[] settingsDataBytes = new byte[1];
                 for (int n = 0; n < AppCanvas.settings.length; ++n) {
                     if (!AppCanvas.settings[n]) continue;
+                    // Sets a single bit to 1
                     settingsDataBytes[0] = (byte)(settingsDataBytes[0] | 1 << n);
                 }
                 appCanvas.savePersistentData("settings", settingsDataBytes);
@@ -583,7 +585,7 @@ implements CommandListener {
             form.setCommandListener((CommandListener)this);
             Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
         } else if (command == this.commandOK) {
-            this.k();
+            this.updateSettings();
             if (!AppCanvas.settings[0]) {
                 AppCanvas.stopFirstSound();
             }
