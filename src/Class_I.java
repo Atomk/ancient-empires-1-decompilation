@@ -298,7 +298,7 @@ implements CommandListener {
         imageBytesObj = AppCanvas.getFileBytesInputStream("tiles0.prop");
         object = new DataInputStream((InputStream)imageBytesObj);
         short s2 = ((DataInputStream)object).readShort();
-        short s3 = ((DataInputStream)object).readShort();
+        /*short s3 = */((DataInputStream)object).readShort();   // Unused variable
         this.var_byte_arr_j = new byte[s2];
         for (s = 0; s < s2; s = (short)((byte)(s + 1))) {
             this.var_byte_arr_j[s] = ((DataInputStream)object).readByte();
@@ -1014,7 +1014,7 @@ implements CommandListener {
                     break;
                 }
                 if (this.var_long_n % 100L == 0L) {
-                    boolean bl = this.var_boolean_p = !this.var_boolean_p;
+                    this.var_boolean_p = !this.var_boolean_p;
                 }
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);

@@ -44,7 +44,7 @@ public class f {
     private SpriteSheet var_e_b;
     private int m;
     private int var_int_a;
-    private boolean var_boolean_b;
+    //private boolean var_boolean_b;    // Unused
     private long var_long_a;
     private long var_long_c;
     private long var_long_b;
@@ -71,7 +71,7 @@ public class f {
     private int[] var_int_arr_a;
     private byte[][] var_byte_arr_arr_c;
     private int soundIndex;
-    private boolean var_boolean_c = false;
+    //private boolean var_boolean_c = false;    // Unused
     private boolean var_boolean_a = false;
     private SpriteSheet[] var_e_arr_a;
     private int i;
@@ -92,7 +92,7 @@ public class f {
         this.var_byte_g = (byte)c2.h;
         this.h = this.var_byte_g;
         this.var_byte_b = this.var_byte_a = (byte)c2.int_a();
-        this.var_boolean_b = bl;
+        //this.var_boolean_b = bl;
         int n2 = 0;
         if (bl) {
             this.var_byte_f = 0;
@@ -414,7 +414,7 @@ public class f {
                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
             }
             if (this.var_boolean_arr_a[j] && this.var_int_arr_c[j] <= -4 || !this.var_boolean_arr_a[j] && this.var_int_arr_c[j] >= 4) {
-                boolean bl2 = this.var_boolean_arr_a[j] = !this.var_boolean_arr_a[j];
+                this.var_boolean_arr_a[j] = !this.var_boolean_arr_a[j];
             }
             if (this.var_boolean_arr_a[j]) {
                 int n = j;
