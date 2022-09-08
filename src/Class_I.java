@@ -437,38 +437,38 @@ implements CommandListener {
         int n3 = n2;
         for (n = 0; n < n3; ++n) {
             byte unitType = dataInputStream.readByte();
-            byte by2 = dataInputStream.readByte();
+            byte unitOwner = dataInputStream.readByte();
             byte by3 = dataInputStream.readByte();
             byte by4 = dataInputStream.readByte();
-            byte by5 = dataInputStream.readByte();
+            byte unitQuantity = dataInputStream.readByte();
             byte by6 = dataInputStream.readByte();
             short s = dataInputStream.readShort();
-            short s2 = dataInputStream.readShort();
-            short s3 = dataInputStream.readShort();
+            short unitPosX = dataInputStream.readShort();
+            short unitPosY = dataInputStream.readShort();
             short s4 = dataInputStream.readShort();
-            Unit c2 = Unit.spawn(unitType, by2, s2, s3);
-            c2.var_byte_e = by3;
-            c2.var_short_b = s;
-            c2.var_short_d = by6;
-            c2.var_byte_b = by4;
-            c2.d();
-            c2.quantity = by5;
-            c2.var_int_b = s4;
+            Unit unit = Unit.spawn(unitType, unitOwner, unitPosX, unitPosY);
+            unit.var_byte_e = by3;
+            unit.var_short_b = s;
+            unit.var_short_d = by6;
+            unit.var_byte_b = by4;
+            unit.d();
+            unit.quantity = unitQuantity;
+            unit.var_int_b = s4;
             if (unitType == Unit.KING) {
-                this.var_c_arr_a[by2] = c2;
+                this.var_c_arr_a[unitOwner] = unit;
             }
             if (this.var_byte_a != 0) continue;
             if (unitType == Unit.KING) {
-                if (by2 == 0) {
-                    c2.var_java_lang_String_a = AppCanvas.getGameText(43);  // GALAMAR
+                if (unitOwner == PLAYER_BLUE) {
+                    unit.var_java_lang_String_a = AppCanvas.getGameText(43);  // GALAMAR
                     continue;
                 }
                 if (by6 == 4) continue;
-                c2.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
+                unit.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
                 continue;
             }
-            if (this.currentLevel != 2 || by2 != 0 || unitType != Unit.LIZARD) continue;
-            c2.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
+            if (this.currentLevel != 2 || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD) continue;
+            unit.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
         if (this.currentLevel == 2) {
             for (n = 5; n < 10; ++n) {
@@ -814,10 +814,10 @@ implements CommandListener {
         g2.a(true);
     }
 
-    public Unit c_a(int unitType, int n2, int n3) {
+    public Unit c_a(int unitType, int mapX, int mapY) {
         byte by = this.var_byte_g;
         this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[unitType];
-        return Unit.spawn((byte)unitType, this.playerIndex_XX, n2, n3);
+        return Unit.spawn((byte)unitType, this.playerIndex_XX, mapX, mapY);
     }
 
     public SpriteSheet a(byte playerIndex, byte unitType) {
@@ -898,10 +898,10 @@ implements CommandListener {
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;
             byte unitType = (byte)(by % 11);
-            byte by3 = (byte)(by / 11);
-            Unit c2 = Unit.spawn(unitType, by3, n6 / 24, n7 / 24);
+            byte unitOwner = (byte)(by / 11);
+            Unit c2 = Unit.spawn(unitType, unitOwner, n6 / 24, n7 / 24);
             if (unitType != Unit.KING) continue;
-            this.var_c_arr_a[by3] = c2;
+            this.var_c_arr_a[unitOwner] = c2;
         }
         dataInputStream.close();
         //AppCanvas.e();
@@ -1178,6 +1178,7 @@ implements CommandListener {
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
                         this.var_java_util_Vector_a.removeElement(this.var_c_e);
+                        // TODO rename second parameter to playerIndex_ZZ
                         Unit unitSkeleton = Unit.spawn(Unit.SKELETON, this.var_byte_f, this.var_c_e.mapX, this.var_c_e.mapY);
                         unitSkeleton.void_b();
                         this.var_c_e = null;
@@ -2471,20 +2472,22 @@ implements CommandListener {
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 4, 0);
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 1, 1);
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 1, 5);
-                    Unit c2 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
-                    this.b(c2);
-                    c2.b(this.var_byte_arr_arr_b);
-                    c2.void_a(9, 2);
+                    Unit unitLizard_1 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
+                    this.b(unitLizard_1);
+                    unitLizard_1.b(this.var_byte_arr_arr_b);
+                    // TODO I think this makes the lizard walk to the location
+                    // Ref: https://youtu.be/6MTmxnNygSw?t=371
+                    unitLizard_1.void_a(9, 2);
                     this.void_b(1000);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 14: {
                     if (this.var_byte_i == 1) break;
-                    Unit c3 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
-                    this.b(c3);
-                    c3.b(this.var_byte_arr_arr_b);
-                    c3.void_a(10, 1);
+                    Unit unitLizard_2 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
+                    this.b(unitLizard_2);
+                    unitLizard_2.b(this.var_byte_arr_arr_b);
+                    unitLizard_2.void_a(10, 1);
                     this.void_b(1000);
                     ++this.currentLevelStep;
                     break;
