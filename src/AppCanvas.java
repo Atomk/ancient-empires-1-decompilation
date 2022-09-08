@@ -293,7 +293,7 @@ CommandListener {
     }
 
     // TODO make private, this is not called outside the class
-    public void showErrorForm(String errorText) {
+    private void showErrorForm(String errorText) {
         this.isRunning = false;
         Form form = new Form("Fatal error!");
         form.append(errorText);
@@ -504,7 +504,7 @@ CommandListener {
     }
 
     // TODO make private since it's called only inside this class, possibly move to another file
-    public static int loadAppStrings(String filename, boolean skipFirstPart) throws Exception {
+    private static int loadAppStrings(String filename, boolean skipFirstPart) throws Exception {
         int n;
         InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream(filename);
         DataInputStream dataInputStream = new DataInputStream(inputStream);
