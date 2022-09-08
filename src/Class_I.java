@@ -389,7 +389,7 @@ implements CommandListener {
         for (n = 0; n < n2; ++n) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(n);
             dataOutputStream.writeByte(c2.unitType);
-            dataOutputStream.writeByte(c2.var_byte_a);
+            dataOutputStream.writeByte(c2.owner);
             dataOutputStream.writeByte(c2.var_byte_e);
             dataOutputStream.writeByte(c2.var_byte_b);
             dataOutputStream.writeByte(c2.quantity);
@@ -782,7 +782,7 @@ implements CommandListener {
                 this.var_long_c = this.var_long_n;
             } else if (string.equals(AppCanvas.getGameText(33))) {
                 if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
-                    this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.var_byte_a);
+                    this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.owner);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     this.var_byte_i = (byte)9;
                     AppCanvas.playSound(-1, 1);
@@ -817,8 +817,8 @@ implements CommandListener {
         return Unit.spawn((byte)unitType, this.spriteIndex_YY, n2, n3);
     }
 
-    public SpriteSheet a(byte by, byte unitType) {
-        return this.var_e_arr_arr_b[by][unitType];
+    public SpriteSheet a(byte owner, byte unitType) {
+        return this.var_e_arr_arr_b[owner][unitType];
     }
 
     // TODO write a tool to read level data
@@ -1323,7 +1323,7 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(32);
                             } else if (!appCanvas.boolean_c(128) && !appCanvas.boolean_c(64) && (appCanvas.boolean_c(16) || appCanvas.boolean_c(1024))) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
-                                if (this.var_c_h != null && this.var_c_h.var_byte_e == 0 && this.var_c_h.var_byte_a == this.spriteIndex_YY) {
+                                if (this.var_c_h != null && this.var_c_h.var_byte_e == 0 && this.var_c_h.owner == this.spriteIndex_YY) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (unitActionsMenuOptions.length > 1) {
                                         this.var_g_h = new g(this, (byte)0, 8);
@@ -1830,13 +1830,13 @@ implements CommandListener {
                 continue;
             }
             c2.var_byte_e = 0;
-            if (this.spriteIndex_YY == c2.var_byte_a && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.var_byte_a)) {
+            if (this.spriteIndex_YY == c2.owner && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner)) {
                 c2.quantity = (short)(c2.quantity + 2);
                 if (c2.quantity > 10) {
                     c2.quantity = (short)10;
                 }
             }
-            if (this.spriteIndex_YY == c2.var_byte_a) continue;
+            if (this.spriteIndex_YY == c2.owner) continue;
             c2.b((byte)1);
         }
         for (n = 0; n < this.var_byte_arr_arr_a.length; ++n) {
@@ -1864,10 +1864,10 @@ implements CommandListener {
     }
 
     public boolean a(int n, int n2, Unit c2) {
-        if (c2.a((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.var_byte_a)) {
+        if (c2.a((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner)) {
             return true;
         }
-        return c2.a((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.var_byte_a);
+        return c2.a((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner);
     }
 
     public void void_a(int n, int n2, int n3) {
@@ -1896,7 +1896,7 @@ implements CommandListener {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.var_byte_a != by) continue;
+            if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.owner != by) continue;
             vector.addElement(c2);
         }
         Unit[] unitsArray = new Unit[vector.size()];
@@ -1971,7 +1971,7 @@ implements CommandListener {
                 }
             } else {
                 if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
-                    this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.var_byte_a);
+                    this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.owner);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     AppCanvas.playSound(-1, 1);
                     this.var_byte_i = (byte)9;
@@ -2052,7 +2052,7 @@ implements CommandListener {
                 int n6;
                 int n7;
                 Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-                if (c2.var_byte_a != this.spriteIndex_YY || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
+                if (c2.owner != this.spriteIndex_YY || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.spriteIndex_YY) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.spriteIndex_YY)) {
@@ -2087,7 +2087,7 @@ implements CommandListener {
                     n6 = this.var_byte_arr_arr_e[n5][0];
                     n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
-                    n3 = this.boolean_a(n6, n4, (int)c2.var_byte_a) ? 1 : 0;
+                    n3 = this.boolean_a(n6, n4, (int)c2.owner) ? 1 : 0;
                     if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY)) >= n7) continue;
                     n7 = n2;
                     this.var_int_z = n6;
@@ -2147,7 +2147,7 @@ implements CommandListener {
         int n5 = 0;
         switch (c2.unitType) {
             case Unit.SOLDIER: {
-                if (this.var_c_arr_a[c2.var_byte_a] != null && this.var_int_z != -1) {
+                if (this.var_c_arr_a[c2.owner] != null && this.var_int_z != -1) {
                     n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
@@ -2159,7 +2159,7 @@ implements CommandListener {
                     n3 = this.var_c_arr_c[n4].mapX - c2.mapX + (this.var_c_arr_c[n4].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
-                if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.boolean_a(n, n2, (int)c2.var_byte_a) || c3 != null) break;
+                if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.boolean_a(n, n2, (int)c2.owner) || c3 != null) break;
                 n5 += 200;
                 break;
             }
@@ -2186,7 +2186,7 @@ implements CommandListener {
             n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
             break;
         }
-        if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.boolean_a(n, n2, (int)c2.var_byte_a)) {
+        if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.boolean_a(n, n2, (int)c2.owner)) {
             n5 += (10 - c2.quantity) * 2;
         }
         if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {

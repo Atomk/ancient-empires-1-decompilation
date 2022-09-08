@@ -108,7 +108,7 @@ public class g {
                 this.j = 65;
                 this.var_c_a = i2.c_a((int)i2.var_short_h, (int)i2.var_short_g, (byte)0);
                 this.unitType_XX = this.var_c_a.unitType;
-                this.var_byte_c = this.var_c_a.var_byte_a;
+                this.var_byte_c = this.var_c_a.owner;
                 this.var_int_b = AppCanvas.width2;
                 this.var_int_g = AppCanvas.height2 * 2 / 3;
             } else {
@@ -930,7 +930,7 @@ public class g {
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, 0);
                     AppCanvas.drawBoldWhiteText(graphics, "" + Class_I.terrainTypeDefense[terrainType], 14, n25 += 9, 0);
                     if (this.var_c_a == null) break;
-                    this.var_a_a.a(this.var_c_a.var_byte_a, this.var_c_a.unitType).a(graphics, 35, 2);
+                    this.var_a_a.a(this.var_c_a.owner, this.var_c_a.unitType).a(graphics, 35, 2);
                     n25 = 22;
                     int n26 = 31;
                     this.var_a_a.var_e_j.a(2);
@@ -973,7 +973,7 @@ public class g {
                     n27 = this.var_a_a.var_java_util_Vector_a.size();
                     for (n28 = 0; n28 < n27; ++n28) {
                         Unit c2 = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(n28);
-                        this.var_a_a.var_e_arr_arr_c[c2.var_byte_a][c2.unitType].a(graphics, c2.mapX * s, c2.mapY * s2);
+                        this.var_a_a.var_e_arr_arr_c[c2.owner][c2.unitType].a(graphics, c2.mapX * s, c2.mapY * s2);
                     }
                     break;
                 }

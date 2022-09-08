@@ -38,7 +38,7 @@ extends SpriteSheet {
     private short var_short_g;
     private long var_long_a;
     public byte unitType;
-    public byte var_byte_a;
+    public byte owner;
     public short mapX;
     public short mapY;
     public short quantity;
@@ -61,8 +61,8 @@ extends SpriteSheet {
     public static final short[] unitsDataPrice;
     private static final short[] unitsDataBiflag_XXX;
 
-    private Unit(byte unitType, byte by2, int mapX, int mapY) {
-        super(iClassRef.a(by2, unitType));
+    private Unit(byte unitType, byte owner, int mapX, int mapY) {
+        super(iClassRef.a(owner, unitType));
         this.mapX = (short)mapX;
         this.mapY = (short)mapY;
         this.var_short_b = (short)(mapX * TILE_SIZE);
@@ -81,7 +81,7 @@ extends SpriteSheet {
         Unit newUnit = new Unit(unitType, owner, mapX, mapY);
         // TODO isn't this statement redundant? The constructor above should set it
         newUnit.unitType = unitType;
-        newUnit.var_byte_a = owner;
+        newUnit.owner = owner;
         newUnit.quantity = (short)10;
         newUnit.l = unitsDataBiflag_XXX[unitType];
         newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
@@ -243,7 +243,7 @@ extends SpriteSheet {
                 if (n9 < unitRangeMin || n9 > unitRangeMax) continue;
                 if (by == 0) {
                     c2 = iClassRef.c_a(j, k, (byte)0);
-                    if (c2 == null || c2.var_byte_a == this.var_byte_a) continue;
+                    if (c2 == null || c2.owner == this.owner) continue;
                     vector.addElement(c2);
                     continue;
                 }
@@ -253,7 +253,7 @@ extends SpriteSheet {
                     vector.addElement(c2);
                     continue;
                 }
-                if (by != 2 || (c2 = iClassRef.c_a(j, k, (byte)0)) == null || c2.var_byte_a != this.var_byte_a) continue;
+                if (by != 2 || (c2 = iClassRef.c_a(j, k, (byte)0)) == null || c2.owner != this.owner) continue;
                 vector.addElement(c2);
             }
         }
@@ -335,7 +335,7 @@ extends SpriteSheet {
     private int int_b(int n, int n2) {
         if (n >= 0 && n2 >= 0 && n < Unit.iClassRef.var_short_e && n2 < Unit.iClassRef.var_short_b) {
             Unit c2 = iClassRef.c_a(n, n2, (byte)0);
-            if (c2 != null && c2.var_byte_a != this.var_byte_a) {
+            if (c2 != null && c2.owner != this.owner) {
                 return 1000;
             }
             byte terrainType = iClassRef.getTerrainType_ZZ(n, n2);
@@ -408,13 +408,13 @@ extends SpriteSheet {
         int n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
             c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
-            if (c2.var_byte_a != this.var_byte_a) continue;
+            if (c2.owner != this.owner) continue;
             c2.b((byte)2);
         }
         n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
             c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
-            if (c2.var_byte_a != this.var_byte_a || !c2.a((short)256)) continue;
+            if (c2.owner != this.owner || !c2.a((short)256)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
