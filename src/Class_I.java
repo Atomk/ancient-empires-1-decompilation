@@ -40,6 +40,9 @@ implements CommandListener {
     public static final byte ARROW_UP = 0;
     public static final byte ARROW_DOWN = 1;
 
+    public static final byte PLAYER_BLUE = 0;
+    public static final byte PLAYER_RED = 1;
+
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;
@@ -827,7 +830,7 @@ implements CommandListener {
         String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_short_d = 0;
-        this.playerIndex_XX = 0;
+        this.playerIndex_XX = PLAYER_BLUE;
         this.var_byte_g = 0;
         this.currentLevelStep = 0;
         this.var_c_arr_a = null;
@@ -2359,7 +2362,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.mapX < 4 || this.var_c_f.mapY < 7) break;
-                    Unit.spawn(Unit.SOLDIER, (byte)1, 5, 8);
+                    Unit.spawn(Unit.SOLDIER, PLAYER_RED, 5, 8);
                     this.a(this.var_e_r, 120, 192, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
@@ -2379,7 +2382,7 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    if (this.var_byte_i != 1 || this.playerIndex_XX != 0) break;
+                    if (this.var_byte_i != 1 || this.playerIndex_XX != PLAYER_BLUE) break;
                     this.var_int_s = 7;
                     ++this.currentLevelStep;
                     break;
@@ -2465,10 +2468,10 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    Unit.spawn(Unit.SPIDER, (byte)1, 4, 0);
-                    Unit.spawn(Unit.SPIDER, (byte)1, 1, 1);
-                    Unit.spawn(Unit.SPIDER, (byte)1, 1, 5);
-                    Unit c2 = Unit.spawn(Unit.LIZARD, (byte)0, 12, 1);
+                    Unit.spawn(Unit.SPIDER, PLAYER_RED, 4, 0);
+                    Unit.spawn(Unit.SPIDER, PLAYER_RED, 1, 1);
+                    Unit.spawn(Unit.SPIDER, PLAYER_RED, 1, 5);
+                    Unit c2 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
                     this.b(c2);
                     c2.b(this.var_byte_arr_arr_b);
                     c2.void_a(9, 2);
@@ -2478,7 +2481,7 @@ implements CommandListener {
                 }
                 case 14: {
                     if (this.var_byte_i == 1) break;
-                    Unit c3 = Unit.spawn(Unit.LIZARD, (byte)0, 12, 1);
+                    Unit c3 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
                     this.b(c3);
                     c3.b(this.var_byte_arr_arr_b);
                     c3.void_a(10, 1);
@@ -2593,7 +2596,7 @@ implements CommandListener {
                 }
             }
         } else if (this.currentLevel == 3) {
-            if (this.var_byte_i == 1 && this.playerIndex_XX == 0) {
+            if (this.var_byte_i == 1 && this.playerIndex_XX == PLAYER_BLUE) {
                 if (this.var_boolean_A && this.var_c_h.unitType == Unit.WIZARD) {
                     this.var_int_s = 15;
                     this.var_boolean_A = false;
@@ -2638,10 +2641,10 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, (byte)1, 2, 0);
+                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, PLAYER_RED, 2, 0);
                     // TODO 44: VALADORN -- maybe this is the unit's name?
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    Unit.spawn(Unit.SPIDER, (byte)1, 0, 0);
+                    Unit.spawn(Unit.SPIDER, PLAYER_RED, 0, 0);
                     this.a(this.var_e_r, 48, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, 1);
@@ -2812,8 +2815,8 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    Unit.spawn(Unit.CATAPULT, (byte)1, 12, 0);
-                    Unit.spawn(Unit.SOLDIER, (byte)1, 13, 0);
+                    Unit.spawn(Unit.CATAPULT, PLAYER_RED, 12, 0);
+                    Unit.spawn(Unit.SOLDIER, PLAYER_RED, 13, 0);
                     this.a(this.var_e_r, 312, 0, 0, 0, 4, 50);
                     this.a(this.var_e_r, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, 1);
@@ -2826,8 +2829,8 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    Unit.spawn(Unit.GOLEM, (byte)1, 1, 11);
-                    Unit.spawn(Unit.SOLDIER, (byte)1, 1, 12);
+                    Unit.spawn(Unit.GOLEM, PLAYER_RED, 1, 11);
+                    Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 12);
                     this.a(this.var_e_r, 24, 288, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, 1);
@@ -2840,10 +2843,10 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, (byte)1, 1, 1);
+                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, PLAYER_RED, 1, 1);
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    Unit.spawn(Unit.WYVERN, (byte)1, 0, 1);
-                    Unit.spawn(Unit.SOLDIER, (byte)1, 1, 2);
+                    Unit.spawn(Unit.WYVERN, PLAYER_RED, 0, 1);
+                    Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 2);
                     this.a(this.var_e_r, 24, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 0, 24, 0, 0, 4, 50);
                     this.a(this.var_e_r, 24, 48, 0, 0, 4, 50);

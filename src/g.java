@@ -890,7 +890,7 @@ public class g {
                     graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.playerIndex_XX]);
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
-                    if (this.var_a_a.playerIndex_XX == 1) {
+                    if (this.var_a_a.playerIndex_XX == Class_I.PLAYER_RED) {
                         n21 = n3 - this.var_a_a.uiPortraitSheet.getSpritesWidth();
                     }
                     this.var_a_a.uiPortraitSheet.a(this.var_a_a.playerIndex_XX);
