@@ -451,11 +451,11 @@ implements CommandListener {
             c2.d();
             c2.h = by5;
             c2.var_int_b = s4;
-            if (unitType == 9) {
+            if (unitType == Unit.KING) {
                 this.var_c_arr_a[by2] = c2;
             }
             if (this.var_byte_a != 0) continue;
-            if (unitType == 9) {
+            if (unitType == Unit.KING) {
                 if (by2 == 0) {
                     c2.var_java_lang_String_a = AppCanvas.getGameText(43);  // GALAMAR
                     continue;
@@ -464,7 +464,7 @@ implements CommandListener {
                 c2.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
                 continue;
             }
-            if (this.currentLevel != 2 || by2 != 0 || unitType != 2) continue;
+            if (this.currentLevel != 2 || by2 != 0 || unitType != Unit.LIZARD) continue;
             c2.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
         if (this.currentLevel == 2) {

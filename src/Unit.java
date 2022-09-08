@@ -94,7 +94,7 @@ extends SpriteSheet {
         if (this.a((short)64) && unit.a((short)1)) {
             n2 += 2;
         }
-        if (this.unitType == 4 && unit.unitType == 10) {
+        if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
             n2 += 3;
         }
         if ((n = AppCanvas.randomGen.nextInt() % 20 + this.var_short_d) >= 19) {
