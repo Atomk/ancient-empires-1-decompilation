@@ -149,11 +149,11 @@ CommandListener {
         }
     }
 
-    public static void a(Graphics graphics, String text, int n, int n2, int n3, int n4) {
+    public static void a(Graphics graphics, String text, int x, int y, int fontIndex, int n4) {
         if ((n4 & 8) != 0) {
-            n -= AppCanvas.getSpriteFontTextWidth((byte)n3, text);
+            x -= AppCanvas.getSpriteFontTextWidth((byte)fontIndex, text);
         }
-        AppCanvas.drawBoldWhiteText(graphics, text, n, n2, n3);
+        AppCanvas.drawBoldWhiteText(graphics, text, x, y, fontIndex);
     }
 
     public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, int fontIndex) {
@@ -463,8 +463,8 @@ CommandListener {
         return n3;
     }
 
-    private static boolean boolean_b(int n) {
-        return n >= 11904 && n < 44032 || n >= 63744 && n < 64256 || n >= 65280 && n < 65504;
+    private static boolean boolean_b(int charCode) {
+        return charCode >= 11904 && charCode < 44032 || charCode >= 63744 && charCode < 64256 || charCode >= 65280 && charCode < 65504;
     }
 
     private static void readAssetsPackage() throws Exception {

@@ -685,8 +685,8 @@ public class g {
             return;
         }
         this.var_boolean_c = false;
-        int n = 0;
-        int n2 = 0;
+        int translateY = 0;
+        int translateX = 0;
         int n3 = 0;
         int n4 = 0;
         if (this.var_byte_d == 0 && (this.var_byte_e == 0 || this.var_byte_e == 1)) {
@@ -699,24 +699,24 @@ public class g {
         this.a(graphics, this.var_int_c, this.s, this.var_int_b, this.var_int_g, this.t);
         n3 = this.var_int_b;
         n4 = this.var_int_g;
-        n = this.s;
-        n2 = this.var_int_c;
+        translateY = this.s;
+        translateX = this.var_int_c;
         if ((this.t & 1) == 0) {
             n4 -= 6;
-            n += 6;
+            translateY += 6;
         }
         if ((this.t & 2) == 0) {
             n4 -= 6;
         }
         if ((this.t & 4) == 0) {
-            n2 += 6;
+            translateX += 6;
             n3 -= 6;
         }
         if ((this.t & 8) == 0) {
             n3 -= 6;
         }
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
-        graphics.translate(n2, n);
+        graphics.translate(translateX, translateY);
         graphics.setFont(this.appFont);
         if (this.var_byte_e == 2 || this.var_byte_a == 3 || this.var_byte_a == 5) {
             block0 : switch (this.var_byte_a) {
@@ -1023,7 +1023,7 @@ public class g {
                 }
             }
         }
-        graphics.translate(-n2, -n);
+        graphics.translate(-translateX, -translateY);
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         if (this.var_byte_e == 2) {
             if (this.var_boolean_a) {
