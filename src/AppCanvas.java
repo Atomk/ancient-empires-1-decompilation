@@ -46,9 +46,9 @@ CommandListener {
     public static int height2;
     public static int h;
     public static int f;
-    private static final short[] asciiRefStart;
-    private static final short[] asciiRefEnd;
-    private static final byte[][] var_byte_arr_arr_a;
+    private static final short[] fontSheetMinASCIIValue;
+    private static final short[] fontSheetMaxASCIIValue;
+    private static final byte[][] fontSheetOffsetToSpriteIndexTable;
     public Display appDisplay;
     private boolean isRunning = false;
     public a var_a_a;
@@ -160,11 +160,19 @@ CommandListener {
         int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
             char letter = text.charAt(j);
-            // fontIndex can only be 0 or 1, because there are two spritefonts
-            // if fontIndex == 1, this check will only allow numbers (ascii 48-57)
-            // if fontIndex == 0, this check will allow numbers, uppercase letters and some symbols (ascii 43-90)
-            if (letter < asciiRefStart[fontIndex] || letter > asciiRefEnd[fontIndex]) continue;
-            byte spriteIndex = var_byte_arr_arr_a[fontIndex][letter - asciiRefStart[fontIndex]];
+            
+            // Checks if the character is inside the interval of the font spritesheet
+            if (letter < fontSheetMinASCIIValue[fontIndex] || letter > fontSheetMaxASCIIValue[fontIndex])
+                continue;
+            
+            // There are some character that, while included the interval above,
+            // are not included in the font spritesheets so they cannot be shown.
+            // (e.g. the alphanumeric sheet is missing many symbols and the number '0') 
+            // The table below contains a value for every ASCII character in the interval
+            // And that value is the index in the spritesheet, or -1 if it canno be displayed
+            int offsetFromMinCharacter = letter - fontSheetMinASCIIValue[fontIndex];
+            byte spriteIndex = fontSheetOffsetToSpriteIndexTable[fontIndex][offsetFromMinCharacter];
+
             if (spriteIndex != -1) {
                 fontSheets[fontIndex].a(spriteIndex);
                 fontSheets[fontIndex].a(graphics, x, y);
@@ -545,9 +553,10 @@ CommandListener {
         fontSmallPlain = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL);
         // TODO this is never used
         fontMediumBold = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
-        asciiRefStart = new short[]{43, 48};  // 43 = '+', 48 = '0' (ASCII)
-        asciiRefEnd = new short[]{90, 57};    // 90 = 'Z', 57 = '9' (ASCII)
-        var_byte_arr_arr_a = new byte[][]{
+        // These next two contain the character with the min/max ASCIII value in the font spritesheets
+        fontSheetMinASCIIValue = new short[]{43, 48};  // 43 = '+', 48 = '0' (ASCII)
+        fontSheetMaxASCIIValue = new short[]{90, 57};    // 90 = 'Z', 57 = '9' (ASCII)
+        fontSheetOffsetToSpriteIndexTable = new byte[][]{
             {26, -1, 25, -1, -1, 14, 27, 28, 29, 30, 31, 32, 33, 34, 35, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, -1},
             {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}};
         fontSheets = new SpriteSheet[2];
