@@ -424,7 +424,9 @@ extends SpriteSheet {
         Unit.iClassRef.var_c_f = this;
     }
 
-    public static byte[] byte_arr_a() {
+    // A bit unnecessary, the value of strongestBuyableUnit is enough
+    // Since the array wil always contain numbers between 0 and strongestBuyableUnit
+    public static byte[] getBuyableUnitsIndex() {
         byte[] array = new byte[11];
         int buyableUnitsCount = 0;
         for (byte unitType = 0; unitType <= Unit.iClassRef.strongestBuyableUnit; unitType++) {
