@@ -425,17 +425,19 @@ extends SpriteSheet {
     }
 
     public static byte[] byte_arr_a() {
-        byte[] byArray = new byte[11];
-        int n = 0;
-        for (byte unitType = 0; unitType <= Unit.iClassRef.J; unitType++) {
+        byte[] array = new byte[11];
+        int buyableUnitsCount = 0;
+        for (byte unitType = 0; unitType <= Unit.iClassRef.strongestBuyableUnit; unitType++) {
             // Skips the units you cannot buy (king, skeleton)
             if (unitsDataPrice[unitType] <= 0)
                 continue;
-            byArray[n++] = unitType;
+            array[buyableUnitsCount++] = unitType;
         }
-        byte[] byArray2 = new byte[n];
-        System.arraycopy(byArray, 0, byArray2, 0, n);
-        return byArray2;
+        // This "trims" the array so that it is the correct length
+        // Probably a trick to avoid using a dynamic structure (vector)
+        byte[] buyableUnits = new byte[buyableUnitsCount];
+        System.arraycopy(array, 0, buyableUnits, 0, buyableUnitsCount);
+        return buyableUnits;
     }
 
     public void a(Graphics graphics, int x, int y) {
