@@ -1952,10 +1952,10 @@ implements CommandListener {
         }
     }
 
-    public boolean boolean_a(int n) {
+    private boolean boolean_a(int unitType) {
         short s = this.var_c_arr_a[this.playerIndex_XX].mapX;
         short s2 = this.var_c_arr_a[this.playerIndex_XX].mapY;
-        return Unit.unitsDataPrice[n] <= this.var_int_arr_b[this.var_byte_g] && Unit.unitsDataPrice[n] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        return Unit.unitsDataPrice[unitType] <= this.var_int_arr_b[this.var_byte_g] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
     public void p() throws Exception {
@@ -2059,7 +2059,7 @@ implements CommandListener {
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.playerIndex_XX)) {
-                        if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.boolean_a(0)) {
+                        if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.boolean_a(Unit.SOLDIER)) {
                             c2 = this.c_a(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             n7 = 0;
