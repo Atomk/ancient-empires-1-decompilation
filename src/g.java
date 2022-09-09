@@ -38,7 +38,7 @@ public class g {
     private int m;
     private Font appFont = AppCanvas.fontSmallPlain;
     private int unitType_XX;
-    private int z;
+    private int buyableUnitsCount_XX;
     private int B;
     private int p;
     private long var_long_a;
@@ -93,7 +93,7 @@ public class g {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
             this.buyableUnits = Unit.getBuyableUnitsIndex();
-            this.z = this.buyableUnits.length;
+            this.buyableUnitsCount_XX = this.buyableUnits.length;
             this.var_int_b = 64;
             this.var_int_g = AppCanvas.height2 - 40;
             this.w = (this.var_int_b - 6 - 2) / 26;
@@ -239,7 +239,7 @@ public class g {
     // TODO this just creates the menu, it doesn't show it, rename accordingly
     public void showMenuOptions(String[] menuOptions) {
         this.var_java_lang_String_arr_b = menuOptions;
-        this.u = this.z = menuOptions.length;
+        this.u = this.buyableUnitsCount_XX = menuOptions.length;
         this.var_int_b = 0;
         this.var_int_g = 0;
         this.D = 4;
@@ -435,8 +435,8 @@ public class g {
                                                                             if (!Class_I.appCanvas.boolean_a(2)) break block101;
                                                                         }
                                                                         this.unitType_XX += this.w;
-                                                                        if (this.unitType_XX >= this.z) {
-                                                                            this.unitType_XX -= this.z;
+                                                                        if (this.unitType_XX >= this.buyableUnitsCount_XX) {
+                                                                            this.unitType_XX -= this.buyableUnitsCount_XX;
                                                                             this.var_short_b = 0;
                                                                         }
                                                                         if (this.unitType_XX - this.var_short_b >= this.u) {
@@ -453,8 +453,8 @@ public class g {
                                                             }
                                                             this.unitType_XX -= this.w;
                                                             if (this.unitType_XX < 0) {
-                                                                this.unitType_XX = this.z + this.unitType_XX;
-                                                                this.var_short_b = (short)(this.z - this.u);
+                                                                this.unitType_XX = this.buyableUnitsCount_XX + this.unitType_XX;
+                                                                this.var_short_b = (short)(this.buyableUnitsCount_XX - this.u);
                                                             }
                                                             if (this.unitType_XX < this.var_short_b) {
                                                                 this.var_short_b = (short)(this.var_short_b - 1);
@@ -471,7 +471,7 @@ public class g {
                                                 if (this.var_byte_a == 2) {
                                                     --this.unitType_XX;
                                                     if (this.unitType_XX < 0) {
-                                                        this.unitType_XX = this.z - 1;
+                                                        this.unitType_XX = this.buyableUnitsCount_XX - 1;
                                                     }
                                                     this.var_boolean_c = true;
                                                 }
@@ -485,7 +485,7 @@ public class g {
                                     }
                                     if (this.var_byte_a == 2) {
                                         ++this.unitType_XX;
-                                        if (this.unitType_XX >= this.z) {
+                                        if (this.unitType_XX >= this.buyableUnitsCount_XX) {
                                             this.unitType_XX = 0;
                                         }
                                         this.var_boolean_c = true;
