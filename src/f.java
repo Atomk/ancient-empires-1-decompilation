@@ -583,7 +583,7 @@ public class f {
                     this.var_int_arr_c[n] = -6;
                     this.var_e_arr_b[n].c();
                     this.var_long_a = this.var_a_a.var_long_n;
-                } else if (this.var_e_arr_b[n].var_short_d == 1 && this.var_a_a.var_long_n - this.var_long_a >= 200L) {
+                } else if (this.var_e_arr_b[n].currentIndex == 1 && this.var_a_a.var_long_n - this.var_long_a >= 200L) {
                     this.var_e_arr_b[n].c();
                 }
                 int n9 = n;

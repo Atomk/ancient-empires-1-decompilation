@@ -10,7 +10,7 @@ import javax.microedition.lcdui.Graphics;
 public class SpriteSheet {
     public Sprite[] sprites;
     private byte[] var_byte_arr_e;
-    public short var_short_d = 0;
+    public short currentIndex = 0;
     public short var_short_b = 0;
     public short l = 0;
     private boolean var_boolean_c = true;
@@ -128,7 +128,7 @@ public class SpriteSheet {
     public SpriteSheet(SpriteSheet other) {
         this.sprites = other.sprites;
         this.var_byte_arr_e = other.var_byte_arr_e;
-        this.var_short_d = other.var_short_d;
+        this.currentIndex = other.currentIndex;
         this.var_short_b = other.var_short_b;
         this.l = other.l;
         this.var_boolean_c = other.var_boolean_c;
@@ -158,7 +158,7 @@ public class SpriteSheet {
 
     public void a(int spriteIndex) {
         if (spriteIndex < this.var_byte_arr_e.length) {
-            this.var_short_d = (byte)spriteIndex;
+            this.currentIndex = (byte)spriteIndex;
         }
     }
 
@@ -168,15 +168,15 @@ public class SpriteSheet {
     }
 
     public void c() {
-        this.var_short_d = (short)(this.var_short_d + 1);
-        if (this.var_short_d >= this.var_byte_arr_e.length) {
-            this.var_short_d = 0;
+        this.currentIndex++;
+        if (this.currentIndex >= this.var_byte_arr_e.length) {
+            this.currentIndex = 0;
         }
     }
 
     public void a(byte[] byArray) {
         this.var_byte_arr_e = byArray;
-        this.var_short_d = 0;
+        this.currentIndex = 0;
     }
 
     public void a(Graphics graphics, int x, int y) {
@@ -198,7 +198,7 @@ public class SpriteSheet {
         } else if (this.var_boolean_c) {
             int spriteX = this.var_short_b + x;
             int spriteY = this.l + y;
-            this.sprites[this.var_byte_arr_e[this.var_short_d]].draw(graphics, spriteX, spriteY);
+            this.sprites[this.var_byte_arr_e[this.currentIndex]].draw(graphics, spriteX, spriteY);
         }
     }
 
@@ -258,7 +258,7 @@ public class SpriteSheet {
                     this.void_b(this.var_short_b + this.var_int_d, this.l + this.var_int_a);
                     if (this.var_long_b < (long)this.var_int_e) break;
                     this.c();
-                    if (this.var_byte_c == 0 && this.var_short_d == 0 && this.var_int_c > 0) {
+                    if (this.var_byte_c == 0 && this.currentIndex == 0 && this.var_int_c > 0) {
                         --this.var_int_c;
                         if (this.var_int_c <= 0) {
                             this.var_boolean_d = false;
