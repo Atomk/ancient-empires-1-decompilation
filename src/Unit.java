@@ -270,11 +270,11 @@ extends SpriteSheet {
         this.var_byte_e = 1;
     }
 
-    public Vector<short[]> a(int n, int n2, int n3, int n4) {
+    public Vector<short[]> a(int mapX, int mapY, int n3, int n4) {
         int n5;
         Vector<short[]> vector = null;
         short[] sArray = new short[]{(short)n3, (short)n4};
-        if (n == n3 && n2 == n4) {
+        if (mapX == n3 && mapY == n4) {
             vector = new Vector<short[]>();
             vector.addElement(sArray);
             return vector;
@@ -296,13 +296,13 @@ extends SpriteSheet {
             n6 = Unit.iClassRef.var_byte_arr_arr_b[n3 + 1][n4];
         }
         if ((n5 = Math.max(Math.max(by, by2), Math.max(by3, n6))) == by) {
-            vector = this.a(n, n2, n3, n4 - 1);
+            vector = this.a(mapX, mapY, n3, n4 - 1);
         } else if (n5 == by2) {
-            vector = this.a(n, n2, n3, n4 + 1);
+            vector = this.a(mapX, mapY, n3, n4 + 1);
         } else if (n5 == by3) {
-            vector = this.a(n, n2, n3 - 1, n4);
+            vector = this.a(mapX, mapY, n3 - 1, n4);
         } else if (n5 == n6) {
-            vector = this.a(n, n2, n3 + 1, n4);
+            vector = this.a(mapX, mapY, n3 + 1, n4);
         }
         vector.addElement(sArray);
         return vector;
@@ -438,13 +438,13 @@ extends SpriteSheet {
         return byArray2;
     }
 
-    public void a(Graphics graphics, int n, int n2) {
+    public void a(Graphics graphics, int x, int y) {
         if (this.var_boolean_e) {
             int n3 = this.var_boolean_b ? -2 : 2;
             int n4 = AppCanvas.randomGen.nextInt() % 1;
-            super.a(graphics, n + n3, n2 + n4);
+            super.a(graphics, x + n3, y + n4);
         } else {
-            super.a(graphics, n, n2);
+            super.a(graphics, x, y);
         }
     }
 

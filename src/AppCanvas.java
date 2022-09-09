@@ -275,8 +275,8 @@ CommandListener {
         this.handleKeyPressedAction(this.getGameAction(keyCode));
     }
 
-    public boolean boolean_c(int n) {
-        return (this.pressedKeysActions & n) != 0;
+    public boolean boolean_c(int gameActionCode) {
+        return (this.pressedKeysActions & gameActionCode) != 0;
     }
 
     public void keyReleased(int keyCode) {
