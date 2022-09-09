@@ -161,9 +161,10 @@ public class SpriteSheet {
         return 0;
     }
 
-    public void a(int spriteIndex) {
-        if (spriteIndex < this.spriteReorderTable.length) {
-            this.currentIndex = (byte)spriteIndex;
+    // TODO note that it will do nothing if there's a custom reorder table set up
+    public void setCurrentIndex(int currentIndex) {
+        if (currentIndex < this.spriteReorderTable.length) {
+            this.currentIndex = (byte)currentIndex;
         }
     }
 

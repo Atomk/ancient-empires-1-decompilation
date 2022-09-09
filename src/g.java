@@ -765,21 +765,21 @@ public class g {
                         AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
                         n14 += AppCanvas.getSpriteFontCharWidth((byte)0) + 2;
                         if ((this.var_c_a.var_byte_b & 1) != 0) {
-                            this.var_a_a.var_e_j.a(0);
+                            this.var_a_a.var_e_j.setCurrentIndex(0);
                             this.var_a_a.var_e_j.a(graphics, n12, n14 - 2);
                             // POISON
                             graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.var_e_j.getSpritesWidth() + 2, n14, 20);
                             n14 += this.var_a_a.var_e_j.getSpritesHeight() - 4;
                         }
                         if ((this.var_c_a.var_byte_b & 2) != 0) {
-                            this.var_a_a.var_e_j.a(1);
+                            this.var_a_a.var_e_j.setCurrentIndex(1);
                             this.var_a_a.var_e_j.a(graphics, n12, n14);
                             // AURA
                             graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.var_e_j.getSpritesWidth() + 2, n14 + 2, 20);
                         }
                         AppCanvas.a(graphics, "" + this.var_c_a.quantity, n3 - 4, 6, 1, 8);
                         graphics.setFont(this.appFont);
-                        this.var_a_a.var_e_j.a(2);
+                        this.var_a_a.var_e_j.setCurrentIndex(2);
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
                             this.var_a_a.var_e_j.a(graphics, n13, this.appFont.getBaselinePosition() + 2);
                             n13 += this.var_a_a.var_e_j.getSpritesWidth();
@@ -839,14 +839,14 @@ public class g {
                         n12 += this.appFont.getBaselinePosition() + this.D;
                     }
                     if (this.var_short_b != 0) {
-                        this.var_a_a.uiArrowSheet.a(Class_I.ARROW_UP);
+                        this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_UP);
                         n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         n9 = this.j - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n10, n9 - this.p);
                         AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, 0);
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
-                    this.var_a_a.uiArrowSheet.a(Class_I.ARROW_DOWN);
+                    this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
                     n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
                     this.var_a_a.uiArrowSheet.a(graphics, n10, n9 + this.p);
@@ -879,7 +879,7 @@ public class g {
                 case 3: {
                     this.var_a_a.spriteGold.draw(graphics, 2, 2);
                     if (this.var_a_a.var_byte_arr_b[this.var_a_a.playerIndex_XX] == 0) {
-                        this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_INFO);
+                        this.var_a_a.uiBtnIconSheet.setCurrentIndex(Class_I.BTN_ICON_INFO);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
                         AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
@@ -893,7 +893,7 @@ public class g {
                     if (this.var_a_a.playerIndex_XX == Class_I.PLAYER_RED) {
                         n21 = n3 - this.var_a_a.uiPortraitSheet.getSpritesWidth();
                     }
-                    this.var_a_a.uiPortraitSheet.a(this.var_a_a.playerIndex_XX);
+                    this.var_a_a.uiPortraitSheet.setCurrentIndex(this.var_a_a.playerIndex_XX);
                     this.var_a_a.uiPortraitSheet.a(graphics, n21, n19 - 10);
                     break;
                 }
@@ -908,14 +908,14 @@ public class g {
                         n22 += this.m;
                     }
                     if (this.portraitSpriteIndex != Class_I.PORTRAIT_NONE) {
-                        this.var_a_a.uiPortraitSheet.a(this.portraitSpriteIndex);
+                        this.var_a_a.uiPortraitSheet.setCurrentIndex(this.portraitSpriteIndex);
                         if (this.t == 4) {
                             this.var_a_a.uiPortraitSheet.a(graphics, 0, -11);
                         } else if (this.t == 8) {
                             this.var_a_a.uiPortraitSheet.a(graphics, this.var_int_b - 6 - this.var_a_a.uiPortraitSheet.getSpritesWidth(), -11);
                         }
                     }
-                    this.var_a_a.uiArrowSheet.a(Class_I.ARROW_DOWN);
+                    this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
                     this.var_a_a.uiArrowSheet.a(graphics, n23 + this.var_int_d - this.var_a_a.uiArrowSheet.getSpritesWidth(), this.var_int_g - 6 - this.var_a_a.uiArrowSheet.getSpritesHeight() + this.p);
                     break;
                 }
@@ -933,7 +933,7 @@ public class g {
                     this.var_a_a.a(this.var_c_a.owner, this.var_c_a.unitType).a(graphics, 35, 2);
                     n25 = 22;
                     int n26 = 31;
-                    this.var_a_a.var_e_j.a(2);
+                    this.var_a_a.var_e_j.setCurrentIndex(2);
                     for (int j = 0; j < this.var_c_a.var_short_d; ++j) {
                         this.var_a_a.var_e_j.a(graphics, n26, n25);
                         n26 += this.var_a_a.var_e_j.getSpritesWidth() - (this.var_a_a.var_e_j.getSpritesWidth() >> 1);
@@ -941,12 +941,12 @@ public class g {
                     n25 += this.var_a_a.var_e_j.getSpritesHeight() - 5;
                     n26 = 31;
                     if ((this.var_c_a.var_byte_b & 1) != 0) {
-                        this.var_a_a.var_e_j.a(0);
+                        this.var_a_a.var_e_j.setCurrentIndex(0);
                         this.var_a_a.var_e_j.a(graphics, n26, n25);
                         n26 += this.var_a_a.var_e_j.getSpritesWidth();
                     }
                     if ((this.var_c_a.var_byte_b & 2) == 0) break;
-                    this.var_a_a.var_e_j.a(1);
+                    this.var_a_a.var_e_j.setCurrentIndex(1);
                     this.var_a_a.var_e_j.a(graphics, n26, n25);
                     break;
                 }
@@ -1011,12 +1011,12 @@ public class g {
                     }
                     graphics.setClip(-6, -6, this.var_int_b, this.var_int_g);
                     if (this.var_short_b > 0) {
-                        this.var_a_a.uiArrowSheet.a(Class_I.ARROW_UP);
+                        this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_UP);
                         n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n33, n35 + this.p - this.var_a_a.uiArrowSheet.getSpritesHeight());
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
-                    this.var_a_a.uiArrowSheet.a(Class_I.ARROW_DOWN);
+                    this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
                     n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     int n38 = this.var_int_g - 12;
                     this.var_a_a.uiArrowSheet.a(graphics, n33, n38 - this.p);
@@ -1027,11 +1027,11 @@ public class g {
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
         if (this.var_byte_e == 2) {
             if (this.var_boolean_a) {
-                this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_CONFIRM);
+                this.var_a_a.uiBtnIconSheet.setCurrentIndex(Class_I.BTN_ICON_CONFIRM);
                 this.var_a_a.uiBtnIconSheet.a(graphics, 0, AppCanvas.height2 - this.var_a_a.uiBtnIconSheet.getSpritesHeight());
             }
             if (this.var_boolean_g) {
-                this.var_a_a.uiBtnIconSheet.a(Class_I.BTN_ICON_BACK);
+                this.var_a_a.uiBtnIconSheet.setCurrentIndex(Class_I.BTN_ICON_BACK);
                 this.var_a_a.uiBtnIconSheet.a(graphics, AppCanvas.width2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), AppCanvas.height2 - this.var_a_a.uiBtnIconSheet.getSpritesHeight());
             }
         }
@@ -1080,11 +1080,11 @@ public class g {
         int n16 = n2 + n4 - frameSheet.getSpritesHeight();
         for (n6 = 0; n6 < n13; ++n6) {
             if ((n5 & 1) == 0) {
-                frameSheet.a(FRAME_TOP);
+                frameSheet.setCurrentIndex(FRAME_TOP);
                 frameSheet.a(graphics, n15, n2);
             }
             if ((n5 & 2) == 0) {
-                frameSheet.a(FRAME_BOTTOM);
+                frameSheet.setCurrentIndex(FRAME_BOTTOM);
                 frameSheet.a(graphics, n15, n16);
             }
             n15 += frameSheet.getSpritesWidth();
@@ -1093,63 +1093,63 @@ public class g {
         n16 = n2 + frameSheet.getSpritesHeight();
         for (n6 = 0; n6 < n14; ++n6) {
             if ((n5 & 4) == 0) {
-                frameSheet.a(FRAME_LEFT);
+                frameSheet.setCurrentIndex(FRAME_LEFT);
                 frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(FRAME_RIGHT);
+                frameSheet.setCurrentIndex(FRAME_RIGHT);
                 frameSheet.a(graphics, n15, n16);
             }
             n16 += frameSheet.getSpritesHeight();
         }
         if ((n5 & 1) == 0) {
             if ((n5 & 4) == 0) {
-                frameSheet.a(FRAME_TOP_LEFT);
+                frameSheet.setCurrentIndex(FRAME_TOP_LEFT);
                 frameSheet.a(graphics, n, n2);
             } else {
-                frameSheet.a(FRAME_TOP);
+                frameSheet.setCurrentIndex(FRAME_TOP);
                 frameSheet.a(graphics, n, n2);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(FRAME_TOP_RIGHT);
+                frameSheet.setCurrentIndex(FRAME_TOP_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n2);
             } else {
-                frameSheet.a(FRAME_TOP);
+                frameSheet.setCurrentIndex(FRAME_TOP);
                 frameSheet.a(graphics, n + n3 - 24, n2);
             }
         } else {
             if ((n5 & 4) == 0) {
-                frameSheet.a(FRAME_LEFT);
+                frameSheet.setCurrentIndex(FRAME_LEFT);
                 frameSheet.a(graphics, n, n2);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(FRAME_RIGHT);
+                frameSheet.setCurrentIndex(FRAME_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n2);
             }
         }
         n16 = n2 + n4 - 24;
         if ((n5 & 2) == 0) {
             if ((n5 & 4) == 0) {
-                frameSheet.a(FRAME_BOTTOM_LEFT);
+                frameSheet.setCurrentIndex(FRAME_BOTTOM_LEFT);
                 frameSheet.a(graphics, n, n16);
             } else {
-                frameSheet.a(FRAME_BOTTOM);
+                frameSheet.setCurrentIndex(FRAME_BOTTOM);
                 frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(FRAME_BOTTOM_RIGHT);
+                frameSheet.setCurrentIndex(FRAME_BOTTOM_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n16);
             } else {
-                frameSheet.a(FRAME_BOTTOM);
+                frameSheet.setCurrentIndex(FRAME_BOTTOM);
                 frameSheet.a(graphics, n + n3 - 24, n16);
             }
         } else {
             if ((n5 & 4) == 0) {
-                frameSheet.a(FRAME_LEFT);
+                frameSheet.setCurrentIndex(FRAME_LEFT);
                 frameSheet.a(graphics, n, n16);
             }
             if ((n5 & 8) == 0) {
-                frameSheet.a(FRAME_RIGHT);
+                frameSheet.setCurrentIndex(FRAME_RIGHT);
                 frameSheet.a(graphics, n + n3 - 24, n16);
             }
         }

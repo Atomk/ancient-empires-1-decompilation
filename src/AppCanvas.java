@@ -176,7 +176,7 @@ CommandListener {
             byte spriteIndex = fontSheetOffsetToSpriteIndexTable[fontIndex][offsetFromMinCharacter];
 
             if (spriteIndex != -1) {
-                fontSheets[fontIndex].a(spriteIndex);
+                fontSheets[fontIndex].setCurrentIndex(spriteIndex);
                 fontSheets[fontIndex].a(graphics, x, y);
                 x += fontSheets[fontIndex].getSpritesWidth();
                 continue;

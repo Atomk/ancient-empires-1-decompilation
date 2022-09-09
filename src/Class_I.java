@@ -1761,11 +1761,11 @@ implements CommandListener {
         }
         if (this.var_int_g == 0) {
             if (this.var_boolean_r) {
-                this.uiBtnIconSheet.a(BTN_ICON_BACK);
+                this.uiBtnIconSheet.setCurrentIndex(BTN_ICON_BACK);
                 this.uiBtnIconSheet.a(graphics, AppCanvas.width2 - this.uiBtnIconSheet.getSpritesWidth(), AppCanvas.height2 - this.uiBtnIconSheet.getSpritesHeight());
             }
             if (this.var_boolean_t) {
-                this.uiBtnIconSheet.a(BTN_ICON_CONFIRM);
+                this.uiBtnIconSheet.setCurrentIndex(BTN_ICON_CONFIRM);
                 this.uiBtnIconSheet.a(graphics, 0, AppCanvas.height2 - this.uiBtnIconSheet.getSpritesHeight());
             }
         }
