@@ -1797,11 +1797,11 @@ implements CommandListener {
         }
     }
 
-    public Unit c_a(int n, int n2, byte by) {
+    public Unit c_a(int mapX, int mapY, byte by) {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (n != c2.mapX || n2 != c2.mapY || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
+            if (mapX != c2.mapX || mapY != c2.mapY || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
             return c2;
         }
         return null;

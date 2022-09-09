@@ -332,13 +332,13 @@ extends SpriteSheet {
         }
     }
 
-    private int int_b(int n, int n2) {
-        if (n >= 0 && n2 >= 0 && n < Unit.iClassRef.var_short_e && n2 < Unit.iClassRef.var_short_b) {
-            Unit c2 = iClassRef.c_a(n, n2, (byte)0);
+    private int int_b(int mapX, int mapY) {
+        if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.var_short_e && mapY < Unit.iClassRef.var_short_b) {
+            Unit c2 = iClassRef.c_a(mapX, mapY, (byte)0);
             if (c2 != null && c2.owner != this.owner) {
                 return 1000;
             }
-            byte terrainType = iClassRef.getTerrainType_ZZ(n, n2);
+            byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
             if (this.a((short)1)) {
                 return 1;
             }
@@ -453,17 +453,17 @@ extends SpriteSheet {
     }
 
     public void b(Graphics graphics, int n, int n2) {
-        int n3 = this.mapPixelX + n;
-        int n4 = ((SpriteSheet)this).l + n2;
+        int screenX = this.mapPixelX + n;
+        int screenY = ((SpriteSheet)this).l + n2;
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn
-                AppCanvas.drawBoldWhiteText(graphics, "E", n3 + this.getSpritesWidth() - 7, n4 + this.getSpritesHeight() - 5, 0);
+                AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, 0);
             }
             // TODO maybe look for "10" and deharcode to STACK_MAX or MAX_QUANTITY
             if (this.quantity < 10) {
                 // Shows the unit stack number in its bottom left corner only if there's less than 10 (the max amount)
-                AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, n3, n4 + this.getSpritesHeight() - 5, 0);
+                AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, screenX, screenY + this.getSpritesHeight() - 5, 0);
             }
         }
     }
