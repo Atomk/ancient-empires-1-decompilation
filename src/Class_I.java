@@ -2527,6 +2527,7 @@ implements CommandListener {
                     break;
                 }
                 case 22: {
+                    // TODO what is unitType -1? (first argument)
                     if (this.int_a(-1, -1, PLAYER_RED) != this.int_a(-1, 3, PLAYER_RED)) break;
                     this.void_b(500);
                     ++this.currentLevelStep;

@@ -74,11 +74,11 @@ public class SpriteSheet {
             }
         }
         catch (Exception exception) {
-            // Loads a sprite collection made of single images
+            // Loads a sprite collection made of single images.
             // Note that here the values of tileWidth and tileHeight
-            // found in the .sprite asset data are ignored
+            // found in the '.sprite' asset data are ignored.
             // Also note that in this case (single images) the tile sizes in the
-            // sprite files may be wrong (different from the actual size of the images)
+            // '.sprite' files may be wrong (different from the actual size of the images)
 
             for (int j = 0; j < tileCount; ++j) {
                 String fileName = imageName + "_";
@@ -204,6 +204,8 @@ public class SpriteSheet {
         } else if (this.var_boolean_c) {
             int spriteX = this.var_short_b + x;
             int spriteY = this.l + y;
+            /* TODO spriteReorderTable and currentIndex are closely related,
+            * it should be reflected in their names. frameOrderTable and frameIndex? */
             this.sprites[this.spriteReorderTable[this.currentIndex]].draw(graphics, spriteX, spriteY);
         }
     }

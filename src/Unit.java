@@ -37,7 +37,7 @@ extends SpriteSheet {
     private Vector<short[]> var_java_util_Vector_a = null;
     private short var_short_g;
     private long var_long_a;
-    public byte unitType;
+    public byte unitType;   // TODO could be called just "type"
     public byte owner;
     public short mapX;
     public short mapY;

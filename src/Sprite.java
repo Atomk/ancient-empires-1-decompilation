@@ -1,17 +1,10 @@
-/*
- * Decompiled with CFR 0.152.
- * 
- * Could not load the following classes:
- *  javax.microedition.lcdui.Graphics
- *  javax.microedition.lcdui.Image
- */
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 public class Sprite {
     private Image image;
     private boolean isPartOfSpritesheet = false;
-    // Position irelative to spritesheet image top left
+    // Position relative to spritesheet image top left
     private short sheetOffsetX;
     private short sheetOffsetY;
     public short width;
@@ -38,7 +31,8 @@ public class Sprite {
     }
 
     public void draw(Graphics graphics, int x, int y) {
-        if (this.isPartOfSpritesheet) {
+        if (this.isPartOfSpritesheet) {   
+            // TODO motorola versions are much simpler, they use drawRegion
             int clipX = graphics.getClipX();
             int clipY = graphics.getClipY();
             int clipWidth = graphics.getClipWidth();
@@ -120,6 +114,11 @@ public class Sprite {
                 n7 = Sprite.a(byArray[n2 + 1], n7);
                 n7 = Sprite.a(byArray[n2 + 2], n7);
             }
+
+            /* The first version I decompiled, using a website, does this intead of the two lines below:
+            var5 = ~var5;   // one's complement, inverts bits
+            var9 = var2 + 8 + var4;
+            var0[var9] = (byte)(var5 >> 24); */
             n2 = n5 + 8 + n6;
             byArray[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
             byArray[n2 + 1] = (byte)(n7 >> 16);
