@@ -9,7 +9,11 @@ import javax.microedition.lcdui.Graphics;
 
 public class SpriteSheet {
     public Sprite[] sprites;
-    private byte[] var_byte_arr_e;
+    /**
+     * Allows to change what sprite "currentIndex" refers to. Useful for creating
+     * different animations using the same sheet
+     */
+    private byte[] spriteReorderTable;
     public short currentIndex = 0;
     public short var_short_b = 0;
     public short l = 0;
@@ -97,9 +101,10 @@ public class SpriteSheet {
         this.spritesWidth = this.sprites[0].width;
         this.spritesHeight = this.sprites[0].height;
 
-        this.var_byte_arr_e = new byte[tileCount];
+        // By default, there is no sprite reordering
+        this.spriteReorderTable = new byte[tileCount];
         for (byte j = 0; j < tileCount; j++) {
-            this.var_byte_arr_e[j] = j;
+            this.spriteReorderTable[j] = j;
         }
     }
 
@@ -119,15 +124,15 @@ public class SpriteSheet {
         this.spritesWidth = (short)tileWidth;
         this.spritesHeight = (short)tileHeight;
 
-        this.var_byte_arr_e = new byte[tileCount];
+        this.spriteReorderTable = new byte[tileCount];
         for (byte j = 0; j < tileCount; j++) {
-            this.var_byte_arr_e[j] = j;
+            this.spriteReorderTable[j] = j;
         }
     }
 
     public SpriteSheet(SpriteSheet other) {
         this.sprites = other.sprites;
-        this.var_byte_arr_e = other.var_byte_arr_e;
+        this.spriteReorderTable = other.spriteReorderTable;
         this.currentIndex = other.currentIndex;
         this.var_short_b = other.var_short_b;
         this.l = other.l;
@@ -157,7 +162,7 @@ public class SpriteSheet {
     }
 
     public void a(int spriteIndex) {
-        if (spriteIndex < this.var_byte_arr_e.length) {
+        if (spriteIndex < this.spriteReorderTable.length) {
             this.currentIndex = (byte)spriteIndex;
         }
     }
@@ -169,13 +174,13 @@ public class SpriteSheet {
 
     public void c() {
         this.currentIndex++;
-        if (this.currentIndex >= this.var_byte_arr_e.length) {
+        if (this.currentIndex >= this.spriteReorderTable.length) {
             this.currentIndex = 0;
         }
     }
 
     public void a(byte[] byArray) {
-        this.var_byte_arr_e = byArray;
+        this.spriteReorderTable = byArray;
         this.currentIndex = 0;
     }
 
@@ -198,7 +203,7 @@ public class SpriteSheet {
         } else if (this.var_boolean_c) {
             int spriteX = this.var_short_b + x;
             int spriteY = this.l + y;
-            this.sprites[this.var_byte_arr_e[this.currentIndex]].draw(graphics, spriteX, spriteY);
+            this.sprites[this.spriteReorderTable[this.currentIndex]].draw(graphics, spriteX, spriteY);
         }
     }
 
