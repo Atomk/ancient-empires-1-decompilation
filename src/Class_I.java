@@ -396,7 +396,7 @@ implements CommandListener {
             dataOutputStream.writeByte(c2.var_byte_b);
             dataOutputStream.writeByte(c2.quantity);
             dataOutputStream.writeByte(c2.var_short_d);
-            dataOutputStream.writeShort(c2.var_short_b);
+            dataOutputStream.writeShort(c2.mapPixelX);
             dataOutputStream.writeShort(c2.mapX);
             dataOutputStream.writeShort(c2.mapY);
             dataOutputStream.writeShort(c2.var_int_b);
@@ -447,7 +447,7 @@ implements CommandListener {
             short s4 = dataInputStream.readShort();
             Unit unit = Unit.spawn(unitType, unitOwner, unitPosX, unitPosY);
             unit.var_byte_e = by3;
-            unit.var_short_b = s;
+            unit.mapPixelX = s;
             unit.var_short_d = by6;
             unit.var_byte_b = by4;
             unit.d();
@@ -480,7 +480,7 @@ implements CommandListener {
         this.var_boolean_z = dataInputStream.readByte() != 0;
         dataInputStream.close();
         this.void_c(this.var_c_arr_a[this.playerIndex_XX].mapX, this.var_c_arr_a[this.playerIndex_XX].mapY);
-        this.void_a(this.var_c_arr_a[this.playerIndex_XX].var_short_b, (int)((SpriteSheet)this.var_c_arr_a[this.playerIndex_XX]).l);
+        this.void_a(this.var_c_arr_a[this.playerIndex_XX].mapPixelX, (int)((SpriteSheet)this.var_c_arr_a[this.playerIndex_XX]).l);
     }
 
     public static void loadSettingsData() {
@@ -540,26 +540,26 @@ implements CommandListener {
             this.var_c_c = this.var_c_i;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
-            e2 = this.a(this.var_e_j, this.var_c_i.var_short_b + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.var_e_j, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
-            this.a(this.var_e_r, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
         if (this.var_c_b.quantity <= 0) {
             this.var_c_c = this.var_c_b;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.a((short)128)) {
-            e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.var_e_j, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_f);
-            this.a(this.var_e_r, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.a((byte)1);
         } else if (this.var_c_b.boolean_a()) {
-            e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.var_e_j, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
-            this.a(this.var_e_r, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
         }
         if (this.var_c_c != null) {
-            this.a(this.var_e_r, this.var_c_c.var_short_b, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
+            this.a(this.var_e_r, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
         }
         this.var_long_g = this.var_long_n;
         if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -924,7 +924,7 @@ implements CommandListener {
             this.var_int_u = 0;
         }
         this.void_c(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
-        this.void_a(this.var_c_arr_a[0].var_short_b, (int)((SpriteSheet)this.var_c_arr_a[0]).l);
+        this.void_a(this.var_c_arr_a[0].mapPixelX, (int)((SpriteSheet)this.var_c_arr_a[0]).l);
     }
 
     public void h() {
@@ -1138,7 +1138,7 @@ implements CommandListener {
                     if (this.var_int_n == 0) {
                         this.var_c_i.a(this.var_c_b);
                         this.var_c_b.b(400);
-                        this.a(this.var_e_d, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
+                        this.a(this.var_e_d, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
                         this.var_long_d = this.var_long_n;
                         ++this.var_int_n;
                     } else if (this.var_int_n == 1) {
@@ -1147,7 +1147,7 @@ implements CommandListener {
                             if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
                                 this.var_c_b.a(this.var_c_i);
                                 this.var_c_i.b(400);
-                                this.a(this.var_e_d, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
+                                this.a(this.var_e_d, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
                                 this.var_long_d = this.var_long_n;
                                 ++this.var_int_n;
                             } else {
@@ -1159,7 +1159,7 @@ implements CommandListener {
                     }
                 } else if (this.var_c_c != null) {
                     if (this.var_long_n - this.var_long_g >= 300L) {
-                        this.a(this.var_e_l, this.var_c_c.var_short_b, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
+                        this.a(this.var_e_l, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
                         if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
                             if (this.currentLevel != 6) {
                                 this.var_java_util_Vector_a.removeElement(this.var_c_c);
@@ -1313,7 +1313,7 @@ implements CommandListener {
                             } else if (appCanvas.boolean_c(512)) {
                                 if (this.var_c_arr_a[this.playerIndex_XX] != null) {
                                     this.void_c(this.var_c_arr_a[this.playerIndex_XX].mapX, this.var_c_arr_a[this.playerIndex_XX].mapY);
-                                    this.void_a(this.var_c_arr_a[this.playerIndex_XX].var_short_b + 12, ((SpriteSheet)this.var_c_arr_a[this.playerIndex_XX]).l + 12);
+                                    this.void_a(this.var_c_arr_a[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this.var_c_arr_a[this.playerIndex_XX]).l + 12);
                                 }
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
@@ -1433,10 +1433,10 @@ implements CommandListener {
     public void void_a(Unit c2, byte by) {
         this.var_c_e = c2;
         this.var_byte_f = by;
-        this.a(this.var_e_r, c2.var_short_b - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
-        this.a(this.var_e_r, c2.var_short_b + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
-        this.a(this.var_e_r, c2.var_short_b - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
-        this.a(this.var_e_r, c2.var_short_b + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
+        this.a(this.var_e_r, c2.mapPixelX - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
+        this.a(this.var_e_r, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
+        this.a(this.var_e_r, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
+        this.a(this.var_e_r, c2.mapPixelX + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
         this.var_long_i = this.var_long_n;
     }
 
@@ -1444,7 +1444,7 @@ implements CommandListener {
         if (this.var_c_d == null) {
             this.d(this.var_e_h.var_short_b + 12, this.var_e_h.l + 12);
         } else {
-            this.d(this.var_c_d.var_short_b + 12, ((SpriteSheet)this.var_c_d).l + 12);
+            this.d(this.var_c_d.mapPixelX + 12, ((SpriteSheet)this.var_c_d).l + 12);
         }
     }
 
@@ -1677,7 +1677,7 @@ implements CommandListener {
                 for (n2 = 0; n2 < n3; ++n2) {
                     Unit c2 = this.var_java_util_Vector_a.elementAt(n2);
                     if (c2.var_byte_e == 3) {
-                        this.spriteTombstone.draw(graphics, this.var_short_f + c2.var_short_b, this.var_short_a + ((SpriteSheet)c2).l);
+                        this.spriteTombstone.draw(graphics, this.var_short_f + c2.mapPixelX, this.var_short_a + ((SpriteSheet)c2).l);
                         continue;
                     }
                     if (c2 == this.var_c_h) continue;
@@ -2017,7 +2017,7 @@ implements CommandListener {
             }
             if (this.var_byte_b == 3) {
                 if (this.var_int_A == 0) {
-                    if (this.boolean_c(this.var_c_h.var_short_b + 12, ((SpriteSheet)this.var_c_h).l + 12)) {
+                    if (this.boolean_c(this.var_c_h.mapPixelX + 12, ((SpriteSheet)this.var_c_h).l + 12)) {
                         this.var_int_A = 1;
                         this.var_long_j = this.var_long_n;
                     }

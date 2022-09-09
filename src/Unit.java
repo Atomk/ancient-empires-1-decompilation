@@ -29,7 +29,7 @@ extends SpriteSheet {
     public static Class_I iClassRef;
     public String var_java_lang_String_a;
     public short var_short_d;
-    public short var_short_b;
+    public short mapPixelX;
     private short l;
     public int[][] var_int_arr_arr_a;
     //private short j;
@@ -65,7 +65,7 @@ extends SpriteSheet {
         super(iClassRef.a(owner, unitType));
         this.mapX = (short)mapX;
         this.mapY = (short)mapY;
-        this.var_short_b = (short)(mapX * TILE_SIZE);
+        this.mapPixelX = (short)(mapX * TILE_SIZE);
         ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
         this.void_b(mapX * TILE_SIZE, mapY * TILE_SIZE);
         Unit.iClassRef.var_java_util_Vector_a.addElement(this);
@@ -123,13 +123,13 @@ extends SpriteSheet {
             n5 = unit.quantity;
         }
         unit.quantity = (short)(unit.quantity - n5);
-        this.var_short_b = (short)(this.var_short_b + (unitsDataATK[unit.unitType] + unitsDataDEF[unit.unitType]) * n5);
+        this.mapPixelX = (short)(this.mapPixelX + (unitsDataATK[unit.unitType] + unitsDataDEF[unit.unitType]) * n5);
         return n5;
     }
 
     public boolean boolean_a() {
-        if (this.var_short_d < 3 && this.var_short_b >= 75 << this.var_short_d) {
-            this.var_short_b = 0;
+        if (this.var_short_d < 3 && this.mapPixelX >= 75 << this.var_short_d) {
+            this.mapPixelX = 0;
             this.var_short_d = (short)(this.var_short_d + 1);
             return true;
         }
@@ -167,7 +167,7 @@ extends SpriteSheet {
     public void setPosition(int mapX, int mapY) {
         this.mapX = (short)mapX;
         this.mapY = (short)mapY;
-        this.var_short_b = (short)(mapX * TILE_SIZE);
+        this.mapPixelX = (short)(mapX * TILE_SIZE);
         ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
     }
 
@@ -364,7 +364,7 @@ extends SpriteSheet {
         if (this.var_byte_e == 1) {
             if (this.var_short_g >= this.var_java_util_Vector_a.size()) {
                 this.var_byte_e = 0;
-                this.mapX = (short)(this.var_short_b / TILE_SIZE);
+                this.mapX = (short)(this.mapPixelX / TILE_SIZE);
                 this.mapY = (short)(((SpriteSheet)this).l / TILE_SIZE);
                 this.var_java_util_Vector_a = null;
                 this.var_short_g = 0;
@@ -373,20 +373,20 @@ extends SpriteSheet {
                 short[] sArray = (short[])this.var_java_util_Vector_a.elementAt(this.var_short_g);
                 int n = sArray[0] * TILE_SIZE;
                 int n2 = sArray[1] * TILE_SIZE;
-                if (n < this.var_short_b) {
-                    this.var_short_b = (short)(this.var_short_b - 6);
-                } else if (n > this.var_short_b) {
-                    this.var_short_b = (short)(this.var_short_b + 6);
+                if (n < this.mapPixelX) {
+                    this.mapPixelX = (short)(this.mapPixelX - 6);
+                } else if (n > this.mapPixelX) {
+                    this.mapPixelX = (short)(this.mapPixelX + 6);
                 } else if (n2 < ((SpriteSheet)this).l) {
                     ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l - 6);
                 } else if (n2 > ((SpriteSheet)this).l) {
                     ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l + 6);
                 }
-                if (this.var_short_b % TILE_SIZE == 0 && ((SpriteSheet)this).l % TILE_SIZE == 0) {
+                if (this.mapPixelX % TILE_SIZE == 0 && ((SpriteSheet)this).l % TILE_SIZE == 0) {
                     this.var_short_g = (short)(this.var_short_g + 1);
                 }
             }
-            super.void_b(this.var_short_b, ((SpriteSheet)this).l);
+            super.void_b(this.mapPixelX, ((SpriteSheet)this).l);
         } else if (Unit.iClassRef.var_long_n - this.var_long_a >= 200L) {
             this.nextFrame();
             this.var_long_a = Unit.iClassRef.var_long_n;
@@ -418,7 +418,7 @@ extends SpriteSheet {
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
-                iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].var_short_b, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
+                iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].mapPixelX, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
             }
         }
         Unit.iClassRef.var_c_f = this;
@@ -453,7 +453,7 @@ extends SpriteSheet {
     }
 
     public void b(Graphics graphics, int n, int n2) {
-        int n3 = this.var_short_b + n;
+        int n3 = this.mapPixelX + n;
         int n4 = ((SpriteSheet)this).l + n2;
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
