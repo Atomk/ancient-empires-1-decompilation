@@ -1890,16 +1890,16 @@ implements CommandListener {
         return this.int_a(n, n2) == n3;
     }
 
-    private int int_a(int unitType, int n2, byte by) {
-        return this.c_arr_a(unitType, n2, by).length;
+    private int int_a(int unitType, int n2, byte playerIndex) {
+        return this.c_arr_a(unitType, n2, playerIndex).length;
     }
 
-    private Unit[] c_arr_a(int unitType, int n2, byte by) {
+    private Unit[] c_arr_a(int unitType, int n2, byte playerIndex) {
         Vector<Unit> vector = new Vector<Unit>();
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.owner != by) continue;
+            if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.owner != playerIndex) continue;
             vector.addElement(c2);
         }
         Unit[] unitsArray = new Unit[vector.size()];
@@ -2345,7 +2345,7 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    if (this.int_a(-1, 2, (byte)0) >= 3) {
+                    if (this.int_a(-1, 2, PLAYER_BLUE) >= 3) {
                         this.var_int_s = 4;
                         ++this.currentLevelStep;
                         break;
@@ -2397,7 +2397,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-            if (this.int_a(-1, 3, (byte)0) == 1) {
+            if (this.int_a(-1, 3, PLAYER_BLUE) == 1) {
                 this.i();
             }
         } else if (this.currentLevel == 1) {
@@ -2527,7 +2527,7 @@ implements CommandListener {
                     break;
                 }
                 case 22: {
-                    if (this.int_a(-1, -1, (byte)1) != this.int_a(-1, 3, (byte)1)) break;
+                    if (this.int_a(-1, -1, PLAYER_RED) != this.int_a(-1, 3, PLAYER_RED)) break;
                     this.void_b(500);
                     ++this.currentLevelStep;
                     break;
@@ -2593,7 +2593,7 @@ implements CommandListener {
                 if (this.var_c_arr_a[0].mapX == 1 && this.var_c_arr_a[0].mapY == 13 && this.var_c_arr_a[0].var_byte_e == 2) {
                     this.g();
                 }
-                if (this.int_a(2, 3, (byte)0) == 1) {
+                if (this.int_a(2, 3, PLAYER_BLUE) == 1) {
                     this.i();
                 }
             }
