@@ -285,9 +285,9 @@ implements CommandListener {
         this.var_e_r = new SpriteSheet("spark");
         this.var_e_j = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
-        this.var_e_h.a(var_byte_arr_arr_d[0]);
+        this.var_e_h.setReorderTable(var_byte_arr_arr_d[0]);
         this.var_e_k = new SpriteSheet(this.var_e_h);
-        this.var_e_k.a(var_byte_arr_arr_d[3]);
+        this.var_e_k.setReorderTable(var_byte_arr_arr_d[3]);
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (short playerIndex = 0; playerIndex < 2; playerIndex = (short)((byte)(playerIndex + 1))) {
@@ -528,7 +528,7 @@ implements CommandListener {
         } else {
             this.var_byte_i = (byte)13;
             this.var_int_n = 0;
-            this.var_e_h.a(var_byte_arr_arr_d[0]);
+            this.var_e_h.setReorderTable(var_byte_arr_arr_d[0]);
         }
         this.var_c_i = c2;
         this.var_c_b = c3;
@@ -541,7 +541,7 @@ implements CommandListener {
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
             e2 = this.a(this.var_e_j, this.var_c_i.var_short_b + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
-            e2.a(var_byte_arr_c);
+            e2.setReorderTable(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_i.var_short_b, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
         if (this.var_c_b.quantity <= 0) {
@@ -549,12 +549,12 @@ implements CommandListener {
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.a((short)128)) {
             e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
-            e2.a(var_byte_arr_f);
+            e2.setReorderTable(var_byte_arr_f);
             this.a(this.var_e_r, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.a((byte)1);
         } else if (this.var_c_b.boolean_a()) {
             e2 = this.a(this.var_e_j, this.var_c_b.var_short_b + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
-            e2.a(var_byte_arr_c);
+            e2.setReorderTable(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_b.var_short_b, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
         }
@@ -566,7 +566,7 @@ implements CommandListener {
             this.var_long_j = this.var_long_n;
             this.var_byte_b = (byte)6;
         }
-        this.var_e_h.a(var_byte_arr_arr_d[0]);
+        this.var_e_h.setReorderTable(var_byte_arr_arr_d[0]);
         this.var_byte_i = 0;
         this.var_c_i.void_b();
         this.var_c_b = null;
@@ -613,7 +613,7 @@ implements CommandListener {
         unit.b(this.var_byte_arr_arr_b);
         this.var_boolean_h = true;
         this.var_boolean_j = false;
-        this.var_e_h.a(var_byte_arr_arr_d[2]);
+        this.var_e_h.setReorderTable(var_byte_arr_arr_d[2]);
     }
 
     public void c() {
@@ -768,7 +768,7 @@ implements CommandListener {
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
                 this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
-                this.var_e_h.a(var_byte_arr_arr_d[1]);
+                this.var_e_h.setReorderTable(var_byte_arr_arr_d[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
             } else if (string.equals(AppCanvas.getGameText(29))) {  // BUY
@@ -953,7 +953,7 @@ implements CommandListener {
         }
         if (this.var_byte_arr_b[this.var_byte_g] == 1) {
             this.var_boolean_n = true;
-            this.var_e_h.a(var_byte_arr_arr_d[0]);
+            this.var_e_h.setReorderTable(var_byte_arr_arr_d[0]);
             this.var_byte_i = (byte)3;
             this.var_g_h = new g(this, (byte)0, 8);
             this.var_g_h.showMenuOptions(this.getUnitPossibleActions(unit, (byte)0));
@@ -1397,14 +1397,14 @@ implements CommandListener {
                     this.var_boolean_h = false;
                     this.var_boolean_j = false;
                     this.var_java_util_Vector_b = null;
-                    this.var_e_h.a(var_byte_arr_arr_d[0]);
+                    this.var_e_h.setReorderTable(var_byte_arr_arr_d[0]);
                     this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                     this.var_c_h = null;
                 } else if (this.var_byte_i == 6) {
                     this.var_byte_i = this.var_byte_e;
                     this.var_boolean_h = false;
                     this.var_g_h.a((byte)8, 0, 40, null, 0);
-                    this.var_e_h.a(var_byte_arr_arr_d[0]);
+                    this.var_e_h.setReorderTable(var_byte_arr_arr_d[0]);
                     this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                 }
                 appCanvas.handleKeyReleasedAction(2048);
@@ -1967,7 +1967,7 @@ implements CommandListener {
                 this.var_boolean_h = true;
                 this.var_long_j = this.var_long_n;
                 if (this.var_c_g != null) {
-                    this.var_e_h.a(var_byte_arr_arr_d[1]);
+                    this.var_e_h.setReorderTable(var_byte_arr_arr_d[1]);
                     this.void_c(this.var_c_g.mapX, this.var_c_g.mapY);
                 } else if (this.var_c_a != null) {
                     this.void_c(this.var_c_a.mapX, this.var_c_a.mapY);

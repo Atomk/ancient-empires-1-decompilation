@@ -179,7 +179,7 @@ public class SpriteSheet {
         }
     }
 
-    public void a(byte[] byArray) {
+    public void setReorderTable(byte[] byArray) {
         this.spriteReorderTable = byArray;
         this.currentIndex = 0;
     }

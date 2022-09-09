@@ -150,14 +150,14 @@ public class f {
                 i2.var_e_p = new SpriteSheet("slash");
             }
             this.var_e_b = new SpriteSheet(i2.var_e_p);
-            this.var_e_b.a(var_byte_arr_arr_e[this.var_byte_f]);
+            this.var_e_b.setReorderTable(var_byte_arr_arr_e[this.var_byte_f]);
         } else if (c2.unitType == Unit.KING) {
             if (i2.var_e_i == null) {
                 i2.var_e_i = new SpriteSheet("kingslash");
             }
             this.var_e_a = i2.var_e_i;
             this.var_e_b = new SpriteSheet("kingswing");
-            this.var_e_b.a(var_byte_arr_arr_e[this.var_byte_f]);
+            this.var_e_b.setReorderTable(var_byte_arr_arr_e[this.var_byte_f]);
         } else if (c2.unitType == Unit.SPIDER) {
             if (i2.var_e_o == null) {
                 i2.var_e_o = new SpriteSheet("spiderspit");
@@ -212,7 +212,7 @@ public class f {
     }
 
     private void a(int n, byte[] byArray) {
-        this.var_e_arr_b[n].a(byArray);
+        this.var_e_arr_b[n].setReorderTable(byArray);
         this.var_int_arr_a[n] = (int)this.var_a_a.var_long_n;
     }
 
@@ -285,11 +285,11 @@ public class f {
                         }
                         if (this.var_c_a.unitType != Unit.CATAPULT) {
                             if (this.var_c_a.unitType == Unit.KING) {
-                                this.var_e_arr_a[j].a(var_byte_arr_arr_b[this.var_byte_f]);
+                                this.var_e_arr_a[j].setReorderTable(var_byte_arr_arr_b[this.var_byte_f]);
                             } else if (this.var_c_a.unitType == Unit.WYVERN) {
-                                this.var_e_arr_a[j].a(var_byte_arr_arr_d[this.var_byte_f]);
+                                this.var_e_arr_a[j].setReorderTable(var_byte_arr_arr_d[this.var_byte_f]);
                             } else {
-                                this.var_e_arr_a[j].a(var_byte_arr_arr_e[this.var_byte_f]);
+                                this.var_e_arr_a[j].setReorderTable(var_byte_arr_arr_e[this.var_byte_f]);
                             }
                         }
                         this.var_a_a.var_java_util_Vector_c.addElement(this.var_e_arr_a[j]);
