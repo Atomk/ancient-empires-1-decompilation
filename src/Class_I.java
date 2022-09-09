@@ -2593,7 +2593,7 @@ implements CommandListener {
                 if (this.var_c_arr_a[0].mapX == 1 && this.var_c_arr_a[0].mapY == 13 && this.var_c_arr_a[0].var_byte_e == 2) {
                     this.g();
                 }
-                if (this.int_a(2, 3, PLAYER_BLUE) == 1) {
+                if (this.int_a(Unit.LIZARD, 3, PLAYER_BLUE) == 1) {
                     this.i();
                 }
             }
