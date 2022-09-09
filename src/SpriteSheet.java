@@ -180,8 +180,8 @@ public class SpriteSheet {
         }
     }
 
-    public void setReorderTable(byte[] byArray) {
-        this.spriteReorderTable = byArray;
+    public void setReorderTable(byte[] table) {
+        this.spriteReorderTable = table;
         this.currentIndex = 0;
     }
 
@@ -208,10 +208,10 @@ public class SpriteSheet {
         }
     }
 
-    public static SpriteSheet a(SpriteSheet e2, int n, int n2, int n3, int n4, byte by) {
+    public static SpriteSheet a(SpriteSheet sheet, int n, int n2, int n3, int n4, byte by) {
         SpriteSheet newSpriteSheet = null;
-        if (e2 != null) {
-            newSpriteSheet = new SpriteSheet(e2);
+        if (sheet != null) {
+            newSpriteSheet = new SpriteSheet(sheet);
         } else {
             newSpriteSheet = new SpriteSheet(24, 24);
             if (by == 2 || by == 4) {

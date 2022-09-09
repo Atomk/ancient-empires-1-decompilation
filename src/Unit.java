@@ -428,10 +428,10 @@ extends SpriteSheet {
         // 11 = number of unit types?
         byte[] byArray = new byte[11];
         int n = 0;
-        for (int n2 = 0; n2 <= Unit.iClassRef.J; n2 = (int)((byte)(n2 + 1))) {
+        for (int unitType = 0; unitType <= Unit.iClassRef.J; unitType = (int)((byte)(unitType + 1))) {
             // SKips the units you cannot buy (king, skeleton)
-            if (unitsDataPrice[n2] <= 0) continue;
-            byArray[n++] = (byte)n2;
+            if (unitsDataPrice[unitType] <= 0) continue;
+            byArray[n++] = (byte)unitType;
         }
         byte[] byArray2 = new byte[n];
         System.arraycopy(byArray, 0, byArray2, 0, n);
