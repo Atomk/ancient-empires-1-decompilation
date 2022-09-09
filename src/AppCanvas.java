@@ -146,9 +146,9 @@ CommandListener {
 
     public void hideNotify() {
         this.pressedKeysActions = 0;
-        if (this.a_instance != null) {
-            this.a_instance.n();
-        }
+        /*if (this.a_instance != null) {
+            this.a_instance.n();    // empty method
+        }*/
     }
 
     public static void a(Graphics graphics, String text, int x, int y, int fontIndex, int n4) {

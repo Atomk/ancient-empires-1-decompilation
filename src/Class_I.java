@@ -366,8 +366,7 @@ implements CommandListener {
         this.var_boolean_m = true;
     }
 
-    public void n() {
-    }
+    //public void n() { }   // unused
 
     public byte[] getGameSaveData() throws Exception {
         int n;
