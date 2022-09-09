@@ -98,10 +98,8 @@ public class SpriteSheet {
         this.spritesHeight = this.sprites[0].height;
 
         this.var_byte_arr_e = new byte[tileCount];
-        // TODO the byte cast is probably unnecesssary
-        // TODO make j a byte and change update to j++
-        for (int j = 0; j < tileCount; j = (byte)(j + 1)) {
-            this.var_byte_arr_e[j] = (byte)j;
+        for (byte j = 0; j < tileCount; j++) {
+            this.var_byte_arr_e[j] = j;
         }
     }
 
@@ -122,9 +120,8 @@ public class SpriteSheet {
         this.spritesHeight = (short)tileHeight;
 
         this.var_byte_arr_e = new byte[tileCount];
-        // TODO the byte casts are probably unnecesssary
-        for (int j = 0; j < tileCount; j = (int)((byte)(j + 1))) {
-            this.var_byte_arr_e[j] = (byte)j;
+        for (byte j = 0; j < tileCount; j++) {
+            this.var_byte_arr_e[j] = j;
         }
     }
 
