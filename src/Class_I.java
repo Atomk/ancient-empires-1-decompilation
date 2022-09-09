@@ -182,7 +182,7 @@ implements CommandListener {
     public int var_int_s = -1;
     public g var_g_i;
     public g var_g_e;
-    public int J = 8;
+    public int strongestBuyableUnit = 8;
     public g var_g_a;
     public g var_g_d;
     public g var_g_f;
@@ -377,7 +377,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.var_byte_h);
         dataOutputStream.writeByte(this.var_byte_g);
         dataOutputStream.writeShort(this.var_short_d);
-        dataOutputStream.writeByte(this.J);
+        dataOutputStream.writeByte(this.strongestBuyableUnit);
         for (n = 0; n < this.var_byte_h; ++n) {
             dataOutputStream.writeByte(this.var_byte_arr_b[n]);
             dataOutputStream.writeShort(this.var_int_arr_b[n]);
@@ -422,7 +422,7 @@ implements CommandListener {
         this.var_byte_g = dataInputStream.readByte();
         this.playerIndex_XX = this.var_byte_arr_d[this.var_byte_g];
         this.var_short_d = dataInputStream.readShort();
-        this.J = dataInputStream.readByte();
+        this.strongestBuyableUnit = dataInputStream.readByte();
         for (n2 = 0; n2 < this.var_byte_h; ++n2) {
             this.var_byte_arr_b[n2] = dataInputStream.readByte();
             this.var_int_arr_b[n2] = dataInputStream.readShort();
@@ -708,7 +708,7 @@ implements CommandListener {
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
             this.var_byte_a = 1;
-            this.J = 8;
+            this.strongestBuyableUnit = 8;
             this.var_boolean_l = true;
             appCanvas.repaint();
             appCanvas.serviceRepaints();
@@ -2404,7 +2404,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_int_arr_b[0] = 0;
-                    this.J = 2;
+                    this.strongestBuyableUnit = 2;
                     this.void_b(9, 12);
                     break;
                 }
@@ -2612,7 +2612,7 @@ implements CommandListener {
                 case 1: {
                     this.var_boolean_A = true;
                     this.var_boolean_i = true;
-                    this.J = 5;
+                    this.strongestBuyableUnit = 5;
                     this.void_b(2, 0);
                     break;
                 }
@@ -2697,7 +2697,7 @@ implements CommandListener {
         } else if (this.currentLevel == 4) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.J = 7;
+                    this.strongestBuyableUnit = 7;
                     this.void_b(2, 2);
                     break;
                 }
@@ -2758,7 +2758,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
-                    this.J = 8;
+                    this.strongestBuyableUnit = 8;
                     this.void_b(this.var_c_arr_a[1].mapX, this.var_c_arr_a[1].mapY);
                     break;
                 }
@@ -2812,7 +2812,7 @@ implements CommandListener {
         } else if (this.currentLevel == 6) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.J = 8;
+                    this.strongestBuyableUnit = 8;
                     this.void_b(13, 0);
                     break;
                 }
