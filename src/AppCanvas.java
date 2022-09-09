@@ -516,9 +516,7 @@ CommandListener {
         App.instance.notifyDestroyed();
     }
 
-    // TODO make private since it's called only inside this class, possibly move to another file
     private static int loadAppStrings(String filename, boolean skipFirstPart) throws Exception {
-        int n;
         InputStream inputStream = ((Object)((Object)App.instance)).getClass().getResourceAsStream(filename);
         DataInputStream dataInputStream = new DataInputStream(inputStream);
         if (!skipFirstPart) {
@@ -526,13 +524,13 @@ CommandListener {
         }
         stringsPartB = new String[dataInputStream.readInt() - 63];
         int stringsCount = stringsPartA.length;
-        for (n = 0; n < stringsCount; ++n) {
+        for (int n = 0; n < stringsCount; ++n) {
             String currentString = dataInputStream.readUTF();
             if (skipFirstPart) continue;
             AppCanvas.stringsPartA[n] = currentString;
         }
         stringsCount = stringsPartB.length;
-        for (n = 0; n < stringsCount; ++n) {
+        for (int n = 0; n < stringsCount; ++n) {
             AppCanvas.stringsPartB[n] = dataInputStream.readUTF();
         }
         dataInputStream.close();
