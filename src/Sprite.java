@@ -9,7 +9,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 public class Sprite {
-    public Image image;
+    private Image image;
     private boolean isPartOfSpritesheet = false;
     // Position irelative to spritesheet image top left
     private short sheetOffsetX;
@@ -77,7 +77,7 @@ public class Sprite {
     }
 
     // TODO since there are images only for blu units, I suspect this creates the red versino
-    public static void void_a(byte[] byArray, int n) {
+    private static void void_a(byte[] byArray, int n) {
         try {
             int n2;
             int n3;
@@ -132,7 +132,7 @@ public class Sprite {
     }
 
     // TODO after searching "0xEDB88320" I'm pretty seure this has to do with CRC checking
-    public static int a(byte by, int n) {
+    private static int a(byte by, int n) {
         int n2 = by & 0xFF;
         n ^= n2;
         for (int j = 0; j < 8; ++j) {
