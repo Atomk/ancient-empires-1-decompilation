@@ -581,10 +581,10 @@ public class f {
                 if (this.var_boolean_a) continue;
                 if (this.var_int_arr_d[n] >= -8) {
                     this.var_int_arr_c[n] = -6;
-                    this.var_e_arr_b[n].c();
+                    this.var_e_arr_b[n].nextFrame();
                     this.var_long_a = this.var_a_a.var_long_n;
                 } else if (this.var_e_arr_b[n].currentIndex == 1 && this.var_a_a.var_long_n - this.var_long_a >= 200L) {
-                    this.var_e_arr_b[n].c();
+                    this.var_e_arr_b[n].nextFrame();
                 }
                 int n9 = n;
                 this.var_int_arr_c[n9] = this.var_int_arr_c[n9] + 1;
@@ -594,7 +594,7 @@ public class f {
         } else {
             for (n = 0; n < this.var_e_arr_b.length; ++n) {
                 if (this.var_a_a.var_long_n - (long)this.var_int_arr_a[n] < (long)this.var_int_e) continue;
-                this.var_e_arr_b[n].c();
+                this.var_e_arr_b[n].nextFrame();
                 this.var_int_arr_a[n] = (int)this.var_a_a.var_long_n;
             }
         }

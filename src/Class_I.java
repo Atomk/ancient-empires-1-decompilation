@@ -1094,7 +1094,7 @@ implements CommandListener {
                     }
                 }
                 if (this.var_boolean_n && this.var_long_n - this.var_long_k >= 200L) {
-                    this.var_e_h.c();
+                    this.var_e_h.nextFrame();
                     this.var_long_k = this.var_long_n;
                 }
                 int n3 = this.var_short_h * 24;

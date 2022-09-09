@@ -388,7 +388,7 @@ extends SpriteSheet {
             }
             super.void_b(this.var_short_b, ((SpriteSheet)this).l);
         } else if (Unit.iClassRef.var_long_n - this.var_long_a >= 200L) {
-            this.c();
+            this.nextFrame();
             this.var_long_a = Unit.iClassRef.var_long_n;
         }
     }

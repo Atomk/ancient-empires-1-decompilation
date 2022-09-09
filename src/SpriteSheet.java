@@ -172,7 +172,7 @@ public class SpriteSheet {
         this.l = (short)n2;
     }
 
-    public void c() {
+    public void nextFrame() {
         this.currentIndex++;
         if (this.currentIndex >= this.spriteReorderTable.length) {
             this.currentIndex = 0;
@@ -262,7 +262,7 @@ public class SpriteSheet {
                 default: {
                     this.void_b(this.var_short_b + this.var_int_d, this.l + this.var_int_a);
                     if (this.var_long_b < (long)this.var_int_e) break;
-                    this.c();
+                    this.nextFrame();
                     if (this.var_byte_c == 0 && this.currentIndex == 0 && this.var_int_c > 0) {
                         --this.var_int_c;
                         if (this.var_int_c <= 0) {
