@@ -55,7 +55,7 @@ public class g {
     private int t;
     private boolean var_boolean_c = false;
     private g var_g_b;
-    private byte[] var_byte_arr_a;
+    private byte[] buyableUnits;
     private int D;
     private int var_int_h;
     private int w = 1;
@@ -92,8 +92,8 @@ public class g {
         } else if (by == 2) {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
-            this.var_byte_arr_a = Unit.getBuyableUnitsIndex();
-            this.z = this.var_byte_arr_a.length;
+            this.buyableUnits = Unit.getBuyableUnitsIndex();
+            this.z = this.buyableUnits.length;
             this.var_int_b = 64;
             this.var_int_g = AppCanvas.height2 - 40;
             this.w = (this.var_int_b - 6 - 2) / 26;
@@ -498,9 +498,9 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] >= Unit.unitsDataPrice[this.var_byte_arr_a[this.unitType_XX]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] >= Unit.unitsDataPrice[this.buyableUnits[this.unitType_XX]]) {
                                 if (this.var_byte_a == 2) {
-                                    this.var_a_a.a((int)this.var_byte_arr_a[this.unitType_XX], "", this);
+                                    this.var_a_a.a((int)this.buyableUnits[this.unitType_XX], "", this);
                                 } else {
                                     this.var_a_a.a(this.unitType_XX, this.var_java_lang_String_arr_b[this.unitType_XX], this);
                                 }
@@ -512,7 +512,7 @@ public class g {
                             this.var_g_b.unitType_XX = this.unitType_XX;
                             // Unit description (74 is the description for the soldier - "Hardworking and brave, soldiers [...]")
                             // Same thing at line 109
-                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.var_byte_arr_a[this.unitType_XX]), this.var_g_b.v, this.appFont);
+                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.buyableUnits[this.unitType_XX]), this.var_g_b.v, this.appFont);
                             this.var_g_b.var_short_b = 0;
                         }
                         break block98;
@@ -859,18 +859,18 @@ public class g {
                     int n18 = this.var_int_h;
                     for (int j = 0; j < this.var_int_f; ++j) {
                         for (int k = 0; k < this.w; ++k) {
-                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.playerIndex_XX][this.var_byte_arr_a[n16]];
+                            SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.playerIndex_XX][this.buyableUnits[n16]];
                             e2.a(graphics, n17, n18);
-                            if (this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] < Unit.unitsDataPrice[this.var_byte_arr_a[n16]]) {
+                            if (this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] < Unit.unitsDataPrice[this.buyableUnits[n16]]) {
                                 Class_I.appCanvas.a(graphics, n17, n18, e2.getSpritesWidth(), e2.getSpritesHeight(), -1328628059);
                             }
                             if (n16 == this.unitType_XX) {
                                 this.var_a_a.spriteMenuPointer.draw(graphics, n17 - this.var_a_a.spriteMenuPointer.width + this.p, n18);
                             }
-                            if (++n16 >= this.var_byte_arr_a.length) break;
+                            if (++n16 >= this.buyableUnits.length) break;
                             n17 += this.D + 24;
                         }
-                        if (n16 >= this.var_byte_arr_a.length) break block0;
+                        if (n16 >= this.buyableUnits.length) break block0;
                         n17 = this.D;
                         n18 += this.var_int_h + 24;
                     }
