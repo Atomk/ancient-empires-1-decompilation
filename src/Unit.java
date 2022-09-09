@@ -164,7 +164,7 @@ extends SpriteSheet {
         }
     }
 
-    public void c(int mapX, int mapY) {
+    public void setPosition(int mapX, int mapY) {
         this.mapX = (short)mapX;
         this.mapY = (short)mapY;
         this.var_short_b = (short)(mapX * TILE_SIZE);

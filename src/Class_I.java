@@ -618,7 +618,7 @@ implements CommandListener {
 
     public void c() {
         if (this.var_byte_i == 3) {
-            this.var_c_h.c(this.var_int_c, this.var_int_v);
+            this.var_c_h.setPosition(this.var_int_c, this.var_int_v);
             this.var_c_h.b(this.var_byte_arr_arr_b);
             this.a(this.var_c_h);
             this.var_boolean_v = true;
