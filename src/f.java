@@ -33,9 +33,9 @@ public class f {
     private static final byte[] var_byte_arr_a;
     private static final byte[][][][] var_byte_arr_arr_arr_arr_a;
     private byte[][] var_byte_arr_arr_a;
-    private static final byte[][] var_byte_arr_arr_d;
-    private static final byte[][] var_byte_arr_arr_e;
-    private static final byte[][] var_byte_arr_arr_b;
+    private static final byte[][] attackAnimTable_1;
+    private static final byte[][] attackAnimTable_2;
+    private static final byte[][] attackAnimTableKingslash;
     private int o = 0;
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_b;
@@ -147,17 +147,20 @@ public class f {
         this.var_e_c = this.var_a_a.var_e_arr_arr_a[c2.owner][c2.unitType];
         if (this.var_byte_e == 2 || this.var_byte_e == 4) {
             if (i2.var_e_p == null) {
+                // Soldiers and lizards have this attack animation
                 i2.var_e_p = new SpriteSheet("slash");
             }
             this.var_e_b = new SpriteSheet(i2.var_e_p);
-            this.var_e_b.setReorderTable(var_byte_arr_arr_e[this.var_byte_f]);
+            this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
         } else if (c2.unitType == Unit.KING) {
             if (i2.var_e_i == null) {
                 i2.var_e_i = new SpriteSheet("kingslash");
             }
             this.var_e_a = i2.var_e_i;
+            // Shown while the king attacks, only 1 frame: https://youtu.be/6MTmxnNygSw?t=123
             this.var_e_b = new SpriteSheet("kingswing");
-            this.var_e_b.setReorderTable(var_byte_arr_arr_e[this.var_byte_f]);
+            // TODO I believe the parameter is the side of the screen, sheets have frames for each side
+            this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
         } else if (c2.unitType == Unit.SPIDER) {
             if (i2.var_e_o == null) {
                 i2.var_e_o = new SpriteSheet("spiderspit");
@@ -285,11 +288,11 @@ public class f {
                         }
                         if (this.var_c_a.unitType != Unit.CATAPULT) {
                             if (this.var_c_a.unitType == Unit.KING) {
-                                this.var_e_arr_a[j].setReorderTable(var_byte_arr_arr_b[this.var_byte_f]);
+                                this.var_e_arr_a[j].setReorderTable(attackAnimTableKingslash[this.var_byte_f]);
                             } else if (this.var_c_a.unitType == Unit.WYVERN) {
-                                this.var_e_arr_a[j].setReorderTable(var_byte_arr_arr_d[this.var_byte_f]);
+                                this.var_e_arr_a[j].setReorderTable(attackAnimTable_1[this.var_byte_f]);
                             } else {
-                                this.var_e_arr_a[j].setReorderTable(var_byte_arr_arr_e[this.var_byte_f]);
+                                this.var_e_arr_a[j].setReorderTable(attackAnimTable_2[this.var_byte_f]);
                             }
                         }
                         this.var_a_a.var_java_util_Vector_c.addElement(this.var_e_arr_a[j]);
@@ -716,9 +719,9 @@ public class f {
             new byte[][][]{new byte[][]{{4}, {3, 4}, {5}, {0, 1}}, new byte[][]{{1}, {0, 1}, {2}, {3, 4}}},
             new byte[][][]{new byte[][]{{2}, {3}}, new byte[][]{{0}, {1}}},
             new byte[][][]{new byte[][]{{0, 1, 2, 3}}, new byte[][]{{0, 1, 2, 3}}}};
-        var_byte_arr_arr_d = new byte[][]{{2, 3}, {0, 1}};
-        var_byte_arr_arr_e = new byte[][]{{1}, {0}};
-        var_byte_arr_arr_b = new byte[][]{{3, 4, 5, 4}, {0, 1, 2, 1}};
+        attackAnimTable_1 = new byte[][]{{2, 3}, {0, 1}};
+        attackAnimTable_2 = new byte[][]{{1}, {0}};
+        attackAnimTableKingslash = new byte[][]{{3, 4, 5, 4}, {0, 1, 2, 1}};
         var_byte_arr_c = new byte[]{18, -18};
         var_byte_arr_b = new byte[]{3, -3};
     }
