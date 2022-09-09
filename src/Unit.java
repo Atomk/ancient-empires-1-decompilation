@@ -164,11 +164,11 @@ extends SpriteSheet {
         }
     }
 
-    public void c(int n, int n2) {
-        this.mapX = (short)n;
-        this.mapY = (short)n2;
-        this.var_short_b = (short)(n * TILE_SIZE);
-        ((SpriteSheet)this).l = (short)(n2 * TILE_SIZE);
+    public void c(int mapX, int mapY) {
+        this.mapX = (short)mapX;
+        this.mapY = (short)mapY;
+        this.var_short_b = (short)(mapX * TILE_SIZE);
+        ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
     }
 
     public int int_a() {
@@ -312,23 +312,23 @@ extends SpriteSheet {
         this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.k, -1);
     }
 
-    public void a(byte[][] byArray, int n, int n2, int n3, int n4) {
+    public void a(byte[][] byArray, int mapX, int mapY, int n3, int n4) {
         int n5;
-        if (n3 <= byArray[n][n2]) {
+        if (n3 <= byArray[mapX][mapY]) {
             return;
         }
-        byArray[n][n2] = (byte)n3;
-        if (n4 != 1 && (n5 = n3 - this.int_b(n, n2 - 1)) >= 0) {
-            this.a(byArray, n, n2 - 1, n5, 2);
+        byArray[mapX][mapY] = (byte)n3;
+        if (n4 != 1 && (n5 = n3 - this.int_b(mapX, mapY - 1)) >= 0) {
+            this.a(byArray, mapX, mapY - 1, n5, 2);
         }
-        if (n4 != 2 && (n5 = n3 - this.int_b(n, n2 + 1)) >= 0) {
-            this.a(byArray, n, n2 + 1, n5, 1);
+        if (n4 != 2 && (n5 = n3 - this.int_b(mapX, mapY + 1)) >= 0) {
+            this.a(byArray, mapX, mapY + 1, n5, 1);
         }
-        if (n4 != 4 && (n5 = n3 - this.int_b(n - 1, n2)) >= 0) {
-            this.a(byArray, n - 1, n2, n5, 8);
+        if (n4 != 4 && (n5 = n3 - this.int_b(mapX - 1, mapY)) >= 0) {
+            this.a(byArray, mapX - 1, mapY, n5, 8);
         }
-        if (n4 != 8 && (n5 = n3 - this.int_b(n + 1, n2)) >= 0) {
-            this.a(byArray, n + 1, n2, n5, 4);
+        if (n4 != 8 && (n5 = n3 - this.int_b(mapX + 1, mapY)) >= 0) {
+            this.a(byArray, mapX + 1, mapY, n5, 4);
         }
     }
 
