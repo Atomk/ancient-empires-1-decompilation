@@ -46,12 +46,12 @@ extends Class_I {
         // Spritesheet containing 11 (one for every unit type) 10x10 pixel images in the same row
         // These are used in the minimap
         byte[] fileBytes = AppCanvas.getFileBytes("unit_icons_s.png");
-        for (int j = 0; j < 2; ++j) {
+        for (int playerIndex = 0; playerIndex < 2; ++playerIndex) {
             byte[] imageBytesCopy = new byte[fileBytes.length];
             System.arraycopy(fileBytes, 0, imageBytesCopy, 0, fileBytes.length);
-            Sprite h2 = Sprite.fromByteArray(imageBytesCopy, j);
+            Sprite h2 = Sprite.fromByteArray(imageBytesCopy, playerIndex);
             for (int unitIndex = 0; unitIndex < 11; ++unitIndex) {
-                this.var_e_arr_arr_c[j][unitIndex] = new SpriteSheet(new Sprite(h2, unitIndex, 0, 10, 10), 10, 10);
+                this.var_e_arr_arr_c[playerIndex][unitIndex] = new SpriteSheet(new Sprite(h2, unitIndex, 0, 10, 10), 10, 10);
             }
         }
         this.spriteSheetChimneySmoke = new SpriteSheet("b_smoke");
