@@ -391,7 +391,7 @@ implements CommandListener {
             dataOutputStream.writeByte(c2.unitType);
             dataOutputStream.writeByte(c2.owner);
             dataOutputStream.writeByte(c2.var_byte_e);
-            dataOutputStream.writeByte(c2.var_byte_b);
+            dataOutputStream.writeByte(c2.statusFlags);
             dataOutputStream.writeByte(c2.quantity);
             dataOutputStream.writeByte(c2.var_short_d);
             dataOutputStream.writeShort(c2.mapPixelX);
@@ -447,7 +447,7 @@ implements CommandListener {
             unit.var_byte_e = by3;
             unit.mapPixelX = s;
             unit.var_short_d = by6;
-            unit.var_byte_b = by4;
+            unit.statusFlags = by4;
             unit.d();
             unit.quantity = unitQuantity;
             unit.var_int_b = s4;

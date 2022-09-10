@@ -61,7 +61,7 @@ extends SpriteSheet {
     public short mapY;
     public short quantity;
     public byte var_byte_e = 0;
-    public byte var_byte_b;
+    public byte statusFlags;
     public short k;
     public short var_short_f;
     public short var_short_e;
@@ -159,12 +159,12 @@ extends SpriteSheet {
     }
 
     public void a(byte by) {
-        this.var_byte_b = (byte)(this.var_byte_b | by);
+        this.statusFlags = (byte)(this.statusFlags | by);
         this.d();
     }
 
     public void b(byte by) {
-        this.var_byte_b = (byte)(this.var_byte_b & ~by);
+        this.statusFlags = (byte)(this.statusFlags & ~by);
         this.d();
     }
 
@@ -172,12 +172,12 @@ extends SpriteSheet {
         this.k = 0;
         this.var_short_f = 0;
         this.var_short_e = 0;
-        if ((this.var_byte_b & 1) != 0) {
+        if ((this.statusFlags & 1) != 0) {
             this.k = (short)(this.k - 1);
             this.var_short_f = (short)(this.var_short_f - 1);
             this.var_short_e = (short)(this.var_short_e - 1);
         }
-        if ((this.var_byte_b & 2) != 0) {
+        if ((this.statusFlags & 2) != 0) {
             this.var_short_f = (short)(this.var_short_f + 1);
         }
     }

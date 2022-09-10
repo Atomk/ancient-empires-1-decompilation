@@ -764,14 +764,14 @@ public class g {
                         graphics.setColor(COLOR_BLACK);
                         AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
                         n14 += AppCanvas.getSpriteFontCharWidth((byte)0) + 2;
-                        if ((this.var_c_a.var_byte_b & 1) != 0) {
+                        if ((this.var_c_a.statusFlags & 1) != 0) {
                             this.var_a_a.uiStatusSheet.setCurrentIndex(0);
                             this.var_a_a.uiStatusSheet.a(graphics, n12, n14 - 2);
                             // POISON
                             graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.uiStatusSheet.getSpritesWidth() + 2, n14, 20);
                             n14 += this.var_a_a.uiStatusSheet.getSpritesHeight() - 4;
                         }
-                        if ((this.var_c_a.var_byte_b & 2) != 0) {
+                        if ((this.var_c_a.statusFlags & 2) != 0) {
                             this.var_a_a.uiStatusSheet.setCurrentIndex(1);
                             this.var_a_a.uiStatusSheet.a(graphics, n12, n14);
                             // AURA
@@ -940,12 +940,12 @@ public class g {
                     }
                     n25 += this.var_a_a.uiStatusSheet.getSpritesHeight() - 5;
                     n26 = 31;
-                    if ((this.var_c_a.var_byte_b & 1) != 0) {
+                    if ((this.var_c_a.statusFlags & 1) != 0) {
                         this.var_a_a.uiStatusSheet.setCurrentIndex(0);
                         this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                         n26 += this.var_a_a.uiStatusSheet.getSpritesWidth();
                     }
-                    if ((this.var_c_a.var_byte_b & 2) == 0) break;
+                    if ((this.var_c_a.statusFlags & 2) == 0) break;
                     this.var_a_a.uiStatusSheet.setCurrentIndex(1);
                     this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                     break;
