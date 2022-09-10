@@ -13,15 +13,27 @@ extends MIDlet {
             instance = this;
             appCanvas = new AppCanvas(this);
         }
+        //else {
+        //  // Only in v1.0.1
+        //  appCanvas.f();
+        //}
     }
 
     public void destroyApp(boolean bl) {
+        // Only in Motorola versions, this block replaces the first statement below:
+        //if (appCanvas != null) {
+        //    appCanvas.b();
+        //}
         appCanvas.handleAppDestroy();
         appCanvas = null;
         instance = null;
     }
 
     public void pauseApp() {
+        // Only in v1.0.1
+        //if (appCanvas != null) {
+        //  appCanvas.d();
+        //}
     }
 }
 
