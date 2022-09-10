@@ -101,7 +101,7 @@ implements CommandListener {
     public SpriteSheet var_e_l;
     public SpriteSheet var_e_r;
     public SpriteSheet var_e_d;
-    public SpriteSheet var_e_j;
+    public SpriteSheet uiStatusSheet;
     public SpriteSheet uiPortraitSheet;
     public short var_short_h;
     public short var_short_g;
@@ -281,7 +281,7 @@ implements CommandListener {
         this.var_e_d = new SpriteSheet("redspark");
         this.var_e_l = new SpriteSheet("smoke");
         this.var_e_r = new SpriteSheet("spark");
-        this.var_e_j = new SpriteSheet("status");
+        this.uiStatusSheet = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
         this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
         this.var_e_k = new SpriteSheet(this.mapCursorSheet);
@@ -538,7 +538,7 @@ implements CommandListener {
             this.var_c_c = this.var_c_i;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
-            e2 = this.a(this.var_e_j, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.uiStatusSheet, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
@@ -546,12 +546,12 @@ implements CommandListener {
             this.var_c_c = this.var_c_b;
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.isType(Unit.SPIDER_FLAG)) {
-            e2 = this.a(this.var_e_j, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_f);
             this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.a((byte)1);
         } else if (this.var_c_b.boolean_a()) {
-            e2 = this.a(this.var_e_j, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
+            e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
             this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
