@@ -39,6 +39,9 @@ extends SpriteSheet {
     public static final short KING_FLAG = 28;   // 16 + 8 + 4 => 28 = 00011100
     public static final short SKELETON_FLAG = 0;
 
+    public static final byte STATUS_POISON = 1;
+    public static final byte STATUS_AURA = 2;
+
     // Units sprites are 24x24 (units_icons.png)
     private static final byte TILE_SIZE = 24;
 
@@ -158,13 +161,13 @@ extends SpriteSheet {
         return this.quantity > 0 && Math.abs(this.mapX - n) + Math.abs(this.mapY - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
-    public void a(byte by) {
-        this.statusFlags = (byte)(this.statusFlags | by);
+    public void a(byte statusFlag) {
+        this.statusFlags = (byte)(this.statusFlags | statusFlag);
         this.d();
     }
 
-    public void b(byte by) {
-        this.statusFlags = (byte)(this.statusFlags & ~by);
+    public void b(byte statusFlag) {
+        this.statusFlags = (byte)(this.statusFlags & ~statusFlag);
         this.d();
     }
 
@@ -172,12 +175,12 @@ extends SpriteSheet {
         this.k = 0;
         this.var_short_f = 0;
         this.var_short_e = 0;
-        if ((this.statusFlags & 1) != 0) {
+        if ((this.statusFlags & STATUS_POISON) != 0) {
             this.k = (short)(this.k - 1);
             this.var_short_f = (short)(this.var_short_f - 1);
             this.var_short_e = (short)(this.var_short_e - 1);
         }
-        if ((this.statusFlags & 2) != 0) {
+        if ((this.statusFlags & STATUS_AURA) != 0) {
             this.var_short_f = (short)(this.var_short_f + 1);
         }
     }

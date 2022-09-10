@@ -436,7 +436,7 @@ implements CommandListener {
             byte unitType = dataInputStream.readByte();
             byte unitOwner = dataInputStream.readByte();
             byte by3 = dataInputStream.readByte();
-            byte by4 = dataInputStream.readByte();
+            byte unitStatusFlags = dataInputStream.readByte();
             byte unitQuantity = dataInputStream.readByte();
             byte by6 = dataInputStream.readByte();
             short s = dataInputStream.readShort();
@@ -447,7 +447,7 @@ implements CommandListener {
             unit.var_byte_e = by3;
             unit.mapPixelX = s;
             unit.var_short_d = by6;
-            unit.statusFlags = by4;
+            unit.statusFlags = unitStatusFlags;
             unit.d();
             unit.quantity = unitQuantity;
             unit.var_int_b = s4;
