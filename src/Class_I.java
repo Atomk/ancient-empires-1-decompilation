@@ -290,11 +290,11 @@ implements CommandListener {
         this.var_e_k.setReorderTable(var_byte_arr_arr_d[3]);
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
-        for (short playerIndex = 0; playerIndex < 2; playerIndex = (short)((byte)(playerIndex + 1))) {
+        for (short playerIndex = 0; playerIndex < 2; playerIndex++) {
             imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
             object = Sprite.fromByteArray((byte[])imageBytesObj, (int)playerIndex);
-            for (n = 0; n < 11; n = (int)((byte)(n + 1))) {
+            for (n = 0; n < 11; n++) {
                 this.var_e_arr_arr_b[playerIndex][n] = new SpriteSheet(new Sprite((Sprite)object, n, 0, 24, ((Sprite)object).height), 24, 24);
             }
         }
@@ -312,11 +312,11 @@ implements CommandListener {
         e2 = null;
         byte[] imageBytes = AppCanvas.getFileBytes("buildings.png");
         Sprite[] hArray2 = new Sprite[9];
-        for (s = 0; s <= 2; s = (short)((byte)(s + 1))) {
+        for (s = 0; s <= 2; s++) {
             byte[] byArray3 = new byte[imageBytes.length];
             System.arraycopy(imageBytes, 0, byArray3, 0, imageBytes.length);
             Sprite h2 = Sprite.fromByteArray(byArray3, (int)s);
-            for (n = 0; n < 3; n = (int)((byte)(n + 1))) {
+            for (n = 0; n < 3; n++) {
                 hArray2[s * 3 + n] = new Sprite(h2, n, 0, 24, 24);
             }
         }
