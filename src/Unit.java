@@ -21,6 +21,24 @@ extends SpriteSheet {
     public static final byte KING = 9;
     public static final byte SKELETON = 10;
 
+    // These values are used in the isType method.
+    // The golem and skeleton units have bitflag 0, means isType(n)
+    // will always return false if used on these units. The King has
+    // bitflag 28 (00011100), which means isType(n) will return true
+    // when the argument is either 4, 8 (SOLDIER_FLAG) or 16.
+    // See the isType method and its calls for more context.
+    public static final short SOLDIER_FLAG = 8;
+    public static final short ARCHER_FLAG = 64;
+    public static final short LIZARD_FLAG = 2;
+    public static final short WIZARD_FLAG = 32;
+    public static final short WISP_FLAG = 256;
+    public static final short SPIDER_FLAG = 128;
+    public static final short GOLEM_FLAG = 0;
+    public static final short CATAPULT_FLAG = 512;
+    public static final short WYVERN_FLAG = 1;
+    public static final short KING_FLAG = 28;   // 16 + 8 + 4 => 28 = 00011100
+    public static final short SKELETON_FLAG = 0;
+
     // Units sprites are 24x24 (units_icons.png)
     private static final byte TILE_SIZE = 24;
 
@@ -91,7 +109,7 @@ extends SpriteSheet {
     public int a(Unit unit) {
         int n;
         int n2 = unitsDataATK[this.unitType] + this.var_short_f;
-        if (this.isType((short)64) && unit.isType((short)1)) {
+        if (this.isType(ARCHER_FLAG) && unit.isType(WYVERN_FLAG)) {
             n2 += 2;
         }
         if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
@@ -213,7 +231,7 @@ extends SpriteSheet {
     }
 
     public void a(byte[][] byArray) {
-        if (this.isType((short)512)) {
+        if (this.isType(CATAPULT_FLAG)) {
             this.a(byArray, (int)this.mapX, (int)this.mapY);
             return;
         }
@@ -339,10 +357,10 @@ extends SpriteSheet {
                 return 1000;
             }
             byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
-            if (this.isType((short)1)) {
+            if (this.isType(WYVERN_FLAG)) {
                 return 1;
             }
-            if (this.isType((short)2)) {
+            if (this.isType(LIZARD_FLAG)) {
                 if (terrainType == f.TERRAIN_WATER) {
                     return 1;
                 }
@@ -395,9 +413,10 @@ extends SpriteSheet {
 
     public boolean isType(short unitBitflag) {
         // Example: 0001 & 0100 => 0000 
-        // This is the clever but unreadable alternative to:
+        // This is the clever but less readable alternative to:
         //      return this.unitType == unitTypeParam;
-        // TODO unless I miseed something, bitflags are unnecessary and can be deleted in favor of unitType
+        // TODO unless I missed something, bitflags are unnecessary and can be deleted in favor of unitType
+        // Could have been more interesting if it checked both the unit type and owner
         return (this.bitflag & unitBitflag) != 0;
     }
 
@@ -418,7 +437,7 @@ extends SpriteSheet {
         n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
             c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
-            if (c2.owner != this.owner || !c2.isType((short)256)) continue;
+            if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
