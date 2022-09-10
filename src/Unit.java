@@ -59,7 +59,7 @@ extends SpriteSheet {
     private static final byte[] unitsDataRangeMin;
     private static final int[][][] unitsDataArrayOfPairs_XXX;
     public static final short[] unitsDataPrice;
-    private static final short[] unitsDataBiflag_XXX;
+    private static final short[] unitsDataBitflag;
 
     private Unit(byte unitType, byte owner, int mapX, int mapY) {
         super(iClassRef.a(owner, unitType));
@@ -83,7 +83,7 @@ extends SpriteSheet {
         newUnit.unitType = unitType;
         newUnit.owner = owner;
         newUnit.quantity = (short)10;
-        newUnit.bitflag = unitsDataBiflag_XXX[unitType];
+        newUnit.bitflag = unitsDataBitflag[unitType];
         newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
         return newUnit;
     }
@@ -495,7 +495,7 @@ extends SpriteSheet {
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}};
         // The last two cannot be bought (king and skeleton)
         unitsDataPrice = new short[]{150, 250, 300, 400, 500, 600, 600, 700, 1000, -1, -1};
-        unitsDataBiflag_XXX = new short[]{8, 64, 2, 32, 256, 128, 0, 512, 1, 28, 0};
+        unitsDataBitflag = new short[]{8, 64, 2, 32, 256, 128, 0, 512, 1, 28, 0};
     }
 }
 
