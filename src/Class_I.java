@@ -547,7 +547,7 @@ implements CommandListener {
         if (this.var_c_b.quantity <= 0) {
             this.var_c_c = this.var_c_b;
             AppCanvas.playSound(3, 1);
-        } else if (this.var_c_i.a((short)128)) {
+        } else if (this.var_c_i.isType((short)128)) {
             e2 = this.a(this.var_e_j, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_f);
             this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
@@ -966,7 +966,7 @@ implements CommandListener {
 
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
-        if (by == 1 && this.var_c_h.a((short)4) && this.getTerrainType_ZZ(this.var_c_h.mapX, (int)this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
+        if (by == 1 && this.var_c_h.isType((short)4) && this.getTerrainType_ZZ(this.var_c_h.mapX, (int)this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
         if (this.a((int)unit.mapX, (int)unit.mapY, unit)) {
@@ -975,7 +975,7 @@ implements CommandListener {
         if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.a(unit.mapX, (int)unit.mapY, (byte)0).length > 0) {
             vector.addElement(AppCanvas.getGameText(28));   // ATTACK
         }
-        if (unit.a((short)32) && unit.a(unit.mapX, (int)unit.mapY, (byte)1).length > 0) {
+        if (unit.isType((short)32) && unit.a(unit.mapX, (int)unit.mapY, (byte)1).length > 0) {
             vector.addElement(AppCanvas.getGameText(34));   // RAISE
         }
         if (by == 1) {
@@ -1814,7 +1814,7 @@ implements CommandListener {
     public int getTerrainDefence_XX(byte terrainType, Unit unit) {
         int terrainDefence = terrainTypeDefense[terrainType];
         // TODO probably 2 is Unit.LIZARD, they get +2 defence in water
-        if (unit.a((short)2) && terrainType == f.TERRAIN_WATER) {
+        if (unit.isType((short)2) && terrainType == f.TERRAIN_WATER) {
             terrainDefence += 2;
         }
         return terrainDefence;
@@ -1867,10 +1867,10 @@ implements CommandListener {
     }
 
     public boolean a(int n, int n2, Unit c2) {
-        if (c2.a((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner)) {
+        if (c2.isType((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner)) {
             return true;
         }
-        return c2.a((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner);
+        return c2.isType((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner);
     }
 
     public void void_a(int n, int n2, int n3) {
@@ -2105,7 +2105,7 @@ implements CommandListener {
                         int n8;
                         Unit c3 = this.c_a(n6, n3, (byte)0);
                         if (this.var_byte_arr_arr_b[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
-                        if (!c2.a((short)512) || c3 == c2) {
+                        if (!c2.isType((short)512) || c3 == c2) {
                             Unit[] cArray = c2.a(n6, n3, (byte)0);
                             for (int k = 0; k < cArray.length; ++k) {
                                 n8 = this.a(c2, n6, n3, cArray[k], null);
@@ -2116,7 +2116,7 @@ implements CommandListener {
                                 this.var_int_x = n3;
                             }
                         }
-                        if (c2.a((short)32)) {
+                        if (c2.isType((short)32)) {
                             this.var_c_arr_b = c2.a(n6, n3, (byte)1);
                             for (int k = 0; k < this.var_c_arr_b.length; ++k) {
                                 n8 = this.a(c2, n6, n3, null, this.var_c_arr_b[k]);

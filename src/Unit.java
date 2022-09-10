@@ -30,7 +30,7 @@ extends SpriteSheet {
     public String var_java_lang_String_a;
     public short var_short_d;
     public short mapPixelX;
-    private short l;
+    private short bitflag;
     public int[][] var_int_arr_arr_a;
     //private short j;
     //private short var_short_c;
@@ -83,7 +83,7 @@ extends SpriteSheet {
         newUnit.unitType = unitType;
         newUnit.owner = owner;
         newUnit.quantity = (short)10;
-        newUnit.l = unitsDataBiflag_XXX[unitType];
+        newUnit.bitflag = unitsDataBiflag_XXX[unitType];
         newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
         return newUnit;
     }
@@ -91,7 +91,7 @@ extends SpriteSheet {
     public int a(Unit unit) {
         int n;
         int n2 = unitsDataATK[this.unitType] + this.var_short_f;
-        if (this.a((short)64) && unit.a((short)1)) {
+        if (this.isType((short)64) && unit.isType((short)1)) {
             n2 += 2;
         }
         if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
@@ -213,7 +213,7 @@ extends SpriteSheet {
     }
 
     public void a(byte[][] byArray) {
-        if (this.a((short)512)) {
+        if (this.isType((short)512)) {
             this.a(byArray, (int)this.mapX, (int)this.mapY);
             return;
         }
@@ -339,10 +339,10 @@ extends SpriteSheet {
                 return 1000;
             }
             byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
-            if (this.a((short)1)) {
+            if (this.isType((short)1)) {
                 return 1;
             }
-            if (this.a((short)2)) {
+            if (this.isType((short)2)) {
                 if (terrainType == f.TERRAIN_WATER) {
                     return 1;
                 }
@@ -393,8 +393,12 @@ extends SpriteSheet {
         }
     }
 
-    public boolean a(short s) {
-        return (this.l & s) != 0;
+    public boolean isType(short unitBitflag) {
+        // Example: 0001 & 0100 => 0000 
+        // This is the clever but unreadable alternative to:
+        //      return this.unitType == unitTypeParam;
+        // TODO unless I miseed something, bitflags are unnecessary and can be deleted in favor of unitType
+        return (this.bitflag & unitBitflag) != 0;
     }
 
     public void void_b() {
@@ -414,7 +418,7 @@ extends SpriteSheet {
         n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
             c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
-            if (c2.owner != this.owner || !c2.a((short)256)) continue;
+            if (c2.owner != this.owner || !c2.isType((short)256)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].a((byte)2);
