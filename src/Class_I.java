@@ -549,7 +549,7 @@ implements CommandListener {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_f);
             this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
-            this.var_c_b.a((byte)1);
+            this.var_c_b.addStatus(Unit.STATUS_POISON);
         } else if (this.var_c_b.boolean_a()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
@@ -1840,7 +1840,7 @@ implements CommandListener {
                 }
             }
             if (this.playerIndex_XX == c2.owner) continue;
-            c2.b((byte)1);
+            c2.removeStatus(Unit.STATUS_POISON);
         }
         for (n = 0; n < this.var_byte_arr_arr_a.length; ++n) {
             for (int j = 0; j < this.var_byte_arr_arr_a[n].length; ++j) {

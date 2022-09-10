@@ -161,12 +161,12 @@ extends SpriteSheet {
         return this.quantity > 0 && Math.abs(this.mapX - n) + Math.abs(this.mapY - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
-    public void a(byte statusFlag) {
+    public void addStatus(byte statusFlag) {
         this.statusFlags = (byte)(this.statusFlags | statusFlag);
         this.d();
     }
 
-    public void b(byte statusFlag) {
+    public void removeStatus(byte statusFlag) {
         this.statusFlags = (byte)(this.statusFlags & ~statusFlag);
         this.d();
     }
@@ -435,7 +435,7 @@ extends SpriteSheet {
         for (n = 0; n < n2; ++n) {
             c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
             if (c2.owner != this.owner) continue;
-            c2.b((byte)2);
+            c2.removeStatus(Unit.STATUS_AURA);
         }
         n2 = Unit.iClassRef.var_java_util_Vector_a.size();
         for (n = 0; n < n2; ++n) {
@@ -443,7 +443,7 @@ extends SpriteSheet {
             if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
-                cArray[j].a((byte)2);
+                cArray[j].addStatus(Unit.STATUS_AURA);
                 iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].mapPixelX, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
             }
         }
