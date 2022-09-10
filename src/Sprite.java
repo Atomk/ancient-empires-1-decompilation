@@ -57,10 +57,10 @@ public class Sprite {
 
     public static Sprite fromByteArray(byte[] imageData, int n) {
         if (n != 0) {
-            byte[] bytes = new byte[imageData.length];
-            System.arraycopy(imageData, 0, bytes, 0, imageData.length);
-            Sprite.void_a(bytes, n);
-            imageData = bytes;
+            byte[] bytesCopy = new byte[imageData.length];
+            System.arraycopy(imageData, 0, bytesCopy, 0, imageData.length);
+            Sprite.void_a(bytesCopy, n);
+            imageData = bytesCopy;
         }
         Sprite newSprite = new Sprite();
         Image image = Image.createImage(imageData, 0, imageData.length);
@@ -71,31 +71,31 @@ public class Sprite {
     }
 
     // TODO since there are images only for blu units, I suspect this creates the red versino
-    private static void void_a(byte[] byArray, int n) {
+    private static void void_a(byte[] imageBytes, int n) {
         try {
             int n2;
             int n3;
             int n4;
             int n5 = 33;
-            int n6 = byArray.length - 3;
+            int n6 = imageBytes.length - 3;
             for (n4 = 0; n4 < n6; ++n4) {
-                if (byArray[n4] != 80 || byArray[n4 + 1] != 76 || byArray[n4 + 2] != 84) continue;
+                if (imageBytes[n4] != 80 || imageBytes[n4 + 1] != 76 || imageBytes[n4 + 2] != 84) continue;
                 n5 = n4 - 4;
                 break;
             }
             n4 = n5;
             n6 = 0;
-            n6 = ((byArray[n4] & 0xFF) << 24 | (byArray[n4 + 1] & 0xFF) << 16 | (byArray[n4 + 2] & 0xFF) << 8 | byArray[n4 + 3] & 0xFF) & 0xFFFFFFFF;
+            n6 = ((imageBytes[n4] & 0xFF) << 24 | (imageBytes[n4 + 1] & 0xFF) << 16 | (imageBytes[n4 + 2] & 0xFF) << 8 | imageBytes[n4 + 3] & 0xFF) & 0xFFFFFFFF;
             n4 += 4;
             int n7 = -1;
             for (n3 = 0; n3 < 4; ++n3) {
-                n7 = Sprite.a(byArray[n4 + n3], n7);
+                n7 = Sprite.a(imageBytes[n4 + n3], n7);
             }
             n3 = 1;
             for (n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
-                int n8 = byArray[n2] & 0xFF;
-                int n9 = byArray[n2 + 1] & 0xFF;
-                int n10 = byArray[n2 + 2] & 0xFF;
+                int n8 = imageBytes[n2] & 0xFF;
+                int n9 = imageBytes[n2 + 1] & 0xFF;
+                int n10 = imageBytes[n2 + 2] & 0xFF;
                 if (n10 > n8 && n10 > n9) {
                     if (n == 1) {
                         int n11 = n8;
@@ -106,13 +106,13 @@ public class Sprite {
                         n8 = n10;
                         n9 = n10;
                     }
-                    byArray[n2] = (byte)n8;
-                    byArray[n2 + 1] = (byte)n9;
-                    byArray[n2 + 2] = (byte)n10;
+                    imageBytes[n2] = (byte)n8;
+                    imageBytes[n2 + 1] = (byte)n9;
+                    imageBytes[n2 + 2] = (byte)n10;
                 }
-                n7 = Sprite.a(byArray[n2], n7);
-                n7 = Sprite.a(byArray[n2 + 1], n7);
-                n7 = Sprite.a(byArray[n2 + 2], n7);
+                n7 = Sprite.a(imageBytes[n2], n7);
+                n7 = Sprite.a(imageBytes[n2 + 1], n7);
+                n7 = Sprite.a(imageBytes[n2 + 2], n7);
             }
 
             /* The first version I decompiled, using a website, does this intead of the two lines below:
@@ -120,10 +120,10 @@ public class Sprite {
             var9 = var2 + 8 + var4;
             var0[var9] = (byte)(var5 >> 24); */
             n2 = n5 + 8 + n6;
-            byArray[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
-            byArray[n2 + 1] = (byte)(n7 >> 16);
-            byArray[n2 + 2] = (byte)(n7 >> 8);
-            byArray[n2 + 3] = (byte)n7;
+            imageBytes[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
+            imageBytes[n2 + 1] = (byte)(n7 >> 16);
+            imageBytes[n2 + 2] = (byte)(n7 >> 8);
+            imageBytes[n2 + 3] = (byte)n7;
         }
         catch (Exception exception) {
             exception.printStackTrace();

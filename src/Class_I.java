@@ -1802,9 +1802,9 @@ implements CommandListener {
     public Unit c_a(int mapX, int mapY, byte by) {
         int n3 = this.var_java_util_Vector_a.size();
         for (int j = 0; j < n3; ++j) {
-            Unit c2 = this.var_java_util_Vector_a.elementAt(j);
-            if (mapX != c2.mapX || mapY != c2.mapY || !(by == 0 ? c2.var_byte_e != 3 : by == 1 && c2.var_byte_e == 3)) continue;
-            return c2;
+            Unit unit = this.var_java_util_Vector_a.elementAt(j);
+            if (mapX != unit.mapX || mapY != unit.mapY || !(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
+            return unit;
         }
         return null;
     }
