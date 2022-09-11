@@ -67,7 +67,7 @@ implements CommandListener {
         this.var_java_lang_String_arr_e[5],
         this.var_java_lang_String_arr_e[6],
         this.var_java_lang_String_arr_e[7]};
-    private static final byte[][] var_byte_arr_arr_d;
+    private static final byte[][] mapSheetReorderTable;
     private static final byte[] var_byte_arr_f;
     private static final byte[] var_byte_arr_c;
     private long var_long_k = 0L;
@@ -284,9 +284,9 @@ implements CommandListener {
         this.sparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
-        this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]); // frames 0 and 1 (tile selector anim)
+        this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]); // frames 0 and 1 (tile selector anim)
         this.mapCursorMoveUnit = new SpriteSheet(this.mapCursorSheet);
-        this.mapCursorMoveUnit.setReorderTable(var_byte_arr_arr_d[3]); // frame 4 (movement destination sprite)
+        this.mapCursorMoveUnit.setReorderTable(mapSheetReorderTable[3]); // frame 4 (movement destination sprite)
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (short playerIndex = 0; playerIndex < 2; playerIndex++) {
@@ -527,7 +527,7 @@ implements CommandListener {
         } else {
             this.var_byte_i = (byte)13;
             this.var_int_n = 0;
-            this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
+            this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
         }
         this.var_c_i = c2;
         this.var_c_b = c3;
@@ -565,7 +565,7 @@ implements CommandListener {
             this.var_long_j = this.var_long_n;
             this.var_byte_b = (byte)6;
         }
-        this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
+        this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
         this.var_byte_i = 0;
         this.var_c_i.void_b();
         this.var_c_b = null;
@@ -612,7 +612,7 @@ implements CommandListener {
         unit.b(this.var_byte_arr_arr_b);
         this.var_boolean_h = true;
         this.var_boolean_j = false;
-        this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[2]);
+        this.mapCursorSheet.setReorderTable(mapSheetReorderTable[2]);
     }
 
     public void c() {
@@ -767,7 +767,7 @@ implements CommandListener {
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
                 this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
-                this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[1]);
+                this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
             } else if (string.equals(AppCanvas.getGameText(29))) {  // BUY
@@ -952,7 +952,7 @@ implements CommandListener {
         }
         if (this.var_byte_arr_b[this.var_byte_g] == 1) {
             this.var_boolean_n = true;
-            this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
+            this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
             this.var_byte_i = (byte)3;
             this.var_g_h = new g(this, (byte)0, 8);
             this.var_g_h.showMenuOptions(this.getUnitPossibleActions(unit, (byte)0));
@@ -1399,14 +1399,14 @@ implements CommandListener {
                     this.var_boolean_h = false;
                     this.var_boolean_j = false;
                     this.var_java_util_Vector_b = null;
-                    this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
+                    this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
                     this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                     this.var_c_h = null;
                 } else if (this.var_byte_i == 6) {
                     this.var_byte_i = this.var_byte_e;
                     this.var_boolean_h = false;
                     this.var_g_h.a((byte)8, 0, 40, null, 0);
-                    this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
+                    this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
                     this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                 }
                 appCanvas.handleKeyReleasedAction(2048);
@@ -1971,7 +1971,7 @@ implements CommandListener {
                 this.var_boolean_h = true;
                 this.var_long_j = this.var_long_n;
                 if (this.var_c_g != null) {
-                    this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[1]);
+                    this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
                     this.void_c(this.var_c_g.mapX, this.var_c_g.mapY);
                 } else if (this.var_c_a != null) {
                     this.void_c(this.var_c_a.mapX, this.var_c_a.mapY);
@@ -3085,7 +3085,7 @@ implements CommandListener {
 
     static {
         skirmishMapNames = new String[]{"Island Cross", "Rocky Bay"};
-        var_byte_arr_arr_d = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
+        mapSheetReorderTable = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
         var_byte_arr_f = new byte[]{0};
         var_byte_arr_c = new byte[]{2};
         var_int_arr_a = new int[]{-16776961, -65536, -16711936};
