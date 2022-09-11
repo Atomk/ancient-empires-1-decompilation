@@ -98,7 +98,7 @@ implements CommandListener {
     public SpriteSheet uiArrowSheet;
     public SpriteSheet uiPanelFrameSheet;
     public SpriteSheet uiBtnIconSheet;
-    public SpriteSheet var_e_l;
+    private SpriteSheet mapUnitExplosionSheet;
     public SpriteSheet sparkSheet;
     public SpriteSheet redsparkSheet;
     public SpriteSheet uiStatusSheet;
@@ -280,7 +280,8 @@ implements CommandListener {
         this.uiPortraitSheet = new SpriteSheet("portrait");
         // "Explosion" effect in fight screen when a unit dies
         this.redsparkSheet = new SpriteSheet("redspark");
-        this.var_e_l = new SpriteSheet("smoke");
+        // Shown on map when a unit dies, just after the "spark" animation
+        this.mapUnitExplosionSheet = new SpriteSheet("smoke");
         // Animation shown on map when a unit dies - https://youtu.be/6MTmxnNygSw?t=568
         this.sparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
@@ -1161,7 +1162,7 @@ implements CommandListener {
                     }
                 } else if (this.var_c_c != null) {
                     if (this.var_long_n - this.var_long_g >= 300L) {
-                        this.a(this.var_e_l, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
+                        this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
                         if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
                             if (this.currentLevel != 6) {
                                 this.var_java_util_Vector_a.removeElement(this.var_c_c);
