@@ -264,8 +264,6 @@ implements CommandListener {
     }
 
     public void m() throws Exception {
-        Object object;
-        Object imageBytesObj;
         AppCanvas.stopFirstSound();
         AppCanvas.releaseSoundResources(0);
         if (this.var_byte_d == 1) {
@@ -292,39 +290,39 @@ implements CommandListener {
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (short playerIndex = 0; playerIndex < 2; playerIndex++) {
-            imageBytesObj = new byte[byArray.length];
+            byte[] imageBytesObj = new byte[byArray.length];
             System.arraycopy(byArray, 0, imageBytesObj, 0, byArray.length);
-            object = Sprite.fromByteArray((byte[])imageBytesObj, (int)playerIndex);
+            Sprite object = Sprite.fromByteArray(imageBytesObj, (int)playerIndex);
             for (byte unitType = 0; unitType < 11; unitType++) {
-                this.var_e_arr_arr_b[playerIndex][unitType] = new SpriteSheet(new Sprite((Sprite)object, unitType, 0, 24, ((Sprite)object).height), 24, 24);
+                this.var_e_arr_arr_b[playerIndex][unitType] = new SpriteSheet(new Sprite(object, unitType, 0, 24, object.height), 24, 24);
             }
         }
-        imageBytesObj = AppCanvas.getFileBytesInputStream("tiles0.prop");
-        object = new DataInputStream((InputStream)imageBytesObj);
-        short s2 = ((DataInputStream)object).readShort();
-        /*short s3 = */((DataInputStream)object).readShort();   // Unused variable
+        InputStream inputStream = AppCanvas.getFileBytesInputStream("tiles0.prop");
+        DataInputStream object = new DataInputStream(inputStream);
+        short s2 = object.readShort();
+        /*short s3 = */object.readShort();   // Unused variable
         this.var_byte_arr_j = new byte[s2];
         for (short s = 0; s < s2; s++) {
-            this.var_byte_arr_j[s] = ((DataInputStream)object).readByte();
+            this.var_byte_arr_j[s] = object.readByte();
         }
         SpriteSheet e2 = new SpriteSheet("tiles0");
         Sprite[] hArray = e2.sprites;
         this.var_int_t = hArray.length;
         e2 = null;
         byte[] imageBytes = AppCanvas.getFileBytes("buildings.png");
-        Sprite[] hArray2 = new Sprite[9];
+        Sprite[] buildingsSpritesArr = new Sprite[9];
         for (short playerIndex = 0; playerIndex <= 2; playerIndex++) {
             byte[] byArray3 = new byte[imageBytes.length];
             System.arraycopy(imageBytes, 0, byArray3, 0, imageBytes.length);
             Sprite h2 = Sprite.fromByteArray(byArray3, (int)playerIndex);
             for (short unitType = 0; unitType < 3; unitType++) {
-                hArray2[playerIndex * 3 + unitType] = new Sprite(h2, unitType, 0, 24, 24);
+                buildingsSpritesArr[playerIndex * 3 + unitType] = new Sprite(h2, unitType, 0, 24, 24);
             }
         }
-        this.var_h_arr_c = new Sprite[hArray.length + hArray2.length];
+        this.var_h_arr_c = new Sprite[hArray.length + buildingsSpritesArr.length];
         System.arraycopy(hArray, 0, this.var_h_arr_c, 0, hArray.length);
-        System.arraycopy(hArray2, hArray2.length - 3, this.var_h_arr_c, hArray.length, 3);
-        System.arraycopy(hArray2, 0, this.var_h_arr_c, hArray.length + 3, hArray2.length - 3);
+        System.arraycopy(buildingsSpritesArr, buildingsSpritesArr.length - 3, this.var_h_arr_c, hArray.length, 3);
+        System.arraycopy(buildingsSpritesArr, 0, this.var_h_arr_c, hArray.length + 3, buildingsSpritesArr.length - 3);
         e2 = new SpriteSheet("stiles0");
         this.var_h_arr_d = e2.sprites;
         e2 = null;
@@ -1162,6 +1160,7 @@ implements CommandListener {
                     }
                 } else if (this.var_c_c != null) {
                     if (this.var_long_n - this.var_long_g >= 300L) {
+                        // TODO context hint: mapUnitExplosionSheet is used only here, and the animation is shown only ehen a unit dies
                         this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
                         if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
                             if (this.currentLevel != 6) {
