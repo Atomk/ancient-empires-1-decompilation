@@ -100,7 +100,7 @@ implements CommandListener {
     public SpriteSheet uiBtnIconSheet;
     public SpriteSheet var_e_l;
     public SpriteSheet sparkSheet;
-    public SpriteSheet var_e_d;
+    public SpriteSheet redsparkSheet;
     public SpriteSheet uiStatusSheet;
     public SpriteSheet uiPortraitSheet;
     public short var_short_h;
@@ -278,8 +278,10 @@ implements CommandListener {
         this.spriteGold = new Sprite("gold.png");
         // Characters heads, shown when there is story dialogue
         this.uiPortraitSheet = new SpriteSheet("portrait");
-        this.var_e_d = new SpriteSheet("redspark");
+        // "Explosion" effect in fight screen when a unit dies
+        this.redsparkSheet = new SpriteSheet("redspark");
         this.var_e_l = new SpriteSheet("smoke");
+        // Animation shown on map when a unit dies - https://youtu.be/6MTmxnNygSw?t=568
         this.sparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
@@ -1138,7 +1140,7 @@ implements CommandListener {
                     if (this.var_int_n == 0) {
                         this.var_c_i.a(this.var_c_b);
                         this.var_c_b.b(400);
-                        this.a(this.var_e_d, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
+                        this.a(this.redsparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
                         this.var_long_d = this.var_long_n;
                         ++this.var_int_n;
                     } else if (this.var_int_n == 1) {
@@ -1147,7 +1149,7 @@ implements CommandListener {
                             if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
                                 this.var_c_b.a(this.var_c_i);
                                 this.var_c_i.b(400);
-                                this.a(this.var_e_d, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
+                                this.a(this.redsparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
                                 this.var_long_d = this.var_long_n;
                                 ++this.var_int_n;
                             } else {
@@ -2549,7 +2551,7 @@ implements CommandListener {
                 }
                 case 2: {
                     for (int j = 5; j < 10; ++j) {
-                        this.a(this.var_e_d, j * 24, 288, 0, 0, 4, 50);
+                        this.a(this.redsparkSheet, j * 24, 288, 0, 0, 4, 50);
                     }
                     AppCanvas.playSound(1, 3);
                     this.void_b(200);
