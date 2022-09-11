@@ -99,7 +99,7 @@ implements CommandListener {
     public SpriteSheet uiPanelFrameSheet;
     public SpriteSheet uiBtnIconSheet;
     public SpriteSheet var_e_l;
-    public SpriteSheet var_e_r;
+    public SpriteSheet sparkSheet;
     public SpriteSheet var_e_d;
     public SpriteSheet uiStatusSheet;
     public SpriteSheet uiPortraitSheet;
@@ -280,7 +280,7 @@ implements CommandListener {
         this.uiPortraitSheet = new SpriteSheet("portrait");
         this.var_e_d = new SpriteSheet("redspark");
         this.var_e_l = new SpriteSheet("smoke");
-        this.var_e_r = new SpriteSheet("spark");
+        this.sparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
         this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
@@ -540,7 +540,7 @@ implements CommandListener {
         } else if (this.var_c_i.boolean_a()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
-            this.a(this.var_e_r, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
+            this.a(this.sparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
         if (this.var_c_b.quantity <= 0) {
             this.var_c_c = this.var_c_b;
@@ -548,16 +548,16 @@ implements CommandListener {
         } else if (this.var_c_i.isType(Unit.SPIDER_FLAG)) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_f);
-            this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.addStatus(Unit.STATUS_POISON);
         } else if (this.var_c_b.boolean_a()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(var_byte_arr_c);
-            this.a(this.var_e_r, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
         }
         if (this.var_c_c != null) {
-            this.a(this.var_e_r, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
+            this.a(this.sparkSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
         }
         this.var_long_g = this.var_long_n;
         if (this.var_byte_arr_b[this.var_byte_g] == 0) {
@@ -1433,10 +1433,10 @@ implements CommandListener {
     public void void_a(Unit c2, byte by) {
         this.var_c_e = c2;
         this.var_byte_f = by;
-        this.a(this.var_e_r, c2.mapPixelX - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
-        this.a(this.var_e_r, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
-        this.a(this.var_e_r, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
-        this.a(this.var_e_r, c2.mapPixelX + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
+        this.a(this.sparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
+        this.a(this.sparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
+        this.a(this.sparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
+        this.a(this.sparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
         this.var_long_i = this.var_long_n;
     }
 
@@ -2365,7 +2365,7 @@ implements CommandListener {
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.mapX < 4 || this.var_c_f.mapY < 7) break;
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 5, 8);
-                    this.a(this.var_e_r, 120, 192, 0, 0, 2, 50);
+                    this.a(this.sparkSheet, 120, 192, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
                     ++this.currentLevelStep;
@@ -2650,8 +2650,8 @@ implements CommandListener {
                     // TODO 44: VALADORN -- maybe this is the unit's name?
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 0, 0);
-                    this.a(this.var_e_r, 48, 0, 0, 0, 4, 50);
-                    this.a(this.var_e_r, 0, 0, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 48, 0, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, 1);
                     this.void_a(0, 0, 1);
                     this.void_b(1000);
@@ -2822,8 +2822,8 @@ implements CommandListener {
                 case 2: {
                     Unit.spawn(Unit.CATAPULT, PLAYER_RED, 12, 0);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 13, 0);
-                    this.a(this.var_e_r, 312, 0, 0, 0, 4, 50);
-                    this.a(this.var_e_r, 288, 0, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 312, 0, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, 1);
                     this.void_b(800);
                     ++this.currentLevelStep;
@@ -2836,8 +2836,8 @@ implements CommandListener {
                 case 4: {
                     Unit.spawn(Unit.GOLEM, PLAYER_RED, 1, 11);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 12);
-                    this.a(this.var_e_r, 24, 288, 0, 0, 4, 50);
-                    this.a(this.var_e_r, 24, 264, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 24, 288, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, 1);
                     this.void_b(800);
                     ++this.currentLevelStep;
@@ -2852,9 +2852,9 @@ implements CommandListener {
                     this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
                     Unit.spawn(Unit.WYVERN, PLAYER_RED, 0, 1);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 2);
-                    this.a(this.var_e_r, 24, 24, 0, 0, 4, 50);
-                    this.a(this.var_e_r, 0, 24, 0, 0, 4, 50);
-                    this.a(this.var_e_r, 24, 48, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 24, 24, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 0, 24, 0, 0, 4, 50);
+                    this.a(this.sparkSheet, 24, 48, 0, 0, 4, 50);
                     this.void_a(1, 1, 1);
                     this.void_a(1, 2, 1);
                     this.void_b(1000);

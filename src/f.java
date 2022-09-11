@@ -172,7 +172,7 @@ public class f {
             }
             this.var_e_a = i2.var_e_c;
         } else if (c2.unitType == Unit.WIZARD) {
-            this.var_e_a = i2.var_e_r;
+            this.var_e_a = i2.sparkSheet;
         } else if (c2.unitType == Unit.WYVERN) {
             if (i2.var_e_n == null) {
                 // TODO this are battle screen attack snimations

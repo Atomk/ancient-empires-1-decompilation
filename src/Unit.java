@@ -444,7 +444,7 @@ extends SpriteSheet {
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].addStatus(Unit.STATUS_AURA);
-                iClassRef.a(Unit.iClassRef.var_e_r, cArray[j].mapPixelX, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
+                iClassRef.a(Unit.iClassRef.sparkSheet, cArray[j].mapPixelX, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
             }
         }
         Unit.iClassRef.var_c_f = this;
