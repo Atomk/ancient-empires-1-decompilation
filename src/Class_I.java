@@ -94,7 +94,7 @@ implements CommandListener {
     public Sprite spriteMenuPointer;
     public Sprite spriteGold;
     public SpriteSheet mapCursorSheet;
-    public SpriteSheet var_e_k;
+    private SpriteSheet mapCursorMoveUnit;
     public SpriteSheet uiArrowSheet;
     public SpriteSheet uiPanelFrameSheet;
     public SpriteSheet uiBtnIconSheet;
@@ -286,9 +286,9 @@ implements CommandListener {
         this.sparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
-        this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]);
-        this.var_e_k = new SpriteSheet(this.mapCursorSheet);
-        this.var_e_k.setReorderTable(var_byte_arr_arr_d[3]);
+        this.mapCursorSheet.setReorderTable(var_byte_arr_arr_d[0]); // frames 0 and 1 (tile selector anim)
+        this.mapCursorMoveUnit = new SpriteSheet(this.mapCursorSheet);
+        this.mapCursorMoveUnit.setReorderTable(var_byte_arr_arr_d[3]); // frame 4 (movement destination sprite)
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (short playerIndex = 0; playerIndex < 2; playerIndex++) {
@@ -1716,7 +1716,7 @@ implements CommandListener {
                         }
                         if (n3 == n4 - 1) {
                             graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
-                            this.var_e_k.a(graphics, n5 - 1, n6 - 4);
+                            this.mapCursorMoveUnit.a(graphics, n5 - 1, n6 - 4);
                             continue;
                         }
                         sArray = sArrayArray[n3 + 1];
