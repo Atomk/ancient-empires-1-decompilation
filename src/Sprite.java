@@ -74,7 +74,6 @@ public class Sprite {
     private static void void_a(byte[] imageBytes, int n) {
         try {
             int n2;
-            int n3;
             int n4;
             int n5 = 33;
             int n6 = imageBytes.length - 3;
@@ -88,10 +87,9 @@ public class Sprite {
             n6 = ((imageBytes[n4] & 0xFF) << 24 | (imageBytes[n4 + 1] & 0xFF) << 16 | (imageBytes[n4 + 2] & 0xFF) << 8 | imageBytes[n4 + 3] & 0xFF) & 0xFFFFFFFF;
             n4 += 4;
             int n7 = -1;
-            for (n3 = 0; n3 < 4; ++n3) {
+            for (int n3 = 0; n3 < 4; ++n3) {
                 n7 = Sprite.a(imageBytes[n4 + n3], n7);
             }
-            n3 = 1;
             for (n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
                 int n8 = imageBytes[n2] & 0xFF;
                 int n9 = imageBytes[n2 + 1] & 0xFF;
