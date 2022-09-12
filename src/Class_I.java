@@ -432,7 +432,8 @@ implements CommandListener {
             this.var_int_arr_b[n2] = dataInputStream.readShort();
         }
         for (int n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
-            if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t) continue;
+            if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t)
+                continue;
             this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
         this.var_java_util_Vector_a = new Vector<Unit>();
@@ -456,27 +457,39 @@ implements CommandListener {
             unit.d();
             unit.quantity = unitQuantity;
             unit.var_int_b = s4;
+
             if (unitType == Unit.KING) {
                 this.var_c_arr_a[unitOwner] = unit;
             }
-            if (this.var_byte_a != 0) continue;
+
+            if (this.var_byte_a != 0)
+                continue;
+
             if (unitType == Unit.KING) {
                 if (unitOwner == PLAYER_BLUE) {
-                    unit.customName = AppCanvas.getGameText(43);  // GALAMAR
+                    unit.customName = AppCanvas.getGameText(43); // GALAMAR
                     continue;
                 }
-                if (by6 == 4) continue;
-                unit.customName = AppCanvas.getGameText(44);  // VALADORN
+
+                if (by6 == 4)
+                    continue;
+
+                unit.customName = AppCanvas.getGameText(44); // VALADORN
                 continue;
             }
-            if (this.currentLevel != 2 || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD) continue;
-            unit.customName = AppCanvas.getGameText(45);  // LIZARD CHIEF
+
+            if (this.currentLevel != 2 || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD)
+                continue;
+                
+            unit.customName = AppCanvas.getGameText(45); // LIZARD CHIEF
         }
+
         if (this.currentLevel == 2) {
             for (int n = 5; n < 10; ++n) {
                 this.var_byte_arr_arr_a[n][12] = waterTilesIndex[0];
             }
         }
+
         this.currentLevelStep = dataInputStream.readShort();
         this.var_long_h = dataInputStream.readInt();
         this.var_int_i = dataInputStream.readInt();
