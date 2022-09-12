@@ -88,10 +88,10 @@ public class Sprite {
             for (int i = 0; i < 4; ++i) {
                 n7 = Sprite.a(imageBytes[n4 + i], n7);
             }
-            for (int n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
-                int n8 = imageBytes[n2] & 0xFF;
-                int n9 = imageBytes[n2 + 1] & 0xFF;
-                int n10 = imageBytes[n2 + 2] & 0xFF;
+            for (int i = n4 += 4; i < n4 + n6; i += 3) {
+                int n8 = imageBytes[i] & 0xFF;
+                int n9 = imageBytes[i + 1] & 0xFF;
+                int n10 = imageBytes[i + 2] & 0xFF;
                 if (n10 > n8 && n10 > n9) {
                     if (n == 1) {
                         int n11 = n8;
@@ -102,13 +102,13 @@ public class Sprite {
                         n8 = n10;
                         n9 = n10;
                     }
-                    imageBytes[n2] = (byte)n8;
-                    imageBytes[n2 + 1] = (byte)n9;
-                    imageBytes[n2 + 2] = (byte)n10;
+                    imageBytes[i] = (byte)n8;
+                    imageBytes[i + 1] = (byte)n9;
+                    imageBytes[i + 2] = (byte)n10;
                 }
-                n7 = Sprite.a(imageBytes[n2], n7);
-                n7 = Sprite.a(imageBytes[n2 + 1], n7);
-                n7 = Sprite.a(imageBytes[n2 + 2], n7);
+                n7 = Sprite.a(imageBytes[i], n7);
+                n7 = Sprite.a(imageBytes[i + 1], n7);
+                n7 = Sprite.a(imageBytes[i + 2], n7);
             }
 
             /*
@@ -116,11 +116,11 @@ public class Sprite {
              * lines below: var5 = ~var5; // one's complement, inverts bits var9 = var2 + 8
              * + var4; var0[var9] = (byte)(var5 >> 24);
              */
-            int n2 = n5 + 8 + n6;
-            imageBytes[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
-            imageBytes[n2 + 1] = (byte)(n7 >> 16);
-            imageBytes[n2 + 2] = (byte)(n7 >> 8);
-            imageBytes[n2 + 3] = (byte)n7;
+            int index = n5 + 8 + n6;
+            imageBytes[index] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
+            imageBytes[index + 1] = (byte)(n7 >> 16);
+            imageBytes[index + 2] = (byte)(n7 >> 8);
+            imageBytes[index + 3] = (byte)n7;
         } catch (Exception exception) {
             exception.printStackTrace();
         }
