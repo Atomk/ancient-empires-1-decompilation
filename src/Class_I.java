@@ -271,6 +271,7 @@ implements CommandListener {
         }
         this.var_byte_d = 1;
         Unit.iClassRef = this;
+
         //AppCanvas.readAssetsPackage("/1.pak");
         this.mapCursorSheet = new SpriteSheet("cursor");
         this.spriteGold = new Sprite("gold.png");
@@ -287,6 +288,7 @@ implements CommandListener {
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]); // frames 0 and 1 (tile selector anim)
         this.mapCursorMoveUnit = new SpriteSheet(this.mapCursorSheet);
         this.mapCursorMoveUnit.setReorderTable(mapSheetReorderTable[3]); // frame 4 (movement destination sprite)
+
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (short playerIndex = 0; playerIndex < 2; playerIndex++) {
@@ -297,18 +299,21 @@ implements CommandListener {
                 this.var_e_arr_arr_b[playerIndex][unitType] = new SpriteSheet(new Sprite(object, unitType, 0, 24, object.height), 24, 24);
             }
         }
+
         InputStream inputStream = AppCanvas.getFileBytesInputStream("tiles0.prop");
-        DataInputStream object = new DataInputStream(inputStream);
-        short s2 = object.readShort();
-        /*short s3 = */object.readShort();   // Unused variable
+        DataInputStream dataInputStream = new DataInputStream(inputStream);
+        short s2 = dataInputStream.readShort();
+        /*short s3 = */dataInputStream.readShort();   // Unused variable
         this.var_byte_arr_j = new byte[s2];
         for (short s = 0; s < s2; s++) {
-            this.var_byte_arr_j[s] = object.readByte();
+            this.var_byte_arr_j[s] = dataInputStream.readByte();
         }
+
         SpriteSheet e2 = new SpriteSheet("tiles0");
         Sprite[] hArray = e2.sprites;
         this.var_int_t = hArray.length;
         e2 = null;
+
         byte[] imageBytes = AppCanvas.getFileBytes("buildings.png");
         Sprite[] buildingsSpritesArr = new Sprite[9];
         for (short playerIndex = 0; playerIndex <= 2; playerIndex++) {
@@ -323,9 +328,11 @@ implements CommandListener {
         System.arraycopy(hArray, 0, this.var_h_arr_c, 0, hArray.length);
         System.arraycopy(buildingsSpritesArr, buildingsSpritesArr.length - 3, this.var_h_arr_c, hArray.length, 3);
         System.arraycopy(buildingsSpritesArr, 0, this.var_h_arr_c, hArray.length + 3, buildingsSpritesArr.length - 3);
+
         e2 = new SpriteSheet("stiles0");
         this.var_h_arr_d = e2.sprites;
         e2 = null;
+        
         this.var_h_arr_a = new Sprite[2];
         this.var_int_l = var_byte_arr_a[0];
         this.var_h_arr_a[0] = this.var_h_arr_c[var_byte_arr_a[0]];
