@@ -78,9 +78,9 @@ public class Sprite {
             int n4;
             int n5 = 33;
             int n6 = imageBytes.length - 3;
-            for (n4 = 0; n4 < n6; ++n4) {
-                if (imageBytes[n4] != 80 || imageBytes[n4 + 1] != 76 || imageBytes[n4 + 2] != 84) continue;
-                n5 = n4 - 4;
+            for (int i = 0; i < n6; ++i) {
+                if (imageBytes[i] != 80 || imageBytes[i + 1] != 76 || imageBytes[i + 2] != 84) continue;
+                n5 = i - 4;
                 break;
             }
             n4 = n5;
@@ -137,9 +137,9 @@ public class Sprite {
         for (int j = 0; j < 8; ++j) {
             if ((n & 1) != 0) {
                 n = n >>> 1 ^ 0xEDB88320;
-                continue;
+            } else {
+                n >>>= 1;
             }
-            n >>>= 1;
         }
         return n;
     }
