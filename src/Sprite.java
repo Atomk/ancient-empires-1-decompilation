@@ -85,11 +85,10 @@ public class Sprite {
             n6 = ((imageBytes[n4] & 0xFF) << 24 | (imageBytes[n4 + 1] & 0xFF) << 16 | (imageBytes[n4 + 2] & 0xFF) << 8 | imageBytes[n4 + 3] & 0xFF) & 0xFFFFFFFF;
             n4 += 4;
             int n7 = -1;
-            for (int n3 = 0; n3 < 4; ++n3) {
-                n7 = Sprite.a(imageBytes[n4 + n3], n7);
+            for (int i = 0; i < 4; ++i) {
+                n7 = Sprite.a(imageBytes[n4 + i], n7);
             }
-            int n2;
-            for (n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
+            for (int n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
                 int n8 = imageBytes[n2] & 0xFF;
                 int n9 = imageBytes[n2 + 1] & 0xFF;
                 int n10 = imageBytes[n2 + 2] & 0xFF;
@@ -116,7 +115,7 @@ public class Sprite {
             var5 = ~var5;   // one's complement, inverts bits
             var9 = var2 + 8 + var4;
             var0[var9] = (byte)(var5 >> 24); */
-            n2 = n5 + 8 + n6;
+            int n2 = n5 + 8 + n6;
             imageBytes[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
             imageBytes[n2 + 1] = (byte)(n7 >> 16);
             imageBytes[n2 + 2] = (byte)(n7 >> 8);
