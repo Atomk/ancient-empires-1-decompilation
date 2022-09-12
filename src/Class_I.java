@@ -68,8 +68,8 @@ implements CommandListener {
         this.var_java_lang_String_arr_e[6],
         this.var_java_lang_String_arr_e[7]};
     private static final byte[][] mapSheetReorderTable;
-    private static final byte[] var_byte_arr_f;
-    private static final byte[] var_byte_arr_c;
+    private static final byte[] statusPoisonReorderTable;
+    private static final byte[] statusStarReorderTable;
     private long var_long_k = 0L;
     private long var_long_a;
     private boolean var_boolean_s = false;
@@ -547,7 +547,7 @@ implements CommandListener {
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.boolean_a()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
-            e2.setReorderTable(var_byte_arr_c);
+            e2.setReorderTable(statusStarReorderTable);
             this.a(this.sparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
         if (this.var_c_b.quantity <= 0) {
@@ -555,12 +555,12 @@ implements CommandListener {
             AppCanvas.playSound(3, 1);
         } else if (this.var_c_i.isType(Unit.SPIDER_FLAG)) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
-            e2.setReorderTable(var_byte_arr_f);
+            e2.setReorderTable(statusPoisonReorderTable);
             this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.addStatus(Unit.STATUS_POISON);
         } else if (this.var_c_b.boolean_a()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
-            e2.setReorderTable(var_byte_arr_c);
+            e2.setReorderTable(statusStarReorderTable);
             this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
         }
@@ -3092,8 +3092,8 @@ implements CommandListener {
     static {
         skirmishMapNames = new String[]{"Island Cross", "Rocky Bay"};
         mapSheetReorderTable = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
-        var_byte_arr_f = new byte[]{0};
-        var_byte_arr_c = new byte[]{2};
+        statusPoisonReorderTable = new byte[]{0};
+        statusStarReorderTable = new byte[]{2};
         var_int_arr_a = new int[]{-16776961, -65536, -16711936};
         var_byte_arr_a = new byte[]{21, 22};
 
