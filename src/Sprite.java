@@ -82,7 +82,6 @@ public class Sprite {
                 break;
             }
             int n4 = n5;
-            n6 = 0;
             n6 = ((imageBytes[n4] & 0xFF) << 24 | (imageBytes[n4 + 1] & 0xFF) << 16 | (imageBytes[n4 + 2] & 0xFF) << 8 | imageBytes[n4 + 3] & 0xFF) & 0xFFFFFFFF;
             n4 += 4;
             int n7 = -1;
