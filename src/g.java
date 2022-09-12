@@ -889,7 +889,7 @@ public class g {
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;
                     graphics.setClip(0, n19, n3, n20);
-                    graphics.setColor(Class_I.var_int_arr_a[this.var_a_a.playerIndex_XX]);
+                    graphics.setColor(Class_I.playerColors[this.var_a_a.playerIndex_XX]);
                     graphics.fillRect(0, n19 + 1, n3, n20);
                     int n21 = 0;
                     if (this.var_a_a.playerIndex_XX == Class_I.PLAYER_RED) {

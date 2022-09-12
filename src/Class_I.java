@@ -73,7 +73,7 @@ implements CommandListener {
     private long var_long_k = 0L;
     private long var_long_a;
     private boolean var_boolean_s = false;
-    public static final int[] var_int_arr_a;
+    public static final int[] playerColors;
     public SpriteSheet[][] var_e_arr_arr_b;
     private static final byte[] waterTilesIndex;
     public static final byte[] terrainTypeDefense;
@@ -3094,7 +3094,11 @@ implements CommandListener {
         mapSheetReorderTable = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
         statusPoisonReorderTable = new byte[]{0};
         statusStarReorderTable = new byte[]{2};
-        var_int_arr_a = new int[]{-16776961, -65536, -16711936};
+        // These are the colors for each team - read, blue, green (unused)
+        // Hex values: 0xFF0000FF (blue), 0xFFFF0000 (red), 0xFF00FF00 (green)
+        // Note that setColor() takes only the least significant 24bits of the number,
+        // 8 per channel, so the first 8 bits (two hex digits) of these values are ignored.
+        playerColors = new int[]{-16776961, -65536, -16711936};
         waterTilesIndex = new byte[]{21, 22};
 
         // Terrain type variables
