@@ -417,8 +417,6 @@ implements CommandListener {
     }
 
     private void loadSavedGameData(byte[] savedGameData) throws Exception {
-        int n;
-        int n2;
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(savedGameData);
         DataInputStream dataInputStream = new DataInputStream(byteArrayInputStream);
         this.var_byte_a = dataInputStream.readByte();
@@ -429,18 +427,17 @@ implements CommandListener {
         this.playerIndex_XX = this.var_byte_arr_d[this.var_byte_g];
         this.var_short_d = dataInputStream.readShort();
         this.strongestBuyableUnit = dataInputStream.readByte();
-        for (n2 = 0; n2 < this.var_byte_h; ++n2) {
+        for (int n2 = 0; n2 < this.var_byte_h; ++n2) {
             this.var_byte_arr_b[n2] = dataInputStream.readByte();
             this.var_int_arr_b[n2] = dataInputStream.readShort();
         }
-        for (n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
+        for (int n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
             if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t) continue;
             this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
         this.var_java_util_Vector_a = new Vector<Unit>();
-        n2 = dataInputStream.readByte();
-        int n3 = n2;
-        for (n = 0; n < n3; ++n) {
+        int n3 = dataInputStream.readByte();
+        for (int n = 0; n < n3; ++n) {
             byte unitType = dataInputStream.readByte();
             byte unitOwner = dataInputStream.readByte();
             byte by3 = dataInputStream.readByte();
@@ -476,7 +473,7 @@ implements CommandListener {
             unit.customName = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
         if (this.currentLevel == 2) {
-            for (n = 5; n < 10; ++n) {
+            for (int n = 5; n < 10; ++n) {
                 this.var_byte_arr_arr_a[n][12] = waterTilesIndex[0];
             }
         }
