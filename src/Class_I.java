@@ -75,7 +75,7 @@ implements CommandListener {
     private boolean var_boolean_s = false;
     public static final int[] var_int_arr_a;
     public SpriteSheet[][] var_e_arr_arr_b;
-    private static final byte[] var_byte_arr_a;
+    private static final byte[] waterTilesIndex;
     public static final byte[] terrainTypeDefense;
     public static final byte[] terrainType_XXX;
     public static final String[] terrainTypeNames;
@@ -334,9 +334,9 @@ implements CommandListener {
         e2 = null;
         
         this.var_h_arr_a = new Sprite[2];
-        this.var_int_l = var_byte_arr_a[0];
-        this.var_h_arr_a[0] = this.var_h_arr_c[var_byte_arr_a[0]];
-        this.var_h_arr_a[1] = this.var_h_arr_c[var_byte_arr_a[1]];
+        this.var_int_l = waterTilesIndex[0];
+        this.var_h_arr_a[0] = this.var_h_arr_c[waterTilesIndex[0]];
+        this.var_h_arr_a[1] = this.var_h_arr_c[waterTilesIndex[1]];
         //AppCanvas.e();
         this.var_g_c = new g(this, (byte)3, 9);
         this.var_g_g = new g(this, (byte)5, 10);
@@ -477,7 +477,7 @@ implements CommandListener {
         }
         if (this.currentLevel == 2) {
             for (n = 5; n < 10; ++n) {
-                this.var_byte_arr_arr_a[n][12] = var_byte_arr_a[0];
+                this.var_byte_arr_arr_a[n][12] = waterTilesIndex[0];
             }
         }
         this.currentLevelStep = dataInputStream.readShort();
@@ -2567,7 +2567,7 @@ implements CommandListener {
                 }
                 case 3: {
                     for (int j = 5; j < 10; ++j) {
-                        this.var_byte_arr_arr_a[j][12] = var_byte_arr_a[0];
+                        this.var_byte_arr_arr_a[j][12] = waterTilesIndex[0];
                     }
                     this.void_b(300);
                     ++this.currentLevelStep;
@@ -3095,7 +3095,7 @@ implements CommandListener {
         statusPoisonReorderTable = new byte[]{0};
         statusStarReorderTable = new byte[]{2};
         var_int_arr_a = new int[]{-16776961, -65536, -16711936};
-        var_byte_arr_a = new byte[]{21, 22};
+        waterTilesIndex = new byte[]{21, 22};
 
         // Terrain type variables
         // TODO these have 9 elements each, check for magic numbers
