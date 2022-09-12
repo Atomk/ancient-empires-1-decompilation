@@ -743,10 +743,11 @@ public class g {
                     this.var_a_a.a(this.var_byte_c, (byte)this.unitType_XX).a(graphics, n13, n14);
                     n13 += 26;
                     graphics.setColor(COLOR_BLACK);
-                    if (this.var_byte_a == 4 && this.var_c_a.var_java_lang_String_a != null) {
-                        graphics.drawString(this.var_c_a.var_java_lang_String_a, n13, n14, 20);
+                    if (this.var_byte_a == 4 && this.var_c_a.customName != null) {
+                        // This is used only when the unit is a King and is a specific character in the story
+                        graphics.drawString(this.var_c_a.customName, n13, n14, 20);
                     } else {
-                        // SOLDIER
+                        // SOLDIER + unitType (shows name of the unit)
                         graphics.drawString(AppCanvas.getGameText(63 + this.unitType_XX), n13, n14, 20);
                     }
                     graphics.setColor(COLOR_BLACK);

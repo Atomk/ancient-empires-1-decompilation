@@ -48,7 +48,7 @@ extends SpriteSheet {
     // TODO this a static reference to the 'i' class, there must be a better solution...
     // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
     public static Class_I iClassRef;
-    public String var_java_lang_String_a;
+    public String customName;
     public short var_short_d;
     public short mapPixelX;
     private short bitflag;

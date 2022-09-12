@@ -465,15 +465,15 @@ implements CommandListener {
             if (this.var_byte_a != 0) continue;
             if (unitType == Unit.KING) {
                 if (unitOwner == PLAYER_BLUE) {
-                    unit.var_java_lang_String_a = AppCanvas.getGameText(43);  // GALAMAR
+                    unit.customName = AppCanvas.getGameText(43);  // GALAMAR
                     continue;
                 }
                 if (by6 == 4) continue;
-                unit.var_java_lang_String_a = AppCanvas.getGameText(44);  // VALADORN
+                unit.customName = AppCanvas.getGameText(44);  // VALADORN
                 continue;
             }
             if (this.currentLevel != 2 || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD) continue;
-            unit.var_java_lang_String_a = AppCanvas.getGameText(45);  // LIZARD CHIEF
+            unit.customName = AppCanvas.getGameText(45);  // LIZARD CHIEF
         }
         if (this.currentLevel == 2) {
             for (n = 5; n < 10; ++n) {
@@ -2266,7 +2266,7 @@ implements CommandListener {
             return;
         }
         if (this.currentLevelStep == 0) {
-            this.var_c_arr_a[0].var_java_lang_String_a = AppCanvas.getGameText(43); // "GALAMAR"
+            this.var_c_arr_a[0].customName = AppCanvas.getGameText(43); // "GALAMAR"
             this.var_g_b.a((byte)0, 0, 0, null, 0);
             ++this.currentLevelStep;
         }
@@ -2552,7 +2552,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.var_int_arr_b[0] = 0;
-                    this.c_a((int)14, (int)12, (byte)0).var_java_lang_String_a = AppCanvas.getGameText(45);
+                    this.c_a((int)14, (int)12, (byte)0).customName = AppCanvas.getGameText(45); // LIZARD CHIEF
                     this.void_b(7, 12);
                     break;
                 }
@@ -2656,8 +2656,7 @@ implements CommandListener {
                 }
                 case 7: {
                     this.var_c_arr_a[1] = Unit.spawn(Unit.KING, PLAYER_RED, 2, 0);
-                    // TODO 44: VALADORN -- maybe this is the unit's name?
-                    this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
+                    this.var_c_arr_a[1].customName = AppCanvas.getGameText(44); // VALADORN
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 0, 0);
                     this.a(this.sparkSheet, 48, 0, 0, 0, 4, 50);
                     this.a(this.sparkSheet, 0, 0, 0, 0, 4, 50);
@@ -2769,7 +2768,7 @@ implements CommandListener {
         } else if (this.currentLevel == 5) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
+                    this.var_c_arr_a[1].customName = AppCanvas.getGameText(44); // VALADORN
                     this.strongestBuyableUnit = 8;
                     this.void_b(this.var_c_arr_a[1].mapX, this.var_c_arr_a[1].mapY);
                     break;
@@ -2858,7 +2857,7 @@ implements CommandListener {
                 }
                 case 6: {
                     this.var_c_arr_a[1] = Unit.spawn(Unit.KING, PLAYER_RED, 1, 1);
-                    this.var_c_arr_a[1].var_java_lang_String_a = AppCanvas.getGameText(44);
+                    this.var_c_arr_a[1].customName = AppCanvas.getGameText(44); // VALADORN
                     Unit.spawn(Unit.WYVERN, PLAYER_RED, 0, 1);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 2);
                     this.a(this.sparkSheet, 24, 24, 0, 0, 4, 50);
