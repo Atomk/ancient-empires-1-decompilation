@@ -76,7 +76,8 @@ public class Sprite {
             int n5 = 33;
             int n6 = imageBytes.length - 3;
             for (int i = 0; i < n6; ++i) {
-                if (imageBytes[i] != 80 || imageBytes[i + 1] != 76 || imageBytes[i + 2] != 84) continue;
+                if (imageBytes[i] != 80 || imageBytes[i + 1] != 76 || imageBytes[i + 2] != 84)
+                    continue;
                 n5 = i - 4;
                 break;
             }
@@ -111,17 +112,17 @@ public class Sprite {
                 n7 = Sprite.a(imageBytes[n2 + 2], n7);
             }
 
-            /* The first version I decompiled, using a website, does this intead of the two lines below:
-            var5 = ~var5;   // one's complement, inverts bits
-            var9 = var2 + 8 + var4;
-            var0[var9] = (byte)(var5 >> 24); */
+            /*
+             * The first version I decompiled, using a website, does this intead of the two
+             * lines below: var5 = ~var5; // one's complement, inverts bits var9 = var2 + 8
+             * + var4; var0[var9] = (byte)(var5 >> 24);
+             */
             int n2 = n5 + 8 + n6;
             imageBytes[n2] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
             imageBytes[n2 + 1] = (byte)(n7 >> 16);
             imageBytes[n2 + 2] = (byte)(n7 >> 8);
             imageBytes[n2 + 3] = (byte)n7;
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
