@@ -112,9 +112,10 @@ public class Sprite {
             }
 
             /*
-             * The first version I decompiled, using a website, does this intead of the two
-             * lines below: var5 = ~var5; // one's complement, inverts bits var9 = var2 + 8
-             * + var4; var0[var9] = (byte)(var5 >> 24);
+             * The first version I decompiled, using a website, does this intead of the two lines below:
+             * var5 = ~var5; // one's complement, inverts bits
+             * var9 = var2 + 8 + var4;
+             * var0[var9] = (byte)(var5 >> 24);
              */
             int index = n5 + 8 + n6;
             imageBytes[index] = (byte)((n7 ^= 0xFFFFFFFF) >> 24);
