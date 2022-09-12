@@ -73,8 +73,6 @@ public class Sprite {
     // TODO since there are images only for blu units, I suspect this creates the red versino
     private static void void_a(byte[] imageBytes, int n) {
         try {
-            int n2;
-            int n4;
             int n5 = 33;
             int n6 = imageBytes.length - 3;
             for (int i = 0; i < n6; ++i) {
@@ -82,7 +80,7 @@ public class Sprite {
                 n5 = i - 4;
                 break;
             }
-            n4 = n5;
+            int n4 = n5;
             n6 = 0;
             n6 = ((imageBytes[n4] & 0xFF) << 24 | (imageBytes[n4 + 1] & 0xFF) << 16 | (imageBytes[n4 + 2] & 0xFF) << 8 | imageBytes[n4 + 3] & 0xFF) & 0xFFFFFFFF;
             n4 += 4;
@@ -90,6 +88,7 @@ public class Sprite {
             for (int n3 = 0; n3 < 4; ++n3) {
                 n7 = Sprite.a(imageBytes[n4 + n3], n7);
             }
+            int n2;
             for (n2 = n4 += 4; n2 < n4 + n6; n2 += 3) {
                 int n8 = imageBytes[n2] & 0xFF;
                 int n9 = imageBytes[n2 + 1] & 0xFF;
