@@ -1540,10 +1540,10 @@ implements CommandListener {
         }
     }
 
-    public void void_c(int n, int n2) {
-        this.var_short_h = (short)n;
-        this.var_short_g = (short)n2;
-        this.mapCursorSheet.void_b(n * 24, n2 * 24);
+    public void void_c(int mapX, int mapY) {
+        this.var_short_h = (short)mapX;
+        this.var_short_g = (short)mapY;
+        this.mapCursorSheet.void_b(mapX * 24, mapY * 24);
         this.var_g_g.b();
     }
 

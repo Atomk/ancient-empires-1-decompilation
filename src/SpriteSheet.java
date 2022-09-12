@@ -168,9 +168,9 @@ public class SpriteSheet {
         }
     }
 
-    public void void_b(int n, int n2) {
-        this.var_short_b = (short)n;
-        this.l = (short)n2;
+    public void void_b(int mapPixelX, int mapPixelY) {
+        this.var_short_b = (short)mapPixelX;
+        this.l = (short)mapPixelY;
     }
 
     public void nextFrame() {
