@@ -884,7 +884,7 @@ public class g {
                         this.var_a_a.uiBtnIconSheet.setCurrentIndex(Class_I.BTN_ICON_INFO);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
-                        AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.var_byte_g], n3 - 2, 5, 0, 8);
+                        AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.currentPlayerIndex_XX], n3 - 2, 5, 0, 8);
                     }
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;

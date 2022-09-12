@@ -129,8 +129,8 @@ implements CommandListener {
     public int var_int_k;
     public long var_long_c;
     public byte var_byte_h = (byte)2;
-    public byte[] var_byte_arr_d = new byte[]{0, 1};
-    public byte var_byte_g;
+    private final byte[] players = new byte[]{PLAYER_BLUE, PLAYER_RED};
+    public byte currentPlayerIndex_XX;  // TODO is there any difference between this and the field below?
     public byte playerIndex_XX = 0;
     public short var_short_d;
     public Unit[] var_c_arr_a;
@@ -381,7 +381,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.var_byte_a);
         dataOutputStream.writeByte(this.currentLevel);
         dataOutputStream.writeByte(this.var_byte_h);
-        dataOutputStream.writeByte(this.var_byte_g);
+        dataOutputStream.writeByte(this.currentPlayerIndex_XX);
         dataOutputStream.writeShort(this.var_short_d);
         dataOutputStream.writeByte(this.strongestBuyableUnit);
         for (n = 0; n < this.var_byte_h; ++n) {
@@ -423,8 +423,8 @@ implements CommandListener {
         this.currentLevel = dataInputStream.readByte();
         this.var_byte_h = dataInputStream.readByte();
         this.void_a(this.currentLevel);
-        this.var_byte_g = dataInputStream.readByte();
-        this.playerIndex_XX = this.var_byte_arr_d[this.var_byte_g];
+        this.currentPlayerIndex_XX = dataInputStream.readByte();
+        this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         this.var_short_d = dataInputStream.readShort();
         this.strongestBuyableUnit = dataInputStream.readByte();
         for (int n2 = 0; n2 < this.var_byte_h; ++n2) {
@@ -578,7 +578,7 @@ implements CommandListener {
             this.a(this.sparkSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
         }
         this.var_long_g = this.var_long_n;
-        if (this.var_byte_arr_b[this.var_byte_g] == 0) {
+        if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 0) {
             this.var_long_j = this.var_long_n;
             this.var_byte_b = (byte)6;
         }
@@ -830,7 +830,7 @@ implements CommandListener {
     }
 
     public Unit c_a(int unitType, int mapX, int mapY) {
-        byte by = this.var_byte_g;
+        byte by = this.currentPlayerIndex_XX;
         this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[unitType];
         return Unit.spawn((byte)unitType, this.playerIndex_XX, mapX, mapY);
     }
@@ -846,7 +846,7 @@ implements CommandListener {
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_short_d = 0;
         this.playerIndex_XX = PLAYER_BLUE;
-        this.var_byte_g = 0;
+        this.currentPlayerIndex_XX = 0;
         this.currentLevelStep = 0;
         this.var_c_arr_a = null;
         this.var_java_util_Vector_a = new Vector<Unit>();
@@ -967,7 +967,7 @@ implements CommandListener {
         if (this.var_boolean_o) {
             return;
         }
-        if (this.var_byte_arr_b[this.var_byte_g] == 1) {
+        if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 1) {
             this.var_boolean_n = true;
             this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
             this.var_byte_i = (byte)3;
@@ -975,7 +975,7 @@ implements CommandListener {
             this.var_g_h.showMenuOptions(this.getUnitPossibleActions(unit, (byte)0));
             this.var_g_h.a((byte)8, 0, this.var_g_c.var_int_g, null, 0);
             AppCanvas.playSound(-1, 1);
-        } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
+        } else if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 0) {
             this.var_byte_b = (byte)4;
         }
     }
@@ -1201,7 +1201,7 @@ implements CommandListener {
                         unitSkeleton.void_b();
                         this.var_c_e = null;
                     }
-                } else if (this.var_byte_arr_b[this.var_byte_g] == 0) {
+                } else if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 0) {
                     this.p();
                 } else if (Class_I.appCanvas.a_instance == this && this.var_int_g == 0) {
                     if (this.var_boolean_t && appCanvas.boolean_c(1024)) {
@@ -1841,9 +1841,10 @@ implements CommandListener {
 
     public void l() {
         int n;
-        this.var_short_d = (short)(this.var_short_d + 1);
-        this.var_byte_g = (byte)((this.var_byte_g + 1) % this.var_byte_arr_d.length);
-        this.playerIndex_XX = this.var_byte_arr_d[this.var_byte_g];
+        this.var_short_d = (short)(this.var_short_d + 1);   // TODO ++
+        // This line changes the current player, but there's only two, so...
+        this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
+        this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         for (n = this.var_java_util_Vector_a.size() - 1; n >= 0; --n) {
             Unit c2 = this.var_java_util_Vector_a.elementAt(n);
             if (c2.var_byte_e == 3) {
@@ -1865,12 +1866,12 @@ implements CommandListener {
             for (int j = 0; j < this.var_byte_arr_arr_a[n].length; ++j) {
                 if (!this.boolean_a(n, j, (int)this.playerIndex_XX)) continue;
                 if (this.getTerrainType_ZZ(n, j) == f.TERRAIN_TOWN) {
-                    byte by = this.var_byte_g;
+                    byte by = this.currentPlayerIndex_XX;
                     this.var_int_arr_b[by] = this.var_int_arr_b[by] + 30;
                     continue;
                 }
                 if (this.getTerrainType_ZZ(n, j) != f.TERRAIN_CASTLE) continue;
-                byte by = this.var_byte_g;
+                byte by = this.currentPlayerIndex_XX;
                 this.var_int_arr_b[by] = this.var_int_arr_b[by] + 50;
             }
         }
@@ -1976,7 +1977,7 @@ implements CommandListener {
     private boolean boolean_a(int unitType) {
         short s = this.var_c_arr_a[this.playerIndex_XX].mapX;
         short s2 = this.var_c_arr_a[this.playerIndex_XX].mapY;
-        return Unit.unitsDataPrice[unitType] <= this.var_int_arr_b[this.var_byte_g] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        return Unit.unitsDataPrice[unitType] <= this.var_int_arr_b[this.currentPlayerIndex_XX] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
     public void p() throws Exception {
@@ -2206,7 +2207,7 @@ implements CommandListener {
         }
         n5 += this.getTerrainDefence_XX(this.getTerrainType_ZZ(n, n2), c2) * 2;
         for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
-            if (n4 == this.var_byte_g || this.var_c_arr_a[n4] == null) continue;
+            if (n4 == this.currentPlayerIndex_XX || this.var_c_arr_a[n4] == null) continue;
             n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
             break;
         }
