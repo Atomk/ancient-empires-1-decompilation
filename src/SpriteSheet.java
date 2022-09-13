@@ -269,7 +269,7 @@ public class SpriteSheet {
 
     private void e() {
         if (this.var_byte_c != 4) {
-            this.color_XX += -263168;
+            this.color_XX += -263168;   // 0xFFFBFC00 (#FBFC00 -> yellow)
         }
         for (int j = 0; j < 5; ++j) {
             if (!this.var_boolean_arr_a[j]) continue;

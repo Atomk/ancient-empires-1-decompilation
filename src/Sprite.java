@@ -75,6 +75,9 @@ public class Sprite {
         try {
             int n5 = 33;
             int n6 = imageBytes.length - 3;
+            // This loop looks for a specific pattern and stores
+            // the index 4 bytes before the start of the sequence
+            // rgb(80, 76, 84) is a dark gray
             for (int i = 0; i < n6; ++i) {
                 if (imageBytes[i] != 80 || imageBytes[i + 1] != 76 || imageBytes[i + 2] != 84)
                     continue;
@@ -139,6 +142,11 @@ public class Sprite {
             }
         }
         return n;
+        
+        // More compact loop: https://stackoverflow.com/a/18639999
+        /*for (int j = 0; j < 8; ++j) {
+            n = (n & 1) != 0 ? (n >>> 1) ^ 0xEDB88320 : (n >>> 1);
+        }*/
     }
 }
 
