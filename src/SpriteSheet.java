@@ -17,7 +17,6 @@ public class SpriteSheet {
     public short currentIndex = 0;
     public short var_short_b = 0;
     public short l = 0;
-    private boolean var_boolean_c = true;
     public boolean var_boolean_a = false;
     private byte var_byte_c = 0;
     public int var_int_c;
@@ -129,7 +128,6 @@ public class SpriteSheet {
         this.currentIndex = other.currentIndex;
         this.var_short_b = other.var_short_b;
         this.l = other.l;
-        this.var_boolean_c = other.var_boolean_c;
     }
 
     // TODO this is used only once
@@ -192,7 +190,7 @@ public class SpriteSheet {
             } else {
                 graphics.drawLine(this.var_short_b - 4, this.l - 2, (int)this.var_short_b, (int)this.l);
             }
-        } else if (this.var_boolean_c) {
+        } else {
             int spriteX = this.var_short_b + x;
             int spriteY = this.l + y;
             /* TODO spriteReorderTable and currentIndex are closely related,
