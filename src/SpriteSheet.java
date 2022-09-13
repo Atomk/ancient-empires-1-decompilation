@@ -151,9 +151,9 @@ public class SpriteSheet {
     }
 
     // TODO note that it will do nothing if there's a custom reorder table set up
-    public void setCurrentIndex(int currentIndex) {
-        if (currentIndex < this.spriteReorderTable.length) {
-            this.currentIndex = (byte)currentIndex;
+    public void setCurrentIndex(int index) {
+        if (index < this.spriteReorderTable.length) {
+            this.currentIndex = (short)index;
         }
     }
 
