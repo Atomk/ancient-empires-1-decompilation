@@ -135,7 +135,7 @@ public class Sprite {
             if ((n & 1) != 0) {
                 n = n >>> 1 ^ 0xEDB88320;
             } else {
-                n >>>= 1;
+                n = n >>> 1;
             }
         }
         return n;
