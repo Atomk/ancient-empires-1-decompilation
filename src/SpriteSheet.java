@@ -18,8 +18,6 @@ public class SpriteSheet {
     public short var_short_b = 0;
     public short l = 0;
     private boolean var_boolean_c = true;
-    private short spritesWidth;
-    private short spritesHeight;
     public boolean var_boolean_a = false;
     private byte var_byte_c = 0;
     public int var_int_c;
@@ -98,8 +96,6 @@ public class SpriteSheet {
 
          // TODO this sould be closed above the try-catch block, the stream is not used there
         inputStream.close();
-        this.spritesWidth = this.sprites[0].width;
-        this.spritesHeight = this.sprites[0].height;
 
         // By default, there is no sprite reordering
         this.spriteReorderTable = new byte[tileCount];
@@ -121,9 +117,6 @@ public class SpriteSheet {
             }
         }
 
-        this.spritesWidth = (short)tileWidth;
-        this.spritesHeight = (short)tileHeight;
-
         this.spriteReorderTable = new byte[tileCount];
         for (byte j = 0; j < tileCount; j++) {
             this.spriteReorderTable[j] = j;
@@ -137,14 +130,12 @@ public class SpriteSheet {
         this.var_short_b = other.var_short_b;
         this.l = other.l;
         this.var_boolean_c = other.var_boolean_c;
-        this.spritesWidth = other.spritesWidth;
-        this.spritesHeight = other.spritesHeight;
     }
 
     // TODO this is used only once
     private SpriteSheet(int spritesWidth, int spritesHeight) {
-        this.spritesWidth = (short)spritesWidth;
-        this.spritesHeight = (short)spritesHeight;
+        //this.spritesWidth = (short)spritesWidth;
+        //this.spritesHeight = (short)spritesHeight;
     }
 
     public short getSpritesWidth() {
