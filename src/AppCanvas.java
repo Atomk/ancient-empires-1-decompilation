@@ -58,7 +58,7 @@ CommandListener {
     public int lastKeyPressedAction = 0;
     private long lastKeyPressedTime;
     private static SpriteSheet[] fontSheets;
-    public static Random randomGen;
+    private static Random randomGen;
     public static boolean[] settings;
     public static String[] settingsNames;
     private Sprite spriteMask;
@@ -98,6 +98,10 @@ CommandListener {
     public static int int_b(int n) {
         // 176 = width of splashbg.png and splashfg.png
         return n * 176 / 128;
+    }
+
+    public static int randomInt() {
+        return randomGen.nextInt();
     }
 
     // TODO the last three parameters are unused

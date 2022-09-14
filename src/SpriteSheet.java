@@ -218,13 +218,13 @@ public class SpriteSheet {
                 for (int j = 0; j < 5; ++j) {
                     newSpriteSheet.var_boolean_arr_a[j] = true;
                     if (by == 4) {
-                        newSpriteSheet.var_short_arr_arr_a[j][0] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
-                        newSpriteSheet.var_short_arr_arr_a[j][1] = (short)(AppCanvas.randomGen.nextInt() % 4 << 10);
+                        newSpriteSheet.var_short_arr_arr_a[j][0] = (short)(AppCanvas.randomInt() % 4 << 10);
+                        newSpriteSheet.var_short_arr_arr_a[j][1] = (short)(AppCanvas.randomInt() % 4 << 10);
                     } else {
-                        newSpriteSheet.var_short_arr_arr_a[j][0] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n5 + -4096);
-                        newSpriteSheet.var_short_arr_arr_a[j][1] = (short)(Math.abs(AppCanvas.randomGen.nextInt()) % n6 + -2048);
+                        newSpriteSheet.var_short_arr_arr_a[j][0] = (short)(Math.abs(AppCanvas.randomInt()) % n5 + -4096);
+                        newSpriteSheet.var_short_arr_arr_a[j][1] = (short)(Math.abs(AppCanvas.randomInt()) % n6 + -2048);
                     }
-                    newSpriteSheet.var_byte_arr_d[j] = (byte)(Math.abs(AppCanvas.randomGen.nextInt()) % 2 + 1);
+                    newSpriteSheet.var_byte_arr_d[j] = (byte)(Math.abs(AppCanvas.randomInt()) % 2 + 1);
                 }
             }
         }

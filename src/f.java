@@ -137,7 +137,7 @@ public class f {
         this.var_byte_arr_arr_c = new byte[this.j][this.n];
         for (n = 0; n < this.j; ++n) {
             for (int j = 0; j < this.n; ++j) {
-                this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(AppCanvas.randomGen.nextInt() % 10);
+                this.var_byte_arr_arr_c[n][j] = (byte)Math.abs(AppCanvas.randomInt() % 10);
                 this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? (byte)1 : 0);
             }
         }
@@ -198,11 +198,11 @@ public class f {
             this.var_e_arr_b[n].void_b(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
             if (c2.unitType == Unit.WYVERN) {
-                this.var_int_arr_d[n] = -8 - Math.abs(AppCanvas.randomGen.nextInt()) % 8;
+                this.var_int_arr_d[n] = -8 - Math.abs(AppCanvas.randomInt()) % 8;
             }
             if (c2.unitType != Unit.WISP) continue;
-            this.var_int_arr_d[n] = AppCanvas.randomGen.nextInt() % 5 - 8;
-            this.var_int_arr_c[n] = AppCanvas.randomGen.nextInt() % 5;
+            this.var_int_arr_d[n] = AppCanvas.randomInt() % 5 - 8;
+            this.var_int_arr_c[n] = AppCanvas.randomInt() % 5;
             this.var_boolean_arr_a[n] = this.var_int_arr_c[n] < 0;
         }
     }
@@ -308,7 +308,7 @@ public class f {
             case 5: {
                 boolean bl = true;
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
-                    if (this.var_c_a.unitType == Unit.WYVERN && AppCanvas.randomGen.nextInt() % 2 == 0) {
+                    if (this.var_c_a.unitType == Unit.WYVERN && AppCanvas.randomInt() % 2 == 0) {
                         SpriteSheet e3 = SpriteSheet.a(this.var_a_a.spriteSheetChimneySmoke, 0, -1, 1, 200, (byte)0);
                         e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
@@ -441,7 +441,7 @@ public class f {
                 this.var_int_a = 0;
             } else {
                 this.m = this.m > 0 ? -2 : 2;
-                this.var_int_a = AppCanvas.randomGen.nextInt() % 1;
+                this.var_int_a = AppCanvas.randomInt() % 1;
             }
         }
         if (var_byte_arr_a[this.var_c_a.unitType] == 1 || var_byte_arr_a[this.var_c_a.unitType] == 5 || var_byte_arr_a[this.var_c_a.unitType] == 0) {

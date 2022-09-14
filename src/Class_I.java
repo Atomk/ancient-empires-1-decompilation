@@ -2095,7 +2095,7 @@ implements CommandListener {
                                 ++n7;
                             }
                             if (n7 > 0) {
-                                n6 = byArray[Math.abs(AppCanvas.randomGen.nextInt()) % n7];
+                                n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
                                 c2 = this.c_a(n6, c2.mapX, c2.mapY);
                             }
                         }
@@ -3063,8 +3063,8 @@ implements CommandListener {
         int n = 0;
         int n2 = 0;
         if (this.var_boolean_q) {
-            n = AppCanvas.randomGen.nextInt() % 5;
-            n2 = AppCanvas.randomGen.nextInt() % 3;
+            n = AppCanvas.randomInt() % 5;
+            n2 = AppCanvas.randomInt() % 3;
         }
         this.var_f_b.a(graphics, n, n2);
         this.var_f_a.a(graphics, n + AppCanvas.h, n2);

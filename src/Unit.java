@@ -118,7 +118,7 @@ extends SpriteSheet {
         if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
             n2 += 3;
         }
-        if ((n = AppCanvas.randomGen.nextInt() % 20 + this.var_short_d) >= 19) {
+        if ((n = AppCanvas.randomInt() % 20 + this.var_short_d) >= 19) {
             n2 += 2;
         } else if (n >= 16) {
             ++n2;
@@ -128,7 +128,7 @@ extends SpriteSheet {
             --n2;
         }
         int n3 = unitsDataDEF[unit.unitType] + unit.var_short_e;
-        n = AppCanvas.randomGen.nextInt() % 20 + unit.var_short_d;
+        n = AppCanvas.randomInt() % 20 + unit.var_short_d;
         if (n >= 19) {
             n3 += 2;
         } else if (n >= 16) {
@@ -471,7 +471,7 @@ extends SpriteSheet {
     public void a(Graphics graphics, int x, int y) {
         if (this.var_boolean_e) {
             int n3 = this.var_boolean_b ? -2 : 2;
-            int n4 = AppCanvas.randomGen.nextInt() % 1;
+            int n4 = AppCanvas.randomInt() % 1;
             super.a(graphics, x + n3, y + n4);
         } else {
             super.a(graphics, x, y);
