@@ -844,7 +844,6 @@ implements CommandListener {
 
     // TODO write a tool to read level data
     public void void_a(int levelIndex) throws Exception {
-        short s;
         String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_short_d = 0;
@@ -885,14 +884,15 @@ implements CommandListener {
         this.var_byte_arr_arr_b = new byte[this.mapTilesWidth][this.mapTilesHeight];
         int n3 = 0;
         byte[][] byArray = new byte[30][3];
-        for (s = 0; s < this.mapTilesWidth; s = (short)(s + 1)) {
-            for (short s2 = 0; s2 < this.mapTilesHeight; s2 = (short)(s2 + 1)) {
-                this.mapTerrain[s][s2] = dataInputStream.readByte();
-                this.var_byte_arr_arr_b[s][s2] = 0;
-                if (this.mapTerrain[s][s2] < this.var_int_t) continue;
-                byArray[n3][0] = (byte)s;
-                byArray[n3][1] = (byte)s2;
-                byArray[n3][2] = (byte)this.int_a(s, (int)s2);
+        for (short mapX = 0; mapX < this.mapTilesWidth; mapX++) {
+            for (short mapY = 0; mapY < this.mapTilesHeight; mapY++) {
+                this.mapTerrain[mapX][mapY] = dataInputStream.readByte();
+                this.var_byte_arr_arr_b[mapX][mapY] = 0;
+                if (this.mapTerrain[mapX][mapY] < this.var_int_t)
+                    continue;
+                byArray[n3][0] = (byte)mapX;
+                byArray[n3][1] = (byte)mapY;
+                byArray[n3][2] = (byte)this.int_a(mapX, (int)mapY);
                 ++n3;
             }
         }
@@ -911,14 +911,15 @@ implements CommandListener {
         dataInputStream.skip(n4 * 4);
         int n5 = dataInputStream.readInt();
         this.var_c_arr_a = new Unit[this.var_byte_h];
-        for (s = 0; s < n5; s = (short)(s + 1)) {
+        for (short s = 0; s < n5; s = (short)(s + 1)) {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;
             byte unitType = (byte)(by % 11);
             byte unitOwner = (byte)(by / 11);
             Unit c2 = Unit.spawn(unitType, unitOwner, n6 / 24, n7 / 24);
-            if (unitType != Unit.KING) continue;
+            if (unitType != Unit.KING)
+                continue;
             this.var_c_arr_a[unitOwner] = c2;
         }
         dataInputStream.close();
