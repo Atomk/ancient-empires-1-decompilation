@@ -51,6 +51,8 @@ extends Class_I {
         for (int playerIndex = 0; playerIndex < 2; ++playerIndex) {
             byte[] sheetImgBytesCopy = new byte[sheetImgBytes.length];
             System.arraycopy(sheetImgBytes, 0, sheetImgBytesCopy, 0, sheetImgBytes.length);
+            // TODO maybe it's not necessary to copy the image bytes since fromByteArray already copies them
+            // This line creates a spritesheet with colors matching the player (index 0 = blue, 1 = red)
             Sprite spriteSheetImage = Sprite.fromByteArray(sheetImgBytesCopy, playerIndex);
             for (int unitIndex = 0; unitIndex < 11; ++unitIndex) {
                 Sprite sprite = new Sprite(spriteSheetImage, unitIndex, 0, 10, 10);
