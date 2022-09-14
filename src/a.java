@@ -13,7 +13,7 @@ extends Class_I {
     private Sprite spriteSplashBackground;
     private Sprite spriteSplashForeground;
     private Sprite spriteMacrospaceCoyrightText;
-    public SpriteSheet[][] var_e_arr_arr_c;
+    public SpriteSheet[][] miniMapUnitsSheets;
     private int I = -15;
     private int B;
     //private int var_int_d = 0;    // Unused
@@ -42,7 +42,8 @@ extends Class_I {
         this.var_e_arr_arr_a = new SpriteSheet[2][11];
         this.b = new Sprite[Class_I.terrainTypeNames.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
-        this.var_e_arr_arr_c = new SpriteSheet[2][11];
+
+        this.miniMapUnitsSheets = new SpriteSheet[2][11];
         // Spritesheet containing 11 (one for every unit type) 10x10 pixel images in the same row
         // These are used in the minimap
         byte[] fileBytes = AppCanvas.getFileBytes("unit_icons_s.png");
@@ -52,9 +53,11 @@ extends Class_I {
             Sprite h2 = Sprite.fromByteArray(imageBytesCopy, playerIndex);
             for (int unitIndex = 0; unitIndex < 11; ++unitIndex) {
                 Sprite sprite = new Sprite(h2, unitIndex, 0, 10, 10);
-                this.var_e_arr_arr_c[playerIndex][unitIndex] = new SpriteSheet(sprite, 10, 10);
+                // TODO this looks unnecessarily complicates, could probably be an array of sprites
+                this.miniMapUnitsSheets[playerIndex][unitIndex] = new SpriteSheet(sprite, 10, 10);
             }
         }
+
         this.spriteSheetChimneySmoke = new SpriteSheet("b_smoke");
         this.spritePanelDefense = new Sprite("defencepanel.png");
         // Shoun in the battle screen when one of the units on screen dies

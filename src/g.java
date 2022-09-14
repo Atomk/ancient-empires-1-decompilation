@@ -978,7 +978,7 @@ public class g {
                     int unitsCount = this.var_a_a.mapUnitsList.size();
                     for (int i = 0; i < unitsCount; ++i) {
                         Unit unit = this.var_a_a.mapUnitsList.elementAt(i);
-                        this.var_a_a.var_e_arr_arr_c[unit.owner][unit.unitType].a(graphics, unit.mapX * miniMapTileWidth, unit.mapY * miniMapTileHeight);
+                        this.var_a_a.miniMapUnitsSheets[unit.owner][unit.unitType].a(graphics, unit.mapX * miniMapTileWidth, unit.mapY * miniMapTileHeight);
                     }
                     break;
                 }
