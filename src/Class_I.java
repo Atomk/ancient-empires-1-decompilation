@@ -425,7 +425,7 @@ implements CommandListener {
         this.var_byte_a = dataInputStream.readByte();
         this.currentLevel = dataInputStream.readByte();
         this.var_byte_h = dataInputStream.readByte();
-        this.void_a(this.currentLevel);
+        this.loadLevelData(this.currentLevel);
         this.currentPlayerIndex_XX = dataInputStream.readByte();
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         this.var_short_d = dataInputStream.readShort();
@@ -667,7 +667,7 @@ implements CommandListener {
             appCanvas.repaint();
             appCanvas.serviceRepaints();
             this.m();
-            this.void_a(this.currentLevel);
+            this.loadLevelData(this.currentLevel);
             this.var_boolean_l = false;
             this.var_byte_i = 0;
         } else if (string.equals(AppCanvas.getGameText(2))) {   // SELECT LEVEL
@@ -732,7 +732,7 @@ implements CommandListener {
             appCanvas.repaint();
             appCanvas.serviceRepaints();
             this.m();
-            this.void_a(this.var_int_h);
+            this.loadLevelData(this.var_int_h);
             this.currentLevel = this.var_int_h;
             this.var_g_e.a((byte)0, 0, 0, null, 0);
             this.var_boolean_l = false;
@@ -843,7 +843,7 @@ implements CommandListener {
     }
 
     // TODO write a tool to read level data
-    public void void_a(int levelIndex) throws Exception {
+    public void loadLevelData(int levelIndex) throws Exception {
         String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_short_d = 0;
@@ -1085,7 +1085,7 @@ implements CommandListener {
                                 this.levelsData[0] = (byte)this.currentLevel;
                                 appCanvas.savePersistentData("levels", this.levelsData);
                             }
-                            this.void_a(this.currentLevel);
+                            this.loadLevelData(this.currentLevel);
                             this.var_byte_i = 0;
                         } else if (this.var_byte_i == 11) {
                             this.var_int_r = 0;
