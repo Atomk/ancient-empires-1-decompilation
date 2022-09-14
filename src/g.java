@@ -864,7 +864,7 @@ public class g {
                             SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.playerIndex_XX][this.buyableUnits[n16]];
                             e2.a(graphics, n17, n18);
                             if (this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] < Unit.unitsDataPrice[this.buyableUnits[n16]]) {
-                                Class_I.appCanvas.a(graphics, n17, n18, e2.getSpritesWidth(), e2.getSpritesHeight(), -1328628059);
+                                Class_I.appCanvas.drawSpriteMask(graphics, n17, n18, e2.getSpritesWidth(), e2.getSpritesHeight(), -1328628059);
                             }
                             if (n16 == this.unitType_XX) {
                                 this.var_a_a.spriteMenuPointer.draw(graphics, n17 - this.var_a_a.spriteMenuPointer.width + this.p, n18);
