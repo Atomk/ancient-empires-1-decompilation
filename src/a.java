@@ -43,16 +43,17 @@ extends Class_I {
         this.b = new Sprite[Class_I.terrainTypeNames.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
 
+        // This contains the unit sprites used only in the minimap
+        // TODO move in the same class as miniMapTerrainTiles
         this.miniMapUnitsSheets = new SpriteSheet[2][11];
         // Spritesheet containing 11 (one for every unit type) 10x10 pixel images in the same row
-        // These are used in the minimap
-        byte[] fileBytes = AppCanvas.getFileBytes("unit_icons_s.png");
+        byte[] sheetImgBytes = AppCanvas.getFileBytes("unit_icons_s.png");
         for (int playerIndex = 0; playerIndex < 2; ++playerIndex) {
-            byte[] imageBytesCopy = new byte[fileBytes.length];
-            System.arraycopy(fileBytes, 0, imageBytesCopy, 0, fileBytes.length);
-            Sprite h2 = Sprite.fromByteArray(imageBytesCopy, playerIndex);
+            byte[] sheetImgBytesCopy = new byte[sheetImgBytes.length];
+            System.arraycopy(sheetImgBytes, 0, sheetImgBytesCopy, 0, sheetImgBytes.length);
+            Sprite spriteSheetImage = Sprite.fromByteArray(sheetImgBytesCopy, playerIndex);
             for (int unitIndex = 0; unitIndex < 11; ++unitIndex) {
-                Sprite sprite = new Sprite(h2, unitIndex, 0, 10, 10);
+                Sprite sprite = new Sprite(spriteSheetImage, unitIndex, 0, 10, 10);
                 // TODO this looks unnecessarily complicates, could probably be an array of sprites
                 this.miniMapUnitsSheets[playerIndex][unitIndex] = new SpriteSheet(sprite, 10, 10);
             }
