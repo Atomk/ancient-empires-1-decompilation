@@ -861,11 +861,11 @@ implements CommandListener {
         // TODO playersCount
         this.playersMoney = new int[this.var_byte_h];
         if (this.var_byte_a == 1) {
-            this.playersMoney[0] = 1000;
-            this.playersMoney[1] = 1000;
+            this.playersMoney[PLAYER_BLUE] = 1000;
+            this.playersMoney[PLAYER_RED] = 1000;
         } else {
-            this.playersMoney[0] = 300;
-            this.playersMoney[1] = 300;
+            this.playersMoney[PLAYER_BLUE] = 300;
+            this.playersMoney[PLAYER_RED] = 300;
         }
         this.var_boolean_v = true;
         //AppCanvas.readAssetsPackage("/1.pak");
@@ -2303,7 +2303,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 // TODO the step 0 is executed somewhere else...look for string 103 and this.currentLevelStep
                 case 1: {
-                    this.playersMoney[0] = 0;
+                    this.playersMoney[PLAYER_BLUE] = 0;
                     // TODO I think this animates the camera/map to show another area
                     this.void_b(8, 9);
                     ++this.currentLevelStep;
@@ -2430,7 +2430,7 @@ implements CommandListener {
         } else if (this.currentLevel == 1) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.playersMoney[0] = 0;
+                    this.playersMoney[PLAYER_BLUE] = 0;
                     this.strongestBuyableUnit = 2;
                     this.void_b(9, 12);
                     break;
@@ -2567,7 +2567,7 @@ implements CommandListener {
         } else if (this.currentLevel == 2) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.playersMoney[0] = 0;
+                    this.playersMoney[PLAYER_BLUE] = 0;
                     this.c_a((int)14, (int)12, (byte)0).customName = AppCanvas.getGameText(45); // LIZARD CHIEF
                     this.void_b(7, 12);
                     break;
