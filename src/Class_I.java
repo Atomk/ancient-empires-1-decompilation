@@ -1829,8 +1829,8 @@ implements CommandListener {
         return null;
     }
 
-    public byte getTerrainType_ZZ(int n, int n2) {
-        return this.var_byte_arr_j[this.var_byte_arr_arr_a[n][n2]];
+    public byte getTerrainType_ZZ(int xIndex, int yIndex) {
+        return this.var_byte_arr_j[this.var_byte_arr_arr_a[xIndex][yIndex]];
     }
 
     public int getTerrainDefence_XX(byte terrainType, Unit unit) {
@@ -1904,9 +1904,9 @@ implements CommandListener {
         }
     }
 
-    public int int_a(int n, int n2) {
-        if (this.var_byte_arr_arr_a[n][n2] >= this.var_int_t) {
-            return (this.var_byte_arr_arr_a[n][n2] - this.var_int_t) / 3 - 1;
+    public int int_a(int xIndex, int yIndex) {
+        if (this.var_byte_arr_arr_a[xIndex][yIndex] >= this.var_int_t) {
+            return (this.var_byte_arr_arr_a[xIndex][yIndex] - this.var_int_t) / 3 - 1;
         }
         return -1;
     }
