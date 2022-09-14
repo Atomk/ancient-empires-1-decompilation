@@ -498,7 +498,7 @@ public class g {
                         }
                         if (bl) {
                             bl = false;
-                            if (this.var_byte_a != 2 || this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] >= Unit.unitsDataPrice[this.buyableUnits[this.unitType_XX]]) {
+                            if (this.var_byte_a != 2 || this.var_a_a.playersMoney[this.var_a_a.playerIndex_XX] >= Unit.unitsDataPrice[this.buyableUnits[this.unitType_XX]]) {
                                 if (this.var_byte_a == 2) {
                                     this.var_a_a.a((int)this.buyableUnits[this.unitType_XX], "", this);
                                 } else {
@@ -863,7 +863,7 @@ public class g {
                         for (int k = 0; k < this.w; ++k) {
                             SpriteSheet e2 = this.var_a_a.var_e_arr_arr_b[this.var_a_a.playerIndex_XX][this.buyableUnits[n16]];
                             e2.a(graphics, n17, n18);
-                            if (this.var_a_a.var_int_arr_b[this.var_a_a.playerIndex_XX] < Unit.unitsDataPrice[this.buyableUnits[n16]]) {
+                            if (this.var_a_a.playersMoney[this.var_a_a.playerIndex_XX] < Unit.unitsDataPrice[this.buyableUnits[n16]]) {
                                 Class_I.appCanvas.drawSpriteMask(graphics, n17, n18, e2.getSpritesWidth(), e2.getSpritesHeight(), -1328628059);
                             }
                             if (n16 == this.unitType_XX) {
@@ -884,7 +884,7 @@ public class g {
                         this.var_a_a.uiBtnIconSheet.setCurrentIndex(Class_I.BTN_ICON_INFO);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
-                        AppCanvas.a(graphics, "" + this.var_a_a.var_int_arr_b[this.var_a_a.currentPlayerIndex_XX], n3 - 2, 5, 0, 8);
+                        AppCanvas.a(graphics, "" + this.var_a_a.playersMoney[this.var_a_a.currentPlayerIndex_XX], n3 - 2, 5, 0, 8);
                     }
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;

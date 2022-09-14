@@ -134,7 +134,7 @@ implements CommandListener {
     public byte playerIndex_XX = 0;
     public short var_short_d;
     public Unit[] var_c_arr_a;
-    public int[] var_int_arr_b;
+    public int[] playersMoney;
     public byte[] var_byte_arr_b = new byte[]{1, 0};
     public Vector<g> var_java_util_Vector_e = new Vector<g>();
     public g var_g_c;
@@ -359,7 +359,7 @@ implements CommandListener {
                     }
                     if (j != 1) continue;
                     byte by = this.playerIndex_XX;
-                    this.var_int_arr_b[by] = this.var_int_arr_b[by] + 1000;
+                    this.playersMoney[by] = this.playersMoney[by] + 1000;
                     continue;
                 }
                 if (!var_java_lang_String_arr_d[j].startsWith(string)) continue;
@@ -389,7 +389,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.strongestBuyableUnit);
         for (n = 0; n < this.var_byte_h; ++n) {
             dataOutputStream.writeByte(this.var_byte_arr_b[n]);
-            dataOutputStream.writeShort(this.var_int_arr_b[n]);
+            dataOutputStream.writeShort(this.playersMoney[n]);
         }
         for (n = 0; n < this.var_byte_arr_arr_e.length; ++n) {
             if (this.mapTerrain[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]] < this.var_int_t) continue;
@@ -432,7 +432,7 @@ implements CommandListener {
         this.strongestBuyableUnit = dataInputStream.readByte();
         for (int n2 = 0; n2 < this.var_byte_h; ++n2) {
             this.var_byte_arr_b[n2] = dataInputStream.readByte();
-            this.var_int_arr_b[n2] = dataInputStream.readShort();
+            this.playersMoney[n2] = dataInputStream.readShort();
         }
         for (int n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
             if (this.mapTerrain[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t)
@@ -834,7 +834,7 @@ implements CommandListener {
 
     public Unit c_a(int unitType, int mapX, int mapY) {
         byte by = this.currentPlayerIndex_XX;
-        this.var_int_arr_b[by] = this.var_int_arr_b[by] - Unit.unitsDataPrice[unitType];
+        this.playersMoney[by] = this.playersMoney[by] - Unit.unitsDataPrice[unitType];
         return Unit.spawn((byte)unitType, this.playerIndex_XX, mapX, mapY);
     }
 
@@ -858,13 +858,14 @@ implements CommandListener {
         this.var_g_g.var_c_a = null;
         this.mapTerrain = null;
         this.mapValues_XX = null;
-        this.var_int_arr_b = new int[this.var_byte_h];
+        // TODO playersCount
+        this.playersMoney = new int[this.var_byte_h];
         if (this.var_byte_a == 1) {
-            this.var_int_arr_b[0] = 1000;
-            this.var_int_arr_b[1] = 1000;
+            this.playersMoney[0] = 1000;
+            this.playersMoney[1] = 1000;
         } else {
-            this.var_int_arr_b[0] = 300;
-            this.var_int_arr_b[1] = 300;
+            this.playersMoney[0] = 300;
+            this.playersMoney[1] = 300;
         }
         this.var_boolean_v = true;
         //AppCanvas.readAssetsPackage("/1.pak");
@@ -1871,12 +1872,12 @@ implements CommandListener {
                 if (!this.boolean_a(mapX, mapY, (int)this.playerIndex_XX)) continue;
                 if (this.getTerrainType_ZZ(mapX, mapY) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
-                    this.var_int_arr_b[by] = this.var_int_arr_b[by] + 30;
+                    this.playersMoney[by] = this.playersMoney[by] + 30;
                     continue;
                 }
                 if (this.getTerrainType_ZZ(mapX, mapY) != f.TERRAIN_CASTLE) continue;
                 byte by = this.currentPlayerIndex_XX;
-                this.var_int_arr_b[by] = this.var_int_arr_b[by] + 50;
+                this.playersMoney[by] = this.playersMoney[by] + 50;
             }
         }
         int n = this.var_short_h;
@@ -1981,7 +1982,7 @@ implements CommandListener {
     private boolean boolean_a(int unitType) {
         short s = this.var_c_arr_a[this.playerIndex_XX].mapX;
         short s2 = this.var_c_arr_a[this.playerIndex_XX].mapY;
-        return Unit.unitsDataPrice[unitType] <= this.var_int_arr_b[this.currentPlayerIndex_XX] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.mapTilesWidth - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.mapTilesHeight - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        return Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.mapTilesWidth - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.mapTilesHeight - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
     public void p() throws Exception {
@@ -2302,7 +2303,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 // TODO the step 0 is executed somewhere else...look for string 103 and this.currentLevelStep
                 case 1: {
-                    this.var_int_arr_b[0] = 0;
+                    this.playersMoney[0] = 0;
                     // TODO I think this animates the camera/map to show another area
                     this.void_b(8, 9);
                     ++this.currentLevelStep;
@@ -2429,7 +2430,7 @@ implements CommandListener {
         } else if (this.currentLevel == 1) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.var_int_arr_b[0] = 0;
+                    this.playersMoney[0] = 0;
                     this.strongestBuyableUnit = 2;
                     this.void_b(9, 12);
                     break;
@@ -2566,7 +2567,7 @@ implements CommandListener {
         } else if (this.currentLevel == 2) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.var_int_arr_b[0] = 0;
+                    this.playersMoney[0] = 0;
                     this.c_a((int)14, (int)12, (byte)0).customName = AppCanvas.getGameText(45); // LIZARD CHIEF
                     this.void_b(7, 12);
                     break;
