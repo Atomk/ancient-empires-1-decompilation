@@ -55,11 +55,11 @@ public class Sprite {
     private Sprite() {
     }
 
-    public static Sprite fromByteArray(byte[] imageData, int n) {
-        if (n != 0) {
+    public static Sprite fromByteArray(byte[] imageData, int playerIndex) {
+        if (playerIndex != Class_I.PLAYER_BLUE) {
             byte[] bytesCopy = new byte[imageData.length];
             System.arraycopy(imageData, 0, bytesCopy, 0, imageData.length);
-            Sprite.void_a(bytesCopy, n);
+            Sprite.void_a(bytesCopy, playerIndex);
             imageData = bytesCopy;
         }
         Sprite newSprite = new Sprite();
@@ -71,7 +71,7 @@ public class Sprite {
     }
 
     // TODO since there are images only for blu units, I suspect this creates the red versino
-    private static void void_a(byte[] imageBytes, int n) {
+    private static void void_a(byte[] imageBytes, int playerIndex) {
         try {
             int n5 = 33;
             int n6 = imageBytes.length - 3;
@@ -96,12 +96,13 @@ public class Sprite {
                 int n9 = imageBytes[i + 1] & 0xFF;
                 int n10 = imageBytes[i + 2] & 0xFF;
                 if (n10 > n8 && n10 > n9) {
-                    if (n == 1) {
+                    if (playerIndex == Class_I.PLAYER_RED) {
                         int n11 = n8;
                         n8 = n10;
                         n10 = n11;
                         n9 /= 2;
-                    } else if (n == 2) {
+                    // TODO there is no player 2, what's the effect of this?
+                    } else if (playerIndex == 2) {
                         n8 = n10;
                         n9 = n10;
                     }

@@ -309,10 +309,10 @@ implements CommandListener {
             this.var_byte_arr_j[s] = dataInputStream.readByte();
         }
 
-        SpriteSheet e2 = new SpriteSheet("tiles0");
-        Sprite[] hArray = e2.sprites;
+        SpriteSheet tempSpritesheet = new SpriteSheet("tiles0");
+        Sprite[] hArray = tempSpritesheet.sprites;
         this.var_int_t = hArray.length;
-        e2 = null;
+        tempSpritesheet = null;
 
         byte[] imageBytes = AppCanvas.getFileBytes("buildings.png");
         Sprite[] buildingsSpritesArr = new Sprite[9];
@@ -332,9 +332,9 @@ implements CommandListener {
         // 10x10 tiles used in the minimap
         // This set also contains sprites for neutral and red buildings,
         // while all other sheets contain sprites only for the blue player
-        e2 = new SpriteSheet("stiles0");
-        this.miniMapTerrainTiles = e2.sprites;
-        e2 = null;
+        tempSpritesheet = new SpriteSheet("stiles0");
+        this.miniMapTerrainTiles = tempSpritesheet.sprites;
+        tempSpritesheet = null;
         
         this.var_h_arr_a = new Sprite[2];
         this.var_int_l = waterTilesIndex[0];
