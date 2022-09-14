@@ -956,6 +956,7 @@ public class g {
                     // This code draws the minimap
                     short miniMapTileWidth = this.var_a_a.miniMapTerrainTiles[0].width;
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
+                    
                     int y = 0;
                     for (int yIndex = 0; yIndex < this.var_a_a.var_short_b; ++yIndex) {
                         int x = 0;
@@ -970,10 +971,13 @@ public class g {
                         }
                         y += miniMapTileHeight;
                     }
-                    if (this.p != 0) break;
+
+                    if (this.p != 0)
+                        break;
+
                     int unitsCount = this.var_a_a.var_java_util_Vector_a.size();
                     for (int i = 0; i < unitsCount; ++i) {
-                        Unit unit = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(i);
+                        Unit unit = this.var_a_a.var_java_util_Vector_a.elementAt(i);
                         this.var_a_a.var_e_arr_arr_c[unit.owner][unit.unitType].a(graphics, unit.mapX * miniMapTileWidth, unit.mapY * miniMapTileHeight);
                     }
                     break;
