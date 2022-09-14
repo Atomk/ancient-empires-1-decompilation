@@ -954,14 +954,12 @@ public class g {
                 }
                 case 7: {
                     // This code draws the minimap
-                    int n27;
-                    int n28;
                     short miniMapTileWidth = this.var_a_a.miniMapTerrainTiles[0].width;
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
                     int y = 0;
-                    for (n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
+                    for (int n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
                         int x = 0;
-                        for (n27 = 0; n27 < this.var_a_a.var_short_e; ++n27) {
+                        for (int n27 = 0; n27 < this.var_a_a.var_short_e; ++n27) {
                             int terrainType = this.var_a_a.getTerrainType_ZZ(n27, n28);
                             int n32 = this.var_a_a.int_a(n27, n28);
                             if (n32 >= 0) {
@@ -973,8 +971,8 @@ public class g {
                         y += miniMapTileHeight;
                     }
                     if (this.p != 0) break;
-                    n27 = this.var_a_a.var_java_util_Vector_a.size();
-                    for (n28 = 0; n28 < n27; ++n28) {
+                    int n27 = this.var_a_a.var_java_util_Vector_a.size();
+                    for (int n28 = 0; n28 < n27; ++n28) {
                         Unit c2 = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(n28);
                         this.var_a_a.var_e_arr_arr_c[c2.owner][c2.unitType].a(graphics, c2.mapX * miniMapTileWidth, c2.mapY * miniMapTileHeight);
                     }
