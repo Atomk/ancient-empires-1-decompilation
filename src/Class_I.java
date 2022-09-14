@@ -116,7 +116,7 @@ implements CommandListener {
     public Unit var_c_h = null;
     public int var_int_c;
     public int var_int_v;
-    public byte[][] var_byte_arr_arr_b;
+    public byte[][] mapValues_XX;
     public boolean var_boolean_h = false;
     public boolean var_boolean_j = false;
     public boolean var_boolean_n = true;
@@ -628,8 +628,8 @@ implements CommandListener {
         this.L = 0xFFFFFFF;
         this.var_byte_i = 1;
         this.var_boolean_v = true;
-        this.a(this.var_byte_arr_arr_b, 0);
-        unit.b(this.var_byte_arr_arr_b);
+        this.a(this.mapValues_XX, 0);
+        unit.b(this.mapValues_XX);
         this.var_boolean_h = true;
         this.var_boolean_j = false;
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[2]);
@@ -638,7 +638,7 @@ implements CommandListener {
     public void c() {
         if (this.var_byte_i == 3) {
             this.var_c_h.setPosition(this.var_int_c, this.var_int_v);
-            this.var_c_h.b(this.var_byte_arr_arr_b);
+            this.var_c_h.b(this.mapValues_XX);
             this.a(this.var_c_h);
             this.var_boolean_v = true;
         }
@@ -778,7 +778,7 @@ implements CommandListener {
                 this.var_boolean_d = false;
                 this.a(this.var_c_h);
             } else if (string.equals(AppCanvas.getGameText(28))) {  // ATTACK
-                this.a(this.var_byte_arr_arr_b, 0);
+                this.a(this.mapValues_XX, 0);
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
                 this.var_boolean_v = true;
@@ -786,7 +786,7 @@ implements CommandListener {
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
-                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
+                this.var_c_h.a(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
@@ -815,7 +815,7 @@ implements CommandListener {
                 this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)1);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
-                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
+                this.var_c_h.a(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
             } else if (string.equals(AppCanvas.getGameText(35))) {
                 g g6 = new g(this, (byte)7, 0);
@@ -857,7 +857,7 @@ implements CommandListener {
         this.var_c_d = null;
         this.var_g_g.var_c_a = null;
         this.mapTerrain = null;
-        this.var_byte_arr_arr_b = null;
+        this.mapValues_XX = null;
         this.var_int_arr_b = new int[this.var_byte_h];
         if (this.var_byte_a == 1) {
             this.var_int_arr_b[0] = 1000;
@@ -881,13 +881,13 @@ implements CommandListener {
         this.mapTilesWidth = (short)dataInputStream.readInt();
         this.mapTilesHeight = (short)dataInputStream.readInt();
         this.mapTerrain = new byte[this.mapTilesWidth][this.mapTilesHeight];
-        this.var_byte_arr_arr_b = new byte[this.mapTilesWidth][this.mapTilesHeight];
+        this.mapValues_XX = new byte[this.mapTilesWidth][this.mapTilesHeight];
         int n3 = 0;
         byte[][] byArray = new byte[30][3];
         for (short mapX = 0; mapX < this.mapTilesWidth; mapX++) {
             for (short mapY = 0; mapY < this.mapTilesHeight; mapY++) {
                 this.mapTerrain[mapX][mapY] = dataInputStream.readByte();
-                this.var_byte_arr_arr_b[mapX][mapY] = 0;
+                this.mapValues_XX[mapX][mapY] = 0;
                 if (this.mapTerrain[mapX][mapY] < this.var_int_t)
                     continue;
                 byArray[n3][0] = (byte)mapX;
@@ -951,7 +951,7 @@ implements CommandListener {
         this.var_int_w = 0;
         this.var_c_h = null;
         this.var_c_arr_b = new Unit[0];
-        this.a(this.var_byte_arr_arr_b, 0);
+        this.a(this.mapValues_XX, 0);
         this.var_boolean_h = false;
         this.var_boolean_j = false;
     }
@@ -966,7 +966,7 @@ implements CommandListener {
 
     public void c(Unit unit) {
         this.b((Unit)null);
-        this.a(this.var_byte_arr_arr_b, 0);
+        this.a(this.mapValues_XX, 0);
         this.var_boolean_h = false;
         if (this.var_boolean_o) {
             return;
@@ -1297,7 +1297,7 @@ implements CommandListener {
                             }
                             if (this.var_boolean_v) {
                                 if (this.var_byte_i == 1) {
-                                    if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0) {
+                                    if (this.mapValues_XX[this.var_short_h][this.var_short_g] > 0) {
                                         this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                                     }
                                 } else {
@@ -1309,7 +1309,7 @@ implements CommandListener {
                         if (this.var_byte_i == 1) {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x10) != 0 && this.var_c_h != null) {
                                 Unit unit_c_a = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
-                                if (this.var_byte_arr_arr_b[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
+                                if (this.mapValues_XX[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.mapX;
                                     this.var_int_v = this.var_c_h.mapY;
                                     this.var_c_h.void_a(this.var_short_h, this.var_short_g);
@@ -1341,8 +1341,8 @@ implements CommandListener {
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
-                                    this.a(this.var_byte_arr_arr_b, 0);
-                                    this.var_c_h.a(this.var_byte_arr_arr_b);
+                                    this.a(this.mapValues_XX, 0);
+                                    this.var_c_h.a(this.mapValues_XX);
                                     this.var_boolean_j = true;
                                     this.var_boolean_h = true;
                                 }
@@ -1416,7 +1416,7 @@ implements CommandListener {
             if (this.var_boolean_r && appCanvas.boolean_c(2048)) {
                 if (this.var_byte_i == 1) {
                     this.var_byte_i = 0;
-                    this.a(this.var_byte_arr_arr_b, 0);
+                    this.a(this.mapValues_XX, 0);
                     this.var_boolean_h = false;
                     this.var_boolean_j = false;
                     this.var_java_util_Vector_b = null;
@@ -1602,17 +1602,17 @@ implements CommandListener {
                 if (this.var_byte_arr_j[by] == 8) {
                     this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
                 }
-                if (this.var_boolean_h && this.var_byte_arr_arr_b[s6][s5] > 0) {
-                    if (s6 > 0 && this.var_byte_arr_arr_b[s6 - 1][s5] <= 0) {
+                if (this.var_boolean_h && this.mapValues_XX[s6][s5] > 0) {
+                    if (s6 > 0 && this.mapValues_XX[s6 - 1][s5] <= 0) {
                         graphics.fillRect(n3, n2, 2, 24);
                     }
-                    if (s6 < this.mapTilesWidth - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
+                    if (s6 < this.mapTilesWidth - 1 && this.mapValues_XX[s6 + 1][s5] <= 0) {
                         graphics.fillRect(n3 + 24 - 2, n2, 2, 24);
                     }
-                    if (s5 > 0 && this.var_byte_arr_arr_b[s6][s5 - 1] <= 0) {
+                    if (s5 > 0 && this.mapValues_XX[s6][s5 - 1] <= 0) {
                         graphics.fillRect(n3, n2, 24, 2);
                     }
-                    if (s5 < this.mapTilesHeight - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
+                    if (s5 < this.mapTilesHeight - 1 && this.mapValues_XX[s6][s5 + 1] <= 0) {
                         graphics.fillRect(n3, n2 + 24 - 2, 24, 2);
                     }
                 }
@@ -1988,7 +1988,7 @@ implements CommandListener {
         if (this.var_byte_b == 4) {
             if (this.var_c_g != null || this.var_c_a != null) {
                 this.var_byte_b = (byte)5;
-                this.var_c_h.a(this.var_byte_arr_arr_b, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
+                this.var_c_h.a(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_j = true;
                 this.var_boolean_h = true;
                 this.var_long_j = this.var_long_n;
@@ -2106,8 +2106,8 @@ implements CommandListener {
                 this.b(c2);
                 this.var_c_h = c2;
                 this.var_boolean_n = true;
-                this.a(this.var_byte_arr_arr_b, 0);
-                this.var_c_h.b(this.var_byte_arr_arr_b);
+                this.a(this.mapValues_XX, 0);
+                this.var_c_h.b(this.mapValues_XX);
                 this.var_boolean_h = false;
                 this.var_c_arr_c = this.c_arr_a(0, -1, this.playerIndex_XX);
                 n7 = 666;
@@ -2124,13 +2124,13 @@ implements CommandListener {
                 }
                 this.var_byte_b = (byte)3;
                 n5 = 0;
-                n4 = this.var_byte_arr_arr_b.length;
+                n4 = this.mapValues_XX.length;
                 for (n6 = 0; n6 < n4; ++n6) {
-                    n2 = this.var_byte_arr_arr_b[n6].length;
+                    n2 = this.mapValues_XX[n6].length;
                     for (n3 = 0; n3 < n2; ++n3) {
                         int n8;
                         Unit c3 = this.c_a(n6, n3, (byte)0);
-                        if (this.var_byte_arr_arr_b[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
+                        if (this.mapValues_XX[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
                         if (!c2.isType(Unit.CATAPULT_FLAG) || c3 == c2) {
                             Unit[] cArray = c2.a(n6, n3, (byte)0);
                             for (int k = 0; k < cArray.length; ++k) {
@@ -2499,7 +2499,7 @@ implements CommandListener {
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 1, 5);
                     Unit unitLizard_1 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
                     this.b(unitLizard_1);
-                    unitLizard_1.b(this.var_byte_arr_arr_b);
+                    unitLizard_1.b(this.mapValues_XX);
                     // TODO I think this makes the lizard walk to the location
                     // Ref: https://youtu.be/6MTmxnNygSw?t=371
                     unitLizard_1.void_a(9, 2);
@@ -2511,7 +2511,7 @@ implements CommandListener {
                     if (this.var_byte_i == 1) break;
                     Unit unitLizard_2 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
                     this.b(unitLizard_2);
-                    unitLizard_2.b(this.var_byte_arr_arr_b);
+                    unitLizard_2.b(this.mapValues_XX);
                     unitLizard_2.void_a(10, 1);
                     this.void_b(1000);
                     ++this.currentLevelStep;

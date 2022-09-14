@@ -247,17 +247,17 @@ extends Class_I {
                         this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
                     }
                 }
-                if (this.var_boolean_h && this.var_byte_arr_arr_b[s6][s5] > 0) {
-                    if (s6 > 0 && this.var_byte_arr_arr_b[s6 - 1][s5] <= 0) {
+                if (this.var_boolean_h && this.mapValues_XX[s6][s5] > 0) {
+                    if (s6 > 0 && this.mapValues_XX[s6 - 1][s5] <= 0) {
                         graphics.fillRect(x, y, 4, 24);
                     }
-                    if (s6 < this.mapTilesWidth - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
+                    if (s6 < this.mapTilesWidth - 1 && this.mapValues_XX[s6 + 1][s5] <= 0) {
                         graphics.fillRect(x + 24 - 4, y, 4, 24);
                     }
-                    if (s5 > 0 && this.var_byte_arr_arr_b[s6][s5 - 1] <= 0) {
+                    if (s5 > 0 && this.mapValues_XX[s6][s5 - 1] <= 0) {
                         graphics.fillRect(x, y, 24, 4);
                     }
-                    if (s5 < this.mapTilesHeight - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
+                    if (s5 < this.mapTilesHeight - 1 && this.mapValues_XX[s6][s5 + 1] <= 0) {
                         graphics.fillRect(x, y + 24 - 4, 24, 4);
                     }
                 }
