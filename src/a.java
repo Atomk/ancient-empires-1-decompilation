@@ -51,7 +51,8 @@ extends Class_I {
             System.arraycopy(fileBytes, 0, imageBytesCopy, 0, fileBytes.length);
             Sprite h2 = Sprite.fromByteArray(imageBytesCopy, playerIndex);
             for (int unitIndex = 0; unitIndex < 11; ++unitIndex) {
-                this.var_e_arr_arr_c[playerIndex][unitIndex] = new SpriteSheet(new Sprite(h2, unitIndex, 0, 10, 10), 10, 10);
+                Sprite sprite = new Sprite(h2, unitIndex, 0, 10, 10);
+                this.var_e_arr_arr_c[playerIndex][unitIndex] = new SpriteSheet(sprite, 10, 10);
             }
         }
         this.spriteSheetChimneySmoke = new SpriteSheet("b_smoke");
