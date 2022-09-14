@@ -89,7 +89,7 @@ extends SpriteSheet {
         this.mapPixelX = (short)(mapX * TILE_SIZE);
         ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
         this.void_b(mapX * TILE_SIZE, mapY * TILE_SIZE);
-        Unit.iClassRef.var_java_util_Vector_a.addElement(this);
+        Unit.iClassRef.mapUnitsList.addElement(this);
     }
 
     public void b(int n) {
@@ -429,17 +429,17 @@ extends SpriteSheet {
         this.var_byte_e = (byte)2;
         Unit c3 = iClassRef.c_a((int)this.mapX, (int)this.mapY, (byte)1);
         if (c3 != null) {
-            Unit.iClassRef.var_java_util_Vector_a.removeElement(c3);
+            Unit.iClassRef.mapUnitsList.removeElement(c3);
         }
-        int n2 = Unit.iClassRef.var_java_util_Vector_a.size();
+        int n2 = Unit.iClassRef.mapUnitsList.size();
         for (n = 0; n < n2; ++n) {
-            c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
+            c2 = (Unit)Unit.iClassRef.mapUnitsList.elementAt(n);
             if (c2.owner != this.owner) continue;
             c2.removeStatus(Unit.STATUS_AURA);
         }
-        n2 = Unit.iClassRef.var_java_util_Vector_a.size();
+        n2 = Unit.iClassRef.mapUnitsList.size();
         for (n = 0; n < n2; ++n) {
-            c2 = (Unit)Unit.iClassRef.var_java_util_Vector_a.elementAt(n);
+            c2 = (Unit)Unit.iClassRef.mapUnitsList.elementAt(n);
             if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {

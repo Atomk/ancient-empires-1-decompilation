@@ -120,7 +120,7 @@ implements CommandListener {
     public boolean var_boolean_h = false;
     public boolean var_boolean_j = false;
     public boolean var_boolean_n = true;
-    public Vector<Unit> var_java_util_Vector_a = new Vector<Unit>();
+    public Vector<Unit> mapUnitsList = new Vector<Unit>();
     public int var_int_g = 0;
     public boolean var_boolean_u = true;
     public boolean B = true;
@@ -395,10 +395,10 @@ implements CommandListener {
             if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]] < this.var_int_t) continue;
             dataOutputStream.writeByte(this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]]);
         }
-        dataOutputStream.writeByte(this.var_java_util_Vector_a.size());
-        int n2 = this.var_java_util_Vector_a.size();
+        dataOutputStream.writeByte(this.mapUnitsList.size());
+        int n2 = this.mapUnitsList.size();
         for (n = 0; n < n2; ++n) {
-            Unit c2 = this.var_java_util_Vector_a.elementAt(n);
+            Unit c2 = this.mapUnitsList.elementAt(n);
             dataOutputStream.writeByte(c2.unitType);
             dataOutputStream.writeByte(c2.owner);
             dataOutputStream.writeByte(c2.var_byte_e);
@@ -439,7 +439,7 @@ implements CommandListener {
                 continue;
             this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
-        this.var_java_util_Vector_a = new Vector<Unit>();
+        this.mapUnitsList = new Vector<Unit>();
         int n3 = dataInputStream.readByte();
         for (int n = 0; n < n3; ++n) {
             byte unitType = dataInputStream.readByte();
@@ -852,7 +852,7 @@ implements CommandListener {
         this.currentPlayerIndex_XX = 0;
         this.currentLevelStep = 0;
         this.var_c_arr_a = null;
-        this.var_java_util_Vector_a = new Vector<Unit>();
+        this.mapUnitsList = new Vector<Unit>();
         this.var_c_h = null;
         this.var_c_arr_b = null;
         this.var_c_d = null;
@@ -1184,11 +1184,11 @@ implements CommandListener {
                         this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
                         if (this.var_byte_a == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
                             if (this.currentLevel != 6) {
-                                this.var_java_util_Vector_a.removeElement(this.var_c_c);
+                                this.mapUnitsList.removeElement(this.var_c_c);
                                 this.var_c_arr_a[1] = null;
                             }
                         } else if (this.var_c_c.unitType == Unit.SKELETON) {
-                            this.var_java_util_Vector_a.removeElement(this.var_c_c);
+                            this.mapUnitsList.removeElement(this.var_c_c);
                         } else {
                             this.var_c_c.var_byte_e = (byte)3;
                             this.var_c_c.var_int_b = this.var_short_d;
@@ -1198,7 +1198,7 @@ implements CommandListener {
                     }
                 } else if (this.var_c_e != null) {
                     if (this.var_long_n - this.var_long_i >= 400L) {
-                        this.var_java_util_Vector_a.removeElement(this.var_c_e);
+                        this.mapUnitsList.removeElement(this.var_c_e);
                         // TODO rename second parameter to playerIndex_ZZ
                         Unit unitSkeleton = Unit.spawn(Unit.SKELETON, this.var_byte_f, this.var_c_e.mapX, this.var_c_e.mapY);
                         unitSkeleton.void_b();
@@ -1401,9 +1401,9 @@ implements CommandListener {
                         this.var_g_g.a(false);
                     }
                 }
-                n2 = this.var_java_util_Vector_a.size();
+                n2 = this.mapUnitsList.size();
                 for (n = 0; n < n2; ++n) {
-                    this.var_java_util_Vector_a.elementAt(n).void_a();
+                    this.mapUnitsList.elementAt(n).void_a();
                 }
                 if (this.var_long_n - this.var_long_l >= 300L) {
                     this.var_int_y = (this.var_int_y + 1) % this.var_h_arr_a.length;
@@ -1695,9 +1695,9 @@ implements CommandListener {
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
                 this.d(graphics);
-                int n3 = this.var_java_util_Vector_a.size();
+                int n3 = this.mapUnitsList.size();
                 for (n2 = 0; n2 < n3; ++n2) {
-                    Unit c2 = this.var_java_util_Vector_a.elementAt(n2);
+                    Unit c2 = this.mapUnitsList.elementAt(n2);
                     if (c2.var_byte_e == 3) {
                         this.spriteTombstone.draw(graphics, this.var_short_f + c2.mapPixelX, this.var_short_a + ((SpriteSheet)c2).l);
                         continue;
@@ -1705,9 +1705,9 @@ implements CommandListener {
                     if (c2 == this.var_c_h) continue;
                     c2.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
                 }
-                n3 = this.var_java_util_Vector_a.size();
+                n3 = this.mapUnitsList.size();
                 for (n2 = 0; n2 < n3; ++n2) {
-                    this.var_java_util_Vector_a.elementAt(n2).b(graphics, this.var_short_f, this.var_short_a);
+                    this.mapUnitsList.elementAt(n2).b(graphics, this.var_short_f, this.var_short_a);
                 }
                 if (this.var_java_util_Vector_b != null) {
                     graphics.setColor(0xFFFFFF);
@@ -1820,9 +1820,9 @@ implements CommandListener {
     }
 
     public Unit c_a(int mapX, int mapY, byte by) {
-        int n3 = this.var_java_util_Vector_a.size();
+        int n3 = this.mapUnitsList.size();
         for (int j = 0; j < n3; ++j) {
-            Unit unit = this.var_java_util_Vector_a.elementAt(j);
+            Unit unit = this.mapUnitsList.elementAt(j);
             if (mapX != unit.mapX || mapY != unit.mapY || !(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
             return unit;
         }
@@ -1848,11 +1848,11 @@ implements CommandListener {
         // This line changes the current player, but there's only two, so...
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
-        for (n = this.var_java_util_Vector_a.size() - 1; n >= 0; --n) {
-            Unit c2 = this.var_java_util_Vector_a.elementAt(n);
+        for (n = this.mapUnitsList.size() - 1; n >= 0; --n) {
+            Unit c2 = this.mapUnitsList.elementAt(n);
             if (c2.var_byte_e == 3) {
                 if (this.var_short_d - c2.var_int_b < 3) continue;
-                this.var_java_util_Vector_a.removeElement(c2);
+                this.mapUnitsList.removeElement(c2);
                 continue;
             }
             c2.var_byte_e = 0;
@@ -1921,9 +1921,9 @@ implements CommandListener {
 
     private Unit[] c_arr_a(int unitType, int n2, byte playerIndex) {
         Vector<Unit> vector = new Vector<Unit>();
-        int n3 = this.var_java_util_Vector_a.size();
+        int n3 = this.mapUnitsList.size();
         for (int j = 0; j < n3; ++j) {
-            Unit c2 = this.var_java_util_Vector_a.elementAt(j);
+            Unit c2 = this.mapUnitsList.elementAt(j);
             if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.owner != playerIndex) continue;
             vector.addElement(c2);
         }
@@ -2071,7 +2071,7 @@ implements CommandListener {
                 }
                 return;
             }
-            int n = this.var_java_util_Vector_a.size();
+            int n = this.mapUnitsList.size();
             for (int j = 0; j < n; ++j) {
                 int n2;
                 int n3;
@@ -2079,7 +2079,7 @@ implements CommandListener {
                 int n5;
                 int n6;
                 int n7;
-                Unit c2 = this.var_java_util_Vector_a.elementAt(j);
+                Unit c2 = this.mapUnitsList.elementAt(j);
                 if (c2.owner != this.playerIndex_XX || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
