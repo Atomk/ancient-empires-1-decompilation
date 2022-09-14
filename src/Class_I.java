@@ -396,19 +396,19 @@ implements CommandListener {
             dataOutputStream.writeByte(this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]]);
         }
         dataOutputStream.writeByte(this.mapUnitsList.size());
-        int n2 = this.mapUnitsList.size();
-        for (n = 0; n < n2; ++n) {
-            Unit c2 = this.mapUnitsList.elementAt(n);
-            dataOutputStream.writeByte(c2.unitType);
-            dataOutputStream.writeByte(c2.owner);
-            dataOutputStream.writeByte(c2.var_byte_e);
-            dataOutputStream.writeByte(c2.statusFlags);
-            dataOutputStream.writeByte(c2.quantity);
-            dataOutputStream.writeByte(c2.var_short_d);
-            dataOutputStream.writeShort(c2.mapPixelX);
-            dataOutputStream.writeShort(c2.mapX);
-            dataOutputStream.writeShort(c2.mapY);
-            dataOutputStream.writeShort(c2.var_int_b);
+        int unitsCount = this.mapUnitsList.size();
+        for (n = 0; n < unitsCount; ++n) {
+            Unit unit = this.mapUnitsList.elementAt(n);
+            dataOutputStream.writeByte(unit.unitType);
+            dataOutputStream.writeByte(unit.owner);
+            dataOutputStream.writeByte(unit.var_byte_e);
+            dataOutputStream.writeByte(unit.statusFlags);
+            dataOutputStream.writeByte(unit.quantity);
+            dataOutputStream.writeByte(unit.var_short_d);
+            dataOutputStream.writeShort(unit.mapPixelX);
+            dataOutputStream.writeShort(unit.mapX);
+            dataOutputStream.writeShort(unit.mapY);
+            dataOutputStream.writeShort(unit.var_int_b);
         }
         dataOutputStream.writeShort(this.currentLevelStep);
         dataOutputStream.writeInt((short)this.var_long_h);
@@ -440,8 +440,8 @@ implements CommandListener {
             this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
         this.mapUnitsList = new Vector<Unit>();
-        int n3 = dataInputStream.readByte();
-        for (int n = 0; n < n3; ++n) {
+        int unitsCount = dataInputStream.readByte();
+        for (int n = 0; n < unitsCount; ++n) {
             byte unitType = dataInputStream.readByte();
             byte unitOwner = dataInputStream.readByte();
             byte by3 = dataInputStream.readByte();
@@ -1401,8 +1401,8 @@ implements CommandListener {
                         this.var_g_g.a(false);
                     }
                 }
-                n2 = this.mapUnitsList.size();
-                for (n = 0; n < n2; ++n) {
+                int unitsCount = this.mapUnitsList.size();
+                for (n = 0; n < unitsCount; ++n) {
                     this.mapUnitsList.elementAt(n).void_a();
                 }
                 if (this.var_long_n - this.var_long_l >= 300L) {
@@ -1820,8 +1820,8 @@ implements CommandListener {
     }
 
     public Unit c_a(int mapX, int mapY, byte by) {
-        int n3 = this.mapUnitsList.size();
-        for (int j = 0; j < n3; ++j) {
+        int unitsCount = this.mapUnitsList.size();
+        for (int j = 0; j < unitsCount; ++j) {
             Unit unit = this.mapUnitsList.elementAt(j);
             if (mapX != unit.mapX || mapY != unit.mapY || !(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
             return unit;
@@ -1849,21 +1849,21 @@ implements CommandListener {
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         for (n = this.mapUnitsList.size() - 1; n >= 0; --n) {
-            Unit c2 = this.mapUnitsList.elementAt(n);
-            if (c2.var_byte_e == 3) {
-                if (this.var_short_d - c2.var_int_b < 3) continue;
-                this.mapUnitsList.removeElement(c2);
+            Unit unit = this.mapUnitsList.elementAt(n);
+            if (unit.var_byte_e == 3) {
+                if (this.var_short_d - unit.var_int_b < 3) continue;
+                this.mapUnitsList.removeElement(unit);
                 continue;
             }
-            c2.var_byte_e = 0;
-            if (this.playerIndex_XX == c2.owner && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner)) {
-                c2.quantity = (short)(c2.quantity + 2);
-                if (c2.quantity > 10) {
-                    c2.quantity = (short)10;
+            unit.var_byte_e = 0;
+            if (this.playerIndex_XX == unit.owner && this.boolean_a((int)unit.mapX, (int)unit.mapY, (int)unit.owner)) {
+                unit.quantity = (short)(unit.quantity + 2);
+                if (unit.quantity > 10) {
+                    unit.quantity = (short)10;
                 }
             }
-            if (this.playerIndex_XX == c2.owner) continue;
-            c2.removeStatus(Unit.STATUS_POISON);
+            if (this.playerIndex_XX == unit.owner) continue;
+            unit.removeStatus(Unit.STATUS_POISON);
         }
         for (n = 0; n < this.var_byte_arr_arr_a.length; ++n) {
             for (int j = 0; j < this.var_byte_arr_arr_a[n].length; ++j) {
@@ -1921,11 +1921,11 @@ implements CommandListener {
 
     private Unit[] c_arr_a(int unitType, int n2, byte playerIndex) {
         Vector<Unit> vector = new Vector<Unit>();
-        int n3 = this.mapUnitsList.size();
-        for (int j = 0; j < n3; ++j) {
-            Unit c2 = this.mapUnitsList.elementAt(j);
-            if (unitType != -1 && c2.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != c2.var_byte_e || c2.owner != playerIndex) continue;
-            vector.addElement(c2);
+        int unitsCount = this.mapUnitsList.size();
+        for (int j = 0; j < unitsCount; ++j) {
+            Unit unit = this.mapUnitsList.elementAt(j);
+            if (unitType != -1 && unit.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != unit.var_byte_e || unit.owner != playerIndex) continue;
+            vector.addElement(unit);
         }
         Unit[] unitsArray = new Unit[vector.size()];
         vector.copyInto(unitsArray);
@@ -2071,8 +2071,8 @@ implements CommandListener {
                 }
                 return;
             }
-            int n = this.mapUnitsList.size();
-            for (int j = 0; j < n; ++j) {
+            int unitsCount = this.mapUnitsList.size();
+            for (int j = 0; j < unitsCount; ++j) {
                 int n2;
                 int n3;
                 int n4;

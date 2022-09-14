@@ -251,16 +251,16 @@ extends SpriteSheet {
         return this.a(n, n2, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], by);
     }
 
-    public Unit[] a(int n, int n2, int unitRangeMin, int unitRangeMax, byte by) {
+    public Unit[] a(int mapX, int mapY, int unitRangeMin, int unitRangeMax, byte by) {
         Vector<Unit> vector = new Vector<Unit>();
-        int n5 = n - unitRangeMax;
-        int n6 = n2 - unitRangeMax;
-        int n7 = n + unitRangeMax;
-        int n8 = n2 + unitRangeMax;
+        int n5 = mapX - unitRangeMax;
+        int n6 = mapY - unitRangeMax;
+        int n7 = mapX + unitRangeMax;
+        int n8 = mapY + unitRangeMax;
         for (int j = n5; j <= n7; ++j) {
             for (int k = n6; k <= n8; ++k) {
                 Unit c2;
-                int n9 = Math.abs(j - n) + Math.abs(k - n2);
+                int n9 = Math.abs(j - mapX) + Math.abs(k - mapY);
                 if (n9 < unitRangeMin || n9 > unitRangeMax) continue;
                 if (by == 0) {
                     c2 = iClassRef.c_a(j, k, (byte)0);
@@ -278,9 +278,9 @@ extends SpriteSheet {
                 vector.addElement(c2);
             }
         }
-        Unit[] objectArray = new Unit[vector.size()];
-        vector.copyInto(objectArray);
-        return objectArray;
+        Unit[] unitsArray = new Unit[vector.size()];
+        vector.copyInto(unitsArray);
+        return unitsArray;
     }
 
     public void void_a(int n, int n2) {
@@ -431,15 +431,15 @@ extends SpriteSheet {
         if (c3 != null) {
             Unit.iClassRef.mapUnitsList.removeElement(c3);
         }
-        int n2 = Unit.iClassRef.mapUnitsList.size();
-        for (n = 0; n < n2; ++n) {
-            c2 = (Unit)Unit.iClassRef.mapUnitsList.elementAt(n);
+        int unitsCount = Unit.iClassRef.mapUnitsList.size();
+        for (n = 0; n < unitsCount; ++n) {
+            c2 = Unit.iClassRef.mapUnitsList.elementAt(n);
             if (c2.owner != this.owner) continue;
             c2.removeStatus(Unit.STATUS_AURA);
         }
-        n2 = Unit.iClassRef.mapUnitsList.size();
-        for (n = 0; n < n2; ++n) {
-            c2 = (Unit)Unit.iClassRef.mapUnitsList.elementAt(n);
+        unitsCount = Unit.iClassRef.mapUnitsList.size();
+        for (n = 0; n < unitsCount; ++n) {
+            c2 = Unit.iClassRef.mapUnitsList.elementAt(n);
             if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
