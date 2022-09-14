@@ -956,7 +956,7 @@ public class g {
                     // This code draws the minimap
                     short miniMapTileWidth = this.var_a_a.miniMapTerrainTiles[0].width;
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
-                    
+
                     int y = 0;
                     for (int yIndex = 0; yIndex < this.var_a_a.var_short_b; ++yIndex) {
                         int x = 0;
