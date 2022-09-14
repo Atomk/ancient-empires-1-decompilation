@@ -251,7 +251,7 @@ extends SpriteSheet {
         return this.a(n, n2, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], by);
     }
 
-    public Unit[] a(int mapX, int mapY, int unitRangeMin, int unitRangeMax, byte by) {
+    private Unit[] a(int mapX, int mapY, int unitRangeMin, int unitRangeMax, byte by) {
         Vector<Unit> vector = new Vector<Unit>();
         int n5 = mapX - unitRangeMax;
         int n6 = mapY - unitRangeMax;
@@ -333,7 +333,7 @@ extends SpriteSheet {
         this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.k, -1);
     }
 
-    public void a(byte[][] byArray, int mapX, int mapY, int n3, int n4) {
+    private void a(byte[][] byArray, int mapX, int mapY, int n3, int n4) {
         int n5;
         if (n3 <= byArray[mapX][mapY]) {
             return;
