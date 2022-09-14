@@ -112,7 +112,7 @@ CommandListener {
 
     public void savePersistentData(String recordName, byte[] data) throws Exception {
         try {
-            RecordStore.deleteRecordStore((String)recordName);
+            RecordStore.deleteRecordStore(recordName);
         }
         catch (Exception exception) {
             // empty catch block
