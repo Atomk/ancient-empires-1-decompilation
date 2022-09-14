@@ -128,7 +128,7 @@ implements CommandListener {
     public int H;
     public int var_int_k;
     public long var_long_c;
-    public byte var_byte_h = (byte)2;
+    private byte levelPlayersCount = (byte)2;
     private final byte[] players = new byte[]{PLAYER_BLUE, PLAYER_RED};
     public byte currentPlayerIndex_XX;  // TODO is there any difference between this and the field below?
     public byte playerIndex_XX = 0;
@@ -383,11 +383,11 @@ implements CommandListener {
         DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
         dataOutputStream.writeByte(this.var_byte_a);
         dataOutputStream.writeByte(this.currentLevel);
-        dataOutputStream.writeByte(this.var_byte_h);
+        dataOutputStream.writeByte(this.levelPlayersCount);
         dataOutputStream.writeByte(this.currentPlayerIndex_XX);
         dataOutputStream.writeShort(this.var_short_d);
         dataOutputStream.writeByte(this.strongestBuyableUnit);
-        for (n = 0; n < this.var_byte_h; ++n) {
+        for (n = 0; n < this.levelPlayersCount; ++n) {
             dataOutputStream.writeByte(this.var_byte_arr_b[n]);
             dataOutputStream.writeShort(this.playersMoney[n]);
         }
@@ -424,13 +424,13 @@ implements CommandListener {
         DataInputStream dataInputStream = new DataInputStream(byteArrayInputStream);
         this.var_byte_a = dataInputStream.readByte();
         this.currentLevel = dataInputStream.readByte();
-        this.var_byte_h = dataInputStream.readByte();
+        this.levelPlayersCount = dataInputStream.readByte();
         this.loadLevelData(this.currentLevel);
         this.currentPlayerIndex_XX = dataInputStream.readByte();
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         this.var_short_d = dataInputStream.readShort();
         this.strongestBuyableUnit = dataInputStream.readByte();
-        for (int n2 = 0; n2 < this.var_byte_h; ++n2) {
+        for (int n2 = 0; n2 < this.levelPlayersCount; ++n2) {
             this.var_byte_arr_b[n2] = dataInputStream.readByte();
             this.playersMoney[n2] = dataInputStream.readShort();
         }
@@ -858,8 +858,8 @@ implements CommandListener {
         this.var_g_g.var_c_a = null;
         this.mapTerrain = null;
         this.mapValues_XX = null;
-        // TODO playersCount
-        this.playersMoney = new int[this.var_byte_h];
+        // TODO even though levelPlayersCount is not a constant, the game assumes there is always two players
+        this.playersMoney = new int[this.levelPlayersCount];
         if (this.var_byte_a == 1) {
             this.playersMoney[PLAYER_BLUE] = 1000;
             this.playersMoney[PLAYER_RED] = 1000;
@@ -911,7 +911,7 @@ implements CommandListener {
         int n4 = dataInputStream.readInt();
         dataInputStream.skip(n4 * 4);
         int n5 = dataInputStream.readInt();
-        this.var_c_arr_a = new Unit[this.var_byte_h];
+        this.var_c_arr_a = new Unit[this.levelPlayersCount];
         for (short s = 0; s < n5; s++) {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
