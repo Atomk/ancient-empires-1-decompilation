@@ -230,9 +230,9 @@ extends Class_I {
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
         int y = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
         if (this.var_boolean_j) {
-            graphics.setColor(this.L & 0xFF0000);
+            graphics.setColor(this.color_ZZ & 0xFF0000);
         } else {
-            graphics.setColor(this.L);
+            graphics.setColor(this.color_ZZ);
         }
         for (short s5 = s2; s5 <= s4; s5 = (short)(s5 + 1)) {
             int x = n;

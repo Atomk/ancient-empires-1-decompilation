@@ -193,8 +193,8 @@ implements CommandListener {
     public StringBuffer var_java_lang_StringBuffer_a = new StringBuffer();
     public int D;
     public Unit var_c_d = null;
-    public int L = 0;
-    public int E = -15790321;
+    public int color_ZZ = 0;
+    private int color_YY = -15790321;
     public int C = 6;
     public int G = this.C >> 1;
     public int K;
@@ -625,7 +625,7 @@ implements CommandListener {
     public void a(Unit unit) {
         this.var_boolean_t = true;
         this.var_boolean_r = !this.var_boolean_d;
-        this.L = 0xFFFFFFF;
+        this.color_ZZ = 0xFFFFFFF;
         this.var_byte_i = 1;
         this.var_boolean_v = true;
         this.a(this.mapValues_XX, 0);
@@ -1106,13 +1106,13 @@ implements CommandListener {
                     this.H = (this.H + 1) % 12;
                 }
                 if (this.var_boolean_h) {
-                    this.L += this.E;
-                    if (this.L >= 0xFFFFFF) {
-                        this.L = 0xFFFFFF;
-                        this.E = -986895;
-                    } else if (this.L <= 0x9F9F9F) {
-                        this.L = 0x9F9F9F;
-                        this.E = 986895;
+                    this.color_ZZ += this.color_YY;
+                    if (this.color_ZZ >= 0xFFFFFF) {
+                        this.color_ZZ = 0xFFFFFF;
+                        this.color_YY = -986895;
+                    } else if (this.color_ZZ <= 0x9F9F9F) {
+                        this.color_ZZ = 0x9F9F9F;
+                        this.color_YY = 986895;
                     }
                 }
                 if (this.var_boolean_n && this.var_long_n - this.var_long_k >= 200L) {
@@ -1590,9 +1590,9 @@ implements CommandListener {
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
         int n2 = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
         if (this.var_boolean_j) {
-            graphics.setColor(this.L & 0xFF0000);
+            graphics.setColor(this.color_ZZ & 0xFF0000);
         } else {
-            graphics.setColor(this.L);
+            graphics.setColor(this.color_ZZ);
         }
         for (short mapY = s2; mapY <= s4; mapY++) {
             int n3 = n;
