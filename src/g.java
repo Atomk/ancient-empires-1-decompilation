@@ -144,8 +144,8 @@ public class g {
         } else if (by == 7) {
             this.var_short_a = (short)400;
             this.var_boolean_a = true;
-            this.var_int_b = i2.var_short_e * i2.var_h_arr_d[0].width + 12;
-            this.var_int_g = i2.var_short_b * i2.var_h_arr_d[0].height + 12;
+            this.var_int_b = i2.var_short_e * i2.miniMapTerrainTiles[0].width + 12;
+            this.var_int_g = i2.var_short_b * i2.miniMapTerrainTiles[0].height + 12;
         }
         this.var_boolean_c = true;
     }
@@ -955,8 +955,8 @@ public class g {
                 case 7: {
                     int n27;
                     int n28;
-                    short s = this.var_a_a.var_h_arr_d[0].width;
-                    short s2 = this.var_a_a.var_h_arr_d[0].height;
+                    short s = this.var_a_a.miniMapTerrainTiles[0].width;
+                    short s2 = this.var_a_a.miniMapTerrainTiles[0].height;
                     int n29 = 0;
                     for (n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
                         int n30 = 0;
@@ -966,7 +966,7 @@ public class g {
                             if (n32 >= 0) {
                                 terrainType = 2 * (n32 + 1) + 7 + terrainType - 7;
                             }
-                            this.var_a_a.var_h_arr_d[terrainType].draw(graphics, n30, n29);
+                            this.var_a_a.miniMapTerrainTiles[terrainType].draw(graphics, n30, n29);
                             n30 += s;
                         }
                         n29 += s2;

@@ -81,7 +81,7 @@ implements CommandListener {
     public static final String[] terrainTypeNames;
     public static final byte[] terrainTypeMovementReduction_XXX;
     public int var_int_t;
-    public Sprite[] var_h_arr_d;
+    public Sprite[] miniMapTerrainTiles;
     public byte[] var_byte_arr_j;
     public short var_short_c;
     public short var_short_i;
@@ -329,8 +329,11 @@ implements CommandListener {
         System.arraycopy(buildingsSpritesArr, buildingsSpritesArr.length - 3, this.var_h_arr_c, hArray.length, 3);
         System.arraycopy(buildingsSpritesArr, 0, this.var_h_arr_c, hArray.length + 3, buildingsSpritesArr.length - 3);
 
+        // 10x10 tiles used in the minimap
+        // This set also contains sprites for neutral and red buildings,
+        // while all other sheets contain sprites only for the blue player
         e2 = new SpriteSheet("stiles0");
-        this.var_h_arr_d = e2.sprites;
+        this.miniMapTerrainTiles = e2.sprites;
         e2 = null;
         
         this.var_h_arr_a = new Sprite[2];
