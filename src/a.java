@@ -150,9 +150,9 @@ extends Class_I {
     public void void_a(int n) throws Exception {
         int n2;
         super.void_a(n);
-        this.var_byte_arr_arr_c = new byte[this.var_short_e][this.var_short_b];
-        for (n2 = 0; n2 < this.var_short_e; ++n2) {
-            for (int j = 0; j < this.var_short_b; ++j) {
+        this.var_byte_arr_arr_c = new byte[this.mapTilesWidth][this.mapTilesHeight];
+        for (n2 = 0; n2 < this.mapTilesWidth; ++n2) {
+            for (int j = 0; j < this.mapTilesHeight; ++j) {
                 if (this.boolean_a(n2, j)) {
                     this.var_byte_arr_arr_c[n2][j] = 3;
                     if (n2 > 0 && !this.boolean_a(n2 - 1, j)) {
@@ -160,12 +160,12 @@ extends Class_I {
                         int n3 = j;
                         byArray[n3] = (byte)(byArray[n3] + 1);
                     }
-                    if (n2 < this.var_short_e - 1 && !this.boolean_a(n2 + 1, j)) {
+                    if (n2 < this.mapTilesWidth - 1 && !this.boolean_a(n2 + 1, j)) {
                         byte[] byArray = this.var_byte_arr_arr_c[n2];
                         int n4 = j;
                         byArray[n4] = (byte)(byArray[n4] + 2);
                     }
-                    if (j < this.var_short_b - 1 && !this.boolean_a(n2, j + 1)) {
+                    if (j < this.mapTilesHeight - 1 && !this.boolean_a(n2, j + 1)) {
                         byte[] byArray = this.var_byte_arr_arr_c[n2];
                         int n5 = j;
                         byArray[n5] = (byte)(byArray[n5] + 4);
@@ -221,11 +221,11 @@ extends Class_I {
         if (AppCanvas.height2 % 24 != 0) {
             s4 = (short)(s4 + 1);
         }
-        if (s3 >= this.var_short_e) {
-            s3 = (short)(this.var_short_e - 1);
+        if (s3 >= this.mapTilesWidth) {
+            s3 = (short)(this.mapTilesWidth - 1);
         }
-        if (s4 >= this.var_short_b) {
-            s4 = (short)(this.var_short_b - 1);
+        if (s4 >= this.mapTilesHeight) {
+            s4 = (short)(this.mapTilesHeight - 1);
         }
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
         int y = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
@@ -251,13 +251,13 @@ extends Class_I {
                     if (s6 > 0 && this.var_byte_arr_arr_b[s6 - 1][s5] <= 0) {
                         graphics.fillRect(x, y, 4, 24);
                     }
-                    if (s6 < this.var_short_e - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
+                    if (s6 < this.mapTilesWidth - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
                         graphics.fillRect(x + 24 - 4, y, 4, 24);
                     }
                     if (s5 > 0 && this.var_byte_arr_arr_b[s6][s5 - 1] <= 0) {
                         graphics.fillRect(x, y, 24, 4);
                     }
-                    if (s5 < this.var_short_b - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
+                    if (s5 < this.mapTilesHeight - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
                         graphics.fillRect(x, y + 24 - 4, 24, 4);
                     }
                 }

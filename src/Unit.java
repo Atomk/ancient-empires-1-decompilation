@@ -218,11 +218,11 @@ extends SpriteSheet {
         if ((n5 = n2 - attackRangeMax) < 0) {
             n5 = 0;
         }
-        if ((n4 = n + attackRangeMax) >= Unit.iClassRef.var_short_e) {
-            n4 = Unit.iClassRef.var_short_e - 1;
+        if ((n4 = n + attackRangeMax) >= Unit.iClassRef.mapTilesWidth) {
+            n4 = Unit.iClassRef.mapTilesWidth - 1;
         }
-        if ((n3 = n2 + attackRangeMax) >= Unit.iClassRef.var_short_b) {
-            n3 = Unit.iClassRef.var_short_b - 1;
+        if ((n3 = n2 + attackRangeMax) >= Unit.iClassRef.mapTilesHeight) {
+            n3 = Unit.iClassRef.mapTilesHeight - 1;
         }
         for (int j = n6; j <= n4; ++j) {
             for (int k = n5; k <= n3; ++k) {
@@ -239,8 +239,8 @@ extends SpriteSheet {
             return;
         }
         this.b(byArray);
-        for (int j = 0; j < Unit.iClassRef.var_short_e; ++j) {
-            for (int k = 0; k < Unit.iClassRef.var_short_b; ++k) {
+        for (int j = 0; j < Unit.iClassRef.mapTilesWidth; ++j) {
+            for (int k = 0; k < Unit.iClassRef.mapTilesHeight; ++k) {
                 if (byArray[j][k] <= 0 || byArray[j][k] == 127) continue;
                 this.a(byArray, j, k);
             }
@@ -307,13 +307,13 @@ extends SpriteSheet {
         if (n4 > 0) {
             by = Unit.iClassRef.var_byte_arr_arr_b[n3][n4 - 1];
         }
-        if (n4 < Unit.iClassRef.var_short_b - 1) {
+        if (n4 < Unit.iClassRef.mapTilesHeight - 1) {
             by2 = Unit.iClassRef.var_byte_arr_arr_b[n3][n4 + 1];
         }
         if (n3 > 0) {
             by3 = Unit.iClassRef.var_byte_arr_arr_b[n3 - 1][n4];
         }
-        if (n3 < Unit.iClassRef.var_short_e - 1) {
+        if (n3 < Unit.iClassRef.mapTilesWidth - 1) {
             n6 = Unit.iClassRef.var_byte_arr_arr_b[n3 + 1][n4];
         }
         if ((n5 = Math.max(Math.max(by, by2), Math.max(by3, n6))) == by) {
@@ -354,7 +354,7 @@ extends SpriteSheet {
     }
 
     private int int_b(int mapX, int mapY) {
-        if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.var_short_e && mapY < Unit.iClassRef.var_short_b) {
+        if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.mapTilesWidth && mapY < Unit.iClassRef.mapTilesHeight) {
             Unit c2 = iClassRef.c_a(mapX, mapY, (byte)0);
             if (c2 != null && c2.owner != this.owner) {
                 return 1000;

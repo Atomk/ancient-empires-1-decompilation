@@ -144,8 +144,8 @@ public class g {
         } else if (by == 7) {
             this.var_short_a = (short)400;
             this.var_boolean_a = true;
-            this.var_int_b = i2.var_short_e * i2.miniMapTerrainTiles[0].width + 12;
-            this.var_int_g = i2.var_short_b * i2.miniMapTerrainTiles[0].height + 12;
+            this.var_int_b = i2.mapTilesWidth * i2.miniMapTerrainTiles[0].width + 12;
+            this.var_int_g = i2.mapTilesHeight * i2.miniMapTerrainTiles[0].height + 12;
         }
         this.var_boolean_c = true;
     }
@@ -958,9 +958,9 @@ public class g {
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
 
                     int y = 0;
-                    for (int yIndex = 0; yIndex < this.var_a_a.var_short_b; ++yIndex) {
+                    for (int yIndex = 0; yIndex < this.var_a_a.mapTilesHeight; ++yIndex) {
                         int x = 0;
-                        for (int xIndex = 0; xIndex < this.var_a_a.var_short_e; ++xIndex) {
+                        for (int xIndex = 0; xIndex < this.var_a_a.mapTilesWidth; ++xIndex) {
                             int terrainType = this.var_a_a.getTerrainType_ZZ(xIndex, yIndex);
                             int n32 = this.var_a_a.int_a(xIndex, yIndex);
                             if (n32 >= 0) {

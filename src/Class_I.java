@@ -87,8 +87,8 @@ implements CommandListener {
     public short var_short_i;
     public short var_short_f;
     public short var_short_a;
-    public short var_short_e;
-    public short var_short_b;
+    public short mapTilesWidth;
+    public short mapTilesHeight;
     private Sprite spriteTombstone;
     public Sprite[] var_h_arr_c;
     public Sprite spriteMenuPointer;
@@ -879,14 +879,14 @@ implements CommandListener {
             filename = "s" + n2;
         }
         DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(filename));
-        this.var_short_e = (short)dataInputStream.readInt();
-        this.var_short_b = (short)dataInputStream.readInt();
-        this.var_byte_arr_arr_a = new byte[this.var_short_e][this.var_short_b];
-        this.var_byte_arr_arr_b = new byte[this.var_short_e][this.var_short_b];
+        this.mapTilesWidth = (short)dataInputStream.readInt();
+        this.mapTilesHeight = (short)dataInputStream.readInt();
+        this.var_byte_arr_arr_a = new byte[this.mapTilesWidth][this.mapTilesHeight];
+        this.var_byte_arr_arr_b = new byte[this.mapTilesWidth][this.mapTilesHeight];
         int n3 = 0;
         byte[][] byArray = new byte[30][3];
-        for (s = 0; s < this.var_short_e; s = (short)(s + 1)) {
-            for (short s2 = 0; s2 < this.var_short_b; s2 = (short)(s2 + 1)) {
+        for (s = 0; s < this.mapTilesWidth; s = (short)(s + 1)) {
+            for (short s2 = 0; s2 < this.mapTilesHeight; s2 = (short)(s2 + 1)) {
                 this.var_byte_arr_arr_a[s][s2] = dataInputStream.readByte();
                 this.var_byte_arr_arr_b[s][s2] = 0;
                 if (this.var_byte_arr_arr_a[s][s2] < this.var_int_t) continue;
@@ -899,8 +899,8 @@ implements CommandListener {
         this.var_byte_arr_arr_e = new byte[n3][3];
         System.arraycopy(byArray, 0, this.var_byte_arr_arr_e, 0, n3);
         byArray = null;
-        this.var_short_c = (short)(this.var_short_e * 24);
-        this.var_short_i = (short)(this.var_short_b * 24);
+        this.var_short_c = (short)(this.mapTilesWidth * 24);
+        this.var_short_i = (short)(this.mapTilesHeight * 24);
         if (levelIndex == 6) {
             dataInputStream.close();
             dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream("m" + levelIndex));
@@ -956,8 +956,8 @@ implements CommandListener {
     }
 
     public void a(byte[][] byArray, int n) {
-        for (int j = 0; j < this.var_short_e; ++j) {
-            for (int k = 0; k < this.var_short_b; ++k) {
+        for (int j = 0; j < this.mapTilesWidth; ++j) {
+            for (int k = 0; k < this.mapTilesHeight; ++k) {
                 byArray[j][k] = (byte)n;
             }
         }
@@ -1270,7 +1270,7 @@ implements CommandListener {
                                     this.var_long_a = this.var_long_n;
                                 }
                             } else if (appCanvas.boolean_c(8) && (this.var_boolean_s || appCanvas.boolean_a(8))) {
-                                if (this.var_short_h < this.var_short_e - 1) {
+                                if (this.var_short_h < this.mapTilesWidth - 1) {
                                     this.var_short_h = (short)(this.var_short_h + 1);
                                 }
                                 this.var_boolean_s = false;
@@ -1287,7 +1287,7 @@ implements CommandListener {
                                     this.var_long_a = this.var_long_n;
                                 }
                             } else if (appCanvas.boolean_c(2) && (this.var_boolean_s || appCanvas.boolean_a(2))) {
-                                if (this.var_short_g < this.var_short_b - 1) {
+                                if (this.var_short_g < this.mapTilesHeight - 1) {
                                     this.var_short_g = (short)(this.var_short_g + 1);
                                 }
                                 this.var_boolean_s = false;
@@ -1580,11 +1580,11 @@ implements CommandListener {
         if (AppCanvas.height2 % 24 != 0) {
             s4 = (short)(s4 + 1);
         }
-        if (s3 >= this.var_short_e) {
-            s3 = (short)(this.var_short_e - 1);
+        if (s3 >= this.mapTilesWidth) {
+            s3 = (short)(this.mapTilesWidth - 1);
         }
-        if (s4 >= this.var_short_b) {
-            s4 = (short)(this.var_short_b - 1);
+        if (s4 >= this.mapTilesHeight) {
+            s4 = (short)(this.mapTilesHeight - 1);
         }
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
         int n2 = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
@@ -1605,13 +1605,13 @@ implements CommandListener {
                     if (s6 > 0 && this.var_byte_arr_arr_b[s6 - 1][s5] <= 0) {
                         graphics.fillRect(n3, n2, 2, 24);
                     }
-                    if (s6 < this.var_short_e - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
+                    if (s6 < this.mapTilesWidth - 1 && this.var_byte_arr_arr_b[s6 + 1][s5] <= 0) {
                         graphics.fillRect(n3 + 24 - 2, n2, 2, 24);
                     }
                     if (s5 > 0 && this.var_byte_arr_arr_b[s6][s5 - 1] <= 0) {
                         graphics.fillRect(n3, n2, 24, 2);
                     }
-                    if (s5 < this.var_short_b - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
+                    if (s5 < this.mapTilesHeight - 1 && this.var_byte_arr_arr_b[s6][s5 + 1] <= 0) {
                         graphics.fillRect(n3, n2 + 24 - 2, 24, 2);
                     }
                 }
@@ -1980,7 +1980,7 @@ implements CommandListener {
     private boolean boolean_a(int unitType) {
         short s = this.var_c_arr_a[this.playerIndex_XX].mapX;
         short s2 = this.var_c_arr_a[this.playerIndex_XX].mapY;
-        return Unit.unitsDataPrice[unitType] <= this.var_int_arr_b[this.currentPlayerIndex_XX] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.var_short_e - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.var_short_b - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        return Unit.unitsDataPrice[unitType] <= this.var_int_arr_b[this.currentPlayerIndex_XX] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.mapTilesWidth - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.mapTilesHeight - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
     }
 
     public void p() throws Exception {
@@ -2176,7 +2176,7 @@ implements CommandListener {
         switch (c2.unitType) {
             case Unit.SOLDIER: {
                 if (this.var_c_arr_a[c2.owner] != null && this.var_int_z != -1) {
-                    n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
+                    n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
                 if (terrainTypeMovementReduction_XXX[this.getTerrainType_ZZ(n, n2)] <= 1) {
@@ -2211,14 +2211,14 @@ implements CommandListener {
         n5 += this.getTerrainDefence_XX(this.getTerrainType_ZZ(n, n2), c2) * 2;
         for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
             if (n4 == this.currentPlayerIndex_XX || this.var_c_arr_a[n4] == null) continue;
-            n5 += (this.var_short_e - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.var_short_b - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
+            n5 += (this.mapTilesWidth - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.mapTilesHeight - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
             break;
         }
         if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.boolean_a(n, n2, (int)c2.owner)) {
             n5 += (10 - c2.quantity) * 2;
         }
         if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {
-            n4 = this.var_short_e - Math.abs(this.var_int_z - n) + this.var_short_b - Math.abs(this.var_int_o - n2);
+            n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
             n5 += n4 * n4;
         }
         if (this.currentLevel == 2 && this.var_int_z != -1) {
@@ -2230,7 +2230,7 @@ implements CommandListener {
             if (n3 < 0) {
                 n3 = 0;
             }
-            int n6 = this.var_short_e - n4 * 2 + this.var_short_b - n3 * 2;
+            int n6 = this.mapTilesWidth - n4 * 2 + this.mapTilesHeight - n3 * 2;
             n5 += n6 * n6;
         }
         return n5 += 10 * (Math.abs(n - c2.mapX) + Math.abs(n2 - c2.mapY)) / (Unit.unitsDataMOV[c2.unitType] - 1);
