@@ -911,16 +911,16 @@ implements CommandListener {
         dataInputStream.skip(n4 * 4);
         int n5 = dataInputStream.readInt();
         this.var_c_arr_a = new Unit[this.var_byte_h];
-        for (short s = 0; s < n5; s = (short)(s + 1)) {
+        for (short s = 0; s < n5; s++) {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;
             byte unitType = (byte)(by % 11);
             byte unitOwner = (byte)(by / 11);
-            Unit c2 = Unit.spawn(unitType, unitOwner, n6 / 24, n7 / 24);
+            Unit unit = Unit.spawn(unitType, unitOwner, n6 / 24, n7 / 24);
             if (unitType != Unit.KING)
                 continue;
-            this.var_c_arr_a[unitOwner] = c2;
+            this.var_c_arr_a[unitOwner] = unit;
         }
         dataInputStream.close();
         //AppCanvas.e();
@@ -1594,25 +1594,25 @@ implements CommandListener {
         } else {
             graphics.setColor(this.L);
         }
-        for (short s5 = s2; s5 <= s4; s5 = (short)(s5 + 1)) {
+        for (short mapY = s2; mapY <= s4; mapY++) {
             int n3 = n;
-            for (short s6 = s; s6 <= s3; s6 = (short)(s6 + 1)) {
-                byte by = this.mapTerrain[s6][s5];
+            for (short mapX = s; mapX <= s3; mapX++) {
+                byte by = this.mapTerrain[mapX][mapY];
                 this.var_h_arr_c[by].draw(graphics, n3, n2);
                 if (this.var_byte_arr_j[by] == 8) {
                     this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
                 }
-                if (this.var_boolean_h && this.mapValues_XX[s6][s5] > 0) {
-                    if (s6 > 0 && this.mapValues_XX[s6 - 1][s5] <= 0) {
+                if (this.var_boolean_h && this.mapValues_XX[mapX][mapY] > 0) {
+                    if (mapX > 0 && this.mapValues_XX[mapX - 1][mapY] <= 0) {
                         graphics.fillRect(n3, n2, 2, 24);
                     }
-                    if (s6 < this.mapTilesWidth - 1 && this.mapValues_XX[s6 + 1][s5] <= 0) {
+                    if (mapX < this.mapTilesWidth - 1 && this.mapValues_XX[mapX + 1][mapY] <= 0) {
                         graphics.fillRect(n3 + 24 - 2, n2, 2, 24);
                     }
-                    if (s5 > 0 && this.mapValues_XX[s6][s5 - 1] <= 0) {
+                    if (mapY > 0 && this.mapValues_XX[mapX][mapY - 1] <= 0) {
                         graphics.fillRect(n3, n2, 24, 2);
                     }
-                    if (s5 < this.mapTilesHeight - 1 && this.mapValues_XX[s6][s5 + 1] <= 0) {
+                    if (mapY < this.mapTilesHeight - 1 && this.mapValues_XX[mapX][mapY + 1] <= 0) {
                         graphics.fillRect(n3, n2 + 24 - 2, 24, 2);
                     }
                 }

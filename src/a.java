@@ -147,9 +147,9 @@ extends Class_I {
         }
     }
 
-    public void void_a(int n) throws Exception {
+    public void void_a(int levelIndex) throws Exception {
         int n2;
-        super.void_a(n);
+        super.void_a(levelIndex);
         this.var_byte_arr_arr_c = new byte[this.mapTilesWidth][this.mapTilesHeight];
         for (n2 = 0; n2 < this.mapTilesWidth; ++n2) {
             for (int j = 0; j < this.mapTilesHeight; ++j) {
