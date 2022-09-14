@@ -105,7 +105,7 @@ implements CommandListener {
     public SpriteSheet uiPortraitSheet;
     public short var_short_h;
     public short var_short_g;
-    public byte[][] var_byte_arr_arr_a;
+    public byte[][] mapTerrain;
     public byte var_byte_i;
     public byte var_byte_e;
     public long var_long_n;
@@ -392,8 +392,8 @@ implements CommandListener {
             dataOutputStream.writeShort(this.var_int_arr_b[n]);
         }
         for (n = 0; n < this.var_byte_arr_arr_e.length; ++n) {
-            if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]] < this.var_int_t) continue;
-            dataOutputStream.writeByte(this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]]);
+            if (this.mapTerrain[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]] < this.var_int_t) continue;
+            dataOutputStream.writeByte(this.mapTerrain[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]]);
         }
         dataOutputStream.writeByte(this.mapUnitsList.size());
         int unitsCount = this.mapUnitsList.size();
@@ -435,9 +435,9 @@ implements CommandListener {
             this.var_int_arr_b[n2] = dataInputStream.readShort();
         }
         for (int n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
-            if (this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t)
+            if (this.mapTerrain[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t)
                 continue;
-            this.var_byte_arr_arr_a[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
+            this.mapTerrain[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
         }
         this.mapUnitsList = new Vector<Unit>();
         int unitsCount = dataInputStream.readByte();
@@ -489,7 +489,7 @@ implements CommandListener {
 
         if (this.currentLevel == 2) {
             for (int n = 5; n < 10; ++n) {
-                this.var_byte_arr_arr_a[n][12] = waterTilesIndex[0];
+                this.mapTerrain[n][12] = waterTilesIndex[0];
             }
         }
 
@@ -857,7 +857,7 @@ implements CommandListener {
         this.var_c_arr_b = null;
         this.var_c_d = null;
         this.var_g_g.var_c_a = null;
-        this.var_byte_arr_arr_a = null;
+        this.mapTerrain = null;
         this.var_byte_arr_arr_b = null;
         this.var_int_arr_b = new int[this.var_byte_h];
         if (this.var_byte_a == 1) {
@@ -881,15 +881,15 @@ implements CommandListener {
         DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(filename));
         this.mapTilesWidth = (short)dataInputStream.readInt();
         this.mapTilesHeight = (short)dataInputStream.readInt();
-        this.var_byte_arr_arr_a = new byte[this.mapTilesWidth][this.mapTilesHeight];
+        this.mapTerrain = new byte[this.mapTilesWidth][this.mapTilesHeight];
         this.var_byte_arr_arr_b = new byte[this.mapTilesWidth][this.mapTilesHeight];
         int n3 = 0;
         byte[][] byArray = new byte[30][3];
         for (s = 0; s < this.mapTilesWidth; s = (short)(s + 1)) {
             for (short s2 = 0; s2 < this.mapTilesHeight; s2 = (short)(s2 + 1)) {
-                this.var_byte_arr_arr_a[s][s2] = dataInputStream.readByte();
+                this.mapTerrain[s][s2] = dataInputStream.readByte();
                 this.var_byte_arr_arr_b[s][s2] = 0;
-                if (this.var_byte_arr_arr_a[s][s2] < this.var_int_t) continue;
+                if (this.mapTerrain[s][s2] < this.var_int_t) continue;
                 byArray[n3][0] = (byte)s;
                 byArray[n3][1] = (byte)s2;
                 byArray[n3][2] = (byte)this.int_a(s, (int)s2);
@@ -1596,7 +1596,7 @@ implements CommandListener {
         for (short s5 = s2; s5 <= s4; s5 = (short)(s5 + 1)) {
             int n3 = n;
             for (short s6 = s; s6 <= s3; s6 = (short)(s6 + 1)) {
-                byte by = this.var_byte_arr_arr_a[s6][s5];
+                byte by = this.mapTerrain[s6][s5];
                 this.var_h_arr_c[by].draw(graphics, n3, n2);
                 if (this.var_byte_arr_j[by] == 8) {
                     this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
@@ -1830,7 +1830,7 @@ implements CommandListener {
     }
 
     public byte getTerrainType_ZZ(int xIndex, int yIndex) {
-        return this.var_byte_arr_j[this.var_byte_arr_arr_a[xIndex][yIndex]];
+        return this.var_byte_arr_j[this.mapTerrain[xIndex][yIndex]];
     }
 
     public int getTerrainDefence_XX(byte terrainType, Unit unit) {
@@ -1865,8 +1865,8 @@ implements CommandListener {
             if (this.playerIndex_XX == unit.owner) continue;
             unit.removeStatus(Unit.STATUS_POISON);
         }
-        for (n = 0; n < this.var_byte_arr_arr_a.length; ++n) {
-            for (int j = 0; j < this.var_byte_arr_arr_a[n].length; ++j) {
+        for (n = 0; n < this.mapTerrain.length; ++n) {
+            for (int j = 0; j < this.mapTerrain[n].length; ++j) {
                 if (!this.boolean_a(n, j, (int)this.playerIndex_XX)) continue;
                 if (this.getTerrainType_ZZ(n, j) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
@@ -1899,14 +1899,14 @@ implements CommandListener {
     }
 
     public void void_a(int n, int n2, int n3) {
-        if (this.var_byte_arr_arr_a[n][n2] >= this.var_int_t) {
-            this.var_byte_arr_arr_a[n][n2] = (byte)(this.var_int_t + (n3 + 1) * 3 + (this.var_byte_arr_arr_a[n][n2] - this.var_int_t) % 3);
+        if (this.mapTerrain[n][n2] >= this.var_int_t) {
+            this.mapTerrain[n][n2] = (byte)(this.var_int_t + (n3 + 1) * 3 + (this.mapTerrain[n][n2] - this.var_int_t) % 3);
         }
     }
 
     public int int_a(int xIndex, int yIndex) {
-        if (this.var_byte_arr_arr_a[xIndex][yIndex] >= this.var_int_t) {
-            return (this.var_byte_arr_arr_a[xIndex][yIndex] - this.var_int_t) / 3 - 1;
+        if (this.mapTerrain[xIndex][yIndex] >= this.var_int_t) {
+            return (this.mapTerrain[xIndex][yIndex] - this.var_int_t) / 3 - 1;
         }
         return -1;
     }
@@ -2581,7 +2581,7 @@ implements CommandListener {
                 }
                 case 3: {
                     for (int j = 5; j < 10; ++j) {
-                        this.var_byte_arr_arr_a[j][12] = waterTilesIndex[0];
+                        this.mapTerrain[j][12] = waterTilesIndex[0];
                     }
                     this.void_b(300);
                     ++this.currentLevelStep;

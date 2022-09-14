@@ -923,7 +923,7 @@ public class g {
                 }
                 case 5: {
                     byte terrainType = this.var_a_a.getTerrainType_ZZ(this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g);
-                    byte by2 = this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.var_byte_arr_arr_a[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : Class_I.terrainType_XXX[terrainType];
+                    byte by2 = this.var_a_a.mapTerrain[this.var_a_a.var_short_h][this.var_a_a.var_short_g] >= this.var_a_a.var_int_t ? this.var_a_a.mapTerrain[this.var_a_a.var_short_h][this.var_a_a.var_short_g] : Class_I.terrainType_XXX[terrainType];
                     int n24 = 6;
                     this.var_a_a.var_h_arr_c[by2].draw(graphics, n24, 2);
                     graphics.setColor(COLOR_BLACK);
