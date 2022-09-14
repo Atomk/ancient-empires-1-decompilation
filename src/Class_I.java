@@ -1695,18 +1695,18 @@ implements CommandListener {
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
                 this.d(graphics);
-                int n3 = this.mapUnitsList.size();
-                for (n2 = 0; n2 < n3; ++n2) {
-                    Unit c2 = this.mapUnitsList.elementAt(n2);
-                    if (c2.var_byte_e == 3) {
-                        this.spriteTombstone.draw(graphics, this.var_short_f + c2.mapPixelX, this.var_short_a + ((SpriteSheet)c2).l);
+                int unitsCount = this.mapUnitsList.size();
+                for (n2 = 0; n2 < unitsCount; ++n2) {
+                    Unit unit = this.mapUnitsList.elementAt(n2);
+                    if (unit.var_byte_e == 3) {
+                        this.spriteTombstone.draw(graphics, this.var_short_f + unit.mapPixelX, this.var_short_a + ((SpriteSheet)unit).l);
                         continue;
                     }
-                    if (c2 == this.var_c_h) continue;
-                    c2.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
+                    if (unit == this.var_c_h) continue;
+                    unit.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
                 }
-                n3 = this.mapUnitsList.size();
-                for (n2 = 0; n2 < n3; ++n2) {
+                unitsCount = this.mapUnitsList.size();
+                for (n2 = 0; n2 < unitsCount; ++n2) {
                     this.mapUnitsList.elementAt(n2).b(graphics, this.var_short_f, this.var_short_a);
                 }
                 if (this.var_java_util_Vector_b != null) {
@@ -1714,7 +1714,7 @@ implements CommandListener {
                     short[][] sArrayArray = new short[this.var_java_util_Vector_b.size()][];
                     this.var_java_util_Vector_b.copyInto((Object[])sArrayArray);
                     int n4 = sArrayArray.length;
-                    for (n3 = 0; n3 < n4; ++n3) {
+                    for (int n3 = 0; n3 < n4; ++n3) {
                         short[] sArray;
                         int n5 = sArrayArray[n3][0] * 24 + this.var_short_f;
                         int n6 = sArrayArray[n3][1] * 24 + this.var_short_a;
@@ -1769,7 +1769,7 @@ implements CommandListener {
                     graphics.setFont(AppCanvas.fontSmallPlain);
                     graphics.setColor(-16777216);
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
-                    n3 = AppCanvas.f - AppCanvas.fontSmallPlain.getHeight() / 2;
+                    int n3 = AppCanvas.f - AppCanvas.fontSmallPlain.getHeight() / 2;
                     graphics.setColor(-1);
                     graphics.drawString(string, AppCanvas.h, n3, 17);
                 }
