@@ -957,11 +957,11 @@ public class g {
                     short miniMapTileWidth = this.var_a_a.miniMapTerrainTiles[0].width;
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
                     int y = 0;
-                    for (int n28 = 0; n28 < this.var_a_a.var_short_b; ++n28) {
+                    for (int yIndex = 0; yIndex < this.var_a_a.var_short_b; ++yIndex) {
                         int x = 0;
-                        for (int n27 = 0; n27 < this.var_a_a.var_short_e; ++n27) {
-                            int terrainType = this.var_a_a.getTerrainType_ZZ(n27, n28);
-                            int n32 = this.var_a_a.int_a(n27, n28);
+                        for (int xIndex = 0; xIndex < this.var_a_a.var_short_e; ++xIndex) {
+                            int terrainType = this.var_a_a.getTerrainType_ZZ(xIndex, yIndex);
+                            int n32 = this.var_a_a.int_a(xIndex, yIndex);
                             if (n32 >= 0) {
                                 terrainType = 2 * (n32 + 1) + 7 + terrainType - 7;
                             }
@@ -971,10 +971,10 @@ public class g {
                         y += miniMapTileHeight;
                     }
                     if (this.p != 0) break;
-                    int n27 = this.var_a_a.var_java_util_Vector_a.size();
-                    for (int n28 = 0; n28 < n27; ++n28) {
-                        Unit c2 = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(n28);
-                        this.var_a_a.var_e_arr_arr_c[c2.owner][c2.unitType].a(graphics, c2.mapX * miniMapTileWidth, c2.mapY * miniMapTileHeight);
+                    int unitsCount = this.var_a_a.var_java_util_Vector_a.size();
+                    for (int i = 0; i < unitsCount; ++i) {
+                        Unit unit = (Unit)this.var_a_a.var_java_util_Vector_a.elementAt(i);
+                        this.var_a_a.var_e_arr_arr_c[unit.owner][unit.unitType].a(graphics, unit.mapX * miniMapTileWidth, unit.mapY * miniMapTileHeight);
                     }
                     break;
                 }
