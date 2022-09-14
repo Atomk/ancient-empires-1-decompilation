@@ -1844,12 +1844,11 @@ implements CommandListener {
     }
 
     public void l() {
-        int n;
-        this.var_short_d = (short)(this.var_short_d + 1);   // TODO ++
+        this.var_short_d++;
         // This line changes the current player, but there's only two, so...
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
-        for (n = this.mapUnitsList.size() - 1; n >= 0; --n) {
+        for (int n = this.mapUnitsList.size() - 1; n >= 0; --n) {
             Unit unit = this.mapUnitsList.elementAt(n);
             if (unit.var_byte_e == 3) {
                 if (this.var_short_d - unit.var_int_b < 3) continue;
@@ -1857,6 +1856,7 @@ implements CommandListener {
                 continue;
             }
             unit.var_byte_e = 0;
+            // TODO you can recover units if in a town or castle
             if (this.playerIndex_XX == unit.owner && this.boolean_a((int)unit.mapX, (int)unit.mapY, (int)unit.owner)) {
                 unit.quantity = (short)(unit.quantity + 2);
                 if (unit.quantity > 10) {
@@ -1866,20 +1866,20 @@ implements CommandListener {
             if (this.playerIndex_XX == unit.owner) continue;
             unit.removeStatus(Unit.STATUS_POISON);
         }
-        for (n = 0; n < this.mapTerrain.length; ++n) {
-            for (int j = 0; j < this.mapTerrain[n].length; ++j) {
-                if (!this.boolean_a(n, j, (int)this.playerIndex_XX)) continue;
-                if (this.getTerrainType_ZZ(n, j) == f.TERRAIN_TOWN) {
+        for (int mapX = 0; mapX < this.mapTerrain.length; ++mapX) {
+            for (int mapY = 0; mapY < this.mapTerrain[mapX].length; ++mapY) {
+                if (!this.boolean_a(mapX, mapY, (int)this.playerIndex_XX)) continue;
+                if (this.getTerrainType_ZZ(mapX, mapY) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
                     this.var_int_arr_b[by] = this.var_int_arr_b[by] + 30;
                     continue;
                 }
-                if (this.getTerrainType_ZZ(n, j) != f.TERRAIN_CASTLE) continue;
+                if (this.getTerrainType_ZZ(mapX, mapY) != f.TERRAIN_CASTLE) continue;
                 byte by = this.currentPlayerIndex_XX;
                 this.var_int_arr_b[by] = this.var_int_arr_b[by] + 50;
             }
         }
-        n = this.var_short_h;
+        int n = this.var_short_h;
         short s = this.var_short_g;
         this.void_c(this.K, this.var_int_u);
         this.K = n;
