@@ -43,6 +43,9 @@ implements CommandListener {
     public static final byte PLAYER_BLUE = 0;
     public static final byte PLAYER_RED = 1;
 
+    private static final byte LEVEL_TYPE_CAMPAIGN = 0;
+    private static final byte LEVEL_TYPE_SKIRMISH = 1;
+
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;
@@ -347,7 +350,7 @@ implements CommandListener {
 
     public void d(int gameActionCode) {
         this.var_boolean_s = true;
-        if (this.levelType == 0 && this.var_byte_d == 1 && this.var_byte_i == 0) {
+        if (this.levelType == LEVEL_TYPE_CAMPAIGN && this.var_byte_d == 1 && this.var_byte_i == 0) {
             boolean bl = false;
             this.var_java_lang_StringBuffer_a.append(gameActionCode);
             String string = this.var_java_lang_StringBuffer_a.toString();
@@ -465,7 +468,7 @@ implements CommandListener {
                 this.var_c_arr_a[unitOwner] = unit;
             }
 
-            if (this.levelType != 0)
+            if (this.levelType != LEVEL_TYPE_CAMPAIGN)
                 continue;
 
             if (unitType == Unit.KING) {
@@ -659,7 +662,7 @@ implements CommandListener {
             } else {
                 this.currentLevel = 0;
             }
-            this.levelType = 0;
+            this.levelType = LEVEL_TYPE_CAMPAIGN;
             this.var_byte_arr_b[1] = 0;
             this.spriteGameTitle = null;
             this.spriteMacrospaceLogo = null;
@@ -693,7 +696,7 @@ implements CommandListener {
                 appCanvas.serviceRepaints();
                 this.m();
                 this.loadSavedGameData(savedGameData);
-                if (this.levelType == 0) {
+                if (this.levelType == LEVEL_TYPE_CAMPAIGN) {
                     this.a(true);
                 }
                 g.a(this, null, AppCanvas.getGameText(41), 1000, true); // GAME LOADED
@@ -726,7 +729,7 @@ implements CommandListener {
             this.var_g_d.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
-            this.levelType = 1;
+            this.levelType = LEVEL_TYPE_SKIRMISH;
             this.strongestBuyableUnit = 8;
             this.var_boolean_l = true;
             appCanvas.repaint();
@@ -860,7 +863,7 @@ implements CommandListener {
         this.mapValues_XX = null;
         // TODO even though levelPlayersCount is not a constant, the game assumes there is always two players
         this.playersMoney = new int[this.levelPlayersCount];
-        if (this.levelType == 1) {
+        if (this.levelType == LEVEL_TYPE_SKIRMISH) {
             this.playersMoney[PLAYER_BLUE] = 1000;
             this.playersMoney[PLAYER_RED] = 1000;
         } else {
@@ -870,7 +873,7 @@ implements CommandListener {
         this.var_boolean_v = true;
         //AppCanvas.readAssetsPackage("/1.pak");
         int n2 = levelIndex;
-        if (this.levelType == 0) {
+        if (this.levelType == LEVEL_TYPE_CAMPAIGN) {
             if (levelIndex == 6) {
                 n2 = 5;
             }
@@ -925,7 +928,7 @@ implements CommandListener {
         }
         dataInputStream.close();
         //AppCanvas.e();
-        if (this.levelType == 0) {
+        if (this.levelType == LEVEL_TYPE_CAMPAIGN) {
             // Level name (e.g. REGROUP) and its objective, shown at level start
             this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.currentLevel), AppCanvas.getGameText(55 + this.currentLevel), -1, false);
             // 'The Kingdom of Thorin is divided. Betrayed by his own twin brother Valadorn [...]''
@@ -1184,7 +1187,7 @@ implements CommandListener {
                     if (this.var_long_n - this.var_long_g >= 300L) {
                         // TODO context hint: mapUnitExplosionSheet is used only here, and the animation is shown only ehen a unit dies
                         this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
-                        if (this.levelType == 0 && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
+                        if (this.levelType == LEVEL_TYPE_CAMPAIGN && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
                             if (this.currentLevel != 6) {
                                 this.mapUnitsList.removeElement(this.var_c_c);
                                 this.var_c_arr_a[1] = null;
@@ -2273,12 +2276,12 @@ implements CommandListener {
             this.currentLevelStep = 1;
             return;
         }
-        if (this.levelType == 1) {
+        if (this.levelType == LEVEL_TYPE_SKIRMISH) {
             if (this.var_c_arr_a[0].var_byte_e != 3 && this.var_c_arr_a[1].var_byte_e != 3) return;
             this.i();
             return;
         }
-        if (this.var_byte_d != 1 || this.levelType != 0) {
+        if (this.var_byte_d != 1 || this.levelType != LEVEL_TYPE_CAMPAIGN) {
             return;
         }
         if (this.currentLevelStep == 0) {
