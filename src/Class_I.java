@@ -872,14 +872,14 @@ implements CommandListener {
         }
         this.var_boolean_v = true;
         //AppCanvas.readAssetsPackage("/1.pak");
-        int n2 = levelIndex;
+        int levelFileSuffix = levelIndex;
         if (this.levelType == LEVEL_TYPE_CAMPAIGN) {
             if (levelIndex == 6) {
-                n2 = 5;
+                levelFileSuffix = 5;
             }
-            filename = "m" + n2;
+            filename = "m" + levelFileSuffix;
         } else {
-            filename = "s" + n2;
+            filename = "s" + levelFileSuffix;
         }
         DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(filename));
         this.mapTilesWidth = (short)dataInputStream.readInt();
@@ -1905,9 +1905,9 @@ implements CommandListener {
         return c2.isType((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner);
     }
 
-    public void void_a(int n, int n2, int n3) {
-        if (this.mapTerrain[n][n2] >= this.var_int_t) {
-            this.mapTerrain[n][n2] = (byte)(this.var_int_t + (n3 + 1) * 3 + (this.mapTerrain[n][n2] - this.var_int_t) % 3);
+    public void void_a(int mapX, int mapY, int n3) {
+        if (this.mapTerrain[mapX][mapY] >= this.var_int_t) {
+            this.mapTerrain[mapX][mapY] = (byte)(this.var_int_t + (n3 + 1) * 3 + (this.mapTerrain[mapX][mapY] - this.var_int_t) % 3);
         }
     }
 

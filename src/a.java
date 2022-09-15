@@ -187,8 +187,8 @@ extends Class_I {
         }
     }
 
-    private boolean boolean_a(int n, int n2) {
-        return var_boolean_arr_a[this.getTerrainType_ZZ(n, n2)];
+    private boolean boolean_a(int mapX, int mapY) {
+        return var_boolean_arr_a[this.getTerrainType_ZZ(mapX, mapY)];
     }
 
     public void e() throws Exception {
@@ -234,30 +234,30 @@ extends Class_I {
         } else {
             graphics.setColor(this.color_ZZ);
         }
-        for (short s5 = s2; s5 <= s4; s5++) {
+        for (short mapY = s2; mapY <= s4; mapY++) {
             int x = n;
-            for (short s6 = s; s6 <= s3; s6++) {
-                byte by = this.var_byte_arr_arr_c[s6][s5];
+            for (short mapX = s; mapX <= s3; mapX++) {
+                byte by = this.var_byte_arr_arr_c[mapX][mapY];
                 if (by > 0) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
                 }
-                if (this.var_byte_arr_j[by = this.mapTerrain[s6][s5]] != 1) {
+                if (this.var_byte_arr_j[by = this.mapTerrain[mapX][mapY]] != 1) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
                     if (this.var_byte_arr_j[by] == 8) {
                         this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
                     }
                 }
-                if (this.var_boolean_h && this.mapValues_XX[s6][s5] > 0) {
-                    if (s6 > 0 && this.mapValues_XX[s6 - 1][s5] <= 0) {
+                if (this.var_boolean_h && this.mapValues_XX[mapX][mapY] > 0) {
+                    if (mapX > 0 && this.mapValues_XX[mapX - 1][mapY] <= 0) {
                         graphics.fillRect(x, y, 4, 24);
                     }
-                    if (s6 < this.mapTilesWidth - 1 && this.mapValues_XX[s6 + 1][s5] <= 0) {
+                    if (mapX < this.mapTilesWidth - 1 && this.mapValues_XX[mapX + 1][mapY] <= 0) {
                         graphics.fillRect(x + 24 - 4, y, 4, 24);
                     }
-                    if (s5 > 0 && this.mapValues_XX[s6][s5 - 1] <= 0) {
+                    if (mapY > 0 && this.mapValues_XX[mapX][mapY - 1] <= 0) {
                         graphics.fillRect(x, y, 24, 4);
                     }
-                    if (s5 < this.mapTilesHeight - 1 && this.mapValues_XX[s6][s5 + 1] <= 0) {
+                    if (mapY < this.mapTilesHeight - 1 && this.mapValues_XX[mapX][mapY + 1] <= 0) {
                         graphics.fillRect(x, y + 24 - 4, 24, 4);
                     }
                 }
