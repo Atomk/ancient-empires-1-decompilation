@@ -764,7 +764,7 @@ public class g {
                         graphics.drawLine(n12, n14, n12, this.j);
                         graphics.setColor(COLOR_BLACK);
                         AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
-                        n14 += AppCanvas.getSpriteFontCharWidth((byte)0) + 2;
+                        n14 += AppCanvas.getSpriteFontCharHeight((byte)0) + 2;
                         // TODO it would be much more readable to have a hasStatus method, but maybe this inlining is an optimization?
                         if ((this.var_c_a.statusFlags & Unit.STATUS_POISON) != 0) {
                             this.var_a_a.uiStatusSheet.setCurrentIndex(0);

@@ -137,7 +137,7 @@ CommandListener {
         return fontSheets[fontIndex].getSpritesWidth() * string.length();
     }
 
-    public static int getSpriteFontCharWidth(byte fontIndex) {
+    public static int getSpriteFontCharHeight(byte fontIndex) {
         return fontSheets[fontIndex].getSpritesHeight();
     }
 

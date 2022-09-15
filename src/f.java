@@ -655,7 +655,7 @@ public class f {
         AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, 1);
         string = null;
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
-        n4 = AppCanvas.getSpriteFontCharWidth((byte)1) + 4;
+        n4 = AppCanvas.getSpriteFontCharHeight((byte)1) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
         n3 = this.var_a_a.getTerrainDefence_XX((byte)this.terrainType_YY, this.var_c_a) - terrainDEF;
