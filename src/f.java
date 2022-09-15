@@ -24,7 +24,7 @@ public class f {
     private Unit var_c_a;
     public boolean var_boolean_f = false;
     public boolean var_boolean_e = false;
-    private byte var_byte_g;
+    private byte unitInitialQuantity;
     public byte var_byte_c;
     private byte var_byte_a;
     public byte var_byte_d;
@@ -58,7 +58,7 @@ public class f {
     private int j;
     private int n;
     private boolean var_boolean_d = false;
-    private int h;
+    private int unitQuantity;
     private int l;
     private int[] var_int_arr_d;
     private int[] var_int_arr_c;
@@ -89,8 +89,9 @@ public class f {
         if (this.var_byte_e == 3) {
             this.var_int_e = 0;
         }
-        this.var_byte_g = (byte)unit.quantity;
-        this.h = this.var_byte_g;
+        // TODO this is used only here, you can remove the field unitInitialQuantity entirely
+        this.unitInitialQuantity = (byte)unit.quantity;
+        this.unitQuantity = this.unitInitialQuantity;
         this.var_byte_b = this.var_byte_a = (byte)unit.int_a();
         //this.var_boolean_b = bl;
         int n2 = 0;
@@ -607,7 +608,7 @@ public class f {
         this.c();
         this.l = this.var_byte_a - this.var_byte_d;
         this.var_byte_b = this.var_byte_d;
-        this.h = this.var_byte_c;
+        this.unitQuantity = this.var_byte_c;
         for (int j = 0; j < this.l; ++j) {
             SpriteSheet e2 = SpriteSheet.a(this.var_a_a.spriteSheetSoul, 0, -2, 1, 150, (byte)0);
             SpriteSheet e3 = SpriteSheet.a(this.var_a_a.redsparkSheet, 0, 0, 1, 100, (byte)0);
@@ -650,7 +651,7 @@ public class f {
                 n6 += n5;
             }
         }
-        String string = "" + this.h;
+        String string = "" + this.unitQuantity;
         n6 = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth((byte)1, string)) / 2;
         AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, 1);
         string = null;
