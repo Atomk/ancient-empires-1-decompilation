@@ -21,7 +21,7 @@ public class f {
     private static final int[] unitsSoundIndex;
     private static final String[] unitsNames;
     private a var_a_a;
-    private Unit var_c_a;
+    private Unit unit;
     public boolean var_boolean_f = false;
     public boolean var_boolean_e = false;
     private byte unitInitialQuantity;
@@ -79,7 +79,7 @@ public class f {
     public f(Class_I i2, Unit unit, boolean bl) throws Exception {
         int n;
         this.var_a_a = (a)i2;
-        this.var_c_a = unit;
+        this.unit = unit;
         this.var_byte_e = var_byte_arr_a[unit.unitType];
         this.var_int_e = 200;
         this.soundIndex = unitsSoundIndex[unit.unitType];
@@ -237,7 +237,7 @@ public class f {
                             this.k = 0;
                             continue;
                         }
-                        if (this.var_c_a.unitType != Unit.WIZARD) continue;
+                        if (this.unit.unitType != Unit.WIZARD) continue;
                         this.a(j, this.var_byte_arr_arr_a[1]);
                         this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, 0, 0, -1, 0, (byte)0);
                         this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - this.var_e_arr_a[j].getSpritesWidth()) / 2, this.var_e_arr_b[j].l - this.var_e_arr_a[j].getSpritesHeight());
@@ -253,19 +253,19 @@ public class f {
                 break;
             }
             case 2: {
-                if (this.var_c_a.unitType == Unit.WIZARD) {
+                if (this.unit.unitType == Unit.WIZARD) {
                     for (int j = 0; j < this.var_byte_b; ++j) {
                         this.var_e_arr_a[j].var_int_d = var_byte_arr_b[this.var_byte_f];
                     }
                 } else {
-                    if (this.var_c_a.unitType == Unit.CATAPULT) {
+                    if (this.unit.unitType == Unit.CATAPULT) {
                         this.c();
                     }
                     this.var_e_arr_a = new SpriteSheet[this.var_byte_b];
                     for (int j = 0; j < this.var_byte_b; ++j) {
                         if (this.var_byte_e == 5) {
                             this.a(j, this.var_byte_arr_arr_a[1]);
-                            if (this.var_c_a.unitType == Unit.KING) {
+                            if (this.unit.unitType == Unit.KING) {
                                 SpriteSheet e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 200, (byte)0);
                                 e2.void_b(this.var_e_arr_b[0].var_short_b + this.a(e2, 5), this.var_e_arr_b[0].l + 2);
                                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
@@ -274,23 +274,23 @@ public class f {
                             this.a(j, this.var_byte_arr_arr_a[1]);
                             this.var_boolean_a = true;
                         }
-                        if (this.var_c_a.unitType == Unit.ARCHER) {
+                        if (this.unit.unitType == Unit.ARCHER) {
                             this.var_e_arr_a[j] = SpriteSheet.a(null, var_byte_arr_b[this.var_byte_f] * 3, -4, -1, 0, (byte)3);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
-                        } else if (this.var_c_a.unitType == Unit.CATAPULT) {
+                        } else if (this.unit.unitType == Unit.CATAPULT) {
                             this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 10, -8, -1, 0, (byte)0);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], 18), this.var_e_arr_b[j].l);
-                        } else if (this.var_c_a.unitType == Unit.SPIDER) {
+                        } else if (this.unit.unitType == Unit.SPIDER) {
                             this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth() - 10), this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() / 3);
                         } else {
                             this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
                             this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
                         }
-                        if (this.var_c_a.unitType != Unit.CATAPULT) {
-                            if (this.var_c_a.unitType == Unit.KING) {
+                        if (this.unit.unitType != Unit.CATAPULT) {
+                            if (this.unit.unitType == Unit.KING) {
                                 this.var_e_arr_a[j].setReorderTable(attackAnimTableKingslash[this.var_byte_f]);
-                            } else if (this.var_c_a.unitType == Unit.WYVERN) {
+                            } else if (this.unit.unitType == Unit.WYVERN) {
                                 this.var_e_arr_a[j].setReorderTable(attackAnimTable_1[this.var_byte_f]);
                             } else {
                                 this.var_e_arr_a[j].setReorderTable(attackAnimTable_2[this.var_byte_f]);
@@ -309,7 +309,7 @@ public class f {
             case 5: {
                 boolean bl = true;
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
-                    if (this.var_c_a.unitType == Unit.WYVERN && AppCanvas.randomInt() % 2 == 0) {
+                    if (this.unit.unitType == Unit.WYVERN && AppCanvas.randomInt() % 2 == 0) {
                         SpriteSheet e3 = SpriteSheet.a(this.var_a_a.spriteSheetChimneySmoke, 0, -1, 1, 200, (byte)0);
                         e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
@@ -337,7 +337,7 @@ public class f {
             }
             case 3: {
                 if (this.var_a_a.var_long_n - this.var_long_c < 400L) break;
-                if (this.var_c_a.unitType != Unit.CATAPULT && this.var_c_a.unitType != Unit.ARCHER) {
+                if (this.unit.unitType != Unit.CATAPULT && this.unit.unitType != Unit.ARCHER) {
                     for (int j = 0; j < this.var_byte_b; ++j) {
                         this.a(j, this.var_byte_arr_arr_a[0]);
                         this.var_boolean_a = false;
@@ -345,7 +345,7 @@ public class f {
                     }
                 }
                 this.var_f_a.d();
-                if (this.var_c_a.unitType != Unit.ARCHER) {
+                if (this.unit.unitType != Unit.ARCHER) {
                     this.var_a_a.c(200);
                 }
                 this.o = 7;
@@ -445,9 +445,9 @@ public class f {
                 this.var_int_a = AppCanvas.randomInt() % 1;
             }
         }
-        if (var_byte_arr_a[this.var_c_a.unitType] == 1 || var_byte_arr_a[this.var_c_a.unitType] == 5 || var_byte_arr_a[this.var_c_a.unitType] == 0) {
+        if (var_byte_arr_a[this.unit.unitType] == 1 || var_byte_arr_a[this.unit.unitType] == 5 || var_byte_arr_a[this.unit.unitType] == 0) {
             this.f();
-        } else if (var_byte_arr_a[this.var_c_a.unitType] == 6) {
+        } else if (var_byte_arr_a[this.unit.unitType] == 6) {
             this.a();
         } else {
             n = 0;
@@ -559,7 +559,7 @@ public class f {
                             continue;
                         }
                         if (this.var_int_arr_c[n2] <= 6) {
-                            if (this.var_c_a.unitType != Unit.GOLEM && this.var_int_arr_c[n2] == -6) {
+                            if (this.unit.unitType != Unit.GOLEM && this.var_int_arr_c[n2] == -6) {
                                 this.a(n2, this.var_byte_arr_arr_a[2]);
                             }
                             this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b - var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l + this.var_int_arr_c[n2]);
@@ -580,7 +580,7 @@ public class f {
                 }
             }
         }
-        if (this.var_c_a.unitType == Unit.WYVERN) {
+        if (this.unit.unitType == Unit.WYVERN) {
             for (n = 0; n < this.var_e_arr_b.length; ++n) {
                 if (this.var_boolean_a) continue;
                 if (this.var_int_arr_d[n] >= -8) {
@@ -659,7 +659,7 @@ public class f {
         n4 = AppCanvas.getSpriteFontCharHeight((byte)1) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
-        n3 = this.var_a_a.getTerrainDefence_XX((byte)this.terrainType_YY, this.var_c_a) - terrainDEF;
+        n3 = this.var_a_a.getTerrainDefence_XX((byte)this.terrainType_YY, this.unit) - terrainDEF;
         StringBuffer stringBuffer = new StringBuffer().append(terrainDEF);
         if (n3 > 0) {
             stringBuffer.append("+" + n3);
@@ -675,7 +675,7 @@ public class f {
         }
         for (int j = 0; j < this.var_byte_b; ++j) {
             SpriteSheet e2 = this.var_e_arr_b[j];
-            if (this.var_c_a.unitType == Unit.WISP) {
+            if (this.unit.unitType == Unit.WISP) {
                 e2.a(graphics, this.m, this.var_int_a + this.var_int_arr_d[j]);
                 continue;
             }
