@@ -41,7 +41,7 @@ CommandListener {
     public static final byte SETTINGS_FIGHT_ANIMATIONS = 3;
 
     public static final Font fontSmallPlain;
-    public static final Font fontMediumBold;
+    //private static final Font fontMediumBold;
     public static int width2;
     public static int height2;
     public static int h;
@@ -558,8 +558,7 @@ CommandListener {
 
     static {
         fontSmallPlain = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, Font.SIZE_SMALL);
-        // TODO this is never used
-        fontMediumBold = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
+        //fontMediumBold = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_BOLD, Font.SIZE_MEDIUM);
         // These next two contain the character with the min/max ASCIII value in the font spritesheets
         fontSheetMinASCIIValue = new short[]{43, 48};  // 43 = '+', 48 = '0' (ASCII)
         fontSheetMaxASCIIValue = new short[]{90, 57};    // 90 = 'Z', 57 = '9' (ASCII)
