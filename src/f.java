@@ -76,22 +76,22 @@ public class f {
     private SpriteSheet[] var_e_arr_a;
     private int i;
 
-    public f(Class_I i2, Unit c2, boolean bl) throws Exception {
+    public f(Class_I i2, Unit unit, boolean bl) throws Exception {
         int n;
         this.var_a_a = (a)i2;
-        this.var_c_a = c2;
-        this.var_byte_e = var_byte_arr_a[c2.unitType];
+        this.var_c_a = unit;
+        this.var_byte_e = var_byte_arr_a[unit.unitType];
         this.var_int_e = 200;
-        this.soundIndex = unitsSoundIndex[c2.unitType];
+        this.soundIndex = unitsSoundIndex[unit.unitType];
         if (this.soundIndex != -1) {
             // empty if block
         }
         if (this.var_byte_e == 3) {
             this.var_int_e = 0;
         }
-        this.var_byte_g = (byte)c2.quantity;
+        this.var_byte_g = (byte)unit.quantity;
         this.h = this.var_byte_g;
-        this.var_byte_b = this.var_byte_a = (byte)c2.int_a();
+        this.var_byte_b = this.var_byte_a = (byte)unit.int_a();
         //this.var_boolean_b = bl;
         int n2 = 0;
         if (bl) {
@@ -104,7 +104,7 @@ public class f {
             this.o = 6;
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
-        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType_ZZ(c2.mapX, (int)c2.mapY);
+        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType_ZZ(unit.mapX, (int)unit.mapY);
         if (this.terrainType_YY == TERRAIN_WOODS || this.terrainType_YY == TERRAIN_HILL) {
             this.terrainType_XX = TERRAIN_GRASS;
         }
@@ -141,10 +141,10 @@ public class f {
                 this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? (byte)1 : 0);
             }
         }
-        if (this.var_a_a.var_e_arr_arr_a[c2.owner][c2.unitType] == null) {
-            this.var_a_a.var_e_arr_arr_a[c2.owner][c2.unitType] = new SpriteSheet(unitsNames[c2.unitType], c2.owner);
+        if (this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType] == null) {
+            this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType] = new SpriteSheet(unitsNames[unit.unitType], unit.owner);
         }
-        this.var_e_c = this.var_a_a.var_e_arr_arr_a[c2.owner][c2.unitType];
+        this.var_e_c = this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType];
         if (this.var_byte_e == 2 || this.var_byte_e == 4) {
             if (i2.var_e_p == null) {
                 // Soldiers and lizards have this attack animation
@@ -152,7 +152,7 @@ public class f {
             }
             this.var_e_b = new SpriteSheet(i2.var_e_p);
             this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
-        } else if (c2.unitType == Unit.KING) {
+        } else if (unit.unitType == Unit.KING) {
             if (i2.var_e_i == null) {
                 i2.var_e_i = new SpriteSheet("kingslash");
             }
@@ -161,35 +161,35 @@ public class f {
             this.var_e_b = new SpriteSheet("kingswing");
             // TODO I believe the parameter is the side of the screen, sheets have frames for each side
             this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
-        } else if (c2.unitType == Unit.SPIDER) {
+        } else if (unit.unitType == Unit.SPIDER) {
             if (i2.var_e_o == null) {
                 i2.var_e_o = new SpriteSheet("spiderspit");
             }
             this.var_e_a = i2.var_e_o;
-        } else if (c2.unitType == Unit.CATAPULT) {
+        } else if (unit.unitType == Unit.CATAPULT) {
             if (i2.var_e_c == null) {
                 i2.var_e_c = new SpriteSheet("stone");
             }
             this.var_e_a = i2.var_e_c;
-        } else if (c2.unitType == Unit.WIZARD) {
+        } else if (unit.unitType == Unit.WIZARD) {
             this.var_e_a = i2.sparkSheet;
-        } else if (c2.unitType == Unit.WYVERN) {
+        } else if (unit.unitType == Unit.WYVERN) {
             if (i2.var_e_n == null) {
                 // TODO this are battle screen attack snimations
                 i2.var_e_n = new SpriteSheet("fireball");
             }
             this.var_e_a = i2.var_e_n;
         }
-        this.var_int_arr_arr_a = new int[c2.var_int_arr_arr_a.length][2];
+        this.var_int_arr_arr_a = new int[unit.var_int_arr_arr_a.length][2];
         for (n = 0; n < this.var_int_arr_arr_a.length; ++n) {
-            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(c2.var_int_arr_arr_a[n][0]) : (int)((short)(AppCanvas.h - AppCanvas.int_b(c2.var_int_arr_arr_a[n][0]) - this.var_e_c.getSpritesWidth()));
-            this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(c2.var_int_arr_arr_a[n][1]);
+            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) : (int)((short)(AppCanvas.h - AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) - this.var_e_c.getSpritesWidth()));
+            this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(unit.var_int_arr_arr_a[n][1]);
         }
         this.var_int_arr_c = new int[this.var_byte_a];
         this.var_int_arr_d = new int[this.var_byte_a];
         this.var_e_arr_b = new SpriteSheet[this.var_byte_a];
         this.var_int_arr_a = new int[this.var_byte_a];
-        if (c2.unitType == Unit.WISP) {
+        if (unit.unitType == Unit.WISP) {
             this.var_boolean_arr_a = new boolean[this.var_byte_a];
         }
         for (n = 0; n < this.var_byte_a; ++n) {
@@ -197,10 +197,10 @@ public class f {
             this.var_e_arr_b[n] = new SpriteSheet(this.var_e_c);
             this.var_e_arr_b[n].void_b(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
-            if (c2.unitType == Unit.WYVERN) {
+            if (unit.unitType == Unit.WYVERN) {
                 this.var_int_arr_d[n] = -8 - Math.abs(AppCanvas.randomInt()) % 8;
             }
-            if (c2.unitType != Unit.WISP) continue;
+            if (unit.unitType != Unit.WISP) continue;
             this.var_int_arr_d[n] = AppCanvas.randomInt() % 5 - 8;
             this.var_int_arr_c[n] = AppCanvas.randomInt() % 5;
             this.var_boolean_arr_a[n] = this.var_int_arr_c[n] < 0;

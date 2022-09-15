@@ -1918,8 +1918,8 @@ implements CommandListener {
         return -1;
     }
 
-    public boolean boolean_a(int n, int n2, int n3) {
-        return this.int_a(n, n2) == n3;
+    public boolean boolean_a(int mapX, int mapY, int playerIndex) {
+        return this.int_a(mapX, mapY) == playerIndex;
     }
 
     private int int_a(int unitType, int n2, byte playerIndex) {
@@ -3067,16 +3067,16 @@ implements CommandListener {
 
     public void e(Graphics graphics) {
         graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
-        int n = 0;
-        int n2 = 0;
+        int x = 0;
+        int y = 0;
         if (this.var_boolean_q) {
-            n = AppCanvas.randomInt() % 5;
-            n2 = AppCanvas.randomInt() % 3;
+            x = AppCanvas.randomInt() % 5;
+            y = AppCanvas.randomInt() % 3;
         }
-        this.var_f_b.a(graphics, n, n2);
-        this.var_f_a.a(graphics, n + AppCanvas.h, n2);
+        this.var_f_b.a(graphics, x, y);
+        this.var_f_a.a(graphics, x + AppCanvas.h, y);
         graphics.setColor(0);
-        graphics.fillRect(AppCanvas.h - 1 + n, n2, 2, AppCanvas.height2);
+        graphics.fillRect(AppCanvas.h - 1 + x, y, 2, AppCanvas.height2);
         this.var_f_b.b(graphics);
         this.var_f_a.b(graphics);
         if (this.var_f_b.var_boolean_f) {
