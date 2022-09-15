@@ -1872,15 +1872,17 @@ implements CommandListener {
         }
         for (int mapX = 0; mapX < this.mapTerrain.length; ++mapX) {
             for (int mapY = 0; mapY < this.mapTerrain[mapX].length; ++mapY) {
-                if (!this.boolean_a(mapX, mapY, (int)this.playerIndex_XX)) continue;
+                if (!this.boolean_a(mapX, mapY, (int)this.playerIndex_XX))
+                    continue;
                 if (this.getTerrainType_ZZ(mapX, mapY) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
-                    this.playersMoney[by] = this.playersMoney[by] + 30;
+                    this.playersMoney[by] += 30;
                     continue;
                 }
-                if (this.getTerrainType_ZZ(mapX, mapY) != f.TERRAIN_CASTLE) continue;
+                if (this.getTerrainType_ZZ(mapX, mapY) != f.TERRAIN_CASTLE)
+                    continue;
                 byte by = this.currentPlayerIndex_XX;
-                this.playersMoney[by] = this.playersMoney[by] + 50;
+                this.playersMoney[by] += 50;
             }
         }
         int n = this.var_short_h;

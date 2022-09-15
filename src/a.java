@@ -234,9 +234,9 @@ extends Class_I {
         } else {
             graphics.setColor(this.color_ZZ);
         }
-        for (short s5 = s2; s5 <= s4; s5 = (short)(s5 + 1)) {
+        for (short s5 = s2; s5 <= s4; s5++) {
             int x = n;
-            for (short s6 = s; s6 <= s3; s6 = (short)(s6 + 1)) {
+            for (short s6 = s; s6 <= s3; s6++) {
                 byte by = this.var_byte_arr_arr_c[s6][s5];
                 if (by > 0) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
