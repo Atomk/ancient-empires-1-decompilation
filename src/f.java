@@ -24,7 +24,6 @@ public class f {
     private Unit unit;
     public boolean var_boolean_f = false;
     public boolean var_boolean_e = false;
-    private byte unitInitialQuantity;
     public byte var_byte_c;
     private byte var_byte_a;
     public byte var_byte_d;
@@ -89,9 +88,7 @@ public class f {
         if (this.var_byte_e == 3) {
             this.var_int_e = 0;
         }
-        // TODO this is used only here, you can remove the field unitInitialQuantity entirely
-        this.unitInitialQuantity = (byte)unit.quantity;
-        this.unitQuantity = this.unitInitialQuantity;
+        this.unitQuantity = (byte)unit.quantity;
         this.var_byte_b = this.var_byte_a = (byte)unit.int_a();
         //this.var_boolean_b = bl;
         int n2 = 0;
