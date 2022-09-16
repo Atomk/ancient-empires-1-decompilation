@@ -157,8 +157,9 @@ extends SpriteSheet {
         return false;
     }
 
-    public boolean a(Unit c2, int n, int n2) {
-        return this.quantity > 0 && Math.abs(this.mapX - n) + Math.abs(this.mapY - n2) == 1 && unitsDataRangeMin[this.unitType] == 1;
+    // TODO the first parameter is unused
+    public boolean a(Unit unit, int mapX, int mapY) {
+        return this.quantity > 0 && Math.abs(this.mapX - mapX) + Math.abs(this.mapY - mapY) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
     public void addStatus(byte statusFlag) {
