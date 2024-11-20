@@ -24,7 +24,7 @@ extends Class_I {
     public Sprite[] b;
     private SpriteSheet[] var_e_arr_a = new SpriteSheet[0];
     public SpriteSheet spriteSheetChimneySmoke;
-    private byte[][] var_byte_arr_arr_c;
+    private byte[][] _map_XX;
 
     public a(byte by) throws Exception {
         super(by);
@@ -151,26 +151,26 @@ extends Class_I {
 
     public void loadLevelData(int levelIndex) throws Exception {
         super.loadLevelData(levelIndex);
-        this.var_byte_arr_arr_c = new byte[this.mapTilesWidth][this.mapTilesHeight];
+        this._map_XX = new byte[this.mapTilesWidth][this.mapTilesHeight];
         for (int mapX = 0; mapX < this.mapTilesWidth; ++mapX) {
             for (int mapY = 0; mapY < this.mapTilesHeight; ++mapY) {
                 if (this.boolean_a(mapX, mapY)) {
-                    this.var_byte_arr_arr_c[mapX][mapY] = 3;
+                    this._map_XX[mapX][mapY] = 3;
                     if (mapX > 0 && !this.boolean_a(mapX - 1, mapY)) {
-                        this.var_byte_arr_arr_c[mapX][mapY] += 1;
+                        this._map_XX[mapX][mapY] += 1;
                     }
                     if (mapX < this.mapTilesWidth - 1 && !this.boolean_a(mapX + 1, mapY)) {
-                        this.var_byte_arr_arr_c[mapX][mapY] += 2;
+                        this._map_XX[mapX][mapY] += 2;
                     }
                     if (mapY < this.mapTilesHeight - 1 && !this.boolean_a(mapX, mapY + 1)) {
-                        this.var_byte_arr_arr_c[mapX][mapY] += 4;
+                        this._map_XX[mapX][mapY] += 4;
                     }
                     if (mapY <= 0 || this.boolean_a(mapX, mapY - 1)) continue;
 
-                    this.var_byte_arr_arr_c[mapX][mapY] += 8;
+                    this._map_XX[mapX][mapY] += 8;
                     continue;
                 }
-                this.var_byte_arr_arr_c[mapX][mapY] = -1;
+                this._map_XX[mapX][mapY] = -1;
             }
         }
         this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
@@ -231,7 +231,7 @@ extends Class_I {
         for (short mapY = s2; mapY <= s4; mapY++) {
             int x = n;
             for (short mapX = s; mapX <= s3; mapX++) {
-                byte by = this.var_byte_arr_arr_c[mapX][mapY];
+                byte by = this._map_XX[mapX][mapY];
                 if (by > 0) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
                 }
