@@ -137,8 +137,8 @@ implements CommandListener {
     private final byte[] players = new byte[]{PLAYER_BLUE, PLAYER_RED};
     public byte currentPlayerIndex_XX;  // TODO is there any difference between this and the field below?
     public byte playerIndex_XX = 0;
-    public short var_short_d;
-    public Unit[] var_c_arr_a;
+    private short _turnIndex;
+    private Unit[] var_c_arr_a;
     public int[] playersMoney;
     public byte[] var_byte_arr_b = new byte[]{1, 0};
     public Vector<g> var_java_util_Vector_e = new Vector<g>();
@@ -390,7 +390,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.currentLevel);
         dataOutputStream.writeByte(this.levelPlayersCount);
         dataOutputStream.writeByte(this.currentPlayerIndex_XX);
-        dataOutputStream.writeShort(this.var_short_d);
+        dataOutputStream.writeShort(this._turnIndex);
         dataOutputStream.writeByte(this.strongestBuyableUnit);
         for (n = 0; n < this.levelPlayersCount; ++n) {
             dataOutputStream.writeByte(this.var_byte_arr_b[n]);
@@ -433,7 +433,7 @@ implements CommandListener {
         this.loadLevelData(this.currentLevel);
         this.currentPlayerIndex_XX = dataInputStream.readByte();
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
-        this.var_short_d = dataInputStream.readShort();
+        this._turnIndex = dataInputStream.readShort();
         this.strongestBuyableUnit = dataInputStream.readByte();
         for (int n2 = 0; n2 < this.levelPlayersCount; ++n2) {
             this.var_byte_arr_b[n2] = dataInputStream.readByte();
@@ -851,7 +851,7 @@ implements CommandListener {
     public void loadLevelData(int levelIndex) throws Exception {
         String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
-        this.var_short_d = 0;
+        this._turnIndex = 0;
         this.playerIndex_XX = PLAYER_BLUE;
         this.currentPlayerIndex_XX = 0;
         this.currentLevelStep = 0;
@@ -1198,7 +1198,7 @@ implements CommandListener {
                             this.mapUnitsList.removeElement(this.var_c_c);
                         } else {
                             this.var_c_c.var_byte_e = (byte)3;
-                            this.var_c_c.var_int_b = this.var_short_d;
+                            this.var_c_c.var_int_b = this._turnIndex;
                         }
                         this.var_c_c = null;
                         this.var_g_g.b();
@@ -1850,14 +1850,14 @@ implements CommandListener {
     }
 
     public void l() {
-        this.var_short_d++;
+        this._turnIndex++;
         // This line changes the current player, but there's only two, so...
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         for (int n = this.mapUnitsList.size() - 1; n >= 0; --n) {
             Unit unit = this.mapUnitsList.elementAt(n);
             if (unit.var_byte_e == 3) {
-                if (this.var_short_d - unit.var_int_b < 3) continue;
+                if (this._turnIndex - unit.var_int_b < 3) continue;
                 this.mapUnitsList.removeElement(unit);
                 continue;
             }
@@ -2393,12 +2393,12 @@ implements CommandListener {
                         ++this.currentLevelStep;
                         break;
                     }
-                    if (this.var_short_d < 1) break;
+                    if (this._turnIndex < 1) break;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 14: {
-                    if (this.var_short_d < 2) break;
+                    if (this._turnIndex < 2) break;
                     this.var_int_s = 5;
                     ++this.currentLevelStep;
                     break;
@@ -2681,7 +2681,7 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    if (this.var_short_d != 10) break;
+                    if (this._turnIndex != 10) break;
                     this.void_b(2, 0);
                     this.a(false);
                     break;
