@@ -157,20 +157,17 @@ extends Class_I {
                 if (this.boolean_a(mapX, mapY)) {
                     this.var_byte_arr_arr_c[mapX][mapY] = 3;
                     if (mapX > 0 && !this.boolean_a(mapX - 1, mapY)) {
-                        byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                        byArray[mapY] = (byte)(byArray[mapY] + 1);
+                        this.var_byte_arr_arr_c[mapX][mapY] += 1;
                     }
                     if (mapX < this.mapTilesWidth - 1 && !this.boolean_a(mapX + 1, mapY)) {
-                        byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                        byArray[mapY] = (byte)(byArray[mapY] + 2);
+                        this.var_byte_arr_arr_c[mapX][mapY] += 2;
                     }
                     if (mapY < this.mapTilesHeight - 1 && !this.boolean_a(mapX, mapY + 1)) {
-                        byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                        byArray[mapY] = (byte)(byArray[mapY] + 4);
+                        this.var_byte_arr_arr_c[mapX][mapY] += 4;
                     }
                     if (mapY <= 0 || this.boolean_a(mapX, mapY - 1)) continue;
-                    byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                    byArray[mapY] = (byte)(byArray[mapY] + 8);
+
+                    this.var_byte_arr_arr_c[mapX][mapY] += 8;
                     continue;
                 }
                 this.var_byte_arr_arr_c[mapX][mapY] = -1;
