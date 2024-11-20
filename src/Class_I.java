@@ -61,7 +61,7 @@ implements CommandListener {
         AppCanvas.getGameText(8),  // ABOUT
         AppCanvas.getGameText(9)}; // EXIT
     // Same as above, adds SAVE GAME as first element
-    private String[] var_java_lang_String_arr_c = new String[]{
+    private String[] _mainMenuOptionsWithSave = new String[] {
         AppCanvas.getGameText(3),       // SAVE GAME
         this.mainMenuStringsNoSave[0],    // NEW GAME
         this.mainMenuStringsNoSave[1],     // ...
@@ -70,7 +70,8 @@ implements CommandListener {
         this.mainMenuStringsNoSave[4],
         this.mainMenuStringsNoSave[5],
         this.mainMenuStringsNoSave[6],
-        this.mainMenuStringsNoSave[7]};
+        this.mainMenuStringsNoSave[7]
+    };
     private static final byte[][] mapSheetReorderTable;
     private static final byte[] statusPoisonReorderTable;
     private static final byte[] statusStarReorderTable;
@@ -776,7 +777,7 @@ implements CommandListener {
                 App.instance.notifyDestroyed();
             } else if (string.equals(AppCanvas.getGameText(26))) {  // MAIN MENU
                 g g4 = new g(this, (byte)0, 0);
-                g4.showMenuOptions(this.var_java_lang_String_arr_c);
+                g4.showMenuOptions(this._mainMenuOptionsWithSave);
                 g4.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
             } else if (string.equals(AppCanvas.getGameText(27))) {  // MOVE
                 this.var_boolean_d = false;
