@@ -88,7 +88,7 @@ implements CommandListener {
     public int var_int_t;
     public Sprite[] miniMapTerrainTiles;
     public byte[] var_byte_arr_j;
-    public short var_short_c;
+    private short _mapPixelsWidth;
     public short var_short_i;
     public short var_short_f;
     public short var_short_a;
@@ -905,7 +905,7 @@ implements CommandListener {
         this.var_byte_arr_arr_e = new byte[n3][3];
         System.arraycopy(byArray, 0, this.var_byte_arr_arr_e, 0, n3);
         byArray = null;
-        this.var_short_c = (short)(this.mapTilesWidth * 24);
+        this._mapPixelsWidth = (short)(this.mapTilesWidth * 24);
         this.var_short_i = (short)(this.mapTilesHeight * 24);
         if (levelIndex == 6) {
             dataInputStream.close();
@@ -1492,15 +1492,15 @@ implements CommandListener {
 
     public int int_b(int n) {
         int n2;
-        if (this.var_short_c > AppCanvas.width2) {
+        if (this._mapPixelsWidth > AppCanvas.width2) {
             n2 = AppCanvas.h - n;
             if (n2 > 0) {
                 n2 = 0;
-            } else if (n2 < AppCanvas.width2 - this.var_short_c) {
-                n2 = (short)(AppCanvas.width2 - this.var_short_c);
+            } else if (n2 < AppCanvas.width2 - this._mapPixelsWidth) {
+                n2 = (short)(AppCanvas.width2 - this._mapPixelsWidth);
             }
         } else {
-            n2 = (AppCanvas.width2 - this.var_short_c) / 2;
+            n2 = (AppCanvas.width2 - this._mapPixelsWidth) / 2;
         }
         return n2;
     }
@@ -1697,7 +1697,7 @@ implements CommandListener {
             } else {
                 int n2;
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
-                if (this.var_short_c < AppCanvas.width2 || this.var_short_i < AppCanvas.height2) {
+                if (this._mapPixelsWidth < AppCanvas.width2 || this.var_short_i < AppCanvas.height2) {
                     graphics.setColor(0);
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
