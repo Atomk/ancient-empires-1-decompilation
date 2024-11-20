@@ -1987,17 +1987,17 @@ implements CommandListener {
     }
 
     private boolean boolean_a(int unitType) {
-        short mapX = this.var_c_arr_a[this.playerIndex_XX].mapX;
-        short mapY = this.var_c_arr_a[this.playerIndex_XX].mapY;
+        int mapX = this.var_c_arr_a[this.playerIndex_XX].mapX;
+        int mapY = this.var_c_arr_a[this.playerIndex_XX].mapY;
         boolean canPlayerAffordUnit = Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX];
         boolean isUnitBuyable = Unit.unitsDataPrice[unitType] > 0;
         return canPlayerAffordUnit
                 && isUnitBuyable
                 && (
-                    mapX > 0 && this.c_a(mapX - 1, (int)mapY, (byte)0) == null
-                    || mapX < this.mapTilesWidth - 1 && this.c_a(mapX + 1, (int)mapY, (byte)0) == null
-                    || mapY > 0 && this.c_a((int)mapX, mapY - 1, (byte)0) == null
-                    || mapY < this.mapTilesHeight - 1 && this.c_a((int)mapX, mapY + 1, (byte)0) == null
+                    mapX > 0 && this.c_a(mapX - 1, mapY, (byte)0) == null
+                    || mapX < this.mapTilesWidth - 1 && this.c_a(mapX + 1, mapY, (byte)0) == null
+                    || mapY > 0 && this.c_a(mapX, mapY - 1, (byte)0) == null
+                    || mapY < this.mapTilesHeight - 1 && this.c_a(mapX, mapY + 1, (byte)0) == null
                     );
     }
 
