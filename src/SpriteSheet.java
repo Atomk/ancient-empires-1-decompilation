@@ -32,15 +32,15 @@ public class SpriteSheet {
     private boolean[] var_boolean_arr_a;
 
     public SpriteSheet(String imageName) throws Exception {
-        this.loadSpritesheetWithFilename(imageName, 0);
+        this.loadSpritesheetWithFilename(imageName, Class_I.PLAYER_BLUE);
     }
 
-    public SpriteSheet(String imageName, byte by) throws Exception {
-        this.loadSpritesheetWithFilename(imageName, by);
+    public SpriteSheet(String imageName, byte playerIndex) throws Exception {
+        this.loadSpritesheetWithFilename(imageName, playerIndex);
     }
 
     // TODO what is the second parameter?
-    private void loadSpritesheetWithFilename(String imageName, int n) throws Exception {
+    private void loadSpritesheetWithFilename(String imageName, int playerIndex) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
         // A .sprite asset contains metadata for a collection of sprites
         int tileCount = inputStream.read();
@@ -58,7 +58,7 @@ public class SpriteSheet {
             // Not really solid but I guess it works
 
             byte[] imageBytes = AppCanvas.getFileBytes(imageName + ".png");
-            Sprite spriteSheetImage = Sprite.fromByteArray(imageBytes, n);
+            Sprite spriteSheetImage = Sprite.fromByteArray(imageBytes, playerIndex);
             int tileCountW = spriteSheetImage.width / tileWidth;
             int tileCountH = spriteSheetImage.height / tileHeight;
 
@@ -81,11 +81,11 @@ public class SpriteSheet {
                 String fileName = imageName + "_";
                 fileName = j < 10 ? fileName + "0" + j : fileName + j;
                 fileName = fileName + ".png";
-                
+
                 // TODO investigate on the difference between the two loading modes
-                if (n != -1) {
+                if (playerIndex != -1) {
                     byte[] imageBytes = AppCanvas.getFileBytes(fileName);
-                    this.sprites[j] = Sprite.fromByteArray(imageBytes, n);
+                    this.sprites[j] = Sprite.fromByteArray(imageBytes, playerIndex);
                     // TODO refactor for readability -- if(n == -1) ... else ---
                     continue;
                 }

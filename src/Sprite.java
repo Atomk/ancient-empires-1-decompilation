@@ -59,7 +59,7 @@ public class Sprite {
         if (playerIndex != Class_I.PLAYER_BLUE) {
             byte[] bytesCopy = new byte[imageData.length];
             System.arraycopy(imageData, 0, bytesCopy, 0, imageData.length);
-            Sprite.void_a(bytesCopy, playerIndex);
+            Sprite.void_a(bytesCopy, (byte)playerIndex);
             imageData = bytesCopy;
         }
         Sprite newSprite = new Sprite();
@@ -71,7 +71,7 @@ public class Sprite {
     }
 
     // TODO since there are images only for blu units, I suspect this creates the red versino
-    private static void void_a(byte[] imageBytes, int playerIndex) {
+    private static void void_a(byte[] imageBytes, byte playerIndex) {
         try {
             int n5 = 33;
             int n6 = imageBytes.length - 3;
