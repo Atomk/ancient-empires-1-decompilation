@@ -108,7 +108,7 @@ public class f {
         }
         if (this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] == null) {
             // TODO rename to terrainBattleSprites
-            this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] = new SpriteSheet((String)Class_I.terrainTypeNames[this.terrainType_XX]).sprites;
+            this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] = new SpriteSheet(Class_I.terrainTypeNames[this.terrainType_XX]).sprites;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.terrainType_XX];
         if (this.var_a_a.b[this.terrainType_YY] == null) {
