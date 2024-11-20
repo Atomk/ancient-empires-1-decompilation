@@ -828,7 +828,7 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(36))) {
                 this.var_g_e.a((byte)0, 0, 0, g2, 0);
             } else {
-                this.var_c_h = this.c_a(n, this.var_c_h.mapX, this.var_c_h.mapY);
+                this.var_c_h = this.buyUnitAndSpawnAtCoords((byte)n, this.var_c_h.mapX, this.var_c_h.mapY);
                 this.var_boolean_d = true;
                 this.a(this.var_c_h);
             }
@@ -837,10 +837,10 @@ implements CommandListener {
         g2.a(true);
     }
 
-    public Unit c_a(int unitType, int mapX, int mapY) {
+    private Unit buyUnitAndSpawnAtCoords(byte unitType, int mapX, int mapY) {
         byte playerIndex = this.currentPlayerIndex_XX;
-        this.playersMoney[playerIndex] = this.playersMoney[playerIndex] - Unit.unitsDataPrice[unitType];
-        return Unit.spawn((byte)unitType, this.playerIndex_XX, mapX, mapY);
+        this.playersMoney[playerIndex] -= Unit.unitsDataPrice[unitType];
+        return Unit.spawn(unitType, this.playerIndex_XX, mapX, mapY);
     }
 
     public SpriteSheet a(byte playerIndex, byte unitType) {
@@ -2094,7 +2094,7 @@ implements CommandListener {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.playerIndex_XX)) {
                         if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.boolean_a(Unit.SOLDIER)) {
-                            c2 = this.c_a(Unit.SOLDIER, c2.mapX, c2.mapY);
+                            c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             n7 = 0;
                             byte[] byArray = new byte[11];
@@ -2105,7 +2105,7 @@ implements CommandListener {
                             }
                             if (n7 > 0) {
                                 n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
-                                c2 = this.c_a(n6, c2.mapX, c2.mapY);
+                                c2 = this.buyUnitAndSpawnAtCoords((byte)n6, c2.mapX, c2.mapY);
                             }
                         }
                     }
