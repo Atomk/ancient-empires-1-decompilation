@@ -1987,9 +1987,18 @@ implements CommandListener {
     }
 
     private boolean boolean_a(int unitType) {
-        short s = this.var_c_arr_a[this.playerIndex_XX].mapX;
-        short s2 = this.var_c_arr_a[this.playerIndex_XX].mapY;
-        return Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX] && Unit.unitsDataPrice[unitType] > 0 && (s > 0 && this.c_a(s - 1, (int)s2, (byte)0) == null || s < this.mapTilesWidth - 1 && this.c_a(s + 1, (int)s2, (byte)0) == null || s2 > 0 && this.c_a((int)s, s2 - 1, (byte)0) == null || s2 < this.mapTilesHeight - 1 && this.c_a((int)s, s2 + 1, (byte)0) == null);
+        short mapX = this.var_c_arr_a[this.playerIndex_XX].mapX;
+        short mapY = this.var_c_arr_a[this.playerIndex_XX].mapY;
+        boolean canPlayerAffordUnit = Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX];
+        boolean isUnitBuyable = Unit.unitsDataPrice[unitType] > 0;
+        return canPlayerAffordUnit
+                && isUnitBuyable
+                && (
+                    mapX > 0 && this.c_a(mapX - 1, (int)mapY, (byte)0) == null
+                    || mapX < this.mapTilesWidth - 1 && this.c_a(mapX + 1, (int)mapY, (byte)0) == null
+                    || mapY > 0 && this.c_a((int)mapX, mapY - 1, (byte)0) == null
+                    || mapY < this.mapTilesHeight - 1 && this.c_a((int)mapX, mapY + 1, (byte)0) == null
+                    );
     }
 
     public void p() throws Exception {
