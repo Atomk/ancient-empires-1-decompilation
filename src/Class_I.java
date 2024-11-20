@@ -89,7 +89,7 @@ implements CommandListener {
     public Sprite[] miniMapTerrainTiles;
     public byte[] var_byte_arr_j;
     private short _mapPixelsWidth;
-    public short var_short_i;
+    private short _mapPixelsHeight;
     public short var_short_f;
     public short var_short_a;
     public short mapTilesWidth;
@@ -906,7 +906,7 @@ implements CommandListener {
         System.arraycopy(byArray, 0, this.var_byte_arr_arr_e, 0, n3);
         byArray = null;
         this._mapPixelsWidth = (short)(this.mapTilesWidth * 24);
-        this.var_short_i = (short)(this.mapTilesHeight * 24);
+        this._mapPixelsHeight = (short)(this.mapTilesHeight * 24);
         if (levelIndex == 6) {
             dataInputStream.close();
             dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream("m" + levelIndex));
@@ -1507,15 +1507,15 @@ implements CommandListener {
 
     public int int_a(int n) {
         int n2;
-        if (this.var_short_i > AppCanvas.height2) {
+        if (this._mapPixelsHeight > AppCanvas.height2) {
             n2 = AppCanvas.f - n;
             if (n2 > 0) {
                 n2 = 0;
-            } else if (n2 < AppCanvas.height2 - this.var_short_i) {
-                n2 = (short)(AppCanvas.height2 - this.var_short_i);
+            } else if (n2 < AppCanvas.height2 - this._mapPixelsHeight) {
+                n2 = (short)(AppCanvas.height2 - this._mapPixelsHeight);
             }
         } else {
-            n2 = (AppCanvas.height2 - this.var_short_i) / 2;
+            n2 = (AppCanvas.height2 - this._mapPixelsHeight) / 2;
         }
         return n2;
     }
@@ -1697,7 +1697,7 @@ implements CommandListener {
             } else {
                 int n2;
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
-                if (this._mapPixelsWidth < AppCanvas.width2 || this.var_short_i < AppCanvas.height2) {
+                if (this._mapPixelsWidth < AppCanvas.width2 || this._mapPixelsHeight < AppCanvas.height2) {
                     graphics.setColor(0);
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                 }
