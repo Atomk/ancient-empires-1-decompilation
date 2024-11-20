@@ -153,31 +153,31 @@ extends Class_I {
         super.loadLevelData(levelIndex);
         this.var_byte_arr_arr_c = new byte[this.mapTilesWidth][this.mapTilesHeight];
         for (int mapX = 0; mapX < this.mapTilesWidth; ++mapX) {
-            for (int j = 0; j < this.mapTilesHeight; ++j) {
-                if (this.boolean_a(mapX, j)) {
-                    this.var_byte_arr_arr_c[mapX][j] = 3;
-                    if (mapX > 0 && !this.boolean_a(mapX - 1, j)) {
+            for (int mapY = 0; mapY < this.mapTilesHeight; ++mapY) {
+                if (this.boolean_a(mapX, mapY)) {
+                    this.var_byte_arr_arr_c[mapX][mapY] = 3;
+                    if (mapX > 0 && !this.boolean_a(mapX - 1, mapY)) {
                         byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                        int n3 = j;
+                        int n3 = mapY;
                         byArray[n3] = (byte)(byArray[n3] + 1);
                     }
-                    if (mapX < this.mapTilesWidth - 1 && !this.boolean_a(mapX + 1, j)) {
+                    if (mapX < this.mapTilesWidth - 1 && !this.boolean_a(mapX + 1, mapY)) {
                         byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                        int n4 = j;
+                        int n4 = mapY;
                         byArray[n4] = (byte)(byArray[n4] + 2);
                     }
-                    if (j < this.mapTilesHeight - 1 && !this.boolean_a(mapX, j + 1)) {
+                    if (mapY < this.mapTilesHeight - 1 && !this.boolean_a(mapX, mapY + 1)) {
                         byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                        int n5 = j;
+                        int n5 = mapY;
                         byArray[n5] = (byte)(byArray[n5] + 4);
                     }
-                    if (j <= 0 || this.boolean_a(mapX, j - 1)) continue;
+                    if (mapY <= 0 || this.boolean_a(mapX, mapY - 1)) continue;
                     byte[] byArray = this.var_byte_arr_arr_c[mapX];
-                    int n6 = j;
+                    int n6 = mapY;
                     byArray[n6] = (byte)(byArray[n6] + 8);
                     continue;
                 }
-                this.var_byte_arr_arr_c[mapX][j] = -1;
+                this.var_byte_arr_arr_c[mapX][mapY] = -1;
             }
         }
         this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
