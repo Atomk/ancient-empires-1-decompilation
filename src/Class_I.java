@@ -1142,7 +1142,7 @@ implements CommandListener {
                 this.mapCursorSheet.void_b(n5, n6);
                 if (this.var_byte_i == 8) {
                     if (this.var_int_k == 0 && this.var_g_i == null) {
-                        this.l();
+                        this.startNextTurn();
                         this.var_byte_i = 0;
                     }
                 } else if (this.var_byte_i == 9) {
@@ -1849,7 +1849,7 @@ implements CommandListener {
         return terrainDefence;
     }
 
-    public void l() {
+    private void startNextTurn() {
         this._turnIndex++;
         // This line changes the current player, but there's only two, so...
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
@@ -1894,7 +1894,7 @@ implements CommandListener {
         this.var_int_u = s;
         this.var_boolean_v = true;
         if (this.int_a(-1, 0, this.playerIndex_XX) <= 0) {
-            this.l();
+            this.startNextTurn();
         }
     }
 
