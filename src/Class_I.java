@@ -1986,7 +1986,7 @@ implements CommandListener {
         }
     }
 
-    private boolean boolean_a(int unitType) {
+    private boolean canPurchaseUnit(int unitType) {
         int mapX = this.var_c_arr_a[this.playerIndex_XX].mapX;
         int mapY = this.var_c_arr_a[this.playerIndex_XX].mapY;
         boolean canPlayerAffordUnit = Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX];
@@ -2102,13 +2102,13 @@ implements CommandListener {
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.playerIndex_XX)) {
-                        if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.boolean_a(Unit.SOLDIER)) {
+                        if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             n7 = 0;
                             byte[] byArray = new byte[11];
                             for (int unitType = Unit.ARCHER; unitType < 11; unitType++) {
-                                if (this.int_a(unitType, -1, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.boolean_a(unitType)) continue;
+                                if (this.int_a(unitType, -1, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
                                 byArray[n7] = (byte)unitType;
                                 ++n7;
                             }
