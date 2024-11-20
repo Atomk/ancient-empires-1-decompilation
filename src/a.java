@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  javax.microedition.lcdui.Graphics
  */
@@ -39,6 +39,8 @@ extends Class_I {
         this.spriteSplashForeground = null;
         this.spriteMacrospaceCoyrightText = null;
         super.m();
+        // First index is owner (player index), second index is unit type
+        // This probably contains the colored spritesheet for each possible unit
         this.var_e_arr_arr_a = new SpriteSheet[2][11];
         this.b = new Sprite[Class_I.terrainTypeNames.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
@@ -150,32 +152,32 @@ extends Class_I {
     public void loadLevelData(int levelIndex) throws Exception {
         super.loadLevelData(levelIndex);
         this.var_byte_arr_arr_c = new byte[this.mapTilesWidth][this.mapTilesHeight];
-        for (int n2 = 0; n2 < this.mapTilesWidth; ++n2) {
+        for (int mapX = 0; mapX < this.mapTilesWidth; ++mapX) {
             for (int j = 0; j < this.mapTilesHeight; ++j) {
-                if (this.boolean_a(n2, j)) {
-                    this.var_byte_arr_arr_c[n2][j] = 3;
-                    if (n2 > 0 && !this.boolean_a(n2 - 1, j)) {
-                        byte[] byArray = this.var_byte_arr_arr_c[n2];
+                if (this.boolean_a(mapX, j)) {
+                    this.var_byte_arr_arr_c[mapX][j] = 3;
+                    if (mapX > 0 && !this.boolean_a(mapX - 1, j)) {
+                        byte[] byArray = this.var_byte_arr_arr_c[mapX];
                         int n3 = j;
                         byArray[n3] = (byte)(byArray[n3] + 1);
                     }
-                    if (n2 < this.mapTilesWidth - 1 && !this.boolean_a(n2 + 1, j)) {
-                        byte[] byArray = this.var_byte_arr_arr_c[n2];
+                    if (mapX < this.mapTilesWidth - 1 && !this.boolean_a(mapX + 1, j)) {
+                        byte[] byArray = this.var_byte_arr_arr_c[mapX];
                         int n4 = j;
                         byArray[n4] = (byte)(byArray[n4] + 2);
                     }
-                    if (j < this.mapTilesHeight - 1 && !this.boolean_a(n2, j + 1)) {
-                        byte[] byArray = this.var_byte_arr_arr_c[n2];
+                    if (j < this.mapTilesHeight - 1 && !this.boolean_a(mapX, j + 1)) {
+                        byte[] byArray = this.var_byte_arr_arr_c[mapX];
                         int n5 = j;
                         byArray[n5] = (byte)(byArray[n5] + 4);
                     }
-                    if (j <= 0 || this.boolean_a(n2, j - 1)) continue;
-                    byte[] byArray = this.var_byte_arr_arr_c[n2];
+                    if (j <= 0 || this.boolean_a(mapX, j - 1)) continue;
+                    byte[] byArray = this.var_byte_arr_arr_c[mapX];
                     int n6 = j;
                     byArray[n6] = (byte)(byArray[n6] + 8);
                     continue;
                 }
-                this.var_byte_arr_arr_c[n2][j] = -1;
+                this.var_byte_arr_arr_c[mapX][j] = -1;
             }
         }
         this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
