@@ -40,7 +40,7 @@ public class SpriteSheet {
     }
 
     // TODO what is the second parameter?
-    private void loadSpritesheetWithFilename(String imageName, int playerIndex) throws Exception {
+    private void loadSpritesheetWithFilename(String imageName, byte playerIndex) throws Exception {
         InputStream inputStream = AppCanvas.getFileBytesInputStream(imageName + ".sprite");
         // A .sprite asset contains metadata for a collection of sprites
         int tileCount = inputStream.read();

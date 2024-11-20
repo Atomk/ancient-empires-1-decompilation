@@ -55,11 +55,11 @@ public class Sprite {
     private Sprite() {
     }
 
-    public static Sprite fromByteArray(byte[] imageData, int playerIndex) {
+    public static Sprite fromByteArray(byte[] imageData, byte playerIndex) {
         if (playerIndex != Class_I.PLAYER_BLUE) {
             byte[] bytesCopy = new byte[imageData.length];
             System.arraycopy(imageData, 0, bytesCopy, 0, imageData.length);
-            Sprite.void_a(bytesCopy, (byte)playerIndex);
+            Sprite.void_a(bytesCopy, playerIndex);
             imageData = bytesCopy;
         }
         Sprite newSprite = new Sprite();

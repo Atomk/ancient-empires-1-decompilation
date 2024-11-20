@@ -50,7 +50,7 @@ extends Class_I {
         this.miniMapUnitsSheets = new SpriteSheet[2][11];
         // Spritesheet containing 11 (one for every unit type) 10x10 pixel images in the same row
         byte[] sheetImgBytes = AppCanvas.getFileBytes("unit_icons_s.png");
-        for (int playerIndex = 0; playerIndex < 2; ++playerIndex) {
+        for (byte playerIndex = 0; playerIndex < 2; ++playerIndex) {
             byte[] sheetImgBytesCopy = new byte[sheetImgBytes.length];
             System.arraycopy(sheetImgBytes, 0, sheetImgBytesCopy, 0, sheetImgBytes.length);
             // TODO maybe it's not necessary to copy the image bytes since fromByteArray already copies them
