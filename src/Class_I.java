@@ -50,7 +50,8 @@ implements CommandListener {
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;
     private byte levelType;
-    public String[] var_java_lang_String_arr_e = new String[]{
+    /** Main menu items without the "save game" option */
+    public String[] mainMenuStringsNoSave = new String[]{
         AppCanvas.getGameText(1),  // NEW GAME
         AppCanvas.getGameText(2),  // SELECT LEVEL
         AppCanvas.getGameText(4),  // LOAD GAME
@@ -62,14 +63,14 @@ implements CommandListener {
     // Same as above, adds SAVE GAME as first element
     private String[] var_java_lang_String_arr_c = new String[]{
         AppCanvas.getGameText(3),       // SAVE GAME
-        this.var_java_lang_String_arr_e[0],    // NEW GAME
-        this.var_java_lang_String_arr_e[1],     // ...
-        this.var_java_lang_String_arr_e[2],
-        this.var_java_lang_String_arr_e[3],
-        this.var_java_lang_String_arr_e[4],
-        this.var_java_lang_String_arr_e[5],
-        this.var_java_lang_String_arr_e[6],
-        this.var_java_lang_String_arr_e[7]};
+        this.mainMenuStringsNoSave[0],    // NEW GAME
+        this.mainMenuStringsNoSave[1],     // ...
+        this.mainMenuStringsNoSave[2],
+        this.mainMenuStringsNoSave[3],
+        this.mainMenuStringsNoSave[4],
+        this.mainMenuStringsNoSave[5],
+        this.mainMenuStringsNoSave[6],
+        this.mainMenuStringsNoSave[7]};
     private static final byte[][] mapSheetReorderTable;
     private static final byte[] statusPoisonReorderTable;
     private static final byte[] statusStarReorderTable;
@@ -1049,7 +1050,7 @@ implements CommandListener {
                 }
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
-                g2.showMenuOptions(this.var_java_lang_String_arr_e);
+                g2.showMenuOptions(this.mainMenuStringsNoSave);
                 g2.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
                 Class_I.appCanvas.pressedKeysActions = 0;
             }
@@ -1150,7 +1151,7 @@ implements CommandListener {
                 } else if (this.var_byte_i == 11) {
                     if (!this.var_boolean_y && this.var_int_r == 0 && this.var_long_n - this.var_long_c >= 1000L) {
                         g temmp_g_XXX = new g(this, (byte)0, 0);
-                        temmp_g_XXX.showMenuOptions(this.var_java_lang_String_arr_e);
+                        temmp_g_XXX.showMenuOptions(this.mainMenuStringsNoSave);
                         temmp_g_XXX.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
                         temmp_g_XXX.var_boolean_g = false;
                         this.var_int_r = 1;
