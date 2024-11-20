@@ -838,8 +838,8 @@ implements CommandListener {
     }
 
     public Unit c_a(int unitType, int mapX, int mapY) {
-        byte by = this.currentPlayerIndex_XX;
-        this.playersMoney[by] = this.playersMoney[by] - Unit.unitsDataPrice[unitType];
+        byte playerIndex = this.currentPlayerIndex_XX;
+        this.playersMoney[playerIndex] = this.playersMoney[playerIndex] - Unit.unitsDataPrice[unitType];
         return Unit.spawn((byte)unitType, this.playerIndex_XX, mapX, mapY);
     }
 

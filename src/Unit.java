@@ -356,8 +356,8 @@ extends SpriteSheet {
 
     private int int_b(int mapX, int mapY) {
         if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.mapTilesWidth && mapY < Unit.iClassRef.mapTilesHeight) {
-            Unit c2 = iClassRef.c_a(mapX, mapY, (byte)0);
-            if (c2 != null && c2.owner != this.owner) {
+            Unit unit = iClassRef.c_a(mapX, mapY, (byte)0);
+            if (unit != null && unit.owner != this.owner) {
                 return 1000;
             }
             byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
