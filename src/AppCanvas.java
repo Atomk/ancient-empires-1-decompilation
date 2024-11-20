@@ -158,7 +158,7 @@ CommandListener {
         }*/
     }
 
-    public static void a(Graphics graphics, String text, int x, int y, byte fontIndex, int n4) {
+    public static void drawBoldWhiteText_XX(Graphics graphics, String text, int x, int y, byte fontIndex, int n4) {
         if ((n4 & 8) != 0) {
             x -= AppCanvas.getSpriteFontTextWidth(fontIndex, text);
         }
