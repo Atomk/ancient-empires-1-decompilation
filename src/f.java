@@ -649,11 +649,11 @@ public class f {
             }
         }
         String string = "" + this.unitQuantity;
-        n6 = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth((byte)1, string)) / 2;
-        AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, 1);
+        n6 = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, string)) / 2;
+        AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, AppCanvas.FONT_NUMERIC);
         string = null;
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
-        n4 = AppCanvas.getSpriteFontCharHeight((byte)1) + 4;
+        n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
         n3 = this.var_a_a.getTerrainDefence_XX((byte)this.terrainType_YY, this.unit) - terrainDEF;
@@ -661,7 +661,7 @@ public class f {
         if (n3 > 0) {
             stringBuffer.append("+" + n3);
         }
-        AppCanvas.drawBoldWhiteText(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, 0);
+        AppCanvas.drawBoldWhiteText(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, AppCanvas.FONT_ALPHANUMERIC);
         graphics.translate(-offsetX, -offsetY);
     }
 

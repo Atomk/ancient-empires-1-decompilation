@@ -40,6 +40,9 @@ CommandListener {
     public static final byte SETTINGS_HELP = 2;
     public static final byte SETTINGS_FIGHT_ANIMATIONS = 3;
 
+    public static final byte FONT_ALPHANUMERIC = 0;
+    public static final byte FONT_NUMERIC = 1;
+
     public static final Font fontSmallPlain;
     //private static final Font fontMediumBold;
     public static int width2;
@@ -155,25 +158,25 @@ CommandListener {
         }*/
     }
 
-    public static void a(Graphics graphics, String text, int x, int y, int fontIndex, int n4) {
+    public static void a(Graphics graphics, String text, int x, int y, byte fontIndex, int n4) {
         if ((n4 & 8) != 0) {
-            x -= AppCanvas.getSpriteFontTextWidth((byte)fontIndex, text);
+            x -= AppCanvas.getSpriteFontTextWidth(fontIndex, text);
         }
         AppCanvas.drawBoldWhiteText(graphics, text, x, y, fontIndex);
     }
 
-    public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, int fontIndex) {
+    public static void drawBoldWhiteText(Graphics graphics, String text, int x, int y, byte fontIndex) {
         int stringLength = text.length();
         for (int j = 0; j < stringLength; ++j) {
             char currentChar = text.charAt(j);
-            
+
             // Checks if the character is inside the interval of the font spritesheet
             if (currentChar < fontSheetMinASCIIValue[fontIndex] || currentChar > fontSheetMaxASCIIValue[fontIndex])
                 continue;
-            
+
             // There are some character that, while included the interval above,
             // are not included in the font spritesheets so they cannot be shown.
-            // (e.g. the alphanumeric sheet is missing many symbols and the number '0') 
+            // (e.g. the alphanumeric sheet is missing many symbols and the number '0')
             // The table below contains a value for every ASCII character in the interval
             // And that value is the index in the spritesheet, or -1 if it canno be displayed
             int offsetFromMinCharacter = currentChar - fontSheetMinASCIIValue[fontIndex];
@@ -336,9 +339,8 @@ CommandListener {
             AppCanvas.readAssetsPackage();
             this.loadSounds();
             Class_I.loadSettingsData();
-            // TODO dehardcode index value
-            AppCanvas.fontSheets[0] = new SpriteSheet("chars");     // 36 tiles, 7x7 [A-Z][+-][1-9]
-            AppCanvas.fontSheets[1] = new SpriteSheet("lchars");    // 10 tiles, 10x15 [0-9]
+            AppCanvas.fontSheets[FONT_ALPHANUMERIC] = new SpriteSheet("chars");     // 36 tiles, 7x7 [A-Z][+-][1-9]
+            AppCanvas.fontSheets[FONT_NUMERIC] = new SpriteSheet("lchars");    // 10 tiles, 10x15 [0-9]
             this.spriteMask = new Sprite("mask.png");
             this.a_instance = new a((byte)0);
             this.isRunning = true;

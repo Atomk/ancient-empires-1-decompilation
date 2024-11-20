@@ -485,12 +485,12 @@ extends SpriteSheet {
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn
-                AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, 0);
+                AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }
             // TODO maybe look for "10" and deharcode to STACK_MAX or MAX_QUANTITY
             if (this.quantity < 10) {
                 // Shows the unit stack number in its bottom left corner only if there's less than 10 (the max amount)
-                AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, screenX, screenY + this.getSpritesHeight() - 5, 0);
+                AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, screenX, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }
         }
     }

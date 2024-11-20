@@ -756,15 +756,15 @@ public class g {
                     //int n15 = 4;
                     if (this.var_byte_a == 1) {
                         this.var_a_a.spriteGold.draw(graphics, n13, n14 += this.appFont.getBaselinePosition() + 2);
-                        AppCanvas.drawBoldWhiteText(graphics, "" + Unit.unitsDataPrice[this.unitType_XX], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "" + Unit.unitsDataPrice[this.unitType_XX], n13 += this.var_a_a.spriteGold.width + 2, n14 + 3, AppCanvas.FONT_ALPHANUMERIC);
                     } else {
                         graphics.setColor(COLOR_UI_LINE_SEPARATOR);
                         graphics.drawLine(0, n13, n3 - 1, n14 += 26);
                         n12 = n3 / 2;
                         graphics.drawLine(n12, n14, n12, this.j);
                         graphics.setColor(COLOR_BLACK);
-                        AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, 0);
-                        n14 += AppCanvas.getSpriteFontCharHeight((byte)0) + 2;
+                        AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, AppCanvas.FONT_ALPHANUMERIC);
+                        n14 += AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_ALPHANUMERIC) + 2;
                         // TODO it would be much more readable to have a hasStatus method, but maybe this inlining is an optimization?
                         if ((this.var_c_a.statusFlags & Unit.STATUS_POISON) != 0) {
                             this.var_a_a.uiStatusSheet.setCurrentIndex(0);
@@ -779,7 +779,7 @@ public class g {
                             // AURA
                             graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.uiStatusSheet.getSpritesWidth() + 2, n14 + 2, 20);
                         }
-                        AppCanvas.a(graphics, "" + this.var_c_a.quantity, n3 - 4, 6, 1, 8);
+                        AppCanvas.a(graphics, "" + this.var_c_a.quantity, n3 - 4, 6, AppCanvas.FONT_NUMERIC, 8);
                         graphics.setFont(this.appFont);
                         this.var_a_a.uiStatusSheet.setCurrentIndex(2);  // Star icon
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
@@ -788,7 +788,7 @@ public class g {
                         }
                     }
                     graphics.setColor(COLOR_RED);
-                    AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer.append(Unit.unitsDataATK[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
                         if (this.var_c_a.var_short_f > 0) {
@@ -802,8 +802,8 @@ public class g {
                         n13 = n3 - 2 - 2;
                     }
                     String string2 = stringBuffer.toString();
-                    AppCanvas.a(graphics, string2, n13, 33, 0, 8);
-                    AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, 0);
+                    AppCanvas.a(graphics, string2, n13, 33, AppCanvas.FONT_ALPHANUMERIC, 8);
+                    AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(Unit.unitsDataDEF[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
@@ -815,8 +815,8 @@ public class g {
                         }
                     }
                     string2 = stringBuffer.toString();
-                    AppCanvas.a(graphics, string2, n13, 43, 0, 8);
-                    AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, 0);
+                    AppCanvas.a(graphics, string2, n13, 43, AppCanvas.FONT_ALPHANUMERIC, 8);
+                    AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(Unit.unitsDataMOV[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
@@ -828,7 +828,7 @@ public class g {
                         }
                     }
                     string2 = stringBuffer.toString();
-                    AppCanvas.a(graphics, string2, n13, 53, 0, 8);
+                    AppCanvas.a(graphics, string2, n13, 53, AppCanvas.FONT_ALPHANUMERIC, 8);
                     n12 = this.j;
                     n11 = n3 / 2;
                     graphics.setColor(-6386059);
@@ -845,14 +845,14 @@ public class g {
                         n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         n9 = this.j - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n10, n9 - this.p);
-                        AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, 0);
+                        AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, AppCanvas.FONT_ALPHANUMERIC);
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
                     this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
                     n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
                     this.var_a_a.uiArrowSheet.a(graphics, n10, n9 + this.p);
-                    AppCanvas.drawBoldWhiteText(graphics, "7", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "7", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, AppCanvas.FONT_ALPHANUMERIC);
                     break;
                 }
                 case 2: {
@@ -884,7 +884,7 @@ public class g {
                         this.var_a_a.uiBtnIconSheet.setCurrentIndex(Class_I.BTN_ICON_INFO);
                         this.var_a_a.uiBtnIconSheet.a(graphics, n3 - 2 - this.var_a_a.uiBtnIconSheet.getSpritesWidth(), 2);
                     } else {
-                        AppCanvas.a(graphics, "" + this.var_a_a.playersMoney[this.var_a_a.currentPlayerIndex_XX], n3 - 2, 5, 0, 8);
+                        AppCanvas.a(graphics, "" + this.var_a_a.playersMoney[this.var_a_a.currentPlayerIndex_XX], n3 - 2, 5, AppCanvas.FONT_ALPHANUMERIC, 8);
                     }
                     int n19 = 16;
                     int n20 = this.var_int_g - n19 - 6;
@@ -929,8 +929,8 @@ public class g {
                     graphics.setColor(COLOR_BLACK);
                     graphics.drawRect(n24, 2, 23, 23);
                     int n25 = 28;
-                    AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, 0);
-                    AppCanvas.drawBoldWhiteText(graphics, "" + Class_I.terrainTypeDefense[terrainType], 14, n25 += 9, 0);
+                    AppCanvas.drawBoldWhiteText(graphics, "DEF", 7, n25, AppCanvas.FONT_ALPHANUMERIC);
+                    AppCanvas.drawBoldWhiteText(graphics, "" + Class_I.terrainTypeDefense[terrainType], 14, n25 += 9, AppCanvas.FONT_ALPHANUMERIC);
                     if (this.var_c_a == null) break;
                     this.var_a_a.a(this.var_c_a.owner, this.var_c_a.unitType).a(graphics, 35, 2);
                     n25 = 22;
