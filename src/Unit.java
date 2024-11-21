@@ -142,8 +142,8 @@ extends SpriteSheet {
         } else if (rand <= -16) {
             --opponentDEF;
         }
-        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
-        int n5 = (atk - (terrainDEF_XX + opponentDEF) * 2 / 3) * this.quantity / 10;
+        int terrainDEF = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
+        int n5 = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
         if (n5 > opponent.quantity) {
             n5 = opponent.quantity;
         }
