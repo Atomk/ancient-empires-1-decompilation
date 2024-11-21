@@ -624,8 +624,8 @@ implements CommandListener {
         }
     }
 
-    public SpriteSheet a(SpriteSheet e2, int n, int n2, int n3, int n4, int n5, int n6) {
-        SpriteSheet e3 = SpriteSheet.a(e2, n3, n4, n5, n6, (byte)0);
+    public SpriteSheet a(SpriteSheet sheet, int n, int n2, int n3, int n4, int n5, int n6) {
+        SpriteSheet e3 = SpriteSheet.a(sheet, n3, n4, n5, n6, (byte)0);
         e3.void_b(n, n2);
         this.var_java_util_Vector_f.addElement(e3);
         return e3;
@@ -966,10 +966,10 @@ implements CommandListener {
         this.var_boolean_j = false;
     }
 
-    public void a(byte[][] byArray, int n) {
-        for (int j = 0; j < this.mapTilesWidth; ++j) {
-            for (int k = 0; k < this.mapTilesHeight; ++k) {
-                byArray[j][k] = (byte)n;
+    public void a(byte[][] byArray, int value) {
+        for (int x = 0; x < this.mapTilesWidth; ++x) {
+            for (int y = 0; y < this.mapTilesHeight; ++y) {
+                byArray[x][y] = (byte)value;
             }
         }
     }

@@ -233,32 +233,32 @@ extends SpriteSheet {
         return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
     }
 
-    public void a(byte[][] byArray, int n, int n2) {
+    public void a(byte[][] byArray, int unitX, int unitY) {
         byte attackRangeMin = unitsDataRangeMin[this.unitType];
         byte attackRangeMax = unitsDataRangeMax[this.unitType];
 
-        int minX = n - attackRangeMax;
+        int minX = unitX - attackRangeMax;
         if (minX < 0) {
             minX = 0;
         }
-        int minY = n2 - attackRangeMax;
+        int minY = unitY - attackRangeMax;
         if (minY < 0) {
             minY = 0;
         }
-        int maxX = n + attackRangeMax;
+        int maxX = unitX + attackRangeMax;
         if (maxX >= Unit.iClassRef.mapTilesWidth) {
             maxX = Unit.iClassRef.mapTilesWidth - 1;
         }
-        int maxY = n2 + attackRangeMax;
+        int maxY = unitY + attackRangeMax;
         if (maxY >= Unit.iClassRef.mapTilesHeight) {
             maxY = Unit.iClassRef.mapTilesHeight - 1;
         }
 
-        for (int j = minX; j <= maxX; ++j) {
-            for (int k = minY; k <= maxY; ++k) {
-                int manhattanDist = Math.abs(j - n) + Math.abs(k - n2);
-                if (manhattanDist < attackRangeMin || manhattanDist > attackRangeMax || byArray[j][k] > 0) continue;
-                byArray[j][k] = 127; // 0111_1111
+        for (int x = minX; x <= maxX; ++x) {
+            for (int y = minY; y <= maxY; ++y) {
+                int manhattanDist = Math.abs(x - unitX) + Math.abs(y - unitY);
+                if (manhattanDist < attackRangeMin || manhattanDist > attackRangeMax || byArray[x][y] > 0) continue;
+                byArray[x][y] = 127; // 0111_1111
             }
         }
     }
