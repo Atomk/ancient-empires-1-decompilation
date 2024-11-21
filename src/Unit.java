@@ -120,25 +120,26 @@ extends SpriteSheet {
         if (this.unitType == Unit.WISP && opponent.unitType == Unit.SKELETON) {
             atk += 3;
         }
-        int n = AppCanvas.randomInt() % 20 + this.stars;
-        if (n >= 19) {
+        // Random number between -19 and 19 + stars(0-3)
+        int rand = AppCanvas.randomInt() % 20 + this.stars;
+        if (rand >= 19) {
             atk += 2;
-        } else if (n >= 16) {
+        } else if (rand >= 16) {
             ++atk;
-        } else if (n <= -19) {
+        } else if (rand <= -19) {
             atk -= 2;
-        } else if (n <= -16) {
+        } else if (rand <= -16) {
             --atk;
         }
         int n3 = unitsDataDEF[opponent.unitType] + opponent.statusModDef;
-        n = AppCanvas.randomInt() % 20 + opponent.stars;
-        if (n >= 19) {
+        rand = AppCanvas.randomInt() % 20 + opponent.stars;
+        if (rand >= 19) {
             n3 += 2;
-        } else if (n >= 16) {
+        } else if (rand >= 16) {
             ++n3;
-        } else if (n <= -19) {
+        } else if (rand <= -19) {
             n3 -= 2;
-        } else if (n <= -16) {
+        } else if (rand <= -16) {
             --n3;
         }
         int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
