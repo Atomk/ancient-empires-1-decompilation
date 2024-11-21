@@ -645,13 +645,15 @@ public class f {
             }
         }
 
-        String string = "" + this.unitQuantity;
-        int txtUnitQuantityX = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, string)) / 2;
-        AppCanvas.drawBoldWhiteText(graphics, string, txtUnitQuantityX, 2, AppCanvas.FONT_NUMERIC);
-        string = null;
+        String txtUnitQuantity = "" + this.unitQuantity;
+        int txtUnitQuantityX = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, txtUnitQuantity)) / 2;
+        AppCanvas.drawBoldWhiteText(graphics, txtUnitQuantity, txtUnitQuantityX, 2, AppCanvas.FONT_NUMERIC);
+        txtUnitQuantity = null;
+
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
         int n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
+
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
         int terrainBonusDEF = this.var_a_a.getTerrainDefenceForUnit((byte)this.terrainType_YY, this.unit) - terrainDEF;
         StringBuffer stringBuffer = new StringBuffer().append(terrainDEF);
