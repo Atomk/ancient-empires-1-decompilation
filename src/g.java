@@ -766,7 +766,7 @@ public class g {
                         AppCanvas.drawBoldWhiteText(graphics, "STATUS", (n12 += 3) + 6, n14 += 3, AppCanvas.FONT_ALPHANUMERIC);
                         n14 += AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_ALPHANUMERIC) + 2;
                         // TODO it would be much more readable to have a hasStatus method, but maybe this inlining is an optimization?
-                        if ((this.var_c_a.statusFlags & Unit.STATUS_POISON) != 0) {
+                        if (this.var_c_a.hasStatus(Unit.STATUS_POISON)) {
                             this.var_a_a.uiStatusSheet.setCurrentIndex(0);
                             this.var_a_a.uiStatusSheet.a(graphics, n12, n14 - 2);
                             // POISON
@@ -942,7 +942,7 @@ public class g {
                     }
                     n25 += this.var_a_a.uiStatusSheet.getSpritesHeight() - 5;
                     n26 = 31;
-                    if ((this.var_c_a.statusFlags & Unit.STATUS_POISON) != 0) {
+                    if (this.var_c_a.hasStatus(Unit.STATUS_POISON)) {
                         this.var_a_a.uiStatusSheet.setCurrentIndex(0);
                         this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                         n26 += this.var_a_a.uiStatusSheet.getSpritesWidth();

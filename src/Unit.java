@@ -162,6 +162,10 @@ extends SpriteSheet {
         return this.quantity > 0 && Math.abs(this.mapX - mapX) + Math.abs(this.mapY - mapY) == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
+    public boolean hasStatus(byte statusFlag) {
+        return (this.statusFlags & statusFlag) != 0;
+    }
+
     public void addStatus(byte statusFlag) {
         this.statusFlags = (byte)(this.statusFlags | statusFlag);
         this.d();
@@ -176,12 +180,12 @@ extends SpriteSheet {
         this.k = 0;
         this.var_short_f = 0;
         this.var_short_e = 0;
-        if ((this.statusFlags & STATUS_POISON) != 0) {
+        if (this.hasStatus(STATUS_POISON)) {
             this.k--;
             this.var_short_f--;
             this.var_short_e--;
         }
-        if ((this.statusFlags & STATUS_AURA) != 0) {
+        if (this.hasStatus(STATUS_AURA)) {
             this.var_short_f++;
         }
     }
