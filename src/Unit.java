@@ -114,21 +114,21 @@ extends SpriteSheet {
 
     public int a(Unit unit) {
         int n;
-        int n2 = unitsDataATK[this.unitType] + this.statusModAtk;
+        int atk = unitsDataATK[this.unitType] + this.statusModAtk;
         if (this.isType(ARCHER_FLAG) && unit.isType(WYVERN_FLAG)) {
-            n2 += 2;
+            atk += 2;
         }
         if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
-            n2 += 3;
+            atk += 3;
         }
         if ((n = AppCanvas.randomInt() % 20 + this.stars) >= 19) {
-            n2 += 2;
+            atk += 2;
         } else if (n >= 16) {
-            ++n2;
+            ++atk;
         } else if (n <= -19) {
-            n2 -= 2;
+            atk -= 2;
         } else if (n <= -16) {
-            --n2;
+            --atk;
         }
         int n3 = unitsDataDEF[unit.unitType] + unit.statusModDef;
         n = AppCanvas.randomInt() % 20 + unit.stars;
@@ -142,7 +142,7 @@ extends SpriteSheet {
             --n3;
         }
         int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(unit.mapX, (int)unit.mapY), unit);
-        int n5 = (n2 - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
+        int n5 = (atk - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
         if (n5 > unit.quantity) {
             n5 = unit.quantity;
         }
