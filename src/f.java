@@ -624,7 +624,6 @@ public class f {
     }
 
     public void a(Graphics graphics, int offsetX, int offsetY) {
-        int n3;
         int n4;
         int n5;
         graphics.translate(offsetX, offsetY);
@@ -633,7 +632,7 @@ public class f {
         for (n5 = 0; n5 < n7; ++n5) {
             n4 = this.var_int_d + offsetY;
             int n8 = this.n;
-            for (n3 = 0; n3 < n8; ++n3) {
+            for (int n3 = 0; n3 < n8; ++n3) {
                 this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, n6, n4);
                 n4 += 24;
             }
@@ -642,7 +641,7 @@ public class f {
         if (this.var_h_a != null) {
             n5 = this.var_h_a.width;
             n6 = 0;
-            n3 = AppCanvas.h / n5;
+            int n3 = AppCanvas.h / n5;
             for (n7 = 0; n7 < n3; ++n7) {
                 this.var_h_a.draw(graphics, n6, 0);
                 n6 += n5;
@@ -656,10 +655,10 @@ public class f {
         n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
-        n3 = this.var_a_a.getTerrainDefenceForUnit((byte)this.terrainType_YY, this.unit) - terrainDEF;
+        int terrainBonusDEF = this.var_a_a.getTerrainDefenceForUnit((byte)this.terrainType_YY, this.unit) - terrainDEF;
         StringBuffer stringBuffer = new StringBuffer().append(terrainDEF);
-        if (n3 > 0) {
-            stringBuffer.append("+" + n3);
+        if (terrainBonusDEF > 0) {
+            stringBuffer.append("+" + terrainBonusDEF);
         }
         AppCanvas.drawBoldWhiteText(graphics, stringBuffer.toString(), n6 + 28, n4 + 5, AppCanvas.FONT_ALPHANUMERIC);
         graphics.translate(-offsetX, -offsetY);
