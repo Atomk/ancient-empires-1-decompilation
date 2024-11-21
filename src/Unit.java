@@ -370,21 +370,24 @@ extends SpriteSheet {
     }
 
     private void a(byte[][] byArray, int mapX, int mapY, int n3, int n4) {
-        int n5;
         if (n3 <= byArray[mapX][mapY]) {
             return;
         }
         byArray[mapX][mapY] = (byte)n3;
-        if (n4 != 1 && (n5 = n3 - this.int_b(mapX, mapY - 1)) >= 0) {
+        int n5 = n3 - this.int_b(mapX, mapY - 1);
+        if (n4 != 1 && n5 >= 0) {
             this.a(byArray, mapX, mapY - 1, n5, 2);
         }
-        if (n4 != 2 && (n5 = n3 - this.int_b(mapX, mapY + 1)) >= 0) {
+        n5 = n3 - this.int_b(mapX, mapY + 1);
+        if (n4 != 2 && n5 >= 0) {
             this.a(byArray, mapX, mapY + 1, n5, 1);
         }
-        if (n4 != 4 && (n5 = n3 - this.int_b(mapX - 1, mapY)) >= 0) {
+        n5 = n3 - this.int_b(mapX - 1, mapY);
+        if (n4 != 4 && n5 >= 0) {
             this.a(byArray, mapX - 1, mapY, n5, 8);
         }
-        if (n4 != 8 && (n5 = n3 - this.int_b(mapX + 1, mapY)) >= 0) {
+        n5 = n3 - this.int_b(mapX + 1, mapY);
+        if (n4 != 8 && n5 >= 0) {
             this.a(byArray, mapX + 1, mapY, n5, 4);
         }
     }
