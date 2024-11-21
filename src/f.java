@@ -24,7 +24,7 @@ public class f {
     private Unit unit;
     public boolean var_boolean_f = false;
     public boolean var_boolean_e = false;
-    public byte var_byte_c;
+    public byte unitQuantityAfterBattle;
     private byte var_byte_a;
     public byte var_byte_d;
     private byte var_byte_b;
@@ -605,7 +605,7 @@ public class f {
         this.c();
         this.l = this.var_byte_a - this.var_byte_d;
         this.var_byte_b = this.var_byte_d;
-        this.unitQuantity = this.var_byte_c;
+        this.unitQuantity = this.unitQuantityAfterBattle;
         for (int j = 0; j < this.l; ++j) {
             SpriteSheet e2 = SpriteSheet.a(this.var_a_a.spriteSheetSoul, 0, -2, 1, 150, (byte)0);
             SpriteSheet e3 = SpriteSheet.a(this.var_a_a.redsparkSheet, 0, 0, 1, 100, (byte)0);

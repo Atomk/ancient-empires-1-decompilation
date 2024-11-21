@@ -3053,9 +3053,9 @@ implements CommandListener {
         } else {
             this.defenderDidCounterattack = false;
         }
-        this.var_f_b.var_byte_c = (byte)attacker.quantity;
+        this.var_f_b.unitQuantityAfterBattle = (byte)attacker.quantity;
         this.var_f_b.var_byte_d = (byte)attacker.int_a();
-        this.var_f_a.var_byte_c = (byte)defender.quantity;
+        this.var_f_a.unitQuantityAfterBattle = (byte)defender.quantity;
         this.var_f_a.var_byte_d = (byte)defender.int_a();
     }
 
@@ -3097,7 +3097,7 @@ implements CommandListener {
                 return;
             }
         } else if (this.var_f_b.var_boolean_f) {
-            if (this.defenderDidCounterattack && this.var_f_a.var_byte_c > 0) {
+            if (this.defenderDidCounterattack && this.var_f_a.unitQuantityAfterBattle > 0) {
                 if (!this.var_f_a.var_boolean_e) {
                     this.var_f_a.b();
                 }
