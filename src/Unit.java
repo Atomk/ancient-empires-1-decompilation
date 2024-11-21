@@ -429,9 +429,9 @@ extends SpriteSheet {
                     // Lizards are not slowed down by water
                     return 1;
                 }
-                return Class_I.terrainTypeMovementReduction_XXX[terrainType] * 2;
+                return Class_I.terrainMovCost[terrainType] * 2;
             }
-            return Class_I.terrainTypeMovementReduction_XXX[terrainType];
+            return Class_I.terrainMovCost[terrainType];
         }
         return 10000;
     }
