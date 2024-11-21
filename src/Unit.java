@@ -113,7 +113,6 @@ extends SpriteSheet {
     }
 
     public int a(Unit opponent) {
-        int n;
         int atk = unitsDataATK[this.unitType] + this.statusModAtk;
         if (this.isType(ARCHER_FLAG) && opponent.isType(WYVERN_FLAG)) {
             atk += 2;
@@ -121,7 +120,8 @@ extends SpriteSheet {
         if (this.unitType == Unit.WISP && opponent.unitType == Unit.SKELETON) {
             atk += 3;
         }
-        if ((n = AppCanvas.randomInt() % 20 + this.stars) >= 19) {
+        int n = AppCanvas.randomInt() % 20 + this.stars;
+        if (n >= 19) {
             atk += 2;
         } else if (n >= 16) {
             ++atk;
@@ -141,13 +141,13 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n3;
         }
-        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, (int)opponent.mapY), opponent);
+        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
         int n5 = (atk - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
         if (n5 > opponent.quantity) {
             n5 = opponent.quantity;
         }
-        opponent.quantity = (short)(opponent.quantity - n5);
-        this.mapPixelX = (short)(this.mapPixelX + (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * n5);
+        opponent.quantity -= n5;
+        this.mapPixelX += (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * n5;
         return n5;
     }
 
