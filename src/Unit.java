@@ -457,23 +457,22 @@ extends SpriteSheet {
         return (this.bitflag & unitBitflag) != 0;
     }
 
+    // TODO SHould be something like "endTurn" or "setInactive" or "setCannotAct"
     public void void_b() {
-        Unit c2;
-        int n;
         this.state = STATE_ALREADY_ACTED;
         Unit c3 = iClassRef.c_a((int)this.mapX, (int)this.mapY, (byte)1);
         if (c3 != null) {
             Unit.iClassRef.mapUnitsList.removeElement(c3);
         }
         int unitsCount = Unit.iClassRef.mapUnitsList.size();
-        for (n = 0; n < unitsCount; ++n) {
-            c2 = Unit.iClassRef.mapUnitsList.elementAt(n);
+        for (int i = 0; i < unitsCount; ++i) {
+            Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
             if (c2.owner != this.owner) continue;
             c2.removeStatus(Unit.STATUS_AURA);
         }
         unitsCount = Unit.iClassRef.mapUnitsList.size();
-        for (n = 0; n < unitsCount; ++n) {
-            c2 = Unit.iClassRef.mapUnitsList.elementAt(n);
+        for (int i = 0; i < unitsCount; ++i) {
+            Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
             if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
