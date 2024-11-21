@@ -33,11 +33,11 @@ extends SpriteSheet {
     public static final short WIZARD_FLAG = 32;
     public static final short WISP_FLAG = 256;
     public static final short SPIDER_FLAG = 128;
-    public static final short GOLEM_FLAG = 0;
+    //public static final short GOLEM_FLAG = _;
     public static final short CATAPULT_FLAG = 512;
     public static final short WYVERN_FLAG = 1;
     public static final short KING_FLAG = 28;   // 16 + 8 + 4 => 28 = 00011100
-    public static final short SKELETON_FLAG = 0;
+    //public static final short SKELETON_FLAG = _;
 
     public static final byte STATUS_POISON = 1;
     public static final byte STATUS_AURA = 2;
