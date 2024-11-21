@@ -391,29 +391,32 @@ extends SpriteSheet {
             return;
         }
         byArray[mapX][mapY] = (byte)movPoints;
-        int pointsAfterMove = movPoints - this.int_b(mapX, mapY - 1);
+        int pointsAfterMove = movPoints - this.tileMovCost(mapX, mapY - 1);
         if (fromDirection != DIRECTION_UP && pointsAfterMove >= 0) {
             this.pathfindInner(byArray, mapX, mapY - 1, pointsAfterMove, DIRECTION_DOWN);
         }
-        pointsAfterMove = movPoints - this.int_b(mapX, mapY + 1);
+        pointsAfterMove = movPoints - this.tileMovCost(mapX, mapY + 1);
         if (fromDirection != DIRECTION_DOWN && pointsAfterMove >= 0) {
             this.pathfindInner(byArray, mapX, mapY + 1, pointsAfterMove, DIRECTION_UP);
         }
-        pointsAfterMove = movPoints - this.int_b(mapX - 1, mapY);
+        pointsAfterMove = movPoints - this.tileMovCost(mapX - 1, mapY);
         if (fromDirection != DIRECTION_LEFT && pointsAfterMove >= 0) {
             this.pathfindInner(byArray, mapX - 1, mapY, pointsAfterMove, DIRECTION_RIGHT);
         }
-        pointsAfterMove = movPoints - this.int_b(mapX + 1, mapY);
+        pointsAfterMove = movPoints - this.tileMovCost(mapX + 1, mapY);
         if (fromDirection != DIRECTION_RIGHT && pointsAfterMove >= 0) {
             this.pathfindInner(byArray, mapX + 1, mapY, pointsAfterMove, DIRECTION_LEFT);
         }
     }
 
-    private int int_b(int mapX, int mapY) {
+    /** Returns the movement points needed by this unit to traverse (walk on) this tile.
+     * Out-of-bounds tiles are handled by having a huge movement cost. */
+    private int tileMovCost(int mapX, int mapY) {
         // If coordinates are inside the map
         if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.mapTilesWidth && mapY < Unit.iClassRef.mapTilesHeight) {
             Unit unit = iClassRef.c_a(mapX, mapY, (byte)0);
             if (unit != null && unit.owner != this.owner) {
+                // Cannot move through enemy units
                 return 1000;
             }
             byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
