@@ -795,7 +795,7 @@ implements CommandListener {
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
-                this.var_c_h.a(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
+                this.var_c_h.updateAttackMatrix_XX(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
                 this.var_boolean_r = true;
                 this.var_boolean_t = true;
@@ -824,7 +824,7 @@ implements CommandListener {
                 this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)1);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
-                this.var_c_h.a(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
+                this.var_c_h.updateAttackMatrix_XX(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
             } else if (string.equals(AppCanvas.getGameText(35))) {
                 g g6 = new g(this, (byte)7, 0);
@@ -2044,7 +2044,7 @@ implements CommandListener {
         if (this.var_byte_b == 4) {
             if (this.var_c_g != null || this.var_c_a != null) {
                 this.var_byte_b = (byte)5;
-                this.var_c_h.a(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
+                this.var_c_h.updateAttackMatrix_XX(this.mapValues_XX, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_j = true;
                 this.var_boolean_h = true;
                 this.var_long_j = this.var_long_n;

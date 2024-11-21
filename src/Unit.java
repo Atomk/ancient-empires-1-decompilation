@@ -233,7 +233,10 @@ extends SpriteSheet {
         return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
     }
 
-    public void a(byte[][] byArray, int unitX, int unitY) {
+    // TODO takes a matrix the same size as the map, and puts the value 127
+    // in all cells the unit can attack from the specified position (melee or ranged)
+    // The cell is updated only if it's not zero, this part I did not understand yet
+    public void updateAttackMatrix_XX(byte[][] byArray, int unitX, int unitY) {
         byte attackRangeMin = unitsDataRangeMin[this.unitType];
         byte attackRangeMax = unitsDataRangeMax[this.unitType];
 
@@ -265,14 +268,14 @@ extends SpriteSheet {
 
     public void a(byte[][] byArray) {
         if (this.isType(CATAPULT_FLAG)) {
-            this.a(byArray, (int)this.mapX, (int)this.mapY);
+            this.updateAttackMatrix_XX(byArray, (int)this.mapX, (int)this.mapY);
             return;
         }
         this.b(byArray);
         for (int x = 0; x < Unit.iClassRef.mapTilesWidth; ++x) {
             for (int y = 0; y < Unit.iClassRef.mapTilesHeight; ++y) {
                 if (byArray[x][y] <= 0 || byArray[x][y] == 127) continue;
-                this.a(byArray, x, y);
+                this.updateAttackMatrix_XX(byArray, x, y);
             }
         }
     }
