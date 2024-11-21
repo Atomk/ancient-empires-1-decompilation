@@ -150,7 +150,7 @@ extends SpriteSheet {
             --opponentDEF;
         }
 
-        int terrainDEF = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
+        int terrainDEF = iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
         int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
         if (killCount > opponent.quantity) {
             killCount = opponent.quantity;
@@ -222,7 +222,7 @@ extends SpriteSheet {
     }
 
     public int int_a(int n, int n2) {
-        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
+        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
     }
 
     public void a(byte[][] byArray, int n, int n2) {

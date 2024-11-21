@@ -656,7 +656,7 @@ public class f {
         n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
-        n3 = this.var_a_a.getTerrainDefence_XX((byte)this.terrainType_YY, this.unit) - terrainDEF;
+        n3 = this.var_a_a.getTerrainDefenceForUnit((byte)this.terrainType_YY, this.unit) - terrainDEF;
         StringBuffer stringBuffer = new StringBuffer().append(terrainDEF);
         if (n3 > 0) {
             stringBuffer.append("+" + n3);

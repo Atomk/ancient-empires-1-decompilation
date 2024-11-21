@@ -1854,7 +1854,8 @@ implements CommandListener {
         return this.var_byte_arr_j[this.mapTerrain[xIndex][yIndex]];
     }
 
-    public int getTerrainDefence_XX(byte terrainType, Unit unit) {
+    /** Returns the defence a certain terrain type provides to a specific tyoe of unit. */
+    public int getTerrainDefenceForUnit(byte terrainType, Unit unit) {
         int terrainDefence = terrainTypeDefense[terrainType];
         // Lizards get +2 defence in water
         if (unit.isType(Unit.LIZARD_FLAG) && terrainType == f.TERRAIN_WATER) {
@@ -2261,7 +2262,7 @@ implements CommandListener {
                 n5 += 10;
             }
         }
-        n5 += this.getTerrainDefence_XX(this.getTerrainType_ZZ(n, n2), c2) * 2;
+        n5 += this.getTerrainDefenceForUnit(this.getTerrainType_ZZ(n, n2), c2) * 2;
         for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
             if (n4 == this.currentPlayerIndex_XX || this.var_c_arr_a[n4] == null) continue;
             n5 += (this.mapTilesWidth - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.mapTilesHeight - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
