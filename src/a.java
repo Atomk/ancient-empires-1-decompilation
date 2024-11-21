@@ -261,29 +261,29 @@ extends Class_I {
         }
     }
 
-    public void a(Unit c2, Unit c3) throws Exception {
+    public void a(Unit attacker, Unit defender) throws Exception {
         this.var_byte_d = (byte)2;
         this.var_java_util_Vector_d = this.var_java_util_Vector_c;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this.var_boolean_e = true;
         this.var_int_m = 0;
         this.var_boolean_k = false;
-        this.var_c_i = c2;
-        this.var_c_b = c3;
-        this.var_f_b = new f(this, c2, true);
-        this.var_f_b.var_f_a = this.var_f_a = new f(this, c3, false);
+        this.var_c_i = attacker;
+        this.var_c_b = defender;
+        this.var_f_b = new f(this, attacker, true);
+        this.var_f_b.var_f_a = this.var_f_a = new f(this, defender, false);
         this.var_f_a.var_f_a = this.var_f_b;
-        c2.attack(c3);
-        if (c3.canCounterattackMelee(c2, (int)c2.mapX, (int)c2.mapY)) {
-            c3.attack(c2);
+        attacker.attack(defender);
+        if (defender.canCounterattackMelee(attacker, (int)attacker.mapX, (int)attacker.mapY)) {
+            defender.attack(attacker);
             this.var_boolean_x = true;
         } else {
             this.var_boolean_x = false;
         }
-        this.var_f_b.var_byte_c = (byte)c2.quantity;
-        this.var_f_b.var_byte_d = (byte)c2.int_a();
-        this.var_f_a.var_byte_c = (byte)c3.quantity;
-        this.var_f_a.var_byte_d = (byte)c3.int_a();
+        this.var_f_b.var_byte_c = (byte)attacker.quantity;
+        this.var_f_b.var_byte_d = (byte)attacker.int_a();
+        this.var_f_a.var_byte_c = (byte)defender.quantity;
+        this.var_f_a.var_byte_d = (byte)defender.int_a();
     }
 
     public void b() throws Exception {
