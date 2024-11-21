@@ -465,14 +465,17 @@ extends SpriteSheet {
             Unit.iClassRef.mapUnitsList.removeElement(c3);
         }
         int unitsCount = Unit.iClassRef.mapUnitsList.size();
+        // Remove AURA status from all friendly units (TODO maybe so it's not active during opponent's turn?)
         for (int i = 0; i < unitsCount; ++i) {
             Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
-            if (c2.owner != this.owner) continue;
-            c2.removeStatus(Unit.STATUS_AURA);
+            if (c2.owner == this.owner) {
+                c2.removeStatus(Unit.STATUS_AURA);
+            }
         }
         unitsCount = Unit.iClassRef.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
             Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
+            // Unit must be an allied Wisp
             if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
             Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
             for (int j = 0; j < cArray.length; ++j) {
