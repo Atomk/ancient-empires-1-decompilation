@@ -376,21 +376,21 @@ extends SpriteSheet {
         }
         // movPoints is the movement points left once arrived on this tile
         byArray[mapX][mapY] = (byte)movPoints;
-        int n5 = movPoints - this.int_b(mapX, mapY - 1);
-        if (n4 != 1 && n5 >= 0) {
-            this.a(byArray, mapX, mapY - 1, n5, 2);
+        int pointsAfterMove = movPoints - this.int_b(mapX, mapY - 1);
+        if (n4 != 1 && pointsAfterMove >= 0) {
+            this.a(byArray, mapX, mapY - 1, pointsAfterMove, 2);
         }
-        n5 = movPoints - this.int_b(mapX, mapY + 1);
-        if (n4 != 2 && n5 >= 0) {
-            this.a(byArray, mapX, mapY + 1, n5, 1);
+        pointsAfterMove = movPoints - this.int_b(mapX, mapY + 1);
+        if (n4 != 2 && pointsAfterMove >= 0) {
+            this.a(byArray, mapX, mapY + 1, pointsAfterMove, 1);
         }
-        n5 = movPoints - this.int_b(mapX - 1, mapY);
-        if (n4 != 4 && n5 >= 0) {
-            this.a(byArray, mapX - 1, mapY, n5, 8);
+        pointsAfterMove = movPoints - this.int_b(mapX - 1, mapY);
+        if (n4 != 4 && pointsAfterMove >= 0) {
+            this.a(byArray, mapX - 1, mapY, pointsAfterMove, 8);
         }
-        n5 = movPoints - this.int_b(mapX + 1, mapY);
-        if (n4 != 8 && n5 >= 0) {
-            this.a(byArray, mapX + 1, mapY, n5, 4);
+        pointsAfterMove = movPoints - this.int_b(mapX + 1, mapY);
+        if (n4 != 8 && pointsAfterMove >= 0) {
+            this.a(byArray, mapX + 1, mapY, pointsAfterMove, 4);
         }
     }
 
