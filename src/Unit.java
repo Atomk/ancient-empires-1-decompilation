@@ -365,8 +365,14 @@ extends SpriteSheet {
         return vector;
     }
 
+    private static final int DIRECTION_NONE = -1;
+    private static final int DIRECTION_UP = 1;
+    private static final int DIRECTION_DOWN = 2;
+    private static final int DIRECTION_LEFT = 4;
+    private static final int DIRECTION_RIGHT = 8;
+
     public void b(byte[][] byArray) {
-        this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, -1);
+        this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
     }
 
     private void a(byte[][] byArray, int mapX, int mapY, int movPoints, int fromDirection) {
@@ -377,20 +383,20 @@ extends SpriteSheet {
         // movPoints is the movement points left once arrived on this tile
         byArray[mapX][mapY] = (byte)movPoints;
         int pointsAfterMove = movPoints - this.int_b(mapX, mapY - 1);
-        if (fromDirection != 1 && pointsAfterMove >= 0) {
-            this.a(byArray, mapX, mapY - 1, pointsAfterMove, 2);
+        if (fromDirection != DIRECTION_UP && pointsAfterMove >= 0) {
+            this.a(byArray, mapX, mapY - 1, pointsAfterMove, DIRECTION_DOWN);
         }
         pointsAfterMove = movPoints - this.int_b(mapX, mapY + 1);
-        if (fromDirection != 2 && pointsAfterMove >= 0) {
-            this.a(byArray, mapX, mapY + 1, pointsAfterMove, 1);
+        if (fromDirection != DIRECTION_DOWN && pointsAfterMove >= 0) {
+            this.a(byArray, mapX, mapY + 1, pointsAfterMove, DIRECTION_UP);
         }
         pointsAfterMove = movPoints - this.int_b(mapX - 1, mapY);
-        if (fromDirection != 4 && pointsAfterMove >= 0) {
-            this.a(byArray, mapX - 1, mapY, pointsAfterMove, 8);
+        if (fromDirection != DIRECTION_LEFT && pointsAfterMove >= 0) {
+            this.a(byArray, mapX - 1, mapY, pointsAfterMove, DIRECTION_RIGHT);
         }
         pointsAfterMove = movPoints - this.int_b(mapX + 1, mapY);
-        if (fromDirection != 8 && pointsAfterMove >= 0) {
-            this.a(byArray, mapX + 1, mapY, pointsAfterMove, 4);
+        if (fromDirection != DIRECTION_RIGHT && pointsAfterMove >= 0) {
+            this.a(byArray, mapX + 1, mapY, pointsAfterMove, DIRECTION_LEFT);
         }
     }
 
