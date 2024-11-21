@@ -1830,7 +1830,17 @@ implements CommandListener {
         int unitsCount = this.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
             Unit unit = this.mapUnitsList.elementAt(i);
-            if (mapX != unit.mapX || mapY != unit.mapY || !(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
+
+            if (mapX != unit.mapX || mapY != unit.mapY) continue;
+            if (!(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
+
+            // boolean temp;
+            // if(by == 0) {
+            //     temp = unit.var_byte_e != 3;
+            // } else {
+            //     temp = by == 1 && unit.var_byte_e == 3;
+            // }
+
             return unit;
         }
         return null;
@@ -1942,7 +1952,19 @@ implements CommandListener {
         int unitsCount = this.mapUnitsList.size();
         for (int j = 0; j < unitsCount; ++j) {
             Unit unit = this.mapUnitsList.elementAt(j);
-            if (unitType != -1 && unit.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != unit.var_byte_e || unit.owner != playerIndex) continue;
+
+            // Unit must be owned by the player
+            if (unit.owner != playerIndex) continue;
+
+            if (unitType != -1 && unit.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != unit.var_byte_e) continue;
+
+            /*
+            if (
+                ((unitType != -1) && (unit.unitType != unitType))
+                || ((n2 != -1 || n2 == 3) && (n2 != unit.var_byte_e))
+                || (unit.owner != playerIndex)
+            ) continue;
+             */
             vector.addElement(unit);
         }
         Unit[] unitsArray = new Unit[vector.size()];
