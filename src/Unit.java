@@ -42,6 +42,9 @@ extends SpriteSheet {
     public static final byte STATUS_POISON = 1;
     public static final byte STATUS_AURA = 2;
 
+    public static final byte STATE_ALREADY_ACTED = 2;
+    public static final byte STATE_TOMBSTONE = 3;
+
     // Units sprites are 24x24 (units_icons.png)
     private static final byte TILE_SIZE = 24;
 
@@ -63,7 +66,7 @@ extends SpriteSheet {
     public short mapX;
     public short mapY;
     public short quantity;
-    public byte var_byte_e = 0;
+    public byte state = 0;
     public byte statusFlags;
     /** Debuff caused by poison status. */
     public short statusModMov;
@@ -315,7 +318,7 @@ extends SpriteSheet {
         //this.var_short_c = (short)(n2 * TILE_SIZE);
         this.var_java_util_Vector_a = this.a(this.mapX, this.mapY, n, n2);
         this.var_short_g = 0;
-        this.var_byte_e = 1;
+        this.state = 1;
     }
 
     public Vector<short[]> a(int mapX, int mapY, int n3, int n4) {
@@ -412,9 +415,9 @@ extends SpriteSheet {
                 this.var_boolean_b = !this.var_boolean_b;
             }
         }
-        if (this.var_byte_e == 1) {
+        if (this.state == 1) {
             if (this.var_short_g >= this.var_java_util_Vector_a.size()) {
-                this.var_byte_e = 0;
+                this.state = 0;
                 this.mapX = (short)(this.mapPixelX / TILE_SIZE);
                 this.mapY = (short)(((SpriteSheet)this).l / TILE_SIZE);
                 this.var_java_util_Vector_a = null;
@@ -456,7 +459,7 @@ extends SpriteSheet {
     public void void_b() {
         Unit c2;
         int n;
-        this.var_byte_e = (byte)2;
+        this.state = STATE_ALREADY_ACTED;
         Unit c3 = iClassRef.c_a((int)this.mapX, (int)this.mapY, (byte)1);
         if (c3 != null) {
             Unit.iClassRef.mapUnitsList.removeElement(c3);
@@ -511,8 +514,8 @@ extends SpriteSheet {
     public void drawInfoOverlay(Graphics graphics, int offsetX, int offsetY) {
         int screenX = this.mapPixelX + offsetX;
         int screenY = ((SpriteSheet)this).l + offsetY;
-        if (this.var_byte_e != 3) {
-            if (this.var_byte_e == 2) {
+        if (this.state != STATE_TOMBSTONE) {
+            if (this.state == STATE_ALREADY_ACTED) {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn
                 // Position: bottom right of the unit sprite
                 AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);

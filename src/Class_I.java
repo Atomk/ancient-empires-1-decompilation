@@ -409,7 +409,7 @@ implements CommandListener {
             Unit unit = this.mapUnitsList.elementAt(n);
             dataOutputStream.writeByte(unit.unitType);
             dataOutputStream.writeByte(unit.owner);
-            dataOutputStream.writeByte(unit.var_byte_e);
+            dataOutputStream.writeByte(unit.state);
             dataOutputStream.writeByte(unit.statusFlags);
             dataOutputStream.writeByte(unit.quantity);
             dataOutputStream.writeByte(unit.stars);
@@ -452,7 +452,7 @@ implements CommandListener {
         for (int n = 0; n < unitsCount; ++n) {
             byte unitType = dataInputStream.readByte();
             byte unitOwner = dataInputStream.readByte();
-            byte by3 = dataInputStream.readByte();
+            byte unitState = dataInputStream.readByte();
             byte unitStatusFlags = dataInputStream.readByte();
             byte unitQuantity = dataInputStream.readByte();
             byte unitStars = dataInputStream.readByte();
@@ -461,7 +461,7 @@ implements CommandListener {
             short unitPosY = dataInputStream.readShort();
             short s4 = dataInputStream.readShort();
             Unit unit = Unit.spawn(unitType, unitOwner, unitPosX, unitPosY);
-            unit.var_byte_e = by3;
+            unit.state = unitState;
             unit.mapPixelX = s;
             unit.stars = unitStars;
             unit.statusFlags = unitStatusFlags;
@@ -1199,9 +1199,10 @@ implements CommandListener {
                                 this.var_c_arr_a[1] = null;
                             }
                         } else if (this.var_c_c.unitType == Unit.SKELETON) {
+                            // When a skeleton dies, it disappears without creating a tombstone
                             this.mapUnitsList.removeElement(this.var_c_c);
                         } else {
-                            this.var_c_c.var_byte_e = (byte)3;
+                            this.var_c_c.state = Unit.STATE_TOMBSTONE;
                             this.var_c_c.var_int_b = this._turnIndex;
                         }
                         this.var_c_c = null;
@@ -1359,7 +1360,7 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(32);
                             } else if (!appCanvas.boolean_c(128) && !appCanvas.boolean_c(64) && (appCanvas.boolean_c(16) || appCanvas.boolean_c(1024))) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
-                                if (this.var_c_h != null && this.var_c_h.var_byte_e == 0 && this.var_c_h.owner == this.playerIndex_XX) {
+                                if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (unitActionsMenuOptions.length > 1) {
                                         this.var_g_h = new g(this, (byte)0, 8);
@@ -1708,7 +1709,7 @@ implements CommandListener {
                 int unitsCount = this.mapUnitsList.size();
                 for (int i = 0; i < unitsCount; ++i) {
                     Unit unit = this.mapUnitsList.elementAt(i);
-                    if (unit.var_byte_e == 3) {
+                    if (unit.state == Unit.STATE_TOMBSTONE) {
                         this.spriteTombstone.draw(graphics, this.var_short_f + unit.mapPixelX, this.var_short_a + ((SpriteSheet)unit).l);
                         continue;
                     }
@@ -1836,7 +1837,7 @@ implements CommandListener {
             Unit unit = this.mapUnitsList.elementAt(i);
 
             if (mapX != unit.mapX || mapY != unit.mapY) continue;
-            if (!(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
+            if (!(by == 0 ? unit.state != Unit.STATE_TOMBSTONE : by == 1 && unit.state == Unit.STATE_TOMBSTONE)) continue;
 
             // boolean temp;
             // if(by == 0) {
@@ -1872,12 +1873,12 @@ implements CommandListener {
         for (int i = this.mapUnitsList.size() - 1; i >= 0; --i) {
             Unit unit = this.mapUnitsList.elementAt(i);
             // Maybe this means the unit is dead? Since it has to be removed.
-            if (unit.var_byte_e == 3) {
+            if (unit.state == Unit.STATE_TOMBSTONE) {
                 if (this._turnIndex - unit.var_int_b < 3) continue;
                 this.mapUnitsList.removeElement(unit);
                 continue;
             }
-            unit.var_byte_e = 0;
+            unit.state = 0;
 
             // If a unit stack controlled by a player starts its turn on a building (town/castle)
             // owned by the same player, 2 units are healed/recovered
@@ -1962,7 +1963,7 @@ implements CommandListener {
             // Unit must be owned by the player
             if (unit.owner != playerIndex) continue;
 
-            if (unitType != -1 && unit.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != unit.var_byte_e) continue;
+            if (unitType != -1 && unit.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != unit.state) continue;
 
             /*
             if (
@@ -2135,7 +2136,7 @@ implements CommandListener {
                 int n6;
                 int n7;
                 Unit c2 = this.mapUnitsList.elementAt(j);
-                if (c2.owner != this.playerIndex_XX || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
+                if (c2.owner != this.playerIndex_XX || c2.state == 2 || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, this.playerIndex_XX)) {
@@ -2327,7 +2328,7 @@ implements CommandListener {
             return;
         }
         if (this.levelType == LEVEL_TYPE_SKIRMISH) {
-            if (this.var_c_arr_a[0].var_byte_e != 3 && this.var_c_arr_a[1].var_byte_e != 3) return;
+            if (this.var_c_arr_a[0].state != 3 && this.var_c_arr_a[1].state != 3) return;
             this.i();
             return;
         }
@@ -2348,7 +2349,7 @@ implements CommandListener {
             this.var_int_j = -1;
             this.var_int_b = -1;
         }
-        if (this.var_byte_i != 11 && this.var_c_arr_a[0].var_byte_e == 3) {
+        if (this.var_byte_i != 11 && this.var_c_arr_a[0].state == 3) {
             this.i();
             return;
         }
@@ -2542,7 +2543,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this.var_c_arr_a[0].mapX < 11 || this.var_c_arr_a[0].mapY > 4 || this.var_c_arr_a[0].var_byte_e != 2) break;
+                    if (this.var_c_arr_a[0].mapX < 11 || this.var_c_arr_a[0].mapY > 4 || this.var_c_arr_a[0].state != 2) break;
                     this.void_b(12, 1);
                     this.a(false);
                     break;
@@ -2671,7 +2672,7 @@ implements CommandListener {
                 }
             }
             if (this.currentLevelStep != -1) {
-                if (this.var_c_arr_a[0].mapX == 1 && this.var_c_arr_a[0].mapY == 13 && this.var_c_arr_a[0].var_byte_e == 2) {
+                if (this.var_c_arr_a[0].mapX == 1 && this.var_c_arr_a[0].mapY == 13 && this.var_c_arr_a[0].state == 2) {
                     this.g();
                 }
                 if (this.int_a(Unit.LIZARD, 3, PLAYER_BLUE) == 1) {
@@ -2802,12 +2803,13 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    if (this.var_c_arr_a[1].var_byte_e != 3) break;
+                    if (this.var_c_arr_a[1].state != Unit.STATE_TOMBSTONE) break;
                     this.void_b(2, 2);
                     this.a(false);
                     break;
                 }
                 case 7: {
+                    // TODO no it's not unused, that spawns a new unit
                     //Unit c4 = Unit.a((byte)8, (byte)0, 2, 2); // unused
                     this.void_b(2, 2);
                     this.void_b(1000);
