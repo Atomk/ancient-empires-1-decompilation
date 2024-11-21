@@ -637,16 +637,17 @@ public class f {
         }
         if (this.var_h_a != null) {
             int n5 = this.var_h_a.width;
-            n6 = 0;
+            int x = 0;
             int n3 = AppCanvas.h / n5;
             for (int n7 = 0; n7 < n3; ++n7) {
-                this.var_h_a.draw(graphics, n6, 0);
-                n6 += n5;
+                this.var_h_a.draw(graphics, x, 0);
+                x += n5;
             }
         }
+
         String string = "" + this.unitQuantity;
-        n6 = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, string)) / 2;
-        AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, AppCanvas.FONT_NUMERIC);
+        int txtUnitQuantityX = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, string)) / 2;
+        AppCanvas.drawBoldWhiteText(graphics, string, txtUnitQuantityX, 2, AppCanvas.FONT_NUMERIC);
         string = null;
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
         int n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
