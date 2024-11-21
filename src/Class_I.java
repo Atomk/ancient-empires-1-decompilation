@@ -107,6 +107,9 @@ implements CommandListener {
     public SpriteSheet sparkSheet;
     public SpriteSheet redsparkSheet;
     public SpriteSheet uiStatusSheet;
+    public static final byte STATUS_SHEET_POISON = 0;
+    public static final byte STATUS_SHEET_AURA = 1;
+    public static final byte STATUS_SHEET_STAR = 2;
     public SpriteSheet uiPortraitSheet;
     public short var_short_h;
     public short var_short_g;

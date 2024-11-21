@@ -767,21 +767,21 @@ public class g {
                         n14 += AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_ALPHANUMERIC) + 2;
                         // TODO it would be much more readable to have a hasStatus method, but maybe this inlining is an optimization?
                         if (this.var_c_a.hasStatus(Unit.STATUS_POISON)) {
-                            this.var_a_a.uiStatusSheet.setCurrentIndex(0);
+                            this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_POISON);
                             this.var_a_a.uiStatusSheet.a(graphics, n12, n14 - 2);
                             // POISON
                             graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.uiStatusSheet.getSpritesWidth() + 2, n14, 20);
                             n14 += this.var_a_a.uiStatusSheet.getSpritesHeight() - 4;
                         }
                         if (this.var_c_a.hasStatus(Unit.STATUS_AURA)) {
-                            this.var_a_a.uiStatusSheet.setCurrentIndex(1);
+                            this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_AURA);
                             this.var_a_a.uiStatusSheet.a(graphics, n12, n14);
                             // AURA
                             graphics.drawString(AppCanvas.getGameText(47), n12 + this.var_a_a.uiStatusSheet.getSpritesWidth() + 2, n14 + 2, 20);
                         }
                         AppCanvas.drawBoldWhiteText_XX(graphics, "" + this.var_c_a.quantity, n3 - 4, 6, AppCanvas.FONT_NUMERIC, 8);
                         graphics.setFont(this.appFont);
-                        this.var_a_a.uiStatusSheet.setCurrentIndex(2);  // Star icon
+                        this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_STAR);
                         for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
                             this.var_a_a.uiStatusSheet.a(graphics, n13, this.appFont.getBaselinePosition() + 2);
                             n13 += this.var_a_a.uiStatusSheet.getSpritesWidth();
@@ -935,7 +935,7 @@ public class g {
                     this.var_a_a.a(this.var_c_a.owner, this.var_c_a.unitType).a(graphics, 35, 2);
                     n25 = 22;
                     int n26 = 31;
-                    this.var_a_a.uiStatusSheet.setCurrentIndex(2);
+                    this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_STAR);
                     for (int j = 0; j < this.var_c_a.var_short_d; ++j) {
                         this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                         n26 += this.var_a_a.uiStatusSheet.getSpritesWidth() - (this.var_a_a.uiStatusSheet.getSpritesWidth() >> 1);
@@ -943,13 +943,14 @@ public class g {
                     n25 += this.var_a_a.uiStatusSheet.getSpritesHeight() - 5;
                     n26 = 31;
                     if (this.var_c_a.hasStatus(Unit.STATUS_POISON)) {
-                        this.var_a_a.uiStatusSheet.setCurrentIndex(0);
+                        this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_POISON);
                         this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                         n26 += this.var_a_a.uiStatusSheet.getSpritesWidth();
                     }
-                    if (!this.var_c_a.hasStatus(Unit.STATUS_AURA)) break;
-                    this.var_a_a.uiStatusSheet.setCurrentIndex(1);
-                    this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
+                    if (this.var_c_a.hasStatus(Unit.STATUS_AURA)) {
+                        this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_AURA);
+                        this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
+                    }
                     break;
                 }
                 case 7: {
