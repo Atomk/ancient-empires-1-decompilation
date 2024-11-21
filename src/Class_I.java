@@ -1699,7 +1699,6 @@ implements CommandListener {
             if (this.var_byte_d == 0) {
                 this.b(graphics);
             } else {
-                int n2;
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 if (this._mapPixelsWidth < AppCanvas.width2 || this._mapPixelsHeight < AppCanvas.height2) {
                     graphics.setColor(0);
@@ -1707,8 +1706,8 @@ implements CommandListener {
                 }
                 this.d(graphics);
                 int unitsCount = this.mapUnitsList.size();
-                for (n2 = 0; n2 < unitsCount; ++n2) {
-                    Unit unit = this.mapUnitsList.elementAt(n2);
+                for (int i = 0; i < unitsCount; ++i) {
+                    Unit unit = this.mapUnitsList.elementAt(i);
                     if (unit.var_byte_e == 3) {
                         this.spriteTombstone.draw(graphics, this.var_short_f + unit.mapPixelX, this.var_short_a + ((SpriteSheet)unit).l);
                         continue;
@@ -1716,9 +1715,10 @@ implements CommandListener {
                     if (unit == this.var_c_h) continue;
                     unit.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
                 }
+                // TODO redundant assignment
                 unitsCount = this.mapUnitsList.size();
-                for (n2 = 0; n2 < unitsCount; ++n2) {
-                    this.mapUnitsList.elementAt(n2).drawInfoOverlay(graphics, this.var_short_f, this.var_short_a);
+                for (int i = 0; i < unitsCount; ++i) {
+                    this.mapUnitsList.elementAt(i).drawInfoOverlay(graphics, this.var_short_f, this.var_short_a);
                 }
                 if (this.var_java_util_Vector_b != null) {
                     graphics.setColor(0xFFFFFF);
