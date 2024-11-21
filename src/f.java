@@ -624,11 +624,10 @@ public class f {
     }
 
     public void a(Graphics graphics, int offsetX, int offsetY) {
-        int n4;
         graphics.translate(offsetX, offsetY);
         int n6 = 0;
         for (int n5 = 0; n5 < this.j; ++n5) {
-            n4 = this.var_int_d + offsetY;
+            int n4 = this.var_int_d + offsetY;
             int n8 = this.n;
             for (int n3 = 0; n3 < n8; ++n3) {
                 this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, n6, n4);
@@ -650,7 +649,7 @@ public class f {
         AppCanvas.drawBoldWhiteText(graphics, string, n6, 2, AppCanvas.FONT_NUMERIC);
         string = null;
         n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
-        n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
+        int n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
         byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
         int terrainBonusDEF = this.var_a_a.getTerrainDefenceForUnit((byte)this.terrainType_YY, this.unit) - terrainDEF;
