@@ -1176,7 +1176,7 @@ implements CommandListener {
                     } else if (this.var_int_n == 1) {
                         if (this.var_long_n - this.var_long_d >= 800L) {
                             this.void_c(this.var_c_i.mapX, this.var_c_i.mapY);
-                            if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
+                            if (this.var_c_b.canCounterattackMelee(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
                                 this.var_c_b.attack(this.var_c_i);
                                 this.var_c_i.b(400);
                                 this.a(this.redsparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
@@ -2258,7 +2258,7 @@ implements CommandListener {
             }
         }
         if (c3 != null) {
-            n5 = !c3.a(c2, n, n2) ? (n5 += c2.int_a(n, n2) * 2) : (n5 += c2.int_a(n, n2) - c3.int_a(n, n2) + 10 - c3.quantity);
+            n5 = !c3.canCounterattackMelee(c2, n, n2) ? (n5 += c2.int_a(n, n2) * 2) : (n5 += c2.int_a(n, n2) - c3.int_a(n, n2) + 10 - c3.quantity);
             if (c3.unitType == Unit.KING) {
                 n5 += 10;
             }
@@ -3046,7 +3046,7 @@ implements CommandListener {
         this.var_f_b.var_f_a = this.var_f_a;
         this.var_f_a.var_f_a = this.var_f_b;
         c2.attack(c3);
-        if (c3.a(c2, (int)c2.mapX, (int)c2.mapY)) {
+        if (c3.canCounterattackMelee(c2, (int)c2.mapX, (int)c2.mapY)) {
             c3.attack(c2);
             this.var_boolean_x = true;
         } else {

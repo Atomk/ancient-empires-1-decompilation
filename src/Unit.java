@@ -173,8 +173,10 @@ extends SpriteSheet {
     }
 
     // TODO the first parameter is unused
-    public boolean a(Unit unit, int mapX, int mapY) {
-        final int manhattanDist = Math.abs(this.mapX - mapX) + Math.abs(this.mapY - mapY);
+    public boolean canCounterattackMelee(Unit unit, int opponentX, int opponentY) {
+        final int manhattanDist = Math.abs(this.mapX - opponentX) + Math.abs(this.mapY - opponentY);
+        // A unit can counterattack only directly above/below/right/left
+        // Every unit has rangeMin==1, except for catapult (which cannot counterattack close units)
         return this.quantity > 0 && manhattanDist == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
