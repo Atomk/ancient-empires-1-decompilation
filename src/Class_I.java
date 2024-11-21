@@ -1718,7 +1718,7 @@ implements CommandListener {
                 }
                 unitsCount = this.mapUnitsList.size();
                 for (n2 = 0; n2 < unitsCount; ++n2) {
-                    this.mapUnitsList.elementAt(n2).b(graphics, this.var_short_f, this.var_short_a);
+                    this.mapUnitsList.elementAt(n2).drawInfoOverlay(graphics, this.var_short_f, this.var_short_a);
                 }
                 if (this.var_java_util_Vector_b != null) {
                     graphics.setColor(0xFFFFFF);
@@ -1769,7 +1769,7 @@ implements CommandListener {
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                 if (this.var_c_h != null) {
                     this.var_c_h.a(graphics, (int)this.var_short_f, (int)this.var_short_a);
-                    this.var_c_h.b(graphics, this.var_short_f, this.var_short_a);
+                    this.var_c_h.drawInfoOverlay(graphics, this.var_short_f, this.var_short_a);
                 }
                 if (this.var_boolean_n) {
                     this.mapCursorSheet.a(graphics, this.var_short_f - 1, this.var_short_a - 1);

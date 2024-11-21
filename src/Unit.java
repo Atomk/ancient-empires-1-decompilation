@@ -508,17 +508,19 @@ extends SpriteSheet {
         }
     }
 
-    public void b(Graphics graphics, int n, int n2) {
-        int screenX = this.mapPixelX + n;
-        int screenY = ((SpriteSheet)this).l + n2;
+    public void drawInfoOverlay(Graphics graphics, int offsetX, int offsetY) {
+        int screenX = this.mapPixelX + offsetX;
+        int screenY = ((SpriteSheet)this).l + offsetY;
         if (this.var_byte_e != 3) {
             if (this.var_byte_e == 2) {
                 // The "E" is shown on units that already moved and cannot perform any more actions in the turn
+                // Position: bottom right of the unit sprite
                 AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }
             // TODO maybe look for "10" and deharcode to STACK_MAX or MAX_QUANTITY
             if (this.quantity < 10) {
                 // Shows the unit stack number in its bottom left corner only if there's less than 10 (the max amount)
+                // Position: bottom left of the unit sprite
                 AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, screenX, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }
         }
