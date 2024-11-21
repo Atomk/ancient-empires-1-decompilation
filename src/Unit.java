@@ -174,7 +174,8 @@ extends SpriteSheet {
 
     // TODO the first parameter is unused
     public boolean a(Unit unit, int mapX, int mapY) {
-        return this.quantity > 0 && Math.abs(this.mapX - mapX) + Math.abs(this.mapY - mapY) == 1 && unitsDataRangeMin[this.unitType] == 1;
+        final int manhattanDist = Math.abs(this.mapX - mapX) + Math.abs(this.mapY - mapY);
+        return this.quantity > 0 && manhattanDist == 1 && unitsDataRangeMin[this.unitType] == 1;
     }
 
     public boolean hasStatus(byte statusFlag) {
@@ -246,9 +247,9 @@ extends SpriteSheet {
         }
         for (int j = n6; j <= n4; ++j) {
             for (int k = n5; k <= n3; ++k) {
-                int n7 = Math.abs(j - n) + Math.abs(k - n2);
-                if (n7 < attackRangeMin || n7 > attackRangeMax || byArray[j][k] > 0) continue;
-                byArray[j][k] = 127;
+                int manhattanDist = Math.abs(j - n) + Math.abs(k - n2);
+                if (manhattanDist < attackRangeMin || manhattanDist > attackRangeMax || byArray[j][k] > 0) continue;
+                byArray[j][k] = 127; // 0111_1111
             }
         }
     }
@@ -259,10 +260,10 @@ extends SpriteSheet {
             return;
         }
         this.b(byArray);
-        for (int j = 0; j < Unit.iClassRef.mapTilesWidth; ++j) {
-            for (int k = 0; k < Unit.iClassRef.mapTilesHeight; ++k) {
-                if (byArray[j][k] <= 0 || byArray[j][k] == 127) continue;
-                this.a(byArray, j, k);
+        for (int x = 0; x < Unit.iClassRef.mapTilesWidth; ++x) {
+            for (int y = 0; y < Unit.iClassRef.mapTilesHeight; ++y) {
+                if (byArray[x][y] <= 0 || byArray[x][y] == 127) continue;
+                this.a(byArray, x, y);
             }
         }
     }

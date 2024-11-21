@@ -1936,9 +1936,10 @@ implements CommandListener {
         }
     }
 
-    public int int_a(int xIndex, int yIndex) {
-        if (this.mapTerrain[xIndex][yIndex] >= this.var_int_t) {
-            return (this.mapTerrain[xIndex][yIndex] - this.var_int_t) / 3 - 1;
+    // TODO getBuildingOwner
+    public int int_a(int mapX, int mapY) {
+        if (this.mapTerrain[mapX][mapY] >= this.var_int_t) {
+            return (this.mapTerrain[mapX][mapY] - this.var_int_t) / 3 - 1;
         }
         return -1;
     }
