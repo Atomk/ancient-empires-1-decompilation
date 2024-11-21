@@ -355,6 +355,7 @@ extends SpriteSheet {
     }
 
     private int int_b(int mapX, int mapY) {
+        // If coordinates are inside the map
         if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.mapTilesWidth && mapY < Unit.iClassRef.mapTilesHeight) {
             Unit unit = iClassRef.c_a(mapX, mapY, (byte)0);
             if (unit != null && unit.owner != this.owner) {
@@ -362,10 +363,12 @@ extends SpriteSheet {
             }
             byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
             if (this.isType(WYVERN_FLAG)) {
+                // Wyvern flies, so terrain type does not affect movement
                 return 1;
             }
             if (this.isType(LIZARD_FLAG)) {
                 if (terrainType == f.TERRAIN_WATER) {
+                    // Lizards are not slowed down by water
                     return 1;
                 }
                 return Class_I.terrainTypeMovementReduction_XXX[terrainType] * 2;

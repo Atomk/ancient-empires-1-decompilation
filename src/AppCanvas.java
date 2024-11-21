@@ -417,11 +417,11 @@ CommandListener {
         int n2;
         Vector<String> vector = new Vector<String>();
         int n3 = 0;
-        int n4 = string.length();
+        final int n4 = string.length();
         String string2 = null;
         do {
             n2 = n3;
-            int newlineCharIndex = string.indexOf(10, n2);
+            final int newlineCharIndex = string.indexOf(10, n2);
             block1: do {
                 int n6 = n2;
                 String string3 = string2;
@@ -446,22 +446,22 @@ CommandListener {
             } while (n2 != newlineCharIndex && n2 < n4);
             vector.addElement(string2);
         } while ((n3 = ++n2) < n4);
-        
+
         String[] stringsArray = new String[vector.size()];
         vector.copyInto(stringsArray);
         return stringsArray;
     }
 
     private static int a(String string, int charIndex) {
-        int n2;
         char c2 = string.charAt(charIndex);
         if (AppCanvas.boolean_b(c2)) {
             return charIndex + 1;
         }
-        int n3 = 0;
+        int n2;
         while ((n2 = string.indexOf(32, charIndex)) == 0) {
             ++charIndex;
         }
+        int n3 = 0;
         n3 = n2;
         n3 = n3 == -1 ? string.length() : ++n3;
         for (n2 = charIndex + 1; n2 < n3; ++n2) {

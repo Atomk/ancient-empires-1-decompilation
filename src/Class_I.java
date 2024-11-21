@@ -1828,8 +1828,8 @@ implements CommandListener {
 
     public Unit c_a(int mapX, int mapY, byte by) {
         int unitsCount = this.mapUnitsList.size();
-        for (int j = 0; j < unitsCount; ++j) {
-            Unit unit = this.mapUnitsList.elementAt(j);
+        for (int i = 0; i < unitsCount; ++i) {
+            Unit unit = this.mapUnitsList.elementAt(i);
             if (mapX != unit.mapX || mapY != unit.mapY || !(by == 0 ? unit.var_byte_e != 3 : by == 1 && unit.var_byte_e == 3)) continue;
             return unit;
         }
@@ -1854,8 +1854,9 @@ implements CommandListener {
         // This line changes the current player, but there's only two, so...
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
-        for (int n = this.mapUnitsList.size() - 1; n >= 0; --n) {
-            Unit unit = this.mapUnitsList.elementAt(n);
+        for (int i = this.mapUnitsList.size() - 1; i >= 0; --i) {
+            Unit unit = this.mapUnitsList.elementAt(i);
+            // Maybe this means the unit is dead? Since it has to be removed.
             if (unit.var_byte_e == 3) {
                 if (this._turnIndex - unit.var_int_b < 3) continue;
                 this.mapUnitsList.removeElement(unit);
@@ -1863,11 +1864,12 @@ implements CommandListener {
             }
             unit.var_byte_e = 0;
 
-            // TODO you can recover units if in a town or castle
+            // If a unit stack controlled by a player starts its turn on a building (town/castle)
+            // owned by the same player, 2 units are healed/recovered
             if (this.playerIndex_XX == unit.owner && this.isBuildingAndOwnedByPlayer((int)unit.mapX, (int)unit.mapY, unit.owner)) {
-                unit.quantity = (short)(unit.quantity + 2);
+                unit.quantity += 2;
                 if (unit.quantity > 10) {
-                    unit.quantity = (short)10;
+                    unit.quantity = 10;
                 }
             }
 
