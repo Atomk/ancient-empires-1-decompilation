@@ -131,19 +131,19 @@ extends SpriteSheet {
         } else if (rand <= -16) {
             --atk;
         }
-        int n3 = unitsDataDEF[opponent.unitType] + opponent.statusModDef;
+        int opponentDEF = unitsDataDEF[opponent.unitType] + opponent.statusModDef;
         rand = AppCanvas.randomInt() % 20 + opponent.stars;
         if (rand >= 19) {
-            n3 += 2;
+            opponentDEF += 2;
         } else if (rand >= 16) {
-            ++n3;
+            ++opponentDEF;
         } else if (rand <= -19) {
-            n3 -= 2;
+            opponentDEF -= 2;
         } else if (rand <= -16) {
-            --n3;
+            --opponentDEF;
         }
         int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
-        int n5 = (atk - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
+        int n5 = (atk - (terrainDEF_XX + opponentDEF) * 2 / 3) * this.quantity / 10;
         if (n5 > opponent.quantity) {
             n5 = opponent.quantity;
         }
