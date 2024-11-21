@@ -177,12 +177,12 @@ extends SpriteSheet {
         this.var_short_f = 0;
         this.var_short_e = 0;
         if ((this.statusFlags & STATUS_POISON) != 0) {
-            this.k = (short)(this.k - 1);
-            this.var_short_f = (short)(this.var_short_f - 1);
-            this.var_short_e = (short)(this.var_short_e - 1);
+            this.k--;
+            this.var_short_f--;
+            this.var_short_e--;
         }
         if ((this.statusFlags & STATUS_AURA) != 0) {
-            this.var_short_f = (short)(this.var_short_f + 1);
+            this.var_short_f++;
         }
     }
 
