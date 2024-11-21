@@ -234,22 +234,22 @@ extends SpriteSheet {
     }
 
     public void a(byte[][] byArray, int n, int n2) {
-        int n3;
-        int n4;
-        int n5;
         byte attackRangeMin = unitsDataRangeMin[this.unitType];
         byte attackRangeMax = unitsDataRangeMax[this.unitType];
         int n6 = n - attackRangeMax;
         if (n6 < 0) {
             n6 = 0;
         }
-        if ((n5 = n2 - attackRangeMax) < 0) {
+        int n5 = n2 - attackRangeMax;
+        if (n5 < 0) {
             n5 = 0;
         }
-        if ((n4 = n + attackRangeMax) >= Unit.iClassRef.mapTilesWidth) {
+        int n4 = n + attackRangeMax;
+        if (n4 >= Unit.iClassRef.mapTilesWidth) {
             n4 = Unit.iClassRef.mapTilesWidth - 1;
         }
-        if ((n3 = n2 + attackRangeMax) >= Unit.iClassRef.mapTilesHeight) {
+        int n3 = n2 + attackRangeMax;
+        if (n3 >= Unit.iClassRef.mapTilesHeight) {
             n3 = Unit.iClassRef.mapTilesHeight - 1;
         }
         for (int j = n6; j <= n4; ++j) {
