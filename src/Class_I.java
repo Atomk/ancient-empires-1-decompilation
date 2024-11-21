@@ -412,7 +412,7 @@ implements CommandListener {
             dataOutputStream.writeByte(unit.var_byte_e);
             dataOutputStream.writeByte(unit.statusFlags);
             dataOutputStream.writeByte(unit.quantity);
-            dataOutputStream.writeByte(unit.var_short_d);
+            dataOutputStream.writeByte(unit.stars);
             dataOutputStream.writeShort(unit.mapPixelX);
             dataOutputStream.writeShort(unit.mapX);
             dataOutputStream.writeShort(unit.mapY);
@@ -455,7 +455,7 @@ implements CommandListener {
             byte by3 = dataInputStream.readByte();
             byte unitStatusFlags = dataInputStream.readByte();
             byte unitQuantity = dataInputStream.readByte();
-            byte by6 = dataInputStream.readByte();
+            byte unitStars = dataInputStream.readByte();
             short s = dataInputStream.readShort();
             short unitPosX = dataInputStream.readShort();
             short unitPosY = dataInputStream.readShort();
@@ -463,7 +463,7 @@ implements CommandListener {
             Unit unit = Unit.spawn(unitType, unitOwner, unitPosX, unitPosY);
             unit.var_byte_e = by3;
             unit.mapPixelX = s;
-            unit.var_short_d = by6;
+            unit.stars = unitStars;
             unit.statusFlags = unitStatusFlags;
             unit.d();
             unit.quantity = unitQuantity;
@@ -482,7 +482,8 @@ implements CommandListener {
                     continue;
                 }
 
-                if (by6 == 4)
+                // ??? it shouldn't be possible to have more than 3 stars
+                if (unitStars == 4)
                     continue;
 
                 unit.customName = AppCanvas.getGameText(44); // VALADORN
@@ -491,7 +492,7 @@ implements CommandListener {
 
             if (this.currentLevel != 2 || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD)
                 continue;
-                
+
             unit.customName = AppCanvas.getGameText(45); // LIZARD CHIEF
         }
 

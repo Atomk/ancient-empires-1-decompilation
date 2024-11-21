@@ -49,7 +49,7 @@ extends SpriteSheet {
     // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
     public static Class_I iClassRef;
     public String customName;
-    public short var_short_d;
+    public short stars;
     public short mapPixelX;
     private short bitflag;
     public int[][] var_int_arr_arr_a;
@@ -118,7 +118,7 @@ extends SpriteSheet {
         if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
             n2 += 3;
         }
-        if ((n = AppCanvas.randomInt() % 20 + this.var_short_d) >= 19) {
+        if ((n = AppCanvas.randomInt() % 20 + this.stars) >= 19) {
             n2 += 2;
         } else if (n >= 16) {
             ++n2;
@@ -128,7 +128,7 @@ extends SpriteSheet {
             --n2;
         }
         int n3 = unitsDataDEF[unit.unitType] + unit.var_short_e;
-        n = AppCanvas.randomInt() % 20 + unit.var_short_d;
+        n = AppCanvas.randomInt() % 20 + unit.stars;
         if (n >= 19) {
             n3 += 2;
         } else if (n >= 16) {
@@ -149,9 +149,10 @@ extends SpriteSheet {
     }
 
     public boolean boolean_a() {
-        if (this.var_short_d < 3 && this.mapPixelX >= 75 << this.var_short_d) {
+        // A unit can have at most 3 stars
+        if (this.stars < 3 && this.mapPixelX >= 75 << this.stars) {
             this.mapPixelX = 0;
-            this.var_short_d = (short)(this.var_short_d + 1);
+            this.stars++;
             return true;
         }
         return false;
@@ -207,7 +208,7 @@ extends SpriteSheet {
     }
 
     public int int_a(int n, int n2) {
-        return (this.var_short_d + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
+        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
     }
 
     public void a(byte[][] byArray, int n, int n2) {

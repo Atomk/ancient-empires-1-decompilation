@@ -782,7 +782,7 @@ public class g {
                         AppCanvas.drawBoldWhiteText_XX(graphics, "" + this.var_c_a.quantity, n3 - 4, 6, AppCanvas.FONT_NUMERIC, 8);
                         graphics.setFont(this.appFont);
                         this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_STAR);
-                        for (n11 = 0; n11 < this.var_c_a.var_short_d; ++n11) {
+                        for (n11 = 0; n11 < this.var_c_a.stars; ++n11) {
                             this.var_a_a.uiStatusSheet.a(graphics, n13, this.appFont.getBaselinePosition() + 2);
                             n13 += this.var_a_a.uiStatusSheet.getSpritesWidth();
                         }
@@ -936,7 +936,7 @@ public class g {
                     n25 = 22;
                     int n26 = 31;
                     this.var_a_a.uiStatusSheet.setCurrentIndex(Class_I.STATUS_SHEET_STAR);
-                    for (int j = 0; j < this.var_c_a.var_short_d; ++j) {
+                    for (int j = 0; j < this.var_c_a.stars; ++j) {
                         this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                         n26 += this.var_a_a.uiStatusSheet.getSpritesWidth() - (this.var_a_a.uiStatusSheet.getSpritesWidth() >> 1);
                     }
