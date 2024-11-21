@@ -693,11 +693,12 @@ public class f {
         }
     }
 
-    public void soundMethod() {
-        if (this.soundIndex != -1) {
-            // empty if block
-        }
-    }
+    // Does nothing
+    // public void soundMethod() {
+    //     if (this.soundIndex != -1) {
+    //         // empty if block
+    //     }
+    // }
 
     static {
         // TODO sounds were purposefully disabled, maybe there's a way to restore them using available assets
