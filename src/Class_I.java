@@ -638,7 +638,7 @@ implements CommandListener {
         this.var_byte_i = 1;
         this.var_boolean_v = true;
         this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
-        unit.b(this.mapValues_XX);
+        unit.updatePathfindData(this.mapValues_XX);
         this.var_boolean_h = true;
         this.var_boolean_j = false;
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[2]);
@@ -647,7 +647,7 @@ implements CommandListener {
     public void c() {
         if (this.var_byte_i == 3) {
             this.var_c_h.setPosition(this.var_int_c, this.var_int_v);
-            this.var_c_h.b(this.mapValues_XX);
+            this.var_c_h.updatePathfindData(this.mapValues_XX);
             this.a(this.var_c_h);
             this.var_boolean_v = true;
         }
@@ -2163,7 +2163,7 @@ implements CommandListener {
                 this.var_c_h = c2;
                 this.var_boolean_n = true;
                 this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
-                this.var_c_h.b(this.mapValues_XX);
+                this.var_c_h.updatePathfindData(this.mapValues_XX);
                 this.var_boolean_h = false;
                 this.var_c_arr_c = this.c_arr_a(0, -1, this.playerIndex_XX);
                 n7 = 666;
@@ -2555,7 +2555,7 @@ implements CommandListener {
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 1, 5);
                     Unit unitLizard_1 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
                     this.b(unitLizard_1);
-                    unitLizard_1.b(this.mapValues_XX);
+                    unitLizard_1.updatePathfindData(this.mapValues_XX);
                     // TODO I think this makes the lizard walk to the location
                     // Ref: https://youtu.be/6MTmxnNygSw?t=371
                     unitLizard_1.void_a(9, 2);
@@ -2567,7 +2567,7 @@ implements CommandListener {
                     if (this.var_byte_i == 1) break;
                     Unit unitLizard_2 = Unit.spawn(Unit.LIZARD, PLAYER_BLUE, 12, 1);
                     this.b(unitLizard_2);
-                    unitLizard_2.b(this.mapValues_XX);
+                    unitLizard_2.updatePathfindData(this.mapValues_XX);
                     unitLizard_2.void_a(10, 1);
                     this.void_b(1000);
                     ++this.currentLevelStep;

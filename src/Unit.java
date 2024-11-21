@@ -271,7 +271,7 @@ extends SpriteSheet {
             this.updateAttackMatrix_XX(byArray, (int)this.mapX, (int)this.mapY);
             return;
         }
-        this.b(byArray);
+        this.updatePathfindData(byArray);
         for (int x = 0; x < Unit.iClassRef.mapTilesWidth; ++x) {
             for (int y = 0; y < Unit.iClassRef.mapTilesHeight; ++y) {
                 if (byArray[x][y] <= 0 || byArray[x][y] == 127) continue;
@@ -371,13 +371,14 @@ extends SpriteSheet {
     private static final int DIRECTION_LEFT = 4;
     private static final int DIRECTION_RIGHT = 8;
 
-    public void b(byte[][] byArray) {
+    /** Fills the provided matrix with this unit's pathfinding data. */
+    public void updatePathfindData(byte[][] byArray) {
         this.pathfindInner(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
     }
 
     /**
      * Recursively fills the provided matrix with all reachable tiles.
-     * @param byArray A matrix where each cell contains the remaining movement points after walking to that tile.
+     * @param byArray A matrix where each cell will contain the remaining movement points after walking to that tile.
      * @param mapX x coordinate for the current tile.
      * @param mapY y coordinate of the current tile.
      * @param movPoints Movement points left once arrived on this tile.
