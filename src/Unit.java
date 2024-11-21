@@ -143,13 +143,13 @@ extends SpriteSheet {
             --opponentDEF;
         }
         int terrainDEF = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
-        int n5 = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
-        if (n5 > opponent.quantity) {
-            n5 = opponent.quantity;
+        int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
+        if (killCount > opponent.quantity) {
+            killCount = opponent.quantity;
         }
-        opponent.quantity -= n5;
-        this.mapPixelX += (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * n5;
-        return n5;
+        opponent.quantity -= killCount;
+        this.mapPixelX += (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * killCount;
+        return killCount;
     }
 
     public boolean boolean_a() {
