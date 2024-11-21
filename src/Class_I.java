@@ -637,7 +637,7 @@ implements CommandListener {
         this.color_ZZ = 0xFFFFFFF;
         this.var_byte_i = 1;
         this.var_boolean_v = true;
-        this.a(this.mapValues_XX, 0);
+        this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
         unit.b(this.mapValues_XX);
         this.var_boolean_h = true;
         this.var_boolean_j = false;
@@ -787,7 +787,7 @@ implements CommandListener {
                 this.var_boolean_d = false;
                 this.a(this.var_c_h);
             } else if (string.equals(AppCanvas.getGameText(28))) {  // ATTACK
-                this.a(this.mapValues_XX, 0);
+                this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
                 this.var_boolean_v = true;
@@ -961,12 +961,12 @@ implements CommandListener {
         this.var_int_w = 0;
         this.var_c_h = null;
         this.var_c_arr_b = new Unit[0];
-        this.a(this.mapValues_XX, 0);
+        this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
         this.var_boolean_h = false;
         this.var_boolean_j = false;
     }
 
-    public void a(byte[][] byArray, int value) {
+    private void fillMatrixWithValue_XX(byte[][] byArray, int value) {
         for (int x = 0; x < this.mapTilesWidth; ++x) {
             for (int y = 0; y < this.mapTilesHeight; ++y) {
                 byArray[x][y] = (byte)value;
@@ -976,7 +976,7 @@ implements CommandListener {
 
     public void c(Unit unit) {
         this.b((Unit)null);
-        this.a(this.mapValues_XX, 0);
+        this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
         this.var_boolean_h = false;
         if (this.var_boolean_o) {
             return;
@@ -1352,7 +1352,7 @@ implements CommandListener {
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
                                 if (this.var_c_h != null) {
-                                    this.a(this.mapValues_XX, 0);
+                                    this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
                                     this.var_c_h.a(this.mapValues_XX);
                                     this.var_boolean_j = true;
                                     this.var_boolean_h = true;
@@ -1427,7 +1427,7 @@ implements CommandListener {
             if (this.var_boolean_r && appCanvas.boolean_c(2048)) {
                 if (this.var_byte_i == 1) {
                     this.var_byte_i = 0;
-                    this.a(this.mapValues_XX, 0);
+                    this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
                     this.var_boolean_h = false;
                     this.var_boolean_j = false;
                     this.var_java_util_Vector_b = null;
@@ -2162,7 +2162,7 @@ implements CommandListener {
                 this.b(c2);
                 this.var_c_h = c2;
                 this.var_boolean_n = true;
-                this.a(this.mapValues_XX, 0);
+                this.fillMatrixWithValue_XX(this.mapValues_XX, 0);
                 this.var_c_h.b(this.mapValues_XX);
                 this.var_boolean_h = false;
                 this.var_c_arr_c = this.c_arr_a(0, -1, this.playerIndex_XX);
