@@ -236,24 +236,26 @@ extends SpriteSheet {
     public void a(byte[][] byArray, int n, int n2) {
         byte attackRangeMin = unitsDataRangeMin[this.unitType];
         byte attackRangeMax = unitsDataRangeMax[this.unitType];
-        int n6 = n - attackRangeMax;
-        if (n6 < 0) {
-            n6 = 0;
+
+        int minX = n - attackRangeMax;
+        if (minX < 0) {
+            minX = 0;
         }
-        int n5 = n2 - attackRangeMax;
-        if (n5 < 0) {
-            n5 = 0;
+        int minY = n2 - attackRangeMax;
+        if (minY < 0) {
+            minY = 0;
         }
-        int n4 = n + attackRangeMax;
-        if (n4 >= Unit.iClassRef.mapTilesWidth) {
-            n4 = Unit.iClassRef.mapTilesWidth - 1;
+        int maxX = n + attackRangeMax;
+        if (maxX >= Unit.iClassRef.mapTilesWidth) {
+            maxX = Unit.iClassRef.mapTilesWidth - 1;
         }
-        int n3 = n2 + attackRangeMax;
-        if (n3 >= Unit.iClassRef.mapTilesHeight) {
-            n3 = Unit.iClassRef.mapTilesHeight - 1;
+        int maxY = n2 + attackRangeMax;
+        if (maxY >= Unit.iClassRef.mapTilesHeight) {
+            maxY = Unit.iClassRef.mapTilesHeight - 1;
         }
-        for (int j = n6; j <= n4; ++j) {
-            for (int k = n5; k <= n3; ++k) {
+
+        for (int j = minX; j <= maxX; ++j) {
+            for (int k = minY; k <= maxY; ++k) {
                 int manhattanDist = Math.abs(j - n) + Math.abs(k - n2);
                 if (manhattanDist < attackRangeMin || manhattanDist > attackRangeMax || byArray[j][k] > 0) continue;
                 byArray[j][k] = 127; // 0111_1111
