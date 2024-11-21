@@ -252,30 +252,33 @@ extends SpriteSheet {
         return this.a(n, n2, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], by);
     }
 
-    private Unit[] a(int mapX, int mapY, int unitRangeMin, int unitRangeMax, byte by) {
+    private Unit[] a(int areaOriginX, int areaOriginY, int unitRangeMin, int unitRangeMax, byte by) {
         Vector<Unit> vector = new Vector<Unit>();
-        int n5 = mapX - unitRangeMax;
-        int n6 = mapY - unitRangeMax;
-        int n7 = mapX + unitRangeMax;
-        int n8 = mapY + unitRangeMax;
-        for (int j = n5; j <= n7; ++j) {
-            for (int k = n6; k <= n8; ++k) {
+        final int minX = areaOriginX - unitRangeMax;
+        final int minY = areaOriginY - unitRangeMax;
+        final int maxX = areaOriginX + unitRangeMax;
+        final int maxY = areaOriginY + unitRangeMax;
+        for (int x = minX; x <= maxX; ++x) {
+            for (int y = minY; y <= maxY; ++y) {
                 Unit c2;
-                int n9 = Math.abs(j - mapX) + Math.abs(k - mapY);
-                if (n9 < unitRangeMin || n9 > unitRangeMax) continue;
+
+                // Manhattan distance from unit position (area center) to the current square (x; y)
+                final int manhattanDist = Math.abs(x - areaOriginX) + Math.abs(y - areaOriginY);
+                if (manhattanDist < unitRangeMin || manhattanDist > unitRangeMax) continue;
+
                 if (by == 0) {
-                    c2 = iClassRef.c_a(j, k, (byte)0);
+                    c2 = iClassRef.c_a(x, y, (byte)0);
                     if (c2 == null || c2.owner == this.owner) continue;
                     vector.addElement(c2);
                     continue;
                 }
                 if (by == 1) {
-                    c2 = iClassRef.c_a(j, k, (byte)1);
+                    c2 = iClassRef.c_a(x, y, (byte)1);
                     if (c2 == null) continue;
                     vector.addElement(c2);
                     continue;
                 }
-                if (by != 2 || (c2 = iClassRef.c_a(j, k, (byte)0)) == null || c2.owner != this.owner) continue;
+                if (by != 2 || (c2 = iClassRef.c_a(x, y, (byte)0)) == null || c2.owner != this.owner) continue;
                 vector.addElement(c2);
             }
         }
