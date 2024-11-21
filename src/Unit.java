@@ -112,13 +112,13 @@ extends SpriteSheet {
         return newUnit;
     }
 
-    public int a(Unit unit) {
+    public int a(Unit opponent) {
         int n;
         int atk = unitsDataATK[this.unitType] + this.statusModAtk;
-        if (this.isType(ARCHER_FLAG) && unit.isType(WYVERN_FLAG)) {
+        if (this.isType(ARCHER_FLAG) && opponent.isType(WYVERN_FLAG)) {
             atk += 2;
         }
-        if (this.unitType == Unit.WISP && unit.unitType == Unit.SKELETON) {
+        if (this.unitType == Unit.WISP && opponent.unitType == Unit.SKELETON) {
             atk += 3;
         }
         if ((n = AppCanvas.randomInt() % 20 + this.stars) >= 19) {
@@ -130,8 +130,8 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --atk;
         }
-        int n3 = unitsDataDEF[unit.unitType] + unit.statusModDef;
-        n = AppCanvas.randomInt() % 20 + unit.stars;
+        int n3 = unitsDataDEF[opponent.unitType] + opponent.statusModDef;
+        n = AppCanvas.randomInt() % 20 + opponent.stars;
         if (n >= 19) {
             n3 += 2;
         } else if (n >= 16) {
@@ -141,13 +141,13 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n3;
         }
-        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(unit.mapX, (int)unit.mapY), unit);
+        int terrainDEF_XX = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, (int)opponent.mapY), opponent);
         int n5 = (atk - (terrainDEF_XX + n3) * 2 / 3) * this.quantity / 10;
-        if (n5 > unit.quantity) {
-            n5 = unit.quantity;
+        if (n5 > opponent.quantity) {
+            n5 = opponent.quantity;
         }
-        unit.quantity = (short)(unit.quantity - n5);
-        this.mapPixelX = (short)(this.mapPixelX + (unitsDataATK[unit.unitType] + unitsDataDEF[unit.unitType]) * n5);
+        opponent.quantity = (short)(opponent.quantity - n5);
+        this.mapPixelX = (short)(this.mapPixelX + (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * n5);
         return n5;
     }
 
