@@ -625,10 +625,9 @@ public class f {
 
     public void a(Graphics graphics, int offsetX, int offsetY) {
         int n4;
-        int n5;
         graphics.translate(offsetX, offsetY);
         int n6 = 0;
-        for (n5 = 0; n5 < this.j; ++n5) {
+        for (int n5 = 0; n5 < this.j; ++n5) {
             n4 = this.var_int_d + offsetY;
             int n8 = this.n;
             for (int n3 = 0; n3 < n8; ++n3) {
@@ -638,7 +637,7 @@ public class f {
             n6 += 24;
         }
         if (this.var_h_a != null) {
-            n5 = this.var_h_a.width;
+            int n5 = this.var_h_a.width;
             n6 = 0;
             int n3 = AppCanvas.h / n5;
             for (int n7 = 0; n7 < n3; ++n7) {
