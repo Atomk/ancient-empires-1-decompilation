@@ -628,8 +628,7 @@ public class f {
         int n5;
         graphics.translate(offsetX, offsetY);
         int n6 = 0;
-        int n7 = this.j;
-        for (n5 = 0; n5 < n7; ++n5) {
+        for (n5 = 0; n5 < this.j; ++n5) {
             n4 = this.var_int_d + offsetY;
             int n8 = this.n;
             for (int n3 = 0; n3 < n8; ++n3) {
@@ -642,7 +641,7 @@ public class f {
             n5 = this.var_h_a.width;
             n6 = 0;
             int n3 = AppCanvas.h / n5;
-            for (n7 = 0; n7 < n3; ++n7) {
+            for (int n7 = 0; n7 < n3; ++n7) {
                 this.var_h_a.draw(graphics, n6, 0);
                 n6 += n5;
             }
