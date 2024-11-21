@@ -1862,8 +1862,9 @@ implements CommandListener {
                 continue;
             }
             unit.var_byte_e = 0;
+
             // TODO you can recover units if in a town or castle
-            if (this.playerIndex_XX == unit.owner && this.boolean_a((int)unit.mapX, (int)unit.mapY, (int)unit.owner)) {
+            if (this.playerIndex_XX == unit.owner && this.isBuildingAndOwnedByPlayer((int)unit.mapX, (int)unit.mapY, unit.owner)) {
                 unit.quantity = (short)(unit.quantity + 2);
                 if (unit.quantity > 10) {
                     unit.quantity = (short)10;
@@ -1875,9 +1876,11 @@ implements CommandListener {
                 unit.removeStatus(Unit.STATUS_POISON);
             }
         }
+
+        // TODO you get money for each occupied town and castle
         for (int mapX = 0; mapX < this.mapTerrain.length; ++mapX) {
             for (int mapY = 0; mapY < this.mapTerrain[mapX].length; ++mapY) {
-                if (!this.boolean_a(mapX, mapY, (int)this.playerIndex_XX))
+                if (!this.isBuildingAndOwnedByPlayer(mapX, mapY, this.playerIndex_XX))
                     continue;
                 if (this.getTerrainType_ZZ(mapX, mapY) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
@@ -1903,11 +1906,11 @@ implements CommandListener {
 
     public boolean a(int n, int n2, Unit c2) {
         // TODO isType(8) will return true if the unit is a king OR a soldier, bitflags are ambiguous
-        if (c2.isType((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner)) {
+        if (c2.isType((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, c2.owner)) {
             return true;
         }
         // TODO isType(16) will return true ONLY if the unit is a king, but king's bitfalg is ambiguous (28)- Also see line 969
-        return c2.isType((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)c2.owner);
+        return c2.isType((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, c2.owner);
     }
 
     public void void_a(int mapX, int mapY, int n3) {
@@ -1923,7 +1926,8 @@ implements CommandListener {
         return -1;
     }
 
-    public boolean boolean_a(int mapX, int mapY, int playerIndex) {
+    /** Returns whether at the provided map coordinates there is a building owned by the specified player. */
+    private boolean isBuildingAndOwnedByPlayer(int mapX, int mapY, byte playerIndex) {
         return this.int_a(mapX, mapY) == playerIndex;
     }
 
@@ -2104,7 +2108,7 @@ implements CommandListener {
                 if (c2.owner != this.playerIndex_XX || c2.var_byte_e == 2 || c2.var_byte_e == 3) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
-                    if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.boolean_a((int)c2.mapX, (int)c2.mapY, (int)this.playerIndex_XX)) {
+                    if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, this.playerIndex_XX)) {
                         if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
@@ -2136,7 +2140,7 @@ implements CommandListener {
                     n6 = this.var_byte_arr_arr_e[n5][0];
                     n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
-                    n3 = this.boolean_a(n6, n4, (int)c2.owner) ? 1 : 0;
+                    n3 = this.isBuildingAndOwnedByPlayer(n6, n4, c2.owner) ? 1 : 0;
                     if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY)) >= n7) continue;
                     n7 = n2;
                     this.var_int_z = n6;
@@ -2208,7 +2212,7 @@ implements CommandListener {
                     n3 = this.var_c_arr_c[n4].mapX - c2.mapX + (this.var_c_arr_c[n4].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
-                if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.boolean_a(n, n2, (int)c2.owner) || c3 != null) break;
+                if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(n, n2, c2.owner) || c3 != null) break;
                 n5 += 200;
                 break;
             }
@@ -2235,7 +2239,7 @@ implements CommandListener {
             n5 += (this.mapTilesWidth - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.mapTilesHeight - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
             break;
         }
-        if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.boolean_a(n, n2, (int)c2.owner)) {
+        if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(n, n2, c2.owner)) {
             n5 += (10 - c2.quantity) * 2;
         }
         if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {
@@ -2434,7 +2438,7 @@ implements CommandListener {
                     break;
                 }
                 case 19: {
-                    if (!this.boolean_a(8, 9, 0) || this.var_byte_i != 0) break;
+                    if (!this.isBuildingAndOwnedByPlayer(8, 9, PLAYER_BLUE) || this.var_byte_i != 0) break;
                     this.void_b(500);
                     ++this.currentLevelStep;
                     break;
@@ -2476,13 +2480,13 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    if (!this.boolean_a(9, 12, 0) && !this.boolean_a(11, 13, 0)) break;
+                    if (!this.isBuildingAndOwnedByPlayer(9, 12, PLAYER_BLUE) && !this.isBuildingAndOwnedByPlayer(11, 13, PLAYER_BLUE)) break;
                     this.var_int_s = 10;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 7: {
-                    if (!this.boolean_a(9, 12, 0) || !this.boolean_a(11, 13, 0)) break;
+                    if (!this.isBuildingAndOwnedByPlayer(9, 12, PLAYER_BLUE) || !this.isBuildingAndOwnedByPlayer(11, 13, PLAYER_BLUE)) break;
                     this.var_int_s = 11;
                     this.a(false);
                     ++this.currentLevelStep;
