@@ -276,9 +276,9 @@ extends Class_I {
         attacker.attack(defender);
         if (defender.canCounterattackMelee(attacker, (int)attacker.mapX, (int)attacker.mapY)) {
             defender.attack(attacker);
-            this.var_boolean_x = true;
+            this.defenderDidCounterattack = true;
         } else {
-            this.var_boolean_x = false;
+            this.defenderDidCounterattack = false;
         }
         this.var_f_b.var_byte_c = (byte)attacker.quantity;
         this.var_f_b.var_byte_d = (byte)attacker.int_a();
@@ -321,7 +321,7 @@ extends Class_I {
                 return;
             }
         } else if (this.var_f_b.var_boolean_f) {
-            if (this.var_boolean_x && this.var_f_a.var_byte_c > 0) {
+            if (this.defenderDidCounterattack && this.var_f_a.var_byte_c > 0) {
                 if (!this.var_f_a.var_boolean_e) {
                     this.var_f_a.b();
                 }
