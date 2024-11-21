@@ -186,15 +186,16 @@ extends SpriteSheet {
 
     public void addStatus(byte statusFlag) {
         this.statusFlags = (byte)(this.statusFlags | statusFlag);
-        this.d();
+        this.updateStatusModifiers();
     }
 
     public void removeStatus(byte statusFlag) {
         this.statusFlags = (byte)(this.statusFlags & ~statusFlag);
-        this.d();
+        this.updateStatusModifiers();
     }
 
-    public void d() {
+    /** Used to recalculate modifiers values after the status bitflags are changed. */
+    public void updateStatusModifiers() {
         this.statusModMov = 0;
         this.statusModAtk = 0;
         this.statusModDef = 0;

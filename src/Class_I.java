@@ -465,7 +465,7 @@ implements CommandListener {
             unit.mapPixelX = s;
             unit.stars = unitStars;
             unit.statusFlags = unitStatusFlags;
-            unit.d();
+            unit.updateStatusModifiers();
             unit.quantity = unitQuantity;
             unit.var_int_b = s4;
 
