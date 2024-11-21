@@ -1168,7 +1168,7 @@ implements CommandListener {
                     }
                 } else if (this.var_byte_i == 13) {
                     if (this.var_int_n == 0) {
-                        this.var_c_i.a(this.var_c_b);
+                        this.var_c_i.attack(this.var_c_b);
                         this.var_c_b.b(400);
                         this.a(this.redsparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
                         this.var_long_d = this.var_long_n;
@@ -1177,7 +1177,7 @@ implements CommandListener {
                         if (this.var_long_n - this.var_long_d >= 800L) {
                             this.void_c(this.var_c_i.mapX, this.var_c_i.mapY);
                             if (this.var_c_b.a(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
-                                this.var_c_b.a(this.var_c_i);
+                                this.var_c_b.attack(this.var_c_i);
                                 this.var_c_i.b(400);
                                 this.a(this.redsparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
                                 this.var_long_d = this.var_long_n;
@@ -3043,9 +3043,9 @@ implements CommandListener {
         //AppCanvas.e();
         this.var_f_b.var_f_a = this.var_f_a;
         this.var_f_a.var_f_a = this.var_f_b;
-        c2.a(c3);
+        c2.attack(c3);
         if (c3.a(c2, (int)c2.mapX, (int)c2.mapY)) {
-            c3.a(c2);
+            c3.attack(c2);
             this.var_boolean_x = true;
         } else {
             this.var_boolean_x = false;

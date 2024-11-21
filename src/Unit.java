@@ -112,7 +112,12 @@ extends SpriteSheet {
         return newUnit;
     }
 
-    public int a(Unit opponent) {
+    /**
+     * Attack another unit stack and reduces its quantity.
+     * @param opponent The Unit to attack.
+     * @return The number of units killed by this attack.
+     */
+    public int attack(Unit opponent) {
         int atk = unitsDataATK[this.unitType] + this.statusModAtk;
         if (this.isType(ARCHER_FLAG) && opponent.isType(WYVERN_FLAG)) {
             atk += 2;
@@ -120,6 +125,7 @@ extends SpriteSheet {
         if (this.unitType == Unit.WISP && opponent.unitType == Unit.SKELETON) {
             atk += 3;
         }
+
         // Random number between -19 and 19 + stars(0-3)
         int rand = AppCanvas.randomInt() % 20 + this.stars;
         if (rand >= 19) {
@@ -131,6 +137,7 @@ extends SpriteSheet {
         } else if (rand <= -16) {
             --atk;
         }
+
         int opponentDEF = unitsDataDEF[opponent.unitType] + opponent.statusModDef;
         rand = AppCanvas.randomInt() % 20 + opponent.stars;
         if (rand >= 19) {
@@ -142,12 +149,15 @@ extends SpriteSheet {
         } else if (rand <= -16) {
             --opponentDEF;
         }
+
         int terrainDEF = iClassRef.getTerrainDefence_XX(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
         int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
         if (killCount > opponent.quantity) {
             killCount = opponent.quantity;
         }
+
         opponent.quantity -= killCount;
+        // TODO It looks like two variables were combined...this variable should be "experience"
         this.mapPixelX += (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * killCount;
         return killCount;
     }

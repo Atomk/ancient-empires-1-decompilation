@@ -273,9 +273,9 @@ extends Class_I {
         this.var_f_b = new f(this, c2, true);
         this.var_f_b.var_f_a = this.var_f_a = new f(this, c3, false);
         this.var_f_a.var_f_a = this.var_f_b;
-        c2.a(c3);
+        c2.attack(c3);
         if (c3.a(c2, (int)c2.mapX, (int)c2.mapY)) {
-            c3.a(c2);
+            c3.attack(c2);
             this.var_boolean_x = true;
         } else {
             this.var_boolean_x = false;
