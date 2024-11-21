@@ -369,7 +369,7 @@ extends SpriteSheet {
         this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, -1);
     }
 
-    private void a(byte[][] byArray, int mapX, int mapY, int movPoints, int n4) {
+    private void a(byte[][] byArray, int mapX, int mapY, int movPoints, int fromDirection) {
         // You cannot traverse this tile again if already visited with a more efficient route
         if (movPoints <= byArray[mapX][mapY]) {
             return;
@@ -377,19 +377,19 @@ extends SpriteSheet {
         // movPoints is the movement points left once arrived on this tile
         byArray[mapX][mapY] = (byte)movPoints;
         int pointsAfterMove = movPoints - this.int_b(mapX, mapY - 1);
-        if (n4 != 1 && pointsAfterMove >= 0) {
+        if (fromDirection != 1 && pointsAfterMove >= 0) {
             this.a(byArray, mapX, mapY - 1, pointsAfterMove, 2);
         }
         pointsAfterMove = movPoints - this.int_b(mapX, mapY + 1);
-        if (n4 != 2 && pointsAfterMove >= 0) {
+        if (fromDirection != 2 && pointsAfterMove >= 0) {
             this.a(byArray, mapX, mapY + 1, pointsAfterMove, 1);
         }
         pointsAfterMove = movPoints - this.int_b(mapX - 1, mapY);
-        if (n4 != 4 && pointsAfterMove >= 0) {
+        if (fromDirection != 4 && pointsAfterMove >= 0) {
             this.a(byArray, mapX - 1, mapY, pointsAfterMove, 8);
         }
         pointsAfterMove = movPoints - this.int_b(mapX + 1, mapY);
-        if (n4 != 8 && pointsAfterMove >= 0) {
+        if (fromDirection != 8 && pointsAfterMove >= 0) {
             this.a(byArray, mapX + 1, mapY, pointsAfterMove, 4);
         }
     }
