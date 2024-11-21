@@ -773,7 +773,7 @@ public class g {
                             graphics.drawString(AppCanvas.getGameText(46), n12 + this.var_a_a.uiStatusSheet.getSpritesWidth() + 2, n14, 20);
                             n14 += this.var_a_a.uiStatusSheet.getSpritesHeight() - 4;
                         }
-                        if ((this.var_c_a.statusFlags & Unit.STATUS_AURA) != 0) {
+                        if (this.var_c_a.hasStatus(Unit.STATUS_AURA)) {
                             this.var_a_a.uiStatusSheet.setCurrentIndex(1);
                             this.var_a_a.uiStatusSheet.a(graphics, n12, n14);
                             // AURA
@@ -947,7 +947,7 @@ public class g {
                         this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                         n26 += this.var_a_a.uiStatusSheet.getSpritesWidth();
                     }
-                    if ((this.var_c_a.statusFlags & Unit.STATUS_AURA) == 0) break;
+                    if (!this.var_c_a.hasStatus(Unit.STATUS_AURA)) break;
                     this.var_a_a.uiStatusSheet.setCurrentIndex(1);
                     this.var_a_a.uiStatusSheet.a(graphics, n26, n25);
                     break;
