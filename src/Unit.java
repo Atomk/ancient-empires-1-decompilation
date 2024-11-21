@@ -372,31 +372,39 @@ extends SpriteSheet {
     private static final int DIRECTION_RIGHT = 8;
 
     public void b(byte[][] byArray) {
-        this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
+        this.pathfindInner(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
     }
 
-    private void a(byte[][] byArray, int mapX, int mapY, int movPoints, int fromDirection) {
+    /**
+     * Recursively fills the provided matrix with all reachable tiles.
+     * @param byArray A matrix where each cell contains the remaining movement points after walking to that tile.
+     * @param mapX x coordinate for the current tile.
+     * @param mapY y coordinate of the current tile.
+     * @param movPoints Movement points left once arrived on this tile.
+     * @param fromDirection The algorithm arrived on this tile coming from this direction.
+     *                      Allows to ignore checking that direction.
+     */
+    private void pathfindInner(byte[][] byArray, int mapX, int mapY, int movPoints, int fromDirection) {
         // You cannot traverse this tile again if already visited with a more efficient route
         if (movPoints <= byArray[mapX][mapY]) {
             return;
         }
-        // movPoints is the movement points left once arrived on this tile
         byArray[mapX][mapY] = (byte)movPoints;
         int pointsAfterMove = movPoints - this.int_b(mapX, mapY - 1);
         if (fromDirection != DIRECTION_UP && pointsAfterMove >= 0) {
-            this.a(byArray, mapX, mapY - 1, pointsAfterMove, DIRECTION_DOWN);
+            this.pathfindInner(byArray, mapX, mapY - 1, pointsAfterMove, DIRECTION_DOWN);
         }
         pointsAfterMove = movPoints - this.int_b(mapX, mapY + 1);
         if (fromDirection != DIRECTION_DOWN && pointsAfterMove >= 0) {
-            this.a(byArray, mapX, mapY + 1, pointsAfterMove, DIRECTION_UP);
+            this.pathfindInner(byArray, mapX, mapY + 1, pointsAfterMove, DIRECTION_UP);
         }
         pointsAfterMove = movPoints - this.int_b(mapX - 1, mapY);
         if (fromDirection != DIRECTION_LEFT && pointsAfterMove >= 0) {
-            this.a(byArray, mapX - 1, mapY, pointsAfterMove, DIRECTION_RIGHT);
+            this.pathfindInner(byArray, mapX - 1, mapY, pointsAfterMove, DIRECTION_RIGHT);
         }
         pointsAfterMove = movPoints - this.int_b(mapX + 1, mapY);
         if (fromDirection != DIRECTION_RIGHT && pointsAfterMove >= 0) {
-            this.a(byArray, mapX + 1, mapY, pointsAfterMove, DIRECTION_LEFT);
+            this.pathfindInner(byArray, mapX + 1, mapY, pointsAfterMove, DIRECTION_LEFT);
         }
     }
 
