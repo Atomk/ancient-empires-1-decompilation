@@ -416,7 +416,7 @@ implements CommandListener {
             dataOutputStream.writeShort(unit.mapPixelX);
             dataOutputStream.writeShort(unit.mapX);
             dataOutputStream.writeShort(unit.mapY);
-            dataOutputStream.writeShort(unit.var_int_b);
+            dataOutputStream.writeShort(unit.turnOfDeath);
         }
         dataOutputStream.writeShort(this.currentLevelStep);
         dataOutputStream.writeInt((short)this.var_long_h);
@@ -459,7 +459,7 @@ implements CommandListener {
             short s = dataInputStream.readShort();
             short unitPosX = dataInputStream.readShort();
             short unitPosY = dataInputStream.readShort();
-            short s4 = dataInputStream.readShort();
+            short unitTurnOfDeath = dataInputStream.readShort();
             Unit unit = Unit.spawn(unitType, unitOwner, unitPosX, unitPosY);
             unit.state = unitState;
             unit.mapPixelX = s;
@@ -467,7 +467,7 @@ implements CommandListener {
             unit.statusFlags = unitStatusFlags;
             unit.updateStatusModifiers();
             unit.quantity = unitQuantity;
-            unit.var_int_b = s4;
+            unit.turnOfDeath = unitTurnOfDeath;
 
             if (unitType == Unit.KING) {
                 this.var_c_arr_a[unitOwner] = unit;
@@ -1203,7 +1203,7 @@ implements CommandListener {
                             this.mapUnitsList.removeElement(this.var_c_c);
                         } else {
                             this.var_c_c.state = Unit.STATE_TOMBSTONE;
-                            this.var_c_c.var_int_b = this._turnIndex;
+                            this.var_c_c.turnOfDeath = this._turnIndex;
                         }
                         this.var_c_c = null;
                         this.var_g_g.b();
@@ -1874,7 +1874,8 @@ implements CommandListener {
             Unit unit = this.mapUnitsList.elementAt(i);
             // Maybe this means the unit is dead? Since it has to be removed.
             if (unit.state == Unit.STATE_TOMBSTONE) {
-                if (this._turnIndex - unit.var_int_b < 3) continue;
+                // TODO the game info says the tombstone disappears after one turn, but code says 2 full turns
+                if (this._turnIndex - unit.turnOfDeath < 3) continue;
                 this.mapUnitsList.removeElement(unit);
                 continue;
             }

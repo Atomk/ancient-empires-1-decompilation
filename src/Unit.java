@@ -78,7 +78,8 @@ extends SpriteSheet {
     private boolean var_boolean_b = true;
     private int var_int_g;
     private long var_long_c;
-    public int var_int_b;
+    /** Index of the turn when this unit died. */
+    public int turnOfDeath;
     public static final byte[] unitsDataMOV;
     public static final byte[] unitsDataATK;
     public static final byte[] unitsDataDEF;
