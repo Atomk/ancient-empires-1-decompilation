@@ -1869,8 +1869,11 @@ implements CommandListener {
                     unit.quantity = (short)10;
                 }
             }
-            if (this.playerIndex_XX == unit.owner) continue;
-            unit.removeStatus(Unit.STATUS_POISON);
+
+            // Remove poison (movement debuff) from enemy units since it can be active only for one turn (theirs)
+            if (this.playerIndex_XX != unit.owner) {
+                unit.removeStatus(Unit.STATUS_POISON);
+            }
         }
         for (int mapX = 0; mapX < this.mapTerrain.length; ++mapX) {
             for (int mapY = 0; mapY < this.mapTerrain[mapX].length; ++mapY) {
