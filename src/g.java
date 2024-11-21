@@ -787,15 +787,17 @@ public class g {
                             n13 += this.var_a_a.uiStatusSheet.getSpritesWidth();
                         }
                     }
+
+
                     graphics.setColor(COLOR_RED);
                     AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer.append(Unit.unitsDataATK[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
-                        if (this.var_c_a.var_short_f > 0) {
+                        if (this.var_c_a.statusModAtk > 0) {
                             stringBuffer.append("+");
                         }
-                        if (this.var_c_a.var_short_f != 0) {
-                            stringBuffer.append(this.var_c_a.var_short_f);
+                        if (this.var_c_a.statusModAtk != 0) {
+                            stringBuffer.append(this.var_c_a.statusModAtk);
                         }
                         n13 = n3 / 2 - 2;
                     } else {
@@ -803,32 +805,37 @@ public class g {
                     }
                     String string2 = stringBuffer.toString();
                     AppCanvas.drawBoldWhiteText_XX(graphics, string2, n13, 33, AppCanvas.FONT_ALPHANUMERIC, 8);
+
+
                     AppCanvas.drawBoldWhiteText(graphics, "DEF", 2, 43, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(Unit.unitsDataDEF[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
-                        if (this.var_c_a.var_short_e > 0) {
+                        if (this.var_c_a.statusModDef > 0) {
                             stringBuffer.append("+");
                         }
-                        if (this.var_c_a.var_short_e != 0) {
-                            stringBuffer.append(this.var_c_a.var_short_e);
+                        if (this.var_c_a.statusModDef != 0) {
+                            stringBuffer.append(this.var_c_a.statusModDef);
                         }
                     }
                     string2 = stringBuffer.toString();
                     AppCanvas.drawBoldWhiteText_XX(graphics, string2, n13, 43, AppCanvas.FONT_ALPHANUMERIC, 8);
+
+
                     AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(Unit.unitsDataMOV[this.unitType_XX]);
                     if (this.var_byte_a == 4) {
-                        if (this.var_c_a.k > 0) {
+                        if (this.var_c_a.statusModMov > 0) {
                             stringBuffer.append("+");
                         }
-                        if (this.var_c_a.k != 0) {
-                            stringBuffer.append(this.var_c_a.k);
+                        if (this.var_c_a.statusModMov != 0) {
+                            stringBuffer.append(this.var_c_a.statusModMov);
                         }
                     }
                     string2 = stringBuffer.toString();
                     AppCanvas.drawBoldWhiteText_XX(graphics, string2, n13, 53, AppCanvas.FONT_ALPHANUMERIC, 8);
+
                     n12 = this.j;
                     n11 = n3 / 2;
                     graphics.setColor(-6386059);

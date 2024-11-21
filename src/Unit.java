@@ -65,9 +65,12 @@ extends SpriteSheet {
     public short quantity;
     public byte var_byte_e = 0;
     public byte statusFlags;
-    public short k;
-    public short var_short_f;
-    public short var_short_e;
+    /** Debuff caused by poison status. */
+    public short statusModMov;
+    /** Buff caused by aura status, or debuff caused by poison status. */
+    public short statusModAtk;
+    /** Debuff caused by poison status. */
+    public short statusModDef;
     private boolean var_boolean_e = false;
     private boolean var_boolean_b = true;
     private int var_int_g;
@@ -111,7 +114,7 @@ extends SpriteSheet {
 
     public int a(Unit unit) {
         int n;
-        int n2 = unitsDataATK[this.unitType] + this.var_short_f;
+        int n2 = unitsDataATK[this.unitType] + this.statusModAtk;
         if (this.isType(ARCHER_FLAG) && unit.isType(WYVERN_FLAG)) {
             n2 += 2;
         }
@@ -127,7 +130,7 @@ extends SpriteSheet {
         } else if (n <= -16) {
             --n2;
         }
-        int n3 = unitsDataDEF[unit.unitType] + unit.var_short_e;
+        int n3 = unitsDataDEF[unit.unitType] + unit.statusModDef;
         n = AppCanvas.randomInt() % 20 + unit.stars;
         if (n >= 19) {
             n3 += 2;
@@ -178,16 +181,16 @@ extends SpriteSheet {
     }
 
     public void d() {
-        this.k = 0;
-        this.var_short_f = 0;
-        this.var_short_e = 0;
+        this.statusModMov = 0;
+        this.statusModAtk = 0;
+        this.statusModDef = 0;
         if (this.hasStatus(STATUS_POISON)) {
-            this.k--;
-            this.var_short_f--;
-            this.var_short_e--;
+            this.statusModMov--;
+            this.statusModAtk--;
+            this.statusModDef--;
         }
         if (this.hasStatus(STATUS_AURA)) {
-            this.var_short_f++;
+            this.statusModAtk++;
         }
     }
 
@@ -339,7 +342,7 @@ extends SpriteSheet {
     }
 
     public void b(byte[][] byArray) {
-        this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.k, -1);
+        this.a(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, -1);
     }
 
     private void a(byte[][] byArray, int mapX, int mapY, int n3, int n4) {
