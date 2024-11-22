@@ -125,7 +125,12 @@ implements CommandListener {
     public Unit var_c_h = null;
     public int var_int_c;
     public int var_int_v;
-    /** Stores pathfinding data and/or tiles that can be attacked by a unit in a certain moment. */
+    /** Stores pathfinding data and/or tiles that can be attacked
+     * by a unit in a certain moment. The cell value can be either:
+     * • 0: nothing to do here
+     * • 127: the unit can attack this tile (melee or ranged)
+     * • other value: movement points left after the unit reaches that location
+     */
     public byte[][] unitActionsMatrix;
     public boolean var_boolean_h = false;
     public boolean var_boolean_j = false;
@@ -220,6 +225,7 @@ implements CommandListener {
     public int var_int_z;
     public int var_int_o;
     public Unit var_c_f = null;
+    /** Set to -1 on mission complete. */
     private short currentLevelStep = 0;
     public long var_long_h;
     public int var_int_i;
@@ -812,16 +818,17 @@ implements CommandListener {
                 g.a(this, null, AppCanvas.getGameText(39), 1000, true);
                 this.var_byte_i = (byte)8;
                 this.var_long_c = this.var_long_n;
-            } else if (string.equals(AppCanvas.getGameText(33))) {
+            } else if (string.equals(AppCanvas.getGameText(33))) { // OCCUPY
                 if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
                     this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.owner);
+                    // OCCUPIED
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     this.var_byte_i = (byte)9;
                     AppCanvas.playSound(-1, 1);
                     this.var_long_c = this.var_long_n;
                 }
                 this.var_c_h.void_b();
-            } else if (string.equals(AppCanvas.getGameText(34))) {
+            } else if (string.equals(AppCanvas.getGameText(34))) {  // RAISE
                 this.var_byte_i = (byte)7;
                 this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)1);
                 this.var_boolean_h = true;
@@ -1834,6 +1841,9 @@ implements CommandListener {
         }
     }
 
+    // Following the rabbit hole from what units a Wizard can raise,
+    // here when the last param is 0 means "search alive" and 1 means "search dead"
+    // TODO rename to "searchUnit" or "tryGetUnit" and dehardcode last parameter (document which values you can use)
     public Unit c_a(int mapX, int mapY, byte by) {
         int unitsCount = this.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
@@ -2223,7 +2233,7 @@ implements CommandListener {
                 return;
             }
             this.var_c_arr_c = null;
-            g.a(this, null, AppCanvas.getGameText(39), 1000, true);
+            g.a(this, null, AppCanvas.getGameText(39), 1000, true); // TURN END
             this.var_byte_i = (byte)8;
             this.var_long_c = this.var_long_n;
         }
@@ -3023,7 +3033,7 @@ implements CommandListener {
     public void g() {
         AppCanvas.playSound(2, 1);
         this.var_byte_i = (byte)10;
-        g.a(this, null, AppCanvas.getGameText(37), 1000, true);
+        g.a(this, null, AppCanvas.getGameText(37), 1000, true); // MISSION COMPLETE
         this.var_long_c = this.var_long_n;
         this.currentLevelStep = -1;
     }

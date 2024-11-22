@@ -36,11 +36,11 @@ extends SpriteSheet {
     //public static final short GOLEM_FLAG = _;
     public static final short CATAPULT_FLAG = 512;
     public static final short WYVERN_FLAG = 1;
-    public static final short KING_FLAG = 28;   // 16 + 8 + 4 => 28 = 00011100
+    public static final short KING_FLAG = 28;       // 16 + 8 + 4 => 28 = 00011100
     //public static final short SKELETON_FLAG = _;
 
-    public static final byte STATUS_POISON = 1;
-    public static final byte STATUS_AURA = 2;
+    public static final byte STATUS_POISON = 1;     // 0001
+    public static final byte STATUS_AURA = 2;       // 0010
 
     public static final byte STATE_ALREADY_ACTED = 2;
     public static final byte STATE_TOMBSTONE = 3;
@@ -274,6 +274,7 @@ extends SpriteSheet {
     public void a(byte[][] byArray) {
         if (this.isType(CATAPULT_FLAG)) {
             this.updateAttackMatrix_XX(byArray, (int)this.mapX, (int)this.mapY);
+            // I think this is because catapults can either attack or move, not both.
             return;
         }
         this.updatePathfindData(byArray);
