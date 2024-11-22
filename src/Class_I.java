@@ -2157,10 +2157,7 @@ implements CommandListener {
             int unitsCount = this.mapUnitsList.size();
             for (int j = 0; j < unitsCount; ++j) {
                 int n2;
-                int n3;
-                int n4;
                 int n5;
-                int n6;
                 int n7;
                 Unit c2 = this.mapUnitsList.elementAt(j);
                 if (c2.owner != this.playerIndex_XX || c2.state == 2 || c2.state == Unit.STATE_TOMBSTONE) continue;
@@ -2178,7 +2175,7 @@ implements CommandListener {
                                 ++n7;
                             }
                             if (n7 > 0) {
-                                n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
+                                int n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
                                 c2 = this.buyUnitAndSpawnAtCoords((byte)n6, c2.mapX, c2.mapY);
                             }
                         }
@@ -2195,10 +2192,10 @@ implements CommandListener {
                 n7 = 666;
                 this.var_int_z = -1;
                 for (n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
-                    n6 = this.var_byte_arr_arr_e[n5][0];
-                    n4 = this.var_byte_arr_arr_e[n5][1];
+                    int n6 = this.var_byte_arr_arr_e[n5][0];
+                    int n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
-                    n3 = this.isBuildingAndOwnedByPlayer(n6, n4, c2.owner) ? 1 : 0;
+                    int n3 = this.isBuildingAndOwnedByPlayer(n6, n4, c2.owner) ? 1 : 0;
                     if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY)) >= n7) continue;
                     n7 = n2;
                     this.var_int_z = n6;
@@ -2206,7 +2203,7 @@ implements CommandListener {
                 }
                 this.var_byte_b = (byte)3;
                 n5 = 0;
-                n4 = this.unitActionsMatrix.length;
+                int n4 = this.unitActionsMatrix.length;
                 for (int x = 0; x < n4; ++x) {
                     n2 = this.unitActionsMatrix[x].length;
                     for (int y = 0; y < n2; ++y) {
