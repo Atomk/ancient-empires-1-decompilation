@@ -1765,8 +1765,9 @@ implements CommandListener {
                             this.a(graphics, n7 - this.G, n8, 0, 12, false);
                             continue;
                         }
-                        if (nextStep[Y] != currentStep[Y] - 1) continue;
-                        this.a(graphics, n7 - this.G, n6, 0, 12, true);
+                        if (nextStep[Y] == currentStep[Y] - 1) {
+                            this.a(graphics, n7 - this.G, n6, 0, 12, true);
+                        }
                     }
                 }
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
