@@ -2045,18 +2045,22 @@ implements CommandListener {
         }
     }
 
+    /** Returns whether the current player can purchase a unit of the selected type.
+     * The unit must be enabled for purchase, the player must have enough money
+     * and there has to be a free square near the king (which is assumed to be at the castle)
+    */
     private boolean canPurchaseUnit(int unitType) {
-        int mapX = this._mapKings[this.playerIndex_XX].mapX;
-        int mapY = this._mapKings[this.playerIndex_XX].mapY;
+        int kingX = this._mapKings[this.playerIndex_XX].mapX;
+        int kingY = this._mapKings[this.playerIndex_XX].mapY;
         boolean canPlayerAffordUnit = Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX];
         boolean isUnitBuyable = Unit.unitsDataPrice[unitType] > 0;
         return canPlayerAffordUnit
                 && isUnitBuyable
                 && (
-                    mapX > 0 && this.c_a(mapX - 1, mapY, (byte)0) == null
-                    || mapX < this.mapTilesWidth - 1 && this.c_a(mapX + 1, mapY, (byte)0) == null
-                    || mapY > 0 && this.c_a(mapX, mapY - 1, (byte)0) == null
-                    || mapY < this.mapTilesHeight - 1 && this.c_a(mapX, mapY + 1, (byte)0) == null
+                    kingX > 0 && this.c_a(kingX - 1, kingY, (byte)0) == null
+                    || kingX < this.mapTilesWidth - 1 && this.c_a(kingX + 1, kingY, (byte)0) == null
+                    || kingY > 0 && this.c_a(kingX, kingY - 1, (byte)0) == null
+                    || kingY < this.mapTilesHeight - 1 && this.c_a(kingX, kingY + 1, (byte)0) == null
                     );
     }
 
