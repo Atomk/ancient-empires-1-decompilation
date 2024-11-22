@@ -2203,10 +2203,10 @@ implements CommandListener {
                 }
                 this.var_byte_b = (byte)3;
                 n5 = 0;
-                int n4 = this.unitActionsMatrix.length;
-                for (int x = 0; x < n4; ++x) {
-                    n2 = this.unitActionsMatrix[x].length;
-                    for (int y = 0; y < n2; ++y) {
+                int mapWidth = this.unitActionsMatrix.length;
+                for (int x = 0; x < mapWidth; ++x) {
+                    int mapHeight = this.unitActionsMatrix[x].length;
+                    for (int y = 0; y < mapHeight; ++y) {
                         int n8;
                         Unit c3 = this.tryGetUnit(x, y, SEARCH_ALIVE);
                         if (this.unitActionsMatrix[x][y] <= 0 || c3 != null && c3 != c2) continue;
