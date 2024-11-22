@@ -294,18 +294,18 @@ extends SpriteSheet {
         return this.a(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
     }
 
-    private Unit[] a(int areaOriginX, int areaOriginY, int unitRangeMin, int unitRangeMax, byte filter) {
+    private Unit[] a(int areaOriginX, int areaOriginY, int rangeMin, int rangeMax, byte filter) {
         Vector<Unit> vector = new Vector<Unit>();
-        final int minX = areaOriginX - unitRangeMax;
-        final int minY = areaOriginY - unitRangeMax;
-        final int maxX = areaOriginX + unitRangeMax;
-        final int maxY = areaOriginY + unitRangeMax;
+        final int minX = areaOriginX - rangeMax;
+        final int minY = areaOriginY - rangeMax;
+        final int maxX = areaOriginX + rangeMax;
+        final int maxY = areaOriginY + rangeMax;
 
         for (int x = minX; x <= maxX; ++x) {
             for (int y = minY; y <= maxY; ++y) {
                 // Manhattan distance from unit position (area center) to the current square (x; y)
                 final int manhattanDist = Math.abs(x - areaOriginX) + Math.abs(y - areaOriginY);
-                if (manhattanDist < unitRangeMin || manhattanDist > unitRangeMax) continue;
+                if (manhattanDist < rangeMin || manhattanDist > rangeMax) continue;
 
                 if (filter == FILTER_ENEMy) {
                     Unit unit = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
