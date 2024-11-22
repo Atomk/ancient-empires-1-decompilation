@@ -474,16 +474,16 @@ extends SpriteSheet {
                 this._pathStepIndex = 0;
                 iClassRef.c(this);
             } else {
-                short[] sArray = (short[])this._pathSteps.elementAt(this._pathStepIndex);
-                int n = sArray[0] * TILE_SIZE;
-                int n2 = sArray[1] * TILE_SIZE;
-                if (n < this.mapPixelX) {
+                short[] tileCoords = this._pathSteps.elementAt(this._pathStepIndex);
+                int tilePixelX = tileCoords[0] * TILE_SIZE;
+                int tilePixelY = tileCoords[1] * TILE_SIZE;
+                if (tilePixelX < this.mapPixelX) {
                     this.mapPixelX = (short)(this.mapPixelX - 6);
-                } else if (n > this.mapPixelX) {
+                } else if (tilePixelX > this.mapPixelX) {
                     this.mapPixelX = (short)(this.mapPixelX + 6);
-                } else if (n2 < ((SpriteSheet)this).l) {
+                } else if (tilePixelY < ((SpriteSheet)this).l) {
                     ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l - 6);
-                } else if (n2 > ((SpriteSheet)this).l) {
+                } else if (tilePixelY > ((SpriteSheet)this).l) {
                     ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l + 6);
                 }
                 if (this.mapPixelX % TILE_SIZE == 0 && ((SpriteSheet)this).l % TILE_SIZE == 0) {
