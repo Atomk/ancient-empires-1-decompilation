@@ -59,7 +59,7 @@ extends SpriteSheet {
     //private short j;
     //private short var_short_c;
     private Vector<short[]> _pathSteps = null;
-    private short var_short_g;
+    private short _pathStepIndex;
     private long var_long_a;
     public byte unitType;   // TODO could be called just "type"
     public byte owner;
@@ -327,7 +327,7 @@ extends SpriteSheet {
         //this.j = (short)(n * TILE_SIZE);
         //this.var_short_c = (short)(n2 * TILE_SIZE);
         this._pathSteps = this.pathSteps(this.mapX, this.mapY, destinationX, destinationY);
-        this.var_short_g = 0;
+        this._pathStepIndex = 0;
         this.state = 1;
     }
 
@@ -466,15 +466,15 @@ extends SpriteSheet {
             }
         }
         if (this.state == 1) {
-            if (this.var_short_g >= this._pathSteps.size()) {
+            if (this._pathStepIndex >= this._pathSteps.size()) {
                 this.state = 0;
                 this.mapX = (short)(this.mapPixelX / TILE_SIZE);
                 this.mapY = (short)(((SpriteSheet)this).l / TILE_SIZE);
                 this._pathSteps = null;
-                this.var_short_g = 0;
+                this._pathStepIndex = 0;
                 iClassRef.c(this);
             } else {
-                short[] sArray = (short[])this._pathSteps.elementAt(this.var_short_g);
+                short[] sArray = (short[])this._pathSteps.elementAt(this._pathStepIndex);
                 int n = sArray[0] * TILE_SIZE;
                 int n2 = sArray[1] * TILE_SIZE;
                 if (n < this.mapPixelX) {
@@ -487,7 +487,7 @@ extends SpriteSheet {
                     ((SpriteSheet)this).l = (short)(((SpriteSheet)this).l + 6);
                 }
                 if (this.mapPixelX % TILE_SIZE == 0 && ((SpriteSheet)this).l % TILE_SIZE == 0) {
-                    this.var_short_g = (short)(this.var_short_g + 1);
+                    this._pathStepIndex++;
                 }
             }
             super.void_b(this.mapPixelX, ((SpriteSheet)this).l);
