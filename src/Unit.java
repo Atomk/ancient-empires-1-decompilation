@@ -327,13 +327,13 @@ extends SpriteSheet {
     }
 
     public Vector<short[]> a(int mapX, int mapY, int x, int y) {
-        Vector<short[]> vector = null;
+        Vector<short[]> path = null;
         short[] tileCoords = new short[]{(short)x, (short)y};
 
         if (mapX == x && mapY == y) {
-            vector = new Vector<short[]>();
-            vector.addElement(tileCoords);
-            return vector;
+            path = new Vector<short[]>();
+            path.addElement(tileCoords);
+            return path;
         }
 
         byte down = 0;
@@ -355,17 +355,17 @@ extends SpriteSheet {
 
         int maxNeighbour = Math.max(Math.max(down, up), Math.max(left, right));
         if (maxNeighbour == down) {
-            vector = this.a(mapX, mapY, x, y - 1);
+            path = this.a(mapX, mapY, x, y - 1);
         } else if (maxNeighbour == up) {
-            vector = this.a(mapX, mapY, x, y + 1);
+            path = this.a(mapX, mapY, x, y + 1);
         } else if (maxNeighbour == left) {
-            vector = this.a(mapX, mapY, x - 1, y);
+            path = this.a(mapX, mapY, x - 1, y);
         } else if (maxNeighbour == right) {
-            vector = this.a(mapX, mapY, x + 1, y);
+            path = this.a(mapX, mapY, x + 1, y);
         }
 
-        vector.addElement(tileCoords);
-        return vector;
+        path.addElement(tileCoords);
+        return path;
     }
 
     private static final int DIRECTION_NONE = -1;
