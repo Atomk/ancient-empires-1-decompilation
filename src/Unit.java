@@ -165,9 +165,15 @@ extends SpriteSheet {
         return killCount;
     }
 
-    public boolean boolean_a() {
+    /** Try to increase the unit level and return whether the procedure was successful. */
+    public boolean tryLevelUp() {
+        // 0 stars: 75
+        // 1 stars: 150
+        // 2 stars: 300
+        // For reference, a stack of 10 soldiers is worth 60xp, a stack of 10 catapults is 90xp
+        final int xpThreshold = 75 << this.stars;
         // A unit can have at most 3 stars
-        if (this.stars < 3 && this.xp >= 75 << this.stars) {
+        if (this.stars < 3 && this.xp >= xpThreshold) {
             this.xp = 0;
             this.stars++;
             return true;

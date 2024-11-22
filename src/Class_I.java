@@ -569,7 +569,7 @@ implements CommandListener {
         if (this.var_c_i.quantity <= 0) {
             this.var_c_c = this.var_c_i;
             AppCanvas.playSound(3, 1);
-        } else if (this.var_c_i.boolean_a()) {
+        } else if (this.var_c_i.tryLevelUp()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(statusStarReorderTable);
             this.a(this.sparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
@@ -582,7 +582,7 @@ implements CommandListener {
             e2.setReorderTable(statusPoisonReorderTable);
             this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.addStatus(Unit.STATUS_POISON);
-        } else if (this.var_c_b.boolean_a()) {
+        } else if (this.var_c_b.tryLevelUp()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(statusStarReorderTable);
             this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
