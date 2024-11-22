@@ -134,7 +134,7 @@ implements CommandListener {
     public int var_int_g = 0;
     public boolean var_boolean_u = true;
     public boolean B = true;
-    public Vector<short[]> var_java_util_Vector_b = null;
+    private Vector<short[]> _pathSteps = null;
     public int H;
     public int var_int_k;
     public long var_long_c;
@@ -1114,7 +1114,7 @@ implements CommandListener {
                     }
                     return;
                 }
-                if (this.var_java_util_Vector_b != null) {
+                if (this._pathSteps != null) {
                     this.H = (this.H + 1) % 12;
                 }
                 if (this.var_boolean_h) {
@@ -1311,7 +1311,7 @@ implements CommandListener {
                             if (this.var_boolean_v) {
                                 if (this.var_byte_i == 1) {
                                     if (this.unitActionsMatrix[this.var_short_h][this.var_short_g] > 0) {
-                                        this.var_java_util_Vector_b = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
+                                        this._pathSteps = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                                     }
                                 } else {
                                     this.var_g_g.b();
@@ -1329,7 +1329,7 @@ implements CommandListener {
                                     this.b(this.var_c_h);
                                     this.var_boolean_n = false;
                                     this.var_boolean_h = false;
-                                    this.var_java_util_Vector_b = null;
+                                    this._pathSteps = null;
                                     this.var_boolean_r = false;
                                     this.var_boolean_t = false;
                                     this.var_byte_i = (byte)2;
@@ -1432,7 +1432,7 @@ implements CommandListener {
                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                     this.var_boolean_h = false;
                     this.var_boolean_j = false;
-                    this.var_java_util_Vector_b = null;
+                    this._pathSteps = null;
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
                     this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                     this.var_c_h = null;
@@ -1723,10 +1723,10 @@ implements CommandListener {
                 for (int i = 0; i < unitsCount; ++i) {
                     this.mapUnitsList.elementAt(i).drawInfoOverlay(graphics, this.var_short_f, this.var_short_a);
                 }
-                if (this.var_java_util_Vector_b != null) {
+                if (this._pathSteps != null) {
                     graphics.setColor(0xFFFFFF);
-                    short[][] sArrayArray = new short[this.var_java_util_Vector_b.size()][];
-                    this.var_java_util_Vector_b.copyInto((Object[])sArrayArray);
+                    short[][] sArrayArray = new short[this._pathSteps.size()][];
+                    this._pathSteps.copyInto((Object[])sArrayArray);
                     int n4 = sArrayArray.length;
                     for (int n3 = 0; n3 < n4; ++n3) {
                         short[] sArray;
@@ -2117,12 +2117,12 @@ implements CommandListener {
                         this.var_short_h = (short)this.var_int_f;
                         this.var_short_g = (short)this.var_int_x;
                         this.mapCursorSheet.void_b(this.var_int_f * 24, this.var_int_x * 24);
-                        this.var_java_util_Vector_b = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
+                        this._pathSteps = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                         this.var_int_A = 3;
                         this.var_long_j = this.var_long_n;
                     }
                 } else if (this.var_int_A == 3 && this.var_long_n - this.var_long_j >= 300L) {
-                    this.var_java_util_Vector_b = null;
+                    this._pathSteps = null;
                     this.var_c_h.void_a(this.var_int_f, this.var_int_x);
                     this.var_byte_b = (byte)2;
                     this.var_int_A = 0;
