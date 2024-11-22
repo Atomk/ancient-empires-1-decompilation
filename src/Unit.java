@@ -291,10 +291,19 @@ extends SpriteSheet {
     public static final byte FILTER_ALLY = 2;
 
     public Unit[] a(int unitX, int unitY, byte filter) {
-        return this.a(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
+        return this.searchInRange(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
     }
 
-    private Unit[] a(int areaOriginX, int areaOriginY, int rangeMin, int rangeMax, byte filter) {
+    /**
+     * Search for all units within a certain distance from a map coordinate,
+     * that respect a certain condition.
+     * @param areaOriginX x coord of the area center
+     * @param areaOriginY y coord of the area center
+     * @param rangeMin Minimum manhattan distance from the area center
+     * @param rangeMax Max manhattan distance from the area center
+     * @param filter Only units respecting this condition will be returned
+     */
+    private Unit[] searchInRange(int areaOriginX, int areaOriginY, int rangeMin, int rangeMax, byte filter) {
         Vector<Unit> vector = new Vector<Unit>();
         final int minX = areaOriginX - rangeMax;
         final int minY = areaOriginY - rangeMax;
@@ -543,7 +552,7 @@ extends SpriteSheet {
             Unit unit = Unit.iClassRef.mapUnitsList.elementAt(i);
             // Unit must be an allied Wisp
             if (unit.owner != this.owner || !unit.isType(WISP_FLAG)) continue;
-            Unit[] closeAllies = unit.a(unit.mapX, unit.mapY, 1, 2, FILTER_ALLY);
+            Unit[] closeAllies = unit.searchInRange(unit.mapX, unit.mapY, 1, 2, FILTER_ALLY);
             for (int j = 0; j < closeAllies.length; ++j) {
                 closeAllies[j].addStatus(Unit.STATUS_AURA);
                 iClassRef.a(Unit.iClassRef.sparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
