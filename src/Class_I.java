@@ -2209,13 +2209,12 @@ implements CommandListener {
                 int mapHeight = this.unitActionsMatrix[0].length;
                 for (int x = 0; x < mapWidth; ++x) {
                     for (int y = 0; y < mapHeight; ++y) {
-                        int n8;
                         Unit c3 = this.tryGetUnit(x, y, SEARCH_ALIVE);
                         if (this.unitActionsMatrix[x][y] <= 0 || c3 != null && c3 != c2) continue;
                         if (!c2.isType(Unit.CATAPULT_FLAG) || c3 == c2) {
                             Unit[] cArray = c2.searchInAttackRange(x, y, Unit.FILTER_ENEMy);
                             for (int k = 0; k < cArray.length; ++k) {
-                                n8 = this.a(c2, x, y, cArray[k], null);
+                                int n8 = this.a(c2, x, y, cArray[k], null);
                                 if (n8 <= n5) continue;
                                 this.var_c_g = cArray[k];
                                 n5 = n8;
@@ -2226,7 +2225,7 @@ implements CommandListener {
                         if (c2.isType(Unit.WIZARD_FLAG)) {
                             this.var_c_arr_b = c2.searchInAttackRange(x, y, Unit.FILTER_TOMBSTONE);
                             for (int k = 0; k < this.var_c_arr_b.length; ++k) {
-                                n8 = this.a(c2, x, y, null, this.var_c_arr_b[k]);
+                                int n8 = this.a(c2, x, y, null, this.var_c_arr_b[k]);
                                 if (n8 <= n5) continue;
                                 this.var_c_a = this.var_c_arr_b[k];
                                 n5 = n8;
@@ -2234,7 +2233,8 @@ implements CommandListener {
                                 this.var_int_x = y;
                             }
                         }
-                        if ((n8 = this.a(c2, x, y, null, null)) <= n5) continue;
+                        int n8 = this.a(c2, x, y, null, null);
+                        if (n8 <= n5) continue;
                         this.var_c_g = null;
                         this.var_c_a = null;
                         n5 = n8;
