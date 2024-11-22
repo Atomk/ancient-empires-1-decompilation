@@ -1857,7 +1857,6 @@ implements CommandListener {
             Unit unit = this.mapUnitsList.elementAt(i);
 
             if (mapX != unit.mapX || mapY != unit.mapY) continue;
-            if (!(by == 0 ? unit.state != Unit.STATE_TOMBSTONE : by == 1 && unit.state == Unit.STATE_TOMBSTONE)) continue;
 
             // boolean temp;
             // if(by == 0) {
@@ -1866,7 +1865,9 @@ implements CommandListener {
             //     temp = by == 1 && unit.var_byte_e == 3;
             // }
 
-            return unit;
+            if (by == 0 ? unit.state != Unit.STATE_TOMBSTONE : by == 1 && unit.state == Unit.STATE_TOMBSTONE) {
+                return unit;
+            }
         }
         return null;
     }
