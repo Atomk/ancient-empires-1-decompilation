@@ -304,18 +304,18 @@ extends SpriteSheet {
 
                 Unit c2;
                 if (by == 0) {
-                    c2 = iClassRef.c_a(x, y, (byte)0);
+                    c2 = iClassRef.tryGetUnit(x, y, (byte)0);
                     if (c2 == null || c2.owner == this.owner) continue;
                     vector.addElement(c2);
                     continue;
                 }
                 if (by == 1) {
-                    c2 = iClassRef.c_a(x, y, (byte)1);
+                    c2 = iClassRef.tryGetUnit(x, y, (byte)1);
                     if (c2 == null) continue;
                     vector.addElement(c2);
                     continue;
                 }
-                if (by != 2 || (c2 = iClassRef.c_a(x, y, (byte)0)) == null || c2.owner != this.owner) continue;
+                if (by != 2 || (c2 = iClassRef.tryGetUnit(x, y, (byte)0)) == null || c2.owner != this.owner) continue;
                 vector.addElement(c2);
             }
         }
@@ -436,7 +436,7 @@ extends SpriteSheet {
     private int tileMovCost(int mapX, int mapY) {
         // If coordinates are inside the map
         if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.mapTilesWidth && mapY < Unit.iClassRef.mapTilesHeight) {
-            Unit unit = iClassRef.c_a(mapX, mapY, (byte)0);
+            Unit unit = iClassRef.tryGetUnit(mapX, mapY, (byte)0);
             if (unit != null && unit.owner != this.owner) {
                 // Cannot move through enemy units
                 return 1000;
@@ -510,7 +510,7 @@ extends SpriteSheet {
     // TODO SHould be something like "endTurn" or "setInactive" or "setCannotAct"
     public void void_b() {
         this.state = STATE_ALREADY_ACTED;
-        Unit c3 = iClassRef.c_a((int)this.mapX, (int)this.mapY, (byte)1);
+        Unit c3 = iClassRef.tryGetUnit((int)this.mapX, (int)this.mapY, (byte)1);
         if (c3 != null) {
             Unit.iClassRef.mapUnitsList.removeElement(c3);
         }
