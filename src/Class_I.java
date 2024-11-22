@@ -2207,39 +2207,39 @@ implements CommandListener {
                 this.var_byte_b = (byte)3;
                 n5 = 0;
                 n4 = this.unitActionsMatrix.length;
-                for (n6 = 0; n6 < n4; ++n6) {
-                    n2 = this.unitActionsMatrix[n6].length;
+                for (int x = 0; x < n4; ++x) {
+                    n2 = this.unitActionsMatrix[x].length;
                     for (n3 = 0; n3 < n2; ++n3) {
                         int n8;
-                        Unit c3 = this.tryGetUnit(n6, n3, SEARCH_ALIVE);
-                        if (this.unitActionsMatrix[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
+                        Unit c3 = this.tryGetUnit(x, n3, SEARCH_ALIVE);
+                        if (this.unitActionsMatrix[x][n3] <= 0 || c3 != null && c3 != c2) continue;
                         if (!c2.isType(Unit.CATAPULT_FLAG) || c3 == c2) {
-                            Unit[] cArray = c2.searchInAttackRange(n6, n3, Unit.FILTER_ENEMy);
+                            Unit[] cArray = c2.searchInAttackRange(x, n3, Unit.FILTER_ENEMy);
                             for (int k = 0; k < cArray.length; ++k) {
-                                n8 = this.a(c2, n6, n3, cArray[k], null);
+                                n8 = this.a(c2, x, n3, cArray[k], null);
                                 if (n8 <= n5) continue;
                                 this.var_c_g = cArray[k];
                                 n5 = n8;
-                                this.var_int_f = n6;
+                                this.var_int_f = x;
                                 this.var_int_x = n3;
                             }
                         }
                         if (c2.isType(Unit.WIZARD_FLAG)) {
-                            this.var_c_arr_b = c2.searchInAttackRange(n6, n3, Unit.FILTER_TOMBSTONE);
+                            this.var_c_arr_b = c2.searchInAttackRange(x, n3, Unit.FILTER_TOMBSTONE);
                             for (int k = 0; k < this.var_c_arr_b.length; ++k) {
-                                n8 = this.a(c2, n6, n3, null, this.var_c_arr_b[k]);
+                                n8 = this.a(c2, x, n3, null, this.var_c_arr_b[k]);
                                 if (n8 <= n5) continue;
                                 this.var_c_a = this.var_c_arr_b[k];
                                 n5 = n8;
-                                this.var_int_f = n6;
+                                this.var_int_f = x;
                                 this.var_int_x = n3;
                             }
                         }
-                        if ((n8 = this.a(c2, n6, n3, null, null)) <= n5) continue;
+                        if ((n8 = this.a(c2, x, n3, null, null)) <= n5) continue;
                         this.var_c_g = null;
                         this.var_c_a = null;
                         n5 = n8;
-                        this.var_int_f = n6;
+                        this.var_int_f = x;
                         this.var_int_x = n3;
                     }
                 }
