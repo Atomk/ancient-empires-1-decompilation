@@ -53,7 +53,7 @@ extends SpriteSheet {
     public static Class_I iClassRef;
     public String customName;
     public short stars;
-    public short mapPixelX;
+    public short xp;
     private short bitflag;
     public int[][] var_int_arr_arr_a;
     //private short j;
@@ -161,15 +161,14 @@ extends SpriteSheet {
         }
 
         opponent.quantity -= killCount;
-        // TODO It looks like two variables were combined...this variable should be "experience"
-        this.mapPixelX += (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * killCount;
+        this.xp += (unitsDataATK[opponent.unitType] + unitsDataDEF[opponent.unitType]) * killCount;
         return killCount;
     }
 
     public boolean boolean_a() {
         // A unit can have at most 3 stars
-        if (this.stars < 3 && this.mapPixelX >= 75 << this.stars) {
-            this.mapPixelX = 0;
+        if (this.stars < 3 && this.xp >= 75 << this.stars) {
+            this.xp = 0;
             this.stars++;
             return true;
         }

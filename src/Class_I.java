@@ -415,7 +415,7 @@ implements CommandListener {
             dataOutputStream.writeByte(unit.statusFlags);
             dataOutputStream.writeByte(unit.quantity);
             dataOutputStream.writeByte(unit.stars);
-            dataOutputStream.writeShort(unit.mapPixelX);
+            dataOutputStream.writeShort(unit.xp);
             dataOutputStream.writeShort(unit.mapX);
             dataOutputStream.writeShort(unit.mapY);
             dataOutputStream.writeShort(unit.turnOfDeath);
@@ -458,13 +458,13 @@ implements CommandListener {
             byte unitStatusFlags = dataInputStream.readByte();
             byte unitQuantity = dataInputStream.readByte();
             byte unitStars = dataInputStream.readByte();
-            short s = dataInputStream.readShort();
+            short unitXP = dataInputStream.readShort();
             short unitPosX = dataInputStream.readShort();
             short unitPosY = dataInputStream.readShort();
             short unitTurnOfDeath = dataInputStream.readShort();
             Unit unit = Unit.spawn(unitType, unitOwner, unitPosX, unitPosY);
             unit.state = unitState;
-            unit.mapPixelX = s;
+            unit.xp = unitXP;
             unit.stars = unitStars;
             unit.statusFlags = unitStatusFlags;
             unit.updateStatusModifiers();

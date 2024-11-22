@@ -15,6 +15,7 @@ public class SpriteSheet {
      */
     private byte[] spriteReorderTable;
     public short currentIndex = 0;
+    public short mapPixelX; // TODO this was moved from Unit class to fix a renaming mess. The field below (var_short_b) is what was probably the actual mapPixelX, the two should be merged
     public short var_short_b = 0;
     public short l = 0;
     public boolean var_boolean_a = false;
