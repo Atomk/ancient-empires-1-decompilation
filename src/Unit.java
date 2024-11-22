@@ -292,12 +292,11 @@ extends SpriteSheet {
         final int maxY = areaOriginY + unitRangeMax;
         for (int x = minX; x <= maxX; ++x) {
             for (int y = minY; y <= maxY; ++y) {
-                Unit c2;
-
                 // Manhattan distance from unit position (area center) to the current square (x; y)
                 final int manhattanDist = Math.abs(x - areaOriginX) + Math.abs(y - areaOriginY);
                 if (manhattanDist < unitRangeMin || manhattanDist > unitRangeMax) continue;
 
+                Unit c2;
                 if (by == 0) {
                     c2 = iClassRef.c_a(x, y, (byte)0);
                     if (c2 == null || c2.owner == this.owner) continue;
@@ -419,14 +418,14 @@ extends SpriteSheet {
                 // Cannot move through enemy units
                 return 1000;
             }
-            byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
             if (this.isType(WYVERN_FLAG)) {
                 // Wyvern flies, so terrain type does not affect movement
                 return 1;
             }
+            byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
+            // Lizards are not slowed down by water, but are very slow on any other surface
             if (this.isType(LIZARD_FLAG)) {
                 if (terrainType == f.TERRAIN_WATER) {
-                    // Lizards are not slowed down by water
                     return 1;
                 }
                 return Class_I.terrainMovCost[terrainType] * 2;
