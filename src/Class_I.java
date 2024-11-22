@@ -1311,7 +1311,7 @@ implements CommandListener {
                             if (this.var_boolean_v) {
                                 if (this.var_byte_i == 1) {
                                     if (this.unitActionsMatrix[this.var_short_h][this.var_short_g] > 0) {
-                                        this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
+                                        this.var_java_util_Vector_b = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                                     }
                                 } else {
                                     this.var_g_g.b();
@@ -2117,7 +2117,7 @@ implements CommandListener {
                         this.var_short_h = (short)this.var_int_f;
                         this.var_short_g = (short)this.var_int_x;
                         this.mapCursorSheet.void_b(this.var_int_f * 24, this.var_int_x * 24);
-                        this.var_java_util_Vector_b = this.var_c_h.a(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
+                        this.var_java_util_Vector_b = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.var_short_h, this.var_short_g);
                         this.var_int_A = 3;
                         this.var_long_j = this.var_long_n;
                     }

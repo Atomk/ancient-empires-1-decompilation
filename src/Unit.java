@@ -321,16 +321,28 @@ extends SpriteSheet {
     public void void_a(int n, int n2) {
         //this.j = (short)(n * TILE_SIZE);
         //this.var_short_c = (short)(n2 * TILE_SIZE);
-        this.var_java_util_Vector_a = this.a(this.mapX, this.mapY, n, n2);
+        this.var_java_util_Vector_a = this.pathSteps(this.mapX, this.mapY, n, n2);
         this.var_short_g = 0;
         this.state = 1;
     }
 
-    public Vector<short[]> a(int mapX, int mapY, int x, int y) {
+    // TODO this does not depend on Unit data, should be in another file
+    /**
+     * Returns the sequence of tiles that have to be walked to go from source to destination.
+     * Recursively traverses the pathfinding data matrix from destination to source,
+     * but the search is depth-first so tiles are added in the correct order.
+     * Assumes the pathfinding matrix is updated (see `updatePathfindData`) and the destination can be reached.
+     * @param sourceX x coord of the path starting point
+     * @param sourceY y coord of the path starting point
+     * @param x x coord of the current tile. On the first call it's the path destination
+     * @param y y coord of the current tile. On the first call it's the path destination
+     * @return List of path tiles coordinates
+     */
+    public Vector<short[]> pathSteps(int sourceX, int sourceY, int x, int y) {
         Vector<short[]> path = null;
         short[] tileCoords = new short[]{(short)x, (short)y};
 
-        if (mapX == x && mapY == y) {
+        if (sourceX == x && sourceY == y) {
             path = new Vector<short[]>();
             path.addElement(tileCoords);
             return path;
@@ -353,15 +365,16 @@ extends SpriteSheet {
             right = Unit.iClassRef.unitActionsMatrix[x + 1][y];
         }
 
+        // Find the shortest path to the source tile, by going where mov points grow the most rapidly
         int maxNeighbour = Math.max(Math.max(down, up), Math.max(left, right));
         if (maxNeighbour == down) {
-            path = this.a(mapX, mapY, x, y - 1);
+            path = this.pathSteps(sourceX, sourceY, x, y - 1);
         } else if (maxNeighbour == up) {
-            path = this.a(mapX, mapY, x, y + 1);
+            path = this.pathSteps(sourceX, sourceY, x, y + 1);
         } else if (maxNeighbour == left) {
-            path = this.a(mapX, mapY, x - 1, y);
+            path = this.pathSteps(sourceX, sourceY, x - 1, y);
         } else if (maxNeighbour == right) {
-            path = this.a(mapX, mapY, x + 1, y);
+            path = this.pathSteps(sourceX, sourceY, x + 1, y);
         }
 
         path.addElement(tileCoords);
