@@ -148,7 +148,8 @@ implements CommandListener {
     public byte currentPlayerIndex_XX;  // TODO is there any difference between this and the field below?
     public byte playerIndex_XX = 0;
     private short _turnIndex;
-    private Unit[] var_c_arr_a;
+    /** References the king for each player, use the player ID as index. */
+    private Unit[] _mapKings;
     public int[] playersMoney;
     public byte[] var_byte_arr_b = new byte[]{1, 0};
     public Vector<g> var_java_util_Vector_e = new Vector<g>();
@@ -478,7 +479,7 @@ implements CommandListener {
             unit.turnOfDeath = unitTurnOfDeath;
 
             if (unitType == Unit.KING) {
-                this.var_c_arr_a[unitOwner] = unit;
+                this._mapKings[unitOwner] = unit;
             }
 
             if (this.levelType != LEVEL_TYPE_CAMPAIGN)
@@ -515,8 +516,8 @@ implements CommandListener {
         this.var_int_i = dataInputStream.readInt();
         this.var_boolean_z = dataInputStream.readByte() != 0;
         dataInputStream.close();
-        this.void_c(this.var_c_arr_a[this.playerIndex_XX].mapX, this.var_c_arr_a[this.playerIndex_XX].mapY);
-        this.void_a(this.var_c_arr_a[this.playerIndex_XX].mapPixelX, (int)((SpriteSheet)this.var_c_arr_a[this.playerIndex_XX]).l);
+        this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
+        this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX, (int)((SpriteSheet)this._mapKings[this.playerIndex_XX]).l);
     }
 
     public static void loadSettingsData() {
@@ -868,7 +869,7 @@ implements CommandListener {
         this.playerIndex_XX = PLAYER_BLUE;
         this.currentPlayerIndex_XX = 0;
         this.currentLevelStep = 0;
-        this.var_c_arr_a = null;
+        this._mapKings = null;
         this.mapUnitsList = new Vector<Unit>();
         this.var_c_h = null;
         this.var_c_arr_b = null;
@@ -931,7 +932,7 @@ implements CommandListener {
         int n4 = dataInputStream.readInt();
         dataInputStream.skip(n4 * 4);
         int n5 = dataInputStream.readInt();
-        this.var_c_arr_a = new Unit[this.levelPlayersCount];
+        this._mapKings = new Unit[this.levelPlayersCount];
         for (short s = 0; s < n5; s++) {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
@@ -939,9 +940,9 @@ implements CommandListener {
             byte unitType = (byte)(by % 11);
             byte unitOwner = (byte)(by / 11);
             Unit unit = Unit.spawn(unitType, unitOwner, n6 / 24, n7 / 24);
-            if (unitType != Unit.KING)
-                continue;
-            this.var_c_arr_a[unitOwner] = unit;
+            if (unitType == Unit.KING) {
+                this._mapKings[unitOwner] = unit;
+            }
         }
         dataInputStream.close();
         //AppCanvas.e();
@@ -959,15 +960,15 @@ implements CommandListener {
             this.var_g_e = g.a(this, AppCanvas.getGameText(36), AppCanvas.getGameText(62), -1, false);
         }
         this.var_boolean_w = false;
-        if (this.var_c_arr_a[1] != null) {
-            this.K = this.var_c_arr_a[1].mapX;
-            this.var_int_u = this.var_c_arr_a[1].mapY;
+        if (this._mapKings[PLAYER_RED] != null) {
+            this.K = this._mapKings[PLAYER_RED].mapX;
+            this.var_int_u = this._mapKings[PLAYER_RED].mapY;
         } else {
             this.K = 0;
             this.var_int_u = 0;
         }
-        this.void_c(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
-        this.void_a(this.var_c_arr_a[0].mapPixelX, (int)((SpriteSheet)this.var_c_arr_a[0]).l);
+        this.void_c(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+        this.void_a(this._mapKings[PLAYER_BLUE].mapPixelX, (int)((SpriteSheet)this._mapKings[PLAYER_BLUE]).l);
     }
 
     public void h() {
@@ -1206,10 +1207,10 @@ implements CommandListener {
                     if (this.var_long_n - this.var_long_g >= 300L) {
                         // TODO context hint: mapUnitExplosionSheet is used only here, and the animation is shown only ehen a unit dies
                         this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
-                        if (this.levelType == LEVEL_TYPE_CAMPAIGN && this.var_c_arr_a[1] != null && this.var_c_c == this.var_c_arr_a[1] && this.currentLevel != 4) {
+                        if (this.levelType == LEVEL_TYPE_CAMPAIGN && this._mapKings[PLAYER_RED] != null && this.var_c_c == this._mapKings[PLAYER_RED] && this.currentLevel != 4) {
                             if (this.currentLevel != 6) {
                                 this.mapUnitsList.removeElement(this.var_c_c);
-                                this.var_c_arr_a[1] = null;
+                                this._mapKings[PLAYER_RED] = null;
                             }
                         } else if (this.var_c_c.unitType == Unit.SKELETON) {
                             // When a skeleton dies, it disappears without creating a tombstone
@@ -1358,9 +1359,9 @@ implements CommandListener {
                                 }
                                 appCanvas.handleKeyReleasedAction(256);
                             } else if (appCanvas.boolean_c(512)) {
-                                if (this.var_c_arr_a[this.playerIndex_XX] != null) {
-                                    this.void_c(this.var_c_arr_a[this.playerIndex_XX].mapX, this.var_c_arr_a[this.playerIndex_XX].mapY);
-                                    this.void_a(this.var_c_arr_a[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this.var_c_arr_a[this.playerIndex_XX]).l + 12);
+                                if (this._mapKings[this.playerIndex_XX] != null) {
+                                    this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
+                                    this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
                                 }
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
                                 this.var_c_h = this.c_a((int)this.var_short_h, (int)this.var_short_g, (byte)0);
@@ -2045,8 +2046,8 @@ implements CommandListener {
     }
 
     private boolean canPurchaseUnit(int unitType) {
-        int mapX = this.var_c_arr_a[this.playerIndex_XX].mapX;
-        int mapY = this.var_c_arr_a[this.playerIndex_XX].mapY;
+        int mapX = this._mapKings[this.playerIndex_XX].mapX;
+        int mapY = this._mapKings[this.playerIndex_XX].mapY;
         boolean canPlayerAffordUnit = Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX];
         boolean isUnitBuyable = Unit.unitsDataPrice[unitType] > 0;
         return canPlayerAffordUnit
@@ -2251,7 +2252,7 @@ implements CommandListener {
         int n5 = 0;
         switch (c2.unitType) {
             case Unit.SOLDIER: {
-                if (this.var_c_arr_a[c2.owner] != null && this.var_int_z != -1) {
+                if (this._mapKings[c2.owner] != null && this.var_int_z != -1) {
                     n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
@@ -2285,9 +2286,9 @@ implements CommandListener {
             }
         }
         n5 += this.getTerrainDefenceForUnit(this.getTerrainType_ZZ(n, n2), c2) * 2;
-        for (n4 = 0; n4 < this.var_c_arr_a.length; ++n4) {
-            if (n4 == this.currentPlayerIndex_XX || this.var_c_arr_a[n4] == null) continue;
-            n5 += (this.mapTilesWidth - Math.abs(n - this.var_c_arr_a[n4].mapX) + this.mapTilesHeight - Math.abs(n2 - this.var_c_arr_a[n4].mapY)) * 2;
+        for (n4 = 0; n4 < this._mapKings.length; ++n4) {
+            if (n4 == this.currentPlayerIndex_XX || this._mapKings[n4] == null) continue;
+            n5 += (this.mapTilesWidth - Math.abs(n - this._mapKings[n4].mapX) + this.mapTilesHeight - Math.abs(n2 - this._mapKings[n4].mapY)) * 2;
             break;
         }
         if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(n, n2, c2.owner)) {
@@ -2349,7 +2350,7 @@ implements CommandListener {
             return;
         }
         if (this.levelType == LEVEL_TYPE_SKIRMISH) {
-            if (this.var_c_arr_a[0].state != 3 && this.var_c_arr_a[1].state != 3) return;
+            if (this._mapKings[PLAYER_BLUE].state != 3 && this._mapKings[PLAYER_RED].state != 3) return;
             this.i();
             return;
         }
@@ -2357,7 +2358,7 @@ implements CommandListener {
             return;
         }
         if (this.currentLevelStep == 0) {
-            this.var_c_arr_a[0].customName = AppCanvas.getGameText(43); // "GALAMAR"
+            this._mapKings[PLAYER_BLUE].customName = AppCanvas.getGameText(43); // "GALAMAR"
             this.var_g_b.a((byte)0, 0, 0, null, 0);
             ++this.currentLevelStep;
         }
@@ -2370,7 +2371,7 @@ implements CommandListener {
             this.var_int_j = -1;
             this.var_int_b = -1;
         }
-        if (this.var_byte_i != 11 && this.var_c_arr_a[0].state == 3) {
+        if (this.var_byte_i != 11 && this._mapKings[PLAYER_BLUE].state == 3) {
             this.i();
             return;
         }
@@ -2397,7 +2398,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2516,7 +2517,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 4: {
@@ -2554,7 +2555,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 11: {
@@ -2564,7 +2565,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this.var_c_arr_a[0].mapX < 11 || this.var_c_arr_a[0].mapY > 4 || this.var_c_arr_a[0].state != 2) break;
+                    if (this._mapKings[PLAYER_BLUE].mapX < 11 || this._mapKings[PLAYER_BLUE].mapY > 4 || this._mapKings[PLAYER_BLUE].state != 2) break;
                     this.void_b(12, 1);
                     this.a(false);
                     break;
@@ -2604,7 +2605,7 @@ implements CommandListener {
                     break;
                 }
                 case 17: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 18: {
@@ -2671,7 +2672,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 6: {
@@ -2693,7 +2694,7 @@ implements CommandListener {
                 }
             }
             if (this.currentLevelStep != -1) {
-                if (this.var_c_arr_a[0].mapX == 1 && this.var_c_arr_a[0].mapY == 13 && this.var_c_arr_a[0].state == 2) {
+                if (this._mapKings[PLAYER_BLUE].mapX == 1 && this._mapKings[PLAYER_BLUE].mapY == 13 && this._mapKings[PLAYER_BLUE].state == 2) {
                     this.g();
                 }
                 if (this.int_a(Unit.LIZARD, 3, PLAYER_BLUE) == 1) {
@@ -2730,7 +2731,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2746,8 +2747,8 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, PLAYER_RED, 2, 0);
-                    this.var_c_arr_a[1].customName = AppCanvas.getGameText(44); // VALADORN
+                    this._mapKings[PLAYER_RED] = Unit.spawn(Unit.KING, PLAYER_RED, 2, 0);
+                    this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 0, 0);
                     this.a(this.sparkSheet, 48, 0, 0, 0, 4, 50);
                     this.a(this.sparkSheet, 0, 0, 0, 0, 4, 50);
@@ -2770,7 +2771,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 11: {
@@ -2779,7 +2780,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this.var_c_arr_a[1] != null) break;
+                    if (this._mapKings[PLAYER_RED] != null) break;
                     // 'Retreat!! Curse you Galamar! You won't be so lucky next time!'
                     this.var_g_b = g.a(this, AppCanvas.getGameText(127), PORTRAIT_VALADORN, (byte)8);
                     this.a(false);
@@ -2814,7 +2815,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2824,7 +2825,7 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    if (this.var_c_arr_a[1].state != Unit.STATE_TOMBSTONE) break;
+                    if (this._mapKings[PLAYER_RED].state != Unit.STATE_TOMBSTONE) break;
                     this.void_b(2, 2);
                     this.a(false);
                     break;
@@ -2860,9 +2861,9 @@ implements CommandListener {
         } else if (this.currentLevel == 5) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.var_c_arr_a[1].customName = AppCanvas.getGameText(44); // VALADORN
+                    this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
                     this.strongestBuyableUnit = 8;
-                    this.void_b(this.var_c_arr_a[1].mapX, this.var_c_arr_a[1].mapY);
+                    this.void_b(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
                     break;
                 }
                 case 2: {
@@ -2876,7 +2877,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2897,7 +2898,7 @@ implements CommandListener {
                     break;
                 }
                 case 8: {
-                    if (this.var_c_arr_a[1] != null) break;
+                    if (this._mapKings[PLAYER_RED] != null) break;
                     this.a(false);
                     ++this.currentLevelStep;
                     break;
@@ -2948,8 +2949,8 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_c_arr_a[1] = Unit.spawn(Unit.KING, PLAYER_RED, 1, 1);
-                    this.var_c_arr_a[1].customName = AppCanvas.getGameText(44); // VALADORN
+                    this._mapKings[PLAYER_RED] = Unit.spawn(Unit.KING, PLAYER_RED, 1, 1);
+                    this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
                     Unit.spawn(Unit.WYVERN, PLAYER_RED, 0, 1);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 2);
                     this.a(this.sparkSheet, 24, 24, 0, 0, 4, 50);
@@ -2972,7 +2973,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.void_b(this.var_c_arr_a[0].mapX, this.var_c_arr_a[0].mapY);
+                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 10: {
@@ -2987,7 +2988,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this.var_c_arr_a[1].quantity > 0) break;
+                    if (this._mapKings[PLAYER_RED].quantity > 0) break;
                     this.a(false);
                     ++this.currentLevelStep;
                     break;
@@ -2998,7 +2999,7 @@ implements CommandListener {
                     break;
                 }
                 case 14: {
-                    this.void_b(this.var_c_arr_a[1].mapX, this.var_c_arr_a[1].mapY);
+                    this.void_b(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
                     break;
                 }
                 case 15: {
