@@ -286,37 +286,38 @@ extends SpriteSheet {
         }
     }
 
-    public Unit[] a(int n, int n2, byte by) {
-        return this.a(n, n2, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], by);
+    public Unit[] a(int unitX, int unitY, byte filter) {
+        return this.a(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
     }
 
-    private Unit[] a(int areaOriginX, int areaOriginY, int unitRangeMin, int unitRangeMax, byte by) {
+    private Unit[] a(int areaOriginX, int areaOriginY, int unitRangeMin, int unitRangeMax, byte filter) {
         Vector<Unit> vector = new Vector<Unit>();
         final int minX = areaOriginX - unitRangeMax;
         final int minY = areaOriginY - unitRangeMax;
         final int maxX = areaOriginX + unitRangeMax;
         final int maxY = areaOriginY + unitRangeMax;
+
         for (int x = minX; x <= maxX; ++x) {
             for (int y = minY; y <= maxY; ++y) {
                 // Manhattan distance from unit position (area center) to the current square (x; y)
                 final int manhattanDist = Math.abs(x - areaOriginX) + Math.abs(y - areaOriginY);
                 if (manhattanDist < unitRangeMin || manhattanDist > unitRangeMax) continue;
 
-                if (by == 0) {
+                if (filter == 0) {
                     Unit unit = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
                     if (unit != null && unit.owner != this.owner) {
                         vector.addElement(unit);
                     }
                     continue;
                 }
-                if (by == 1) {
+                if (filter == 1) {
                     Unit tombstone = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
                     if (tombstone != null) {
                         vector.addElement(tombstone);
                     }
                     continue;
                 }
-                if(by == 2) {
+                if(filter == 2) {
                     Unit c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
                     if(c2 != null && c2.owner == this.owner) {
                         vector.addElement(c2);
@@ -324,6 +325,7 @@ extends SpriteSheet {
                 }
             }
         }
+
         Unit[] unitsArray = new Unit[vector.size()];
         vector.copyInto(unitsArray);
         return unitsArray;
