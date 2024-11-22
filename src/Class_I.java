@@ -2158,8 +2158,6 @@ implements CommandListener {
             int unitsCount = this.mapUnitsList.size();
             for (int j = 0; j < unitsCount; ++j) {
                 int n2;
-                int n5;
-                int n7;
                 Unit c2 = this.mapUnitsList.elementAt(j);
                 if (c2.owner != this.playerIndex_XX || c2.state == 2 || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
@@ -2168,7 +2166,7 @@ implements CommandListener {
                         if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
-                            n7 = 0;
+                            int n7 = 0;
                             byte[] byArray = new byte[11];
                             for (int unitType = Unit.ARCHER; unitType < 11; unitType++) {
                                 if (this.int_a(unitType, -1, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
@@ -2190,9 +2188,9 @@ implements CommandListener {
                 this.var_c_h.updatePathfindData(this.unitActionsMatrix);
                 this.var_boolean_h = false;
                 this.var_c_arr_c = this.c_arr_a(0, -1, this.playerIndex_XX);
-                n7 = 666;
+                int n7 = 666;
                 this.var_int_z = -1;
-                for (n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
+                for (int n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
                     int n6 = this.var_byte_arr_arr_e[n5][0];
                     int n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
@@ -2203,7 +2201,7 @@ implements CommandListener {
                     this.var_int_o = n4;
                 }
                 this.var_byte_b = (byte)3;
-                n5 = 0;
+                int n5 = 0;
                 // TODO this is a bit stupid since we have mapTilesHigh and mapTilesWidth, which this matrix is based on
                 int mapWidth = this.unitActionsMatrix.length;
                 int mapHeight = this.unitActionsMatrix[0].length;
