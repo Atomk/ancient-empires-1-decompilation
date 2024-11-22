@@ -1733,16 +1733,16 @@ implements CommandListener {
                         int n6 = pathStepsCopy[i][1] * 24 + this.var_short_a;
                         int n7 = n5 + 12;
                         int n8 = n6 + 12;
-                        short[] sArray2 = pathStepsCopy[i];
+                        short[] currentStep = pathStepsCopy[i];
                         if (i != 0) {
                             short[] prevStep = pathStepsCopy[i - 1];
-                            if (prevStep[0] == sArray2[0] + 1) {
+                            if (prevStep[0] == currentStep[0] + 1) {
                                 this.a(graphics, n7, n8 - this.G, 12, 0, true);
-                            } else if (prevStep[0] == sArray2[0] - 1) {
+                            } else if (prevStep[0] == currentStep[0] - 1) {
                                 this.a(graphics, n5, n8 - this.G, 12, 0, false);
-                            } else if (prevStep[1] == sArray2[1] + 1) {
+                            } else if (prevStep[1] == currentStep[1] + 1) {
                                 this.a(graphics, n7 - this.G, n8, 0, 12, true);
-                            } else if (prevStep[1] == sArray2[1] - 1) {
+                            } else if (prevStep[1] == currentStep[1] - 1) {
                                 this.a(graphics, n7 - this.G, n6, 0, 12, false);
                             }
                         }
@@ -1752,19 +1752,19 @@ implements CommandListener {
                             continue;
                         }
                         short[] nextStep = pathStepsCopy[i + 1];
-                        if (nextStep[0] == sArray2[0] + 1) {
+                        if (nextStep[0] == currentStep[0] + 1) {
                             this.a(graphics, n7, n8 - this.G, 12, 0, false);
                             continue;
                         }
-                        if (nextStep[0] == sArray2[0] - 1) {
+                        if (nextStep[0] == currentStep[0] - 1) {
                             this.a(graphics, n5, n8 - this.G, 12, 0, true);
                             continue;
                         }
-                        if (nextStep[1] == sArray2[1] + 1) {
+                        if (nextStep[1] == currentStep[1] + 1) {
                             this.a(graphics, n7 - this.G, n8, 0, 12, false);
                             continue;
                         }
-                        if (nextStep[1] != sArray2[1] - 1) continue;
+                        if (nextStep[1] != currentStep[1] - 1) continue;
                         this.a(graphics, n7 - this.G, n6, 0, 12, true);
                     }
                 }
