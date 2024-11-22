@@ -329,35 +329,38 @@ extends SpriteSheet {
     public Vector<short[]> a(int mapX, int mapY, int x, int y) {
         Vector<short[]> vector = null;
         short[] sArray = new short[]{(short)x, (short)y};
+
         if (mapX == x && mapY == y) {
             vector = new Vector<short[]>();
             vector.addElement(sArray);
             return vector;
         }
-        byte by = 0;
-        byte by2 = 0;
-        byte by3 = 0;
-        int n6 = 0;
+
+        byte down = 0;
+        byte up = 0;
+        byte left = 0;
+        byte right = 0;
         if (y > 0) {
-            by = Unit.iClassRef.unitActionsMatrix[x][y - 1];
+            down = Unit.iClassRef.unitActionsMatrix[x][y - 1];
         }
         if (y < Unit.iClassRef.mapTilesHeight - 1) {
-            by2 = Unit.iClassRef.unitActionsMatrix[x][y + 1];
+            up = Unit.iClassRef.unitActionsMatrix[x][y + 1];
         }
         if (x > 0) {
-            by3 = Unit.iClassRef.unitActionsMatrix[x - 1][y];
+            left = Unit.iClassRef.unitActionsMatrix[x - 1][y];
         }
         if (x < Unit.iClassRef.mapTilesWidth - 1) {
-            n6 = Unit.iClassRef.unitActionsMatrix[x + 1][y];
+            right = Unit.iClassRef.unitActionsMatrix[x + 1][y];
         }
+
         int n5;
-        if ((n5 = Math.max(Math.max(by, by2), Math.max(by3, n6))) == by) {
+        if ((n5 = Math.max(Math.max(down, up), Math.max(left, right))) == down) {
             vector = this.a(mapX, mapY, x, y - 1);
-        } else if (n5 == by2) {
+        } else if (n5 == up) {
             vector = this.a(mapX, mapY, x, y + 1);
-        } else if (n5 == by3) {
+        } else if (n5 == left) {
             vector = this.a(mapX, mapY, x - 1, y);
-        } else if (n5 == n6) {
+        } else if (n5 == right) {
             vector = this.a(mapX, mapY, x + 1, y);
         }
         vector.addElement(sArray);
