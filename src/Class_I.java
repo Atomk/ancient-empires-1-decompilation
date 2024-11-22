@@ -1778,14 +1778,14 @@ implements CommandListener {
                     this.mapCursorSheet.a(graphics, this.var_short_f - 1, this.var_short_a - 1);
                 }
                 if (this.var_byte_i == 11 && !this.var_boolean_y) {
-                    String string = AppCanvas.getGameText(23);
+                    String textGameOver = AppCanvas.getGameText(23);  // GAME OVER
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                     graphics.setFont(AppCanvas.fontSmallPlain);
                     graphics.setColor(-16777216);
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                     int n3 = AppCanvas.f - AppCanvas.fontSmallPlain.getHeight() / 2;
                     graphics.setColor(-1);
-                    graphics.drawString(string, AppCanvas.h, n3, 17);
+                    graphics.drawString(textGameOver, AppCanvas.h, n3, 17);
                 }
                 for (int n = 0; n < this.var_java_util_Vector_c.size(); ++n) {
                     this.var_java_util_Vector_c.elementAt(n).a(graphics, this.var_short_f, this.var_short_a);
