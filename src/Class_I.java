@@ -2162,7 +2162,7 @@ implements CommandListener {
                 if (c2.owner != this.playerIndex_XX || c2.state == 2 || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
-                    if (this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, this.playerIndex_XX)) {
+                    if (this.getTerrainType_ZZ(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
                         if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
