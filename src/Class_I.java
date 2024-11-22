@@ -800,7 +800,7 @@ implements CommandListener {
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
                 this.var_boolean_v = true;
-                this.var_c_arr_b = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, (int)this.var_c_h.mapY, Unit.FILTER_ENEMy);
+                this.var_c_arr_b = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_ENEMy);
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
@@ -830,7 +830,7 @@ implements CommandListener {
                 this.var_c_h.void_b();
             } else if (string.equals(AppCanvas.getGameText(34))) {  // RAISE
                 this.var_byte_i = (byte)7;
-                this.var_c_arr_b = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, (int)this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
+                this.var_c_arr_b = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
@@ -1011,13 +1011,13 @@ implements CommandListener {
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
         // TODO isType(4) will return true ONLY if the unit is a king, but that bitfalg is ambiguous (28). Also see line 1876
-        if (by == 1 && this.var_c_h.isType((short)4) && this.getTerrainType_ZZ(this.var_c_h.mapX, (int)this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
+        if (by == 1 && this.var_c_h.isType((short)4) && this.getTerrainType_ZZ(this.var_c_h.mapX, this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
         if (this.a((int)unit.mapX, (int)unit.mapY, unit)) {
             vector.addElement(AppCanvas.getGameText(33));   // OCCUPY
         }
-        if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.searchInAttackRange(unit.mapX, (int)unit.mapY, Unit.FILTER_ENEMy).length > 0) {
+        if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.searchInAttackRange(unit.mapX, unit.mapY, Unit.FILTER_ENEMy).length > 0) {
             vector.addElement(AppCanvas.getGameText(28));   // ATTACK
         }
         if (unit.isType(Unit.WIZARD_FLAG) && unit.searchInAttackRange(unit.mapX, unit.mapY, Unit.FILTER_TOMBSTONE).length > 0) {
