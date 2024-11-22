@@ -3034,10 +3034,11 @@ implements CommandListener {
         this.var_c_f = null;
     }
 
-    public void void_b(int n, int n2) {
-        this.var_int_j = n;
-        this.var_int_b = n2;
-        this.void_c(n, n2);
+    // TODO this has something to do with king position
+    private void void_b(int mapX, int mapY) {
+        this.var_int_j = mapX;
+        this.var_int_b = mapY;
+        this.void_c(mapX, mapY);
         ++this.currentLevelStep;
     }
 
