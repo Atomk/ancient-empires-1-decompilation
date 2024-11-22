@@ -290,7 +290,10 @@ extends SpriteSheet {
     public static final byte FILTER_TOMBSTONE = 1;
     public static final byte FILTER_ALLY = 2;
 
-    public Unit[] a(int unitX, int unitY, byte filter) {
+    /**
+     * Finds all units on the map that are in the attack range of this unit
+     * and that also respect a certain condition. */
+    public Unit[] searchInAttackRange(int unitX, int unitY, byte filter) {
         return this.searchInRange(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
     }
 
