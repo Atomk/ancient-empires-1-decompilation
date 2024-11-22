@@ -800,7 +800,7 @@ implements CommandListener {
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
                 this.var_boolean_v = true;
-                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)0);
+                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, Unit.FILTER_ENEMy);
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
@@ -830,7 +830,7 @@ implements CommandListener {
                 this.var_c_h.void_b();
             } else if (string.equals(AppCanvas.getGameText(34))) {  // RAISE
                 this.var_byte_i = (byte)7;
-                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, (byte)1);
+                this.var_c_arr_b = this.var_c_h.a(this.var_c_h.mapX, (int)this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
@@ -1017,11 +1017,10 @@ implements CommandListener {
         if (this.a((int)unit.mapX, (int)unit.mapY, unit)) {
             vector.addElement(AppCanvas.getGameText(33));   // OCCUPY
         }
-        if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.a(unit.mapX, (int)unit.mapY, (byte)0).length > 0) {
+        if ((by == 1 || unit.unitType != Unit.CATAPULT) && unit.a(unit.mapX, (int)unit.mapY, Unit.FILTER_ENEMy).length > 0) {
             vector.addElement(AppCanvas.getGameText(28));   // ATTACK
         }
-        // TODO hint to find tombstones
-        if (unit.isType(Unit.WIZARD_FLAG) && unit.a(unit.mapX, unit.mapY, (byte)1).length > 0) {
+        if (unit.isType(Unit.WIZARD_FLAG) && unit.a(unit.mapX, unit.mapY, Unit.FILTER_TOMBSTONE).length > 0) {
             vector.addElement(AppCanvas.getGameText(34));   // RAISE
         }
         if (by == 1) {
@@ -2215,7 +2214,7 @@ implements CommandListener {
                         Unit c3 = this.tryGetUnit(n6, n3, SEARCH_ALIVE);
                         if (this.unitActionsMatrix[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
                         if (!c2.isType(Unit.CATAPULT_FLAG) || c3 == c2) {
-                            Unit[] cArray = c2.a(n6, n3, (byte)0);
+                            Unit[] cArray = c2.a(n6, n3, Unit.FILTER_ENEMy);
                             for (int k = 0; k < cArray.length; ++k) {
                                 n8 = this.a(c2, n6, n3, cArray[k], null);
                                 if (n8 <= n5) continue;
@@ -2226,7 +2225,7 @@ implements CommandListener {
                             }
                         }
                         if (c2.isType(Unit.WIZARD_FLAG)) {
-                            this.var_c_arr_b = c2.a(n6, n3, (byte)1);
+                            this.var_c_arr_b = c2.a(n6, n3, Unit.FILTER_TOMBSTONE);
                             for (int k = 0; k < this.var_c_arr_b.length; ++k) {
                                 n8 = this.a(c2, n6, n3, null, this.var_c_arr_b[k]);
                                 if (n8 <= n5) continue;

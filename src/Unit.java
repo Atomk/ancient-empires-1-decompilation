@@ -286,6 +286,10 @@ extends SpriteSheet {
         }
     }
 
+    public static final byte FILTER_ENEMy = 0;
+    public static final byte FILTER_TOMBSTONE = 1;
+    public static final byte FILTER_ALLY = 2;
+
     public Unit[] a(int unitX, int unitY, byte filter) {
         return this.a(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
     }
@@ -303,21 +307,21 @@ extends SpriteSheet {
                 final int manhattanDist = Math.abs(x - areaOriginX) + Math.abs(y - areaOriginY);
                 if (manhattanDist < unitRangeMin || manhattanDist > unitRangeMax) continue;
 
-                if (filter == 0) {
+                if (filter == FILTER_ENEMy) {
                     Unit unit = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
                     if (unit != null && unit.owner != this.owner) {
                         vector.addElement(unit);
                     }
                     continue;
                 }
-                if (filter == 1) {
+                if (filter == FILTER_TOMBSTONE) {
                     Unit tombstone = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
                     if (tombstone != null) {
                         vector.addElement(tombstone);
                     }
                     continue;
                 }
-                if(filter == 2) {
+                if(filter == FILTER_ALLY) {
                     Unit c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
                     if(c2 != null && c2.owner == this.owner) {
                         vector.addElement(c2);
@@ -539,7 +543,7 @@ extends SpriteSheet {
             Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
             // Unit must be an allied Wisp
             if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
-            Unit[] cArray = c2.a(c2.mapX, (int)c2.mapY, 1, 2, (byte)2);
+            Unit[] cArray = c2.a(c2.mapX, c2.mapY, 1, 2, FILTER_ALLY);
             for (int j = 0; j < cArray.length; ++j) {
                 cArray[j].addStatus(Unit.STATUS_AURA);
                 iClassRef.a(Unit.iClassRef.sparkSheet, cArray[j].mapPixelX, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
