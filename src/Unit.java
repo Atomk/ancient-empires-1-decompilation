@@ -597,7 +597,7 @@ extends SpriteSheet {
         int screenY = ((SpriteSheet)this).l + offsetY;
         if (this.state != STATE_TOMBSTONE) {
             if (this.state == STATE_ALREADY_ACTED) {
-                // The "E" is shown on units that already moved and cannot perform any more actions in the turn
+                // The "E" is shown on units that already moved and cannot perform any more actions in the turn TODO document this on the STATE variable not here
                 // Position: bottom right of the unit sprite
                 AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }

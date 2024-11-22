@@ -2159,7 +2159,7 @@ implements CommandListener {
             for (int j = 0; j < unitsCount; ++j) {
                 int n2;
                 Unit c2 = this.mapUnitsList.elementAt(j);
-                if (c2.owner != this.playerIndex_XX || c2.state == 2 || c2.state == Unit.STATE_TOMBSTONE) continue;
+                if (c2.owner != this.playerIndex_XX || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType_ZZ(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
@@ -2352,7 +2352,7 @@ implements CommandListener {
             return;
         }
         if (this.levelType == LEVEL_TYPE_SKIRMISH) {
-            if (this._mapKings[PLAYER_BLUE].state != 3 && this._mapKings[PLAYER_RED].state != 3) return;
+            if (this._mapKings[PLAYER_BLUE].state != Unit.STATE_TOMBSTONE && this._mapKings[PLAYER_RED].state != Unit.STATE_TOMBSTONE) return;
             this.i();
             return;
         }
@@ -2373,7 +2373,7 @@ implements CommandListener {
             this.var_int_j = -1;
             this.var_int_b = -1;
         }
-        if (this.var_byte_i != 11 && this._mapKings[PLAYER_BLUE].state == 3) {
+        if (this.var_byte_i != 11 && this._mapKings[PLAYER_BLUE].state == Unit.STATE_TOMBSTONE) {
             this.i();
             return;
         }
@@ -2567,7 +2567,7 @@ implements CommandListener {
                     break;
                 }
                 case 12: {
-                    if (this._mapKings[PLAYER_BLUE].mapX < 11 || this._mapKings[PLAYER_BLUE].mapY > 4 || this._mapKings[PLAYER_BLUE].state != 2) break;
+                    if (this._mapKings[PLAYER_BLUE].mapX < 11 || this._mapKings[PLAYER_BLUE].mapY > 4 || this._mapKings[PLAYER_BLUE].state != Unit.STATE_ALREADY_ACTED) break;
                     this.void_b(12, 1);
                     this.a(false);
                     break;
@@ -2696,7 +2696,7 @@ implements CommandListener {
                 }
             }
             if (this.currentLevelStep != -1) {
-                if (this._mapKings[PLAYER_BLUE].mapX == 1 && this._mapKings[PLAYER_BLUE].mapY == 13 && this._mapKings[PLAYER_BLUE].state == 2) {
+                if (this._mapKings[PLAYER_BLUE].mapX == 1 && this._mapKings[PLAYER_BLUE].mapY == 13 && this._mapKings[PLAYER_BLUE].state == Unit.STATE_ALREADY_ACTED) {
                     this.g();
                 }
                 if (this.int_a(Unit.LIZARD, 3, PLAYER_BLUE) == 1) {
