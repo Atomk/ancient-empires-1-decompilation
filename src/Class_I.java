@@ -2303,7 +2303,8 @@ implements CommandListener {
             int n6 = this.mapTilesWidth - n4 * 2 + this.mapTilesHeight - n3 * 2;
             n5 += n6 * n6;
         }
-        return n5 += 10 * (Math.abs(n - c2.mapX) + Math.abs(n2 - c2.mapY)) / (Unit.unitsDataMOV[c2.unitType] - 1);
+        int manhattanDist = Math.abs(n - c2.mapX) + Math.abs(n2 - c2.mapY);
+        return n5 += 10 * manhattanDist / (Unit.unitsDataMOV[c2.unitType] - 1);
     }
 
     public void void_b(int n) {
