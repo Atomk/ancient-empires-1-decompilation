@@ -304,14 +304,16 @@ extends SpriteSheet {
 
                 if (by == 0) {
                     Unit unit = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
-                    if (unit == null || unit.owner == this.owner) continue;
-                    vector.addElement(unit);
+                    if (unit != null && unit.owner != this.owner) {
+                        vector.addElement(unit);
+                    }
                     continue;
                 }
                 if (by == 1) {
                     Unit tombstone = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
-                    if (tombstone == null) continue;
-                    vector.addElement(tombstone);
+                    if (tombstone != null) {
+                        vector.addElement(tombstone);
+                    }
                     continue;
                 }
                 Unit c2;
