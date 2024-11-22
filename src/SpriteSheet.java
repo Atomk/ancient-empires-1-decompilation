@@ -175,6 +175,7 @@ public class SpriteSheet {
         this.currentIndex = 0;
     }
 
+    // TODO rename to draw() or a more spcialized term like drawCurrentFrame
     public void a(Graphics graphics, int x, int y) {
         if (this.var_byte_c == 2 || this.var_byte_c == 4) {
             graphics.setColor(this.color_XX);

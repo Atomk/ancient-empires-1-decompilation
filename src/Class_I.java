@@ -821,8 +821,7 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(33))) { // OCCUPY
                 if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
                     this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.owner);
-                    // OCCUPIED
-                    g.a(this, null, AppCanvas.getGameText(38), 1000, true);
+                    g.a(this, null, AppCanvas.getGameText(38), 1000, true); // OCCUPIED
                     this.var_byte_i = (byte)9;
                     AppCanvas.playSound(-1, 1);
                     this.var_long_c = this.var_long_n;
@@ -835,10 +834,10 @@ implements CommandListener {
                 this.var_boolean_j = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
-            } else if (string.equals(AppCanvas.getGameText(35))) {
+            } else if (string.equals(AppCanvas.getGameText(35))) { // MAP
                 g g6 = new g(this, (byte)7, 0);
                 g6.a((byte)0, 0, 0, g2, 0);
-            } else if (string.equals(AppCanvas.getGameText(36))) {
+            } else if (string.equals(AppCanvas.getGameText(36))) { // OBJECTIVE
                 this.var_g_e.a((byte)0, 0, 0, g2, 0);
             } else {
                 this.var_c_h = this.buyUnitAndSpawnAtCoords((byte)n, this.var_c_h.mapX, this.var_c_h.mapY);
@@ -861,6 +860,7 @@ implements CommandListener {
     }
 
     // TODO write a tool to read level data
+    // level here means "map"
     public void loadLevelData(int levelIndex) throws Exception {
         String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
@@ -892,8 +892,10 @@ implements CommandListener {
             if (levelIndex == 6) {
                 levelFileSuffix = 5;
             }
+            // Campaign map (story mode)
             filename = "m" + levelFileSuffix;
         } else {
+            // Skirmish map (play against AI or other player with no story)
             filename = "s" + levelFileSuffix;
         }
         DataInputStream dataInputStream = new DataInputStream(AppCanvas.getFileBytesInputStream(filename));
@@ -952,6 +954,8 @@ implements CommandListener {
             this.void_b(500);
             AppCanvas.playSound(-1, 1);
         } else {
+            // 36: OBJECTIVE
+            // 62: 'Destroy the enemy king!'
             this.var_g_e = g.a(this, AppCanvas.getGameText(36), AppCanvas.getGameText(62), -1, false);
         }
         this.var_boolean_w = false;
@@ -1617,6 +1621,7 @@ implements CommandListener {
         for (short mapY = s2; mapY <= s4; mapY++) {
             int n3 = n;
             for (short mapX = s; mapX <= s3; mapX++) {
+                // TODO maybe this ethod draws the map
                 byte by = this.mapTerrain[mapX][mapY];
                 this.var_h_arr_c[by].draw(graphics, n3, n2);
                 if (this.var_byte_arr_j[by] == 8) {

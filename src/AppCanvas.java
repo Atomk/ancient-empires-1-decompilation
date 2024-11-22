@@ -103,6 +103,7 @@ CommandListener {
         return n * 176 / 128;
     }
 
+    /** Returns a random integer (from all possible int values) */
     public static int randomInt() {
         return randomGen.nextInt();
     }

@@ -3,6 +3,7 @@ import javax.microedition.midlet.MIDlet;
 // Application entry point
 // https://it.wikipedia.org/wiki/MIDlet
 // https://docs.oracle.com/javame/8.0/api/meep/api/javax/microedition/midlet/MIDlet.html
+// TODO remove the 1.0.6 stuff, the called methods are empty
 public class App extends MIDlet {
     public static App instance = null;
     private static AppCanvas appCanvas = null;
