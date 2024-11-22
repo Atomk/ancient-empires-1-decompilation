@@ -353,8 +353,8 @@ extends SpriteSheet {
             right = Unit.iClassRef.unitActionsMatrix[x + 1][y];
         }
 
-        int n5;
-        if ((n5 = Math.max(Math.max(down, up), Math.max(left, right))) == down) {
+        int n5 = Math.max(Math.max(down, up), Math.max(left, right));
+        if (n5 == down) {
             vector = this.a(mapX, mapY, x, y - 1);
         } else if (n5 == up) {
             vector = this.a(mapX, mapY, x, y + 1);
