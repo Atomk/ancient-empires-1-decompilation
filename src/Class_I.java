@@ -1680,7 +1680,6 @@ implements CommandListener {
 
     // This is the game's global draw method
     public void gameDraw(Graphics graphics) {
-        int n;
         if (this.var_byte_d == 2) {
             this.e(graphics);
             return;
@@ -1788,12 +1787,12 @@ implements CommandListener {
                     graphics.setColor(-1);
                     graphics.drawString(string, AppCanvas.h, n3, 17);
                 }
-                for (n = 0; n < this.var_java_util_Vector_c.size(); ++n) {
+                for (int n = 0; n < this.var_java_util_Vector_c.size(); ++n) {
                     this.var_java_util_Vector_c.elementAt(n).a(graphics, this.var_short_f, this.var_short_a);
                 }
             }
         }
-        for (n = 0; n < this.var_java_util_Vector_e.size(); ++n) {
+        for (int n = 0; n < this.var_java_util_Vector_e.size(); ++n) {
             this.var_java_util_Vector_e.elementAt(n).a(graphics);
         }
         if (this.var_int_g == 0) {
