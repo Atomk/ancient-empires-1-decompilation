@@ -316,9 +316,12 @@ extends SpriteSheet {
                     }
                     continue;
                 }
-                Unit c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
-                if (by != 2 || c2 == null || c2.owner != this.owner) continue;
-                vector.addElement(c2);
+                if(by == 2) {
+                    Unit c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
+                    if(c2 != null && c2.owner == this.owner) {
+                        vector.addElement(c2);
+                    }
+                }
             }
         }
         Unit[] unitsArray = new Unit[vector.size()];
