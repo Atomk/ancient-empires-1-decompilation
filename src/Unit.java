@@ -328,11 +328,11 @@ extends SpriteSheet {
 
     public Vector<short[]> a(int mapX, int mapY, int x, int y) {
         Vector<short[]> vector = null;
-        short[] sArray = new short[]{(short)x, (short)y};
+        short[] tileCoords = new short[]{(short)x, (short)y};
 
         if (mapX == x && mapY == y) {
             vector = new Vector<short[]>();
-            vector.addElement(sArray);
+            vector.addElement(tileCoords);
             return vector;
         }
 
@@ -353,17 +353,18 @@ extends SpriteSheet {
             right = Unit.iClassRef.unitActionsMatrix[x + 1][y];
         }
 
-        int n5 = Math.max(Math.max(down, up), Math.max(left, right));
-        if (n5 == down) {
+        int maxNeighbour = Math.max(Math.max(down, up), Math.max(left, right));
+        if (maxNeighbour == down) {
             vector = this.a(mapX, mapY, x, y - 1);
-        } else if (n5 == up) {
+        } else if (maxNeighbour == up) {
             vector = this.a(mapX, mapY, x, y + 1);
-        } else if (n5 == left) {
+        } else if (maxNeighbour == left) {
             vector = this.a(mapX, mapY, x - 1, y);
-        } else if (n5 == right) {
+        } else if (maxNeighbour == right) {
             vector = this.a(mapX, mapY, x + 1, y);
         }
-        vector.addElement(sArray);
+
+        vector.addElement(tileCoords);
         return vector;
     }
 
