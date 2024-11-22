@@ -106,7 +106,7 @@ public class g {
             if (by == 4) {
                 this.var_boolean_a = true;
                 this.j = 65;
-                this.var_c_a = i2.tryGetUnit((int)i2.var_short_h, (int)i2.var_short_g, (byte)0);
+                this.var_c_a = i2.tryGetUnit((int)i2.var_short_h, (int)i2.var_short_g, Class_I.SEARCH_ALIVE);
                 this.unitType_XX = this.var_c_a.unitType;
                 this.var_byte_c = this.var_c_a.owner;
                 this.var_int_b = AppCanvas.width2;
@@ -222,7 +222,7 @@ public class g {
         if (this.var_byte_a == 5) {
             this.var_int_b = 40;
             this.var_int_g = 52;
-            this.var_c_a = this.var_a_a.tryGetUnit((int)this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g, (byte)0);
+            this.var_c_a = this.var_a_a.tryGetUnit((int)this.var_a_a.var_short_h, (int)this.var_a_a.var_short_g, Class_I.SEARCH_ALIVE);
             if (this.var_c_a != null) {
                 this.var_int_b = 68;
             }

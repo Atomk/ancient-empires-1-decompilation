@@ -1333,7 +1333,7 @@ implements CommandListener {
                         }
                         if (this.var_byte_i == 1) {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x10) != 0 && this.var_c_h != null) {
-                                Unit unit_c_a = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, (byte)0);
+                                Unit unit_c_a = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.unitActionsMatrix[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.mapX;
                                     this.var_int_v = this.var_c_h.mapY;
@@ -1352,7 +1352,7 @@ implements CommandListener {
                             }
                         } else if (this.var_byte_i == 0) {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x100) != 0) {
-                                this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, (byte)0);
+                                this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     g temp_g_YYY = new g(this, (byte)4, 0);
                                     temp_g_YYY.a((byte)0, 0, 0, null, 0);
@@ -1364,7 +1364,7 @@ implements CommandListener {
                                     this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
                                 }
                             } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
-                                this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, (byte)0);
+                                this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                                     this.var_c_h.a(this.unitActionsMatrix);
@@ -1373,7 +1373,7 @@ implements CommandListener {
                                 }
                                 appCanvas.handleKeyReleasedAction(32);
                             } else if (!appCanvas.boolean_c(128) && !appCanvas.boolean_c(64) && (appCanvas.boolean_c(16) || appCanvas.boolean_c(1024))) {
-                                this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, (byte)0);
+                                this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (unitActionsMenuOptions.length > 1) {
@@ -1847,21 +1847,20 @@ implements CommandListener {
         }
     }
 
-    // Following the rabbit hole from what units a Wizard can raise,
-    // here when the last param is 0 means "search alive" and 1 means "search dead"
-    // TODO rename to "searchUnit" or "tryGetUnit" and dehardcode last parameter (document which values you can use)
-    // call last param "filter" or "condition"
-    public Unit tryGetUnit(int mapX, int mapY, byte by) {
+    public static final byte SEARCH_ALIVE = 0;
+    public static final byte SEARCH_TOMBSTONE = 1;
+
+    public Unit tryGetUnit(int mapX, int mapY, byte searchType) {
         int unitsCount = this.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
             Unit unit = this.mapUnitsList.elementAt(i);
 
             if (mapX != unit.mapX || mapY != unit.mapY) continue;
 
-            if (by == 0 && unit.state != Unit.STATE_TOMBSTONE) {
+            if (searchType == SEARCH_ALIVE && unit.state != Unit.STATE_TOMBSTONE) {
                 return unit;
             }
-            if(by == 1 && unit.state == Unit.STATE_TOMBSTONE) {
+            if(searchType == SEARCH_TOMBSTONE && unit.state == Unit.STATE_TOMBSTONE) {
                 return unit;
             }
         }
@@ -2055,10 +2054,10 @@ implements CommandListener {
         return canPlayerAffordUnit
                 && isUnitBuyable
                 && (
-                    kingX > 0 && this.tryGetUnit(kingX - 1, kingY, (byte)0) == null
-                    || kingX < this.mapTilesWidth - 1 && this.tryGetUnit(kingX + 1, kingY, (byte)0) == null
-                    || kingY > 0 && this.tryGetUnit(kingX, kingY - 1, (byte)0) == null
-                    || kingY < this.mapTilesHeight - 1 && this.tryGetUnit(kingX, kingY + 1, (byte)0) == null
+                    kingX > 0 && this.tryGetUnit(kingX - 1, kingY, SEARCH_ALIVE) == null
+                    || kingX < this.mapTilesWidth - 1 && this.tryGetUnit(kingX + 1, kingY, SEARCH_ALIVE) == null
+                    || kingY > 0 && this.tryGetUnit(kingX, kingY - 1, SEARCH_ALIVE) == null
+                    || kingY < this.mapTilesHeight - 1 && this.tryGetUnit(kingX, kingY + 1, SEARCH_ALIVE) == null
                     );
     }
 
@@ -2207,7 +2206,7 @@ implements CommandListener {
                     n2 = this.unitActionsMatrix[n6].length;
                     for (n3 = 0; n3 < n2; ++n3) {
                         int n8;
-                        Unit c3 = this.tryGetUnit(n6, n3, (byte)0);
+                        Unit c3 = this.tryGetUnit(n6, n3, SEARCH_ALIVE);
                         if (this.unitActionsMatrix[n6][n3] <= 0 || c3 != null && c3 != c2) continue;
                         if (!c2.isType(Unit.CATAPULT_FLAG) || c3 == c2) {
                             Unit[] cArray = c2.a(n6, n3, (byte)0);
@@ -2645,7 +2644,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
-                    this.tryGetUnit((int)14, (int)12, (byte)0).customName = AppCanvas.getGameText(45); // LIZARD CHIEF
+                    this.tryGetUnit((int)14, (int)12, SEARCH_ALIVE).customName = AppCanvas.getGameText(45); // LIZARD CHIEF
                     this.void_b(7, 12);
                     break;
                 }
