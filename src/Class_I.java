@@ -1725,18 +1725,18 @@ implements CommandListener {
                 }
                 if (this._pathSteps != null) {
                     graphics.setColor(0xFFFFFF);
-                    short[][] sArrayArray = new short[this._pathSteps.size()][];
-                    this._pathSteps.copyInto((Object[])sArrayArray);
-                    int n4 = sArrayArray.length;
-                    for (int n3 = 0; n3 < n4; ++n3) {
+                    short[][] pathStepsCopy = new short[this._pathSteps.size()][];
+                    this._pathSteps.copyInto((Object[])pathStepsCopy);
+                    int numSteps = pathStepsCopy.length;
+                    for (int i = 0; i < numSteps; ++i) {
                         short[] sArray;
-                        int n5 = sArrayArray[n3][0] * 24 + this.var_short_f;
-                        int n6 = sArrayArray[n3][1] * 24 + this.var_short_a;
+                        int n5 = pathStepsCopy[i][0] * 24 + this.var_short_f;
+                        int n6 = pathStepsCopy[i][1] * 24 + this.var_short_a;
                         int n7 = n5 + 12;
                         int n8 = n6 + 12;
-                        short[] sArray2 = sArrayArray[n3];
-                        if (n3 != 0) {
-                            sArray = sArrayArray[n3 - 1];
+                        short[] sArray2 = pathStepsCopy[i];
+                        if (i != 0) {
+                            sArray = pathStepsCopy[i - 1];
                             if (sArray[0] == sArray2[0] + 1) {
                                 this.a(graphics, n7, n8 - this.G, 12, 0, true);
                             } else if (sArray[0] == sArray2[0] - 1) {
@@ -1747,12 +1747,12 @@ implements CommandListener {
                                 this.a(graphics, n7 - this.G, n6, 0, 12, false);
                             }
                         }
-                        if (n3 == n4 - 1) {
+                        if (i == numSteps - 1) {
                             graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
                             this.mapCursorMoveUnit.a(graphics, n5 - 1, n6 - 4);
                             continue;
                         }
-                        sArray = sArrayArray[n3 + 1];
+                        sArray = pathStepsCopy[i + 1];
                         if (sArray[0] == sArray2[0] + 1) {
                             this.a(graphics, n7, n8 - this.G, 12, 0, false);
                             continue;
