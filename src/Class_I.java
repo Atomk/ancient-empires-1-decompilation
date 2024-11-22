@@ -2252,20 +2252,19 @@ implements CommandListener {
 
     private int a(Unit c2, int n, int n2, Unit c3, Unit c4) {
         int n3;
-        int n4;
         int n5 = 0;
         switch (c2.unitType) {
             case Unit.SOLDIER: {
                 if (this._mapKings[c2.owner] != null && this.var_int_z != -1) {
-                    n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
+                    int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
                 if (terrainMovCost[this.getTerrainType_ZZ(n, n2)] <= 1) {
                     n5 += 5;
                 }
-                for (n4 = 0; n4 < this.var_c_arr_c.length; ++n4) {
-                    if (this.var_c_arr_c[n4] == c2) continue;
-                    n3 = this.var_c_arr_c[n4].mapX - c2.mapX + (this.var_c_arr_c[n4].mapY - c2.mapY);
+                for (short i = 0; i < this.var_c_arr_c.length; ++i) {
+                    if (this.var_c_arr_c[i] == c2) continue;
+                    n3 = this.var_c_arr_c[i].mapX - c2.mapX + (this.var_c_arr_c[i].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
                 if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(n, n2, c2.owner) || c3 != null) break;
@@ -2290,20 +2289,20 @@ implements CommandListener {
             }
         }
         n5 += this.getTerrainDefenceForUnit(this.getTerrainType_ZZ(n, n2), c2) * 2;
-        for (n4 = 0; n4 < this._mapKings.length; ++n4) {
-            if (n4 == this.currentPlayerIndex_XX || this._mapKings[n4] == null) continue;
-            n5 += (this.mapTilesWidth - Math.abs(n - this._mapKings[n4].mapX) + this.mapTilesHeight - Math.abs(n2 - this._mapKings[n4].mapY)) * 2;
+        for (byte playerId = 0; playerId < this._mapKings.length; ++playerId) {
+            if (playerId == this.currentPlayerIndex_XX || this._mapKings[playerId] == null) continue;
+            n5 += (this.mapTilesWidth - Math.abs(n - this._mapKings[playerId].mapX) + this.mapTilesHeight - Math.abs(n2 - this._mapKings[playerId].mapY)) * 2;
             break;
         }
         if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(n, n2, c2.owner)) {
             n5 += (10 - c2.quantity) * 2;
         }
         if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {
-            n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
+            int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
             n5 += n4 * n4;
         }
         if (this.currentLevel == 2 && this.var_int_z != -1) {
-            n4 = Math.abs(this.var_int_z - n) - 1;
+            int n4 = Math.abs(this.var_int_z - n) - 1;
             n3 = Math.abs(this.var_int_o - n2) - 3;
             if (n4 < 0) {
                 n4 = 0;
