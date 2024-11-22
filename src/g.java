@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  javax.microedition.lcdui.Font
  *  javax.microedition.lcdui.Graphics
@@ -732,7 +732,7 @@ public class g {
                     this.var_a_a.spriteMenuPointer.draw(graphics, this.p + this.D, (this.unitType_XX - this.var_short_b) * this.m + this.D);
                     break;
                 }
-                case 1: 
+                case 1:
                 case 4: {
                     int n9;
                     int n10;

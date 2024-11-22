@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  javax.microedition.lcdui.Command
  *  javax.microedition.lcdui.CommandListener
@@ -486,7 +486,7 @@ CommandListener {
             assetsFileName = new String[filesCount];
             int[] unusedArr = new int[filesCount];
             int[] assetFilesSizes = new int[filesCount];
-            
+
             for (int j = 0; j < filesCount; ++j) {
                 AppCanvas.assetsFileName[j] = dataInputStream.readUTF();
                 unusedArr[j] = dataInputStream.readInt() + s;
