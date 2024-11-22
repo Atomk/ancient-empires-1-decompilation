@@ -326,11 +326,10 @@ extends SpriteSheet {
         this.state = 1;
     }
 
-    public Vector<short[]> a(int mapX, int mapY, int n3, int n4) {
-        int n5;
+    public Vector<short[]> a(int mapX, int mapY, int x, int y) {
         Vector<short[]> vector = null;
-        short[] sArray = new short[]{(short)n3, (short)n4};
-        if (mapX == n3 && mapY == n4) {
+        short[] sArray = new short[]{(short)x, (short)y};
+        if (mapX == x && mapY == y) {
             vector = new Vector<short[]>();
             vector.addElement(sArray);
             return vector;
@@ -339,26 +338,27 @@ extends SpriteSheet {
         byte by2 = 0;
         byte by3 = 0;
         int n6 = 0;
-        if (n4 > 0) {
-            by = Unit.iClassRef.unitActionsMatrix[n3][n4 - 1];
+        if (y > 0) {
+            by = Unit.iClassRef.unitActionsMatrix[x][y - 1];
         }
-        if (n4 < Unit.iClassRef.mapTilesHeight - 1) {
-            by2 = Unit.iClassRef.unitActionsMatrix[n3][n4 + 1];
+        if (y < Unit.iClassRef.mapTilesHeight - 1) {
+            by2 = Unit.iClassRef.unitActionsMatrix[x][y + 1];
         }
-        if (n3 > 0) {
-            by3 = Unit.iClassRef.unitActionsMatrix[n3 - 1][n4];
+        if (x > 0) {
+            by3 = Unit.iClassRef.unitActionsMatrix[x - 1][y];
         }
-        if (n3 < Unit.iClassRef.mapTilesWidth - 1) {
-            n6 = Unit.iClassRef.unitActionsMatrix[n3 + 1][n4];
+        if (x < Unit.iClassRef.mapTilesWidth - 1) {
+            n6 = Unit.iClassRef.unitActionsMatrix[x + 1][y];
         }
+        int n5;
         if ((n5 = Math.max(Math.max(by, by2), Math.max(by3, n6))) == by) {
-            vector = this.a(mapX, mapY, n3, n4 - 1);
+            vector = this.a(mapX, mapY, x, y - 1);
         } else if (n5 == by2) {
-            vector = this.a(mapX, mapY, n3, n4 + 1);
+            vector = this.a(mapX, mapY, x, y + 1);
         } else if (n5 == by3) {
-            vector = this.a(mapX, mapY, n3 - 1, n4);
+            vector = this.a(mapX, mapY, x - 1, y);
         } else if (n5 == n6) {
-            vector = this.a(mapX, mapY, n3 + 1, n4);
+            vector = this.a(mapX, mapY, x + 1, y);
         }
         vector.addElement(sArray);
         return vector;
