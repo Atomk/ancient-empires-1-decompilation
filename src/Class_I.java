@@ -2157,7 +2157,6 @@ implements CommandListener {
             }
             int unitsCount = this.mapUnitsList.size();
             for (int j = 0; j < unitsCount; ++j) {
-                int n2;
                 Unit c2 = this.mapUnitsList.elementAt(j);
                 if (c2.owner != this.playerIndex_XX || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
@@ -2195,8 +2194,9 @@ implements CommandListener {
                     int n4 = this.var_byte_arr_arr_e[n5][1];
                     if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
                     int n3 = this.isBuildingAndOwnedByPlayer(n6, n4, c2.owner) ? 1 : 0;
-                    if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || (n2 = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY)) >= n7) continue;
-                    n7 = n2;
+                    final int manhattanDist = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY);
+                    if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || manhattanDist >= n7) continue;
+                    n7 = manhattanDist;
                     this.var_int_z = n6;
                     this.var_int_o = n4;
                 }
