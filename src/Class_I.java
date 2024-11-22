@@ -121,8 +121,8 @@ implements CommandListener {
     private int currentLevel;
     public int var_int_h;
     public int var_int_w;
-    public Unit[] var_c_arr_b = null;
-    public Unit var_c_h = null;
+    private Unit[] var_c_arr_b = null;
+    private Unit var_c_h = null;
     public int var_int_c;
     public int var_int_v;
     /** Stores pathfinding data and/or tiles that can be attacked
@@ -204,7 +204,7 @@ implements CommandListener {
     public boolean var_boolean_d = false;
     public int var_int_r;
     public byte[][] var_byte_arr_arr_e;
-    public static final String[] var_java_lang_String_arr_d;
+    private static final String[] var_java_lang_String_arr_d;
     public StringBuffer var_java_lang_StringBuffer_a = new StringBuffer();
     public int D;
     public Unit var_c_d = null;
@@ -1016,7 +1016,7 @@ implements CommandListener {
             vector.addElement(AppCanvas.getGameText(28));   // ATTACK
         }
         // TODO hint to find tombstones
-        if (unit.isType(Unit.WIZARD_FLAG) && unit.a(unit.mapX, (int)unit.mapY, (byte)1).length > 0) {
+        if (unit.isType(Unit.WIZARD_FLAG) && unit.a(unit.mapX, unit.mapY, (byte)1).length > 0) {
             vector.addElement(AppCanvas.getGameText(34));   // RAISE
         }
         if (by == 1) {
@@ -1936,7 +1936,8 @@ implements CommandListener {
         }
     }
 
-    public boolean a(int n, int n2, Unit c2) {
+    // TODO rename to canUnitOccupyBuildingBelow
+    private boolean a(int n, int n2, Unit c2) {
         // TODO isType(8) will return true if the unit is a king OR a soldier, bitflags are ambiguous
         if (c2.isType((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, c2.owner)) {
             return true;
