@@ -340,16 +340,16 @@ extends SpriteSheet {
         byte by3 = 0;
         int n6 = 0;
         if (n4 > 0) {
-            by = Unit.iClassRef.mapValues_XX[n3][n4 - 1];
+            by = Unit.iClassRef.unitActionsMatrix[n3][n4 - 1];
         }
         if (n4 < Unit.iClassRef.mapTilesHeight - 1) {
-            by2 = Unit.iClassRef.mapValues_XX[n3][n4 + 1];
+            by2 = Unit.iClassRef.unitActionsMatrix[n3][n4 + 1];
         }
         if (n3 > 0) {
-            by3 = Unit.iClassRef.mapValues_XX[n3 - 1][n4];
+            by3 = Unit.iClassRef.unitActionsMatrix[n3 - 1][n4];
         }
         if (n3 < Unit.iClassRef.mapTilesWidth - 1) {
-            n6 = Unit.iClassRef.mapValues_XX[n3 + 1][n4];
+            n6 = Unit.iClassRef.unitActionsMatrix[n3 + 1][n4];
         }
         if ((n5 = Math.max(Math.max(by, by2), Math.max(by3, n6))) == by) {
             vector = this.a(mapX, mapY, n3, n4 - 1);
