@@ -2239,7 +2239,7 @@ implements CommandListener {
         }
     }
 
-    public int a(Unit c2, int n, int n2, Unit c3, Unit c4) {
+    private int a(Unit c2, int n, int n2, Unit c3, Unit c4) {
         int n3;
         int n4;
         int n5 = 0;
@@ -3031,7 +3031,8 @@ implements CommandListener {
         ++this.currentLevelStep;
     }
 
-    public void g() {
+    // TODO rename handleMissionComplete()
+    private void g() {
         AppCanvas.playSound(2, 1);
         this.var_byte_i = (byte)10;
         g.a(this, null, AppCanvas.getGameText(37), 1000, true); // MISSION COMPLETE
