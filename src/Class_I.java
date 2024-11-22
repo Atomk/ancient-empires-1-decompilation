@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  javax.microedition.lcdui.ChoiceGroup
  *  javax.microedition.lcdui.Command
@@ -351,7 +351,7 @@ implements CommandListener {
         tempSpritesheet = new SpriteSheet("stiles0");
         this.miniMapTerrainTiles = tempSpritesheet.sprites;
         tempSpritesheet = null;
-        
+
         this.var_h_arr_a = new Sprite[2];
         this.var_int_l = waterTilesIndex[0];
         this.var_h_arr_a[0] = this.var_h_arr_c[waterTilesIndex[0]];
@@ -779,7 +779,7 @@ implements CommandListener {
             if (string.equals(AppCanvas.getGameText(8))) {  // ABOUT
                 Form form = new Form(AppCanvas.getGameText(8));
                 // "Ancient Empires" + "is a product of Macrospace [...]"
-                form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));  
+                form.append(AppCanvas.getGameText(0) + AppCanvas.getGameText(14));
                 form.addCommand(this.commandBack);
                 form.setCommandListener((CommandListener)this);
                 Class_I.appCanvas.appDisplay.setCurrent((Displayable)form);
@@ -1024,7 +1024,7 @@ implements CommandListener {
         } else {
             vector.addElement(AppCanvas.getGameText(30));   // END MOVE
         }
-        
+
         String[] stringArray = new String[vector.size()];
         vector.copyInto(stringArray);
         return stringArray;

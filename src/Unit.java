@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  javax.microedition.lcdui.Graphics
  */
@@ -499,7 +499,7 @@ extends SpriteSheet {
     }
 
     public boolean isType(short unitBitflag) {
-        // Example: 0001 & 0100 => 0000 
+        // Example: 0001 & 0100 => 0000
         // This is the clever but less readable alternative to:
         //      return this.unitType == unitTypeParam;
         // TODO unless I missed something, bitflags are unnecessary and can be deleted in favor of unitType
@@ -592,7 +592,7 @@ extends SpriteSheet {
         unitsDataRangeMin = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
         // Array of bidimensional arrays
         unitsDataArrayOfPairs_XXX = new int[][][]{
-            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}}, 
+            new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},

@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.152.
- * 
+ *
  * Could not load the following classes:
  *  javax.microedition.lcdui.Graphics
  */
@@ -243,7 +243,7 @@ public class SpriteSheet {
         if (this.var_boolean_d) {
             this.var_long_b += 50L;
             switch (this.var_byte_c) {
-                case 2: 
+                case 2:
                 case 4: {
                     this.e();
                     break;
