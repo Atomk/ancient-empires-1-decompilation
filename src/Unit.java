@@ -540,13 +540,13 @@ extends SpriteSheet {
 
         unitsCount = Unit.iClassRef.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
-            Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
+            Unit unit = Unit.iClassRef.mapUnitsList.elementAt(i);
             // Unit must be an allied Wisp
-            if (c2.owner != this.owner || !c2.isType(WISP_FLAG)) continue;
-            Unit[] cArray = c2.a(c2.mapX, c2.mapY, 1, 2, FILTER_ALLY);
-            for (int j = 0; j < cArray.length; ++j) {
-                cArray[j].addStatus(Unit.STATUS_AURA);
-                iClassRef.a(Unit.iClassRef.sparkSheet, cArray[j].mapPixelX, ((SpriteSheet)cArray[j]).l, 0, 0, 1, 50);
+            if (unit.owner != this.owner || !unit.isType(WISP_FLAG)) continue;
+            Unit[] closeAllies = unit.a(unit.mapX, unit.mapY, 1, 2, FILTER_ALLY);
+            for (int j = 0; j < closeAllies.length; ++j) {
+                closeAllies[j].addStatus(Unit.STATUS_AURA);
+                iClassRef.a(Unit.iClassRef.sparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
             }
         }
         Unit.iClassRef.var_c_f = this;
