@@ -1858,14 +1858,10 @@ implements CommandListener {
 
             if (mapX != unit.mapX || mapY != unit.mapY) continue;
 
-            // boolean temp;
-            // if(by == 0) {
-            //     temp = unit.var_byte_e != 3;
-            // } else {
-            //     temp = by == 1 && unit.var_byte_e == 3;
-            // }
-
-            if (by == 0 ? unit.state != Unit.STATE_TOMBSTONE : by == 1 && unit.state == Unit.STATE_TOMBSTONE) {
+            if (by == 0 && unit.state != Unit.STATE_TOMBSTONE) {
+                return unit;
+            }
+            if(by == 1 && unit.state == Unit.STATE_TOMBSTONE) {
                 return unit;
             }
         }
