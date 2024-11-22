@@ -1850,6 +1850,12 @@ implements CommandListener {
     public static final byte SEARCH_ALIVE = 0;
     public static final byte SEARCH_TOMBSTONE = 1;
 
+    /**
+     * Looks for a unit at the given coordinates and returns it only if it mets the search condition.
+     * @param mapX
+     * @param mapY
+     * @param searchType Determines if trying to get a regular unit or a tombstone (dead unit)
+     */
     public Unit tryGetUnit(int mapX, int mapY, byte searchType) {
         int unitsCount = this.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
