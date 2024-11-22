@@ -126,7 +126,8 @@ implements CommandListener {
     public int var_int_c;
     public int var_int_v;
     /** Stores pathfinding data and/or tiles that can be attacked
-     * by a unit in a certain moment. The cell value can be either:
+     * by a unit in a certain moment. Has the same sizes as the map.
+     * The cell value can be either:
      * • 0: nothing to do here
      * • 127: the unit can attack this tile (melee or ranged)
      * • other value: movement points left after the unit reaches that location
@@ -2203,9 +2204,10 @@ implements CommandListener {
                 }
                 this.var_byte_b = (byte)3;
                 n5 = 0;
+                // TODO this is a bit stupid since we have mapTilesHigh and mapTilesWidth, which this matrix is based on
                 int mapWidth = this.unitActionsMatrix.length;
+                int mapHeight = this.unitActionsMatrix[0].length;
                 for (int x = 0; x < mapWidth; ++x) {
-                    int mapHeight = this.unitActionsMatrix[x].length;
                     for (int y = 0; y < mapHeight; ++y) {
                         int n8;
                         Unit c3 = this.tryGetUnit(x, y, SEARCH_ALIVE);
