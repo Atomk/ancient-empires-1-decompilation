@@ -302,19 +302,19 @@ extends SpriteSheet {
                 final int manhattanDist = Math.abs(x - areaOriginX) + Math.abs(y - areaOriginY);
                 if (manhattanDist < unitRangeMin || manhattanDist > unitRangeMax) continue;
 
-                Unit c2;
                 if (by == 0) {
-                    c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
-                    if (c2 == null || c2.owner == this.owner) continue;
-                    vector.addElement(c2);
+                    Unit unit = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
+                    if (unit == null || unit.owner == this.owner) continue;
+                    vector.addElement(unit);
                     continue;
                 }
                 if (by == 1) {
-                    c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
-                    if (c2 == null) continue;
-                    vector.addElement(c2);
+                    Unit tombstone = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
+                    if (tombstone == null) continue;
+                    vector.addElement(tombstone);
                     continue;
                 }
+                Unit c2;
                 if (by != 2 || (c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE)) == null || c2.owner != this.owner) continue;
                 vector.addElement(c2);
             }
@@ -510,18 +510,23 @@ extends SpriteSheet {
     // TODO SHould be something like "endTurn" or "setInactive" or "setCannotAct"
     public void void_b() {
         this.state = STATE_ALREADY_ACTED;
-        Unit c3 = iClassRef.tryGetUnit((int)this.mapX, (int)this.mapY, Class_I.SEARCH_TOMBSTONE);
-        if (c3 != null) {
-            Unit.iClassRef.mapUnitsList.removeElement(c3);
+
+        // TODO this will always return null since we changed state just above.
+        //      And there's not need to "tryGetUnit"...we could just check the state. am I missing something or is this dead code?
+        Unit tombstone = iClassRef.tryGetUnit((int)this.mapX, (int)this.mapY, Class_I.SEARCH_TOMBSTONE);
+        if (tombstone != null) {
+            Unit.iClassRef.mapUnitsList.removeElement(tombstone);
         }
+
         int unitsCount = Unit.iClassRef.mapUnitsList.size();
         // Remove AURA status from all friendly units (TODO maybe so it's not active during opponent's turn?)
         for (int i = 0; i < unitsCount; ++i) {
-            Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
-            if (c2.owner == this.owner) {
-                c2.removeStatus(Unit.STATUS_AURA);
+            Unit unit = Unit.iClassRef.mapUnitsList.elementAt(i);
+            if (unit.owner == this.owner) {
+                unit.removeStatus(Unit.STATUS_AURA);
             }
         }
+
         unitsCount = Unit.iClassRef.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
             Unit c2 = Unit.iClassRef.mapUnitsList.elementAt(i);
