@@ -1335,7 +1335,7 @@ implements CommandListener {
                             this.var_boolean_v = false;
                         }
                         if (this.var_byte_i == 1) {
-                            if (appCanvas.isRequestingAction(16) && this.var_c_h != null) {
+                            if (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) && this.var_c_h != null) {
                                 Unit unit_c_a = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.unitActionsMatrix[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.mapX;
