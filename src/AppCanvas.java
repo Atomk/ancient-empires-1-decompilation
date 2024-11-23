@@ -218,6 +218,11 @@ CommandListener {
         }
     }
 
+    public static final int ACTION_UP = 1;
+    public static final int ACTION_DOWN = 2;
+    public static final int ACTION_LEFT = 4;
+    public static final int ACTION_RIGHT = 8;
+
     // Some keys can have the same effect in the hame (e.g. UP and KEY_NUM2 both indicate "go up")
     public int getGameAction(int keyCode) {
         // Constants from FullCanvas (which this class extends) and Canvas (parent of FullCanvas)
@@ -247,30 +252,30 @@ CommandListener {
                 return 512;
             }
             case KEY_NUM2: {
-                return 1;
+                return ACTION_UP;
             }
             case KEY_NUM8: {
-                return 2;
+                return ACTION_DOWN;
             }
             case KEY_NUM4: {
-                return 4;
+                return ACTION_LEFT;
             }
             case KEY_NUM6: {
-                return 8;
+                return ACTION_RIGHT;
             }
         }
         switch (super.getGameAction(keyCode)) {
             case UP: {
-                return 1;
+                return ACTION_UP;
             }
             case DOWN: {
-                return 2;
+                return ACTION_DOWN;
             }
             case LEFT: {
-                return 4;
+                return ACTION_LEFT;
             }
             case RIGHT: {
-                return 8;
+                return ACTION_RIGHT;
             }
             case FIRE: {
                 return 16;

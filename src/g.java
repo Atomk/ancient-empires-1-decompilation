@@ -440,7 +440,7 @@ public class g {
                                                                             }
                                                                             if (this.var_byte_a != 2 && this.var_byte_a != 0) break block97;
                                                                             if (this.var_byte_e != 2) break block98;
-                                                                            if (!Class_I.appCanvas.boolean_c(2)) break block99;
+                                                                            if (!Class_I.appCanvas.boolean_c(AppCanvas.ACTION_DOWN)) break block99;
                                                                             if (this.var_boolean_i) break block100;
                                                                             if (!Class_I.appCanvas.boolean_a(2)) break block101;
                                                                         }
@@ -457,7 +457,7 @@ public class g {
                                                                     this.var_boolean_i = false;
                                                                     break block102;
                                                                 }
-                                                                if (!Class_I.appCanvas.boolean_c(1)) break block103;
+                                                                if (!Class_I.appCanvas.boolean_c(AppCanvas.ACTION_UP)) break block103;
                                                                 if (this.var_boolean_i) break block104;
                                                                 if (!Class_I.appCanvas.boolean_a(1)) break block105;
                                                             }
@@ -474,7 +474,7 @@ public class g {
                                                         this.var_boolean_i = false;
                                                         break block102;
                                                     }
-                                                    if (!Class_I.appCanvas.boolean_c(4)) break block106;
+                                                    if (!Class_I.appCanvas.boolean_c(AppCanvas.ACTION_LEFT)) break block106;
                                                     if (this.var_boolean_i) break block107;
                                                     if (!Class_I.appCanvas.boolean_a(4)) break block108;
                                                 }
@@ -489,7 +489,7 @@ public class g {
                                             this.var_boolean_i = false;
                                             break block102;
                                         }
-                                        if (!Class_I.appCanvas.boolean_c(8)) break block109;
+                                        if (!Class_I.appCanvas.boolean_c(AppCanvas.ACTION_RIGHT)) break block109;
                                         if (this.var_boolean_i) break block110;
                                         if (!Class_I.appCanvas.boolean_a(8)) break block111;
                                     }
@@ -566,12 +566,12 @@ public class g {
                             this.var_boolean_c = true;
                         }
                         if (this.var_int_i == 0) {
-                            if (Class_I.appCanvas.boolean_c(1) && this.var_short_b > 0) {
+                            if (Class_I.appCanvas.boolean_c(AppCanvas.ACTION_UP) && this.var_short_b > 0) {
                                 this.var_int_i = -this.m;
                                 this.var_short_b = (short)(this.var_short_b - 1);
                                 this.var_boolean_c = true;
                             }
-                            if (Class_I.appCanvas.boolean_c(2) && this.var_short_b + this.u < this._descriptionLines.length) {
+                            if (Class_I.appCanvas.boolean_c(AppCanvas.ACTION_DOWN) && this.var_short_b + this.u < this._descriptionLines.length) {
                                 this.var_int_i = this.m;
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
@@ -598,24 +598,24 @@ public class g {
                         }
                         this.var_boolean_c = true;
                     } else if (this.var_byte_a == 7) {
-                        if (Class_I.appCanvas.boolean_c(1)) {
+                        if (Class_I.appCanvas.boolean_c(AppCanvas.ACTION_UP)) {
                             if (this.s < 0) {
                                 ++this.s;
                                 ++this.y;
                                 this.var_boolean_c = true;
                             }
-                        } else if (Class_I.appCanvas.boolean_c(2) && this.s + this.var_int_g > AppCanvas.height2) {
+                        } else if (Class_I.appCanvas.boolean_c(AppCanvas.ACTION_DOWN) && this.s + this.var_int_g > AppCanvas.height2) {
                             --this.s;
                             --this.y;
                             this.var_boolean_c = true;
                         }
-                        if (Class_I.appCanvas.boolean_c(4)) {
+                        if (Class_I.appCanvas.boolean_c(AppCanvas.ACTION_LEFT)) {
                             if (this.var_int_c < 0) {
                                 ++this.var_int_c;
                                 ++this.A;
                                 this.var_boolean_c = true;
                             }
-                        } else if (Class_I.appCanvas.boolean_c(8) && this.var_int_c + this.var_int_b > AppCanvas.width2) {
+                        } else if (Class_I.appCanvas.boolean_c(AppCanvas.ACTION_RIGHT) && this.var_int_c + this.var_int_b > AppCanvas.width2) {
                             --this.var_int_c;
                             --this.A;
                             this.var_boolean_c = true;
