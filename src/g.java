@@ -173,25 +173,25 @@ public class g {
         if (title != null && titleWidth > descriptionWidth) {
             descriptionWidth = titleWidth;
         }
-        int n5 = 0;
-        if (descriptionWidth > n5) {
-            n5 = descriptionWidth;
+        int txtMaxAllowedWidth = 0;
+        if (descriptionWidth > txtMaxAllowedWidth) {
+            txtMaxAllowedWidth = descriptionWidth;
         }
         int n3 = AppCanvas.width2 - panel.D * 4 - 12;
-        if (n5 > n3) {
-            n5 = n3;
+        if (txtMaxAllowedWidth > n3) {
+            txtMaxAllowedWidth = n3;
         }
         if (title != null) {
-            panel._titleLines = AppCanvas.a(title, n5, panel.appFont);
+            panel._titleLines = AppCanvas.a(title, txtMaxAllowedWidth, panel.appFont);
         }
-        panel._descriptionLines = AppCanvas.a(description, n5, panel.appFont);
+        panel._descriptionLines = AppCanvas.a(description, txtMaxAllowedWidth, panel.appFont);
         panel.u = panel._descriptionLines.length;
         panel.m = panel.appFont.getBaselinePosition() + panel.D;
         int n6 = panel.u * panel.m + panel.D;
         if (title != null) {
             n6 += panel._titleLines.length * panel.m + panel.D;
         }
-        panel.var_int_b = n5 + panel.D * 4 + 12;
+        panel.var_int_b = txtMaxAllowedWidth + panel.D * 4 + 12;
         panel.var_int_g = n6 + 12;
         if (panel.var_int_g > AppCanvas.height2) {
             n6 = AppCanvas.height2 - 12;
