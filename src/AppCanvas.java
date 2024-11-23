@@ -427,7 +427,7 @@ CommandListener {
         int n2;
         Vector<String> vector = new Vector<String>();
         int n3 = 0;
-        final int n4 = string.length();
+        final int originalTextLength = string.length();
         String string2 = null;
         do {
             n2 = n3;
@@ -454,10 +454,10 @@ CommandListener {
                 n2 = n6;
                 string2 = string3;
                 break;
-            } while (n2 != newlineCharIndex && n2 < n4);
+            } while (n2 != newlineCharIndex && n2 < originalTextLength);
             vector.addElement(string2);
             n3 = ++n2;
-        } while (n3 < n4);
+        } while (n3 < originalTextLength);
 
         String[] lines = new String[vector.size()];
         vector.copyInto(lines);
