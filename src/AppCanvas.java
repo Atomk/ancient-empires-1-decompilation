@@ -223,6 +223,7 @@ CommandListener {
     public static final int ACTION_DOWN = 2;
     public static final int ACTION_LEFT = 4;
     public static final int ACTION_RIGHT = 8;
+    public static final int ACTION_CONFIRM = 16;
 
     // Some keys can have the same effect in the hame (e.g. UP and KEY_NUM2 both indicate "go up")
     public int getGameAction(int keyCode) {
@@ -238,7 +239,7 @@ CommandListener {
                 return 32;  // Unused
             }
             case KEY_NUM5: {
-                return 16;
+                return ACTION_CONFIRM;
             }
             case KEY_NUM1: {
                 return 64;
@@ -279,7 +280,7 @@ CommandListener {
                 return ACTION_RIGHT;
             }
             case FIRE: {
-                return 16;
+                return ACTION_CONFIRM;
             }
         }
         return 0;

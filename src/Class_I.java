@@ -1237,7 +1237,7 @@ implements CommandListener {
                     this.p();
                 } else if (Class_I.appCanvas.a_instance == this && this.var_int_g == 0) {
                     if (this.var_boolean_t && appCanvas.isRequestingAction(1024)) {
-                        appCanvas.handleKeyPressedAction(16);
+                        appCanvas.handleKeyPressedAction(AppCanvas.ACTION_CONFIRM);
                         appCanvas.handleKeyReleasedAction(1024);
                     }
                     if (this.var_byte_i == 6 || this.var_byte_i == 7) {
@@ -1274,7 +1274,7 @@ implements CommandListener {
                         if (this.var_boolean_v) {
                             this.var_g_g.b();
                         }
-                        if (appCanvas.isRequestingAction(16)) {
+                        if (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM)) {
                             if (this.var_byte_i == 6) {
                                 this.b(this.var_c_h, this.targetableUnits_XX[this.var_int_w]);
                             } else if (this.var_byte_i == 7) {
@@ -1351,7 +1351,7 @@ implements CommandListener {
                                     // TODO this -1 should be an error...
                                     AppCanvas.playSound(-1, 1);
                                 }
-                                appCanvas.handleKeyReleasedAction(16);
+                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
                             }
                         } else if (this.var_byte_i == 0) {
                             if ((Class_I.appCanvas.pressedKeysActions & 0x100) != 0) {
@@ -1375,7 +1375,7 @@ implements CommandListener {
                                     this.var_boolean_h = true;
                                 }
                                 appCanvas.handleKeyReleasedAction(32);
-                            } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(64) && (appCanvas.isRequestingAction(16) || appCanvas.isRequestingAction(1024))) {
+                            } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(64) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(1024))) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
@@ -1402,7 +1402,7 @@ implements CommandListener {
                                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                                     AppCanvas.playSound(-1, 1);
                                 }
-                                appCanvas.handleKeyReleasedAction(16);
+                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
                                 appCanvas.handleKeyReleasedAction(1024);
                             }
                         }
