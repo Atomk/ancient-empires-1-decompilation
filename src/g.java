@@ -171,9 +171,9 @@ public class g {
         int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         int descriptionWidth = font.stringWidth(description);
         int n5 = 0;
-        int n2 = font.stringWidth(title);
-        if (title != null && n2 > descriptionWidth) {
-            descriptionWidth = n2;
+        int titleWidth = font.stringWidth(title);
+        if (title != null && titleWidth > descriptionWidth) {
+            descriptionWidth = titleWidth;
         }
         if (descriptionWidth > n5) {
             n5 = descriptionWidth;
