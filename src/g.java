@@ -585,12 +585,12 @@ public class g {
                             }
                             Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_SCROLL_UP);
                         }
-                        if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO)) {
+                        if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN)) {
                             if (this.var_short_b + this.u < this._descriptionLines.length) {
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
                             }
-                            Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO);
+                            Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN);
                         }
                     } else if (this.var_byte_a == 3 || this.var_byte_a == 5) {
                         if (this.var_byte_e != 1 && this.boolean_a()) {

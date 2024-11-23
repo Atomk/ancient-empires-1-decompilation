@@ -228,10 +228,9 @@ CommandListener {
     public static final int ACTION_UNIT_RANGE = 32;
     /** Scroll up the unit's description in the unit info panel. */
     public static final int ACTION_SCROLL_UP = 64;
-    /** "You can view the characteristics of any unit by selecting it and pressing the '7' key."
-     *  Also used to scroll down the description in unit info screen.
-     */
-    public static final int ACTION_UNIT_INFO = 256;
+    /** "You can view the characteristics of any unit by selecting it and pressing the '7' key".
+         Can also scroll down the unit's description in the unit info panel. */
+    public static final int ACTION_UNIT_INFO_OR_SCROLL_DOWN = 256;
     /** Undocumented - Immediately moves the view and cursor to your king's location. */
     public static final int ACTION_GOTO_KING = 512;
     public static final int ACTION_CANCEL = 2048;
@@ -259,7 +258,7 @@ CommandListener {
                 return 128;
             }
             case KEY_NUM7: {
-                return ACTION_UNIT_INFO;
+                return ACTION_UNIT_INFO_OR_SCROLL_DOWN;
             }
             case KEY_NUM9: {
                 return ACTION_GOTO_KING;

@@ -1354,13 +1354,13 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
                             }
                         } else if (this.var_byte_i == 0) {
-                            if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO)) {
+                            if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN)) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     g temp_g_YYY = new g(this, (byte)4, 0);
                                     temp_g_YYY.a((byte)0, 0, 0, null, 0);
                                 }
-                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO);
+                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN);
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_GOTO_KING)) {
                                 if (this._mapKings[this.playerIndex_XX] != null) {
                                     this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
