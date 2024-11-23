@@ -153,14 +153,14 @@ public class g {
     /**
      *
      * @param i2
-     * @param string
+     * @param title Optional title text, shown at the top and horizontally centered.
      * @param string2
      * @param duration Milliseconds after which the panel will disappear automatically.
      *                 If equals -1, duration will be infinite and panel has to be closed manually.
      * @param bl
      * @return
      */
-    public static g a(Class_I i2, String string, String string2, int duration, boolean bl) {
+    public static g a(Class_I i2, String title, String string2, int duration, boolean bl) {
         int n2;
         g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
@@ -172,7 +172,7 @@ public class g {
         int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         int n4 = font.stringWidth(string2);
         int n5 = 0;
-        if (string != null && (n2 = font.stringWidth(string)) > n4) {
+        if (title != null && (n2 = font.stringWidth(title)) > n4) {
             n4 = n2;
         }
         if (n4 > n5) {
@@ -181,26 +181,26 @@ public class g {
         if (n5 > n3) {
             n5 = n3;
         }
-        if (string != null) {
-            g2.var_java_lang_String_arr_a = AppCanvas.a(string, n5, g2.appFont);
+        if (title != null) {
+            g2.var_java_lang_String_arr_a = AppCanvas.a(title, n5, g2.appFont);
         }
         g2.var_java_lang_String_arr_b = AppCanvas.a(string2, n5, g2.appFont);
         g2.u = g2.var_java_lang_String_arr_b.length;
         g2.m = g2.appFont.getBaselinePosition() + g2.D;
         int n6 = g2.u * g2.m + g2.D;
-        if (string != null) {
+        if (title != null) {
             n6 += g2.var_java_lang_String_arr_a.length * g2.m + g2.D;
         }
         g2.var_int_b = n5 + g2.D * 4 + 12;
         g2.var_int_g = n6 + 12;
         if (g2.var_int_g > AppCanvas.height2) {
             n6 = AppCanvas.height2 - 12;
-            if (string != null) {
+            if (title != null) {
                 n6 -= g2.D;
             }
             g.a(g2, g2.appFont.getBaselinePosition(), n6, 4);
             g2.var_int_g = 12 + g2.m * g2.u + g2.D;
-            if (string != null) {
+            if (title != null) {
                 g2.var_int_g += g2.D;
                 g2.u -= g2.var_java_lang_String_arr_a.length;
             }
