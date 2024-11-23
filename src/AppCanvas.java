@@ -58,7 +58,7 @@ CommandListener {
     public int width;
     public int height;
     public int pressedKeysActions = 0;
-    public int lastKeyPressedAction = 0;
+    private int lastRequestedAction = ACTION_NONE;
     private long lastKeyPressedTime;
     private static SpriteSheet[] fontSheets;
     private static Random randomGen;
@@ -218,6 +218,7 @@ CommandListener {
         }
     }
 
+    public static final int ACTION_NONE = 0;
     public static final int ACTION_UP = 1;
     public static final int ACTION_DOWN = 2;
     public static final int ACTION_LEFT = 4;
@@ -297,11 +298,11 @@ CommandListener {
     }
 
     public boolean boolean_a(int gameActionCode) {
-        return this.lastKeyPressedAction == gameActionCode && System.currentTimeMillis() - this.lastKeyPressedTime >= 300L;
+        return this.lastRequestedAction == gameActionCode && System.currentTimeMillis() - this.lastKeyPressedTime >= 300L;
     }
 
     public void handleKeyPressedAction(int gameActionCode) {
-        this.lastKeyPressedAction = gameActionCode;
+        this.lastRequestedAction = gameActionCode;
         this.lastKeyPressedTime = System.currentTimeMillis();
         // All action codes are powers of two, so they can be used as bit flags
         this.pressedKeysActions |= gameActionCode;
@@ -311,13 +312,12 @@ CommandListener {
     }
 
     public void handleKeyReleasedAction(int gameActionCode) {
-        if (gameActionCode == this.lastKeyPressedAction) {
-            this.lastKeyPressedAction = 0;
+        if (gameActionCode == this.lastRequestedAction) {
+            this.lastRequestedAction = ACTION_NONE;
         }
         this.pressedKeysActions &= ~gameActionCode;
     }
 
-    // TODO make private, this is not called outside the class
     private void showErrorForm(String errorText) {
         this.isRunning = false;
         Form form = new Form("Fatal error!");
