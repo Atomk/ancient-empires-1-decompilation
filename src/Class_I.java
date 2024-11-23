@@ -1236,9 +1236,9 @@ implements CommandListener {
                 } else if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 0) {
                     this.p();
                 } else if (Class_I.appCanvas.a_instance == this && this.var_int_g == 0) {
-                    if (this.var_boolean_t && appCanvas.isRequestingAction(1024)) {
+                    if (this.var_boolean_t && appCanvas.isRequestingAction(AppCanvas.ACTION_UI_CONFIRM)) {
                         appCanvas.handleKeyPressedAction(AppCanvas.ACTION_CONFIRM);
-                        appCanvas.handleKeyReleasedAction(1024);
+                        appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UI_CONFIRM);
                     }
                     if (this.var_byte_i == 6 || this.var_byte_i == 7) {
                         if (appCanvas.isRequestingAction(AppCanvas.ACTION_LEFT)) {
@@ -1375,7 +1375,7 @@ implements CommandListener {
                                     this.var_boolean_h = true;
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
-                            } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(1024))) {
+                            } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(AppCanvas.ACTION_UI_CONFIRM))) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
@@ -1403,7 +1403,7 @@ implements CommandListener {
                                     AppCanvas.playSound(-1, 1);
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
-                                appCanvas.handleKeyReleasedAction(1024);
+                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UI_CONFIRM);
                             }
                         }
                     }

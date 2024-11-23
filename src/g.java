@@ -431,11 +431,11 @@ public class g {
                                                                                     }
                                                                                     bl = false;
                                                                                     if (!this.var_boolean_a) break block95;
-                                                                                    if (Class_I.appCanvas.isRequestingAction(1024)) break block96;
+                                                                                    if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_UI_CONFIRM)) break block96;
                                                                                     if (!Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM)) break block95;
                                                                                 }
                                                                                 bl = true;
-                                                                                Class_I.appCanvas.handleKeyReleasedAction(1024);
+                                                                                Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UI_CONFIRM);
                                                                                 Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
                                                                             }
                                                                             if (this.var_byte_a != 2 && this.var_byte_a != 0) break block97;

@@ -233,6 +233,7 @@ CommandListener {
     public static final int ACTION_UNIT_INFO_OR_SCROLL_DOWN = 256;
     /** Undocumented - Immediately moves the view and cursor to your king's location. */
     public static final int ACTION_GOTO_KING = 512;
+    public static final int ACTION_UI_CONFIRM = 1024;
     public static final int ACTION_CANCEL = 2048;
 
     // Some keys can have the same effect in the hame (e.g. UP and KEY_NUM2 both indicate "go up")
@@ -240,7 +241,7 @@ CommandListener {
         // Constants from FullCanvas (which this class extends) and Canvas (parent of FullCanvas)
         switch (keyCode) {
             case KEY_SOFTKEY1: {
-                return 1024;
+                return ACTION_UI_CONFIRM;
             }
             case KEY_SOFTKEY2: {
                 return ACTION_CANCEL;
