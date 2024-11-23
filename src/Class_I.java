@@ -1336,7 +1336,7 @@ implements CommandListener {
                         }
                         if (this.var_byte_i == 1) {
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) && this.var_c_h != null) {
-                                Unit unit_c_a = this.tryGetUnit((int)this.mapCursorX, (int)this.mapCursorY, SEARCH_ALIVE);
+                                Unit unit_c_a = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
                                 if (this.unitActionsMatrix[this.mapCursorX][this.mapCursorY] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.mapX;
                                     this.var_int_v = this.var_c_h.mapY;
@@ -1355,7 +1355,7 @@ implements CommandListener {
                             }
                         } else if (this.var_byte_i == 0) {
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN)) {
-                                this.var_c_h = this.tryGetUnit((int)this.mapCursorX, (int)this.mapCursorY, SEARCH_ALIVE);
+                                this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     g temp_g_YYY = new g(this, (byte)4, 0);
                                     temp_g_YYY.a((byte)0, 0, 0, null, 0);
@@ -1367,7 +1367,7 @@ implements CommandListener {
                                     this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_RANGE)) {
-                                this.var_c_h = this.tryGetUnit((int)this.mapCursorX, (int)this.mapCursorY, SEARCH_ALIVE);
+                                this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                                     this.var_c_h.a(this.unitActionsMatrix);
@@ -1376,7 +1376,7 @@ implements CommandListener {
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
                             } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(AppCanvas.ACTION_UI_CONFIRM))) {
-                                this.var_c_h = this.tryGetUnit((int)this.mapCursorX, (int)this.mapCursorY, SEARCH_ALIVE);
+                                this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
                                 if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (unitActionsMenuOptions.length > 1) {
