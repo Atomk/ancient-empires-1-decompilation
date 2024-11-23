@@ -1290,7 +1290,7 @@ implements CommandListener {
                     } else {
                         if (this.var_long_n - this.var_long_a >= 150L && this.mapCursorSheet.var_short_b % 24 == 0 && this.mapCursorSheet.l % 24 == 0) {
                             if (appCanvas.boolean_c(AppCanvas.ACTION_LEFT)) {
-                                if (this.var_boolean_s || appCanvas.boolean_a(4)) {
+                                if (this.var_boolean_s || appCanvas.boolean_a(AppCanvas.ACTION_LEFT)) {
                                     if (this.var_short_h > 0) {
                                         this.var_short_h = (short)(this.var_short_h - 1);
                                     }
@@ -1298,7 +1298,7 @@ implements CommandListener {
                                     this.var_boolean_v = true;
                                     this.var_long_a = this.var_long_n;
                                 }
-                            } else if (appCanvas.boolean_c(AppCanvas.ACTION_RIGHT) && (this.var_boolean_s || appCanvas.boolean_a(8))) {
+                            } else if (appCanvas.boolean_c(AppCanvas.ACTION_RIGHT) && (this.var_boolean_s || appCanvas.boolean_a(AppCanvas.ACTION_RIGHT))) {
                                 if (this.var_short_h < this.mapTilesWidth - 1) {
                                     this.var_short_h = (short)(this.var_short_h + 1);
                                 }
@@ -1307,7 +1307,7 @@ implements CommandListener {
                                 this.var_long_a = this.var_long_n;
                             }
                             if (appCanvas.boolean_c(AppCanvas.ACTION_UP)) {
-                                if (this.var_boolean_s || appCanvas.boolean_a(1)) {
+                                if (this.var_boolean_s || appCanvas.boolean_a(AppCanvas.ACTION_UP)) {
                                     if (this.var_short_g > 0) {
                                         this.var_short_g = (short)(this.var_short_g - 1);
                                     }
@@ -1315,7 +1315,7 @@ implements CommandListener {
                                     this.var_boolean_v = true;
                                     this.var_long_a = this.var_long_n;
                                 }
-                            } else if (appCanvas.boolean_c(AppCanvas.ACTION_DOWN) && (this.var_boolean_s || appCanvas.boolean_a(2))) {
+                            } else if (appCanvas.boolean_c(AppCanvas.ACTION_DOWN) && (this.var_boolean_s || appCanvas.boolean_a(AppCanvas.ACTION_DOWN))) {
                                 if (this.var_short_g < this.mapTilesHeight - 1) {
                                     this.var_short_g = (short)(this.var_short_g + 1);
                                 }

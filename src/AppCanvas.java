@@ -234,7 +234,7 @@ CommandListener {
                 return 2048;
             }
             case KEY_NUM0: {
-                return 32;
+                return 32;  // Unused
             }
             case KEY_NUM5: {
                 return 16;
