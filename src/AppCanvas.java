@@ -414,7 +414,16 @@ CommandListener {
         }
     }
 
-    public static String[] a(String string, int n, Font font) {
+    // TODO figured put the output but the logic still needs to be deobfuscated
+    /**
+     * Splits a string into lines so that each line fits into a certain width.
+     * The split is "word-wrap", meaning newlines can happen only where there is a space.
+     * @param string Text to split.
+     * @param maxPixelWidth If a line is longer than this value, text will continue on a new line.
+     * @param font
+     * @return An array containing each line of text.
+     */
+    public static String[] a(String string, int maxPixelWidth, Font font) {
         int n2;
         Vector<String> vector = new Vector<String>();
         int n3 = 0;
@@ -431,11 +440,11 @@ CommandListener {
                     n2 = newlineCharIndex;
                 }
                 string2 = string.substring(n3, n2).trim();
-                if (font.stringWidth(string2) <= n) continue;
+                if (font.stringWidth(string2) <= maxPixelWidth) continue;
                 if (n6 == n3) {
                     for (int j = string2.length() - 1; j > 0; --j) {
                         String string4 = string2.substring(0, j);
-                        if (font.stringWidth(string4) > n) continue;
+                        if (font.stringWidth(string4) > maxPixelWidth) continue;
                         n2 = n6 + j;
                         string2 = string4;
                         break block1;
@@ -449,9 +458,9 @@ CommandListener {
             vector.addElement(string2);
         } while ((n3 = ++n2) < n4);
 
-        String[] stringsArray = new String[vector.size()];
-        vector.copyInto(stringsArray);
-        return stringsArray;
+        String[] lines = new String[vector.size()];
+        vector.copyInto(lines);
+        return lines;
     }
 
     private static int a(String string, int charIndex) {
