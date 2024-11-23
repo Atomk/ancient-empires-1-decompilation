@@ -154,13 +154,13 @@ public class g {
      *
      * @param i2
      * @param title Optional title text, shown at the top and horizontally centered.
-     * @param string2
+     * @param description The main text content of the panel.
      * @param duration Milliseconds after which the panel will disappear automatically.
      *                 If equals -1, duration will be infinite and panel has to be closed manually.
      * @param bl
      * @return
      */
-    public static g a(Class_I i2, String title, String string2, int duration, boolean bl) {
+    public static g a(Class_I i2, String title, String description, int duration, boolean bl) {
         g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
         g2._timeLeft = duration;
@@ -169,7 +169,7 @@ public class g {
         }
         Font font = g2.appFont;
         int n3 = AppCanvas.width2 - g2.D * 4 - 12;
-        int n4 = font.stringWidth(string2);
+        int n4 = font.stringWidth(description);
         int n5 = 0;
         int n2 = font.stringWidth(title);
         if (title != null && n2 > n4) {
@@ -184,7 +184,7 @@ public class g {
         if (title != null) {
             g2.var_java_lang_String_arr_a = AppCanvas.a(title, n5, g2.appFont);
         }
-        g2.var_java_lang_String_arr_b = AppCanvas.a(string2, n5, g2.appFont);
+        g2.var_java_lang_String_arr_b = AppCanvas.a(description, n5, g2.appFont);
         g2.u = g2.var_java_lang_String_arr_b.length;
         g2.m = g2.appFont.getBaselinePosition() + g2.D;
         int n6 = g2.u * g2.m + g2.D;
