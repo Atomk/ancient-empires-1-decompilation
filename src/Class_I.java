@@ -1354,19 +1354,19 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
                             }
                         } else if (this.var_byte_i == 0) {
-                            if (appCanvas.isRequestingAction(256)) {
+                            if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO)) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     g temp_g_YYY = new g(this, (byte)4, 0);
                                     temp_g_YYY.a((byte)0, 0, 0, null, 0);
                                 }
-                                appCanvas.handleKeyReleasedAction(256);
-                            } else if (appCanvas.isRequestingAction(512)) {
+                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO);
+                            } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_GOTO_KING)) {
                                 if (this._mapKings[this.playerIndex_XX] != null) {
                                     this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
                                     this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
                                 }
-                            } else if (appCanvas.isRequestingAction(32)) {
+                            } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_RANGE)) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
@@ -1374,7 +1374,7 @@ implements CommandListener {
                                     this.var_boolean_j = true;
                                     this.var_boolean_h = true;
                                 }
-                                appCanvas.handleKeyReleasedAction(32);
+                                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
                             } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(64) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(1024))) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {

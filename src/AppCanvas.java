@@ -224,6 +224,12 @@ CommandListener {
     public static final int ACTION_LEFT = 4;
     public static final int ACTION_RIGHT = 8;
     public static final int ACTION_CONFIRM = 16;
+    /** "You can view the attack range of any unit by pressing '0' when it is selected." */
+    public static final int ACTION_UNIT_RANGE = 32;
+    /** "You can view the characteristics of any unit by selecting it and pressing the '7' key."" */
+    public static final int ACTION_UNIT_INFO = 256;
+    /** Undocumented - Immediately moves the view and cursor to your king's location. */
+    public static final int ACTION_GOTO_KING = 512;
 
     // Some keys can have the same effect in the hame (e.g. UP and KEY_NUM2 both indicate "go up")
     public int getGameAction(int keyCode) {
@@ -236,7 +242,7 @@ CommandListener {
                 return 2048;
             }
             case KEY_NUM0: {
-                return 32;  // Unused
+                return ACTION_UNIT_RANGE;
             }
             case KEY_NUM5: {
                 return ACTION_CONFIRM;
@@ -248,10 +254,10 @@ CommandListener {
                 return 128;
             }
             case KEY_NUM7: {
-                return 256;
+                return ACTION_UNIT_INFO;
             }
             case KEY_NUM9: {
-                return 512;
+                return ACTION_GOTO_KING;
             }
             case KEY_NUM2: {
                 return ACTION_UP;
