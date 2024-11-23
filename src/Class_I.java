@@ -1335,7 +1335,7 @@ implements CommandListener {
                             this.var_boolean_v = false;
                         }
                         if (this.var_byte_i == 1) {
-                            if ((Class_I.appCanvas.pressedKeysActions & 0x10) != 0 && this.var_c_h != null) {
+                            if (appCanvas.isRequestingAction(16) && this.var_c_h != null) {
                                 Unit unit_c_a = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.unitActionsMatrix[this.var_short_h][this.var_short_g] > 0 && (unit_c_a == null || unit_c_a == this.var_c_h)) {
                                     this.var_int_c = this.var_c_h.mapX;
@@ -1354,7 +1354,7 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CONFIRM);
                             }
                         } else if (this.var_byte_i == 0) {
-                            if ((Class_I.appCanvas.pressedKeysActions & 0x100) != 0) {
+                            if (appCanvas.isRequestingAction(256)) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     g temp_g_YYY = new g(this, (byte)4, 0);
@@ -1366,7 +1366,7 @@ implements CommandListener {
                                     this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
                                     this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
                                 }
-                            } else if ((Class_I.appCanvas.pressedKeysActions & 0x20) != 0) {
+                            } else if (appCanvas.isRequestingAction(32)) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
