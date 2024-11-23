@@ -69,7 +69,7 @@ public class g {
     private int var_int_d;
     private int var_int_i;
     private String[] var_java_lang_String_arr_a;
-    private int n;
+    private int _timeLeft;
     private boolean var_boolean_i = true;
     private boolean var_boolean_e = true;
     public boolean var_boolean_g = false;
@@ -164,7 +164,7 @@ public class g {
         int n2;
         g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
-        g2.n = duration;
+        g2._timeLeft = duration;
         if (duration == -1) {
             g2.var_boolean_a = true;
         }
@@ -540,11 +540,12 @@ public class g {
                             }
                         }
                     } else if (this.var_byte_a == 9) {
-                        if (this.n != -1) {
-                            if (this.n > 0) {
-                                this.n -= 50;
+                        if (this._timeLeft != -1) {
+                            if (this._timeLeft > 0) {
+                                this._timeLeft -= 50;
                             }
-                            if (this.n <= 0) {
+                            // If duration time was exceeded
+                            if (this._timeLeft <= 0) {
                                 this.a(true);
                                 if (this.var_g_a != null) {
                                     this.var_g_a.c();
