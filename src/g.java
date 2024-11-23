@@ -161,7 +161,6 @@ public class g {
      * @return
      */
     public static g a(Class_I i2, String title, String string2, int duration, boolean bl) {
-        int n2;
         g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
         g2._timeLeft = duration;
@@ -172,7 +171,8 @@ public class g {
         int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         int n4 = font.stringWidth(string2);
         int n5 = 0;
-        if (title != null && (n2 = font.stringWidth(title)) > n4) {
+        int n2 = font.stringWidth(title);
+        if (title != null && n2 > n4) {
             n4 = n2;
         }
         if (n4 > n5) {
