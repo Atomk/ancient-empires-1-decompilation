@@ -175,7 +175,7 @@ implements CommandListener {
     public boolean var_boolean_c = false;
     public Sprite spriteMacrospaceLogo;
     public Sprite spriteGameTitle;
-    public int var_int_p;
+    protected int splashPhase;
     private Command commandBack = new Command(AppCanvas.getGameText(22), Command.BACK, 1);   // "Back"
     private Command commandNext = new Command(AppCanvas.getGameText(12), 1, 1);  // "Next"
     private Command commandOK = new Command(AppCanvas.getGameText(10), Command.BACK, 1);      // "OK"
@@ -271,7 +271,7 @@ implements CommandListener {
             this.spriteMacrospaceLogo = new Sprite("ms_logo.png");
             this.spriteMenuPointer = new Sprite("pointer.png");
             this.spriteGameTitle = new Sprite("splash.png");
-            this.var_int_p = 0;
+            this.splashPhase = 0;
             try {
                 this.levelsData = appCanvas.loadPersistentData("levels");
             }
@@ -1039,13 +1039,13 @@ implements CommandListener {
     }
 
     public void j() {
-        switch (this.var_int_p) {
+        switch (this.splashPhase) {
             case 0: {
                 if (this.var_int_m < 15) {
                     ++this.var_int_m;
                 }
                 if (this.var_long_n < 1500L) break;
-                this.var_int_p = 1;
+                this.splashPhase = 1;
                 this.var_boolean_c = true;
                 this.var_int_m = 0;
                 break;
@@ -1055,7 +1055,7 @@ implements CommandListener {
                     AppCanvas.playSound(0, 1);
                     this.spriteMacrospaceLogo = null;
                     this.var_int_m = 0;
-                    ++this.var_int_p;
+                    ++this.splashPhase;
                     break;
                 }
                 ++this.var_int_m;
@@ -1661,13 +1661,13 @@ implements CommandListener {
     }
 
     public void b(Graphics graphics) {
-        if (this.var_int_p == 0) {
+        if (this.splashPhase == 0) {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.spriteMacrospaceLogo, (Class_I.appCanvas.width - this.spriteMacrospaceLogo.width) / 2, (Class_I.appCanvas.height - this.spriteMacrospaceLogo.height) / 2, 0, 0);
-        } else if (this.var_int_p == 1) {
+        } else if (this.splashPhase == 1) {
             Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.appCanvas.width - this.spriteMacrospaceLogo.width) / 2, (Class_I.appCanvas.height - this.spriteMacrospaceLogo.height) / 2, this.spriteMacrospaceLogo.width, this.spriteMacrospaceLogo.height);
-        } else if (this.var_int_p == 2) {
+        } else if (this.splashPhase == 2) {
             graphics.setColor(-16777216);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             if (this.var_int_m >= 15) {

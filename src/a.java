@@ -70,13 +70,13 @@ extends Class_I {
     }
 
     public void j() {
-        switch (this.var_int_p) {
+        switch (this.splashPhase) {
             case 0: {
                 if (this.var_int_m < 15) {
                     ++this.var_int_m;
                 }
                 if (this.var_long_n < 1500L) break;
-                this.var_int_p = 1;
+                this.splashPhase = 1;
                 this.var_boolean_c = true;
                 this.var_int_m = 0;
                 break;
@@ -86,7 +86,7 @@ extends Class_I {
                     AppCanvas.playSound(0, 1);
                     this.spriteMacrospaceLogo = null;
                     this.var_int_m = 0;
-                    ++this.var_int_p;
+                    ++this.splashPhase;
                     break;
                 }
                 ++this.var_int_m;
@@ -100,7 +100,7 @@ extends Class_I {
                     break;
                 }
                 this.var_int_m = 0;
-                ++this.var_int_p;
+                ++this.splashPhase;
                 break;
             }
             case 3: {
@@ -119,18 +119,18 @@ extends Class_I {
     }
 
     public void b(Graphics graphics) {
-        if (this.var_int_p == 0) {
+        if (this.splashPhase == 0) {
             graphics.setColor(0xFFFFFF);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             Class_I.a(graphics, 0, this.var_int_m, 15, 0, this.spriteMacrospaceLogo, (Class_I.appCanvas.width - this.spriteMacrospaceLogo.width) / 2, (Class_I.appCanvas.height - this.spriteMacrospaceLogo.height) / 2, 0, 0);
-        } else if (this.var_int_p == 1) {
+        } else if (this.splashPhase == 1) {
             Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, null, (Class_I.appCanvas.width - this.spriteMacrospaceLogo.width) / 2, (Class_I.appCanvas.height - this.spriteMacrospaceLogo.height) / 2, this.spriteMacrospaceLogo.width, this.spriteMacrospaceLogo.height);
         } else {
             graphics.setColor(108, 93, 72);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
             this.spriteSplashBackground.draw(graphics, 0, this.I);
             this.spriteSplashForeground.draw(graphics, 0, this.B);
-            if (this.var_int_p == 3) {
+            if (this.splashPhase == 3) {
                 if (this.var_int_m >= 15) {
                     this.spriteGameTitle.draw(graphics, (Class_I.appCanvas.width - this.spriteGameTitle.width) / 2, 8);
                     graphics.setColor(0xFFFFFF);
