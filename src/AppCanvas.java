@@ -430,7 +430,8 @@ CommandListener {
                 if (newlineCharIndex > -1 && newlineCharIndex < n2) {
                     n2 = newlineCharIndex;
                 }
-                if (font.stringWidth(string2 = string.substring(n3, n2).trim()) <= n) continue;
+                string2 = string.substring(n3, n2).trim();
+                if (font.stringWidth(string2) <= n) continue;
                 if (n6 == n3) {
                     for (int j = string2.length() - 1; j > 0; --j) {
                         String string4 = string2.substring(0, j);
