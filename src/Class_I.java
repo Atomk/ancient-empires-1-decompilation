@@ -1292,7 +1292,7 @@ implements CommandListener {
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_LEFT)) {
                                 if (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_LEFT)) {
                                     if (this.var_short_h > 0) {
-                                        this.var_short_h = (short)(this.var_short_h - 1);
+                                        this.var_short_h--;
                                     }
                                     this.var_boolean_s = false;
                                     this.var_boolean_v = true;
@@ -1300,7 +1300,7 @@ implements CommandListener {
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_RIGHT) && (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_RIGHT))) {
                                 if (this.var_short_h < this.mapTilesWidth - 1) {
-                                    this.var_short_h = (short)(this.var_short_h + 1);
+                                    this.var_short_h++;
                                 }
                                 this.var_boolean_s = false;
                                 this.var_boolean_v = true;
@@ -1309,7 +1309,7 @@ implements CommandListener {
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_UP)) {
                                 if (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_UP)) {
                                     if (this.var_short_g > 0) {
-                                        this.var_short_g = (short)(this.var_short_g - 1);
+                                        this.var_short_g--;
                                     }
                                     this.var_boolean_s = false;
                                     this.var_boolean_v = true;
@@ -1317,7 +1317,7 @@ implements CommandListener {
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_DOWN) && (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_DOWN))) {
                                 if (this.var_short_g < this.mapTilesHeight - 1) {
-                                    this.var_short_g = (short)(this.var_short_g + 1);
+                                    this.var_short_g++;
                                 }
                                 this.var_boolean_s = false;
                                 this.var_boolean_v = true;
@@ -1604,10 +1604,10 @@ implements CommandListener {
         short s3 = (short)(s + AppCanvas.width2 / 24);
         short s4 = (short)(s2 + AppCanvas.height2 / 24);
         if (AppCanvas.width2 % 24 != 0) {
-            s3 = (short)(s3 + 1);
+            s3++;
         }
         if (AppCanvas.height2 % 24 != 0) {
-            s4 = (short)(s4 + 1);
+            s4++;
         }
         if (s3 >= this.mapTilesWidth) {
             s3 = (short)(this.mapTilesWidth - 1);

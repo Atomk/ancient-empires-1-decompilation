@@ -210,10 +210,10 @@ extends Class_I {
         short s3 = (short)(s + AppCanvas.width2 / 24);
         short s4 = (short)(s2 + AppCanvas.height2 / 24);
         if (AppCanvas.width2 % 24 != 0) {
-            s3 = (short)(s3 + 1);
+            s3++;
         }
         if (AppCanvas.height2 % 24 != 0) {
-            s4 = (short)(s4 + 1);
+            s4++;
         }
         if (s3 >= this.mapTilesWidth) {
             s3 = (short)(this.mapTilesWidth - 1);
