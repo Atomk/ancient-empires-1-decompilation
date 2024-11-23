@@ -10,9 +10,9 @@ import javax.microedition.lcdui.Graphics;
 public class a
 extends Class_I {
     private static final boolean[] var_boolean_arr_a;
-    private Sprite spriteSplashBackground;
-    private Sprite spriteSplashForeground;
-    private Sprite spriteMacrospaceCoyrightText;
+    private Sprite spriteSplashBack;
+    private Sprite spriteSplashFront;
+    private Sprite spriteCoyright;
     public SpriteSheet[][] miniMapUnitsSheets;
     private int _backY = -15;
     private int _frontY;
@@ -28,17 +28,17 @@ extends Class_I {
 
     public a(byte by) throws Exception {
         super(by);
-        this.spriteSplashBackground = new Sprite("splashbg.png");
-        this.spriteSplashForeground = new Sprite("splashfg.png");
-        this.spriteMacrospaceCoyrightText = new Sprite("macrospace.png");
+        this.spriteSplashBack = new Sprite("splashbg.png");
+        this.spriteSplashFront = new Sprite("splashfg.png");
+        this.spriteCoyright = new Sprite("macrospace.png");
         // Start displaying slightly below intended height, to allow "slide from bottom" animation
-        this._frontY = AppCanvas.height2 - this.spriteSplashForeground.height + 30;
+        this._frontY = AppCanvas.height2 - this.spriteSplashFront.height + 30;
     }
 
     public void m() throws Exception {
-        this.spriteSplashBackground = null;
-        this.spriteSplashForeground = null;
-        this.spriteMacrospaceCoyrightText = null;
+        this.spriteSplashBack = null;
+        this.spriteSplashFront = null;
+        this.spriteCoyright = null;
         super.m();
         // First index is owner (player index), second index is unit type
         // This probably contains the colored spritesheet for each possible unit
@@ -129,8 +129,8 @@ extends Class_I {
         } else {
             graphics.setColor(108, 93, 72);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
-            this.spriteSplashBackground.draw(graphics, 0, this._backY);
-            this.spriteSplashForeground.draw(graphics, 0, this._frontY);
+            this.spriteSplashBack.draw(graphics, 0, this._backY);
+            this.spriteSplashFront.draw(graphics, 0, this._frontY);
             if (this.splashPhase == 3) {
                 if (this.var_int_m >= 15) {
                     this.spriteGameTitle.draw(graphics, (Class_I.appCanvas.width - this.spriteGameTitle.width) / 2, 8);
@@ -141,7 +141,7 @@ extends Class_I {
                         // "PRESS ANY KEY"
                         graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
                     }
-                    this.spriteMacrospaceCoyrightText.draw(graphics, (Class_I.appCanvas.width - this.spriteMacrospaceCoyrightText.width) / 2, AppCanvas.height2 - this.spriteMacrospaceCoyrightText.height - 2);
+                    this.spriteCoyright.draw(graphics, (Class_I.appCanvas.width - this.spriteCoyright.width) / 2, AppCanvas.height2 - this.spriteCoyright.height - 2);
                 } else {
                     Class_I.a(graphics, 0xFFFFFF, this.var_int_m, 15, 0, this.spriteGameTitle, (Class_I.appCanvas.width - this.spriteGameTitle.width) / 2, 8, 0, 0);
                     graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);
@@ -199,6 +199,7 @@ extends Class_I {
         super.e();
     }
 
+    // TODO Probably overrides the parent class method (that is pretty much the sam)
     public void d(Graphics graphics) {
         short s = (short)(-this.var_short_f / 24);
         short s2 = (short)(-this.var_short_a / 24);
