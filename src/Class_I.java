@@ -818,7 +818,7 @@ implements CommandListener {
                 this.h();
                 this.var_byte_i = 0;
             } else if (string.equals(AppCanvas.getGameText(32))) {  // END TURN
-                g.a(this, null, AppCanvas.getGameText(39), 1000, true);
+                g.a(this, null, AppCanvas.getGameText(39), 1000, true); // TURN END
                 this.var_byte_i = (byte)8;
                 this.var_long_c = this.var_long_n;
             } else if (string.equals(AppCanvas.getGameText(33))) { // OCCUPY
@@ -939,6 +939,7 @@ implements CommandListener {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;
+            // TODO clever trick to save two values in one byte. 0-10 is blue player, 11-21 is red player
             byte unitType = (byte)(by % 11);
             byte unitOwner = (byte)(by / 11);
             Unit unit = Unit.spawn(unitType, unitOwner, n6 / 24, n7 / 24);
@@ -1010,6 +1011,7 @@ implements CommandListener {
         }
     }
 
+    // TODO by == 1 could mean "can move"?
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
         // TODO isType(4) will return true ONLY if the unit is a king, but that bitfalg is ambiguous (28). Also see line 1876
@@ -2068,6 +2070,7 @@ implements CommandListener {
                     );
     }
 
+    // TODO 90% sure this handles AI turn, the last call shows a "turn end" panel
     public void p() throws Exception {
         if (this.var_byte_b == 4) {
             if (this.var_c_g != null || this.var_c_a != null) {
@@ -2187,7 +2190,7 @@ implements CommandListener {
                 this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                 this.var_c_h.updatePathfindData(this.unitActionsMatrix);
                 this.var_boolean_h = false;
-                this.var_c_arr_c = this.c_arr_a(0, -1, this.playerIndex_XX);
+                this.var_c_arr_c = this.c_arr_a(Unit.SOLDIER, -1, this.playerIndex_XX);
                 int n7 = 666;
                 this.var_int_z = -1;
                 for (int n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
