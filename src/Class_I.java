@@ -121,7 +121,8 @@ implements CommandListener {
     private int currentLevel;
     public int var_int_h;
     public int var_int_w;
-    private Unit[] var_c_arr_b = null;
+    /** Units that can be attacked, or tombsones that can be raised by aunit TODO which unit? */
+    private Unit[] targetableUnits_XX = null;
     private Unit var_c_h = null;
     public int var_int_c;
     public int var_int_v;
@@ -801,7 +802,7 @@ implements CommandListener {
                 this.var_byte_e = this.var_byte_i;
                 this.var_byte_i = (byte)6;
                 this.var_boolean_v = true;
-                this.var_c_arr_b = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_ENEMy);
+                this.targetableUnits_XX = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_ENEMy);
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
@@ -831,7 +832,7 @@ implements CommandListener {
                 this.var_c_h.void_b();
             } else if (string.equals(AppCanvas.getGameText(34))) {  // RAISE
                 this.var_byte_i = (byte)7;
-                this.var_c_arr_b = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
+                this.targetableUnits_XX = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
                 this.var_boolean_h = true;
                 this.var_boolean_j = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
@@ -873,7 +874,7 @@ implements CommandListener {
         this._mapKings = null;
         this.mapUnitsList = new Vector<Unit>();
         this.var_c_h = null;
-        this.var_c_arr_b = null;
+        this.targetableUnits_XX = null;
         this.var_c_d = null;
         this.var_g_g.var_c_a = null;
         this.mapTerrain = null;
@@ -975,7 +976,7 @@ implements CommandListener {
     public void h() {
         this.var_int_w = 0;
         this.var_c_h = null;
-        this.var_c_arr_b = new Unit[0];
+        this.targetableUnits_XX = new Unit[0];
         this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
         this.var_boolean_h = false;
         this.var_boolean_j = false;
@@ -1241,13 +1242,13 @@ implements CommandListener {
                         if (appCanvas.boolean_c(4)) {
                             --this.var_int_w;
                             if (this.var_int_w < 0) {
-                                this.var_int_w = this.var_c_arr_b.length - 1;
+                                this.var_int_w = this.targetableUnits_XX.length - 1;
                             }
                             appCanvas.handleKeyReleasedAction(4);
                             this.var_boolean_v = true;
                         } else if (appCanvas.boolean_c(8)) {
                             ++this.var_int_w;
-                            if (this.var_int_w >= this.var_c_arr_b.length) {
+                            if (this.var_int_w >= this.targetableUnits_XX.length) {
                                 this.var_int_w = 0;
                             }
                             appCanvas.handleKeyReleasedAction(8);
@@ -1255,27 +1256,27 @@ implements CommandListener {
                         } else if (appCanvas.boolean_c(1)) {
                             --this.var_int_w;
                             if (this.var_int_w < 0) {
-                                this.var_int_w = this.var_c_arr_b.length - 1;
+                                this.var_int_w = this.targetableUnits_XX.length - 1;
                             }
                             appCanvas.handleKeyReleasedAction(1);
                             this.var_boolean_v = true;
                         } else if (appCanvas.boolean_c(2)) {
                             ++this.var_int_w;
-                            if (this.var_int_w >= this.var_c_arr_b.length) {
+                            if (this.var_int_w >= this.targetableUnits_XX.length) {
                                 this.var_int_w = 0;
                             }
                             appCanvas.handleKeyReleasedAction(2);
                             this.var_boolean_v = true;
                         }
-                        this.void_c(this.var_c_arr_b[this.var_int_w].mapX, this.var_c_arr_b[this.var_int_w].mapY);
+                        this.void_c(this.targetableUnits_XX[this.var_int_w].mapX, this.targetableUnits_XX[this.var_int_w].mapY);
                         if (this.var_boolean_v) {
                             this.var_g_g.b();
                         }
                         if (appCanvas.boolean_c(16)) {
                             if (this.var_byte_i == 6) {
-                                this.b(this.var_c_h, this.var_c_arr_b[this.var_int_w]);
+                                this.b(this.var_c_h, this.targetableUnits_XX[this.var_int_w]);
                             } else if (this.var_byte_i == 7) {
-                                this.void_a(this.var_c_arr_b[this.var_int_w], this.playerIndex_XX);
+                                this.void_a(this.targetableUnits_XX[this.var_int_w], this.playerIndex_XX);
                                 this.var_c_h.void_b();
                                 this.var_byte_i = 0;
                             }
@@ -2221,11 +2222,11 @@ implements CommandListener {
                             }
                         }
                         if (c2.isType(Unit.WIZARD_FLAG)) {
-                            this.var_c_arr_b = c2.searchInAttackRange(x, y, Unit.FILTER_TOMBSTONE);
-                            for (int k = 0; k < this.var_c_arr_b.length; ++k) {
-                                int n8 = this.a(c2, x, y, null, this.var_c_arr_b[k]);
+                            this.targetableUnits_XX = c2.searchInAttackRange(x, y, Unit.FILTER_TOMBSTONE);
+                            for (int k = 0; k < this.targetableUnits_XX.length; ++k) {
+                                int n8 = this.a(c2, x, y, null, this.targetableUnits_XX[k]);
                                 if (n8 <= n5) continue;
-                                this.var_c_a = this.var_c_arr_b[k];
+                                this.var_c_a = this.targetableUnits_XX[k];
                                 n5 = n8;
                                 this.var_int_f = x;
                                 this.var_int_x = y;
