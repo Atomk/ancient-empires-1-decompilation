@@ -456,7 +456,8 @@ CommandListener {
                 break;
             } while (n2 != newlineCharIndex && n2 < n4);
             vector.addElement(string2);
-        } while ((n3 = ++n2) < n4);
+            n3 = ++n2;
+        } while (n3 < n4);
 
         String[] lines = new String[vector.size()];
         vector.copyInto(lines);
