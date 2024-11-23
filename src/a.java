@@ -14,8 +14,8 @@ extends Class_I {
     private Sprite spriteSplashForeground;
     private Sprite spriteMacrospaceCoyrightText;
     public SpriteSheet[][] miniMapUnitsSheets;
-    private int I = -15;
-    private int B;
+    private int _backY = -15;
+    private int _frontY;
     //private int var_int_d = 0;    // Unused
     public boolean var_boolean_g = false;
     private Vector<SpriteSheet> var_java_util_Vector_d;
@@ -31,7 +31,8 @@ extends Class_I {
         this.spriteSplashBackground = new Sprite("splashbg.png");
         this.spriteSplashForeground = new Sprite("splashfg.png");
         this.spriteMacrospaceCoyrightText = new Sprite("macrospace.png");
-        this.B = AppCanvas.height2 - this.spriteSplashForeground.height + 30;
+        // Start displaying slightly below intended height, to allow "slide from bottom" animation
+        this._frontY = AppCanvas.height2 - this.spriteSplashForeground.height + 30;
     }
 
     public void m() throws Exception {
@@ -93,9 +94,9 @@ extends Class_I {
                 break;
             }
             case 2: {
-                if (this.I < 0) {
-                    ++this.I;
-                    this.B -= 2;
+                if (this._backY < 0) {
+                    ++this._backY;
+                    this._frontY -= 2;
                     //++this.var_int_d;
                     break;
                 }
@@ -128,8 +129,8 @@ extends Class_I {
         } else {
             graphics.setColor(108, 93, 72);
             graphics.fillRect(0, 0, Class_I.appCanvas.width, Class_I.appCanvas.height);
-            this.spriteSplashBackground.draw(graphics, 0, this.I);
-            this.spriteSplashForeground.draw(graphics, 0, this.B);
+            this.spriteSplashBackground.draw(graphics, 0, this._backY);
+            this.spriteSplashForeground.draw(graphics, 0, this._frontY);
             if (this.splashPhase == 3) {
                 if (this.var_int_m >= 15) {
                     this.spriteGameTitle.draw(graphics, (Class_I.appCanvas.width - this.spriteGameTitle.width) / 2, 8);
