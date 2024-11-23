@@ -30,7 +30,7 @@ public class g {
     public byte var_byte_e = (byte)3;
     private short var_short_a = (short)150;
     private a var_a_a;
-    private String[] var_java_lang_String_arr_b;
+    private String[] _descriptionLines;
     private int A;
     private int y;
     private int var_int_b;
@@ -123,7 +123,7 @@ public class g {
             this.D = (this.var_int_a - this.u * this.appFont.getBaselinePosition()) / (this.u + 1);
             // Unit description (74 is the description for the soldier - "Hardworking and brave, soldiers [...]")
             // Same thing at line 497
-            this.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.unitType_XX), this.v, this.appFont);
+            this._descriptionLines = AppCanvas.a(AppCanvas.getGameText(74 + this.unitType_XX), this.v, this.appFont);
         } else if (by == 3) {
             this.var_boolean_f = false;
             this.var_boolean_h = false;
@@ -184,8 +184,8 @@ public class g {
         if (title != null) {
             panel._titleLines = AppCanvas.a(title, n5, panel.appFont);
         }
-        panel.var_java_lang_String_arr_b = AppCanvas.a(description, n5, panel.appFont);
-        panel.u = panel.var_java_lang_String_arr_b.length;
+        panel._descriptionLines = AppCanvas.a(description, n5, panel.appFont);
+        panel.u = panel._descriptionLines.length;
         panel.m = panel.appFont.getBaselinePosition() + panel.D;
         int n6 = panel.u * panel.m + panel.D;
         if (title != null) {
@@ -219,10 +219,10 @@ public class g {
         if (portraitIndex == Class_I.PORTRAIT_NONE) {
             by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
-            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
+            g2._descriptionLines = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         } else {
             g2.var_int_d = g2.var_int_b - i2.uiPortraitSheet.getSpritesWidth() - 6 - 12;
-            g2.var_java_lang_String_arr_b = AppCanvas.a(string, g2.var_int_d, g2.appFont);
+            g2._descriptionLines = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         }
         g2.a(by2, 0, 0, null, 0);
         return g2;
@@ -248,7 +248,7 @@ public class g {
     // Creates a menu with all the options passsed as argument
     // TODO this just creates the menu, it doesn't show it, rename accordingly
     public void showMenuOptions(String[] menuOptions) {
-        this.var_java_lang_String_arr_b = menuOptions;
+        this._descriptionLines = menuOptions;
         this.u = this.buyableUnitsCount_XX = menuOptions.length;
         this.var_int_b = 0;
         this.var_int_g = 0;
@@ -512,7 +512,7 @@ public class g {
                                 if (this.var_byte_a == 2) {
                                     this.var_a_a.a((int)this.buyableUnits[this.unitType_XX], "", this);
                                 } else {
-                                    this.var_a_a.a(this.unitType_XX, this.var_java_lang_String_arr_b[this.unitType_XX], this);
+                                    this.var_a_a.a(this.unitType_XX, this._descriptionLines[this.unitType_XX], this);
                                 }
                                 return;
                             }
@@ -522,7 +522,7 @@ public class g {
                             this.var_g_b.unitType_XX = this.unitType_XX;
                             // Unit description (74 is the description for the soldier - "Hardworking and brave, soldiers [...]")
                             // Same thing at line 109
-                            this.var_g_b.var_java_lang_String_arr_b = AppCanvas.a(AppCanvas.getGameText(74 + this.buyableUnits[this.unitType_XX]), this.var_g_b.v, this.appFont);
+                            this.var_g_b._descriptionLines = AppCanvas.a(AppCanvas.getGameText(74 + this.buyableUnits[this.unitType_XX]), this.var_g_b.v, this.appFont);
                             this.var_g_b.var_short_b = 0;
                         }
                         break block98;
@@ -530,7 +530,7 @@ public class g {
                     if (this.var_byte_a == 6) {
                         if (this.var_byte_e == 2) {
                             if (Class_I.appCanvas.pressedKeysActions != 0) {
-                                if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) {
+                                if (this.var_short_b + this.u >= this._descriptionLines.length) {
                                     this.a(false);
                                 } else {
                                     this.var_short_b = (short)(this.var_short_b + this.u);
@@ -571,7 +571,7 @@ public class g {
                                 this.var_short_b = (short)(this.var_short_b - 1);
                                 this.var_boolean_c = true;
                             }
-                            if (Class_I.appCanvas.boolean_c(2) && this.var_short_b + this.u < this.var_java_lang_String_arr_b.length) {
+                            if (Class_I.appCanvas.boolean_c(2) && this.var_short_b + this.u < this._descriptionLines.length) {
                                 this.var_int_i = this.m;
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
@@ -586,7 +586,7 @@ public class g {
                             Class_I.appCanvas.handleKeyReleasedAction(64);
                         }
                         if (Class_I.appCanvas.boolean_c(256)) {
-                            if (this.var_short_b + this.u < this.var_java_lang_String_arr_b.length) {
+                            if (this.var_short_b + this.u < this._descriptionLines.length) {
                                 this.var_short_b = (short)(this.var_short_b + 1);
                                 this.var_boolean_c = true;
                             }
@@ -737,7 +737,7 @@ public class g {
                     int n7 = this.B + this.D * 3;
                     int n8 = this.D;
                     for (int j = this.var_short_b; j < this.var_short_b + this.u; ++j) {
-                        graphics.drawString(this.var_java_lang_String_arr_b[j], n7, n8, 20);
+                        graphics.drawString(this._descriptionLines[j], n7, n8, 20);
                         n8 += this.m;
                     }
                     this.var_a_a.spriteMenuPointer.draw(graphics, this.p + this.D, (this.unitType_XX - this.var_short_b) * this.m + this.D);
@@ -854,8 +854,8 @@ public class g {
                     graphics.drawLine(0, n12 + this.var_int_a, n3 - 1, n12 + this.var_int_a);
                     graphics.setColor(COLOR_BLACK);
                     n12 += this.D;
-                    for (n10 = this.var_short_b; n10 < this.var_short_b + this.u && n10 < this.var_java_lang_String_arr_b.length; ++n10) {
-                        graphics.drawString(this.var_java_lang_String_arr_b[n10], n11, n12, 17);
+                    for (n10 = this.var_short_b; n10 < this.var_short_b + this.u && n10 < this._descriptionLines.length; ++n10) {
+                        graphics.drawString(this._descriptionLines[n10], n11, n12, 17);
                         n12 += this.appFont.getBaselinePosition() + this.D;
                     }
                     if (this.var_short_b != 0) {
@@ -865,7 +865,7 @@ public class g {
                         this.var_a_a.uiArrowSheet.a(graphics, n10, n9 - this.p);
                         AppCanvas.drawBoldWhiteText(graphics, "1", n10 + this.var_a_a.uiArrowSheet.getSpritesWidth(), n9, AppCanvas.FONT_ALPHANUMERIC);
                     }
-                    if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
+                    if (this.var_short_b + this.u >= this._descriptionLines.length) break;
                     this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
                     n10 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     n9 = this.j + this.var_int_a - this.var_a_a.uiArrowSheet.getSpritesHeight() / 2;
@@ -923,8 +923,8 @@ public class g {
                     int n23 = 4;
                     n23 = this.t == 4 ? (n23 += this.var_a_a.uiPortraitSheet.getSpritesWidth()) : (n23 += 4);
                     graphics.setColor(COLOR_BLACK);
-                    for (int j = this.var_short_b; j < this.var_short_b + this.u && j < this.var_java_lang_String_arr_b.length; ++j) {
-                        graphics.drawString(this.var_java_lang_String_arr_b[j], n23, n22, 20);
+                    for (int j = this.var_short_b; j < this.var_short_b + this.u && j < this._descriptionLines.length; ++j) {
+                        graphics.drawString(this._descriptionLines[j], n23, n22, 20);
                         n22 += this.m;
                     }
                     if (this.portraitSpriteIndex != Class_I.PORTRAIT_NONE) {
@@ -1009,7 +1009,7 @@ public class g {
                         graphics.setColor(COLOR_BLACK);
                         for (byte i = 0; i < this._titleLines.length; ++i) {
                             graphics.drawString(this._titleLines[i], n3 / 2, n36, 17);
-                            n36 += this.m;
+                            n36 += this.m;  // TODO rename _lineSpacing or _textLineSpacing
                         }
                         graphics.setColor(COLOR_UI_LINE_SEPARATOR);
                         graphics.drawLine(0, n36, n3 - 1, n36);
@@ -1028,7 +1028,7 @@ public class g {
                     n36 += this.var_int_i;
                     graphics.setClip(0, n35, n3, n4 - n35);
                     for (int i = n34; i < n37; ++i) {
-                        graphics.drawString(this.var_java_lang_String_arr_b[i], n3 / 2, n36, 17);
+                        graphics.drawString(this._descriptionLines[i], n3 / 2, n36, 17);
                         n36 += this.m;
                     }
                     graphics.setClip(-6, -6, this.var_int_b, this.var_int_g);
@@ -1037,7 +1037,7 @@ public class g {
                         int n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n33, n35 + this.p - this.var_a_a.uiArrowSheet.getSpritesHeight());
                     }
-                    if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
+                    if (this.var_short_b + this.u >= this._descriptionLines.length) break;
                     this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
                     int n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     int n38 = this.var_int_g - 12;
