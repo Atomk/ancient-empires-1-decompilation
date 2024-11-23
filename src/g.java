@@ -1002,15 +1002,13 @@ public class g {
                     break;
                 }
                 case 9: {
-                    int n33;
-                    int n34;
                     graphics.setClip(0, 0, n3, this.var_int_g - 12);
                     int n35 = 0;
                     int n36 = this.D;
                     if (this._titleLines != null) {
                         graphics.setColor(COLOR_BLACK);
-                        for (n34 = 0; n34 < this._titleLines.length; ++n34) {
-                            graphics.drawString(this._titleLines[n34], n3 / 2, n36, 17);
+                        for (byte i = 0; i < this._titleLines.length; ++i) {
+                            graphics.drawString(this._titleLines[i], n3 / 2, n36, 17);
                             n36 += this.m;
                         }
                         graphics.setColor(COLOR_UI_LINE_SEPARATOR);
@@ -1019,7 +1017,7 @@ public class g {
                         n36 += this.D;
                     }
                     graphics.setColor(COLOR_BLACK);
-                    n34 = this.var_short_b;
+                    int n34 = this.var_short_b;
                     int n37 = this.var_short_b + this.u;
                     if (this.var_int_i > 0) {
                         --n34;
@@ -1029,19 +1027,19 @@ public class g {
                     }
                     n36 += this.var_int_i;
                     graphics.setClip(0, n35, n3, n4 - n35);
-                    for (n33 = n34; n33 < n37; ++n33) {
-                        graphics.drawString(this.var_java_lang_String_arr_b[n33], n3 / 2, n36, 17);
+                    for (int i = n34; i < n37; ++i) {
+                        graphics.drawString(this.var_java_lang_String_arr_b[i], n3 / 2, n36, 17);
                         n36 += this.m;
                     }
                     graphics.setClip(-6, -6, this.var_int_b, this.var_int_g);
                     if (this.var_short_b > 0) {
                         this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_UP);
-                        n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
+                        int n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                         this.var_a_a.uiArrowSheet.a(graphics, n33, n35 + this.p - this.var_a_a.uiArrowSheet.getSpritesHeight());
                     }
                     if (this.var_short_b + this.u >= this.var_java_lang_String_arr_b.length) break;
                     this.var_a_a.uiArrowSheet.setCurrentIndex(Class_I.ARROW_DOWN);
-                    n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
+                    int n33 = (n3 - this.var_a_a.uiArrowSheet.getSpritesWidth()) / 2;
                     int n38 = this.var_int_g - 12;
                     this.var_a_a.uiArrowSheet.a(graphics, n33, n38 - this.p);
                 }
