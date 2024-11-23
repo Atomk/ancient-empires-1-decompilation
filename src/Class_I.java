@@ -933,9 +933,9 @@ implements CommandListener {
         }
         int n4 = dataInputStream.readInt();
         dataInputStream.skip(n4 * 4);
-        int n5 = dataInputStream.readInt();
+        int unitsCount = dataInputStream.readInt();
         this._mapKings = new Unit[this.levelPlayersCount];
-        for (short s = 0; s < n5; s++) {
+        for (short s = 0; s < unitsCount; s++) {
             byte by = dataInputStream.readByte();
             int n6 = dataInputStream.readShort() * 24 / 16;
             int n7 = dataInputStream.readShort() * 24 / 16;

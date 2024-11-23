@@ -150,12 +150,22 @@ public class g {
         this.var_boolean_c = true;
     }
 
-    public static g a(Class_I i2, String string, String string2, int n, boolean bl) {
+    /**
+     *
+     * @param i2
+     * @param string
+     * @param string2
+     * @param duration Milliseconds after which the panel will disappear automatically.
+     *                 If equals -1, duration will be infinite and panel has to be closed manually.
+     * @param bl
+     * @return
+     */
+    public static g a(Class_I i2, String string, String string2, int duration, boolean bl) {
         int n2;
         g g2 = new g(i2, (byte)9, 0);
         g2.D = 4;
-        g2.n = n;
-        if (n == -1) {
+        g2.n = duration;
+        if (duration == -1) {
             g2.var_boolean_a = true;
         }
         Font font = g2.appFont;
