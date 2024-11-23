@@ -297,7 +297,7 @@ CommandListener {
         this.handleKeyReleasedAction(this.getGameAction(keyCode));
     }
 
-    public boolean boolean_a(int gameActionCode) {
+    public boolean stoppedRequestingAction(int gameActionCode) {
         return this.lastRequestedAction == gameActionCode && System.currentTimeMillis() - this.lastKeyPressedTime >= 300L;
     }
 

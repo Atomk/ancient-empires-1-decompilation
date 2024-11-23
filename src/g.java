@@ -442,7 +442,7 @@ public class g {
                                                                             if (this.var_byte_e != 2) break block98;
                                                                             if (!Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_DOWN)) break block99;
                                                                             if (this.var_boolean_i) break block100;
-                                                                            if (!Class_I.appCanvas.boolean_a(AppCanvas.ACTION_DOWN)) break block101;
+                                                                            if (!Class_I.appCanvas.stoppedRequestingAction(AppCanvas.ACTION_DOWN)) break block101;
                                                                         }
                                                                         this.unitType_XX += this.w;
                                                                         if (this.unitType_XX >= this.buyableUnitsCount_XX) {
@@ -459,7 +459,7 @@ public class g {
                                                                 }
                                                                 if (!Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_UP)) break block103;
                                                                 if (this.var_boolean_i) break block104;
-                                                                if (!Class_I.appCanvas.boolean_a(AppCanvas.ACTION_UP)) break block105;
+                                                                if (!Class_I.appCanvas.stoppedRequestingAction(AppCanvas.ACTION_UP)) break block105;
                                                             }
                                                             this.unitType_XX -= this.w;
                                                             if (this.unitType_XX < 0) {
@@ -476,7 +476,7 @@ public class g {
                                                     }
                                                     if (!Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_LEFT)) break block106;
                                                     if (this.var_boolean_i) break block107;
-                                                    if (!Class_I.appCanvas.boolean_a(AppCanvas.ACTION_LEFT)) break block108;
+                                                    if (!Class_I.appCanvas.stoppedRequestingAction(AppCanvas.ACTION_LEFT)) break block108;
                                                 }
                                                 if (this.var_byte_a == 2) {
                                                     --this.unitType_XX;
@@ -491,7 +491,7 @@ public class g {
                                         }
                                         if (!Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_RIGHT)) break block109;
                                         if (this.var_boolean_i) break block110;
-                                        if (!Class_I.appCanvas.boolean_a(AppCanvas.ACTION_RIGHT)) break block111;
+                                        if (!Class_I.appCanvas.stoppedRequestingAction(AppCanvas.ACTION_RIGHT)) break block111;
                                     }
                                     if (this.var_byte_a == 2) {
                                         ++this.unitType_XX;
