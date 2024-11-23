@@ -578,12 +578,12 @@ public class g {
                             }
                         }
                     } else if (this.var_byte_a == 1 || this.var_byte_a == 4) {
-                        if (Class_I.appCanvas.isRequestingAction(64)) {
+                        if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP)) {
                             if (this.var_short_b > 0) {
                                 this.var_short_b = (short)(this.var_short_b - 1);
                                 this.var_boolean_c = true;
                             }
-                            Class_I.appCanvas.handleKeyReleasedAction(64);
+                            Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_SCROLL_UP);
                         }
                         if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO)) {
                             if (this.var_short_b + this.u < this._descriptionLines.length) {
@@ -630,9 +630,9 @@ public class g {
                 if (this.var_byte_e != 2) break block112;
                 if (bl) break block113;
                 if (!this.var_boolean_g) break block112;
-                if (!Class_I.appCanvas.isRequestingAction(2048)) break block112;
+                if (!Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_CANCEL)) break block112;
             }
-            Class_I.appCanvas.handleKeyReleasedAction(2048);
+            Class_I.appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CANCEL);
             this.a(true);
             this.var_a_a.c();
             if (!bl && this.var_g_a != null) {

@@ -1375,7 +1375,7 @@ implements CommandListener {
                                     this.var_boolean_h = true;
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
-                            } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(64) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(1024))) {
+                            } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(1024))) {
                                 this.var_c_h = this.tryGetUnit((int)this.var_short_h, (int)this.var_short_g, SEARCH_ALIVE);
                                 if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
@@ -1441,7 +1441,7 @@ implements CommandListener {
                 }
                 this.d();
             }
-            if (this.var_boolean_r && appCanvas.isRequestingAction(2048)) {
+            if (this.var_boolean_r && appCanvas.isRequestingAction(AppCanvas.ACTION_CANCEL)) {
                 if (this.var_byte_i == 1) {
                     this.var_byte_i = 0;
                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
@@ -1458,7 +1458,7 @@ implements CommandListener {
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
                     this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
                 }
-                appCanvas.handleKeyReleasedAction(2048);
+                appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CANCEL);
                 this.var_boolean_r = false;
                 this.var_boolean_t = false;
             }
