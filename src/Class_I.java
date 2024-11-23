@@ -2254,7 +2254,6 @@ implements CommandListener {
     }
 
     private int a(Unit c2, int n, int n2, Unit c3, Unit c4) {
-        int n3;
         int n5 = 0;
         switch (c2.unitType) {
             case Unit.SOLDIER: {
@@ -2267,7 +2266,7 @@ implements CommandListener {
                 }
                 for (short i = 0; i < this.var_c_arr_c.length; ++i) {
                     if (this.var_c_arr_c[i] == c2) continue;
-                    n3 = this.var_c_arr_c[i].mapX - c2.mapX + (this.var_c_arr_c[i].mapY - c2.mapY);
+                    int n3 = this.var_c_arr_c[i].mapX - c2.mapX + (this.var_c_arr_c[i].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
                 if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(n, n2, c2.owner) || c3 != null) break;
@@ -2306,7 +2305,7 @@ implements CommandListener {
         }
         if (this.currentLevel == 2 && this.var_int_z != -1) {
             int n4 = Math.abs(this.var_int_z - n) - 1;
-            n3 = Math.abs(this.var_int_o - n2) - 3;
+            int n3 = Math.abs(this.var_int_o - n2) - 3;
             if (n4 < 0) {
                 n4 = 0;
             }
