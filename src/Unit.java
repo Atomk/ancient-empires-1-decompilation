@@ -564,16 +564,17 @@ extends SpriteSheet {
         Unit.iClassRef.var_c_f = this;
     }
 
-    // A bit unnecessary, the value of strongestBuyableUnit is enough
-    // Since the array wil always contain numbers between 0 and strongestBuyableUnit
-    public static byte[] getBuyableUnitsIndex() {
-        byte[] array = new byte[11];
+    /** Returns an array containing all unit types between 0 (soldier)
+     * and the current games's "strongest allowed unit type" that can be purchased. */
+    // TODO it's kinda pointless because it will always return types from 0 to strongestBuyableUnit
+    public static byte[] getCurrentGameAllowedUnitTypes() {
+        byte[] array = new byte[unitsDataPrice.length];
         int buyableUnitsCount = 0;
         for (byte unitType = 0; unitType <= Unit.iClassRef.strongestBuyableUnit; unitType++) {
             // Skips the units you cannot buy (king, skeleton)
-            if (unitsDataPrice[unitType] <= 0)
-                continue;
-            array[buyableUnitsCount++] = unitType;
+            if (unitsDataPrice[unitType] <= 0) continue;
+            array[buyableUnitsCount] = unitType;
+            buyableUnitsCount++;
         }
         // This "trims" the array so that it is the correct length
         // Probably a trick to avoid using a dynamic structure (vector)

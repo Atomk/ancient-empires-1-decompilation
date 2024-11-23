@@ -92,7 +92,7 @@ public class g {
         } else if (by == 2) {
             this.var_boolean_g = true;
             this.var_boolean_a = true;
-            this.buyableUnits = Unit.getBuyableUnitsIndex();
+            this.buyableUnits = Unit.getCurrentGameAllowedUnitTypes();
             this.buyableUnitsCount_XX = this.buyableUnits.length;
             this.var_int_b = 64;
             this.var_int_g = AppCanvas.height2 - 40;
