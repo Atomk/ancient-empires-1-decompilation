@@ -168,16 +168,16 @@ public class g {
             g2.var_boolean_a = true;
         }
         Font font = g2.appFont;
-        int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         int descriptionWidth = font.stringWidth(description);
-        int n5 = 0;
         int titleWidth = font.stringWidth(title);
         if (title != null && titleWidth > descriptionWidth) {
             descriptionWidth = titleWidth;
         }
+        int n5 = 0;
         if (descriptionWidth > n5) {
             n5 = descriptionWidth;
         }
+        int n3 = AppCanvas.width2 - g2.D * 4 - 12;
         if (n5 > n3) {
             n5 = n3;
         }
