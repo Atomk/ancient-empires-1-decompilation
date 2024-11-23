@@ -199,7 +199,7 @@ implements CommandListener {
     public boolean var_boolean_p;
     public int var_int_s = -1;
     public g var_g_i;
-    public g var_g_e;
+    private g _panelMapObjective;
     public int strongestBuyableUnit = 8;
     public g var_g_a;
     public g var_g_d;
@@ -754,7 +754,7 @@ implements CommandListener {
             this.m();
             this.loadLevelData(this.var_int_h);
             this.currentLevel = this.var_int_h;
-            this.var_g_e.a((byte)0, 0, 0, null, 0);
+            this._panelMapObjective.a((byte)0, 0, 0, null, 0);
             this.var_boolean_l = false;
         } else {
             if (string.equals(AppCanvas.getGameText(6))) {  // SETTINGS
@@ -841,7 +841,7 @@ implements CommandListener {
                 g g6 = new g(this, (byte)7, 0);
                 g6.a((byte)0, 0, 0, g2, 0);
             } else if (string.equals(AppCanvas.getGameText(36))) { // OBJECTIVE
-                this.var_g_e.a((byte)0, 0, 0, g2, 0);
+                this._panelMapObjective.a((byte)0, 0, 0, g2, 0);
             } else {
                 this.var_c_h = this.buyUnitAndSpawnAtCoords((byte)n, this.var_c_h.mapX, this.var_c_h.mapY);
                 this.var_boolean_d = true;
@@ -951,7 +951,7 @@ implements CommandListener {
         //AppCanvas.e();
         if (this.levelType == LEVEL_TYPE_CAMPAIGN) {
             // Level name (e.g. REGROUP) and its objective, shown at level start
-            this.var_g_e = g.a(this, AppCanvas.getGameText(48 + this.currentLevel), AppCanvas.getGameText(55 + this.currentLevel), -1, false);
+            this._panelMapObjective = g.a(this, AppCanvas.getGameText(48 + this.currentLevel), AppCanvas.getGameText(55 + this.currentLevel), -1, false);
             // 'The Kingdom of Thorin is divided. Betrayed by his own twin brother Valadorn [...]''
             this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.currentLevel), -1, false);
             this.a(false);
@@ -960,7 +960,7 @@ implements CommandListener {
         } else {
             // 36: OBJECTIVE
             // 62: 'Destroy the enemy king!'
-            this.var_g_e = g.a(this, AppCanvas.getGameText(36), AppCanvas.getGameText(62), -1, false);
+            this._panelMapObjective = g.a(this, AppCanvas.getGameText(36), AppCanvas.getGameText(62), -1, false);
         }
         this.var_boolean_w = false;
         if (this._mapKings[PLAYER_RED] != null) {
@@ -2424,7 +2424,7 @@ implements CommandListener {
                     break;
                 }
                 case 8: {
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2527,7 +2527,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
@@ -2695,7 +2695,7 @@ implements CommandListener {
                 }
                 case 8: {
                     this.a(true);
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     ++this.currentLevelStep;
                 }
             }
@@ -2741,7 +2741,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
@@ -2825,7 +2825,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
@@ -2892,7 +2892,7 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2988,7 +2988,7 @@ implements CommandListener {
                     break;
                 }
                 case 11: {
-                    this.var_g_e.a((byte)0, 0, 0, null, 0);
+                    this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
