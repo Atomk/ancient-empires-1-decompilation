@@ -518,7 +518,7 @@ implements CommandListener {
         this.var_int_i = dataInputStream.readInt();
         this.var_boolean_z = dataInputStream.readByte() != 0;
         dataInputStream.close();
-        this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
+        this.setMapCursorTo(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
         this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX, (int)((SpriteSheet)this._mapKings[this.playerIndex_XX]).l);
     }
 
@@ -970,7 +970,7 @@ implements CommandListener {
             this.K = 0;
             this.var_int_u = 0;
         }
-        this.void_c(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+        this.setMapCursorTo(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
         this.void_a(this._mapKings[PLAYER_BLUE].mapPixelX, (int)((SpriteSheet)this._mapKings[PLAYER_BLUE]).l);
     }
 
@@ -1192,7 +1192,7 @@ implements CommandListener {
                         ++this.var_int_n;
                     } else if (this.var_int_n == 1) {
                         if (this.var_long_n - this.var_long_d >= 800L) {
-                            this.void_c(this.var_c_i.mapX, this.var_c_i.mapY);
+                            this.setMapCursorTo(this.var_c_i.mapX, this.var_c_i.mapY);
                             if (this.var_c_b.canCounterattackMelee(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
                                 this.var_c_b.attack(this.var_c_i);
                                 this.var_c_i.b(400);
@@ -1270,7 +1270,7 @@ implements CommandListener {
                             appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_DOWN);
                             this.var_boolean_v = true;
                         }
-                        this.void_c(this.targetableUnits_XX[this.var_int_w].mapX, this.targetableUnits_XX[this.var_int_w].mapY);
+                        this.setMapCursorTo(this.targetableUnits_XX[this.var_int_w].mapX, this.targetableUnits_XX[this.var_int_w].mapY);
                         if (this.var_boolean_v) {
                             this.var_g_g.b();
                         }
@@ -1363,7 +1363,7 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN);
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_GOTO_KING)) {
                                 if (this._mapKings[this.playerIndex_XX] != null) {
-                                    this.void_c(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
+                                    this.setMapCursorTo(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
                                     this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_RANGE)) {
@@ -1449,14 +1449,14 @@ implements CommandListener {
                     this.var_boolean_j = false;
                     this._pathSteps = null;
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
-                    this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
+                    this.setMapCursorTo(this.var_c_h.mapX, this.var_c_h.mapY);
                     this.var_c_h = null;
                 } else if (this.var_byte_i == 6) {
                     this.var_byte_i = this.var_byte_e;
                     this.var_boolean_h = false;
                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
-                    this.void_c(this.var_c_h.mapX, this.var_c_h.mapY);
+                    this.setMapCursorTo(this.var_c_h.mapX, this.var_c_h.mapY);
                 }
                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_CANCEL);
                 this.var_boolean_r = false;
@@ -1585,7 +1585,7 @@ implements CommandListener {
         }
     }
 
-    public void void_c(int mapX, int mapY) {
+    private void setMapCursorTo(int mapX, int mapY) {
         this.mapCursorX = (short)mapX;
         this.mapCursorY = (short)mapY;
         this.mapCursorSheet.void_b(mapX * 24, mapY * 24);
@@ -1939,7 +1939,7 @@ implements CommandListener {
         }
         int n = this.mapCursorX;
         short s = this.mapCursorY;
-        this.void_c(this.K, this.var_int_u);
+        this.setMapCursorTo(this.K, this.var_int_u);
         this.K = n;
         this.var_int_u = s;
         this.var_boolean_v = true;
@@ -2081,9 +2081,9 @@ implements CommandListener {
                 this.var_long_j = this.var_long_n;
                 if (this.var_c_g != null) {
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
-                    this.void_c(this.var_c_g.mapX, this.var_c_g.mapY);
+                    this.setMapCursorTo(this.var_c_g.mapX, this.var_c_g.mapY);
                 } else if (this.var_c_a != null) {
-                    this.void_c(this.var_c_a.mapX, this.var_c_a.mapY);
+                    this.setMapCursorTo(this.var_c_a.mapX, this.var_c_a.mapY);
                 }
             } else {
                 if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
@@ -2183,7 +2183,7 @@ implements CommandListener {
                         }
                     }
                 }
-                this.void_c(c2.mapX, c2.mapY);
+                this.setMapCursorTo(c2.mapX, c2.mapY);
                 this.b(c2);
                 this.var_c_h = c2;
                 this.var_boolean_n = true;
@@ -3041,7 +3041,7 @@ implements CommandListener {
     private void void_b(int mapX, int mapY) {
         this.var_int_j = mapX;
         this.var_int_b = mapY;
-        this.void_c(mapX, mapY);
+        this.setMapCursorTo(mapX, mapY);
         ++this.currentLevelStep;
     }
 
