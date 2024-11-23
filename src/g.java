@@ -68,7 +68,7 @@ public class g {
     private int u;
     private int var_int_d;
     private int var_int_i;
-    private String[] var_java_lang_String_arr_a;
+    private String[] _titleLines;
     private int _timeLeft;
     private boolean var_boolean_i = true;
     private boolean var_boolean_e = true;
@@ -182,14 +182,14 @@ public class g {
             n5 = n3;
         }
         if (title != null) {
-            panel.var_java_lang_String_arr_a = AppCanvas.a(title, n5, panel.appFont);
+            panel._titleLines = AppCanvas.a(title, n5, panel.appFont);
         }
         panel.var_java_lang_String_arr_b = AppCanvas.a(description, n5, panel.appFont);
         panel.u = panel.var_java_lang_String_arr_b.length;
         panel.m = panel.appFont.getBaselinePosition() + panel.D;
         int n6 = panel.u * panel.m + panel.D;
         if (title != null) {
-            n6 += panel.var_java_lang_String_arr_a.length * panel.m + panel.D;
+            n6 += panel._titleLines.length * panel.m + panel.D;
         }
         panel.var_int_b = n5 + panel.D * 4 + 12;
         panel.var_int_g = n6 + 12;
@@ -202,7 +202,7 @@ public class g {
             panel.var_int_g = 12 + panel.m * panel.u + panel.D;
             if (title != null) {
                 panel.var_int_g += panel.D;
-                panel.u -= panel.var_java_lang_String_arr_a.length;
+                panel.u -= panel._titleLines.length;
             }
         }
         if (bl) {
@@ -1007,10 +1007,10 @@ public class g {
                     graphics.setClip(0, 0, n3, this.var_int_g - 12);
                     int n35 = 0;
                     int n36 = this.D;
-                    if (this.var_java_lang_String_arr_a != null) {
+                    if (this._titleLines != null) {
                         graphics.setColor(COLOR_BLACK);
-                        for (n34 = 0; n34 < this.var_java_lang_String_arr_a.length; ++n34) {
-                            graphics.drawString(this.var_java_lang_String_arr_a[n34], n3 / 2, n36, 17);
+                        for (n34 = 0; n34 < this._titleLines.length; ++n34) {
+                            graphics.drawString(this._titleLines[n34], n3 / 2, n36, 17);
                             n36 += this.m;
                         }
                         graphics.setColor(COLOR_UI_LINE_SEPARATOR);
