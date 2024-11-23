@@ -1246,28 +1246,28 @@ implements CommandListener {
                             if (this.var_int_w < 0) {
                                 this.var_int_w = this.targetableUnits_XX.length - 1;
                             }
-                            appCanvas.handleKeyReleasedAction(4);
+                            appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_LEFT);
                             this.var_boolean_v = true;
                         } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_RIGHT)) {
                             ++this.var_int_w;
                             if (this.var_int_w >= this.targetableUnits_XX.length) {
                                 this.var_int_w = 0;
                             }
-                            appCanvas.handleKeyReleasedAction(8);
+                            appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_RIGHT);
                             this.var_boolean_v = true;
                         } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_UP)) {
                             --this.var_int_w;
                             if (this.var_int_w < 0) {
                                 this.var_int_w = this.targetableUnits_XX.length - 1;
                             }
-                            appCanvas.handleKeyReleasedAction(1);
+                            appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UP);
                             this.var_boolean_v = true;
                         } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_DOWN)) {
                             ++this.var_int_w;
                             if (this.var_int_w >= this.targetableUnits_XX.length) {
                                 this.var_int_w = 0;
                             }
-                            appCanvas.handleKeyReleasedAction(2);
+                            appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_DOWN);
                             this.var_boolean_v = true;
                         }
                         this.void_c(this.targetableUnits_XX[this.var_int_w].mapX, this.targetableUnits_XX[this.var_int_w].mapY);
