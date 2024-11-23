@@ -161,13 +161,13 @@ public class g {
      * @return
      */
     public static g a(Class_I i2, String title, String description, int duration, boolean bl) {
-        g g2 = new g(i2, (byte)9, 0);
-        g2.D = 4;
-        g2._timeLeft = duration;
+        g panel = new g(i2, (byte)9, 0);
+        panel.D = 4;
+        panel._timeLeft = duration;
         if (duration == -1) {
-            g2.var_boolean_a = true;
+            panel.var_boolean_a = true;
         }
-        Font font = g2.appFont;
+        Font font = panel.appFont;
         int descriptionWidth = font.stringWidth(description);
         int titleWidth = font.stringWidth(title);
         if (title != null && titleWidth > descriptionWidth) {
@@ -177,39 +177,39 @@ public class g {
         if (descriptionWidth > n5) {
             n5 = descriptionWidth;
         }
-        int n3 = AppCanvas.width2 - g2.D * 4 - 12;
+        int n3 = AppCanvas.width2 - panel.D * 4 - 12;
         if (n5 > n3) {
             n5 = n3;
         }
         if (title != null) {
-            g2.var_java_lang_String_arr_a = AppCanvas.a(title, n5, g2.appFont);
+            panel.var_java_lang_String_arr_a = AppCanvas.a(title, n5, panel.appFont);
         }
-        g2.var_java_lang_String_arr_b = AppCanvas.a(description, n5, g2.appFont);
-        g2.u = g2.var_java_lang_String_arr_b.length;
-        g2.m = g2.appFont.getBaselinePosition() + g2.D;
-        int n6 = g2.u * g2.m + g2.D;
+        panel.var_java_lang_String_arr_b = AppCanvas.a(description, n5, panel.appFont);
+        panel.u = panel.var_java_lang_String_arr_b.length;
+        panel.m = panel.appFont.getBaselinePosition() + panel.D;
+        int n6 = panel.u * panel.m + panel.D;
         if (title != null) {
-            n6 += g2.var_java_lang_String_arr_a.length * g2.m + g2.D;
+            n6 += panel.var_java_lang_String_arr_a.length * panel.m + panel.D;
         }
-        g2.var_int_b = n5 + g2.D * 4 + 12;
-        g2.var_int_g = n6 + 12;
-        if (g2.var_int_g > AppCanvas.height2) {
+        panel.var_int_b = n5 + panel.D * 4 + 12;
+        panel.var_int_g = n6 + 12;
+        if (panel.var_int_g > AppCanvas.height2) {
             n6 = AppCanvas.height2 - 12;
             if (title != null) {
-                n6 -= g2.D;
+                n6 -= panel.D;
             }
-            g.a(g2, g2.appFont.getBaselinePosition(), n6, 4);
-            g2.var_int_g = 12 + g2.m * g2.u + g2.D;
+            g.a(panel, panel.appFont.getBaselinePosition(), n6, 4);
+            panel.var_int_g = 12 + panel.m * panel.u + panel.D;
             if (title != null) {
-                g2.var_int_g += g2.D;
-                g2.u -= g2.var_java_lang_String_arr_a.length;
+                panel.var_int_g += panel.D;
+                panel.u -= panel.var_java_lang_String_arr_a.length;
             }
         }
         if (bl) {
-            g2.a((byte)0, 0, 0, null, 0);
+            panel.a((byte)0, 0, 0, null, 0);
         }
-        i2.var_g_b = g2;
-        return g2;
+        i2.var_g_b = panel;
+        return panel;
     }
 
     public static g a(Class_I i2, String string, byte portraitIndex, byte by2) {
