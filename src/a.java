@@ -225,7 +225,7 @@ extends Class_I {
         }
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
         int y = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
-        if (this.var_boolean_j) {
+        if (this.useRedAreaBorder) {
             graphics.setColor(this.colorRangeBorder & 0xFF0000);
         } else {
             graphics.setColor(this.colorRangeBorder);

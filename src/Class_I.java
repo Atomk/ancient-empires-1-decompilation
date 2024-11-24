@@ -135,7 +135,8 @@ implements CommandListener {
      */
     public byte[][] unitActionsMatrix;
     public boolean var_boolean_h = false;
-    public boolean var_boolean_j = false;
+    /** True when the action area must be displayed with red lines (for attack range or "raise" range) */
+    protected boolean useRedAreaBorder = false;
     public boolean var_boolean_n = true;
     public Vector<Unit> mapUnitsList = new Vector<Unit>();
     public int var_int_g = 0;
@@ -652,7 +653,7 @@ implements CommandListener {
         this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
         unit.updatePathfindData(this.unitActionsMatrix);
         this.var_boolean_h = true;
-        this.var_boolean_j = false;
+        this.useRedAreaBorder = false;
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[2]);
     }
 
@@ -806,7 +807,7 @@ implements CommandListener {
                 this.targetableUnits_XX = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_ENEMy);
                 this.var_int_w = 0;
                 this.var_boolean_h = true;
-                this.var_boolean_j = true;
+                this.useRedAreaBorder = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
                 this.var_boolean_r = true;
@@ -835,7 +836,7 @@ implements CommandListener {
                 this.var_byte_i = (byte)7;
                 this.targetableUnits_XX = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
                 this.var_boolean_h = true;
-                this.var_boolean_j = true;
+                this.useRedAreaBorder = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
             } else if (string.equals(AppCanvas.getGameText(35))) { // MAP
@@ -981,7 +982,7 @@ implements CommandListener {
         this.targetableUnits_XX = new Unit[0];
         this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
         this.var_boolean_h = false;
-        this.var_boolean_j = false;
+        this.useRedAreaBorder = false;
     }
 
     private void fillMatrixWithValue_XX(byte[][] byArray, int value) {
@@ -1373,7 +1374,7 @@ implements CommandListener {
                                 if (this.var_c_h != null) {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                                     this.var_c_h.updateTotalAttackRangeMatrix(this.unitActionsMatrix);
-                                    this.var_boolean_j = true;
+                                    this.useRedAreaBorder = true;
                                     this.var_boolean_h = true;
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
@@ -1448,7 +1449,7 @@ implements CommandListener {
                     this.var_byte_i = 0;
                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                     this.var_boolean_h = false;
-                    this.var_boolean_j = false;
+                    this.useRedAreaBorder = false;
                     this._pathSteps = null;
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
                     this.setMapCursorTo(this.var_c_h.mapX, this.var_c_h.mapY);
@@ -1619,7 +1620,7 @@ implements CommandListener {
         }
         int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
         int n2 = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
-        if (this.var_boolean_j) {
+        if (this.useRedAreaBorder) {
             // Multiply with red
             graphics.setColor(this.colorRangeBorder & 0xFF0000);
         } else {
@@ -1634,6 +1635,7 @@ implements CommandListener {
                 if (this.var_byte_arr_j[by] == 8) {
                     this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
                 }
+                // Draw the movement/attack area border
                 if (this.var_boolean_h && this.unitActionsMatrix[mapX][mapY] > 0) {
                     if (mapX > 0 && this.unitActionsMatrix[mapX - 1][mapY] <= 0) {
                         graphics.fillRect(n3, n2, 2, 24);
@@ -2079,7 +2081,7 @@ implements CommandListener {
             if (this.var_c_g != null || this.var_c_a != null) {
                 this.var_byte_b = (byte)5;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
-                this.var_boolean_j = true;
+                this.useRedAreaBorder = true;
                 this.var_boolean_h = true;
                 this.var_long_j = this.var_long_n;
                 if (this.var_c_g != null) {
@@ -2114,7 +2116,7 @@ implements CommandListener {
                     this.var_c_h.void_b();
                 }
                 this.var_boolean_h = false;
-                this.var_boolean_j = false;
+                this.useRedAreaBorder = false;
             }
         } else if (this.var_byte_b == 7) {
             if (this.var_c_e == null) {
