@@ -271,15 +271,21 @@ extends SpriteSheet {
         }
     }
 
-    public void a(byte[][] byArray) {
+    /** Updates the given matrix with the total area this unit can attack from each reachable location.
+     * In other words, all tiles that can be reached with this unit's attack in a turn. */
+    public void updateTotalAttackRangeMatrix(byte[][] byArray) {
         if (this.isType(CATAPULT_FLAG)) {
-            this.updateAttackMatrix_XX(byArray, (int)this.mapX, (int)this.mapY);
-            // I think this is because catapults can either attack or move, not both.
+            // A catapult can either attack or move, so its attack range will not consider movement.
+            this.updateAttackMatrix_XX(byArray, this.mapX, this.mapY);
             return;
         }
         this.updatePathfindData(byArray);
         for (int x = 0; x < Unit.iClassRef.mapTilesWidth; ++x) {
             for (int y = 0; y < Unit.iClassRef.mapTilesHeight; ++y) {
+                // For every possible move of this unit, add to the matrix the tiles that can be attacked from that location
+                // tile == 0 means this unit cannot move there
+                // tile == 127 means we already know this unit can attack that tile
+                // TODO I suspect skipping tiles == 127 could prevent checking some locations if attack range is bigger than movement range. I should test this
                 if (byArray[x][y] <= 0 || byArray[x][y] == 127) continue;
                 this.updateAttackMatrix_XX(byArray, x, y);
             }

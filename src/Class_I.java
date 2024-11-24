@@ -1370,7 +1370,7 @@ implements CommandListener {
                                 this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
-                                    this.var_c_h.a(this.unitActionsMatrix);
+                                    this.var_c_h.updateTotalAttackRangeMatrix(this.unitActionsMatrix);
                                     this.var_boolean_j = true;
                                     this.var_boolean_h = true;
                                 }
