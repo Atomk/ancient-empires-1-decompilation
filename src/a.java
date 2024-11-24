@@ -113,7 +113,7 @@ extends Class_I {
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
                 g2.showMenuOptions(this.mainMenuStringsNoSave);
-                g2.a((byte)1, AppCanvas.h, 67, null, 16);
+                g2.a((byte)1, AppCanvas.cenX, 67, null, 16);
                 Class_I.appCanvas.pressedKeysActions = 0;
             }
         }
@@ -139,7 +139,7 @@ extends Class_I {
                     if (this.var_boolean_p && this.var_int_g == 0) {
                         graphics.setFont(AppCanvas.fontSmallPlain);
                         // "PRESS ANY KEY"
-                        graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
+                        graphics.drawString(AppCanvas.getGameText(25), AppCanvas.cenX, AppCanvas.height2 - AppCanvas.fontSmallPlain.getHeight() - 10, 17);
                     }
                     this.spriteCoyright.draw(graphics, (Class_I.appCanvas.width - this.spriteCoyright.width) / 2, AppCanvas.height2 - this.spriteCoyright.height - 2);
                 } else {

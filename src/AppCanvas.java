@@ -47,7 +47,7 @@ CommandListener {
     //private static final Font fontMediumBold;
     public static int width2;
     public static int height2;
-    public static int h;
+    public static int cenX;
     public static int f;
     private static final short[] fontSheetMinASCIIValue;
     private static final short[] fontSheetMaxASCIIValue;
@@ -81,7 +81,8 @@ CommandListener {
             this.height = this.getHeight();
             width2 = this.width;
             height2 = this.height;
-            h = width2 >> 1;
+            // Right shift divides by two
+            cenX = width2 >> 1;
             f = height2 >> 1;
             this.appDisplay = Display.getDisplay((MIDlet)mIDlet);
             this.appDisplay.setCurrent((Displayable)this);

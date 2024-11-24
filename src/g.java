@@ -390,7 +390,7 @@ public class g {
     }
 
     private boolean boolean_a() {
-        return this.var_byte_d == 8 && this.var_a_a.mapCursorSheet.var_short_b + this.var_a_a.mapCursorSheet.getSpritesWidth() + this.var_a_a.var_short_f >= AppCanvas.h + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.mapCursorSheet.var_short_b + this.var_a_a.var_short_f <= AppCanvas.h - 24 - 12;
+        return this.var_byte_d == 8 && this.var_a_a.mapCursorSheet.var_short_b + this.var_a_a.mapCursorSheet.getSpritesWidth() + this.var_a_a.var_short_f >= AppCanvas.cenX + 24 + 12 || this.var_byte_d == 4 && this.var_a_a.mapCursorSheet.var_short_b + this.var_a_a.var_short_f <= AppCanvas.cenX - 24 - 12;
     }
 
     private void void_a() {

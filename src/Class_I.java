@@ -703,7 +703,7 @@ implements CommandListener {
                 levelNames[j] = j <= this.levelsData[0] ? AppCanvas.getGameText(48 + j) : "???";
             }
             this.var_g_f.showMenuOptions(levelNames);
-            this.var_g_f.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
+            this.var_g_f.a((byte)1, AppCanvas.cenX, AppCanvas.f, g2, 48);
         } else if (string.equals(AppCanvas.getGameText(3))) {   // SAVE GAME
             appCanvas.savePersistentData("save", this.getGameSaveData());
             g.a(this, null, AppCanvas.getGameText(40), 1000, true);
@@ -730,7 +730,7 @@ implements CommandListener {
         } else if (string.equals(AppCanvas.getGameText(5))) {   // SKIRMISH
             this.var_g_a = new g(this, (byte)0, 0);
             this.var_g_a.showMenuOptions(skirmishMapNames);
-            this.var_g_a.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
+            this.var_g_a.a((byte)1, AppCanvas.cenX, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_a) {
             this.var_int_h = n;
             this.var_g_d = new g(this, (byte)0, 0);
@@ -746,7 +746,7 @@ implements CommandListener {
                 skirmishNumPlayersMenuOptions[j] = j + 1 + " " + AppCanvas.getGameText(16);   // PLAYER
             }
             this.var_g_d.showMenuOptions(skirmishNumPlayersMenuOptions);
-            this.var_g_d.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
+            this.var_g_d.a((byte)1, AppCanvas.cenX, AppCanvas.f, g2, 48);
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
             this.levelType = LEVEL_TYPE_SKIRMISH;
@@ -796,7 +796,7 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(26))) {  // MAIN MENU
                 g g4 = new g(this, (byte)0, 0);
                 g4.showMenuOptions(this._mainMenuOptionsWithSave);
-                g4.a((byte)1, AppCanvas.h, AppCanvas.f, g2, 48);
+                g4.a((byte)1, AppCanvas.cenX, AppCanvas.f, g2, 48);
             } else if (string.equals(AppCanvas.getGameText(27))) {  // MOVE
                 this.var_boolean_d = false;
                 this.a(this.var_c_h);
@@ -1076,7 +1076,7 @@ implements CommandListener {
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
                 g g2 = new g(this, (byte)0, 0);
                 g2.showMenuOptions(this.mainMenuStringsNoSave);
-                g2.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
+                g2.a((byte)1, AppCanvas.cenX, AppCanvas.f, null, 48);
                 Class_I.appCanvas.pressedKeysActions = 0;
             }
         }
@@ -1178,7 +1178,7 @@ implements CommandListener {
                     if (!this.var_boolean_y && this.var_int_r == 0 && this.var_long_n - this.var_long_c >= 1000L) {
                         g temmp_g_XXX = new g(this, (byte)0, 0);
                         temmp_g_XXX.showMenuOptions(this.mainMenuStringsNoSave);
-                        temmp_g_XXX.a((byte)1, AppCanvas.h, AppCanvas.f, null, 48);
+                        temmp_g_XXX.a((byte)1, AppCanvas.cenX, AppCanvas.f, null, 48);
                         temmp_g_XXX.var_boolean_g = false;
                         this.var_int_r = 1;
                     }
@@ -1519,7 +1519,7 @@ implements CommandListener {
     public int int_b(int n) {
         int n2;
         if (this._mapPixelsWidth > AppCanvas.width2) {
-            n2 = AppCanvas.h - n;
+            n2 = AppCanvas.cenX - n;
             if (n2 > 0) {
                 n2 = 0;
             } else if (n2 < AppCanvas.width2 - this._mapPixelsWidth) {
@@ -1686,10 +1686,10 @@ implements CommandListener {
                 // TODO there's a pretty similar method in 'a' class
                 if (this.var_boolean_p && this.var_int_g == 0) {
                     // PRESS ANY KEY
-                    graphics.drawString(AppCanvas.getGameText(25), AppCanvas.h, AppCanvas.height2 * 3 / 4, 17);
+                    graphics.drawString(AppCanvas.getGameText(25), AppCanvas.cenX, AppCanvas.height2 * 3 / 4, 17);
                 }
                 // ©MACROSPACE LTD.
-                graphics.drawString(AppCanvas.getGameText(15), AppCanvas.h, AppCanvas.height2 - 1, 33);
+                graphics.drawString(AppCanvas.getGameText(15), AppCanvas.cenX, AppCanvas.height2 - 1, 33);
             } else {
                 if (32 * this.N <= 255) {
                     graphics.setColor(0xFFFFFF - 0x202020 * this.N);
@@ -1811,7 +1811,7 @@ implements CommandListener {
                     graphics.fillRect(0, 0, AppCanvas.width2, AppCanvas.height2);
                     int n3 = AppCanvas.f - AppCanvas.fontSmallPlain.getHeight() / 2;
                     graphics.setColor(-1);
-                    graphics.drawString(textGameOver, AppCanvas.h, n3, 17);
+                    graphics.drawString(textGameOver, AppCanvas.cenX, n3, 17);
                 }
                 for (int n = 0; n < this.var_java_util_Vector_c.size(); ++n) {
                     this.var_java_util_Vector_c.elementAt(n).a(graphics, this.var_short_f, this.var_short_a);
@@ -3163,9 +3163,9 @@ implements CommandListener {
             y = AppCanvas.randomInt() % 3;
         }
         this.var_f_b.a(graphics, x, y);
-        this.var_f_a.a(graphics, x + AppCanvas.h, y);
+        this.var_f_a.a(graphics, x + AppCanvas.cenX, y);
         graphics.setColor(0);
-        graphics.fillRect(AppCanvas.h - 1 + x, y, 2, AppCanvas.height2);
+        graphics.fillRect(AppCanvas.cenX - 1 + x, y, 2, AppCanvas.height2);
         this.var_f_b.b(graphics);
         this.var_f_a.b(graphics);
         if (this.var_f_b.var_boolean_f) {
@@ -3179,9 +3179,9 @@ implements CommandListener {
             SpriteSheet e2 = this.var_java_util_Vector_c.elementAt(j);
             if (e2.var_boolean_a) {
                 if (this.var_f_b.var_boolean_f) {
-                    graphics.setClip(AppCanvas.h, 0, AppCanvas.h, AppCanvas.height2);
+                    graphics.setClip(AppCanvas.cenX, 0, AppCanvas.cenX, AppCanvas.height2);
                 } else {
-                    graphics.setClip(0, 0, AppCanvas.h, AppCanvas.height2);
+                    graphics.setClip(0, 0, AppCanvas.cenX, AppCanvas.height2);
                 }
             } else {
                 graphics.setClip(0, 0, AppCanvas.width2, AppCanvas.height2);

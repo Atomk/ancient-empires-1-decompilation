@@ -97,7 +97,7 @@ public class f {
             this.m = 0;
             this.b();
         } else {
-            n2 = AppCanvas.h;
+            n2 = AppCanvas.cenX;
             this.var_byte_f = 1;
             this.o = 6;
         }
@@ -124,8 +124,8 @@ public class f {
         if (this.var_h_a != null) {
             this.var_int_d = this.var_h_a.height;
         }
-        this.j = AppCanvas.h / this.var_h_arr_a[0].width;
-        if (AppCanvas.h % this.var_h_arr_a[0].width != 0) {
+        this.j = AppCanvas.cenX / this.var_h_arr_a[0].width;
+        if (AppCanvas.cenX % this.var_h_arr_a[0].width != 0) {
             ++this.j;
         }
         this.n = (AppCanvas.height2 - this.var_int_d) / this.var_h_arr_a[0].height;
@@ -180,7 +180,7 @@ public class f {
         }
         this.var_int_arr_arr_a = new int[unit.var_int_arr_arr_a.length][2];
         for (n = 0; n < this.var_int_arr_arr_a.length; ++n) {
-            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) : (int)((short)(AppCanvas.h - AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) - this.var_e_c.getSpritesWidth()));
+            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) : (int)((short)(AppCanvas.cenX - AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) - this.var_e_c.getSpritesWidth()));
             this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(unit.var_int_arr_arr_a[n][1]);
         }
         this.var_int_arr_c = new int[this.var_byte_a];
@@ -313,7 +313,7 @@ public class f {
                         e3.var_boolean_a = true;
                     }
                     if (this.var_byte_f == 0) {
-                        if (this.var_e_arr_a[j].var_short_b > AppCanvas.h) {
+                        if (this.var_e_arr_a[j].var_short_b > AppCanvas.cenX) {
                             this.var_a_a.var_java_util_Vector_c.removeElement(this.var_e_arr_a[j]);
                             continue;
                         }
@@ -321,7 +321,7 @@ public class f {
                         continue;
                     }
                     if (this.var_byte_f != 1) continue;
-                    if (this.var_e_arr_a[j].var_short_b + this.var_e_arr_a[j].getSpritesWidth() < AppCanvas.h) {
+                    if (this.var_e_arr_a[j].var_short_b + this.var_e_arr_a[j].getSpritesWidth() < AppCanvas.cenX) {
                         this.var_a_a.var_java_util_Vector_c.removeElement(this.var_e_arr_a[j]);
                         continue;
                     }
@@ -638,7 +638,7 @@ public class f {
         if (this.var_h_a != null) {
             int n5 = this.var_h_a.width;
             int x = 0;
-            int n3 = AppCanvas.h / n5;
+            int n3 = AppCanvas.cenX / n5;
             for (int n7 = 0; n7 < n3; ++n7) {
                 this.var_h_a.draw(graphics, x, 0);
                 x += n5;
@@ -646,11 +646,11 @@ public class f {
         }
 
         String txtUnitQuantity = "" + this.unitQuantity;
-        int txtUnitQuantityX = (AppCanvas.h - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, txtUnitQuantity)) / 2;
+        int txtUnitQuantityX = (AppCanvas.cenX - AppCanvas.getSpriteFontTextWidth(AppCanvas.FONT_NUMERIC, txtUnitQuantity)) / 2;
         AppCanvas.drawBoldWhiteText(graphics, txtUnitQuantity, txtUnitQuantityX, 2, AppCanvas.FONT_NUMERIC);
         txtUnitQuantity = null;
 
-        n6 = (AppCanvas.h - this.var_a_a.spritePanelDefense.width) / 2;
+        n6 = (AppCanvas.cenX - this.var_a_a.spritePanelDefense.width) / 2;
         int n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
 
