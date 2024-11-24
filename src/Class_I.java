@@ -1618,8 +1618,8 @@ implements CommandListener {
         if (s4 >= this.mapTilesHeight) {
             s4 = (short)(this.mapTilesHeight - 1);
         }
-        int n = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
-        int n2 = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
+        int minScreenX = this.var_short_f < 0 ? this.var_short_f % 24 : this.var_short_f;
+        int screenY = this.var_short_a < 0 ? this.var_short_a % 24 : this.var_short_a;
         if (this.useRedAreaBorder) {
             // Multiply with red
             graphics.setColor(this.colorRangeBorder & 0xFF0000);
@@ -1627,32 +1627,32 @@ implements CommandListener {
             graphics.setColor(this.colorRangeBorder);
         }
         for (short mapY = s2; mapY <= s4; mapY++) {
-            int n3 = n;
+            int screenX = minScreenX;
             for (short mapX = s; mapX <= s3; mapX++) {
                 // TODO maybe this ethod draws the map
                 byte by = this.mapTerrain[mapX][mapY];
-                this.var_h_arr_c[by].draw(graphics, n3, n2);
+                this.var_h_arr_c[by].draw(graphics, screenX, screenY);
                 if (this.var_byte_arr_j[by] == 8) {
-                    this.var_h_arr_c[by + 1].draw(graphics, n3, n2 - 24);
+                    this.var_h_arr_c[by + 1].draw(graphics, screenX, screenY - 24);
                 }
                 // Draw the movement/attack area border
                 if (this.var_boolean_h && this.unitActionsMatrix[mapX][mapY] > 0) {
                     if (mapX > 0 && this.unitActionsMatrix[mapX - 1][mapY] <= 0) {
-                        graphics.fillRect(n3, n2, 2, 24);
+                        graphics.fillRect(screenX, screenY, 2, 24);
                     }
                     if (mapX < this.mapTilesWidth - 1 && this.unitActionsMatrix[mapX + 1][mapY] <= 0) {
-                        graphics.fillRect(n3 + 24 - 2, n2, 2, 24);
+                        graphics.fillRect(screenX + 24 - 2, screenY, 2, 24);
                     }
                     if (mapY > 0 && this.unitActionsMatrix[mapX][mapY - 1] <= 0) {
-                        graphics.fillRect(n3, n2, 24, 2);
+                        graphics.fillRect(screenX, screenY, 24, 2);
                     }
                     if (mapY < this.mapTilesHeight - 1 && this.unitActionsMatrix[mapX][mapY + 1] <= 0) {
-                        graphics.fillRect(n3, n2 + 24 - 2, 24, 2);
+                        graphics.fillRect(screenX, screenY + 24 - 2, 24, 2);
                     }
                 }
-                n3 += 24;
+                screenX += 24;
             }
-            n2 += 24;
+            screenY += 24;
         }
     }
 
