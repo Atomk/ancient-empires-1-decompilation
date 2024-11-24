@@ -422,7 +422,7 @@ extends SpriteSheet {
     private static final int DIRECTION_LEFT = 4;
     private static final int DIRECTION_RIGHT = 8;
 
-    /** Fills the provided matrix with this unit's pathfinding data. */
+    /** Fills the provided matrix with this unit's pathfinding data for all reachable tiles from its location. */
     public void updatePathfindData(byte[][] byArray) {
         this.pathfindInner(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
     }

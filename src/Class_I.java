@@ -1545,6 +1545,7 @@ implements CommandListener {
         return n2;
     }
 
+    // TODO may have something to do with setting camera pan target
     public void void_a(int n, int n2) {
         this.var_short_f = (short)this.int_b(n);
         this.var_short_a = (short)this.int_a(n2);
@@ -1635,8 +1636,10 @@ implements CommandListener {
                 if (this.var_byte_arr_j[by] == 8) {
                     this.var_h_arr_c[by + 1].draw(graphics, screenX, screenY - 24);
                 }
-                // Draw the movement/attack area border
+                // Draw the movement/attack area border, if this tile is reachable by the currently selected unit
+                // TODO not sure why the unit's location tile has a border too, it should have value > 0
                 if (this.var_boolean_h && this.unitActionsMatrix[mapX][mapY] > 0) {
+                    // Line at current tiles's left. All lines are drawn in the inner side of the tile.
                     if (mapX > 0 && this.unitActionsMatrix[mapX - 1][mapY] <= 0) {
                         graphics.fillRect(screenX, screenY, 2, 24);
                     }

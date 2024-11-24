@@ -57,6 +57,7 @@ CommandListener {
     public a a_instance;
     public int width;
     public int height;
+    // TODO make private to encapsulate / prevent external modification
     public int pressedKeysActions = 0;
     private int lastRequestedAction = ACTION_NONE;
     private long lastKeyPressedTime;
