@@ -576,7 +576,7 @@ extends SpriteSheet {
     public static byte[] getCurrentGameAllowedUnitTypes() {
         byte[] array = new byte[unitsDataPrice.length];
         int buyableUnitsCount = 0;
-        for (byte unitType = 0; unitType <= Unit.iClassRef.strongestBuyableUnit; unitType++) {
+        for (byte unitType = 0; unitType <= Unit.iClassRef.strongestAllowedUnitType; unitType++) {
             // Skips the units you cannot buy (king, skeleton)
             if (unitsDataPrice[unitType] <= 0) continue;
             array[buyableUnitsCount] = unitType;

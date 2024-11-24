@@ -202,7 +202,8 @@ implements CommandListener {
     public int var_int_s = -1;
     public g var_g_i;
     private g _panelMapObjective;
-    public int strongestBuyableUnit = 8;
+    /** The strongest unit that the map/level allows to buy. */
+    public int strongestAllowedUnitType = Unit.WYVERN;
     public g var_g_a;
     public g var_g_d;
     public g var_g_f;
@@ -408,7 +409,7 @@ implements CommandListener {
         dataOutputStream.writeByte(this.levelPlayersCount);
         dataOutputStream.writeByte(this.currentPlayerIndex_XX);
         dataOutputStream.writeShort(this._turnIndex);
-        dataOutputStream.writeByte(this.strongestBuyableUnit);
+        dataOutputStream.writeByte(this.strongestAllowedUnitType);
         for (n = 0; n < this.levelPlayersCount; ++n) {
             dataOutputStream.writeByte(this.var_byte_arr_b[n]);
             dataOutputStream.writeShort(this.playersMoney[n]);
@@ -451,7 +452,7 @@ implements CommandListener {
         this.currentPlayerIndex_XX = dataInputStream.readByte();
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         this._turnIndex = dataInputStream.readShort();
-        this.strongestBuyableUnit = dataInputStream.readByte();
+        this.strongestAllowedUnitType = dataInputStream.readByte();
         for (int n2 = 0; n2 < this.levelPlayersCount; ++n2) {
             this.var_byte_arr_b[n2] = dataInputStream.readByte();
             this.playersMoney[n2] = dataInputStream.readShort();
@@ -750,7 +751,7 @@ implements CommandListener {
         } else if (g2 == this.var_g_d) {
             this.var_byte_arr_b[1] = n == 0 ? (byte)0 : 1;
             this.levelType = LEVEL_TYPE_SKIRMISH;
-            this.strongestBuyableUnit = 8;
+            this.strongestAllowedUnitType = Unit.WYVERN;
             this.var_boolean_l = true;
             appCanvas.repaint();
             appCanvas.serviceRepaints();
@@ -2521,7 +2522,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
-                    this.strongestBuyableUnit = 2;
+                    this.strongestAllowedUnitType = Unit.LIZARD;
                     this.void_b(9, 12);
                     break;
                 }
@@ -2730,7 +2731,7 @@ implements CommandListener {
                 case 1: {
                     this.var_boolean_A = true;
                     this.var_boolean_i = true;
-                    this.strongestBuyableUnit = 5;
+                    this.strongestAllowedUnitType = Unit.SPIDER;
                     this.void_b(2, 0);
                     break;
                 }
@@ -2814,7 +2815,7 @@ implements CommandListener {
         } else if (this.currentLevel == 4) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.strongestBuyableUnit = 7;
+                    this.strongestAllowedUnitType = Unit.CATAPULT;
                     this.void_b(2, 2);
                     break;
                 }
@@ -2876,7 +2877,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
-                    this.strongestBuyableUnit = 8;
+                    this.strongestAllowedUnitType = Unit.WYVERN;
                     this.void_b(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
                     break;
                 }
@@ -2930,7 +2931,7 @@ implements CommandListener {
         } else if (this.currentLevel == 6) {
             switch (this.currentLevelStep) {
                 case 1: {
-                    this.strongestBuyableUnit = 8;
+                    this.strongestAllowedUnitType = Unit.WYVERN;
                     this.void_b(13, 0);
                     break;
                 }
