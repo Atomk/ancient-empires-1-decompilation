@@ -243,7 +243,7 @@ extends Class_I {
                         this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
                     }
                 }
-                if (this.var_boolean_h && this.unitActionsMatrix[mapX][mapY] > 0) {
+                if (this.drawAreaBorder && this.unitActionsMatrix[mapX][mapY] > 0) {
                     if (mapX > 0 && this.unitActionsMatrix[mapX - 1][mapY] <= 0) {
                         graphics.fillRect(x, y, 4, 24);
                     }

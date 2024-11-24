@@ -134,7 +134,8 @@ implements CommandListener {
      * • other value: movement points left after the unit reaches that location
      */
     public byte[][] unitActionsMatrix;
-    public boolean var_boolean_h = false;
+    /** Determines whether to draw the movement/attack area border. */
+    protected boolean drawAreaBorder = false;
     /** True when the action area must be displayed with red lines (for attack range or "raise" range) */
     protected boolean useRedAreaBorder = false;
     public boolean var_boolean_n = true;
@@ -652,7 +653,7 @@ implements CommandListener {
         this.var_boolean_v = true;
         this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
         unit.updatePathfindData(this.unitActionsMatrix);
-        this.var_boolean_h = true;
+        this.drawAreaBorder = true;
         this.useRedAreaBorder = false;
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[2]);
     }
@@ -806,7 +807,7 @@ implements CommandListener {
                 this.var_boolean_v = true;
                 this.targetableUnits_XX = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_ENEMy);
                 this.var_int_w = 0;
-                this.var_boolean_h = true;
+                this.drawAreaBorder = true;
                 this.useRedAreaBorder = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
@@ -835,7 +836,7 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(34))) {  // RAISE
                 this.var_byte_i = (byte)7;
                 this.targetableUnits_XX = this.var_c_h.searchInAttackRange(this.var_c_h.mapX, this.var_c_h.mapY, Unit.FILTER_TOMBSTONE);
-                this.var_boolean_h = true;
+                this.drawAreaBorder = true;
                 this.useRedAreaBorder = true;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
@@ -981,7 +982,7 @@ implements CommandListener {
         this.var_c_h = null;
         this.targetableUnits_XX = new Unit[0];
         this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
-        this.var_boolean_h = false;
+        this.drawAreaBorder = false;
         this.useRedAreaBorder = false;
     }
 
@@ -996,7 +997,7 @@ implements CommandListener {
     public void c(Unit unit) {
         this.b((Unit)null);
         this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
-        this.var_boolean_h = false;
+        this.drawAreaBorder = false;
         if (this.var_boolean_o) {
             return;
         }
@@ -1134,7 +1135,7 @@ implements CommandListener {
                 if (this._pathSteps != null) {
                     this.H = (this.H + 1) % 12;
                 }
-                if (this.var_boolean_h) {
+                if (this.drawAreaBorder) {
                     // This will make the color "pulsate". When the color is white or gets too dark, change increment direction.
                     this.colorRangeBorder += this.colorRangeBorderIncrement;
                     if (this.colorRangeBorder >= 0xFFFFFF) {
@@ -1346,7 +1347,7 @@ implements CommandListener {
                                     this.var_c_h.void_a(this.mapCursorX, this.mapCursorY);
                                     this.b(this.var_c_h);
                                     this.var_boolean_n = false;
-                                    this.var_boolean_h = false;
+                                    this.drawAreaBorder = false;
                                     this._pathSteps = null;
                                     this.var_boolean_r = false;
                                     this.var_boolean_t = false;
@@ -1375,7 +1376,7 @@ implements CommandListener {
                                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                                     this.var_c_h.updateTotalAttackRangeMatrix(this.unitActionsMatrix);
                                     this.useRedAreaBorder = true;
-                                    this.var_boolean_h = true;
+                                    this.drawAreaBorder = true;
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
                             } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(AppCanvas.ACTION_UI_CONFIRM))) {
@@ -1448,7 +1449,7 @@ implements CommandListener {
                 if (this.var_byte_i == 1) {
                     this.var_byte_i = 0;
                     this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
-                    this.var_boolean_h = false;
+                    this.drawAreaBorder = false;
                     this.useRedAreaBorder = false;
                     this._pathSteps = null;
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
@@ -1456,7 +1457,7 @@ implements CommandListener {
                     this.var_c_h = null;
                 } else if (this.var_byte_i == 6) {
                     this.var_byte_i = this.var_byte_e;
-                    this.var_boolean_h = false;
+                    this.drawAreaBorder = false;
                     this.var_g_h.a((byte)8, 0, 40, null, 0);
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
                     this.setMapCursorTo(this.var_c_h.mapX, this.var_c_h.mapY);
@@ -1638,7 +1639,7 @@ implements CommandListener {
                 }
                 // Draw the movement/attack area border, if this tile is reachable by the currently selected unit
                 // TODO not sure why the unit's location tile has a border too, it should have value > 0
-                if (this.var_boolean_h && this.unitActionsMatrix[mapX][mapY] > 0) {
+                if (this.drawAreaBorder && this.unitActionsMatrix[mapX][mapY] > 0) {
                     // Line at current tiles's left. All lines are drawn in the inner side of the tile.
                     if (mapX > 0 && this.unitActionsMatrix[mapX - 1][mapY] <= 0) {
                         graphics.fillRect(screenX, screenY, 2, 24);
@@ -2085,7 +2086,7 @@ implements CommandListener {
                 this.var_byte_b = (byte)5;
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.useRedAreaBorder = true;
-                this.var_boolean_h = true;
+                this.drawAreaBorder = true;
                 this.var_long_j = this.var_long_n;
                 if (this.var_c_g != null) {
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
@@ -2118,7 +2119,7 @@ implements CommandListener {
                     this.var_byte_b = (byte)7;
                     this.var_c_h.void_b();
                 }
-                this.var_boolean_h = false;
+                this.drawAreaBorder = false;
                 this.useRedAreaBorder = false;
             }
         } else if (this.var_byte_b == 7) {
@@ -2144,7 +2145,7 @@ implements CommandListener {
                     }
                 } else if (this.var_int_A == 1) {
                     if (this.var_long_n - this.var_long_j >= 400L) {
-                        this.var_boolean_h = true;
+                        this.drawAreaBorder = true;
                         this.var_int_A = 2;
                         this.var_byte_i = 1;
                         this.var_long_j = this.var_long_n;
@@ -2197,7 +2198,7 @@ implements CommandListener {
                 this.var_boolean_n = true;
                 this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                 this.var_c_h.updatePathfindData(this.unitActionsMatrix);
-                this.var_boolean_h = false;
+                this.drawAreaBorder = false;
                 this.var_c_arr_c = this.c_arr_a(Unit.SOLDIER, -1, this.playerIndex_XX);
                 int n7 = 666;
                 this.var_int_z = -1;
