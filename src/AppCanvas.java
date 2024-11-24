@@ -48,7 +48,7 @@ CommandListener {
     public static int width2;
     public static int height2;
     public static int cenX;
-    public static int f;
+    public static int cenY;
     private static final short[] fontSheetMinASCIIValue;
     private static final short[] fontSheetMaxASCIIValue;
     private static final byte[][] fontSheetOffsetToSpriteIndexTable;
@@ -83,7 +83,7 @@ CommandListener {
             height2 = this.height;
             // Right shift divides by two
             cenX = width2 >> 1;
-            f = height2 >> 1;
+            cenY = height2 >> 1;
             this.appDisplay = Display.getDisplay((MIDlet)mIDlet);
             this.appDisplay.setCurrent((Displayable)this);
             // Executes the run() method of this class on another thread
