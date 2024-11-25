@@ -1962,7 +1962,7 @@ implements CommandListener {
         this.K = n;
         this.var_int_u = s;
         this.var_boolean_v = true;
-        if (this.int_a(-1, 0, this.playerIndex_XX) <= 0) {
+        if (this.searchUnitsCount(SEARCH_ANY, 0, this.playerIndex_XX) <= 0) {
             this.startNextTurn();
         }
     }
@@ -1996,8 +1996,14 @@ implements CommandListener {
         return this.int_a(mapX, mapY) == playerIndex;
     }
 
-    private int int_a(int unitType, int unitState, byte playerIndex) {
-        return this.searchUnits(unitType, unitState, playerIndex).length;
+    /**
+     * Returns the number of units found using the provided search parameters.
+     * @param unitType Pass a value like Unit.SOLDIER, or pass ANY to allow any type.
+     * @param unitState Pass a value like Unit.STATE_* or pass ANY to allow any state.
+     * @param playerID Unit must be owned by this player.
+     */
+    private int searchUnitsCount(int unitType, int unitState, byte playerID) {
+        return this.searchUnits(unitType, unitState, playerID).length;
     }
 
     final int SEARCH_ANY = -1;
@@ -2185,15 +2191,15 @@ implements CommandListener {
                 Unit c2 = this.mapUnitsList.elementAt(j);
                 if (c2.owner != this.playerIndex_XX || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
-                    if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
+                    if (this.searchUnitsCount(SEARCH_ANY, 0, this.playerIndex_XX) != 1) continue;
                     if (this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
-                        if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
+                        if (this.searchUnitsCount(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             int n7 = 0;
                             byte[] byArray = new byte[11];
                             for (int unitType = Unit.ARCHER; unitType < 11; unitType++) {
-                                if (this.int_a(unitType, -1, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
+                                if (this.searchUnitsCount(unitType, SEARCH_ANY, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
                                 byArray[n7] = (byte)unitType;
                                 ++n7;
                             }
@@ -2481,7 +2487,7 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    if (this.int_a(-1, Unit.STATE_ALREADY_ACTED, PLAYER_BLUE) >= 3) {
+                    if (this.searchUnitsCount(SEARCH_ANY, Unit.STATE_ALREADY_ACTED, PLAYER_BLUE) >= 3) {
                         this.var_int_s = 4;
                         ++this.currentLevelStep;
                         break;
@@ -2533,7 +2539,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-            if (this.int_a(-1, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
+            if (this.searchUnitsCount(SEARCH_ANY, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
                 this.i();
             }
         } else if (this.currentLevel == 1) {
@@ -2663,8 +2669,7 @@ implements CommandListener {
                     break;
                 }
                 case 22: {
-                    // TODO what is unitType -1? (first argument)
-                    if (this.int_a(-1, -1, PLAYER_RED) != this.int_a(-1, Unit.STATE_TOMBSTONE, PLAYER_RED)) break;
+                    if (this.searchUnitsCount(SEARCH_ANY, SEARCH_ANY, PLAYER_RED) != this.searchUnitsCount(SEARCH_ANY, Unit.STATE_TOMBSTONE, PLAYER_RED)) break;
                     this.void_b(500);
                     ++this.currentLevelStep;
                     break;
@@ -2730,7 +2735,7 @@ implements CommandListener {
                 if (this._mapKings[PLAYER_BLUE].mapX == 1 && this._mapKings[PLAYER_BLUE].mapY == 13 && this._mapKings[PLAYER_BLUE].state == Unit.STATE_ALREADY_ACTED) {
                     this.g();
                 }
-                if (this.int_a(Unit.LIZARD, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
+                if (this.searchUnitsCount(Unit.LIZARD, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
                     this.i();
                 }
             }
