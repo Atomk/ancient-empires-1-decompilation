@@ -2001,6 +2001,7 @@ implements CommandListener {
     }
 
     private Unit[] c_arr_a(int unitType, int unitState, byte playerIndex) {
+        final int ANY = -1;
         Vector<Unit> vector = new Vector<Unit>();
         int unitsCount = this.mapUnitsList.size();
         for (int j = 0; j < unitsCount; ++j) {
@@ -2009,7 +2010,8 @@ implements CommandListener {
             // Unit must be owned by the player
             if (unit.owner != playerIndex) continue;
 
-            if (unitType != -1 && unit.unitType != unitType) continue;
+            // Skip iteration if you (require unit to be a specific type) and (it's not that type)
+            if (unitType != ANY && unit.unitType != unitType) continue;
             if((unitState != -1 || unitState == Unit.STATE_TOMBSTONE) && unitState != unit.state) continue;
 
             /*
