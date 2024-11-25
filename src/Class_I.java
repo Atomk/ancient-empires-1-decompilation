@@ -90,7 +90,7 @@ implements CommandListener {
     public static final byte[] terrainMovCost;
     public int var_int_t;
     public Sprite[] miniMapTerrainTiles;
-    public byte[] var_byte_arr_j;
+    public byte[] tileIdToTerrainType;
     private short _mapPixelsWidth;
     private short _mapPixelsHeight;
     public short var_short_f;
@@ -325,14 +325,16 @@ implements CommandListener {
             }
         }
 
+        // TThis is the only time the game reads a ".prop" file
         InputStream inputStream = AppCanvas.getFileBytesInputStream("tiles0.prop");
         DataInputStream dataInputStream = new DataInputStream(inputStream);
-        short s2 = dataInputStream.readShort();
+        short numTerrainTiles = dataInputStream.readShort();
         /*short s3 = */dataInputStream.readShort();   // Unused variable
-        this.var_byte_arr_j = new byte[s2];
-        for (short s = 0; s < s2; s++) {
-            this.var_byte_arr_j[s] = dataInputStream.readByte();
+        this.tileIdToTerrainType = new byte[numTerrainTiles];
+        for (short i = 0; i < numTerrainTiles; i++) {
+            this.tileIdToTerrainType[i] = dataInputStream.readByte();
         }
+        // TODO should close inputStream and dataInputStream...
 
         SpriteSheet tempSpritesheet = new SpriteSheet("tiles0");
         Sprite[] hArray = tempSpritesheet.sprites;
@@ -1640,7 +1642,7 @@ implements CommandListener {
                 // TODO maybe this ethod draws the map
                 byte by = this.mapTerrain[mapX][mapY];
                 this.var_h_arr_c[by].draw(graphics, screenX, screenY);
-                if (this.var_byte_arr_j[by] == 8) {
+                if (this.tileIdToTerrainType[by] == 8) {
                     this.var_h_arr_c[by + 1].draw(graphics, screenX, screenY - 24);
                 }
                 // Draw the movement/attack area border, if this tile is reachable by the currently selected unit
@@ -1892,7 +1894,7 @@ implements CommandListener {
     }
 
     public byte getTerrainType_ZZ(int xIndex, int yIndex) {
-        return this.var_byte_arr_j[this.mapTerrain[xIndex][yIndex]];
+        return this.tileIdToTerrainType[this.mapTerrain[xIndex][yIndex]];
     }
 
     /** Returns the defence a certain terrain type provides to a specific tyoe of unit. */
