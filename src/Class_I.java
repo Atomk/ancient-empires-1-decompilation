@@ -2341,7 +2341,8 @@ implements CommandListener {
             n5 += n6 * n6;
         }
         int manhattanDist = Math.abs(mapX - c2.mapX) + Math.abs(mapY - c2.mapY);
-        return n5 += 10 * manhattanDist / (Unit.unitsDataMOV[c2.unitType] - 1);
+        n5 += 10 * manhattanDist / (Unit.unitsDataMOV[c2.unitType] - 1);
+        return n5;
     }
 
     public void void_b(int n) {
