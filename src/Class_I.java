@@ -2199,16 +2199,16 @@ implements CommandListener {
                         if (this.searchUnitsCount(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
-                            int n7 = 0;
-                            byte[] byArray = new byte[Unit.unitsDataPrice.length];
+                            int suitableUnitsCount = 0;
+                            byte[] suitableUnits = new byte[Unit.unitsDataPrice.length];
                             // Start from archer because soldiers were handled in the other if branch
-                            for (int unitType = Unit.ARCHER; unitType < Unit.unitsDataPrice.length; unitType++) {
+                            for (byte unitType = Unit.ARCHER; unitType < Unit.unitsDataPrice.length; unitType++) {
                                 if (this.searchUnitsCount(unitType, SEARCH_ANY, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
-                                byArray[n7] = (byte)unitType;
-                                ++n7;
+                                suitableUnits[suitableUnitsCount] = unitType;
+                                ++suitableUnitsCount;
                             }
-                            if (n7 > 0) {
-                                byte n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
+                            if (suitableUnitsCount > 0) {
+                                byte n6 = suitableUnits[Math.abs(AppCanvas.randomInt()) % suitableUnitsCount];
                                 c2 = this.buyUnitAndSpawnAtCoords(n6, c2.mapX, c2.mapY);
                             }
                         }
