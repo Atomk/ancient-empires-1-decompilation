@@ -239,7 +239,7 @@ extends Class_I {
                 }
                 if (this.tileIdToTerrainType[by = this.mapTerrain[mapX][mapY]] != 1) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
-                    if (this.tileIdToTerrainType[by] == 8) {
+                    if (this.tileIdToTerrainType[by] == f.TERRAIN_CASTLE) {
                         this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
                     }
                 }

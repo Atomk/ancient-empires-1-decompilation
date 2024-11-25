@@ -1642,7 +1642,7 @@ implements CommandListener {
                 // TODO maybe this ethod draws the map
                 byte by = this.mapTerrain[mapX][mapY];
                 this.var_h_arr_c[by].draw(graphics, screenX, screenY);
-                if (this.tileIdToTerrainType[by] == 8) {
+                if (this.tileIdToTerrainType[by] == f.TERRAIN_CASTLE) {
                     this.var_h_arr_c[by + 1].draw(graphics, screenX, screenY - 24);
                 }
                 // Draw the movement/attack area border, if this tile is reachable by the currently selected unit
