@@ -2012,7 +2012,7 @@ implements CommandListener {
 
             // Skip iteration if you (require unit to be a specific type) and (it's not that type)
             if (unitType != ANY && unit.unitType != unitType) continue;
-            if(!(unitState != -1 || unitState == Unit.STATE_TOMBSTONE) || unitState == unit.state) {
+            if((unitState == -1 && unitState != Unit.STATE_TOMBSTONE) || unitState == unit.state) {
                 vector.addElement(unit);
             }
 
