@@ -339,14 +339,17 @@ implements CommandListener {
         this.var_int_t = hArray.length;
         tempSpritesheet = null;
 
-        byte[] imageBytes = AppCanvas.getFileBytes("buildings.png");
+        byte[] imgBuildingsBytes = AppCanvas.getFileBytes("buildings.png");
+        // The "buildings" image contains 3 tiles for the BLUE building, the code creates other 2 copies for red and neutral player
         Sprite[] buildingsSpritesArr = new Sprite[9];
-        for (byte playerIndex = 0; playerIndex <= 2; playerIndex++) {
-            byte[] byArray3 = new byte[imageBytes.length];
-            System.arraycopy(imageBytes, 0, byArray3, 0, imageBytes.length);
-            Sprite h2 = Sprite.fromByteArray(byArray3, playerIndex);
-            for (short unitType = 0; unitType < 3; unitType++) {
-                buildingsSpritesArr[playerIndex * 3 + unitType] = new Sprite(h2, unitType, 0, 24, 24);
+        for (byte playerIndex = 0; playerIndex <= PLAYER_NEUTRAL; playerIndex++) {
+            byte[] imgCopy = new byte[imgBuildingsBytes.length];
+            System.arraycopy(imgBuildingsBytes, 0, imgCopy, 0, imgBuildingsBytes.length);
+            Sprite buildingsTilesetWithPlayerColor = Sprite.fromByteArray(imgCopy, playerIndex);
+            for (short tileIndex = 0; tileIndex < 3; tileIndex++) {
+                // Each item of this array will be a single tile from the buildings tileset, colored for a specific player.
+                // blue_ton, blue_castle, blue_castle_top, red_town, red_castle, red_castle_top, neutral_tow, neutral_castle, neutral_castle_topn
+                buildingsSpritesArr[playerIndex * 3 + tileIndex] = new Sprite(buildingsTilesetWithPlayerColor, tileIndex, 0, 24, 24);
             }
         }
         this.var_h_arr_c = new Sprite[hArray.length + buildingsSpritesArr.length];
