@@ -92,22 +92,22 @@ public class Sprite {
                 n7 = Sprite.a(imageBytes[n4 + i], n7);
             }
             for (int i = n4 += 4; i < n4 + n6; i += 3) {
-                int n8 = imageBytes[i] & 0xFF;
-                int n9 = imageBytes[i + 1] & 0xFF;
-                int n10 = imageBytes[i + 2] & 0xFF;
-                if (n10 > n8 && n10 > n9) {
+                int R = imageBytes[i] & 0xFF;
+                int G = imageBytes[i + 1] & 0xFF;
+                int B = imageBytes[i + 2] & 0xFF;
+                if (B > R && B > G) {
                     if (playerIndex == Class_I.PLAYER_RED) {
-                        int n11 = n8;
-                        n8 = n10;
-                        n10 = n11;
-                        n9 /= 2;
+                        int n11 = R;
+                        R = B;
+                        B = n11;
+                        G /= 2;
                     } else if (playerIndex == Class_I.PLAYER_NEUTRAL) {
-                        n8 = n10;
-                        n9 = n10;
+                        R = B;
+                        G = B;
                     }
-                    imageBytes[i] = (byte)n8;
-                    imageBytes[i + 1] = (byte)n9;
-                    imageBytes[i + 2] = (byte)n10;
+                    imageBytes[i] = (byte)R;
+                    imageBytes[i + 1] = (byte)G;
+                    imageBytes[i + 2] = (byte)B;
                 }
                 n7 = Sprite.a(imageBytes[i], n7);
                 n7 = Sprite.a(imageBytes[i + 1], n7);
