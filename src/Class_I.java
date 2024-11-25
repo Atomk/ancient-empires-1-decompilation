@@ -1640,10 +1640,12 @@ implements CommandListener {
             int screenX = minScreenX;
             for (short mapX = s; mapX <= s3; mapX++) {
                 // TODO maybe this ethod draws the map
-                byte by = this.mapTerrain[mapX][mapY];
-                this.var_h_arr_c[by].draw(graphics, screenX, screenY);
-                if (this.tileIdToTerrainType[by] == f.TERRAIN_CASTLE) {
-                    this.var_h_arr_c[by + 1].draw(graphics, screenX, screenY - 24);
+                byte tileIndex = this.mapTerrain[mapX][mapY];
+                this.var_h_arr_c[tileIndex].draw(graphics, screenX, screenY);
+                // TODO should use the method "getTerrainType"
+                if (this.tileIdToTerrainType[tileIndex] == f.TERRAIN_CASTLE) {
+                    // Draws the top part of the castle
+                    this.var_h_arr_c[tileIndex + 1].draw(graphics, screenX, screenY - 24);
                 }
                 // Draw the movement/attack area border, if this tile is reachable by the currently selected unit
                 // TODO not sure why the unit's location tile has a border too, it should have value > 0
