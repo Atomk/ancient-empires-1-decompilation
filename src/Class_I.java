@@ -2011,18 +2011,10 @@ implements CommandListener {
             if (unit.owner != playerIndex) continue;
 
             if (unitType == ANY || unit.unitType == unitType)  {
-                if((unitState == -1 && unitState != Unit.STATE_TOMBSTONE) || unitState == unit.state) {
+                if(unitState == ANY || unitState == unit.state) {
                     vector.addElement(unit);
                 }
             }
-
-            /*
-            if (
-                ((unitType != -1) && (unit.unitType != unitType))
-                || ((n2 != -1 || n2 == 3) && (n2 != unit.var_byte_e))
-                || (unit.owner != playerIndex)
-            ) continue;
-             */
         }
         Unit[] unitsArray = new Unit[vector.size()];
         vector.copyInto(unitsArray);
