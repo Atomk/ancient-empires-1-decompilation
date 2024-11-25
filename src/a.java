@@ -237,11 +237,11 @@ extends Class_I {
                 if (by > 0) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
                 }
-                by = this.mapTerrain[mapX][mapY];
-                if (this.tileIdToTerrainType[by] != f.TERRAIN_GRASS) {
-                    this.var_h_arr_c[by].draw(graphics, x, y);
-                    if (this.tileIdToTerrainType[by] == f.TERRAIN_CASTLE) {
-                        this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
+                byte tileIndex = this.mapTerrain[mapX][mapY];
+                if (this.tileIdToTerrainType[tileIndex] != f.TERRAIN_GRASS) {
+                    this.var_h_arr_c[tileIndex].draw(graphics, x, y);
+                    if (this.tileIdToTerrainType[tileIndex] == f.TERRAIN_CASTLE) {
+                        this.var_h_arr_c[tileIndex + 1].draw(graphics, x, y - 24);
                     }
                 }
                 if (this.drawAreaBorder && this.unitActionsMatrix[mapX][mapY] > 0) {
