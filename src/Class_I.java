@@ -408,7 +408,6 @@ implements CommandListener {
     //public void n() { }   // unused
 
     public byte[] getGameSaveData() throws Exception {
-        int n;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
         dataOutputStream.writeByte(this.levelType);
@@ -417,18 +416,18 @@ implements CommandListener {
         dataOutputStream.writeByte(this.currentPlayerIndex_XX);
         dataOutputStream.writeShort(this._turnIndex);
         dataOutputStream.writeByte(this.strongestAllowedUnitType);
-        for (n = 0; n < this.levelPlayersCount; ++n) {
-            dataOutputStream.writeByte(this.var_byte_arr_b[n]);
-            dataOutputStream.writeShort(this.playersMoney[n]);
+        for (int i = 0; i < this.levelPlayersCount; ++i) {
+            dataOutputStream.writeByte(this.var_byte_arr_b[i]);
+            dataOutputStream.writeShort(this.playersMoney[i]);
         }
-        for (n = 0; n < this.var_byte_arr_arr_e.length; ++n) {
-            if (this.mapTerrain[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]] < this.var_int_t) continue;
-            dataOutputStream.writeByte(this.mapTerrain[this.var_byte_arr_arr_e[n][0]][this.var_byte_arr_arr_e[n][1]]);
+        for (int i = 0; i < this.var_byte_arr_arr_e.length; ++i) {
+            if (this.mapTerrain[this.var_byte_arr_arr_e[i][0]][this.var_byte_arr_arr_e[i][1]] < this.var_int_t) continue;
+            dataOutputStream.writeByte(this.mapTerrain[this.var_byte_arr_arr_e[i][0]][this.var_byte_arr_arr_e[i][1]]);
         }
         dataOutputStream.writeByte(this.mapUnitsList.size());
         int unitsCount = this.mapUnitsList.size();
-        for (n = 0; n < unitsCount; ++n) {
-            Unit unit = this.mapUnitsList.elementAt(n);
+        for (int i = 0; i < unitsCount; ++i) {
+            Unit unit = this.mapUnitsList.elementAt(i);
             dataOutputStream.writeByte(unit.unitType);
             dataOutputStream.writeByte(unit.owner);
             dataOutputStream.writeByte(unit.state);
@@ -460,18 +459,18 @@ implements CommandListener {
         this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
         this._turnIndex = dataInputStream.readShort();
         this.strongestAllowedUnitType = dataInputStream.readByte();
-        for (int n2 = 0; n2 < this.levelPlayersCount; ++n2) {
-            this.var_byte_arr_b[n2] = dataInputStream.readByte();
-            this.playersMoney[n2] = dataInputStream.readShort();
+        for (int i = 0; i < this.levelPlayersCount; ++i) {
+            this.var_byte_arr_b[i] = dataInputStream.readByte();
+            this.playersMoney[i] = dataInputStream.readShort();
         }
-        for (int n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
-            if (this.mapTerrain[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] < this.var_int_t)
+        for (int i = 0; i < this.var_byte_arr_arr_e.length; ++i) {
+            if (this.mapTerrain[this.var_byte_arr_arr_e[i][0]][this.var_byte_arr_arr_e[i][1]] < this.var_int_t)
                 continue;
-            this.mapTerrain[this.var_byte_arr_arr_e[n2][0]][this.var_byte_arr_arr_e[n2][1]] = dataInputStream.readByte();
+            this.mapTerrain[this.var_byte_arr_arr_e[i][0]][this.var_byte_arr_arr_e[i][1]] = dataInputStream.readByte();
         }
         this.mapUnitsList = new Vector<Unit>();
         int unitsCount = dataInputStream.readByte();
-        for (int n = 0; n < unitsCount; ++n) {
+        for (int i = 0; i < unitsCount; ++i) {
             byte unitType = dataInputStream.readByte();
             byte unitOwner = dataInputStream.readByte();
             byte unitState = dataInputStream.readByte();
@@ -519,8 +518,8 @@ implements CommandListener {
         }
 
         if (this.currentLevel == 2) {
-            for (int n = 5; n < 10; ++n) {
-                this.mapTerrain[n][12] = waterTilesIndex[0];
+            for (int i = 5; i < 10; ++i) {
+                this.mapTerrain[i][12] = waterTilesIndex[0];
             }
         }
 
@@ -536,8 +535,8 @@ implements CommandListener {
     public static void loadSettingsData() {
         try {
             byte[] settingsData = appCanvas.loadPersistentData("settings");
-            for (int j = 0; j < AppCanvas.settings.length; ++j) {
-                AppCanvas.settings[j] = (settingsData[0] & 1 << j) != 0;
+            for (int i = 0; i < AppCanvas.settings.length; ++i) {
+                AppCanvas.settings[i] = (settingsData[0] & 1 << i) != 0;
             }
         }
         catch (Exception exception) {
@@ -548,10 +547,10 @@ implements CommandListener {
     private void updateSettings() {
         try {
             boolean valuesChanged = false;
-            for (int j = 0; j < AppCanvas.settings.length; ++j) {
-                boolean isChoiceSelected = this.choiceGroupSettings.isSelected(j);
-                if (isChoiceSelected == AppCanvas.settings[j]) continue;
-                AppCanvas.settings[j] = isChoiceSelected;
+            for (int i = 0; i < AppCanvas.settings.length; ++i) {
+                boolean isChoiceSelected = this.choiceGroupSettings.isSelected(i);
+                if (isChoiceSelected == AppCanvas.settings[i]) continue;
+                AppCanvas.settings[i] = isChoiceSelected;
                 valuesChanged = true;
             }
             if (valuesChanged) {
@@ -2208,8 +2207,8 @@ implements CommandListener {
                                 ++suitableUnitsCount;
                             }
                             if (suitableUnitsCount > 0) {
-                                byte n6 = suitableUnits[Math.abs(AppCanvas.randomInt()) % suitableUnitsCount];
-                                c2 = this.buyUnitAndSpawnAtCoords(n6, c2.mapX, c2.mapY);
+                                byte randomType = suitableUnits[Math.abs(AppCanvas.randomInt()) % suitableUnitsCount];
+                                c2 = this.buyUnitAndSpawnAtCoords(randomType, c2.mapX, c2.mapY);
                             }
                         }
                     }

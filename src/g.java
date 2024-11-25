@@ -977,11 +977,11 @@ public class g {
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
 
                     int y = 0;
-                    for (int yIndex = 0; yIndex < this.var_a_a.mapTilesHeight; ++yIndex) {
+                    for (int mapY = 0; mapY < this.var_a_a.mapTilesHeight; ++mapY) {
                         int x = 0;
-                        for (int xIndex = 0; xIndex < this.var_a_a.mapTilesWidth; ++xIndex) {
-                            int terrainType = this.var_a_a.getTerrainType(xIndex, yIndex);
-                            int n32 = this.var_a_a.int_a(xIndex, yIndex);
+                        for (int mapX = 0; mapX < this.var_a_a.mapTilesWidth; ++mapX) {
+                            int terrainType = this.var_a_a.getTerrainType(mapX, mapY);
+                            int n32 = this.var_a_a.int_a(mapX, mapY);
                             if (n32 >= 0) {
                                 terrainType = 2 * (n32 + 1) + 7 + terrainType - 7;
                             }
