@@ -2305,7 +2305,12 @@ implements CommandListener {
             }
         }
         if (c3 != null) {
-            n5 = !c3.canCounterattackMelee(c2, mapX, mapY) ? (n5 += c2.int_a(mapX, mapY) * 2) : (n5 += c2.int_a(mapX, mapY) - c3.int_a(mapX, mapY) + 10 - c3.quantity);
+            if(!c3.canCounterattackMelee(c2, mapX, mapY)) {
+                n5 += c2.int_a(mapX, mapY) * 2;
+            }
+            else {
+                n5 += c2.int_a(mapX, mapY) - c3.int_a(mapX, mapY) + 10 - c3.quantity;
+            }
             if (c3.unitType == Unit.KING) {
                 n5 += 10;
             }
