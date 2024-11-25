@@ -2272,7 +2272,8 @@ implements CommandListener {
         }
     }
 
-    private int a(Unit c2, int mapX, int mapY, Unit c3, Unit c4) {
+    // TODO I'm guessing this method returns the AI value of a specific action, like a basic chess AI
+    private int a(Unit c2, int mapX, int mapY, Unit c3, Unit tombstone) {
         int n5 = 0;
         switch (c2.unitType) {
             case Unit.SOLDIER: {
@@ -2293,7 +2294,7 @@ implements CommandListener {
                 break;
             }
             case Unit.WIZARD: {
-                if (c4 == null) break;
+                if (tombstone == null) break;
                 n5 += 100;
                 break;
             }
