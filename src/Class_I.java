@@ -2010,10 +2010,10 @@ implements CommandListener {
             // Unit must be owned by the player
             if (unit.owner != playerIndex) continue;
 
-            // Skip iteration if you (require unit to be a specific type) and (it's not that type)
-            if (unitType != ANY && unit.unitType != unitType) continue;
-            if((unitState == -1 && unitState != Unit.STATE_TOMBSTONE) || unitState == unit.state) {
-                vector.addElement(unit);
+            if (unitType == ANY || unit.unitType == unitType)  {
+                if((unitState == -1 && unitState != Unit.STATE_TOMBSTONE) || unitState == unit.state) {
+                    vector.addElement(unit);
+                }
             }
 
             /*
