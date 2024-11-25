@@ -2192,20 +2192,24 @@ implements CommandListener {
                 if (c2.owner != this.playerIndex_XX || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.searchUnitsCount(SEARCH_ANY, 0, this.playerIndex_XX) != 1) continue;
+                    // If the king is at the castle, try to buy exactly one unit
+                    // The eventual new unit will be spawned immediately and added at the end of the units list,
+                    // but will not perform its turn again since the loop stops iterating at the old unitsCount
                     if (this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
                         if (this.searchUnitsCount(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             int n7 = 0;
-                            byte[] byArray = new byte[11];
-                            for (int unitType = Unit.ARCHER; unitType < 11; unitType++) {
+                            byte[] byArray = new byte[Unit.unitsDataPrice.length];
+                            // Start from archer because soldiers were handled in the other if branch
+                            for (int unitType = Unit.ARCHER; unitType < Unit.unitsDataPrice.length; unitType++) {
                                 if (this.searchUnitsCount(unitType, SEARCH_ANY, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
                                 byArray[n7] = (byte)unitType;
                                 ++n7;
                             }
                             if (n7 > 0) {
-                                int n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
-                                c2 = this.buyUnitAndSpawnAtCoords((byte)n6, c2.mapX, c2.mapY);
+                                byte n6 = byArray[Math.abs(AppCanvas.randomInt()) % n7];
+                                c2 = this.buyUnitAndSpawnAtCoords(n6, c2.mapX, c2.mapY);
                             }
                         }
                     }
