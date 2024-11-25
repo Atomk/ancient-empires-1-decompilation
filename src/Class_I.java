@@ -1997,21 +1997,27 @@ implements CommandListener {
     }
 
     private int int_a(int unitType, int unitState, byte playerIndex) {
-        return this.c_arr_a(unitType, unitState, playerIndex).length;
+        return this.searchUnits(unitType, unitState, playerIndex).length;
     }
 
-    private Unit[] c_arr_a(int unitType, int unitState, byte playerIndex) {
-        final int ANY = -1;
+    final int SEARCH_ANY = -1;
+
+    /**
+     * Returns an array of all units owned by a specific player that also respect some conditions.
+     * @param type Unit type. Pass a value like Unit.SOLDIER, or pass ANY to allow any type.
+     * @param state Unit state. Pass a value like Unit.STATE_* or pass ANY to allow any state.
+     * @param playerID Unit must be owned by this player.
+     */
+    private Unit[] searchUnits(int type, int state, byte playerID) {
         Vector<Unit> vector = new Vector<Unit>();
         int unitsCount = this.mapUnitsList.size();
-        for (int j = 0; j < unitsCount; ++j) {
-            Unit unit = this.mapUnitsList.elementAt(j);
+        for (int i = 0; i < unitsCount; ++i) {
+            Unit unit = this.mapUnitsList.elementAt(i);
 
-            // Unit must be owned by the player
-            if (unit.owner != playerIndex) continue;
+            if (unit.owner != playerID) continue;
 
-            if (unitType == ANY || unit.unitType == unitType)  {
-                if(unitState == ANY || unitState == unit.state) {
+            if (type == SEARCH_ANY || unit.unitType == type)  {
+                if(state == SEARCH_ANY || state == unit.state) {
                     vector.addElement(unit);
                 }
             }
@@ -2205,7 +2211,7 @@ implements CommandListener {
                 this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                 this.var_c_h.updatePathfindData(this.unitActionsMatrix);
                 this.drawAreaBorder = false;
-                this.var_c_arr_c = this.c_arr_a(Unit.SOLDIER, -1, this.playerIndex_XX);
+                this.var_c_arr_c = this.searchUnits(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX);
                 int n7 = 666;
                 this.var_int_z = -1;
                 for (int n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
