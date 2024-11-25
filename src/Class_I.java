@@ -2272,15 +2272,15 @@ implements CommandListener {
         }
     }
 
-    private int a(Unit c2, int n, int n2, Unit c3, Unit c4) {
+    private int a(Unit c2, int mapX, int mapY, Unit c3, Unit c4) {
         int n5 = 0;
         switch (c2.unitType) {
             case Unit.SOLDIER: {
                 if (this._mapKings[c2.owner] != null && this.var_int_z != -1) {
-                    int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
+                    int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - mapX) + this.mapTilesHeight - Math.abs(this.var_int_o - mapY);
                     n5 += n4 * n4;
                 }
-                if (terrainMovCost[this.getTerrainType(n, n2)] <= 1) {
+                if (terrainMovCost[this.getTerrainType(mapX, mapY)] <= 1) {
                     n5 += 5;
                 }
                 for (short i = 0; i < this.var_c_arr_c.length; ++i) {
@@ -2288,7 +2288,7 @@ implements CommandListener {
                     int n3 = this.var_c_arr_c[i].mapX - c2.mapX + (this.var_c_arr_c[i].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
-                if (this.getTerrainType(n, n2) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(n, n2, c2.owner) || c3 != null) break;
+                if (this.getTerrainType(mapX, mapY) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(mapX, mapY, c2.owner) || c3 != null) break;
                 n5 += 200;
                 break;
             }
@@ -2298,33 +2298,33 @@ implements CommandListener {
                 break;
             }
             case Unit.KING: {
-                if (n != c2.mapX || n2 != c2.mapY) break;
+                if (mapX != c2.mapX || mapY != c2.mapY) break;
                 n5 += 200;
                 break;
             }
         }
         if (c3 != null) {
-            n5 = !c3.canCounterattackMelee(c2, n, n2) ? (n5 += c2.int_a(n, n2) * 2) : (n5 += c2.int_a(n, n2) - c3.int_a(n, n2) + 10 - c3.quantity);
+            n5 = !c3.canCounterattackMelee(c2, mapX, mapY) ? (n5 += c2.int_a(mapX, mapY) * 2) : (n5 += c2.int_a(mapX, mapY) - c3.int_a(mapX, mapY) + 10 - c3.quantity);
             if (c3.unitType == Unit.KING) {
                 n5 += 10;
             }
         }
-        n5 += this.getTerrainDefenceForUnit(this.getTerrainType(n, n2), c2) * 2;
+        n5 += this.getTerrainDefenceForUnit(this.getTerrainType(mapX, mapY), c2) * 2;
         for (byte playerId = 0; playerId < this._mapKings.length; ++playerId) {
             if (playerId == this.currentPlayerIndex_XX || this._mapKings[playerId] == null) continue;
-            n5 += (this.mapTilesWidth - Math.abs(n - this._mapKings[playerId].mapX) + this.mapTilesHeight - Math.abs(n2 - this._mapKings[playerId].mapY)) * 2;
+            n5 += (this.mapTilesWidth - Math.abs(mapX - this._mapKings[playerId].mapX) + this.mapTilesHeight - Math.abs(mapY - this._mapKings[playerId].mapY)) * 2;
             break;
         }
-        if (this.getTerrainType(n, n2) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(n, n2, c2.owner)) {
+        if (this.getTerrainType(mapX, mapY) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(mapX, mapY, c2.owner)) {
             n5 += (10 - c2.quantity) * 2;
         }
         if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {
-            int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
+            int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - mapX) + this.mapTilesHeight - Math.abs(this.var_int_o - mapY);
             n5 += n4 * n4;
         }
         if (this.currentLevel == 2 && this.var_int_z != -1) {
-            int n4 = Math.abs(this.var_int_z - n) - 1;
-            int n3 = Math.abs(this.var_int_o - n2) - 3;
+            int n4 = Math.abs(this.var_int_z - mapX) - 1;
+            int n3 = Math.abs(this.var_int_o - mapY) - 3;
             if (n4 < 0) {
                 n4 = 0;
             }
@@ -2334,7 +2334,7 @@ implements CommandListener {
             int n6 = this.mapTilesWidth - n4 * 2 + this.mapTilesHeight - n3 * 2;
             n5 += n6 * n6;
         }
-        int manhattanDist = Math.abs(n - c2.mapX) + Math.abs(n2 - c2.mapY);
+        int manhattanDist = Math.abs(mapX - c2.mapX) + Math.abs(mapY - c2.mapY);
         return n5 += 10 * manhattanDist / (Unit.unitsDataMOV[c2.unitType] - 1);
     }
 
