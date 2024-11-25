@@ -1996,11 +1996,11 @@ implements CommandListener {
         return this.int_a(mapX, mapY) == playerIndex;
     }
 
-    private int int_a(int unitType, int n2, byte playerIndex) {
-        return this.c_arr_a(unitType, n2, playerIndex).length;
+    private int int_a(int unitType, int unitState, byte playerIndex) {
+        return this.c_arr_a(unitType, unitState, playerIndex).length;
     }
 
-    private Unit[] c_arr_a(int unitType, int n2, byte playerIndex) {
+    private Unit[] c_arr_a(int unitType, int unitState, byte playerIndex) {
         Vector<Unit> vector = new Vector<Unit>();
         int unitsCount = this.mapUnitsList.size();
         for (int j = 0; j < unitsCount; ++j) {
@@ -2009,7 +2009,7 @@ implements CommandListener {
             // Unit must be owned by the player
             if (unit.owner != playerIndex) continue;
 
-            if (unitType != -1 && unit.unitType != unitType || (n2 != -1 || n2 == 3) && n2 != unit.state) continue;
+            if (unitType != -1 && unit.unitType != unitType || (unitState != -1 || unitState == 3) && unitState != unit.state) continue;
 
             /*
             if (
