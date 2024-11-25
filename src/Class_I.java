@@ -42,6 +42,8 @@ implements CommandListener {
 
     public static final byte PLAYER_BLUE = 0;
     public static final byte PLAYER_RED = 1;
+    /** Used just to generate the images for buildings without owner. */
+    public static final byte PLAYER_NEUTRAL = 2;
 
     private static final byte LEVEL_TYPE_CAMPAIGN = 0;
     private static final byte LEVEL_TYPE_SKIRMISH = 1;

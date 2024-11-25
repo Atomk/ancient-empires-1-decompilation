@@ -101,8 +101,7 @@ public class Sprite {
                         n8 = n10;
                         n10 = n11;
                         n9 /= 2;
-                    // TODO there is no player 2, what's the effect of this?
-                    } else if (playerIndex == 2) {
+                    } else if (playerIndex == Class_I.PLAYER_NEUTRAL) {
                         n8 = n10;
                         n9 = n10;
                     }
