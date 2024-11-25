@@ -2012,7 +2012,9 @@ implements CommandListener {
 
             // Skip iteration if you (require unit to be a specific type) and (it's not that type)
             if (unitType != ANY && unit.unitType != unitType) continue;
-            if((unitState != -1 || unitState == Unit.STATE_TOMBSTONE) && unitState != unit.state) continue;
+            if(!(unitState != -1 || unitState == Unit.STATE_TOMBSTONE) || unitState == unit.state) {
+                vector.addElement(unit);
+            }
 
             /*
             if (
@@ -2021,7 +2023,6 @@ implements CommandListener {
                 || (unit.owner != playerIndex)
             ) continue;
              */
-            vector.addElement(unit);
         }
         Unit[] unitsArray = new Unit[vector.size()];
         vector.copyInto(unitsArray);
