@@ -2010,7 +2010,7 @@ implements CommandListener {
             if (unit.owner != playerIndex) continue;
 
             if (unitType != -1 && unit.unitType != unitType) continue;
-            if((unitState != -1 || unitState == 3) && unitState != unit.state) continue;
+            if((unitState != -1 || unitState == Unit.STATE_TOMBSTONE) && unitState != unit.state) continue;
 
             /*
             if (
@@ -2480,7 +2480,7 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    if (this.int_a(-1, 2, PLAYER_BLUE) >= 3) {
+                    if (this.int_a(-1, Unit.STATE_ALREADY_ACTED, PLAYER_BLUE) >= 3) {
                         this.var_int_s = 4;
                         ++this.currentLevelStep;
                         break;
@@ -2532,7 +2532,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-            if (this.int_a(-1, 3, PLAYER_BLUE) == 1) {
+            if (this.int_a(-1, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
                 this.i();
             }
         } else if (this.currentLevel == 1) {
@@ -2663,7 +2663,7 @@ implements CommandListener {
                 }
                 case 22: {
                     // TODO what is unitType -1? (first argument)
-                    if (this.int_a(-1, -1, PLAYER_RED) != this.int_a(-1, 3, PLAYER_RED)) break;
+                    if (this.int_a(-1, -1, PLAYER_RED) != this.int_a(-1, Unit.STATE_TOMBSTONE, PLAYER_RED)) break;
                     this.void_b(500);
                     ++this.currentLevelStep;
                     break;
@@ -2729,7 +2729,7 @@ implements CommandListener {
                 if (this._mapKings[PLAYER_BLUE].mapX == 1 && this._mapKings[PLAYER_BLUE].mapY == 13 && this._mapKings[PLAYER_BLUE].state == Unit.STATE_ALREADY_ACTED) {
                     this.g();
                 }
-                if (this.int_a(Unit.LIZARD, 3, PLAYER_BLUE) == 1) {
+                if (this.int_a(Unit.LIZARD, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
                     this.i();
                 }
             }
