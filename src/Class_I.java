@@ -2223,16 +2223,16 @@ implements CommandListener {
                 this.var_c_arr_c = this.searchUnits(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX);
                 int n7 = 666;
                 this.var_int_z = -1;
-                for (int n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
-                    int n6 = this.var_byte_arr_arr_e[n5][0];
-                    int n4 = this.var_byte_arr_arr_e[n5][1];
-                    if (this.getTerrainType(n6, n4) != f.TERRAIN_TOWN) continue;
-                    int n3 = this.isBuildingAndOwnedByPlayer(n6, n4, c2.owner) ? 1 : 0;
-                    final int manhattanDist = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY);
+                for (int i = 0; i < this.var_byte_arr_arr_e.length; ++i) {
+                    int mapX = this.var_byte_arr_arr_e[i][0];
+                    int mapY = this.var_byte_arr_arr_e[i][1];
+                    if (this.getTerrainType(mapX, mapY) != f.TERRAIN_TOWN) continue;
+                    int n3 = this.isBuildingAndOwnedByPlayer(mapX, mapY, c2.owner) ? 1 : 0;
+                    final int manhattanDist = Math.abs(mapX - c2.mapX) + Math.abs(mapY - c2.mapY);
                     if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || manhattanDist >= n7) continue;
                     n7 = manhattanDist;
-                    this.var_int_z = n6;
-                    this.var_int_o = n4;
+                    this.var_int_z = mapX;
+                    this.var_int_o = mapY;
                 }
                 this.var_byte_b = (byte)3;
                 int n5 = 0;
