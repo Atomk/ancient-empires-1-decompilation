@@ -940,7 +940,7 @@ public class g {
                     break;
                 }
                 case 5: {
-                    byte terrainType = this.var_a_a.getTerrainType_ZZ(this.var_a_a.mapCursorX, this.var_a_a.mapCursorY);
+                    byte terrainType = this.var_a_a.getTerrainType(this.var_a_a.mapCursorX, this.var_a_a.mapCursorY);
                     byte by2 = this.var_a_a.mapTerrain[this.var_a_a.mapCursorX][this.var_a_a.mapCursorY] >= this.var_a_a.var_int_t ? this.var_a_a.mapTerrain[this.var_a_a.mapCursorX][this.var_a_a.mapCursorY] : Class_I.terrainType_XXX[terrainType];
                     int n24 = 6;
                     this.var_a_a.var_h_arr_c[by2].draw(graphics, n24, 2);
@@ -980,7 +980,7 @@ public class g {
                     for (int yIndex = 0; yIndex < this.var_a_a.mapTilesHeight; ++yIndex) {
                         int x = 0;
                         for (int xIndex = 0; xIndex < this.var_a_a.mapTilesWidth; ++xIndex) {
-                            int terrainType = this.var_a_a.getTerrainType_ZZ(xIndex, yIndex);
+                            int terrainType = this.var_a_a.getTerrainType(xIndex, yIndex);
                             int n32 = this.var_a_a.int_a(xIndex, yIndex);
                             if (n32 >= 0) {
                                 terrainType = 2 * (n32 + 1) + 7 + terrainType - 7;

@@ -102,7 +102,7 @@ public class f {
             this.o = 6;
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
-        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType_ZZ(unit.mapX, (int)unit.mapY);
+        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType(unit.mapX, unit.mapY);
         if (this.terrainType_YY == TERRAIN_WOODS || this.terrainType_YY == TERRAIN_HILL) {
             this.terrainType_XX = TERRAIN_GRASS;
         }

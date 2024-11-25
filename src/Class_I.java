@@ -1026,7 +1026,7 @@ implements CommandListener {
     private String[] getUnitPossibleActions(Unit unit, byte by) {
         Vector<String> vector = new Vector<String>();
         // TODO isType(4) will return true ONLY if the unit is a king, but that bitfalg is ambiguous (28). Also see line 1876
-        if (by == 1 && this.var_c_h.isType((short)4) && this.getTerrainType_ZZ(this.var_c_h.mapX, this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
+        if (by == 1 && this.var_c_h.isType((short)4) && this.getTerrainType(this.var_c_h.mapX, this.var_c_h.mapY) == f.TERRAIN_CASTLE) {
             vector.addElement(AppCanvas.getGameText(29));   // BUY
         }
         if (this.a((int)unit.mapX, (int)unit.mapY, unit)) {
@@ -1895,8 +1895,8 @@ implements CommandListener {
         return null;
     }
 
-    public byte getTerrainType_ZZ(int xIndex, int yIndex) {
-        return this.tileIdToTerrainType[this.mapTerrain[xIndex][yIndex]];
+    public byte getTerrainType(int mapX, int mapY) {
+        return this.tileIdToTerrainType[this.mapTerrain[mapX][mapY]];
     }
 
     /** Returns the defence a certain terrain type provides to a specific tyoe of unit. */
@@ -1945,12 +1945,12 @@ implements CommandListener {
             for (int mapY = 0; mapY < this.mapTerrain[mapX].length; ++mapY) {
                 if (!this.isBuildingAndOwnedByPlayer(mapX, mapY, this.playerIndex_XX))
                     continue;
-                if (this.getTerrainType_ZZ(mapX, mapY) == f.TERRAIN_TOWN) {
+                if (this.getTerrainType(mapX, mapY) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
                     this.playersMoney[by] += 30;
                     continue;
                 }
-                if (this.getTerrainType_ZZ(mapX, mapY) != f.TERRAIN_CASTLE)
+                if (this.getTerrainType(mapX, mapY) != f.TERRAIN_CASTLE)
                     continue;
                 byte by = this.currentPlayerIndex_XX;
                 this.playersMoney[by] += 50;
@@ -1970,11 +1970,11 @@ implements CommandListener {
     // TODO rename to canUnitOccupyBuildingBelow
     private boolean a(int n, int n2, Unit c2) {
         // TODO isType(8) will return true if the unit is a king OR a soldier, bitflags are ambiguous
-        if (c2.isType((short)8) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_TOWN && !this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, c2.owner)) {
+        if (c2.isType((short)8) && this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_TOWN && !this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, c2.owner)) {
             return true;
         }
         // TODO isType(16) will return true ONLY if the unit is a king, but king's bitfalg is ambiguous (28)- Also see line 969
-        return c2.isType((short)16) && this.getTerrainType_ZZ(c2.mapX, (int)c2.mapY) == f.TERRAIN_CASTLE && !this.isBuildingAndOwnedByPlayer((int)c2.mapX, (int)c2.mapY, c2.owner);
+        return c2.isType((short)16) && this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && !this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, c2.owner);
     }
 
     public void void_a(int mapX, int mapY, int n3) {
@@ -2184,7 +2184,7 @@ implements CommandListener {
                 if (c2.owner != this.playerIndex_XX || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
                     if (this.int_a(-1, 0, this.playerIndex_XX) != 1) continue;
-                    if (this.getTerrainType_ZZ(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
+                    if (this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
                         if (this.int_a(Unit.SOLDIER, -1, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
@@ -2215,7 +2215,7 @@ implements CommandListener {
                 for (int n5 = 0; n5 < this.var_byte_arr_arr_e.length; ++n5) {
                     int n6 = this.var_byte_arr_arr_e[n5][0];
                     int n4 = this.var_byte_arr_arr_e[n5][1];
-                    if (this.getTerrainType_ZZ(n6, n4) != f.TERRAIN_TOWN) continue;
+                    if (this.getTerrainType(n6, n4) != f.TERRAIN_TOWN) continue;
                     int n3 = this.isBuildingAndOwnedByPlayer(n6, n4, c2.owner) ? 1 : 0;
                     final int manhattanDist = Math.abs(n6 - c2.mapX) + Math.abs(n4 - c2.mapY);
                     if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || manhattanDist >= n7) continue;
@@ -2280,7 +2280,7 @@ implements CommandListener {
                     int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - n) + this.mapTilesHeight - Math.abs(this.var_int_o - n2);
                     n5 += n4 * n4;
                 }
-                if (terrainMovCost[this.getTerrainType_ZZ(n, n2)] <= 1) {
+                if (terrainMovCost[this.getTerrainType(n, n2)] <= 1) {
                     n5 += 5;
                 }
                 for (short i = 0; i < this.var_c_arr_c.length; ++i) {
@@ -2288,7 +2288,7 @@ implements CommandListener {
                     int n3 = this.var_c_arr_c[i].mapX - c2.mapX + (this.var_c_arr_c[i].mapY - c2.mapY);
                     n5 += n3 * n3;
                 }
-                if (this.getTerrainType_ZZ(n, n2) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(n, n2, c2.owner) || c3 != null) break;
+                if (this.getTerrainType(n, n2) != f.TERRAIN_TOWN || this.isBuildingAndOwnedByPlayer(n, n2, c2.owner) || c3 != null) break;
                 n5 += 200;
                 break;
             }
@@ -2309,13 +2309,13 @@ implements CommandListener {
                 n5 += 10;
             }
         }
-        n5 += this.getTerrainDefenceForUnit(this.getTerrainType_ZZ(n, n2), c2) * 2;
+        n5 += this.getTerrainDefenceForUnit(this.getTerrainType(n, n2), c2) * 2;
         for (byte playerId = 0; playerId < this._mapKings.length; ++playerId) {
             if (playerId == this.currentPlayerIndex_XX || this._mapKings[playerId] == null) continue;
             n5 += (this.mapTilesWidth - Math.abs(n - this._mapKings[playerId].mapX) + this.mapTilesHeight - Math.abs(n2 - this._mapKings[playerId].mapY)) * 2;
             break;
         }
-        if (this.getTerrainType_ZZ(n, n2) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(n, n2, c2.owner)) {
+        if (this.getTerrainType(n, n2) == f.TERRAIN_TOWN && this.isBuildingAndOwnedByPlayer(n, n2, c2.owner)) {
             n5 += (10 - c2.quantity) * 2;
         }
         if (c2.quantity < 5 && c2.unitType != Unit.SOLDIER && this.var_int_z != -1) {

@@ -154,7 +154,7 @@ extends SpriteSheet {
             --opponentDEF;
         }
 
-        int terrainDEF = iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType_ZZ(opponent.mapX, opponent.mapY), opponent);
+        int terrainDEF = iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType(opponent.mapX, opponent.mapY), opponent);
         int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
         if (killCount > opponent.quantity) {
             killCount = opponent.quantity;
@@ -234,8 +234,8 @@ extends SpriteSheet {
         return n2;
     }
 
-    public int int_a(int n, int n2) {
-        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType_ZZ(n, n2), this)) * this.quantity;
+    public int int_a(int mapX, int mapY) {
+        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType(mapX, mapY), this)) * this.quantity;
     }
 
     // TODO takes a matrix the same size as the map, and puts the value 127
@@ -474,7 +474,7 @@ extends SpriteSheet {
                 // Wyvern flies, so terrain type does not affect movement
                 return 1;
             }
-            byte terrainType = iClassRef.getTerrainType_ZZ(mapX, mapY);
+            byte terrainType = iClassRef.getTerrainType(mapX, mapY);
             // Lizards are not slowed down by water, but are very slow on any other surface
             if (this.isType(LIZARD_FLAG)) {
                 if (terrainType == f.TERRAIN_WATER) {

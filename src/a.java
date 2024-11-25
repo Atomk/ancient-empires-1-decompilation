@@ -176,14 +176,14 @@ extends Class_I {
         }
         this.var_e_arr_a = new SpriteSheet[this.var_byte_arr_arr_e.length];
         for (int n2 = 0; n2 < this.var_byte_arr_arr_e.length; ++n2) {
-            if (this.getTerrainType_ZZ((int)this.var_byte_arr_arr_e[n2][0], (int)this.var_byte_arr_arr_e[n2][1]) != f.TERRAIN_TOWN) continue;
+            if (this.getTerrainType(this.var_byte_arr_arr_e[n2][0], this.var_byte_arr_arr_e[n2][1]) != f.TERRAIN_TOWN) continue;
             this.var_e_arr_a[n2] = SpriteSheet.a(this.spriteSheetChimneySmoke, 0, -1, 1, 250, (byte)0);
             this.var_e_arr_a[n2].var_boolean_d = false;
         }
     }
 
     private boolean boolean_a(int mapX, int mapY) {
-        return var_boolean_arr_a[this.getTerrainType_ZZ(mapX, mapY)];
+        return var_boolean_arr_a[this.getTerrainType(mapX, mapY)];
     }
 
     public void e() throws Exception {
