@@ -238,7 +238,7 @@ extends Class_I {
                     this.var_h_arr_c[by].draw(graphics, x, y);
                 }
                 by = this.mapTerrain[mapX][mapY];
-                if (this.tileIdToTerrainType[by] != 1) {
+                if (this.tileIdToTerrainType[by] != f.TERRAIN_GRASS) {
                     this.var_h_arr_c[by].draw(graphics, x, y);
                     if (this.tileIdToTerrainType[by] == f.TERRAIN_CASTLE) {
                         this.var_h_arr_c[by + 1].draw(graphics, x, y - 24);
