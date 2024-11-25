@@ -2009,7 +2009,8 @@ implements CommandListener {
             // Unit must be owned by the player
             if (unit.owner != playerIndex) continue;
 
-            if (unitType != -1 && unit.unitType != unitType || (unitState != -1 || unitState == 3) && unitState != unit.state) continue;
+            if (unitType != -1 && unit.unitType != unitType) continue;
+            if((unitState != -1 || unitState == 3) && unitState != unit.state) continue;
 
             /*
             if (
