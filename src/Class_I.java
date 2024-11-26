@@ -851,7 +851,7 @@ implements CommandListener {
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.var_boolean_r = true;
             } else if (string.equals(AppCanvas.getGameText(35))) { // MAP
-                g g6 = new g(this, (byte)7, 0);
+                g g6 = new g(this, g.TYPE_MINIMAP, 0);
                 g6.a((byte)0, 0, 0, g2, 0);
             } else if (string.equals(AppCanvas.getGameText(36))) { // OBJECTIVE
                 this._panelMapObjective.a((byte)0, 0, 0, g2, 0);

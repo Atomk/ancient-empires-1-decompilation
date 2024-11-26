@@ -81,6 +81,8 @@ public class g {
     private boolean var_boolean_d = true;
     public g var_g_a;
 
+    public static final byte TYPE_MINIMAP = 7;
+
     public g(Class_I i2, byte type, int n) {
         this.var_a_a = (a)i2;
         this._type = type;
@@ -141,7 +143,7 @@ public class g {
             int n2 = this.var_int_g - 6;
             n2 = n == 2 ? (n2 -= 2) : (n2 -= 6);
             g.a(this, this.appFont.getBaselinePosition(), n2, 1);
-        } else if (type == 7) {
+        } else if (type == TYPE_MINIMAP) {
             this.var_short_a = (short)400;
             this.var_boolean_a = true;
             this.var_int_b = i2.mapTilesWidth * i2.miniMapTerrainTiles[0].width + 12;
@@ -306,7 +308,7 @@ public class g {
         if ((this._type == 3 || this._type == 5 || this._type == 0) && this.var_boolean_e && this.boolean_a()) {
             this.void_a();
         }
-        if (this._type == 7 || this._type == 9) {
+        if (this._type == TYPE_MINIMAP || this._type == 9) {
             this.A = (AppCanvas.width2 - this.var_int_b) / 2;
             this.y = (AppCanvas.height2 - this.var_int_g) / 2;
         }
@@ -373,7 +375,7 @@ public class g {
         if (this._type == 2) {
             this.var_g_b.a(false);
         }
-        if (this._type == 7 || this._type == 4 || this._type == 9 || bl) {
+        if (this._type == TYPE_MINIMAP || this._type == 4 || this._type == 9 || bl) {
             this.var_byte_e = (byte)3;
             this.var_a_a.var_boolean_m = true;
             this.var_a_a.var_java_util_Vector_e.removeElement(this);
@@ -597,7 +599,7 @@ public class g {
                             this.a(false);
                         }
                         this.var_boolean_c = true;
-                    } else if (this._type == 7) {
+                    } else if (this._type == TYPE_MINIMAP) {
                         if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_UP)) {
                             if (this.s < 0) {
                                 ++this.s;
@@ -971,8 +973,7 @@ public class g {
                     }
                     break;
                 }
-                case 7: {
-                    // This code draws the minimap
+                case TYPE_MINIMAP: {
                     short miniMapTileWidth = this.var_a_a.miniMapTerrainTiles[0].width;
                     short miniMapTileHeight = this.var_a_a.miniMapTerrainTiles[0].height;
 
