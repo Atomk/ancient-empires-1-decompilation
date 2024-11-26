@@ -388,8 +388,7 @@ implements CommandListener {
                         continue;
                     }
                     if (j != 1) continue;
-                    byte by = this.currentPlayer;
-                    this.playersMoney[by] = this.playersMoney[by] + 1000;
+                    this.playersMoney[this.currentPlayer] += 1000;
                     continue;
                 }
                 if (!var_java_lang_String_arr_d[j].startsWith(string)) continue;
