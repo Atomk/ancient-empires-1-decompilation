@@ -2235,7 +2235,7 @@ implements CommandListener {
                     this.var_int_o = mapY;
                 }
                 this.var_byte_b = (byte)3;
-                int n5 = 0;
+                int maxActionValue = 0;
                 // TODO this is a bit stupid since we have mapTilesHigh and mapTilesWidth, which this matrix is based on
                 int mapWidth = this.unitActionsMatrix.length;
                 int mapHeight = this.unitActionsMatrix[0].length;
@@ -2246,10 +2246,10 @@ implements CommandListener {
                         if (!c2.isType(Unit.CATAPULT_FLAG) || c3 == c2) {
                             Unit[] cArray = c2.searchInAttackRange(x, y, Unit.FILTER_ENEMy);
                             for (int k = 0; k < cArray.length; ++k) {
-                                int n8 = this.a(c2, x, y, cArray[k], null);
-                                if (n8 <= n5) continue;
+                                int actionValue = this.a(c2, x, y, cArray[k], null);
+                                if (actionValue <= maxActionValue) continue;
                                 this.var_c_g = cArray[k];
-                                n5 = n8;
+                                maxActionValue = actionValue;
                                 this.var_int_f = x;
                                 this.var_int_x = y;
                             }
@@ -2257,19 +2257,19 @@ implements CommandListener {
                         if (c2.isType(Unit.WIZARD_FLAG)) {
                             this.targetableUnits_XX = c2.searchInAttackRange(x, y, Unit.FILTER_TOMBSTONE);
                             for (int k = 0; k < this.targetableUnits_XX.length; ++k) {
-                                int n8 = this.a(c2, x, y, null, this.targetableUnits_XX[k]);
-                                if (n8 <= n5) continue;
+                                int actionValue = this.a(c2, x, y, null, this.targetableUnits_XX[k]);
+                                if (actionValue <= maxActionValue) continue;
                                 this.var_c_a = this.targetableUnits_XX[k];
-                                n5 = n8;
+                                maxActionValue = actionValue;
                                 this.var_int_f = x;
                                 this.var_int_x = y;
                             }
                         }
-                        int n8 = this.a(c2, x, y, null, null);
-                        if (n8 <= n5) continue;
+                        int actionValue = this.a(c2, x, y, null, null);
+                        if (actionValue <= maxActionValue) continue;
                         this.var_c_g = null;
                         this.var_c_a = null;
-                        n5 = n8;
+                        maxActionValue = actionValue;
                         this.var_int_f = x;
                         this.var_int_x = y;
                     }
