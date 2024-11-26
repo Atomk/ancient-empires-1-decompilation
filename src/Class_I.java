@@ -1371,7 +1371,7 @@ implements CommandListener {
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN)) {
                                 this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
                                 if (this.var_c_h != null) {
-                                    g temp_g_YYY = new g(this, (byte)4, 0);
+                                    g temp_g_YYY = new g(this, g.TYPE_UNIT_INFO, 0);
                                     temp_g_YYY.a((byte)0, 0, 0, null, 0);
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN);

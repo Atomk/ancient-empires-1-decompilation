@@ -81,6 +81,7 @@ public class g {
     private boolean var_boolean_d = true;
     public g var_g_a;
 
+    public static final byte TYPE_UNIT_INFO = 4;
     public static final byte TYPE_MINIMAP = 7;
 
     public g(Class_I i2, byte type, int n) {
@@ -103,9 +104,9 @@ public class g {
             this.D = (this.var_int_b - 6 - 24 * this.w) / (this.w + 1);
             this.var_int_h = (this.var_int_f + this.D) * 24 + this.D > this.var_int_g - 6 ? (this.var_int_g - 12 - 24 * this.var_int_f) / (this.var_int_f + 1) : this.D;
             this.var_g_b = new g(i2, (byte)1, 4);
-        } else if (type == 1 || type == 4) {
+        } else if (type == 1 || type == TYPE_UNIT_INFO) {
             this.var_int_g = AppCanvas.height2;
-            if (type == 4) {
+            if (type == TYPE_UNIT_INFO) {
                 this.var_boolean_a = true;
                 this.j = 65;
                 this.var_c_a = i2.tryGetUnit(i2.mapCursorX, i2.mapCursorY, Class_I.SEARCH_ALIVE);
@@ -302,7 +303,7 @@ public class g {
             }
             this.var_a_a.var_g_c.a((byte)8, 0, 0, null, 0);
         }
-        if (this._type == 6 || this._type == 4 || this._type == 5) {
+        if (this._type == 6 || this._type == TYPE_UNIT_INFO || this._type == 5) {
             this.y = AppCanvas.height2 - this.var_int_g;
         }
         if ((this._type == 3 || this._type == 5 || this._type == 0) && this.var_boolean_e && this.boolean_a()) {
@@ -375,7 +376,7 @@ public class g {
         if (this._type == 2) {
             this.var_g_b.a(false);
         }
-        if (this._type == TYPE_MINIMAP || this._type == 4 || this._type == 9 || bl) {
+        if (this._type == TYPE_MINIMAP || this._type == TYPE_UNIT_INFO || this._type == 9 || bl) {
             this.var_byte_e = (byte)3;
             this.var_a_a.var_boolean_m = true;
             this.var_a_a.var_java_util_Vector_e.removeElement(this);
@@ -579,7 +580,7 @@ public class g {
                                 this.var_boolean_c = true;
                             }
                         }
-                    } else if (this._type == 1 || this._type == 4) {
+                    } else if (this._type == 1 || this._type == TYPE_UNIT_INFO) {
                         if (Class_I.appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP)) {
                             if (this.var_short_b > 0) {
                                 this.var_short_b--;
@@ -746,7 +747,7 @@ public class g {
                     break;
                 }
                 case 1:
-                case 4: {
+                case TYPE_UNIT_INFO: {
                     int n9;
                     int n10;
                     int n11;
@@ -756,7 +757,8 @@ public class g {
                     this.var_a_a.a(this.var_byte_c, (byte)this.unitType_XX).a(graphics, n13, n14);
                     n13 += 26;
                     graphics.setColor(COLOR_BLACK);
-                    if (this._type == 4 && this.var_c_a.customName != null) {
+                    // TODO first check is useless because always true in this switch branch
+                    if (this._type == TYPE_UNIT_INFO && this.var_c_a.customName != null) {
                         // This is used only when the unit is a King and is a specific character in the story
                         graphics.drawString(this.var_c_a.customName, n13, n14, 20);
                     } else {
@@ -805,7 +807,7 @@ public class g {
                     graphics.setColor(COLOR_RED);
                     AppCanvas.drawBoldWhiteText(graphics, "ATK", 2, 33, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer.append(Unit.unitsDataATK[this.unitType_XX]);
-                    if (this._type == 4) {
+                    if (this._type == TYPE_UNIT_INFO) {
                         if (this.var_c_a.statusModAtk > 0) {
                             stringBuffer.append("+");
                         }
@@ -838,7 +840,7 @@ public class g {
                     AppCanvas.drawBoldWhiteText(graphics, "MOV", 2, 53, AppCanvas.FONT_ALPHANUMERIC);
                     stringBuffer = new StringBuffer();
                     stringBuffer.append(Unit.unitsDataMOV[this.unitType_XX]);
-                    if (this._type == 4) {
+                    if (this._type == TYPE_UNIT_INFO) {
                         if (this.var_c_a.statusModMov > 0) {
                             stringBuffer.append("+");
                         }
