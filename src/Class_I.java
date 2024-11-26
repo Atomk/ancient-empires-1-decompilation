@@ -1491,9 +1491,9 @@ implements CommandListener {
         appCanvas.serviceRepaints();
     }
 
-    public void void_a(Unit c2, byte by) {
+    private void void_a(Unit c2, byte playerID) {
         this.var_c_e = c2;
-        this.var_byte_f = by;
+        this.var_byte_f = playerID;
         this.a(this.sparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
         this.a(this.sparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
         this.a(this.sparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
@@ -1944,14 +1944,14 @@ implements CommandListener {
                 if (!this.isBuildingAndOwnedByPlayer(mapX, mapY, this.currentPlayer))
                     continue;
                 if (this.getTerrainType(mapX, mapY) == f.TERRAIN_TOWN) {
-                    byte by = this.currentPlayerIndex_XX;
-                    this.playersMoney[by] += 30;
+                    byte playerIndex = this.currentPlayerIndex_XX;
+                    this.playersMoney[playerIndex] += 30;
                     continue;
                 }
                 if (this.getTerrainType(mapX, mapY) != f.TERRAIN_CASTLE)
                     continue;
-                byte by = this.currentPlayerIndex_XX;
-                this.playersMoney[by] += 50;
+                byte playerIndex = this.currentPlayerIndex_XX;
+                this.playersMoney[playerIndex] += 50;
             }
         }
         int n = this.mapCursorX;
