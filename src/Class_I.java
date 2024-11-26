@@ -34,7 +34,7 @@ implements CommandListener {
 
     public static final byte PORTRAIT_NONE = -1;
     public static final byte PORTRAIT_GALAMAR = 0;      // King Galamar
-    public static final byte PORTRAIT_VALADORN = 1;     // Valadorn (the enemy, Galamar's brother)
+    public static final byte PORTRAIT_VALADORN = 1;     // Valadorn (the main antagonist in the campaign, Galamar's brother)
     public static final byte PORTRAIT_CAPTAIN = 2;      // Galamar's troops captain
 
     public static final byte ARROW_UP = 0;
@@ -90,7 +90,9 @@ implements CommandListener {
     public static final byte[] terrainMovCost;
     public int var_int_t;
     public Sprite[] miniMapTerrainTiles;
-    public byte[] tileIdToTerrainType;
+    /** Conversion table that takes a tile index and gives the corresponding terrain type.
+     * (e.g. there are many grass tiles with different borders, but they have the same GRASS terrain type) */
+    protected byte[] tileIdToTerrainType;
     private short _mapPixelsWidth;
     private short _mapPixelsHeight;
     public short var_short_f;
@@ -106,14 +108,19 @@ implements CommandListener {
     public SpriteSheet uiArrowSheet;
     public SpriteSheet uiPanelFrameSheet;
     public SpriteSheet uiBtnIconSheet;
+    /** Shown on map when a unit dies, just after the blue spark animation. */
     private SpriteSheet mapUnitExplosionSheet;
-    /** Blue spark animation shown on map when a unit dies, before the explosion - https://youtu.be/6MTmxnNygSw?t=568 */
+    /** Blue spark animation shown:
+     * - on map when a unit dies, before the explosion - https://youtu.be/6MTmxnNygSw?t=568
+     * - when a unit levels up (gets a star) */
     public SpriteSheet blueSparkSheet;
+    /** "Explosion" FX in fight screen when a unit dies. */
     public SpriteSheet redsparkSheet;
     public SpriteSheet uiStatusSheet;
     public static final byte STATUS_SHEET_POISON = 0;
     public static final byte STATUS_SHEET_AURA = 1;
     public static final byte STATUS_SHEET_STAR = 2;
+    /** Campaign characters heads, shown in story dialogues. */
     public SpriteSheet uiPortraitSheet;
     public short mapCursorX;
     public short mapCursorY;
@@ -301,11 +308,8 @@ implements CommandListener {
         //AppCanvas.readAssetsPackage("/1.pak");
         this.mapCursorSheet = new SpriteSheet("cursor");
         this.spriteGold = new Sprite("gold.png");
-        // Characters heads, shown when there is story dialogue
         this.uiPortraitSheet = new SpriteSheet("portrait");
-        // "Explosion" effect in fight screen when a unit dies
         this.redsparkSheet = new SpriteSheet("redspark");
-        // Shown on map when a unit dies, just after the "spark" animation
         this.mapUnitExplosionSheet = new SpriteSheet("smoke");
         this.blueSparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
@@ -1897,7 +1901,7 @@ implements CommandListener {
         return this.tileIdToTerrainType[this.mapTerrain[mapX][mapY]];
     }
 
-    /** Returns the defence a certain terrain type provides to a specific tyoe of unit. */
+    /** Returns the defence a certain terrain type provides to a specific type of unit. */
     public int getTerrainDefenceForUnit(byte terrainType, Unit unit) {
         int terrainDefence = terrainTypeDefense[terrainType];
         // Lizards get +2 defence in water
@@ -3231,7 +3235,8 @@ implements CommandListener {
         mapSheetReorderTable = new byte[][]{{0, 1}, {2, 3}, {0, 1}, {4}};
         statusPoisonReorderTable = new byte[]{0};
         statusStarReorderTable = new byte[]{2};
-        // These are the colors for each team - read, blue, green (unused)
+        // These are the colors for each team - red, blue, green (unused)
+        //    EDIT: actually the player with index 2 is neutral, see the code that creates the nuildings spritesheets
         // Hex values: 0xFF0000FF (blue), 0xFFFF0000 (red), 0xFF00FF00 (green)
         // Note that setColor() takes only the least significant 24bits of the number,
         // 8 per channel, so the first 8 bits (two hex digits) of these values are ignored.
