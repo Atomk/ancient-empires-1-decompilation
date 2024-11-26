@@ -107,7 +107,8 @@ implements CommandListener {
     public SpriteSheet uiPanelFrameSheet;
     public SpriteSheet uiBtnIconSheet;
     private SpriteSheet mapUnitExplosionSheet;
-    public SpriteSheet sparkSheet;
+    /** Blue spark animation shown on map when a unit dies, before the explosion - https://youtu.be/6MTmxnNygSw?t=568 */
+    public SpriteSheet blueSparkSheet;
     public SpriteSheet redsparkSheet;
     public SpriteSheet uiStatusSheet;
     public static final byte STATUS_SHEET_POISON = 0;
@@ -306,8 +307,7 @@ implements CommandListener {
         this.redsparkSheet = new SpriteSheet("redspark");
         // Shown on map when a unit dies, just after the "spark" animation
         this.mapUnitExplosionSheet = new SpriteSheet("smoke");
-        // Animation shown on map when a unit dies - https://youtu.be/6MTmxnNygSw?t=568
-        this.sparkSheet = new SpriteSheet("spark");
+        this.blueSparkSheet = new SpriteSheet("spark");
         this.uiStatusSheet = new SpriteSheet("status");
         this.spriteTombstone = new Sprite("tombstone.png");
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]); // frames 0 and 1 (tile selector anim)
@@ -590,7 +590,7 @@ implements CommandListener {
         } else if (this.var_c_i.tryLevelUp()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_i.mapPixelX + 3, ((SpriteSheet)this.var_c_i).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(statusStarReorderTable);
-            this.a(this.sparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
+            this.a(this.blueSparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 1, 50);
         }
         if (this.var_c_b.quantity <= 0) {
             this.var_c_c = this.var_c_b;
@@ -598,16 +598,16 @@ implements CommandListener {
         } else if (this.var_c_i.isType(Unit.SPIDER_FLAG)) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 4, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(statusPoisonReorderTable);
-            this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.blueSparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             this.var_c_b.addStatus(Unit.STATUS_POISON);
         } else if (this.var_c_b.tryLevelUp()) {
             e2 = this.a(this.uiStatusSheet, this.var_c_b.mapPixelX + 3, ((SpriteSheet)this.var_c_b).l + 3, 0, 0, 1, 800);
             e2.setReorderTable(statusStarReorderTable);
-            this.a(this.sparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
+            this.a(this.blueSparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 1, 50);
             AppCanvas.playSound(-1, 1);
         }
         if (this.var_c_c != null) {
-            this.a(this.sparkSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
+            this.a(this.blueSparkSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
         }
         this.var_long_g = this.var_long_n;
         if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 0) {
@@ -1494,10 +1494,10 @@ implements CommandListener {
     private void void_a(Unit c2, byte playerID) {
         this.var_c_e = c2;
         this.var_byte_f = playerID;
-        this.a(this.sparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
-        this.a(this.sparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
-        this.a(this.sparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
-        this.a(this.sparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
+        this.a(this.blueSparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l - 8, 1, 1, 3, 50);
+        this.a(this.blueSparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
+        this.a(this.blueSparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
+        this.a(this.blueSparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
         this.var_long_i = this.var_long_n;
     }
 
@@ -2508,7 +2508,7 @@ implements CommandListener {
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.mapX < 4 || this.var_c_f.mapY < 7) break;
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 5, 8);
-                    this.a(this.sparkSheet, 120, 192, 0, 0, 2, 50);
+                    this.a(this.blueSparkSheet, 120, 192, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
                     ++this.currentLevelStep;
@@ -2791,8 +2791,8 @@ implements CommandListener {
                     this._mapKings[PLAYER_RED] = Unit.spawn(Unit.KING, PLAYER_RED, 2, 0);
                     this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 0, 0);
-                    this.a(this.sparkSheet, 48, 0, 0, 0, 4, 50);
-                    this.a(this.sparkSheet, 0, 0, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 48, 0, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, 1);
                     this.void_a(0, 0, 1);
                     this.void_b(1000);
@@ -2964,8 +2964,8 @@ implements CommandListener {
                 case 2: {
                     Unit.spawn(Unit.CATAPULT, PLAYER_RED, 12, 0);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 13, 0);
-                    this.a(this.sparkSheet, 312, 0, 0, 0, 4, 50);
-                    this.a(this.sparkSheet, 288, 0, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 312, 0, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, 1);
                     this.void_b(800);
                     ++this.currentLevelStep;
@@ -2978,8 +2978,8 @@ implements CommandListener {
                 case 4: {
                     Unit.spawn(Unit.GOLEM, PLAYER_RED, 1, 11);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 12);
-                    this.a(this.sparkSheet, 24, 288, 0, 0, 4, 50);
-                    this.a(this.sparkSheet, 24, 264, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 24, 288, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, 1);
                     this.void_b(800);
                     ++this.currentLevelStep;
@@ -2994,9 +2994,9 @@ implements CommandListener {
                     this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
                     Unit.spawn(Unit.WYVERN, PLAYER_RED, 0, 1);
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 2);
-                    this.a(this.sparkSheet, 24, 24, 0, 0, 4, 50);
-                    this.a(this.sparkSheet, 0, 24, 0, 0, 4, 50);
-                    this.a(this.sparkSheet, 24, 48, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 24, 24, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 0, 24, 0, 0, 4, 50);
+                    this.a(this.blueSparkSheet, 24, 48, 0, 0, 4, 50);
                     this.void_a(1, 1, 1);
                     this.void_a(1, 2, 1);
                     this.void_b(1000);

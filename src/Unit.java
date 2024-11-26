@@ -564,7 +564,7 @@ extends SpriteSheet {
             Unit[] closeAllies = unit.searchInRange(unit.mapX, unit.mapY, 1, 2, FILTER_ALLY);
             for (int j = 0; j < closeAllies.length; ++j) {
                 closeAllies[j].addStatus(Unit.STATUS_AURA);
-                iClassRef.a(Unit.iClassRef.sparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
+                iClassRef.a(Unit.iClassRef.blueSparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
             }
         }
         Unit.iClassRef.var_c_f = this;
