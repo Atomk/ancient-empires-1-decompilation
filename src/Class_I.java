@@ -152,7 +152,7 @@ implements CommandListener {
     private byte levelPlayersCount = (byte)2;
     private final byte[] players = new byte[]{PLAYER_BLUE, PLAYER_RED};
     public byte currentPlayerIndex_XX;  // TODO is there any difference between this and the field below?
-    public byte playerIndex_XX = 0;
+    public byte currentPlayer = PLAYER_BLUE;
     private short _turnIndex;
     /** References the king for each player, use the player ID as index. */
     private Unit[] _mapKings;
@@ -388,7 +388,7 @@ implements CommandListener {
                         continue;
                     }
                     if (j != 1) continue;
-                    byte by = this.playerIndex_XX;
+                    byte by = this.currentPlayer;
                     this.playersMoney[by] = this.playersMoney[by] + 1000;
                     continue;
                 }
@@ -456,7 +456,7 @@ implements CommandListener {
         this.levelPlayersCount = dataInputStream.readByte();
         this.loadLevelData(this.currentLevel);
         this.currentPlayerIndex_XX = dataInputStream.readByte();
-        this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
+        this.currentPlayer = this.players[this.currentPlayerIndex_XX];
         this._turnIndex = dataInputStream.readShort();
         this.strongestAllowedUnitType = dataInputStream.readByte();
         for (int i = 0; i < this.levelPlayersCount; ++i) {
@@ -528,8 +528,8 @@ implements CommandListener {
         this.var_int_i = dataInputStream.readInt();
         this.var_boolean_z = dataInputStream.readByte() != 0;
         dataInputStream.close();
-        this.setMapCursorTo(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
-        this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX, (int)((SpriteSheet)this._mapKings[this.playerIndex_XX]).l);
+        this.setMapCursorTo(this._mapKings[this.currentPlayer].mapX, this._mapKings[this.currentPlayer].mapY);
+        this.void_a(this._mapKings[this.currentPlayer].mapPixelX, (int)((SpriteSheet)this._mapKings[this.currentPlayer]).l);
     }
 
     public static void loadSettingsData() {
@@ -865,7 +865,7 @@ implements CommandListener {
     private Unit buyUnitAndSpawnAtCoords(byte unitType, int mapX, int mapY) {
         byte playerIndex = this.currentPlayerIndex_XX;
         this.playersMoney[playerIndex] -= Unit.unitsDataPrice[unitType];
-        return Unit.spawn(unitType, this.playerIndex_XX, mapX, mapY);
+        return Unit.spawn(unitType, this.currentPlayer, mapX, mapY);
     }
 
     public SpriteSheet a(byte playerIndex, byte unitType) {
@@ -878,7 +878,7 @@ implements CommandListener {
         String filename;
         this.var_java_util_Vector_c = new Vector<SpriteSheet>();
         this._turnIndex = 0;
-        this.playerIndex_XX = PLAYER_BLUE;
+        this.currentPlayer = PLAYER_BLUE;
         this.currentPlayerIndex_XX = 0;
         this.currentLevelStep = 0;
         this._mapKings = null;
@@ -1289,7 +1289,7 @@ implements CommandListener {
                             if (this.var_byte_i == 6) {
                                 this.b(this.var_c_h, this.targetableUnits_XX[this.var_int_w]);
                             } else if (this.var_byte_i == 7) {
-                                this.void_a(this.targetableUnits_XX[this.var_int_w], this.playerIndex_XX);
+                                this.void_a(this.targetableUnits_XX[this.var_int_w], this.currentPlayer);
                                 this.var_c_h.void_b();
                                 this.var_byte_i = 0;
                             }
@@ -1373,9 +1373,9 @@ implements CommandListener {
                                 }
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_INFO_OR_SCROLL_DOWN);
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_GOTO_KING)) {
-                                if (this._mapKings[this.playerIndex_XX] != null) {
-                                    this.setMapCursorTo(this._mapKings[this.playerIndex_XX].mapX, this._mapKings[this.playerIndex_XX].mapY);
-                                    this.void_a(this._mapKings[this.playerIndex_XX].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.playerIndex_XX]).l + 12);
+                                if (this._mapKings[this.currentPlayer] != null) {
+                                    this.setMapCursorTo(this._mapKings[this.currentPlayer].mapX, this._mapKings[this.currentPlayer].mapY);
+                                    this.void_a(this._mapKings[this.currentPlayer].mapPixelX + 12, ((SpriteSheet)this._mapKings[this.currentPlayer]).l + 12);
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_UNIT_RANGE)) {
                                 this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
@@ -1388,7 +1388,7 @@ implements CommandListener {
                                 appCanvas.handleKeyReleasedAction(AppCanvas.ACTION_UNIT_RANGE);
                             } else if (!appCanvas.isRequestingAction(128) && !appCanvas.isRequestingAction(AppCanvas.ACTION_SCROLL_UP) && (appCanvas.isRequestingAction(AppCanvas.ACTION_CONFIRM) || appCanvas.isRequestingAction(AppCanvas.ACTION_UI_CONFIRM))) {
                                 this.var_c_h = this.tryGetUnit(this.mapCursorX, this.mapCursorY, SEARCH_ALIVE);
-                                if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.playerIndex_XX) {
+                                if (this.var_c_h != null && this.var_c_h.state == 0 && this.var_c_h.owner == this.currentPlayer) {
                                     String[] unitActionsMenuOptions = this.getUnitPossibleActions(this.var_c_h, (byte)1);
                                     if (unitActionsMenuOptions.length > 1) {
                                         this.var_g_h = new g(this, (byte)0, 8);
@@ -1912,7 +1912,7 @@ implements CommandListener {
         this._turnIndex++;
         // This line changes the current player, but there's only two, so...
         this.currentPlayerIndex_XX = (byte)((this.currentPlayerIndex_XX + 1) % this.players.length);
-        this.playerIndex_XX = this.players[this.currentPlayerIndex_XX];
+        this.currentPlayer = this.players[this.currentPlayerIndex_XX];
         for (int i = this.mapUnitsList.size() - 1; i >= 0; --i) {
             Unit unit = this.mapUnitsList.elementAt(i);
             // Maybe this means the unit is dead? Since it has to be removed.
@@ -1926,7 +1926,7 @@ implements CommandListener {
 
             // If a unit stack controlled by a player starts its turn on a building (town/castle)
             // owned by the same player, 2 units are healed/recovered
-            if (this.playerIndex_XX == unit.owner && this.isBuildingAndOwnedByPlayer((int)unit.mapX, (int)unit.mapY, unit.owner)) {
+            if (this.currentPlayer == unit.owner && this.isBuildingAndOwnedByPlayer(unit.mapX, unit.mapY, unit.owner)) {
                 unit.quantity += 2;
                 if (unit.quantity > 10) {
                     unit.quantity = 10;
@@ -1934,7 +1934,7 @@ implements CommandListener {
             }
 
             // Remove poison (movement debuff) from enemy units since it can be active only for one turn (theirs)
-            if (this.playerIndex_XX != unit.owner) {
+            if (this.currentPlayer != unit.owner) {
                 unit.removeStatus(Unit.STATUS_POISON);
             }
         }
@@ -1942,7 +1942,7 @@ implements CommandListener {
         // TODO you get money for each occupied town and castle
         for (int mapX = 0; mapX < this.mapTerrain.length; ++mapX) {
             for (int mapY = 0; mapY < this.mapTerrain[mapX].length; ++mapY) {
-                if (!this.isBuildingAndOwnedByPlayer(mapX, mapY, this.playerIndex_XX))
+                if (!this.isBuildingAndOwnedByPlayer(mapX, mapY, this.currentPlayer))
                     continue;
                 if (this.getTerrainType(mapX, mapY) == f.TERRAIN_TOWN) {
                     byte by = this.currentPlayerIndex_XX;
@@ -1961,7 +1961,8 @@ implements CommandListener {
         this.K = n;
         this.var_int_u = s;
         this.var_boolean_v = true;
-        if (this.searchUnitsCount(SEARCH_ANY, 0, this.playerIndex_XX) <= 0) {
+        // TODO probably ised in campaign first level where for a bit you play with no enemies
+        if (this.searchUnitsCount(SEARCH_ANY, 0, this.currentPlayer) <= 0) {
             this.startNextTurn();
         }
     }
@@ -2082,8 +2083,8 @@ implements CommandListener {
      * and there has to be a free square near the king (which is assumed to be at the castle)
     */
     private boolean canPurchaseUnit(int unitType) {
-        int kingX = this._mapKings[this.playerIndex_XX].mapX;
-        int kingY = this._mapKings[this.playerIndex_XX].mapY;
+        int kingX = this._mapKings[this.currentPlayer].mapX;
+        int kingY = this._mapKings[this.currentPlayer].mapY;
         boolean canPlayerAffordUnit = Unit.unitsDataPrice[unitType] <= this.playersMoney[this.currentPlayerIndex_XX];
         boolean isUnitBuyable = Unit.unitsDataPrice[unitType] > 0;
         return canPlayerAffordUnit
@@ -2131,7 +2132,7 @@ implements CommandListener {
                 if (this.var_c_g != null) {
                     this.b(this.var_c_h, this.var_c_g);
                 } else if (this.var_c_a != null) {
-                    this.void_a(this.var_c_a, this.playerIndex_XX);
+                    this.void_a(this.var_c_a, this.currentPlayer);
                     this.var_c_a = null;
                     this.var_byte_b = (byte)7;
                     this.var_c_h.void_b();
@@ -2188,21 +2189,21 @@ implements CommandListener {
             int unitsCount = this.mapUnitsList.size();
             for (int j = 0; j < unitsCount; ++j) {
                 Unit c2 = this.mapUnitsList.elementAt(j);
-                if (c2.owner != this.playerIndex_XX || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
+                if (c2.owner != this.currentPlayer || c2.state == Unit.STATE_ALREADY_ACTED || c2.state == Unit.STATE_TOMBSTONE) continue;
                 if (c2.unitType == Unit.KING) {
-                    if (this.searchUnitsCount(SEARCH_ANY, 0, this.playerIndex_XX) != 1) continue;
+                    if (this.searchUnitsCount(SEARCH_ANY, 0, this.currentPlayer) != 1) continue;
                     // If the king is at the castle, try to buy exactly one unit
                     // The eventual new unit will be spawned immediately and added at the end of the units list,
                     // but will not perform its turn again since the loop stops iterating at the old unitsCount
-                    if (this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.playerIndex_XX)) {
-                        if (this.searchUnitsCount(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
+                    if (this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, this.currentPlayer)) {
+                        if (this.searchUnitsCount(Unit.SOLDIER, SEARCH_ANY, this.currentPlayer) < 2 && this.canPurchaseUnit(Unit.SOLDIER)) {
                             c2 = this.buyUnitAndSpawnAtCoords(Unit.SOLDIER, c2.mapX, c2.mapY);
                         } else {
                             int suitableUnitsCount = 0;
                             byte[] suitableUnits = new byte[Unit.unitsDataPrice.length];
                             // Start from archer because soldiers were handled in the other if branch
                             for (byte unitType = Unit.ARCHER; unitType < Unit.unitsDataPrice.length; unitType++) {
-                                if (this.searchUnitsCount(unitType, SEARCH_ANY, this.playerIndex_XX) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
+                                if (this.searchUnitsCount(unitType, SEARCH_ANY, this.currentPlayer) >= 1 && Unit.unitsDataPrice[unitType] < 600 || !this.canPurchaseUnit(unitType)) continue;
                                 suitableUnits[suitableUnitsCount] = unitType;
                                 ++suitableUnitsCount;
                             }
@@ -2220,7 +2221,7 @@ implements CommandListener {
                 this.fillMatrixWithValue_XX(this.unitActionsMatrix, 0);
                 this.var_c_h.updatePathfindData(this.unitActionsMatrix);
                 this.drawAreaBorder = false;
-                this.var_c_arr_c = this.searchUnits(Unit.SOLDIER, SEARCH_ANY, this.playerIndex_XX);
+                this.var_c_arr_c = this.searchUnits(Unit.SOLDIER, SEARCH_ANY, this.currentPlayer);
                 int n7 = 666;
                 this.var_int_z = -1;
                 for (int i = 0; i < this.var_byte_arr_arr_e.length; ++i) {
@@ -2527,7 +2528,7 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    if (this.var_byte_i != 1 || this.playerIndex_XX != PLAYER_BLUE) break;
+                    if (this.var_byte_i != 1 || this.currentPlayer != PLAYER_BLUE) break;
                     this.var_int_s = 7;
                     ++this.currentLevelStep;
                     break;
@@ -2743,7 +2744,7 @@ implements CommandListener {
                 }
             }
         } else if (this.currentLevel == 3) {
-            if (this.var_byte_i == 1 && this.playerIndex_XX == PLAYER_BLUE) {
+            if (this.var_byte_i == 1 && this.currentPlayer == PLAYER_BLUE) {
                 if (this.var_boolean_A && this.var_c_h.unitType == Unit.WIZARD) {
                     this.var_int_s = 15;
                     this.var_boolean_A = false;
