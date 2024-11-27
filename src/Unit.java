@@ -300,7 +300,7 @@ extends SpriteSheet {
      * Finds all units on the map that are in the attack range of this unit
      * and that also respect a certain condition. */
     public Unit[] searchInAttackRange(int unitX, int unitY, byte filter) {
-        return this.searchInRange(unitX, unitY, (int)unitsDataRangeMin[this.unitType], (int)unitsDataRangeMax[this.unitType], filter);
+        return this.searchInRange(unitX, unitY, unitsDataRangeMin[this.unitType], unitsDataRangeMax[this.unitType], filter);
     }
 
     /**
@@ -424,7 +424,7 @@ extends SpriteSheet {
 
     /** Fills the provided matrix with this unit's pathfinding data for all reachable tiles from its location. */
     public void updatePathfindData(byte[][] byArray) {
-        this.pathfindInner(byArray, (int)this.mapX, (int)this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
+        this.pathfindInner(byArray, this.mapX, this.mapY, unitsDataMOV[this.unitType] + this.statusModMov, DIRECTION_NONE);
     }
 
     /**
