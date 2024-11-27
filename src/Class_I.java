@@ -1160,21 +1160,23 @@ implements CommandListener {
                     this.mapCursorSheet.nextFrame();
                     this.var_long_k = this.var_long_n;
                 }
-                int cursorMapX = this.mapCursorX * 24;
-                int cursorMapY = this.mapCursorY * 24;
-                int cursorPixelX = this.mapCursorSheet.var_short_b;
-                int cursorPixelY = this.mapCursorSheet.l;
-                if (cursorMapX > cursorPixelX) {
-                    cursorPixelX += 8;
-                } else if (cursorMapX < cursorPixelX) {
-                    cursorPixelX -= 8;
+                {
+                    int cursorMapX = this.mapCursorX * 24;
+                    int cursorMapY = this.mapCursorY * 24;
+                    int cursorPixelX = this.mapCursorSheet.var_short_b;
+                    int cursorPixelY = this.mapCursorSheet.l;
+                    if (cursorMapX > cursorPixelX) {
+                        cursorPixelX += 8;
+                    } else if (cursorMapX < cursorPixelX) {
+                        cursorPixelX -= 8;
+                    }
+                    if (cursorMapY > cursorPixelY) {
+                        cursorPixelY += 8;
+                    } else if (cursorMapY < cursorPixelY) {
+                        cursorPixelY -= 8;
+                    }
+                    this.mapCursorSheet.setMapPixelCoords(cursorPixelX, cursorPixelY);
                 }
-                if (cursorMapY > cursorPixelY) {
-                    cursorPixelY += 8;
-                } else if (cursorMapY < cursorPixelY) {
-                    cursorPixelY -= 8;
-                }
-                this.mapCursorSheet.setMapPixelCoords(cursorPixelX, cursorPixelY);
                 if (this.var_byte_i == 8) {
                     if (this.var_int_k == 0 && this.var_g_i == null) {
                         this.startNextTurn();
