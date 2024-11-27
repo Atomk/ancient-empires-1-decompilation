@@ -650,7 +650,7 @@ implements CommandListener {
 
     public SpriteSheet a(SpriteSheet sheet, int n, int n2, int n3, int n4, int n5, int n6) {
         SpriteSheet e3 = SpriteSheet.a(sheet, n3, n4, n5, n6, (byte)0);
-        e3.void_b(n, n2);
+        e3.setMapPixelCoords(n, n2);
         this.var_java_util_Vector_f.addElement(e3);
         return e3;
     }
@@ -1174,7 +1174,7 @@ implements CommandListener {
                 } else if (n4 < n6) {
                     n6 -= 8;
                 }
-                this.mapCursorSheet.void_b(n5, n6);
+                this.mapCursorSheet.setMapPixelCoords(n5, n6);
                 if (this.var_byte_i == 8) {
                     if (this.var_int_k == 0 && this.var_g_i == null) {
                         this.startNextTurn();
@@ -1603,7 +1603,7 @@ implements CommandListener {
     private void setMapCursorTo(int mapX, int mapY) {
         this.mapCursorX = (short)mapX;
         this.mapCursorY = (short)mapY;
-        this.mapCursorSheet.void_b(mapX * 24, mapY * 24);
+        this.mapCursorSheet.setMapPixelCoords(mapX * 24, mapY * 24);
         this.var_g_g.b();
     }
 
@@ -2175,7 +2175,7 @@ implements CommandListener {
                     if (this.var_long_n - this.var_long_j >= 300L) {
                         this.mapCursorX = (short)this.var_int_f;
                         this.mapCursorY = (short)this.var_int_x;
-                        this.mapCursorSheet.void_b(this.var_int_f * 24, this.var_int_x * 24);
+                        this.mapCursorSheet.setMapPixelCoords(this.var_int_f * 24, this.var_int_x * 24);
                         this._pathSteps = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.mapCursorX, this.mapCursorY);
                         this.var_int_A = 3;
                         this.var_long_j = this.var_long_n;

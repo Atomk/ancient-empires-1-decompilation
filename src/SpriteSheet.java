@@ -158,7 +158,7 @@ public class SpriteSheet {
         }
     }
 
-    public void void_b(int mapPixelX, int mapPixelY) {
+    public void setMapPixelCoords(int mapPixelX, int mapPixelY) {
         this.var_short_b = (short)mapPixelX;
         this.l = (short)mapPixelY;
     }
@@ -250,11 +250,11 @@ public class SpriteSheet {
                     break;
                 }
                 case 3: {
-                    this.void_b(this.var_short_b + this.var_int_d, this.l + this.var_int_a);
+                    this.setMapPixelCoords(this.var_short_b + this.var_int_d, this.l + this.var_int_a);
                     break;
                 }
                 default: {
-                    this.void_b(this.var_short_b + this.var_int_d, this.l + this.var_int_a);
+                    this.setMapPixelCoords(this.var_short_b + this.var_int_d, this.l + this.var_int_a);
                     if (this.var_long_b < (long)this.var_int_e) break;
                     this.nextFrame();
                     if (this.var_byte_c == 0 && this.currentIndex == 0 && this.var_int_c > 0) {

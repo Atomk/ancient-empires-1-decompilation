@@ -193,7 +193,7 @@ public class f {
         for (n = 0; n < this.var_byte_a; ++n) {
             this.var_int_arr_c[n] = 0;
             this.var_e_arr_b[n] = new SpriteSheet(this.var_e_c);
-            this.var_e_arr_b[n].void_b(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
+            this.var_e_arr_b[n].setMapPixelCoords(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
             if (unit.unitType == Unit.WYVERN) {
                 this.var_int_arr_d[n] = -8 - Math.abs(AppCanvas.randomInt()) % 8;
@@ -237,7 +237,7 @@ public class f {
                         if (this.unit.unitType != Unit.WIZARD) continue;
                         this.a(j, this.var_byte_arr_arr_a[1]);
                         this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, 0, 0, -1, 0, (byte)0);
-                        this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - this.var_e_arr_a[j].getSpritesWidth()) / 2, this.var_e_arr_b[j].l - this.var_e_arr_a[j].getSpritesHeight());
+                        this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - this.var_e_arr_a[j].getSpritesWidth()) / 2, this.var_e_arr_b[j].l - this.var_e_arr_a[j].getSpritesHeight());
                         this.var_a_a.var_java_util_Vector_c.addElement(this.var_e_arr_a[j]);
                         this.var_e_arr_a[j].var_boolean_a = true;
                     }
@@ -264,7 +264,7 @@ public class f {
                             this.a(j, this.var_byte_arr_arr_a[1]);
                             if (this.unit.unitType == Unit.KING) {
                                 SpriteSheet e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 200, (byte)0);
-                                e2.void_b(this.var_e_arr_b[0].var_short_b + this.a(e2, 5), this.var_e_arr_b[0].l + 2);
+                                e2.setMapPixelCoords(this.var_e_arr_b[0].var_short_b + this.a(e2, 5), this.var_e_arr_b[0].l + 2);
                                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
                             }
                         } else {
@@ -273,16 +273,16 @@ public class f {
                         }
                         if (this.unit.unitType == Unit.ARCHER) {
                             this.var_e_arr_a[j] = SpriteSheet.a(null, var_byte_arr_b[this.var_byte_f] * 3, -4, -1, 0, (byte)3);
-                            this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
+                            this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
                         } else if (this.unit.unitType == Unit.CATAPULT) {
                             this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 10, -8, -1, 0, (byte)0);
-                            this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], 18), this.var_e_arr_b[j].l);
+                            this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], 18), this.var_e_arr_b[j].l);
                         } else if (this.unit.unitType == Unit.SPIDER) {
                             this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
-                            this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth() - 10), this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() / 3);
+                            this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth() - 10), this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() / 3);
                         } else {
                             this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
-                            this.var_e_arr_a[j].void_b(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
+                            this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
                         }
                         if (this.unit.unitType != Unit.CATAPULT) {
                             if (this.unit.unitType == Unit.KING) {
@@ -308,7 +308,7 @@ public class f {
                 for (int j = 0; j < this.var_e_arr_a.length; ++j) {
                     if (this.unit.unitType == Unit.WYVERN && AppCanvas.randomInt() % 2 == 0) {
                         SpriteSheet e3 = SpriteSheet.a(this.var_a_a.spriteSheetChimneySmoke, 0, -1, 1, 200, (byte)0);
-                        e3.void_b(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
+                        e3.setMapPixelCoords(this.var_e_arr_a[j].var_short_b + this.a(this.var_e_arr_a[j], 0), this.var_e_arr_a[j].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e3);
                         e3.var_boolean_a = true;
                     }
@@ -412,7 +412,7 @@ public class f {
         for (int j = 0; j < this.var_e_arr_b.length; ++j) {
             if (bl) {
                 SpriteSheet e2 = SpriteSheet.a(null, 0, 0, 1, 500, (byte)4);
-                e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() >> 1), this.var_e_arr_b[j].l + (this.var_e_arr_b[j].getSpritesHeight() >> 1) + this.var_int_a + this.var_int_arr_d[j]);
+                e2.setMapPixelCoords(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() >> 1), this.var_e_arr_b[j].l + (this.var_e_arr_b[j].getSpritesHeight() >> 1) + this.var_int_a + this.var_int_arr_d[j]);
                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
             }
             if (this.var_boolean_arr_a[j] && this.var_int_arr_c[j] <= -4 || !this.var_boolean_arr_a[j] && this.var_int_arr_c[j] >= 4) {
@@ -475,13 +475,13 @@ public class f {
                         SpriteSheet e2;
                         if (this.var_byte_e == 4) {
                             if (this.var_int_arr_c[n2] == -1) continue;
-                            this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b + var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l);
+                            this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b + var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l);
                             int n3 = n2;
                             this.var_int_arr_c[n3] = this.var_int_arr_c[n3] + 3;
                             if (this.var_int_arr_c[n2] >= 24) {
                                 this.a(n2, this.var_byte_arr_arr_a[2]);
                                 e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 150, (byte)0);
-                                e2.void_b(this.var_e_arr_b[n2].var_short_b + this.a(e2, 24), this.var_e_arr_b[n2].l + 3);
+                                e2.setMapPixelCoords(this.var_e_arr_b[n2].var_short_b + this.a(e2, 24), this.var_e_arr_b[n2].l + 3);
                                 this.var_a_a.var_java_util_Vector_c.addElement(e2);
                                 this.var_int_arr_c[n2] = -1;
                                 continue;
@@ -493,7 +493,7 @@ public class f {
                             if (this.var_int_arr_c[n2] == -6) {
                                 this.a(n2, this.var_byte_arr_arr_a[1]);
                             }
-                            this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b + var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l + this.var_int_arr_c[n2]);
+                            this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b + var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l + this.var_int_arr_c[n2]);
                             int n4 = n2;
                             this.var_int_arr_c[n4] = this.var_int_arr_c[n4] + 1;
                             bl = false;
@@ -505,7 +505,7 @@ public class f {
                         if (this.var_byte_e != 2) continue;
                         this.a(n2, this.var_byte_arr_arr_a[0]);
                         e2 = SpriteSheet.a(this.var_e_b, 0, 0, 1, 150, (byte)0);
-                        e2.void_b(this.var_e_arr_b[n2].var_short_b + this.a(e2, 14), this.var_e_arr_b[n2].l + 4);
+                        e2.setMapPixelCoords(this.var_e_arr_b[n2].var_short_b + this.a(e2, 14), this.var_e_arr_b[n2].l + 4);
                         this.var_a_a.var_java_util_Vector_c.addElement(e2);
                     }
                     if (!bl) break;
@@ -524,7 +524,7 @@ public class f {
                     if (this.var_byte_e == 4) {
                         if (this.var_a_a.var_long_n - this.var_long_c < 400L) break;
                         for (n2 = 0; n2 < this.var_byte_b; ++n2) {
-                            this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b - var_byte_arr_c[this.var_byte_f], this.var_e_arr_b[n2].l);
+                            this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b - var_byte_arr_c[this.var_byte_f], this.var_e_arr_b[n2].l);
                             this.a(n2, this.var_byte_arr_arr_a[3]);
                         }
                         this.o = 3;
@@ -543,11 +543,11 @@ public class f {
                     for (n2 = 0; n2 < this.var_int_c; ++n2) {
                         if (this.var_byte_e == 4) {
                             if (this.var_int_arr_c[n2] == -1) continue;
-                            this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b - var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l);
+                            this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b - var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l);
                             int n6 = n2;
                             this.var_int_arr_c[n6] = this.var_int_arr_c[n6] + 3;
                             if (this.var_int_arr_c[n2] >= 24) {
-                                this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b + var_byte_arr_c[this.var_byte_f], this.var_e_arr_b[n2].l);
+                                this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b + var_byte_arr_c[this.var_byte_f], this.var_e_arr_b[n2].l);
                                 this.a(n2, this.var_byte_arr_arr_a[0]);
                                 this.var_int_arr_c[n2] = -1;
                                 continue;
@@ -559,7 +559,7 @@ public class f {
                             if (this.unit.unitType != Unit.GOLEM && this.var_int_arr_c[n2] == -6) {
                                 this.a(n2, this.var_byte_arr_arr_a[2]);
                             }
-                            this.var_e_arr_b[n2].void_b(this.var_e_arr_b[n2].var_short_b - var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l + this.var_int_arr_c[n2]);
+                            this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b - var_byte_arr_b[this.var_byte_f], this.var_e_arr_b[n2].l + this.var_int_arr_c[n2]);
                             int n7 = n2;
                             this.var_int_arr_c[n7] = this.var_int_arr_c[n7] + 1;
                             bl = false;
@@ -609,12 +609,12 @@ public class f {
         for (int j = 0; j < this.l; ++j) {
             SpriteSheet e2 = SpriteSheet.a(this.var_a_a.spriteSheetSoul, 0, -2, 1, 150, (byte)0);
             SpriteSheet e3 = SpriteSheet.a(this.var_a_a.redsparkSheet, 0, 0, 1, 100, (byte)0);
-            e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - e2.getSpritesWidth()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() - e2.getSpritesHeight() + 3);
-            e3.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - e3.getSpritesWidth()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() - e3.getSpritesHeight() + 3);
+            e2.setMapPixelCoords(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - e2.getSpritesWidth()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() - e2.getSpritesHeight() + 3);
+            e3.setMapPixelCoords(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - e3.getSpritesWidth()) / 2, this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() - e3.getSpritesHeight() + 3);
             this.var_a_a.var_java_util_Vector_c.addElement(e2);
             this.var_a_a.var_java_util_Vector_c.addElement(e3);
             e2 = SpriteSheet.a(null, 0, 0, 1, 800, (byte)2);
-            e2.void_b(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() >> 1), this.var_e_arr_b[j].l + (this.var_e_arr_b[j].getSpritesHeight() >> 1));
+            e2.setMapPixelCoords(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() >> 1), this.var_e_arr_b[j].l + (this.var_e_arr_b[j].getSpritesHeight() >> 1));
             this.var_a_a.var_java_util_Vector_c.addElement(e2);
         }
         SpriteSheet[] eArray = new SpriteSheet[this.var_byte_b];

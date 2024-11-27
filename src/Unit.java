@@ -95,7 +95,7 @@ extends SpriteSheet {
         this.mapY = (short)mapY;
         this.mapPixelX = (short)(mapX * TILE_SIZE);
         ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
-        this.void_b(mapX * TILE_SIZE, mapY * TILE_SIZE);
+        this.setMapPixelCoords(mapX * TILE_SIZE, mapY * TILE_SIZE);
         Unit.iClassRef.mapUnitsList.addElement(this);
     }
 
@@ -520,7 +520,7 @@ extends SpriteSheet {
                     this._pathStepIndex++;
                 }
             }
-            super.void_b(this.mapPixelX, ((SpriteSheet)this).l);
+            super.setMapPixelCoords(this.mapPixelX, ((SpriteSheet)this).l);
         } else if (Unit.iClassRef.var_long_n - this.var_long_a >= 200L) {
             this.nextFrame();
             this.var_long_a = Unit.iClassRef.var_long_n;
