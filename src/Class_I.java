@@ -210,7 +210,8 @@ implements CommandListener {
     public boolean var_boolean_l = false;
     public boolean var_boolean_p;
     public int var_int_s = -1;
-    public g var_g_i;
+    /** Automatically set by the UI class, used for timed alerts and showing campaign backstory. */
+    public g timedInfobox;
     private g _panelMapObjective;
     /** The strongest unit that the map/level allows to buy. */
     public int strongestAllowedUnitType = Unit.WYVERN;
@@ -1179,12 +1180,12 @@ implements CommandListener {
                     this.mapCursorSheet.setMapPixelCoords(cursorPixelX, cursorPixelY);
                 }
                 if (this.var_byte_i == 8) {
-                    if (this.var_int_k == 0 && this.var_g_i == null) {
+                    if (this.var_int_k == 0 && this.timedInfobox == null) {
                         this.startNextTurn();
                         this.var_byte_i = 0;
                     }
                 } else if (this.var_byte_i == 9) {
-                    if (this.var_g_i == null) {
+                    if (this.timedInfobox == null) {
                         this.var_byte_i = 0;
                     }
                 } else if (this.var_byte_i == 11) {
@@ -1196,7 +1197,7 @@ implements CommandListener {
                         this.var_int_r = 1;
                     }
                 } else if (this.var_byte_i == 10) {
-                    if (this.var_g_i == null) {
+                    if (this.timedInfobox == null) {
                         this.var_boolean_y = true;
                         this.var_int_m = 0;
                     }
@@ -2471,7 +2472,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    if (this.var_g_i != null) break;
+                    if (this.timedInfobox != null) break;
                     this.a(true);
                     this.var_int_s = 0;
                     ++this.currentLevelStep;
@@ -2575,7 +2576,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    if (this.var_g_i != null) break;
+                    if (this.timedInfobox != null) break;
                     this.var_int_s = 9;
                     ++this.currentLevelStep;
                     break;
@@ -2938,7 +2939,7 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    if (this.var_g_i != null) break;
+                    if (this.timedInfobox != null) break;
                     this.var_int_s = 17;
                     this.a(true);
                     ++this.currentLevelStep;

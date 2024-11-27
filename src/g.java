@@ -317,7 +317,7 @@ public class g {
             this.y = (AppCanvas.height2 - this.var_int_g) / 2;
         }
         if (this._type == TYPE_TIMED_INFOBOX) {
-            this.var_a_a.var_g_i = this;
+            this.var_a_a.timedInfobox = this;
         }
         this.s = this.y;
         this.var_int_c = this.A;
@@ -374,7 +374,8 @@ public class g {
             --this.var_a_a.M;
         }
         if (this._type == TYPE_TIMED_INFOBOX) {
-            this.var_a_a.var_g_i = null;
+            // Tells the game the infobox was closed (manually, or automatically if timed)
+            this.var_a_a.timedInfobox = null;
         }
         if (this._type == 2) {
             this.var_g_b.a(false);
