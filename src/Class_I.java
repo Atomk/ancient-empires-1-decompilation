@@ -2448,6 +2448,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
+                    // This step will not be executed until the dialogue started in the previous step is finished
                     this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
@@ -2457,22 +2458,29 @@ implements CommandListener {
                     break;
                 }
                 case 6: {
+                    // This step will not be executed until the wait time (set in the previous step) is elapsed
                     // "Sound advice, captain. Ready the troops [...]"
                     this.storyPanel = g.a(this, AppCanvas.getGameText(112), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 7: {
+                    // The game closes the previous dialogue for a moment before showing this one
+                    // "Valadorn's army should be easy to spot with their red uniforms."
                     this.storyPanel = g.a(this, AppCanvas.getGameText(113), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 8: {
+                    // Shows the panel for the map's objective, that must be closed manually
+                    // The panel was created in the "loadLevelData" method
+                    // The following call also automatically sets "timedInfobox"
                     this._panelMapObjective.a((byte)0, 0, 0, null, 0);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 9: {
+                    // Prevent progress until the panel with map objective is closed
                     if (this.timedInfobox != null) break;
                     this.a(true);
                     this._requestedTutorialIndex = 0;
@@ -2480,34 +2488,44 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
+                    // Allows to show the next tutorial when you select a unit
                     if (this.var_byte_i != 1) break;
                     this._requestedTutorialIndex = 1;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 11: {
+                    // Allows to show the next tutorial as soon as the unit finishes moving (you press END MOVE)
                     if (this.var_c_f == null) break;
                     this._requestedTutorialIndex = 2;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 12: {
+                    // Again, allows to show the next tutorial when you finish moving another unit
+                    // Note that this can happen in the same turn as athe previous step (which is expected)
+                    // but it can also happen on your second turn. In that case you will see two tutorials in a row
+                    // (since you second turn has turnIndex == 2, you shortcut the next step)
                     if (this.var_c_f == null) break;
                     this._requestedTutorialIndex = 3;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 13: {
+                    // Allows to show the next tutorial as soon as you moved all three of your units
                     if (this.searchUnitsCount(SEARCH_ANY, Unit.STATE_ALREADY_ACTED, PLAYER_BLUE) >= 3) {
                         this._requestedTutorialIndex = 4;
                         ++this.currentLevelStep;
                         break;
                     }
                     if (this._turnIndex < 1) break;
+                    // You can reach this if you end your first turn before moving all of your units
+                    // Skips the tutorial (4) since it explains the "end turn" mechanic that you already used to get here
                     ++this.currentLevelStep;
                     break;
                 }
                 case 14: {
+                    // Show tutorial if this is at least your second turn
                     if (this._turnIndex < 2) break;
                     this._requestedTutorialIndex = 5;
                     ++this.currentLevelStep;
