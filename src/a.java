@@ -76,7 +76,7 @@ extends Class_I {
                 if (this.var_int_m < 15) {
                     ++this.var_int_m;
                 }
-                if (this.var_long_n < 1500L) break;
+                if (this.time < 1500L) break;
                 this.splashPhase = 1;
                 this.var_boolean_c = true;
                 this.var_int_m = 0;
@@ -299,7 +299,7 @@ extends Class_I {
             }
             return;
         }
-        if (this.var_boolean_q && this.var_long_n - this.var_long_b >= this.var_long_m) {
+        if (this.var_boolean_q && this.time - this.var_long_b >= this.var_long_m) {
             this.var_boolean_q = false;
         }
         for (int j = this.var_java_util_Vector_c.size() - 1; j >= 0; --j) {
@@ -311,7 +311,7 @@ extends Class_I {
         this.var_f_b.g();
         this.var_f_a.g();
         if (this.var_boolean_k) {
-            if (this.var_long_n - this.var_long_f >= 500L) {
+            if (this.time - this.var_long_f >= 500L) {
                 // Calls to empty method
                 // this.var_f_a.soundMethod();
                 // this.var_f_b.soundMethod();
@@ -330,11 +330,11 @@ extends Class_I {
                 }
                 if (this.var_f_a.var_boolean_f) {
                     this.var_boolean_k = true;
-                    this.var_long_f = this.var_long_n;
+                    this.var_long_f = this.time;
                 }
             } else {
                 this.var_boolean_k = true;
-                this.var_long_f = this.var_long_n;
+                this.var_long_f = this.time;
             }
         }
         Class_I.appCanvas.repaint();

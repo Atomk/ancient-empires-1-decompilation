@@ -214,19 +214,19 @@ public class f {
 
     private void a(int n, byte[] byArray) {
         this.var_e_arr_b[n].setReorderTable(byArray);
-        this.var_int_arr_a[n] = (int)this.var_a_a.var_long_n;
+        this.var_int_arr_a[n] = (int)this.var_a_a.time;
     }
 
     public void b() {
         this.var_boolean_e = true;
         this.o = 0;
-        this.var_long_c = this.var_a_a.var_long_n;
+        this.var_long_c = this.var_a_a.time;
     }
 
     private void f() {
         switch (this.o) {
             case 0: {
-                if (this.var_int_c == 0 && this.var_a_a.var_long_n - this.var_long_c >= 200L) {
+                if (this.var_int_c == 0 && this.var_a_a.time - this.var_long_c >= 200L) {
                     this.k = 600;
                     this.var_e_arr_a = new SpriteSheet[this.var_byte_b];
                     for (int j = 0; j < this.var_byte_b; ++j) {
@@ -242,11 +242,11 @@ public class f {
                         this.var_e_arr_a[j].var_boolean_a = true;
                     }
                     this.var_int_c = 1;
-                    this.var_long_c = this.var_a_a.var_long_n;
+                    this.var_long_c = this.var_a_a.time;
                 }
-                if (this.var_int_c != 1 || this.var_a_a.var_long_n - this.var_long_c < (long)this.k) break;
+                if (this.var_int_c != 1 || this.var_a_a.time - this.var_long_c < (long)this.k) break;
                 this.o = 2;
-                this.var_long_c = this.var_a_a.var_long_n;
+                this.var_long_c = this.var_a_a.time;
                 break;
             }
             case 2: {
@@ -329,11 +329,11 @@ public class f {
                 }
                 if (!bl) break;
                 this.o = 3;
-                this.var_long_c = this.var_a_a.var_long_n;
+                this.var_long_c = this.var_a_a.time;
                 break;
             }
             case 3: {
-                if (this.var_a_a.var_long_n - this.var_long_c < 400L) break;
+                if (this.var_a_a.time - this.var_long_c < 400L) break;
                 if (this.unit.unitType != Unit.CATAPULT && this.unit.unitType != Unit.ARCHER) {
                     for (int j = 0; j < this.var_byte_b; ++j) {
                         this.a(j, this.var_byte_arr_arr_a[0]);
@@ -346,11 +346,11 @@ public class f {
                     this.var_a_a.c(200);
                 }
                 this.o = 7;
-                this.var_long_c = this.var_a_a.var_long_n;
+                this.var_long_c = this.var_a_a.time;
                 break;
             }
             case 7: {
-                if (this.var_a_a.var_long_n - this.var_long_c < 500L) break;
+                if (this.var_a_a.time - this.var_long_c < 500L) break;
                 this.var_boolean_f = true;
             }
         }
@@ -359,7 +359,7 @@ public class f {
     private void c() {
         //AppCanvas.d(200);
         this.var_boolean_d = true;
-        this.var_long_b = this.var_a_a.var_long_n;
+        this.var_long_b = this.var_a_a.time;
     }
 
     private void a() {
@@ -367,20 +367,20 @@ public class f {
             case 0: {
                 if (this.var_int_c == 0) {
                     this.var_int_e = 100;
-                    if (this.var_a_a.var_long_n - this.var_long_c < 200L) break;
+                    if (this.var_a_a.time - this.var_long_c < 200L) break;
                     this.var_int_c = 1;
-                    this.var_long_c = this.var_a_a.var_long_n;
+                    this.var_long_c = this.var_a_a.time;
                     AppCanvas.playSound(this.soundIndex, 1);
                     break;
                 }
                 if (this.var_int_c == 1) {
-                    if (this.var_a_a.var_long_n - this.var_long_c < 200L) break;
+                    if (this.var_a_a.time - this.var_long_c < 200L) break;
                     this.var_int_e -= 20;
                     if (this.var_int_e <= 0) {
                         this.var_a_a.var_boolean_b = true;
                         this.o = 5;
                     }
-                    this.var_long_c = this.var_a_a.var_long_n;
+                    this.var_long_c = this.var_a_a.time;
                     break;
                 }
                 if (this.i >= 200) {
@@ -392,7 +392,7 @@ public class f {
                 break;
             }
             case 5: {
-                if (this.var_a_a.var_long_n - this.var_long_c < 500L) break;
+                if (this.var_a_a.time - this.var_long_c < 500L) break;
                 this.var_a_a.var_boolean_b = false;
                 this.i = 0;
                 this.var_f_a.d();
@@ -405,9 +405,9 @@ public class f {
             }
         }
         boolean bl = false;
-        if (this.var_a_a.var_long_n - this.var_long_a >= 300L) {
+        if (this.var_a_a.time - this.var_long_a >= 300L) {
             bl = true;
-            this.var_long_a = this.var_a_a.var_long_n;
+            this.var_long_a = this.var_a_a.time;
         }
         for (int j = 0; j < this.var_e_arr_b.length; ++j) {
             if (bl) {
@@ -433,7 +433,7 @@ public class f {
     public void g() {
         int n;
         if (this.var_boolean_d) {
-            if (this.var_a_a.var_long_n - this.var_long_b >= 300L) {
+            if (this.var_a_a.time - this.var_long_b >= 300L) {
                 this.var_boolean_d = false;
                 this.m = 0;
                 this.var_int_a = 0;
@@ -451,7 +451,7 @@ public class f {
             switch (this.o) {
                 case 0: {
                     int n2;
-                    if (this.var_a_a.var_long_n - this.var_long_c < 200L) break;
+                    if (this.var_a_a.time - this.var_long_c < 200L) break;
                     if (this.var_byte_e == 4) {
                         for (n2 = 0; n2 < this.var_byte_b; ++n2) {
                             this.a(n2, this.var_byte_arr_arr_a[1]);
@@ -516,13 +516,13 @@ public class f {
                     this.o = 5;
                     this.var_f_a.d();
                     this.var_a_a.c(200);
-                    this.var_long_c = this.var_a_a.var_long_n;
+                    this.var_long_c = this.var_a_a.time;
                     break;
                 }
                 case 5: {
                     int n2;
                     if (this.var_byte_e == 4) {
-                        if (this.var_a_a.var_long_n - this.var_long_c < 400L) break;
+                        if (this.var_a_a.time - this.var_long_c < 400L) break;
                         for (n2 = 0; n2 < this.var_byte_b; ++n2) {
                             this.var_e_arr_b[n2].setMapPixelCoords(this.var_e_arr_b[n2].var_short_b - var_byte_arr_c[this.var_byte_f], this.var_e_arr_b[n2].l);
                             this.a(n2, this.var_byte_arr_arr_a[3]);
@@ -530,7 +530,7 @@ public class f {
                         this.o = 3;
                         break;
                     }
-                    if (this.var_a_a.var_long_n - this.var_long_c < 50L) break;
+                    if (this.var_a_a.time - this.var_long_c < 50L) break;
                     this.o = 3;
                     break;
                 }
@@ -573,7 +573,7 @@ public class f {
                     if (!bl) break;
                     this.var_boolean_f = true;
                     this.o = 6;
-                    this.var_long_c = this.var_a_a.var_long_n;
+                    this.var_long_c = this.var_a_a.time;
                 }
             }
         }
@@ -583,8 +583,8 @@ public class f {
                 if (this.var_int_arr_d[n] >= -8) {
                     this.var_int_arr_c[n] = -6;
                     this.var_e_arr_b[n].nextFrame();
-                    this.var_long_a = this.var_a_a.var_long_n;
-                } else if (this.var_e_arr_b[n].currentIndex == 1 && this.var_a_a.var_long_n - this.var_long_a >= 200L) {
+                    this.var_long_a = this.var_a_a.time;
+                } else if (this.var_e_arr_b[n].currentIndex == 1 && this.var_a_a.time - this.var_long_a >= 200L) {
                     this.var_e_arr_b[n].nextFrame();
                 }
                 int n9 = n;
@@ -594,9 +594,9 @@ public class f {
             }
         } else {
             for (n = 0; n < this.var_e_arr_b.length; ++n) {
-                if (this.var_a_a.var_long_n - (long)this.var_int_arr_a[n] < (long)this.var_int_e) continue;
+                if (this.var_a_a.time - (long)this.var_int_arr_a[n] < (long)this.var_int_e) continue;
                 this.var_e_arr_b[n].nextFrame();
-                this.var_int_arr_a[n] = (int)this.var_a_a.var_long_n;
+                this.var_int_arr_a[n] = (int)this.var_a_a.time;
             }
         }
     }

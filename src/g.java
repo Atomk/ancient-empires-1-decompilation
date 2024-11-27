@@ -629,9 +629,9 @@ public class g {
                         }
                     }
                 }
-                if (this.var_boolean_f && this.var_a_a.var_long_n - this.var_long_a >= (long)this.var_short_a) {
+                if (this.var_boolean_f && this.var_a_a.time - this.var_long_a >= (long)this.var_short_a) {
                     this.p = this.p == 0 ? 2 : 0;
-                    this.var_long_a = this.var_a_a.var_long_n;
+                    this.var_long_a = this.var_a_a.time;
                     this.var_boolean_c = true;
                 }
                 if (this.var_byte_e != 2) break block112;

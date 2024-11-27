@@ -101,7 +101,7 @@ extends SpriteSheet {
 
     public void b(int n) {
         this.var_boolean_e = true;
-        this.var_long_c = Unit.iClassRef.var_long_n;
+        this.var_long_c = Unit.iClassRef.time;
         this.var_int_g = n;
     }
 
@@ -489,7 +489,7 @@ extends SpriteSheet {
 
     public void void_a() {
         if (this.var_boolean_e) {
-            if (Unit.iClassRef.var_long_n - this.var_long_c >= (long)this.var_int_g) {
+            if (Unit.iClassRef.time - this.var_long_c >= (long)this.var_int_g) {
                 this.var_boolean_e = false;
             } else {
                 this.var_boolean_b = !this.var_boolean_b;
@@ -521,9 +521,9 @@ extends SpriteSheet {
                 }
             }
             super.setMapPixelCoords(this.mapPixelX, ((SpriteSheet)this).l);
-        } else if (Unit.iClassRef.var_long_n - this.var_long_a >= 200L) {
+        } else if (Unit.iClassRef.time - this.var_long_a >= 200L) {
             this.nextFrame();
-            this.var_long_a = Unit.iClassRef.var_long_n;
+            this.var_long_a = Unit.iClassRef.time;
         }
     }
 

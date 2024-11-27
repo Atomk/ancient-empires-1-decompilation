@@ -127,7 +127,8 @@ implements CommandListener {
     public byte[][] mapTerrain;
     public byte var_byte_i;
     public byte var_byte_e;
-    public long var_long_n;
+    /** Time since game start, in milliseconds */
+    public long time;
     private int currentLevel;
     public int var_int_h;
     public int var_int_w;
@@ -617,9 +618,9 @@ implements CommandListener {
         if (this.var_c_c != null) {
             this.a(this.blueSparkSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, 0, 1, 50);
         }
-        this.var_long_g = this.var_long_n;
+        this.var_long_g = this.time;
         if (this.var_byte_arr_b[this.currentPlayerIndex_XX] == 0) {
-            this.var_long_j = this.var_long_n;
+            this.var_long_j = this.time;
             this.var_byte_b = (byte)6;
         }
         this.mapCursorSheet.setReorderTable(mapSheetReorderTable[0]);
@@ -837,14 +838,14 @@ implements CommandListener {
             } else if (string.equals(AppCanvas.getGameText(32))) {  // END TURN
                 g.a(this, null, AppCanvas.getGameText(39), 1000, true); // TURN END
                 this.var_byte_i = (byte)8;
-                this.var_long_c = this.var_long_n;
+                this.var_long_c = this.time;
             } else if (string.equals(AppCanvas.getGameText(33))) { // OCCUPY
                 if (this.a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, this.var_c_h)) {
                     this.void_a((int)this.var_c_h.mapX, (int)this.var_c_h.mapY, (int)this.var_c_h.owner);
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true); // OCCUPIED
                     this.var_byte_i = (byte)9;
                     AppCanvas.playSound(-1, 1);
-                    this.var_long_c = this.var_long_n;
+                    this.var_long_c = this.time;
                 }
                 this.var_c_h.void_b();
             } else if (string.equals(AppCanvas.getGameText(34))) {  // RAISE
@@ -1061,7 +1062,7 @@ implements CommandListener {
                 if (this.var_int_m < 15) {
                     ++this.var_int_m;
                 }
-                if (this.var_long_n < 1500L) break;
+                if (this.time < 1500L) break;
                 this.splashPhase = 1;
                 this.var_boolean_c = true;
                 this.var_int_m = 0;
@@ -1084,7 +1085,7 @@ implements CommandListener {
                     ++this.N;
                     break;
                 }
-                if (this.var_long_n % 100L == 0L) {
+                if (this.time % 100L == 0L) {
                     this.var_boolean_p = !this.var_boolean_p;
                 }
                 if (Class_I.appCanvas.pressedKeysActions == 0 || !this.var_boolean_c || this.var_int_g != 0) break;
@@ -1098,7 +1099,8 @@ implements CommandListener {
 
     public void e() throws Exception {
         int n;
-        this.var_long_n += 50L;
+        // Assumes game runs at 20 fps (1000 / 50 == 20)
+        this.time += 50L;
         if (this.var_byte_d == 2) {
             this.b();
             return;
@@ -1117,9 +1119,9 @@ implements CommandListener {
             if (this.var_byte_d == 0) {
                 this.j();
             } else {
-                if (this.var_long_n - this.var_long_e >= 300L) {
+                if (this.time - this.var_long_e >= 300L) {
                     this.var_boolean_a = !this.var_boolean_a;
-                    this.var_long_e = this.var_long_n;
+                    this.var_long_e = this.time;
                 }
                 if (this.var_boolean_y) {
                     ++this.var_int_m;
@@ -1134,7 +1136,7 @@ implements CommandListener {
                             this.var_byte_i = 0;
                         } else if (this.var_byte_i == 11) {
                             this.var_int_r = 0;
-                            this.var_long_c = this.var_long_n;
+                            this.var_long_c = this.time;
                         } else {
                             this.a(this.var_c_i, this.var_c_b);
                             this.var_c_g = null;
@@ -1161,9 +1163,9 @@ implements CommandListener {
                         this.colorRangeBorderIncrement = 986895;
                     }
                 }
-                if (this.var_boolean_n && this.var_long_n - this.var_long_k >= 200L) {
+                if (this.var_boolean_n && this.time - this.var_long_k >= 200L) {
                     this.mapCursorSheet.nextFrame();
-                    this.var_long_k = this.var_long_n;
+                    this.var_long_k = this.time;
                 }
                 {
                     int cursorMapX = this.mapCursorX * 24;
@@ -1192,7 +1194,7 @@ implements CommandListener {
                         this.var_byte_i = 0;
                     }
                 } else if (this.var_byte_i == 11) {
-                    if (!this.var_boolean_y && this.var_int_r == 0 && this.var_long_n - this.var_long_c >= 1000L) {
+                    if (!this.var_boolean_y && this.var_int_r == 0 && this.time - this.var_long_c >= 1000L) {
                         g temmp_g_XXX = new g(this, (byte)0, 0);
                         temmp_g_XXX.showMenuOptions(this.mainMenuStringsNoSave);
                         temmp_g_XXX.a((byte)1, AppCanvas.cenX, AppCanvas.cenY, null, 48);
@@ -1209,26 +1211,26 @@ implements CommandListener {
                         this.var_c_i.attack(this.var_c_b);
                         this.var_c_b.b(400);
                         this.a(this.redsparkSheet, this.var_c_b.mapPixelX, ((SpriteSheet)this.var_c_b).l, 0, 0, 2, 50);
-                        this.var_long_d = this.var_long_n;
+                        this.var_long_d = this.time;
                         ++this.var_int_n;
                     } else if (this.var_int_n == 1) {
-                        if (this.var_long_n - this.var_long_d >= 800L) {
+                        if (this.time - this.var_long_d >= 800L) {
                             this.setMapCursorTo(this.var_c_i.mapX, this.var_c_i.mapY);
                             if (this.var_c_b.canCounterattackMelee(this.var_c_i, (int)this.var_c_i.mapX, (int)this.var_c_i.mapY)) {
                                 this.var_c_b.attack(this.var_c_i);
                                 this.var_c_i.b(400);
                                 this.a(this.redsparkSheet, this.var_c_i.mapPixelX, ((SpriteSheet)this.var_c_i).l, 0, 0, 2, 50);
-                                this.var_long_d = this.var_long_n;
+                                this.var_long_d = this.time;
                                 ++this.var_int_n;
                             } else {
                                 this.o();
                             }
                         }
-                    } else if (this.var_long_n - this.var_long_d >= 800L) {
+                    } else if (this.time - this.var_long_d >= 800L) {
                         this.o();
                     }
                 } else if (this.var_c_c != null) {
-                    if (this.var_long_n - this.var_long_g >= 300L) {
+                    if (this.time - this.var_long_g >= 300L) {
                         // TODO context hint: mapUnitExplosionSheet is used only here, and the animation is shown only ehen a unit dies
                         this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
                         if (this.levelType == LEVEL_TYPE_CAMPAIGN && this._mapKings[PLAYER_RED] != null && this.var_c_c == this._mapKings[PLAYER_RED] && this.currentLevel != 4) {
@@ -1247,7 +1249,7 @@ implements CommandListener {
                         this.var_g_g.b();
                     }
                 } else if (this.var_c_e != null) {
-                    if (this.var_long_n - this.var_long_i >= 400L) {
+                    if (this.time - this.var_long_i >= 400L) {
                         this.mapUnitsList.removeElement(this.var_c_e);
                         // TODO rename second parameter to playerIndex_ZZ
                         Unit unitSkeleton = Unit.spawn(Unit.SKELETON, this.var_byte_f, this.var_c_e.mapX, this.var_c_e.mapY);
@@ -1309,7 +1311,7 @@ implements CommandListener {
                         }
                         this.var_boolean_v = false;
                     } else {
-                        if (this.var_long_n - this.var_long_a >= 150L && this.mapCursorSheet.var_short_b % 24 == 0 && this.mapCursorSheet.l % 24 == 0) {
+                        if (this.time - this.var_long_a >= 150L && this.mapCursorSheet.var_short_b % 24 == 0 && this.mapCursorSheet.l % 24 == 0) {
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_LEFT)) {
                                 if (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_LEFT)) {
                                     if (this.mapCursorX > 0) {
@@ -1317,7 +1319,7 @@ implements CommandListener {
                                     }
                                     this.var_boolean_s = false;
                                     this.var_boolean_v = true;
-                                    this.var_long_a = this.var_long_n;
+                                    this.var_long_a = this.time;
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_RIGHT) && (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_RIGHT))) {
                                 if (this.mapCursorX < this.mapTilesWidth - 1) {
@@ -1325,7 +1327,7 @@ implements CommandListener {
                                 }
                                 this.var_boolean_s = false;
                                 this.var_boolean_v = true;
-                                this.var_long_a = this.var_long_n;
+                                this.var_long_a = this.time;
                             }
                             if (appCanvas.isRequestingAction(AppCanvas.ACTION_UP)) {
                                 if (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_UP)) {
@@ -1334,7 +1336,7 @@ implements CommandListener {
                                     }
                                     this.var_boolean_s = false;
                                     this.var_boolean_v = true;
-                                    this.var_long_a = this.var_long_n;
+                                    this.var_long_a = this.time;
                                 }
                             } else if (appCanvas.isRequestingAction(AppCanvas.ACTION_DOWN) && (this.var_boolean_s || appCanvas.stoppedRequestingAction(AppCanvas.ACTION_DOWN))) {
                                 if (this.mapCursorY < this.mapTilesHeight - 1) {
@@ -1342,7 +1344,7 @@ implements CommandListener {
                                 }
                                 this.var_boolean_s = false;
                                 this.var_boolean_v = true;
-                                this.var_long_a = this.var_long_n;
+                                this.var_long_a = this.time;
                             }
                             if (this.var_boolean_v) {
                                 if (this.var_byte_i == 1) {
@@ -1455,10 +1457,10 @@ implements CommandListener {
                 for (n = 0; n < unitsCount; ++n) {
                     this.mapUnitsList.elementAt(n).void_a();
                 }
-                if (this.var_long_n - this.var_long_l >= 300L) {
+                if (this.time - this.var_long_l >= 300L) {
                     this.var_int_y = (this.var_int_y + 1) % this.var_h_arr_a.length;
                     this.var_h_arr_c[this.var_int_l] = this.var_h_arr_a[this.var_int_y];
-                    this.var_long_l = this.var_long_n;
+                    this.var_long_l = this.time;
                 }
                 this.d();
             }
@@ -1509,7 +1511,7 @@ implements CommandListener {
         this.a(this.blueSparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l - 8, -1, 1, 3, 50);
         this.a(this.blueSparkSheet, c2.mapPixelX - 8, ((SpriteSheet)c2).l + 8, 1, -1, 3, 50);
         this.a(this.blueSparkSheet, c2.mapPixelX + 8, ((SpriteSheet)c2).l + 8, -1, -1, 3, 50);
-        this.var_long_i = this.var_long_n;
+        this.var_long_i = this.time;
     }
 
     private void d() {
@@ -2115,7 +2117,7 @@ implements CommandListener {
                 this.var_c_h.updateAttackMatrix_XX(this.unitActionsMatrix, (int)this.var_c_h.mapX, (int)this.var_c_h.mapY);
                 this.useRedAreaBorder = true;
                 this.drawAreaBorder = true;
-                this.var_long_j = this.var_long_n;
+                this.var_long_j = this.time;
                 if (this.var_c_g != null) {
                     this.mapCursorSheet.setReorderTable(mapSheetReorderTable[1]);
                     this.setMapCursorTo(this.var_c_g.mapX, this.var_c_g.mapY);
@@ -2128,7 +2130,7 @@ implements CommandListener {
                     g.a(this, null, AppCanvas.getGameText(38), 1000, true);
                     AppCanvas.playSound(-1, 1);
                     this.var_byte_i = (byte)9;
-                    this.var_long_c = this.var_long_n;
+                    this.var_long_c = this.time;
                 } else {
                     this.var_byte_i = 0;
                 }
@@ -2138,7 +2140,7 @@ implements CommandListener {
             }
             this.var_boolean_n = true;
         } else if (this.var_byte_b == 5) {
-            if (this.var_long_n - this.var_long_j >= 500L) {
+            if (this.time - this.var_long_j >= 500L) {
                 if (this.var_c_g != null) {
                     this.b(this.var_c_h, this.var_c_g);
                 } else if (this.var_c_a != null) {
@@ -2156,7 +2158,7 @@ implements CommandListener {
                 this.var_byte_i = 0;
             }
         } else if (this.var_byte_b == 6) {
-            if (this.var_long_n - this.var_long_j >= 1000L) {
+            if (this.time - this.var_long_j >= 1000L) {
                 this.var_c_g = null;
                 this.var_byte_b = 0;
                 this.var_byte_i = 0;
@@ -2169,25 +2171,25 @@ implements CommandListener {
                 if (this.var_int_A == 0) {
                     if (this.boolean_c(this.var_c_h.mapPixelX + 12, ((SpriteSheet)this.var_c_h).l + 12)) {
                         this.var_int_A = 1;
-                        this.var_long_j = this.var_long_n;
+                        this.var_long_j = this.time;
                     }
                 } else if (this.var_int_A == 1) {
-                    if (this.var_long_n - this.var_long_j >= 400L) {
+                    if (this.time - this.var_long_j >= 400L) {
                         this.drawAreaBorder = true;
                         this.var_int_A = 2;
                         this.var_byte_i = 1;
-                        this.var_long_j = this.var_long_n;
+                        this.var_long_j = this.time;
                     }
                 } else if (this.var_int_A == 2) {
-                    if (this.var_long_n - this.var_long_j >= 300L) {
+                    if (this.time - this.var_long_j >= 300L) {
                         this.mapCursorX = (short)this.var_int_f;
                         this.mapCursorY = (short)this.var_int_x;
                         this.mapCursorSheet.setMapPixelCoords(this.var_int_f * 24, this.var_int_x * 24);
                         this._pathSteps = this.var_c_h.pathSteps(this.var_c_h.mapX, this.var_c_h.mapY, this.mapCursorX, this.mapCursorY);
                         this.var_int_A = 3;
-                        this.var_long_j = this.var_long_n;
+                        this.var_long_j = this.time;
                     }
-                } else if (this.var_int_A == 3 && this.var_long_n - this.var_long_j >= 300L) {
+                } else if (this.var_int_A == 3 && this.time - this.var_long_j >= 300L) {
                     this._pathSteps = null;
                     this.var_c_h.void_a(this.var_int_f, this.var_int_x);
                     this.var_byte_b = (byte)2;
@@ -2290,7 +2292,7 @@ implements CommandListener {
             this.var_c_arr_c = null;
             g.a(this, null, AppCanvas.getGameText(39), 1000, true); // TURN END
             this.var_byte_i = (byte)8;
-            this.var_long_c = this.var_long_n;
+            this.var_long_c = this.time;
         }
     }
 
@@ -2371,7 +2373,7 @@ implements CommandListener {
     private void pauseLevelProgress(int millis) {
         this._waitRequested = true;
         this._waitDuration = millis;
-        this._waitStartTime = this.var_long_n;
+        this._waitStartTime = this.time;
     }
 
     public void a(boolean bl) {
@@ -2392,7 +2394,7 @@ implements CommandListener {
      */
     public void void_a() {
         if (this._waitRequested) {
-            if (this.var_long_n - this._waitStartTime < (long)this._waitDuration) return;
+            if (this.time - this._waitStartTime < (long)this._waitDuration) return;
             this._waitRequested = false;
         }
         if (this.var_boolean_w) {
@@ -3117,7 +3119,7 @@ implements CommandListener {
         AppCanvas.playSound(2, 1);
         this.var_byte_i = (byte)10;
         g.a(this, null, AppCanvas.getGameText(37), 1000, true); // MISSION COMPLETE
-        this.var_long_c = this.var_long_n;
+        this.var_long_c = this.time;
         this.currentLevelStep = -1;
     }
 
@@ -3168,7 +3170,7 @@ implements CommandListener {
             }
             return;
         }
-        if (this.var_boolean_q && this.var_long_n - this.var_long_b >= this.var_long_m) {
+        if (this.var_boolean_q && this.time - this.var_long_b >= this.var_long_m) {
             this.var_boolean_q = false;
         }
         for (int j = this.var_java_util_Vector_c.size() - 1; j >= 0; --j) {
@@ -3180,7 +3182,7 @@ implements CommandListener {
         this.var_f_b.g();
         this.var_f_a.g();
         if (this.var_boolean_k) {
-            if (this.var_long_n - this.var_long_f >= 300L) {
+            if (this.time - this.var_long_f >= 300L) {
                 this.var_f_a = null;
                 this.var_f_b = null;
                 this.spriteSheetSoul = null;
@@ -3202,11 +3204,11 @@ implements CommandListener {
                 }
                 if (this.var_f_a.var_boolean_f) {
                     this.var_boolean_k = true;
-                    this.var_long_f = this.var_long_n;
+                    this.var_long_f = this.time;
                 }
             } else {
                 this.var_boolean_k = true;
-                this.var_long_f = this.var_long_n;
+                this.var_long_f = this.time;
             }
         }
         appCanvas.repaint();
@@ -3255,7 +3257,7 @@ implements CommandListener {
     public void c(int n) {
         this.var_boolean_q = true;
         this.var_long_m = n;
-        this.var_long_b = this.var_long_n;
+        this.var_long_b = this.time;
     }
 
     static {
