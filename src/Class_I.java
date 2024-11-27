@@ -2533,8 +2533,10 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_c_f == null || this.var_c_f.mapX < 4 || this.var_c_f.mapY < 7) break;
-                    Unit.spawn(Unit.SOLDIER, PLAYER_RED, 5, 8);
-                    this.a(this.blueSparkSheet, 120, 192, 0, 0, 2, 50);
+                    final int enemyMapX = 5;
+                    final int enemyMapY = 8;
+                    Unit.spawn(Unit.SOLDIER, PLAYER_RED, enemyMapX, 8);
+                    this.a(this.blueSparkSheet, enemyMapX * 24, enemyMapY * 24, 0, 0, 2, 50);
                     this.a(false);
                     this.void_b(1000);
                     ++this.currentLevelStep;
