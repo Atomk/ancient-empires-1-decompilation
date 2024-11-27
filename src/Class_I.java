@@ -971,7 +971,7 @@ implements CommandListener {
             // 'The Kingdom of Thorin is divided. Betrayed by his own twin brother Valadorn [...]''
             this.storyPanel = g.a(this, null, AppCanvas.getGameText(103 + this.currentLevel), -1, false);
             this.a(false);
-            this.void_b(500);
+            this.pauseLevelProgress(500);
             AppCanvas.playSound(-1, 1);
         } else {
             // 36: OBJECTIVE
@@ -2366,9 +2366,10 @@ implements CommandListener {
         return n5;
     }
 
-    public void void_b(int n) {
+    /** Prevents showing panels or checking progress/victory/lose condition for the specified time. */
+    private void pauseLevelProgress(int millis) {
         this.var_boolean_z = true;
-        this.var_int_i = n;
+        this.var_int_i = millis;
         this.var_long_h = this.var_long_n;
     }
 
@@ -2437,8 +2438,7 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    // TODO pretty sure this is a 'wait'
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2454,7 +2454,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2540,7 +2540,7 @@ implements CommandListener {
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, enemyMapX, 8);
                     this.a(this.blueSparkSheet, enemyMapX * 24, enemyMapY * 24, 0, 0, 2, 50);
                     this.a(false);
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2564,7 +2564,7 @@ implements CommandListener {
                 }
                 case 19: {
                     if (!this.isBuildingAndOwnedByPlayer(8, 9, PLAYER_BLUE) || this.var_byte_i != 0) break;
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2652,7 +2652,7 @@ implements CommandListener {
                     // TODO I think this makes the lizard walk to the location
                     // Ref: https://youtu.be/6MTmxnNygSw?t=371
                     unitLizard_1.void_a(9, 2);
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2662,7 +2662,7 @@ implements CommandListener {
                     this.b(unitLizard_2);
                     unitLizard_2.updatePathfindData(this.unitActionsMatrix);
                     unitLizard_2.void_a(10, 1);
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2703,7 +2703,7 @@ implements CommandListener {
                 }
                 case 22: {
                     if (this.searchUnitsCount(SEARCH_ANY, SEARCH_ANY, PLAYER_RED) != this.searchUnitsCount(SEARCH_ANY, Unit.STATE_TOMBSTONE, PLAYER_RED)) break;
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2724,7 +2724,7 @@ implements CommandListener {
                         this.a(this.redsparkSheet, j * 24, 288, 0, 0, 4, 50);
                     }
                     AppCanvas.playSound(1, 3);
-                    this.void_b(200);
+                    this.pauseLevelProgress(200);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2732,7 +2732,7 @@ implements CommandListener {
                     for (int j = 5; j < 10; ++j) {
                         this.mapTerrain[j][12] = waterTilesIndex[0];
                     }
-                    this.void_b(300);
+                    this.pauseLevelProgress(300);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2825,7 +2825,7 @@ implements CommandListener {
                     this.a(this.blueSparkSheet, 0, 0, 0, 0, 4, 50);
                     this.void_a(2, 0, PLAYER_RED);
                     this.void_a(0, 0, PLAYER_RED);
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2859,7 +2859,7 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    this.void_b(600);
+                    this.pauseLevelProgress(600);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2905,13 +2905,13 @@ implements CommandListener {
                     // TODO no it's not unused, that spawns a new unit
                     //Unit c4 = Unit.a((byte)8, (byte)0, 2, 2); // unused
                     this.setCameraTargetTile(2, 2);
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 8: {
                     this.setCameraTargetTile(2, 2);
-                    this.void_b(750);
+                    this.pauseLevelProgress(750);
                     break;
                 }
                 case 9: {
@@ -2920,7 +2920,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2938,7 +2938,7 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2975,7 +2975,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.void_b(800);
+                    this.pauseLevelProgress(800);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2997,7 +2997,7 @@ implements CommandListener {
                     this.a(this.blueSparkSheet, 312, 0, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 288, 0, 0, 0, 4, 50);
                     this.void_a(13, 0, PLAYER_RED);
-                    this.void_b(800);
+                    this.pauseLevelProgress(800);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3011,7 +3011,7 @@ implements CommandListener {
                     this.a(this.blueSparkSheet, 24, 288, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 24, 264, 0, 0, 4, 50);
                     this.void_a(1, 12, PLAYER_RED);
-                    this.void_b(800);
+                    this.pauseLevelProgress(800);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3029,7 +3029,7 @@ implements CommandListener {
                     this.a(this.blueSparkSheet, 24, 48, 0, 0, 4, 50);
                     this.void_a(1, 1, PLAYER_RED);
                     this.void_a(1, 2, PLAYER_RED);
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3065,7 +3065,7 @@ implements CommandListener {
                     break;
                 }
                 case 13: {
-                    this.void_b(1000);
+                    this.pauseLevelProgress(1000);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3084,7 +3084,7 @@ implements CommandListener {
                     break;
                 }
                 case 17: {
-                    this.void_b(500);
+                    this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3123,7 +3123,7 @@ implements CommandListener {
     public void i() {
         this.var_boolean_w = true;
         this.currentLevelStep = 0;
-        this.void_b(800);
+        this.pauseLevelProgress(800);
     }
 
     // TODO there is a class with the same name in a.java (which inherits this class)
