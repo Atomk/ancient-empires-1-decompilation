@@ -542,7 +542,7 @@ extends SpriteSheet {
 
         // TODO this will always return null since we changed state just above.
         //      And there's not need to "tryGetUnit"...we could just check the state. am I missing something or is this dead code?
-        Unit tombstone = game.tryGetUnit((int)this.mapX, (int)this.mapY, Class_I.SEARCH_TOMBSTONE);
+        Unit tombstone = game.tryGetUnit(this.mapX, this.mapY, Class_I.SEARCH_TOMBSTONE);
         if (tombstone != null) {
             Unit.game.mapUnitsList.removeElement(tombstone);
         }
