@@ -211,7 +211,8 @@ public class g {
         if (bl) {
             panel.a((byte)0, 0, 0, null, 0);
         }
-        i2.var_g_b = panel;
+        // TODO this feels useless since you return the panel
+        i2.storyPanel = panel;
         return panel;
     }
 

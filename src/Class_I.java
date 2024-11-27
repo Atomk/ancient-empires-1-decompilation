@@ -246,7 +246,8 @@ implements CommandListener {
     private short currentLevelStep = 0;
     public long var_long_h;
     public int var_int_i;
-    public g var_g_b;
+    /** A panel showing a dialogue or the background story for the current campaign level. */
+    public g storyPanel;
     public boolean var_boolean_z = false;
     public boolean var_boolean_o = false;
     public boolean var_boolean_w = false;
@@ -966,7 +967,7 @@ implements CommandListener {
             // Level name (e.g. REGROUP) and its objective, shown at level start
             this._panelMapObjective = g.a(this, AppCanvas.getGameText(48 + this.currentLevel), AppCanvas.getGameText(55 + this.currentLevel), -1, false);
             // 'The Kingdom of Thorin is divided. Betrayed by his own twin brother Valadorn [...]''
-            this.var_g_b = g.a(this, null, AppCanvas.getGameText(103 + this.currentLevel), -1, false);
+            this.storyPanel = g.a(this, null, AppCanvas.getGameText(103 + this.currentLevel), -1, false);
             this.a(false);
             this.void_b(500);
             AppCanvas.playSound(-1, 1);
@@ -1103,7 +1104,7 @@ implements CommandListener {
         if (this.var_int_s != -1) {
             if (AppCanvas.settings[AppCanvas.SETTINGS_HELP]) {
                 // This is the first tutorial string - "Select and move units by pressing 5 [...]""
-                this.var_g_b = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), PORTRAIT_NONE, (byte)2);
+                this.storyPanel = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), PORTRAIT_NONE, (byte)2);
             }
             this.var_int_s = -1;
         }
@@ -2407,12 +2408,12 @@ implements CommandListener {
         }
         if (this.currentLevelStep == 0) {
             this._mapKings[PLAYER_BLUE].customName = AppCanvas.getGameText(43); // "GALAMAR"
-            this.var_g_b.a((byte)0, 0, 0, null, 0);
+            this.storyPanel.a((byte)0, 0, 0, null, 0);
             ++this.currentLevelStep;
         }
-        if (this.var_g_b != null) {
-            if (this.var_g_b.var_byte_e != 3) return;
-            this.var_g_b = null;
+        if (this.storyPanel != null) {
+            if (this.storyPanel.var_byte_e != 3) return;
+            this.storyPanel = null;
             AppCanvas.stopFirstSound();
         } else if (this._cameraTargetMapX != -1) {
             if (!this.boolean_b(this._cameraTargetMapX, this._cameraTargetMapY)) return;
@@ -2440,7 +2441,7 @@ implements CommandListener {
                 }
                 case 3: {
                     // "Sire, your troops are weary after last night's battle. [...]"
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(111), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(111), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2455,12 +2456,12 @@ implements CommandListener {
                 }
                 case 6: {
                     // "Sound advice, captain. Ready the troops [...]"
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(112), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(112), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(113), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(113), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2521,7 +2522,7 @@ implements CommandListener {
                 }
                 case 16: {
                     // "Spies!! Valadorn and his Red legion [...]"
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(114), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(114), PORTRAIT_CAPTAIN, (byte)4);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
@@ -2559,7 +2560,7 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(115), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(115), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2597,7 +2598,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(116), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(116), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2606,7 +2607,7 @@ implements CommandListener {
                     break;
                 }
                 case 11: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(117), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(117), PORTRAIT_GALAMAR, (byte)4);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
@@ -2643,7 +2644,7 @@ implements CommandListener {
                 }
                 case 15: {
                     if (this.var_byte_i == 1) break;
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(118), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(118), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2656,12 +2657,12 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(119), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(119), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 19: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(120), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(120), PORTRAIT_CAPTAIN, (byte)4);
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
@@ -2713,7 +2714,7 @@ implements CommandListener {
                 }
                 case 4: {
                     // 'Sire, the bridge has been destroyed!'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(121), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(121), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2723,13 +2724,13 @@ implements CommandListener {
                 }
                 case 6: {
                     // 'Valadorn must be expecting us - we must find another way across. This could be a trap.'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(122), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(122), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 7: {
                     // 'Troops! Keep your eyes open and protect the Lizard Chief at all cost.'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(123), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(123), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2772,7 +2773,7 @@ implements CommandListener {
                 }
                 case 3: {
                     // 'Your majesty, the Red legion! Watch out for their long range catapult!'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(124), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(124), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2806,13 +2807,13 @@ implements CommandListener {
                 }
                 case 8: {
                     // 'What is this treachery! The city has turned against us!'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(125), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(125), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 9: {
                     // 'As predictable as ever, brother! I have you now!'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(126), PORTRAIT_VALADORN, (byte)8);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(126), PORTRAIT_VALADORN, (byte)8);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2828,7 +2829,7 @@ implements CommandListener {
                 case 12: {
                     if (this._mapKings[PLAYER_RED] != null) break;
                     // 'Retreat!! Curse you Galamar! You won't be so lucky next time!'
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(127), PORTRAIT_VALADORN, (byte)8);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(127), PORTRAIT_VALADORN, (byte)8);
                     this.a(false);
                     ++this.currentLevelStep;
                     break;
@@ -2851,12 +2852,12 @@ implements CommandListener {
                     break;
                 }
                 case 2: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(128), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(128), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(129), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(129), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2890,7 +2891,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(130), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(130), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2918,7 +2919,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(131), PORTRAIT_CAPTAIN, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(131), PORTRAIT_CAPTAIN, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2927,7 +2928,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(132), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(132), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3009,12 +3010,12 @@ implements CommandListener {
                     break;
                 }
                 case 7: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(133), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(133), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 8: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(134), PORTRAIT_VALADORN, (byte)8);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(134), PORTRAIT_VALADORN, (byte)8);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3023,7 +3024,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(135), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(135), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3049,12 +3050,12 @@ implements CommandListener {
                     break;
                 }
                 case 15: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(136), PORTRAIT_VALADORN, (byte)8);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(136), PORTRAIT_VALADORN, (byte)8);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 16: {
-                    this.var_g_b = g.a(this, AppCanvas.getGameText(137), PORTRAIT_GALAMAR, (byte)4);
+                    this.storyPanel = g.a(this, AppCanvas.getGameText(137), PORTRAIT_GALAMAR, (byte)4);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -3064,7 +3065,8 @@ implements CommandListener {
                     break;
                 }
                 case 18: {
-                    this.var_g_b = g.a(this, null, AppCanvas.getGameText(110), -1, true);
+                    // "With Galamar victorious, the spell controlling Valadorn is broken [...]"
+                    this.storyPanel = g.a(this, null, AppCanvas.getGameText(110), -1, true);
                     ++this.currentLevelStep;
                     break;
                 }
