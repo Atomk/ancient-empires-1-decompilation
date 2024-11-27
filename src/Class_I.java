@@ -250,8 +250,8 @@ implements CommandListener {
     public boolean var_boolean_z = false;
     public boolean var_boolean_o = false;
     public boolean var_boolean_w = false;
-    public int var_int_j = -1;
-    public int var_int_b = -1;
+    private int _cameraTargetMapX = -1;
+    private int _cameraTargetMapY = -1;
     public boolean var_boolean_A = true;
     public boolean var_boolean_i = true;
     public f var_f_b;
@@ -2414,10 +2414,10 @@ implements CommandListener {
             if (this.var_g_b.var_byte_e != 3) return;
             this.var_g_b = null;
             AppCanvas.stopFirstSound();
-        } else if (this.var_int_j != -1) {
-            if (!this.boolean_b(this.var_int_j, this.var_int_b)) return;
-            this.var_int_j = -1;
-            this.var_int_b = -1;
+        } else if (this._cameraTargetMapX != -1) {
+            if (!this.boolean_b(this._cameraTargetMapX, this._cameraTargetMapY)) return;
+            this._cameraTargetMapX = -1;
+            this._cameraTargetMapY = -1;
         }
         if (this.var_byte_i != 11 && this._mapKings[PLAYER_BLUE].state == Unit.STATE_TOMBSTONE) {
             this.i();
@@ -3079,8 +3079,8 @@ implements CommandListener {
 
     // TODO I'm pretty sure this is correct (or close to the answer) because it's used in campaign steps, but cannot figure out why it works. I thought this method started the camera easing but I'm still mising something
     private void setCameraTargetTile(int mapX, int mapY) {
-        this.var_int_j = mapX;
-        this.var_int_b = mapY;
+        this._cameraTargetMapX = mapX;
+        this._cameraTargetMapY = mapY;
         this.setMapCursorTo(mapX, mapY);
         ++this.currentLevelStep;
     }
