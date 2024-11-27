@@ -82,6 +82,7 @@ public class g {
     public g var_g_a;
 
     public static final byte TYPE_UNIT_INFO = 4;
+    public static final byte TYPE_DIALOGUE = 6;
     public static final byte TYPE_MINIMAP = 7;
 
     public g(Class_I i2, byte type, int n) {
@@ -138,7 +139,7 @@ public class g {
             this.var_boolean_h = false;
             this.var_boolean_d = false;
             this.b();
-        } else if (type == 6) {
+        } else if (type == TYPE_DIALOGUE) {
             this.var_int_g = i2.uiPortraitSheet.getSpritesHeight() + -5;
             this.var_int_b = AppCanvas.width2;
             int n2 = this.var_int_g - 6;
@@ -217,7 +218,7 @@ public class g {
     }
 
     public static g a(Class_I i2, String string, byte portraitIndex, byte by2) {
-        g g2 = new g(i2, (byte)6, by2);
+        g g2 = new g(i2, TYPE_DIALOGUE, by2);
         g2.portraitSpriteIndex = portraitIndex;
         if (portraitIndex == Class_I.PORTRAIT_NONE) {
             g2.var_int_d = g2.var_int_b - 24;
@@ -302,7 +303,7 @@ public class g {
             }
             this.var_a_a.var_g_c.a((byte)8, 0, 0, null, 0);
         }
-        if (this._type == 6 || this._type == TYPE_UNIT_INFO || this._type == 5) {
+        if (this._type == TYPE_DIALOGUE || this._type == TYPE_UNIT_INFO || this._type == 5) {
             this.y = AppCanvas.height2 - this.var_int_g;
         }
         if ((this._type == 3 || this._type == 5 || this._type == 0) && this.var_boolean_e && this.boolean_a()) {
@@ -529,7 +530,7 @@ public class g {
                         }
                         break block98;
                     }
-                    if (this._type == 6) {
+                    if (this._type == TYPE_DIALOGUE) {
                         if (this.var_byte_e == 2) {
                             if (Class_I.appCanvas.pressedKeysActions != 0) {
                                 if (this.var_short_b + this.u >= this._descriptionLines.length) {
@@ -920,7 +921,7 @@ public class g {
                     this.var_a_a.uiPortraitSheet.a(graphics, n21, n19 - 10);
                     break;
                 }
-                case 6: {
+                case TYPE_DIALOGUE: {
                     graphics.setFont(this.appFont);
                     int n22 = this.D;
                     int n23 = 4;
