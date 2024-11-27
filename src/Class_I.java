@@ -648,9 +648,9 @@ implements CommandListener {
         }
     }
 
-    public SpriteSheet a(SpriteSheet sheet, int n, int n2, int n3, int n4, int n5, int n6) {
+    public SpriteSheet a(SpriteSheet sheet, int mapPixelX, int mapPixelY, int n3, int n4, int n5, int n6) {
         SpriteSheet e3 = SpriteSheet.a(sheet, n3, n4, n5, n6, (byte)0);
-        e3.setMapPixelCoords(n, n2);
+        e3.setMapPixelCoords(mapPixelX, mapPixelY);
         this.var_java_util_Vector_f.addElement(e3);
         return e3;
     }
@@ -1524,8 +1524,8 @@ implements CommandListener {
         return this.var_short_f == this.int_b(n) && this.var_short_a == this.int_a(n2);
     }
 
-    public boolean boolean_b(int n, int n2) {
-        return this.boolean_c(n * 24 + 12, n2 * 24 + 12);
+    private boolean boolean_b(int mapX, int mapY) {
+        return this.boolean_c(mapX * 24 + 12, mapY * 24 + 12);
     }
 
     public int int_b(int n) {
