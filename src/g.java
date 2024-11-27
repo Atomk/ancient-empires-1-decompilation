@@ -217,11 +217,9 @@ public class g {
     }
 
     public static g a(Class_I i2, String string, byte portraitIndex, byte by2) {
-        byte by3 = by2;
-        g g2 = new g(i2, (byte)6, by3);
+        g g2 = new g(i2, (byte)6, by2);
         g2.portraitSpriteIndex = portraitIndex;
         if (portraitIndex == Class_I.PORTRAIT_NONE) {
-            by3 = 0;
             g2.var_int_d = g2.var_int_b - 24;
             g2._descriptionLines = AppCanvas.a(string, g2.var_int_d, g2.appFont);
         } else {
