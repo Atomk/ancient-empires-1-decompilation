@@ -217,15 +217,15 @@ public class g {
         return panel;
     }
 
-    public static g a(Class_I i2, String string, byte portraitIndex, byte by2) {
+    public static g a(Class_I i2, String text, byte portraitIndex, byte by2) {
         g g2 = new g(i2, TYPE_DIALOGUE, by2);
         g2.portraitSpriteIndex = portraitIndex;
         if (portraitIndex == Class_I.PORTRAIT_NONE) {
             g2.var_int_d = g2.var_int_b - 24;
-            g2._descriptionLines = AppCanvas.a(string, g2.var_int_d, g2.appFont);
+            g2._descriptionLines = AppCanvas.a(text, g2.var_int_d, g2.appFont);
         } else {
             g2.var_int_d = g2.var_int_b - i2.uiPortraitSheet.getSpritesWidth() - 6 - 12;
-            g2._descriptionLines = AppCanvas.a(string, g2.var_int_d, g2.appFont);
+            g2._descriptionLines = AppCanvas.a(text, g2.var_int_d, g2.appFont);
         }
         g2.a(by2, 0, 0, null, 0);
         return g2;
