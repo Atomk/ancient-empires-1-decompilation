@@ -1982,9 +1982,9 @@ implements CommandListener {
         return c2.isType((short)16) && this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_CASTLE && !this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, c2.owner);
     }
 
-    public void void_a(int mapX, int mapY, int n3) {
+    private void void_a(int mapX, int mapY, int playerID) {
         if (this.mapTerrain[mapX][mapY] >= this.var_int_t) {
-            this.mapTerrain[mapX][mapY] = (byte)(this.var_int_t + (n3 + 1) * 3 + (this.mapTerrain[mapX][mapY] - this.var_int_t) % 3);
+            this.mapTerrain[mapX][mapY] = (byte)(this.var_int_t + (playerID + 1) * 3 + (this.mapTerrain[mapX][mapY] - this.var_int_t) % 3);
         }
     }
 
@@ -2798,8 +2798,8 @@ implements CommandListener {
                     Unit.spawn(Unit.SPIDER, PLAYER_RED, 0, 0);
                     this.a(this.blueSparkSheet, 48, 0, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 0, 0, 0, 0, 4, 50);
-                    this.void_a(2, 0, 1);
-                    this.void_a(0, 0, 1);
+                    this.void_a(2, 0, PLAYER_RED);
+                    this.void_a(0, 0, PLAYER_RED);
                     this.void_b(1000);
                     ++this.currentLevelStep;
                     break;
@@ -2971,7 +2971,7 @@ implements CommandListener {
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 13, 0);
                     this.a(this.blueSparkSheet, 312, 0, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 288, 0, 0, 0, 4, 50);
-                    this.void_a(13, 0, 1);
+                    this.void_a(13, 0, PLAYER_RED);
                     this.void_b(800);
                     ++this.currentLevelStep;
                     break;
@@ -2985,7 +2985,7 @@ implements CommandListener {
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, 1, 12);
                     this.a(this.blueSparkSheet, 24, 288, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 24, 264, 0, 0, 4, 50);
-                    this.void_a(1, 12, 1);
+                    this.void_a(1, 12, PLAYER_RED);
                     this.void_b(800);
                     ++this.currentLevelStep;
                     break;
@@ -3002,8 +3002,8 @@ implements CommandListener {
                     this.a(this.blueSparkSheet, 24, 24, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 0, 24, 0, 0, 4, 50);
                     this.a(this.blueSparkSheet, 24, 48, 0, 0, 4, 50);
-                    this.void_a(1, 1, 1);
-                    this.void_a(1, 2, 1);
+                    this.void_a(1, 1, PLAYER_RED);
+                    this.void_a(1, 2, PLAYER_RED);
                     this.void_b(1000);
                     ++this.currentLevelStep;
                     break;
