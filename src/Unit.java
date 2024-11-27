@@ -50,7 +50,7 @@ extends SpriteSheet {
 
     // TODO this a static reference to the 'i' class, there must be a better solution...
     // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
-    public static Class_I iClassRef;
+    public static Class_I game;
     public String customName;
     public short stars;
     public short xp;
@@ -90,18 +90,18 @@ extends SpriteSheet {
     private static final short[] unitsDataBitflag;
 
     private Unit(byte unitType, byte owner, int mapX, int mapY) {
-        super(iClassRef.a(owner, unitType));
+        super(game.a(owner, unitType));
         this.mapX = (short)mapX;
         this.mapY = (short)mapY;
         this.mapPixelX = (short)(mapX * TILE_SIZE);
         ((SpriteSheet)this).l = (short)(mapY * TILE_SIZE);
         this.setMapPixelCoords(mapX * TILE_SIZE, mapY * TILE_SIZE);
-        Unit.iClassRef.mapUnitsList.addElement(this);
+        Unit.game.mapUnitsList.addElement(this);
     }
 
     public void b(int n) {
         this.var_boolean_e = true;
-        this.var_long_c = Unit.iClassRef.time;
+        this.var_long_c = Unit.game.time;
         this.var_int_g = n;
     }
 
@@ -154,7 +154,7 @@ extends SpriteSheet {
             --opponentDEF;
         }
 
-        int terrainDEF = iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType(opponent.mapX, opponent.mapY), opponent);
+        int terrainDEF = game.getTerrainDefenceForUnit(game.getTerrainType(opponent.mapX, opponent.mapY), opponent);
         int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
         if (killCount > opponent.quantity) {
             killCount = opponent.quantity;
@@ -235,7 +235,7 @@ extends SpriteSheet {
     }
 
     public int int_a(int mapX, int mapY) {
-        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + iClassRef.getTerrainDefenceForUnit(iClassRef.getTerrainType(mapX, mapY), this)) * this.quantity;
+        return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + game.getTerrainDefenceForUnit(game.getTerrainType(mapX, mapY), this)) * this.quantity;
     }
 
     // TODO takes a matrix the same size as the map, and puts the value 127
@@ -254,12 +254,12 @@ extends SpriteSheet {
             minY = 0;
         }
         int maxX = unitX + attackRangeMax;
-        if (maxX >= Unit.iClassRef.mapTilesWidth) {
-            maxX = Unit.iClassRef.mapTilesWidth - 1;
+        if (maxX >= Unit.game.mapTilesWidth) {
+            maxX = Unit.game.mapTilesWidth - 1;
         }
         int maxY = unitY + attackRangeMax;
-        if (maxY >= Unit.iClassRef.mapTilesHeight) {
-            maxY = Unit.iClassRef.mapTilesHeight - 1;
+        if (maxY >= Unit.game.mapTilesHeight) {
+            maxY = Unit.game.mapTilesHeight - 1;
         }
 
         for (int x = minX; x <= maxX; ++x) {
@@ -280,8 +280,8 @@ extends SpriteSheet {
             return;
         }
         this.updatePathfindData(byArray);
-        for (int x = 0; x < Unit.iClassRef.mapTilesWidth; ++x) {
-            for (int y = 0; y < Unit.iClassRef.mapTilesHeight; ++y) {
+        for (int x = 0; x < Unit.game.mapTilesWidth; ++x) {
+            for (int y = 0; y < Unit.game.mapTilesHeight; ++y) {
                 // For every possible move of this unit, add to the matrix the tiles that can be attacked from that location
                 // tile == 0 means this unit cannot move there
                 // tile == 127 means we already know this unit can attack that tile
@@ -326,21 +326,21 @@ extends SpriteSheet {
                 if (manhattanDist < rangeMin || manhattanDist > rangeMax) continue;
 
                 if (filter == FILTER_ENEMy) {
-                    Unit unit = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
+                    Unit unit = game.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
                     if (unit != null && unit.owner != this.owner) {
                         vector.addElement(unit);
                     }
                     continue;
                 }
                 if (filter == FILTER_TOMBSTONE) {
-                    Unit tombstone = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
+                    Unit tombstone = game.tryGetUnit(x, y, Class_I.SEARCH_TOMBSTONE);
                     if (tombstone != null) {
                         vector.addElement(tombstone);
                     }
                     continue;
                 }
                 if(filter == FILTER_ALLY) {
-                    Unit c2 = iClassRef.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
+                    Unit c2 = game.tryGetUnit(x, y, Class_I.SEARCH_ALIVE);
                     if(c2 != null && c2.owner == this.owner) {
                         vector.addElement(c2);
                     }
@@ -388,16 +388,16 @@ extends SpriteSheet {
         byte left = 0;
         byte right = 0;
         if (y > 0) {
-            down = Unit.iClassRef.unitActionsMatrix[x][y - 1];
+            down = Unit.game.unitActionsMatrix[x][y - 1];
         }
-        if (y < Unit.iClassRef.mapTilesHeight - 1) {
-            up = Unit.iClassRef.unitActionsMatrix[x][y + 1];
+        if (y < Unit.game.mapTilesHeight - 1) {
+            up = Unit.game.unitActionsMatrix[x][y + 1];
         }
         if (x > 0) {
-            left = Unit.iClassRef.unitActionsMatrix[x - 1][y];
+            left = Unit.game.unitActionsMatrix[x - 1][y];
         }
-        if (x < Unit.iClassRef.mapTilesWidth - 1) {
-            right = Unit.iClassRef.unitActionsMatrix[x + 1][y];
+        if (x < Unit.game.mapTilesWidth - 1) {
+            right = Unit.game.unitActionsMatrix[x + 1][y];
         }
 
         // Find the shortest path to the source tile, by going where mov points grow the most rapidly
@@ -464,8 +464,8 @@ extends SpriteSheet {
      * Out-of-bounds tiles are handled by having a huge movement cost. */
     private int tileMovCost(int mapX, int mapY) {
         // If coordinates are inside the map
-        if (mapX >= 0 && mapY >= 0 && mapX < Unit.iClassRef.mapTilesWidth && mapY < Unit.iClassRef.mapTilesHeight) {
-            Unit unit = iClassRef.tryGetUnit(mapX, mapY, Class_I.SEARCH_ALIVE);
+        if (mapX >= 0 && mapY >= 0 && mapX < Unit.game.mapTilesWidth && mapY < Unit.game.mapTilesHeight) {
+            Unit unit = game.tryGetUnit(mapX, mapY, Class_I.SEARCH_ALIVE);
             if (unit != null && unit.owner != this.owner) {
                 // Cannot move through enemy units
                 return 1000;
@@ -474,7 +474,7 @@ extends SpriteSheet {
                 // Wyvern flies, so terrain type does not affect movement
                 return 1;
             }
-            byte terrainType = iClassRef.getTerrainType(mapX, mapY);
+            byte terrainType = game.getTerrainType(mapX, mapY);
             // Lizards are not slowed down by water, but are very slow on any other surface
             if (this.isType(LIZARD_FLAG)) {
                 if (terrainType == f.TERRAIN_WATER) {
@@ -489,7 +489,7 @@ extends SpriteSheet {
 
     public void void_a() {
         if (this.var_boolean_e) {
-            if (Unit.iClassRef.time - this.var_long_c >= (long)this.var_int_g) {
+            if (Unit.game.time - this.var_long_c >= (long)this.var_int_g) {
                 this.var_boolean_e = false;
             } else {
                 this.var_boolean_b = !this.var_boolean_b;
@@ -502,7 +502,7 @@ extends SpriteSheet {
                 this.mapY = (short)(((SpriteSheet)this).l / TILE_SIZE);
                 this._pathSteps = null;
                 this._pathStepIndex = 0;
-                iClassRef.c(this);
+                game.c(this);
             } else {
                 short[] tileCoords = this._pathSteps.elementAt(this._pathStepIndex);
                 int tilePixelX = tileCoords[0] * TILE_SIZE;
@@ -521,9 +521,9 @@ extends SpriteSheet {
                 }
             }
             super.setMapPixelCoords(this.mapPixelX, ((SpriteSheet)this).l);
-        } else if (Unit.iClassRef.time - this.var_long_a >= 200L) {
+        } else if (Unit.game.time - this.var_long_a >= 200L) {
             this.nextFrame();
-            this.var_long_a = Unit.iClassRef.time;
+            this.var_long_a = Unit.game.time;
         }
     }
 
@@ -542,33 +542,33 @@ extends SpriteSheet {
 
         // TODO this will always return null since we changed state just above.
         //      And there's not need to "tryGetUnit"...we could just check the state. am I missing something or is this dead code?
-        Unit tombstone = iClassRef.tryGetUnit((int)this.mapX, (int)this.mapY, Class_I.SEARCH_TOMBSTONE);
+        Unit tombstone = game.tryGetUnit((int)this.mapX, (int)this.mapY, Class_I.SEARCH_TOMBSTONE);
         if (tombstone != null) {
-            Unit.iClassRef.mapUnitsList.removeElement(tombstone);
+            Unit.game.mapUnitsList.removeElement(tombstone);
         }
 
-        int unitsCount = Unit.iClassRef.mapUnitsList.size();
+        int unitsCount = Unit.game.mapUnitsList.size();
         // Remove AURA status from all friendly units (TODO maybe so it's not active during opponent's turn?)
         for (int i = 0; i < unitsCount; ++i) {
-            Unit unit = Unit.iClassRef.mapUnitsList.elementAt(i);
+            Unit unit = Unit.game.mapUnitsList.elementAt(i);
             if (unit.owner == this.owner) {
                 unit.removeStatus(Unit.STATUS_AURA);
             }
         }
 
-        unitsCount = Unit.iClassRef.mapUnitsList.size();
+        unitsCount = Unit.game.mapUnitsList.size();
         for (int i = 0; i < unitsCount; ++i) {
-            Unit unit = Unit.iClassRef.mapUnitsList.elementAt(i);
+            Unit unit = Unit.game.mapUnitsList.elementAt(i);
             // Unit must be an allied Wisp
             if (unit.owner != this.owner || !unit.isType(WISP_FLAG)) continue;
             Unit[] closeAllies = unit.searchInRange(unit.mapX, unit.mapY, 1, 2, FILTER_ALLY);
             for (int j = 0; j < closeAllies.length; ++j) {
                 closeAllies[j].addStatus(Unit.STATUS_AURA);
-                iClassRef.a(Unit.iClassRef.blueSparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
+                game.a(Unit.game.blueSparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
             }
         }
 
-        Unit.iClassRef.unitWhoseTurnEnded = this;
+        Unit.game.unitWhoseTurnEnded = this;
     }
 
     /** Returns an array containing all unit types between 0 (soldier)
@@ -577,7 +577,7 @@ extends SpriteSheet {
     public static byte[] getCurrentGameAllowedUnitTypes() {
         byte[] array = new byte[unitsDataPrice.length];
         int buyableUnitsCount = 0;
-        for (byte unitType = 0; unitType <= Unit.iClassRef.strongestAllowedUnitType; unitType++) {
+        for (byte unitType = 0; unitType <= Unit.game.strongestAllowedUnitType; unitType++) {
             // Skips the units you cannot buy (king, skeleton)
             if (unitsDataPrice[unitType] <= 0) continue;
             array[buyableUnitsCount] = unitType;
