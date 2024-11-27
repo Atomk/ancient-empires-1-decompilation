@@ -1160,21 +1160,21 @@ implements CommandListener {
                     this.mapCursorSheet.nextFrame();
                     this.var_long_k = this.var_long_n;
                 }
-                int n3 = this.mapCursorX * 24;
-                int n4 = this.mapCursorY * 24;
-                int n5 = this.mapCursorSheet.var_short_b;
-                int n6 = this.mapCursorSheet.l;
-                if (n3 > n5) {
-                    n5 += 8;
-                } else if (n3 < n5) {
-                    n5 -= 8;
+                int cursorMapX = this.mapCursorX * 24;
+                int cursorMapY = this.mapCursorY * 24;
+                int cursorPixelX = this.mapCursorSheet.var_short_b;
+                int cursorPixelY = this.mapCursorSheet.l;
+                if (cursorMapX > cursorPixelX) {
+                    cursorPixelX += 8;
+                } else if (cursorMapX < cursorPixelX) {
+                    cursorPixelX -= 8;
                 }
-                if (n4 > n6) {
-                    n6 += 8;
-                } else if (n4 < n6) {
-                    n6 -= 8;
+                if (cursorMapY > cursorPixelY) {
+                    cursorPixelY += 8;
+                } else if (cursorMapY < cursorPixelY) {
+                    cursorPixelY -= 8;
                 }
-                this.mapCursorSheet.setMapPixelCoords(n5, n6);
+                this.mapCursorSheet.setMapPixelCoords(cursorPixelX, cursorPixelY);
                 if (this.var_byte_i == 8) {
                     if (this.var_int_k == 0 && this.var_g_i == null) {
                         this.startNextTurn();
