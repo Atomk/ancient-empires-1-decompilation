@@ -2428,8 +2428,7 @@ implements CommandListener {
                 // TODO the step 0 is executed somewhere else...look for string 103 and this.currentLevelStep
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
-                    // TODO I think this animates the camera/map to show another area
-                    this.void_b(8, 9);
+                    this.setCameraTargetTile(8, 9);
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2446,7 +2445,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2556,7 +2555,7 @@ implements CommandListener {
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
                     this.strongestAllowedUnitType = Unit.LIZARD;
-                    this.void_b(9, 12);
+                    this.setCameraTargetTile(9, 12);
                     break;
                 }
                 case 2: {
@@ -2565,7 +2564,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 4: {
@@ -2594,7 +2593,7 @@ implements CommandListener {
                     break;
                 }
                 case 8: {
-                    this.void_b(12, 1);
+                    this.setCameraTargetTile(12, 1);
                     break;
                 }
                 case 9: {
@@ -2603,7 +2602,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 11: {
@@ -2614,7 +2613,7 @@ implements CommandListener {
                 }
                 case 12: {
                     if (this._mapKings[PLAYER_BLUE].mapX < 11 || this._mapKings[PLAYER_BLUE].mapY > 4 || this._mapKings[PLAYER_BLUE].state != Unit.STATE_ALREADY_ACTED) break;
-                    this.void_b(12, 1);
+                    this.setCameraTargetTile(12, 1);
                     this.a(false);
                     break;
                 }
@@ -2649,11 +2648,11 @@ implements CommandListener {
                     break;
                 }
                 case 16: {
-                    this.void_b(1, 1);
+                    this.setCameraTargetTile(1, 1);
                     break;
                 }
                 case 17: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 18: {
@@ -2692,7 +2691,7 @@ implements CommandListener {
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
                     this.tryGetUnit((int)14, (int)12, SEARCH_ALIVE).customName = AppCanvas.getGameText(45); // LIZARD CHIEF
-                    this.void_b(7, 12);
+                    this.setCameraTargetTile(7, 12);
                     break;
                 }
                 case 2: {
@@ -2719,7 +2718,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 6: {
@@ -2764,11 +2763,11 @@ implements CommandListener {
                     this.var_boolean_A = true;
                     this.var_boolean_i = true;
                     this.strongestAllowedUnitType = Unit.SPIDER;
-                    this.void_b(2, 0);
+                    this.setCameraTargetTile(2, 0);
                     break;
                 }
                 case 2: {
-                    this.void_b(2, 12);
+                    this.setCameraTargetTile(2, 12);
                     break;
                 }
                 case 3: {
@@ -2778,7 +2777,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2789,7 +2788,7 @@ implements CommandListener {
                 }
                 case 6: {
                     if (this._turnIndex != 10) break;
-                    this.void_b(2, 0);
+                    this.setCameraTargetTile(2, 0);
                     this.a(false);
                     break;
                 }
@@ -2818,7 +2817,7 @@ implements CommandListener {
                     break;
                 }
                 case 10: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 11: {
@@ -2848,7 +2847,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.strongestAllowedUnitType = Unit.CATAPULT;
-                    this.void_b(2, 2);
+                    this.setCameraTargetTile(2, 2);
                     break;
                 }
                 case 2: {
@@ -2862,7 +2861,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2873,20 +2872,20 @@ implements CommandListener {
                 }
                 case 6: {
                     if (this._mapKings[PLAYER_RED].state != Unit.STATE_TOMBSTONE) break;
-                    this.void_b(2, 2);
+                    this.setCameraTargetTile(2, 2);
                     this.a(false);
                     break;
                 }
                 case 7: {
                     // TODO no it's not unused, that spawns a new unit
                     //Unit c4 = Unit.a((byte)8, (byte)0, 2, 2); // unused
-                    this.void_b(2, 2);
+                    this.setCameraTargetTile(2, 2);
                     this.void_b(1000);
                     ++this.currentLevelStep;
                     break;
                 }
                 case 8: {
-                    this.void_b(2, 2);
+                    this.setCameraTargetTile(2, 2);
                     this.void_b(750);
                     break;
                 }
@@ -2910,7 +2909,7 @@ implements CommandListener {
                 case 1: {
                     this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
                     this.strongestAllowedUnitType = Unit.WYVERN;
-                    this.void_b(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
                     break;
                 }
                 case 2: {
@@ -2924,7 +2923,7 @@ implements CommandListener {
                     break;
                 }
                 case 4: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 5: {
@@ -2964,7 +2963,7 @@ implements CommandListener {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.strongestAllowedUnitType = Unit.WYVERN;
-                    this.void_b(13, 0);
+                    this.setCameraTargetTile(13, 0);
                     break;
                 }
                 case 2: {
@@ -2978,7 +2977,7 @@ implements CommandListener {
                     break;
                 }
                 case 3: {
-                    this.void_b(1, 12);
+                    this.setCameraTargetTile(1, 12);
                     break;
                 }
                 case 4: {
@@ -2992,7 +2991,7 @@ implements CommandListener {
                     break;
                 }
                 case 5: {
-                    this.void_b(1, 1);
+                    this.setCameraTargetTile(1, 1);
                     break;
                 }
                 case 6: {
@@ -3020,7 +3019,7 @@ implements CommandListener {
                     break;
                 }
                 case 9: {
-                    this.void_b(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_BLUE].mapX, this._mapKings[PLAYER_BLUE].mapY);
                     break;
                 }
                 case 10: {
@@ -3046,7 +3045,7 @@ implements CommandListener {
                     break;
                 }
                 case 14: {
-                    this.void_b(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
+                    this.setCameraTargetTile(this._mapKings[PLAYER_RED].mapX, this._mapKings[PLAYER_RED].mapY);
                     break;
                 }
                 case 15: {
@@ -3078,8 +3077,8 @@ implements CommandListener {
         this.var_c_f = null;
     }
 
-    // TODO this has something to do with king position
-    private void void_b(int mapX, int mapY) {
+    // TODO I'm pretty sure this is correct (or close to the answer) because it's used in campaign steps, but cannot figure out why it works. I thought this method started the camera easing but I'm still mising something
+    private void setCameraTargetTile(int mapX, int mapY) {
         this.var_int_j = mapX;
         this.var_int_b = mapY;
         this.setMapCursorTo(mapX, mapY);
