@@ -209,7 +209,7 @@ implements CommandListener {
     public Sprite[] var_h_arr_a;
     public boolean var_boolean_l = false;
     public boolean var_boolean_p;
-    public int var_int_s = -1;
+    private int _requestedTutorialIndex = -1;
     /** Automatically set by the UI class, used for timed alerts and showing campaign backstory. */
     public g timedInfobox;
     private g _panelMapObjective;
@@ -1102,12 +1102,13 @@ implements CommandListener {
             return;
         }
         this.void_a();
-        if (this.var_int_s != -1) {
+        if (this._requestedTutorialIndex != -1) {
             if (AppCanvas.settings[AppCanvas.SETTINGS_HELP]) {
-                // This is the first tutorial string - "Select and move units by pressing 5 [...]""
-                this.storyPanel = g.a(this, AppCanvas.getGameText(85 + this.var_int_s), PORTRAIT_NONE, (byte)2);
+                // 85 is the first tutorial string - "Select and move units by pressing 5 [...]""
+                this.storyPanel = g.a(this, AppCanvas.getGameText(85 + this._requestedTutorialIndex), PORTRAIT_NONE, (byte)2);
             }
-            this.var_int_s = -1;
+            // Reset to display the panel only once
+            this._requestedTutorialIndex = -1;
         }
         if (this.var_int_q == 0) {
             int n2;
@@ -2474,31 +2475,31 @@ implements CommandListener {
                 case 9: {
                     if (this.timedInfobox != null) break;
                     this.a(true);
-                    this.var_int_s = 0;
+                    this._requestedTutorialIndex = 0;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 10: {
                     if (this.var_byte_i != 1) break;
-                    this.var_int_s = 1;
+                    this._requestedTutorialIndex = 1;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 11: {
                     if (this.var_c_f == null) break;
-                    this.var_int_s = 2;
+                    this._requestedTutorialIndex = 2;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 12: {
                     if (this.var_c_f == null) break;
-                    this.var_int_s = 3;
+                    this._requestedTutorialIndex = 3;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 13: {
                     if (this.searchUnitsCount(SEARCH_ANY, Unit.STATE_ALREADY_ACTED, PLAYER_BLUE) >= 3) {
-                        this.var_int_s = 4;
+                        this._requestedTutorialIndex = 4;
                         ++this.currentLevelStep;
                         break;
                     }
@@ -2508,7 +2509,7 @@ implements CommandListener {
                 }
                 case 14: {
                     if (this._turnIndex < 2) break;
-                    this.var_int_s = 5;
+                    this._requestedTutorialIndex = 5;
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2529,13 +2530,13 @@ implements CommandListener {
                     break;
                 }
                 case 17: {
-                    this.var_int_s = 6;
+                    this._requestedTutorialIndex = 6;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 18: {
                     if (this.var_byte_i != 1 || this.currentPlayer != PLAYER_BLUE) break;
-                    this.var_int_s = 7;
+                    this._requestedTutorialIndex = 7;
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2577,19 +2578,19 @@ implements CommandListener {
                 }
                 case 5: {
                     if (this.timedInfobox != null) break;
-                    this.var_int_s = 9;
+                    this._requestedTutorialIndex = 9;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 6: {
                     if (!this.isBuildingAndOwnedByPlayer(9, 12, PLAYER_BLUE) && !this.isBuildingAndOwnedByPlayer(11, 13, PLAYER_BLUE)) break;
-                    this.var_int_s = 10;
+                    this._requestedTutorialIndex = 10;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 7: {
                     if (!this.isBuildingAndOwnedByPlayer(9, 12, PLAYER_BLUE) || !this.isBuildingAndOwnedByPlayer(11, 13, PLAYER_BLUE)) break;
-                    this.var_int_s = 11;
+                    this._requestedTutorialIndex = 11;
                     this.a(false);
                     ++this.currentLevelStep;
                     break;
@@ -2669,12 +2670,12 @@ implements CommandListener {
                     break;
                 }
                 case 20: {
-                    this.var_int_s = 12;
+                    this._requestedTutorialIndex = 12;
                     ++this.currentLevelStep;
                     break;
                 }
                 case 21: {
-                    this.var_int_s = 13;
+                    this._requestedTutorialIndex = 13;
                     ++this.currentLevelStep;
                     break;
                 }
@@ -2752,11 +2753,11 @@ implements CommandListener {
         } else if (this.currentLevel == 3) {
             if (this.var_byte_i == 1 && this.currentPlayer == PLAYER_BLUE) {
                 if (this.var_boolean_A && this.var_c_h.unitType == Unit.WIZARD) {
-                    this.var_int_s = 15;
+                    this._requestedTutorialIndex = 15;
                     this.var_boolean_A = false;
                 }
                 if (this.var_boolean_i && this.var_c_h.unitType == Unit.WISP) {
-                    this.var_int_s = 16;
+                    this._requestedTutorialIndex = 16;
                     this.var_boolean_i = false;
                 }
             }
@@ -2940,7 +2941,7 @@ implements CommandListener {
                 }
                 case 7: {
                     if (this.timedInfobox != null) break;
-                    this.var_int_s = 17;
+                    this._requestedTutorialIndex = 17;
                     this.a(true);
                     ++this.currentLevelStep;
                     break;
