@@ -234,7 +234,9 @@ extends SpriteSheet {
         return n2;
     }
 
-    public int int_a(int mapX, int mapY) {
+    /** Estimated strength of this unit at the specified map location.
+     * The value is just intended to compare the relative strength of units. */
+    public int estimatedPowerAt(int mapX, int mapY) {
         return (this.stars + unitsDataATK[this.unitType] + unitsDataDEF[this.unitType] + game.getTerrainDefenceForUnit(game.getTerrainType(mapX, mapY), this)) * this.quantity;
     }
 
