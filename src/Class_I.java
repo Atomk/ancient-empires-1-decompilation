@@ -246,11 +246,11 @@ implements CommandListener {
     public Unit unitWhoseTurnEnded = null;
     /** Set to -1 on mission complete. */
     private short currentLevelStep = 0;
-    public long var_long_h;
-    public int var_int_i;
+    private long _waitStartTime;
+    private int _waitDuration;
     /** A panel showing a dialogue or the background story for the current campaign level. */
     public g storyPanel;
-    public boolean var_boolean_z = false;
+    private boolean _waitRequested = false;
     public boolean var_boolean_o = false;
     public boolean var_boolean_w = false;
     private int _cameraTargetMapX = -1;
@@ -446,9 +446,10 @@ implements CommandListener {
             dataOutputStream.writeShort(unit.turnOfDeath);
         }
         dataOutputStream.writeShort(this.currentLevelStep);
-        dataOutputStream.writeInt((short)this.var_long_h);
-        dataOutputStream.writeInt(this.var_int_i);
-        dataOutputStream.writeByte(this.var_boolean_z ? 0 : 1);
+        // TODO why would you save wait time? I don't think you can even save the game while you are waiting
+        dataOutputStream.writeInt((short)this._waitStartTime);
+        dataOutputStream.writeInt(this._waitDuration);
+        dataOutputStream.writeByte(this._waitRequested ? 0 : 1);
         byte[] byArray = byteArrayOutputStream.toByteArray();
         dataOutputStream.close();
         return byArray;
@@ -530,9 +531,9 @@ implements CommandListener {
         }
 
         this.currentLevelStep = dataInputStream.readShort();
-        this.var_long_h = dataInputStream.readInt();
-        this.var_int_i = dataInputStream.readInt();
-        this.var_boolean_z = dataInputStream.readByte() != 0;
+        this._waitStartTime = dataInputStream.readInt();
+        this._waitDuration = dataInputStream.readInt();
+        this._waitRequested = dataInputStream.readByte() != 0;
         dataInputStream.close();
         this.setMapCursorTo(this._mapKings[this.currentPlayer].mapX, this._mapKings[this.currentPlayer].mapY);
         this.void_a(this._mapKings[this.currentPlayer].mapPixelX, (int)((SpriteSheet)this._mapKings[this.currentPlayer]).l);
@@ -2368,9 +2369,9 @@ implements CommandListener {
 
     /** Prevents showing panels or checking progress/victory/lose condition for the specified time. */
     private void pauseLevelProgress(int millis) {
-        this.var_boolean_z = true;
-        this.var_int_i = millis;
-        this.var_long_h = this.var_long_n;
+        this._waitRequested = true;
+        this._waitDuration = millis;
+        this._waitStartTime = this.var_long_n;
     }
 
     public void a(boolean bl) {
@@ -2390,9 +2391,9 @@ implements CommandListener {
      * Lifted jumps to return sites
      */
     public void void_a() {
-        if (this.var_boolean_z) {
-            if (this.var_long_n - this.var_long_h < (long)this.var_int_i) return;
-            this.var_boolean_z = false;
+        if (this._waitRequested) {
+            if (this.var_long_n - this._waitStartTime < (long)this._waitDuration) return;
+            this._waitRequested = false;
         }
         if (this.var_boolean_w) {
             if (this.currentLevelStep != 0) return;
