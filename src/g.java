@@ -84,6 +84,9 @@ public class g {
     public static final byte TYPE_UNIT_INFO = 4;
     public static final byte TYPE_DIALOGUE = 6;
     public static final byte TYPE_MINIMAP = 7;
+    /** Used for alerts like "OCCUPIED", "GAME SAVED" and "TURN END",
+     * or campaign backstory at level start. */
+    public static final byte TYPE_TIMED_INFOBOX = 9;
 
     public g(Class_I i2, byte type, int n) {
         this.var_a_a = (a)i2;
@@ -165,7 +168,7 @@ public class g {
      * @return
      */
     public static g a(Class_I i2, String title, String description, int duration, boolean bl) {
-        g panel = new g(i2, (byte)9, 0);
+        g panel = new g(i2, TYPE_TIMED_INFOBOX, 0);
         panel.D = 4;
         panel._timeLeft = duration;
         if (duration == -1) {
@@ -309,11 +312,11 @@ public class g {
         if ((this._type == 3 || this._type == 5 || this._type == 0) && this.var_boolean_e && this.boolean_a()) {
             this.void_a();
         }
-        if (this._type == TYPE_MINIMAP || this._type == 9) {
+        if (this._type == TYPE_MINIMAP || this._type == TYPE_TIMED_INFOBOX) {
             this.A = (AppCanvas.width2 - this.var_int_b) / 2;
             this.y = (AppCanvas.height2 - this.var_int_g) / 2;
         }
-        if (this._type == 9) {
+        if (this._type == TYPE_TIMED_INFOBOX) {
             this.var_a_a.var_g_i = this;
         }
         this.s = this.y;
@@ -370,13 +373,13 @@ public class g {
         if (this.var_boolean_d) {
             --this.var_a_a.M;
         }
-        if (this._type == 9) {
+        if (this._type == TYPE_TIMED_INFOBOX) {
             this.var_a_a.var_g_i = null;
         }
         if (this._type == 2) {
             this.var_g_b.a(false);
         }
-        if (this._type == TYPE_MINIMAP || this._type == TYPE_UNIT_INFO || this._type == 9 || bl) {
+        if (this._type == TYPE_MINIMAP || this._type == TYPE_UNIT_INFO || this._type == TYPE_TIMED_INFOBOX || bl) {
             this.var_byte_e = (byte)3;
             this.var_a_a.var_boolean_m = true;
             this.var_a_a.var_java_util_Vector_e.removeElement(this);
@@ -542,7 +545,7 @@ public class g {
                                 this.var_boolean_c = true;
                             }
                         }
-                    } else if (this._type == 9) {
+                    } else if (this._type == TYPE_TIMED_INFOBOX) {
                         if (this._timeLeft != -1) {
                             if (this._timeLeft > 0) {
                                 this._timeLeft -= 50;
@@ -1004,7 +1007,7 @@ public class g {
                     }
                     break;
                 }
-                case 9: {
+                case TYPE_TIMED_INFOBOX: {
                     graphics.setClip(0, 0, n3, this.var_int_g - 12);
                     int n35 = 0;
                     int n36 = this.D;
