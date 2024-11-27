@@ -567,7 +567,8 @@ extends SpriteSheet {
                 iClassRef.a(Unit.iClassRef.blueSparkSheet, closeAllies[j].mapPixelX, ((SpriteSheet)closeAllies[j]).l, 0, 0, 1, 50);
             }
         }
-        Unit.iClassRef.var_c_f = this;
+
+        Unit.iClassRef.unitWhoseTurnEnded = this;
     }
 
     /** Returns an array containing all unit types between 0 (soldier)

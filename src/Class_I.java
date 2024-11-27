@@ -242,7 +242,8 @@ implements CommandListener {
     public Unit[] var_c_arr_c;
     public int var_int_z;
     public int var_int_o;
-    public Unit var_c_f = null;
+    /** Unit that ended its turn in this update. */
+    public Unit unitWhoseTurnEnded = null;
     /** Set to -1 on mission complete. */
     private short currentLevelStep = 0;
     public long var_long_h;
@@ -2496,7 +2497,7 @@ implements CommandListener {
                 }
                 case 11: {
                     // Allows to show the next tutorial as soon as the unit finishes moving (you press END MOVE)
-                    if (this.var_c_f == null) break;
+                    if (this.unitWhoseTurnEnded == null) break;
                     this._requestedTutorialIndex = 2;
                     ++this.currentLevelStep;
                     break;
@@ -2506,7 +2507,7 @@ implements CommandListener {
                     // Note that this can happen in the same turn as athe previous step (which is expected)
                     // but it can also happen on your second turn. In that case you will see two tutorials in a row
                     // (since you second turn has turnIndex == 2, you shortcut the next step)
-                    if (this.var_c_f == null) break;
+                    if (this.unitWhoseTurnEnded == null) break;
                     this._requestedTutorialIndex = 3;
                     ++this.currentLevelStep;
                     break;
@@ -2532,7 +2533,8 @@ implements CommandListener {
                     break;
                 }
                 case 15: {
-                    if (this.var_c_f == null || this.var_c_f.mapX < 4 || this.var_c_f.mapY < 7) break;
+                    // The bridge is at (5; 8), so this step is activated when a unit goes on the bridge or below/right of it
+                    if (this.unitWhoseTurnEnded == null || this.unitWhoseTurnEnded.mapX < 4 || this.unitWhoseTurnEnded.mapY < 7) break;
                     final int enemyMapX = 5;
                     final int enemyMapY = 8;
                     Unit.spawn(Unit.SOLDIER, PLAYER_RED, enemyMapX, 8);
@@ -3098,7 +3100,7 @@ implements CommandListener {
                 }
             }
         }
-        this.var_c_f = null;
+        this.unitWhoseTurnEnded = null;
     }
 
     // TODO I'm pretty sure this is correct (or close to the answer) because it's used in campaign steps, but cannot figure out why it works. I thought this method started the camera easing but I'm still mising something
