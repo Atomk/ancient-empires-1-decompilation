@@ -48,6 +48,14 @@ implements CommandListener {
     private static final byte LEVEL_TYPE_CAMPAIGN = 0;
     private static final byte LEVEL_TYPE_SKIRMISH = 1;
 
+    private static final byte CAMPAIGN_0_REGROUP = 0;
+    private static final byte CAMPAIGN_1_FRIENDS_ENEMIES = 1;
+    private static final byte CAMPAIGN_2_ESCORT = 2;
+    private static final byte CAMPAIGN_3_REINFORCEMENTS = 3;
+    private static final byte CAMPAIGN_4_WYVERN_RESCUE = 4;
+    private static final byte CAMPAIGN_5_SIEGE = 5;
+    private static final byte CAMPAIGN_6_FINAL_ASSAULT = 6;
+
     private byte[] levelsData = new byte[1];
     public static AppCanvas appCanvas;
     private static final String[] skirmishMapNames;
@@ -519,13 +527,13 @@ implements CommandListener {
                 continue;
             }
 
-            if (this.currentLevel != 2 || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD)
+            if (this.currentLevel != CAMPAIGN_2_ESCORT || unitOwner != PLAYER_BLUE || unitType != Unit.LIZARD)
                 continue;
 
             unit.customName = AppCanvas.getGameText(45); // LIZARD CHIEF
         }
 
-        if (this.currentLevel == 2) {
+        if (this.currentLevel == CAMPAIGN_2_ESCORT) {
             for (int i = 5; i < 10; ++i) {
                 this.mapTerrain[i][12] = waterTilesIndex[0];
             }
@@ -695,7 +703,7 @@ implements CommandListener {
                 this.currentLevel = n;
                 this.var_g_f = null;
             } else {
-                this.currentLevel = 0;
+                this.currentLevel = CAMPAIGN_0_REGROUP;
             }
             this.levelType = LEVEL_TYPE_CAMPAIGN;
             this.var_byte_arr_b[1] = 0;
@@ -1233,8 +1241,8 @@ implements CommandListener {
                     if (this.time - this.var_long_g >= 300L) {
                         // TODO context hint: mapUnitExplosionSheet is used only here, and the animation is shown only ehen a unit dies
                         this.a(this.mapUnitExplosionSheet, this.var_c_c.mapPixelX, ((SpriteSheet)this.var_c_c).l, 0, -3, 1, 100);
-                        if (this.levelType == LEVEL_TYPE_CAMPAIGN && this._mapKings[PLAYER_RED] != null && this.var_c_c == this._mapKings[PLAYER_RED] && this.currentLevel != 4) {
-                            if (this.currentLevel != 6) {
+                        if (this.levelType == LEVEL_TYPE_CAMPAIGN && this._mapKings[PLAYER_RED] != null && this.var_c_c == this._mapKings[PLAYER_RED] && this.currentLevel != CAMPAIGN_4_WYVERN_RESCUE) {
+                            if (this.currentLevel != CAMPAIGN_6_FINAL_ASSAULT) {
                                 this.mapUnitsList.removeElement(this.var_c_c);
                                 this._mapKings[PLAYER_RED] = null;
                             }
@@ -2242,7 +2250,7 @@ implements CommandListener {
                     if (this.getTerrainType(mapX, mapY) != f.TERRAIN_TOWN) continue;
                     int n3 = this.isBuildingAndOwnedByPlayer(mapX, mapY, c2.owner) ? 1 : 0;
                     final int manhattanDist = Math.abs(mapX - c2.mapX) + Math.abs(mapY - c2.mapY);
-                    if (this.currentLevel != 2 && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || manhattanDist >= n7) continue;
+                    if (this.currentLevel != CAMPAIGN_2_ESCORT && (c2.unitType != Unit.SOLDIER || n3 != 0) && (c2.unitType == Unit.SOLDIER || n3 == 0) || manhattanDist >= n7) continue;
                     n7 = manhattanDist;
                     this.var_int_z = mapX;
                     this.var_int_o = mapY;
@@ -2352,7 +2360,7 @@ implements CommandListener {
             int n4 = this.mapTilesWidth - Math.abs(this.var_int_z - mapX) + this.mapTilesHeight - Math.abs(this.var_int_o - mapY);
             n5 += n4 * n4;
         }
-        if (this.currentLevel == 2 && this.var_int_z != -1) {
+        if (this.currentLevel == CAMPAIGN_2_ESCORT && this.var_int_z != -1) {
             int n4 = Math.abs(this.var_int_z - mapX) - 1;
             int n3 = Math.abs(this.var_int_o - mapY) - 3;
             if (n4 < 0) {
@@ -2431,7 +2439,7 @@ implements CommandListener {
             this.i();
             return;
         }
-        if (this.currentLevel == 0) {
+        if (this.currentLevel == CAMPAIGN_0_REGROUP) {
             switch (this.currentLevelStep) {
                 // TODO the step 0 is executed somewhere else...look for string 103 and this.currentLevelStep
                 case 1: {
@@ -2578,7 +2586,7 @@ implements CommandListener {
             if (this.searchUnitsCount(SEARCH_ANY, Unit.STATE_TOMBSTONE, PLAYER_BLUE) == 1) {
                 this.i();
             }
-        } else if (this.currentLevel == 1) {
+        } else if (this.currentLevel == CAMPAIGN_1_FRIENDS_ENEMIES) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
@@ -2714,7 +2722,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.currentLevel == 2) {
+        } else if (this.currentLevel == CAMPAIGN_2_ESCORT) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.playersMoney[PLAYER_BLUE] = 0;
@@ -2775,7 +2783,7 @@ implements CommandListener {
                     this.i();
                 }
             }
-        } else if (this.currentLevel == 3) {
+        } else if (this.currentLevel == CAMPAIGN_3_REINFORCEMENTS) {
             if (this.var_byte_i == 1 && this.currentPlayer == PLAYER_BLUE) {
                 if (this.var_boolean_A && this.var_c_h.unitType == Unit.WIZARD) {
                     this._requestedTutorialIndex = 15;
@@ -2871,7 +2879,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.currentLevel == 4) {
+        } else if (this.currentLevel == CAMPAIGN_4_WYVERN_RESCUE) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.strongestAllowedUnitType = Unit.CATAPULT;
@@ -2932,7 +2940,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.currentLevel == 5) {
+        } else if (this.currentLevel == CAMPAIGN_5_SIEGE) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this._mapKings[PLAYER_RED].customName = AppCanvas.getGameText(44); // VALADORN
@@ -2987,7 +2995,7 @@ implements CommandListener {
                     this.g();
                 }
             }
-        } else if (this.currentLevel == 6) {
+        } else if (this.currentLevel == CAMPAIGN_6_FINAL_ASSAULT) {
             switch (this.currentLevelStep) {
                 case 1: {
                     this.strongestAllowedUnitType = Unit.WYVERN;
