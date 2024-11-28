@@ -307,7 +307,7 @@ implements CommandListener {
             return;
         }
         this.var_byte_d = 1;
-        Unit.iClassRef = this;
+        Unit.game = this;
 
         //AppCanvas.readAssetsPackage("/1.pak");
         this.mapCursorSheet = new SpriteSheet("cursor");
