@@ -52,7 +52,7 @@ public class f {
     private Sprite var_h_a;
     public f var_f_a;
     private int terrainType_YY;
-    private int terrainType_XX;
+    private int _terrainTypeFloor;
     private int var_int_d;
     private int j;
     private int n;
@@ -102,15 +102,15 @@ public class f {
             this.o = 6;
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
-        this.terrainType_XX = this.terrainType_YY = (int)i2.getTerrainType(unit.mapX, unit.mapY);
+        this._terrainTypeFloor = this.terrainType_YY = (int)i2.getTerrainType(unit.mapX, unit.mapY);
         if (this.terrainType_YY == TERRAIN_WOODS || this.terrainType_YY == TERRAIN_HILL) {
-            this.terrainType_XX = TERRAIN_GRASS;
+            this._terrainTypeFloor = TERRAIN_GRASS;
         }
-        if (this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] == null) {
+        if (this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor] == null) {
             // TODO rename to terrainBattleSprites
-            this.var_a_a.var_h_arr_arr_a[this.terrainType_XX] = new SpriteSheet(Class_I.terrainTypeNames[this.terrainType_XX]).sprites;
+            this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor] = new SpriteSheet(Class_I.terrainTypeNames[this._terrainTypeFloor]).sprites;
         }
-        this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this.terrainType_XX];
+        this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor];
         if (this.var_a_a.b[this.terrainType_YY] == null) {
             try {
                 // TODO split and see what sprites are these
