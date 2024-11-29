@@ -61,7 +61,7 @@ public class f {
     private int l;
     private int[] var_int_arr_d;
     private int[] var_int_arr_c;
-    private int[][] var_int_arr_arr_a;
+    private int[][] _unitsCoords;
     private boolean[] var_boolean_arr_a;
     private int var_int_c;
     private byte var_byte_e;
@@ -178,10 +178,10 @@ public class f {
             }
             this.var_e_a = i2.var_e_n;
         }
-        this.var_int_arr_arr_a = new int[unit.battleScreenCoords.length][2];
-        for (n = 0; n < this.var_int_arr_arr_a.length; ++n) {
-            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.battleScreenCoords[n][0]) : (int)((short)(AppCanvas.cenX - AppCanvas.int_b(unit.battleScreenCoords[n][0]) - this.var_e_c.getSpritesWidth()));
-            this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(unit.battleScreenCoords[n][1]);
+        this._unitsCoords = new int[unit.battleScreenCoords.length][2];
+        for (n = 0; n < this._unitsCoords.length; ++n) {
+            this._unitsCoords[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.battleScreenCoords[n][0]) : (int)((short)(AppCanvas.cenX - AppCanvas.int_b(unit.battleScreenCoords[n][0]) - this.var_e_c.getSpritesWidth()));
+            this._unitsCoords[n][1] = AppCanvas.int_a(unit.battleScreenCoords[n][1]);
         }
         this.var_int_arr_c = new int[this.var_byte_a];
         this.var_int_arr_d = new int[this.var_byte_a];
@@ -193,7 +193,7 @@ public class f {
         for (n = 0; n < this.var_byte_a; ++n) {
             this.var_int_arr_c[n] = 0;
             this.var_e_arr_b[n] = new SpriteSheet(this.var_e_c);
-            this.var_e_arr_b[n].setMapPixelCoords(this.var_int_arr_arr_a[n][0] + n2, this.var_int_arr_arr_a[n][1]);
+            this.var_e_arr_b[n].setMapPixelCoords(this._unitsCoords[n][0] + n2, this._unitsCoords[n][1]);
             this.a(n, this.var_byte_arr_arr_a[0]);
             if (unit.unitType == Unit.WYVERN) {
                 this.var_int_arr_d[n] = -8 - Math.abs(AppCanvas.randomInt()) % 8;
@@ -684,11 +684,11 @@ public class f {
         for (int j = 0; j < this.var_byte_b; ++j) {
             SpriteSheet e2 = this.var_e_arr_b[j];
             if (this.var_byte_e == 1 || this.var_byte_e == 2 || this.var_byte_e == 3) {
-                graphics.fillArc((int)e2.var_short_b, this.var_int_arr_arr_a[j + this.l][1] + e2.getSpritesHeight() * 4 / 5, (int)e2.getSpritesWidth(), e2.getSpritesHeight() / 4, 0, 360);
+                graphics.fillArc((int)e2.var_short_b, this._unitsCoords[j + this.l][1] + e2.getSpritesHeight() * 4 / 5, (int)e2.getSpritesWidth(), e2.getSpritesHeight() / 4, 0, 360);
                 continue;
             }
             if (this.var_byte_e != 6) continue;
-            graphics.fillArc((int)e2.var_short_b, this.var_int_arr_arr_a[j + this.l][1] + e2.getSpritesHeight() * 4 / 5, (int)e2.getSpritesWidth(), e2.getSpritesHeight() / 4, 0, 360);
+            graphics.fillArc((int)e2.var_short_b, this._unitsCoords[j + this.l][1] + e2.getSpritesHeight() * 4 / 5, (int)e2.getSpritesWidth(), e2.getSpritesHeight() / 4, 0, 360);
         }
     }
 
