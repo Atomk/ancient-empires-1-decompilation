@@ -86,7 +86,8 @@ extends SpriteSheet {
     public static final byte[] unitsDataDEF;
     private static final byte[] unitsDataRangeMax;
     private static final byte[] unitsDataRangeMin;
-    private static final int[][][] unitsDataArrayOfPairs_XXX;
+    /** For each unit type, an array of coords for units to display in the battle screen. */
+    private static final int[][][] dataBattleScreenCoords;
     public static final short[] unitsDataPrice;
     private static final short[] unitsDataBitflag;
 
@@ -113,7 +114,7 @@ extends SpriteSheet {
         newUnit.owner = owner;
         newUnit.quantity = MAX_QUANTITY;
         newUnit.bitflag = unitsDataBitflag[unitType];
-        newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
+        newUnit.var_int_arr_arr_a = dataBattleScreenCoords[unitType];
         return newUnit;
     }
 
@@ -630,8 +631,7 @@ extends SpriteSheet {
         unitsDataDEF = new byte[]{1, 1, 2, 1, 2, 2, 4, 2, 3, 3, 1};
         unitsDataRangeMax = new byte[]{1, 2, 1, 1, 1, 1, 1, 4, 1, 1, 1};
         unitsDataRangeMin = new byte[]{1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1};
-        // Array of bidimensional arrays
-        unitsDataArrayOfPairs_XXX = new int[][][]{
+        dataBattleScreenCoords = new int[][][]{
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
             new int[][]{{32, 55}, {32, 83}, {10, 67}, {10, 98}, {10, 38}},
