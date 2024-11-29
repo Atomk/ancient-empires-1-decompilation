@@ -47,6 +47,7 @@ extends SpriteSheet {
 
     // Units sprites are 24x24 (units_icons.png)
     private static final byte TILE_SIZE = 24;
+    private static final short MAX_QUANTITY = 10;
 
     // TODO this a static reference to the 'i' class, there must be a better solution...
     // TODO since it's only set once, encapsulate within a setStaticIReference() and maki it private
@@ -110,7 +111,7 @@ extends SpriteSheet {
         // TODO isn't this statement redundant? The constructor above should set it
         newUnit.unitType = unitType;
         newUnit.owner = owner;
-        newUnit.quantity = (short)10;
+        newUnit.quantity = MAX_QUANTITY;
         newUnit.bitflag = unitsDataBitflag[unitType];
         newUnit.var_int_arr_arr_a = unitsDataArrayOfPairs_XXX[unitType];
         return newUnit;
@@ -155,7 +156,9 @@ extends SpriteSheet {
         }
 
         int terrainDEF = game.getTerrainDefenceForUnit(game.getTerrainType(opponent.mapX, opponent.mapY), opponent);
-        int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / 10;
+        // (ATK - 2/3 of enemy's total DEF) * (percentage of attacker units)
+        // TODO problem, the result of subtraction can be negative. A golem has 4 DEF, at a castle (+3) has total 7 DEF. 7*2 = 14, 14/3 = 4.6. Even truncated as 4, a  Wisp has 3 ATK...
+        int killCount = (atk - (terrainDEF + opponentDEF) * 2 / 3) * this.quantity / MAX_QUANTITY;
         if (killCount > opponent.quantity) {
             killCount = opponent.quantity;
         }
@@ -226,9 +229,9 @@ extends SpriteSheet {
     }
 
     public int int_a() {
-        int n = 10 / this.var_int_arr_arr_a.length;
+        int n = MAX_QUANTITY / this.var_int_arr_arr_a.length;
         int n2 = this.quantity / n;
-        if (this.quantity != 10 && this.quantity % n > 0) {
+        if (this.quantity != MAX_QUANTITY && this.quantity % n > 0) {
             ++n2;
         }
         return n2;
@@ -611,9 +614,8 @@ extends SpriteSheet {
                 // Position: bottom right of the unit sprite
                 AppCanvas.drawBoldWhiteText(graphics, "E", screenX + this.getSpritesWidth() - 7, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }
-            // TODO maybe look for "10" and deharcode to STACK_MAX or MAX_QUANTITY
-            if (this.quantity < 10) {
-                // Shows the unit stack number in its bottom left corner only if there's less than 10 (the max amount)
+            if (this.quantity < MAX_QUANTITY) {
+                // Shows the unit stack number if it's not at max
                 // Position: bottom left of the unit sprite
                 AppCanvas.drawBoldWhiteText(graphics, "" + this.quantity, screenX, screenY + this.getSpritesHeight() - 5, AppCanvas.FONT_ALPHANUMERIC);
             }
