@@ -56,7 +56,7 @@ extends SpriteSheet {
     public short stars;
     public short xp;
     private short bitflag;
-    public int[][] var_int_arr_arr_a;
+    public int[][] battleScreenCoords;
     //private short j;
     //private short var_short_c;
     private Vector<short[]> _pathSteps = null;
@@ -114,7 +114,7 @@ extends SpriteSheet {
         newUnit.owner = owner;
         newUnit.quantity = MAX_QUANTITY;
         newUnit.bitflag = unitsDataBitflag[unitType];
-        newUnit.var_int_arr_arr_a = dataBattleScreenCoords[unitType];
+        newUnit.battleScreenCoords = dataBattleScreenCoords[unitType];
         return newUnit;
     }
 
@@ -230,7 +230,7 @@ extends SpriteSheet {
     }
 
     public int int_a() {
-        int n = MAX_QUANTITY / this.var_int_arr_arr_a.length;
+        int n = MAX_QUANTITY / this.battleScreenCoords.length;
         int n2 = this.quantity / n;
         if (this.quantity != MAX_QUANTITY && this.quantity % n > 0) {
             ++n2;

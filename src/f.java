@@ -178,10 +178,10 @@ public class f {
             }
             this.var_e_a = i2.var_e_n;
         }
-        this.var_int_arr_arr_a = new int[unit.var_int_arr_arr_a.length][2];
+        this.var_int_arr_arr_a = new int[unit.battleScreenCoords.length][2];
         for (n = 0; n < this.var_int_arr_arr_a.length; ++n) {
-            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) : (int)((short)(AppCanvas.cenX - AppCanvas.int_b(unit.var_int_arr_arr_a[n][0]) - this.var_e_c.getSpritesWidth()));
-            this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(unit.var_int_arr_arr_a[n][1]);
+            this.var_int_arr_arr_a[n][0] = this.var_byte_f == 0 ? AppCanvas.int_b(unit.battleScreenCoords[n][0]) : (int)((short)(AppCanvas.cenX - AppCanvas.int_b(unit.battleScreenCoords[n][0]) - this.var_e_c.getSpritesWidth()));
+            this.var_int_arr_arr_a[n][1] = AppCanvas.int_a(unit.battleScreenCoords[n][1]);
         }
         this.var_int_arr_c = new int[this.var_byte_a];
         this.var_int_arr_d = new int[this.var_byte_a];
