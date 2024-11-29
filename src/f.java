@@ -51,7 +51,7 @@ public class f {
     private Sprite[] var_h_arr_a;
     private Sprite var_h_a;
     public f var_f_a;
-    private int terrainType_YY;
+    private int _terrainTypeBG;
     private int _terrainTypeFloor;
     private int var_int_d;
     private int j;
@@ -102,8 +102,8 @@ public class f {
             this.o = 6;
         }
         this.var_byte_arr_arr_a = var_byte_arr_arr_arr_arr_a[this.var_byte_e][this.var_byte_f];
-        this._terrainTypeFloor = this.terrainType_YY = (int)i2.getTerrainType(unit.mapX, unit.mapY);
-        if (this.terrainType_YY == TERRAIN_WOODS || this.terrainType_YY == TERRAIN_HILL) {
+        this._terrainTypeFloor = this._terrainTypeBG = (int)i2.getTerrainType(unit.mapX, unit.mapY);
+        if (this._terrainTypeBG == TERRAIN_WOODS || this._terrainTypeBG == TERRAIN_HILL) {
             this._terrainTypeFloor = TERRAIN_GRASS;
         }
         if (this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor] == null) {
@@ -111,16 +111,16 @@ public class f {
             this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor] = new SpriteSheet(Class_I.terrainTypeNames[this._terrainTypeFloor]).sprites;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor];
-        if (this.var_a_a.b[this.terrainType_YY] == null) {
+        if (this.var_a_a.b[this._terrainTypeBG] == null) {
             try {
                 // TODO split and see what sprites are these
-                this.var_a_a.b[this.terrainType_YY] = this.terrainType_YY == TERRAIN_HILL ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this.terrainType_YY] + "_bg.png");
+                this.var_a_a.b[this._terrainTypeBG] = this._terrainTypeBG == TERRAIN_HILL ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this._terrainTypeBG] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block
             }
         }
-        this.var_h_a = this.var_a_a.b[this.terrainType_YY];
+        this.var_h_a = this.var_a_a.b[this._terrainTypeBG];
         if (this.var_h_a != null) {
             this.var_int_d = this.var_h_a.height;
         }
@@ -654,8 +654,8 @@ public class f {
         int n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
 
-        byte terrainDEF = Class_I.terrainTypeDefense[this.terrainType_YY];
-        int terrainBonusDEF = this.var_a_a.getTerrainDefenceForUnit((byte)this.terrainType_YY, this.unit) - terrainDEF;
+        byte terrainDEF = Class_I.terrainTypeDefense[this._terrainTypeBG];
+        int terrainBonusDEF = this.var_a_a.getTerrainDefenceForUnit((byte)this._terrainTypeBG, this.unit) - terrainDEF;
         StringBuffer stringBuffer = new StringBuffer().append(terrainDEF);
         if (terrainBonusDEF > 0) {
             stringBuffer.append("+" + terrainBonusDEF);
