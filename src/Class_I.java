@@ -274,10 +274,10 @@ implements CommandListener {
     public Sprite spritePanelDefense;
     public SpriteSheet var_e_n;
     public SpriteSheet var_e_i;
-    public SpriteSheet var_e_c;
+    public SpriteSheet ssBattleFxCatapultStone;
     public SpriteSheet var_e_p;
     public SpriteSheet var_e_f;
-    public SpriteSheet var_e_o;
+    public SpriteSheet ssBattleFxSpiderSpit;
     public boolean var_boolean_q = false;
     public long var_long_m;
     public long var_long_b;
@@ -3197,10 +3197,10 @@ implements CommandListener {
                 this.spritePanelDefense = null;
                 this.var_e_n = null;
                 this.var_e_i = null;
-                this.var_e_c = null;
+                this.ssBattleFxCatapultStone = null;
                 this.var_e_p = null;
                 this.var_e_f = null;
-                this.var_e_o = null;
+                this.ssBattleFxSpiderSpit = null;
                 this.o();
                 this.var_byte_d = 1;
                 return;

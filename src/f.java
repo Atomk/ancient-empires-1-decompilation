@@ -160,15 +160,15 @@ public class f {
             // TODO I believe the parameter is the side of the screen, sheets have frames for each side
             this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
         } else if (unit.unitType == Unit.SPIDER) {
-            if (i2.var_e_o == null) {
-                i2.var_e_o = new SpriteSheet("spiderspit");
+            if (i2.ssBattleFxSpiderSpit == null) {
+                i2.ssBattleFxSpiderSpit = new SpriteSheet("spiderspit");
             }
-            this.var_e_a = i2.var_e_o;
+            this.var_e_a = i2.ssBattleFxSpiderSpit;
         } else if (unit.unitType == Unit.CATAPULT) {
-            if (i2.var_e_c == null) {
-                i2.var_e_c = new SpriteSheet("stone");
+            if (i2.ssBattleFxCatapultStone == null) {
+                i2.ssBattleFxCatapultStone = new SpriteSheet("stone");
             }
-            this.var_e_a = i2.var_e_c;
+            this.var_e_a = i2.ssBattleFxCatapultStone;
         } else if (unit.unitType == Unit.WIZARD) {
             this.var_e_a = i2.blueSparkSheet;
         } else if (unit.unitType == Unit.WYVERN) {
