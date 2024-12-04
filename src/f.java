@@ -144,11 +144,11 @@ public class f {
         }
         this.var_e_c = this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType];
         if (this.var_byte_e == 2 || this.var_byte_e == 4) {
-            if (i2.var_e_p == null) {
+            if (i2.ssBattleFxSwordSlash == null) {
                 // Soldiers and lizards have this attack animation
-                i2.var_e_p = new SpriteSheet("slash");
+                i2.ssBattleFxSwordSlash = new SpriteSheet("slash");
             }
-            this.var_e_b = new SpriteSheet(i2.var_e_p);
+            this.var_e_b = new SpriteSheet(i2.ssBattleFxSwordSlash);
             this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
         } else if (unit.unitType == Unit.KING) {
             if (i2.ssBattleFxKingWave == null) {
