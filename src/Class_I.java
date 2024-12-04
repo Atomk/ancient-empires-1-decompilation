@@ -272,8 +272,8 @@ implements CommandListener {
     public boolean var_boolean_k;
     public SpriteSheet spriteSheetSoul;
     public Sprite spritePanelDefense;
-    public SpriteSheet var_e_n;
-    public SpriteSheet var_e_i;
+    public SpriteSheet ssBattleFxWyvernFireball;
+    public SpriteSheet ssBattleFxKingWave;
     public SpriteSheet ssBattleFxCatapultStone;
     public SpriteSheet var_e_p;
     public SpriteSheet var_e_f;
@@ -3195,8 +3195,8 @@ implements CommandListener {
                 this.var_f_b = null;
                 this.spriteSheetSoul = null;
                 this.spritePanelDefense = null;
-                this.var_e_n = null;
-                this.var_e_i = null;
+                this.ssBattleFxWyvernFireball = null;
+                this.ssBattleFxKingWave = null;
                 this.ssBattleFxCatapultStone = null;
                 this.var_e_p = null;
                 this.var_e_f = null;

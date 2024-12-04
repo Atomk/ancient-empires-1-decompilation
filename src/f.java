@@ -151,10 +151,10 @@ public class f {
             this.var_e_b = new SpriteSheet(i2.var_e_p);
             this.var_e_b.setReorderTable(attackAnimTable_2[this.var_byte_f]);
         } else if (unit.unitType == Unit.KING) {
-            if (i2.var_e_i == null) {
-                i2.var_e_i = new SpriteSheet("kingslash");
+            if (i2.ssBattleFxKingWave == null) {
+                i2.ssBattleFxKingWave = new SpriteSheet("kingslash");
             }
-            this.var_e_a = i2.var_e_i;
+            this.var_e_a = i2.ssBattleFxKingWave;
             // Shown while the king attacks, only 1 frame: https://youtu.be/6MTmxnNygSw?t=123
             this.var_e_b = new SpriteSheet("kingswing");
             // TODO I believe the parameter is the side of the screen, sheets have frames for each side
@@ -172,11 +172,10 @@ public class f {
         } else if (unit.unitType == Unit.WIZARD) {
             this.var_e_a = i2.blueSparkSheet;
         } else if (unit.unitType == Unit.WYVERN) {
-            if (i2.var_e_n == null) {
-                // TODO this are battle screen attack snimations
-                i2.var_e_n = new SpriteSheet("fireball");
+            if (i2.ssBattleFxWyvernFireball == null) {
+                i2.ssBattleFxWyvernFireball = new SpriteSheet("fireball");
             }
-            this.var_e_a = i2.var_e_n;
+            this.var_e_a = i2.ssBattleFxWyvernFireball;
         }
         this._unitsCoords = new int[unit.battleScreenCoords.length][2];
         for (n = 0; n < this._unitsCoords.length; ++n) {
