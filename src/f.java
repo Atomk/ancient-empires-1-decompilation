@@ -139,10 +139,10 @@ public class f {
                 this.var_byte_arr_arr_c[n][j] = this.var_byte_arr_arr_c[n][j] >= 9 ? 2 : (this.var_byte_arr_arr_c[n][j] >= 8 ? (byte)1 : 0);
             }
         }
-        if (this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType] == null) {
-            this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType] = new SpriteSheet(unitsNames[unit.unitType], unit.owner);
+        if (this.var_a_a.ssUnitsBattleAnimations[unit.owner][unit.unitType] == null) {
+            this.var_a_a.ssUnitsBattleAnimations[unit.owner][unit.unitType] = new SpriteSheet(unitsNames[unit.unitType], unit.owner);
         }
-        this.var_e_c = this.var_a_a.var_e_arr_arr_a[unit.owner][unit.unitType];
+        this.var_e_c = this.var_a_a.ssUnitsBattleAnimations[unit.owner][unit.unitType];
         if (this.var_byte_e == 2 || this.var_byte_e == 4) {
             if (i2.ssBattleFxSwordSlash == null) {
                 // Soldiers and lizards have this attack animation

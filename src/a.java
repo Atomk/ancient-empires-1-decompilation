@@ -19,7 +19,7 @@ extends Class_I {
     //private int var_int_d = 0;    // Unused
     public boolean var_boolean_g = false;
     private Vector<SpriteSheet> var_java_util_Vector_d;
-    public SpriteSheet[][] var_e_arr_arr_a;
+    public SpriteSheet[][] ssUnitsBattleAnimations;
     public Sprite[][] var_h_arr_arr_a;
     public Sprite[] b;
     private SpriteSheet[] var_e_arr_a = new SpriteSheet[0];
@@ -42,7 +42,7 @@ extends Class_I {
         super.m();
         // First index is owner (player index), second index is unit type
         // This probably contains the colored spritesheet for each possible unit
-        this.var_e_arr_arr_a = new SpriteSheet[2][11];
+        this.ssUnitsBattleAnimations = new SpriteSheet[2][11];
         this.b = new Sprite[Class_I.terrainTypeNames.length];
         this.var_h_arr_arr_a = new Sprite[Class_I.terrainTypeNames.length][];
 
