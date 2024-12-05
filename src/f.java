@@ -53,7 +53,7 @@ public class f {
     public f var_f_a;
     private int _terrainTypeBG;
     private int _terrainTypeFloor;
-    private int var_int_d;
+    private int _terrainBGHeight;
     private int j;
     private int n;
     private boolean var_boolean_d = false;
@@ -122,14 +122,14 @@ public class f {
         }
         this._terrainBGSprite = this.var_a_a.terrainBackgroundSprites[this._terrainTypeBG];
         if (this._terrainBGSprite != null) {
-            this.var_int_d = this._terrainBGSprite.height;
+            this._terrainBGHeight = this._terrainBGSprite.height;
         }
         this.j = AppCanvas.cenX / this.var_h_arr_a[0].width;
         if (AppCanvas.cenX % this.var_h_arr_a[0].width != 0) {
             ++this.j;
         }
-        this.n = (AppCanvas.height2 - this.var_int_d) / this.var_h_arr_a[0].height;
-        if ((AppCanvas.height2 - this.var_int_d) % this.var_h_arr_a[0].height != 0) {
+        this.n = (AppCanvas.height2 - this._terrainBGHeight) / this.var_h_arr_a[0].height;
+        if ((AppCanvas.height2 - this._terrainBGHeight) % this.var_h_arr_a[0].height != 0) {
             ++this.n;
         }
         this.var_byte_arr_arr_c = new byte[this.j][this.n];
@@ -626,7 +626,7 @@ public class f {
         graphics.translate(offsetX, offsetY);
         int n6 = 0;
         for (int n5 = 0; n5 < this.j; ++n5) {
-            int n4 = this.var_int_d + offsetY;
+            int n4 = this._terrainBGHeight + offsetY;
             int n8 = this.n;
             for (int n3 = 0; n3 < n8; ++n3) {
                 this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, n6, n4);
