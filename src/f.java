@@ -111,16 +111,16 @@ public class f {
             this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor] = new SpriteSheet(Class_I.terrainTypeNames[this._terrainTypeFloor]).sprites;
         }
         this.var_h_arr_a = this.var_a_a.var_h_arr_arr_a[this._terrainTypeFloor];
-        if (this.var_a_a.b[this._terrainTypeBG] == null) {
+        if (this.var_a_a.terrainBackgroundSprites[this._terrainTypeBG] == null) {
             try {
                 // TODO split and see what sprites are these
-                this.var_a_a.b[this._terrainTypeBG] = this._terrainTypeBG == TERRAIN_HILL ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this._terrainTypeBG] + "_bg.png");
+                this.var_a_a.terrainBackgroundSprites[this._terrainTypeBG] = this._terrainTypeBG == TERRAIN_HILL ? new Sprite("hill_bg.png") : new Sprite(Class_I.terrainTypeNames[this._terrainTypeBG] + "_bg.png");
             }
             catch (Exception exception) {
                 // empty catch block
             }
         }
-        this.var_h_a = this.var_a_a.b[this._terrainTypeBG];
+        this.var_h_a = this.var_a_a.terrainBackgroundSprites[this._terrainTypeBG];
         if (this.var_h_a != null) {
             this.var_int_d = this.var_h_a.height;
         }
