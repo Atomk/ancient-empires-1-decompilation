@@ -39,7 +39,7 @@ public class f {
     public static final byte[] var_byte_arr_c;
     public static final byte[] var_byte_arr_b;
     private SpriteSheet var_e_c;
-    private SpriteSheet var_e_a;
+    private SpriteSheet _attackProjectile;
     private SpriteSheet var_e_b;
     private int m;
     private int var_int_a;
@@ -154,7 +154,7 @@ public class f {
             if (i2.ssBattleFxKingWave == null) {
                 i2.ssBattleFxKingWave = new SpriteSheet("kingslash");
             }
-            this.var_e_a = i2.ssBattleFxKingWave;
+            this._attackProjectile = i2.ssBattleFxKingWave;
             // Shown while the king attacks, only 1 frame: https://youtu.be/6MTmxnNygSw?t=123
             this.var_e_b = new SpriteSheet("kingswing");
             // TODO I believe the parameter is the side of the screen, sheets have frames for each side
@@ -163,19 +163,19 @@ public class f {
             if (i2.ssBattleFxSpiderSpit == null) {
                 i2.ssBattleFxSpiderSpit = new SpriteSheet("spiderspit");
             }
-            this.var_e_a = i2.ssBattleFxSpiderSpit;
+            this._attackProjectile = i2.ssBattleFxSpiderSpit;
         } else if (unit.unitType == Unit.CATAPULT) {
             if (i2.ssBattleFxCatapultStone == null) {
                 i2.ssBattleFxCatapultStone = new SpriteSheet("stone");
             }
-            this.var_e_a = i2.ssBattleFxCatapultStone;
+            this._attackProjectile = i2.ssBattleFxCatapultStone;
         } else if (unit.unitType == Unit.WIZARD) {
-            this.var_e_a = i2.blueSparkSheet;
+            this._attackProjectile = i2.blueSparkSheet;
         } else if (unit.unitType == Unit.WYVERN) {
             if (i2.ssBattleFxWyvernFireball == null) {
                 i2.ssBattleFxWyvernFireball = new SpriteSheet("fireball");
             }
-            this.var_e_a = i2.ssBattleFxWyvernFireball;
+            this._attackProjectile = i2.ssBattleFxWyvernFireball;
         }
         this._unitsCoords = new int[unit.battleScreenCoords.length][2];
         for (n = 0; n < this._unitsCoords.length; ++n) {
@@ -235,7 +235,7 @@ public class f {
                         }
                         if (this.unit.unitType != Unit.WIZARD) continue;
                         this.a(j, this.var_byte_arr_arr_a[1]);
-                        this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, 0, 0, -1, 0, (byte)0);
+                        this.var_e_arr_a[j] = SpriteSheet.a(this._attackProjectile, 0, 0, -1, 0, (byte)0);
                         this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + (this.var_e_arr_b[j].getSpritesWidth() - this.var_e_arr_a[j].getSpritesWidth()) / 2, this.var_e_arr_b[j].l - this.var_e_arr_a[j].getSpritesHeight());
                         this.var_a_a.var_java_util_Vector_c.addElement(this.var_e_arr_a[j]);
                         this.var_e_arr_a[j].var_boolean_a = true;
@@ -274,13 +274,13 @@ public class f {
                             this.var_e_arr_a[j] = SpriteSheet.a(null, var_byte_arr_b[this.var_byte_f] * 3, -4, -1, 0, (byte)3);
                             this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
                         } else if (this.unit.unitType == Unit.CATAPULT) {
-                            this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 10, -8, -1, 0, (byte)0);
+                            this.var_e_arr_a[j] = SpriteSheet.a(this._attackProjectile, var_byte_arr_b[this.var_byte_f] * 10, -8, -1, 0, (byte)0);
                             this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], 18), this.var_e_arr_b[j].l);
                         } else if (this.unit.unitType == Unit.SPIDER) {
-                            this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
+                            this.var_e_arr_a[j] = SpriteSheet.a(this._attackProjectile, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
                             this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth() - 10), this.var_e_arr_b[j].l + this.var_e_arr_b[j].getSpritesHeight() / 3);
                         } else {
-                            this.var_e_arr_a[j] = SpriteSheet.a(this.var_e_a, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
+                            this.var_e_arr_a[j] = SpriteSheet.a(this._attackProjectile, var_byte_arr_b[this.var_byte_f] * 2, 0, -1, 0, (byte)0);
                             this.var_e_arr_a[j].setMapPixelCoords(this.var_e_arr_b[j].var_short_b + this.a(this.var_e_arr_a[j], this.var_e_arr_b[j].getSpritesWidth()), this.var_e_arr_b[j].l);
                         }
                         if (this.unit.unitType != Unit.CATAPULT) {
