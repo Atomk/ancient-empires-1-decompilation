@@ -635,12 +635,13 @@ public class f {
             n6 += 24;
         }
         if (this._terrainBGSprite != null) {
-            int n5 = this._terrainBGSprite.width;
-            int x = 0;
-            int n3 = AppCanvas.cenX / n5;
-            for (int n7 = 0; n7 < n3; ++n7) {
-                this._terrainBGSprite.draw(graphics, x, 0);
-                x += n5;
+            int bgWidth = this._terrainBGSprite.width;
+            int bgX = 0;
+            // Calc how many backgrounds fully fit in half screen (since battle screen is split)
+            int repeats = AppCanvas.cenX / bgWidth;
+            for (int i = 0; i < repeats; ++i) {
+                this._terrainBGSprite.draw(graphics, bgX, 0);
+                bgX += bgWidth;
             }
         }
 
