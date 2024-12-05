@@ -624,15 +624,15 @@ public class f {
 
     public void a(Graphics graphics, int offsetX, int offsetY) {
         graphics.translate(offsetX, offsetY);
-        int n6 = 0;
+        int x = 0;
         for (int n5 = 0; n5 < this.j; ++n5) {
-            int n4 = this._terrainBGHeight + offsetY;
+            int y = this._terrainBGHeight + offsetY;
             int n8 = this.n;
             for (int n3 = 0; n3 < n8; ++n3) {
-                this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, n6, n4);
-                n4 += 24;
+                this.var_h_arr_a[this.var_byte_arr_arr_c[n5][n3]].draw(graphics, x, y);
+                y += 24;
             }
-            n6 += 24;
+            x += 24;
         }
         if (this._terrainBGSprite != null) {
             int bgWidth = this._terrainBGSprite.width;
@@ -650,7 +650,7 @@ public class f {
         AppCanvas.drawBoldWhiteText(graphics, txtUnitQuantity, txtUnitQuantityX, 2, AppCanvas.FONT_NUMERIC);
         txtUnitQuantity = null;
 
-        n6 = (AppCanvas.cenX - this.var_a_a.spritePanelDefense.width) / 2;
+        int n6 = (AppCanvas.cenX - this.var_a_a.spritePanelDefense.width) / 2;
         int n4 = AppCanvas.getSpriteFontCharHeight(AppCanvas.FONT_NUMERIC) + 4;
         this.var_a_a.spritePanelDefense.draw(graphics, n6, n4);
 
