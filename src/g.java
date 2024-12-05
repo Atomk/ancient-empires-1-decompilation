@@ -33,7 +33,7 @@ public class g {
     private String[] _descriptionLines;
     private int A;
     private int y;
-    private int var_int_b;
+    private int var_int_b;  // TODO has something to do with UI width
     public int var_int_g;
     private int m;
     private Font appFont = AppCanvas.fontSmallPlain;
@@ -362,6 +362,7 @@ public class g {
         this.c();
     }
 
+    // TODO this sets the timed infobox as closed, have to dig more for the other panel types
     public void a(boolean bl) throws Exception {
         if (!this.var_boolean_e) {
             return;

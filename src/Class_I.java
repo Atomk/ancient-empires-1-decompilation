@@ -96,6 +96,7 @@ implements CommandListener {
     public static final String[] terrainTypeNames;
     /** The cost of traversing a specific terrain type. */
     public static final byte[] terrainMovCost;
+    // TODO: firstBuildingTileIndex or terreinTilesCount
     public int var_int_t;
     public Sprite[] miniMapTerrainTiles;
     /** Conversion table that takes a tile index and gives the corresponding terrain type.
@@ -120,7 +121,8 @@ implements CommandListener {
     private SpriteSheet mapUnitExplosionSheet;
     /** Blue spark animation shown:
      * - on map when a unit dies, before the explosion - https://youtu.be/6MTmxnNygSw?t=568
-     * - when a unit levels up (gets a star) */
+     * - when a unit levels up (gets a star)
+     * - wisp attack FX in battle screen */
     public SpriteSheet blueSparkSheet;
     /** "Explosion" FX in fight screen when a unit dies. */
     public SpriteSheet redsparkSheet;
@@ -132,7 +134,9 @@ implements CommandListener {
     public SpriteSheet uiPortraitSheet;
     public short mapCursorX;
     public short mapCursorY;
+    // TODO rename to mapTiles
     public byte[][] mapTerrain;
+    // TODO if == 1 means "unit was selected"
     public byte var_byte_i;
     public byte var_byte_e;
     /** Time since game start, in milliseconds */
@@ -142,7 +146,7 @@ implements CommandListener {
     public int var_int_w;
     /** Units that can be attacked, or tombsones that can be raised by aunit TODO which unit? */
     private Unit[] targetableUnits_XX = null;
-    private Unit var_c_h = null;
+    private Unit var_c_h = null;// TODO probably "_selectedUnit"
     public int var_int_c;
     public int var_int_v;
     /** Stores pathfinding data and/or tiles that can be attacked
@@ -229,6 +233,7 @@ implements CommandListener {
     public g var_g_f;
     public boolean var_boolean_d = false;
     public int var_int_r;
+    // TODO buildings (key is index, value is array [mapX, mapY, ???])
     public byte[][] var_byte_arr_arr_e;
     private static final String[] var_java_lang_String_arr_d;
     public StringBuffer var_java_lang_StringBuffer_a = new StringBuffer();
@@ -239,8 +244,8 @@ implements CommandListener {
     private int colorRangeBorderIncrement = -15790321;
     public int C = 6;
     public int G = this.C >> 1;
-    public int K;
-    public int var_int_u;
+    private int K;  // TODO something to do with king position
+    private int var_int_u; // TODO something to do with king position
     public byte var_byte_b = 0;
     public int var_int_f;
     public int var_int_x;
@@ -248,8 +253,10 @@ implements CommandListener {
     public Unit var_c_a;
     public int var_int_A = 0;
     public long var_long_j;
-    public Unit[] var_c_arr_c;
-    public int var_int_z;
+    // TODO thisis probably aiSoldiers, and is used only in two connected ethods so it can probably be a local variable passed as parameter unles this is intentional
+    private Unit[] var_c_arr_c;
+    // TODO used only in two connected ethods so it can probably be a local variable passed as parameter unles this is intentional
+    private int var_int_z;
     public int var_int_o;
     /** Unit that ended its turn in this update. */
     public Unit unitWhoseTurnEnded = null;
@@ -330,6 +337,7 @@ implements CommandListener {
         this.mapCursorMoveUnit = new SpriteSheet(this.mapCursorSheet);
         this.mapCursorMoveUnit.setReorderTable(mapSheetReorderTable[3]); // frame 4 (movement destination sprite)
 
+        // TODO deharcode and document like you did below for buildings sprites
         this.var_e_arr_arr_b = new SpriteSheet[2][11];
         byte[] byArray = AppCanvas.getFileBytes("unit_icons.png");
         for (byte playerIndex = 0; playerIndex < 2; playerIndex++) {
@@ -599,6 +607,7 @@ implements CommandListener {
         this.var_c_b = c3;
     }
 
+    // TODO handlePostCombat
     public void o() {
         SpriteSheet e2;
         if (this.var_c_i.quantity <= 0) {
@@ -1988,6 +1997,7 @@ implements CommandListener {
     }
 
     // TODO rename to canUnitOccupyBuildingBelow
+    // TODO first two paeams are unused
     private boolean a(int n, int n2, Unit c2) {
         // TODO isType(8) will return true if the unit is a king OR a soldier, bitflags are ambiguous
         if (c2.isType((short)8) && this.getTerrainType(c2.mapX, c2.mapY) == f.TERRAIN_TOWN && !this.isBuildingAndOwnedByPlayer(c2.mapX, c2.mapY, c2.owner)) {
@@ -2574,6 +2584,7 @@ implements CommandListener {
                     break;
                 }
                 case 19: {
+                    // Proceed only if you conquered the castle
                     if (!this.isBuildingAndOwnedByPlayer(8, 9, PLAYER_BLUE) || this.var_byte_i != 0) break;
                     this.pauseLevelProgress(500);
                     ++this.currentLevelStep;
