@@ -49,7 +49,7 @@ public class f {
     private long var_long_b;
     private SpriteSheet[] var_e_arr_b;
     private Sprite[] var_h_arr_a;
-    private Sprite var_h_a;
+    private Sprite _terrainBGSprite;
     public f var_f_a;
     private int _terrainTypeBG;
     private int _terrainTypeFloor;
@@ -120,9 +120,9 @@ public class f {
                 // empty catch block
             }
         }
-        this.var_h_a = this.var_a_a.terrainBackgroundSprites[this._terrainTypeBG];
-        if (this.var_h_a != null) {
-            this.var_int_d = this.var_h_a.height;
+        this._terrainBGSprite = this.var_a_a.terrainBackgroundSprites[this._terrainTypeBG];
+        if (this._terrainBGSprite != null) {
+            this.var_int_d = this._terrainBGSprite.height;
         }
         this.j = AppCanvas.cenX / this.var_h_arr_a[0].width;
         if (AppCanvas.cenX % this.var_h_arr_a[0].width != 0) {
@@ -634,12 +634,12 @@ public class f {
             }
             n6 += 24;
         }
-        if (this.var_h_a != null) {
-            int n5 = this.var_h_a.width;
+        if (this._terrainBGSprite != null) {
+            int n5 = this._terrainBGSprite.width;
             int x = 0;
             int n3 = AppCanvas.cenX / n5;
             for (int n7 = 0; n7 < n3; ++n7) {
-                this.var_h_a.draw(graphics, x, 0);
+                this._terrainBGSprite.draw(graphics, x, 0);
                 x += n5;
             }
         }
